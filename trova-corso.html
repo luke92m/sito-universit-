@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Un questionario di orientamento per scoprire quali corsi universitari generali sono più vicini ai tuoi interessi.">
+  <meta name="theme-color" content="#5a4cf0">
+  <title>Trova il mio corso — NOME SITO</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div data-site-header data-page="trova-corso"></div>
+
+  <main>
+    <section class="page-hero compact finder-page-hero" aria-labelledby="finderTitle">
+      <span class="eyebrow">Orientamento personale</span>
+      <h1 id="finderTitle">Trova un corso<br>che ti somiglia.</h1>
+      <p class="page-lead">Rispondi a sei domande sui tuoi interessi. Alla fine riceverai un suggerimento generale, non legato a un ateneo specifico.</p>
+      <div class="saved-preference-banner" id="savedPreferenceBanner" hidden></div>
+    </section>
+
+    <section class="finder-section" aria-label="Questionario per trovare il corso">
+      <div class="finder-layout" id="finderLayout">
+        <form class="quiz-card" id="courseFinderForm" novalidate>
+          <div class="quiz-progress-block">
+            <div class="quiz-progress-copy">
+              <span id="quizStepLabel">Domanda 1 di 6</span>
+              <strong id="quizProgressTitle">Iniziamo dai tuoi interessi</strong>
+            </div>
+            <div class="quiz-progress-track" aria-hidden="true"><span id="quizProgressBar"></span></div>
+          </div>
+
+          <div class="quiz-question-host" id="quizQuestionHost"></div>
+          <p class="form-message quiz-message" id="quizMessage" role="alert" aria-live="polite"></p>
+
+          <div class="quiz-actions">
+            <button class="button button-secondary" id="quizBack" type="button">Indietro</button>
+            <button class="button button-primary" id="quizNext" type="submit">Continua</button>
+          </div>
+        </form>
+
+        <aside class="finder-guide-card" aria-label="Come funziona il risultato">
+          <span class="finder-guide-number">01</span>
+          <h2>Nessuna scelta definitiva.</h2>
+          <p>Il risultato serve a restringere il campo e a darti un punto di partenza da approfondire.</p>
+          <ol class="finder-guide-list">
+            <li><span>Interessi</span><strong>Cosa ti incuriosisce</strong></li>
+            <li><span>Metodo</span><strong>Come preferisci imparare</strong></li>
+            <li><span>Contesto</span><strong>Dove ti immagini</strong></li>
+          </ol>
+          <p class="finder-guide-note">Il questionario non misura capacità, voti o probabilità di ammissione.</p>
+        </aside>
+      </div>
+
+      <section class="finder-result" id="finderResult" aria-labelledby="finderResultTitle" hidden>
+        <div class="result-heading">
+          <span class="eyebrow">Il tuo punto di partenza</span>
+          <h2 id="finderResultTitle">Il corso più vicino ai tuoi interessi</h2>
+          <p>Il punteggio indica la compatibilità con le risposte date, non la qualità assoluta del corso.</p>
+        </div>
+
+        <div class="primary-course-result" id="primaryCourseResult"></div>
+        <div class="alternative-course-grid" id="alternativeCourseGrid"></div>
+
+        <div class="remember-preferences-card">
+          <div>
+            <span class="eyebrow">Personalizza i confronti</span>
+            <h3>Ricorda queste preferenze?</h3>
+            <p>Se accetti, il comparatore mostrerà quanto ogni corso è vicino ai tuoi interessi. I dati restano nel browser di questo dispositivo.</p>
+          </div>
+          <div class="remember-actions">
+            <button class="button button-primary" id="rememberPreferences" type="button">Ricorda queste preferenze</button>
+            <a class="button button-secondary" href="comparison.html?mode=courses">Apri il comparatore</a>
+            <button class="text-button" id="restartFinder" type="button">Rifai il questionario</button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/course-catalog.js"></script>
+  <script src="js/course-finder.js"></script>
+</body>
+</html>

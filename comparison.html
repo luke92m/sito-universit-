@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Confronta due università oppure due corsi universitari usando criteri accademici, economici e personali.">
+  <meta name="theme-color" content="#5a4cf0">
+  <title>Comparison — NOME SITO</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div data-site-header data-page="comparison"></div>
+
+  <main>
+    <section class="page-hero compact comparison-page-hero" aria-labelledby="comparisonTitle">
+      <span class="eyebrow">Metti le alternative una accanto all’altra</span>
+      <h1 id="comparisonTitle">Confronta ciò<br>che conta davvero.</h1>
+      <p class="page-lead">Scegli se comparare due atenei oppure due corsi, anche all’interno della stessa università.</p>
+    </section>
+
+    <section class="comparison-section" aria-label="Comparatore universitario">
+      <div class="comparison-mode-switch" role="tablist" aria-label="Tipo di confronto">
+        <button class="comparison-mode-button is-active" type="button" role="tab" aria-selected="true" data-comparison-mode="universities">Due università</button>
+        <button class="comparison-mode-button" type="button" role="tab" aria-selected="false" data-comparison-mode="courses">Due corsi</button>
+      </div>
+
+      <div class="comparison-preference-status" id="comparisonPreferenceStatus"></div>
+
+      <form class="comparison-picker" id="universityComparisonForm">
+        <div class="comparison-choice-card">
+          <span class="choice-letter">A</span>
+          <label for="universityA">Prima università</label>
+          <select id="universityA" name="universityA"></select>
+        </div>
+        <div class="comparison-divider" aria-hidden="true"><span>VS</span></div>
+        <div class="comparison-choice-card">
+          <span class="choice-letter">B</span>
+          <label for="universityB">Seconda università</label>
+          <select id="universityB" name="universityB"></select>
+        </div>
+        <button class="button button-primary comparison-submit" type="submit">Confronta gli atenei</button>
+      </form>
+
+      <form class="comparison-picker course-picker" id="courseComparisonForm" hidden>
+        <div class="comparison-choice-card">
+          <span class="choice-letter">A</span>
+          <label for="courseUniversityA">Università</label>
+          <select id="courseUniversityA" name="courseUniversityA"></select>
+          <label for="courseA">Corso</label>
+          <select id="courseA" name="courseA"></select>
+        </div>
+        <div class="comparison-divider" aria-hidden="true"><span>VS</span></div>
+        <div class="comparison-choice-card">
+          <span class="choice-letter">B</span>
+          <label for="courseUniversityB">Università</label>
+          <select id="courseUniversityB" name="courseUniversityB"></select>
+          <label for="courseB">Corso</label>
+          <select id="courseB" name="courseB"></select>
+        </div>
+        <button class="button button-primary comparison-submit" type="submit">Confronta i corsi</button>
+      </form>
+
+      <section class="comparison-results" id="comparisonResults" aria-live="polite"></section>
+
+      <div class="comparison-data-note">
+        <strong>Come leggere questo prototipo.</strong>
+        <p>I corsi, l’accesso, la modalità didattica, le contribuzioni, gli esoneri, le borse, la mobilità e le strutture derivano dai dataset MUR indicati nelle note. Il ranking generale usa QS 2027. Ranking europei per materia, occupazione a un anno, partner Erasmus, affitti e indicatori urbani non sono ancora collegati: il comparatore li mostra come dati da integrare, senza inventare valori.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/atenei-data.js"></script>
+  <script src="js/university-courses.js"></script>
+  <script src="js/course-catalog.js"></script>
+  <script src="js/comparison.js"></script>
+</body>
+</html>
