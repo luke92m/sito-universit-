@@ -12,9 +12,14 @@
   };
 
   const SITUATION_LABELS = {
-    university: 'Sono studente universitario',
+    university: 'Sono studente universitario o mi sto per immatricolare',
     enrolling: "Mi voglio iscrivere all’università",
     curious: 'Mi interessa semplicemente il mondo universitario'
+  };
+
+  const JOURNEY_PHASE_LABELS = {
+    enrolled: 'Già immatricolato',
+    'pre-enrolling': 'Mi sto per immatricolare'
   };
 
   const STUDENT_TOOL_SITUATIONS = new Set(['university', 'enrolling']);
@@ -38,6 +43,7 @@
     users: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1.5A3.5 3.5 0 0 0 12.5 15h-5A3.5 3.5 0 0 0 4 18.5V20m5.5-8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7-1a2.5 2.5 0 1 0 0-5m1 9c1.9 0 3.5 1.6 3.5 3.5V20"/></svg>',
     compass: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg>',
     book: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Zm16 0A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg>',
+    edit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.2-1 9.9-9.9-3.2-3.2L5 15.8 4 20Zm9.7-12.9 3.2 3.2M15.8 5l1.1-1.1a1.5 1.5 0 0 1 2.1 0l1.1 1.1a1.5 1.5 0 0 1 0 2.1L19 8.2"/></svg>',
     logout: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H5v14h5m4-4 4-3-4-3m4 3H9"/></svg>'
   };
 
@@ -77,7 +83,6 @@
         .join('');
     }
 
-    // Fallback deterministico per browser molto vecchi. È solo una demo locale.
     let hash = 2166136261;
     for (let index = 0; index < value.length; index += 1) {
       hash ^= value.charCodeAt(index);
@@ -110,25 +115,87 @@
     try {
       localStorage.removeItem(STORAGE_KEYS.session);
     } catch (_error) {
-      // No action needed.
+      // Nessuna azione necessaria.
     }
   }
 
+  function updateCurrentUser(patch) {
+    const email = getSessionEmail();
+    if (!email) return null;
+    const users = getUsers();
+    const index = users.findIndex((user) => user.email === email);
+    if (index < 0) return null;
+    const next = {
+      ...users[index],
+      ...(typeof patch === 'function' ? patch(users[index]) : patch),
+      updatedAt: new Date().toISOString()
+    };
+    users[index] = next;
+    return safeStorageSet(STORAGE_KEYS.users, users) ? next : null;
+  }
+
+  function getUniversities() {
+    return Array.isArray(window.UNIVERSITIES)
+      ? window.UNIVERSITIES.slice().sort((a, b) => a.name.localeCompare(b.name, 'it'))
+      : [];
+  }
+
+  function getUniversityById(id) {
+    return getUniversities().find((university) => university.id === id) || null;
+  }
+
+  function getUniversityCourses(universityId) {
+    const courses = window.UniversityData?.getCourses?.(universityId) || [];
+    return courses.slice().sort((a, b) => a.name.localeCompare(b.name, 'it'));
+  }
+
+  function getGeneralCourses() {
+    const courses = window.CourseCatalog?.courses || [];
+    return courses.slice().sort((a, b) => a.name.localeCompare(b.name, 'it'));
+  }
+
+  function formatDate(value = new Date(), options = {}) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+    return new Intl.DateTimeFormat('it-IT', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      ...options
+    }).format(date);
+  }
+
+  function formatJourneySummary(user) {
+    const journey = user?.journey;
+    if (!journey) return '';
+    const university = getUniversityById(journey.universityId);
+    const parts = [];
+    if (journey.phase) parts.push(JOURNEY_PHASE_LABELS[journey.phase] || journey.phase);
+    if (university) parts.push(university.shortName || university.name);
+    if (journey.year && journey.phase === 'enrolled') parts.push(`${journey.year}° anno`);
+    return parts.join(' · ');
+  }
+
   function headerTemplate(page) {
+    const user = getCurrentUser();
+    const showEnrollingTools = user?.situation === 'enrolling';
     const navItems = [
       { key: 'atenei', label: 'atenei', href: 'atenei.html' },
       { key: 'comparison', label: 'comparison', href: 'comparison.html' },
       { key: 'trova-corso', label: 'trova il mio corso', href: 'trova-corso.html' },
-      { key: 'preparazione', label: 'preparazione', href: 'preparazione.html' },
+      { key: 'preparazione', label: 'preparazione', href: 'preparazione.html', conditional: true },
+      { key: 'burocrazia', label: 'burocrazia', href: 'burocrazia.html', conditional: true },
       { key: 'scuole-aziende', label: 'scuole e aziende', href: 'scuole-aziende.html' }
     ];
 
     const links = navItems
-      .map(
-        (item) => `<a class="nav-link${page === item.key ? ' is-active' : ''}" href="${item.href}"${
+      .map((item) => {
+        const hidden = item.conditional && !showEnrollingTools ? ' hidden' : '';
+        const conditional = item.conditional ? ' data-enrolling-nav' : '';
+        return `<a class="nav-link${page === item.key ? ' is-active' : ''}" href="${item.href}"${
           page === item.key ? ' aria-current="page"' : ''
-        }>${item.label}</a>`
-      )
+        }${conditional}${hidden}>${item.label}</a>`;
+      })
       .join('');
 
     return `
@@ -163,11 +230,18 @@
     `;
   }
 
+  function universityOptionsTemplate(selected = '') {
+    const options = getUniversities()
+      .map((university) => `<option value="${university.id}"${university.id === selected ? ' selected' : ''}>${university.name} — ${university.city}</option>`)
+      .join('');
+    return `<option value="">Seleziona un ateneo</option>${options}`;
+  }
+
   function authModalTemplate() {
     return `
       <div class="auth-modal" id="authModal" aria-hidden="true" hidden>
         <div class="modal-backdrop" data-close-auth></div>
-        <section class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <section class="auth-dialog auth-dialog-large" role="dialog" aria-modal="true" aria-labelledby="authTitle">
           <button class="modal-close" type="button" data-close-auth aria-label="Chiudi">
             ${ICONS.close}
           </button>
@@ -207,7 +281,7 @@
               <label class="situation-option">
                 <input type="radio" name="situation" value="university" required>
                 <span class="radio-ui" aria-hidden="true"></span>
-                <span>Sono studente universitario</span>
+                <span>Sono studente universitario o mi sto per immatricolare</span>
               </label>
               <label class="situation-option">
                 <input type="radio" name="situation" value="enrolling" required>
@@ -221,10 +295,86 @@
               </label>
             </fieldset>
 
+            <section class="journey-form-panel" id="registerJourneyFields" hidden>
+              <div class="journey-form-heading">
+                <strong>Il tuo percorso universitario</strong>
+                <small>Questi dati rendono utili scadenze, community e libri usati.</small>
+              </div>
+
+              <fieldset class="compact-radio-fieldset">
+                <legend>A che punto sei?</legend>
+                <div class="compact-radio-row">
+                  <label class="choice-pill">
+                    <input type="radio" name="journeyPhase" value="enrolled">
+                    <span>Già immatricolato</span>
+                  </label>
+                  <label class="choice-pill">
+                    <input type="radio" name="journeyPhase" value="pre-enrolling">
+                    <span>Mi sto per immatricolare</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <label class="field">
+                <span>Ateneo</span>
+                <select id="registerUniversity" name="universityId">${universityOptionsTemplate()}</select>
+              </label>
+
+              <label class="field">
+                <span>Corso di studio <small>(facoltativo, ma necessario per i libri usati)</small></span>
+                <select id="registerCourse" name="courseName">
+                  <option value="">Seleziona prima l’ateneo</option>
+                </select>
+              </label>
+
+              <label class="field" id="registerYearField" hidden>
+                <span>Anno di studi</span>
+                <select id="registerStudyYear" name="studyYear">
+                  <option value="">Seleziona l’anno</option>
+                  <option value="1">1° anno</option>
+                  <option value="2">2° anno</option>
+                  <option value="3">3° anno</option>
+                  <option value="4">4° anno</option>
+                  <option value="5">5° anno</option>
+                  <option value="6">6° anno o successivo</option>
+                </select>
+              </label>
+            </section>
+
             <p class="form-message" id="registerMessage" role="alert" aria-live="polite"></p>
             <button class="button button-primary button-full" type="submit">Crea il profilo ${ICONS.arrow}</button>
-            <p class="privacy-note">Demo locale: non usare una password reale. Per la pubblicazione servirà un sistema di autenticazione sicuro lato server.</p>
+            <p class="privacy-note">Demo locale: non usare una password reale. Per la pubblicazione serviranno autenticazione sicura, verifica email, backend e database.</p>
             <p class="auth-switch">Hai già un profilo? <button type="button" data-auth-view="login">Accedi</button></p>
+          </form>
+        </section>
+      </div>
+    `;
+  }
+
+  function journeyModalTemplate() {
+    return `
+      <div class="auth-modal" id="journeyModal" aria-hidden="true" hidden>
+        <div class="modal-backdrop" data-close-journey></div>
+        <section class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="journeyModalTitle">
+          <button class="modal-close" type="button" data-close-journey aria-label="Chiudi">${ICONS.close}</button>
+          <div class="auth-heading">
+            <span class="eyebrow">Profilo universitario</span>
+            <h2 id="journeyModalTitle">Modifica i dati del percorso</h2>
+            <p>Queste informazioni vengono salvate soltanto nel browser di questo dispositivo.</p>
+          </div>
+          <form class="auth-form" id="journeyEditForm" novalidate>
+            <fieldset class="compact-radio-fieldset">
+              <legend>A che punto sei?</legend>
+              <div class="compact-radio-row">
+                <label class="choice-pill"><input type="radio" name="editJourneyPhase" value="enrolled"><span>Già immatricolato</span></label>
+                <label class="choice-pill"><input type="radio" name="editJourneyPhase" value="pre-enrolling"><span>Mi sto per immatricolare</span></label>
+              </div>
+            </fieldset>
+            <label class="field"><span>Ateneo</span><select id="editJourneyUniversity">${universityOptionsTemplate()}</select></label>
+            <label class="field"><span>Corso di studio <small>(facoltativo)</small></span><select id="editJourneyCourse"><option value="">Seleziona prima l’ateneo</option></select></label>
+            <label class="field" id="editJourneyYearField" hidden><span>Anno di studi</span><select id="editJourneyYear"><option value="">Seleziona l’anno</option><option value="1">1° anno</option><option value="2">2° anno</option><option value="3">3° anno</option><option value="4">4° anno</option><option value="5">5° anno</option><option value="6">6° anno o successivo</option></select></label>
+            <p class="form-message" id="journeyEditMessage" role="alert" aria-live="polite"></p>
+            <button class="button button-primary button-full" type="submit">Salva il percorso</button>
           </form>
         </section>
       </div>
@@ -237,7 +387,7 @@
         <div class="footer-shell">
           <a class="footer-brand" href="index.html"><span class="brand-mark small" aria-hidden="true">u</span><span data-site-name>${config.name}</span></a>
           <p>Un punto di partenza semplice per orientarsi nel mondo universitario.</p>
-          <span class="footer-status">Prototipo</span>
+          <span class="footer-status">Oggi ${formatDate(new Date())}</span>
         </div>
       </footer>
     `;
@@ -245,22 +395,13 @@
 
   function injectLayout() {
     const headerHost = $('[data-site-header]');
-    if (headerHost) {
-      headerHost.innerHTML = headerTemplate(headerHost.dataset.page || '');
-    }
-
-    if (!$('#authModal')) {
-      document.body.insertAdjacentHTML('beforeend', authModalTemplate());
-    }
-
+    if (headerHost) headerHost.innerHTML = headerTemplate(headerHost.dataset.page || '');
+    if (!$('#authModal')) document.body.insertAdjacentHTML('beforeend', authModalTemplate());
+    if (!$('#journeyModal')) document.body.insertAdjacentHTML('beforeend', journeyModalTemplate());
     const footerHost = $('[data-site-footer]');
-    if (footerHost) {
-      footerHost.innerHTML = footerTemplate();
-    }
-
-    $$('[data-site-name]').forEach((node) => {
-      node.textContent = config.name;
-    });
+    if (footerHost) footerHost.innerHTML = footerTemplate();
+    $$('[data-site-name]').forEach((node) => { node.textContent = config.name; });
+    $$('[data-current-date]').forEach((node) => { node.textContent = formatDate(new Date()); });
   }
 
   function showToast(message) {
@@ -292,6 +433,39 @@
     });
   }
 
+  function fillCourseSelect(select, universityId, selectedValue = '') {
+    if (!select) return;
+    const actualCourses = universityId ? getUniversityCourses(universityId) : [];
+    const seen = new Set();
+    const options = [];
+
+    actualCourses.forEach((course) => {
+      const key = course.name.trim().toLocaleLowerCase('it');
+      if (seen.has(key)) return;
+      seen.add(key);
+      options.push({ value: course.name, label: course.name });
+    });
+
+    if (!options.length) {
+      getGeneralCourses().forEach((course) => options.push({ value: course.name, label: course.name }));
+    }
+
+    select.innerHTML = `<option value="">${universityId ? 'Corso non indicato' : 'Seleziona prima l’ateneo'}</option>${options
+      .map((option) => `<option value="${option.value.replace(/"/g, '&quot;')}">${option.label}</option>`)
+      .join('')}`;
+
+    if (selectedValue) {
+      const existing = Array.from(select.options).find((option) => option.value === selectedValue);
+      if (!existing) {
+        const option = document.createElement('option');
+        option.value = selectedValue;
+        option.textContent = selectedValue;
+        select.appendChild(option);
+      }
+      select.value = selectedValue;
+    }
+  }
+
   function setAuthView(view) {
     const isRegister = view === 'register';
     const loginForm = $('#loginForm');
@@ -303,7 +477,7 @@
     $('#authEyebrow').textContent = isRegister ? 'Inizia da qui' : 'Bentornato';
     $('#authTitle').textContent = isRegister ? 'Crea il tuo profilo' : 'Accedi al tuo profilo';
     $('#authDescription').textContent = isRegister
-      ? 'Dicci in quale momento del percorso ti trovi: personalizzeremo il tuo spazio.'
+      ? 'Dicci in quale momento del percorso ti trovi: personalizzeremo menu e strumenti.'
       : 'Ritrova gli strumenti e le informazioni che ti interessano.';
     clearMessages();
 
@@ -331,6 +505,33 @@
     $('#profileButton')?.focus();
   }
 
+  function openJourneyEditor() {
+    const user = getCurrentUser();
+    if (!user || user.situation !== 'university') return;
+    const modal = $('#journeyModal');
+    if (!modal) return;
+    const journey = user.journey || {};
+    const phase = journey.phase || 'enrolled';
+    const radio = $(`input[name="editJourneyPhase"][value="${phase}"]`);
+    if (radio) radio.checked = true;
+    $('#editJourneyUniversity').value = journey.universityId || '';
+    fillCourseSelect($('#editJourneyCourse'), journey.universityId || '', journey.courseName || '');
+    $('#editJourneyYear').value = journey.year ? String(journey.year) : '';
+    syncJourneyEditFields();
+    clearMessages();
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeJourneyEditor() {
+    const modal = $('#journeyModal');
+    if (!modal) return;
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
   function closeProfileDropdown() {
     const dropdown = $('#profileDropdown');
     const button = $('#profileButton');
@@ -349,12 +550,19 @@
     `;
   }
 
+  function updateConditionalNav() {
+    const show = getCurrentUser()?.situation === 'enrolling';
+    $$('[data-enrolling-nav]').forEach((link) => { link.hidden = !show; });
+  }
+
   function renderProfile() {
     const user = getCurrentUser();
     const label = $('#profileLabel');
     const button = $('#profileButton');
     const dropdown = $('#profileDropdown');
     if (!label || !button || !dropdown) return;
+
+    updateConditionalNav();
 
     if (!user) {
       label.textContent = 'profilo';
@@ -380,11 +588,24 @@
     const email = document.createElement('strong');
     email.textContent = user.email;
     const situation = document.createElement('small');
-    situation.textContent = SITUATION_LABELS[user.situation] || 'Profilo personale';
+    const journeySummary = formatJourneySummary(user);
+    situation.textContent = journeySummary || SITUATION_LABELS[user.situation] || 'Profilo personale';
     userCopy.append(email, situation);
     userBlock.append(avatar, userCopy);
 
     dropdown.replaceChildren(userBlock);
+
+    if (user.situation === 'university') {
+      const editJourney = document.createElement('button');
+      editJourney.type = 'button';
+      editJourney.className = 'profile-edit-journey';
+      editJourney.innerHTML = `${ICONS.edit}<span>${user.journey ? 'Modifica i dati del percorso' : 'Completa i dati del percorso'}</span>`;
+      editJourney.addEventListener('click', () => {
+        closeProfileDropdown();
+        openJourneyEditor();
+      });
+      dropdown.appendChild(editJourney);
+    }
 
     if (STUDENT_TOOL_SITUATIONS.has(user.situation)) {
       const sectionLabel = document.createElement('p');
@@ -399,7 +620,7 @@
     } else {
       const info = document.createElement('p');
       info.className = 'profile-curious-note';
-      info.textContent = 'Il profilo è attivo. Puoi esplorare liberamente tutti i contenuti del sito.';
+      info.textContent = 'Il profilo è attivo. Puoi esplorare liberamente tutti i contenuti generali del sito.';
       dropdown.appendChild(info);
     }
 
@@ -413,6 +634,7 @@
       closeProfileDropdown();
       renderProfile();
       showToast('Hai effettuato la disconnessione.');
+      document.dispatchEvent(new CustomEvent('universitysite:userchange'));
     });
     dropdown.appendChild(logout);
   }
@@ -430,6 +652,30 @@
     const willOpen = dropdown.hidden;
     dropdown.hidden = !willOpen;
     button.setAttribute('aria-expanded', String(willOpen));
+  }
+
+  function syncRegisterJourneyFields() {
+    const situation = $('input[name="situation"]:checked')?.value;
+    const panel = $('#registerJourneyFields');
+    if (!panel) return;
+    panel.hidden = situation !== 'university';
+    if (situation === 'university' && !$('input[name="journeyPhase"]:checked')) {
+      const defaultPhase = $('input[name="journeyPhase"][value="enrolled"]');
+      if (defaultPhase) defaultPhase.checked = true;
+    }
+    syncRegisterYearField();
+  }
+
+  function syncRegisterYearField() {
+    const phase = $('input[name="journeyPhase"]:checked')?.value;
+    const field = $('#registerYearField');
+    if (field) field.hidden = phase !== 'enrolled';
+  }
+
+  function syncJourneyEditFields() {
+    const phase = $('input[name="editJourneyPhase"]:checked')?.value;
+    const field = $('#editJourneyYearField');
+    if (field) field.hidden = phase !== 'enrolled';
   }
 
   async function handleLogin(event) {
@@ -455,6 +701,7 @@
     closeAuth();
     renderProfile();
     showToast('Accesso effettuato. Bentornato!');
+    document.dispatchEvent(new CustomEvent('universitysite:userchange'));
   }
 
   async function handleRegistration(event) {
@@ -477,6 +724,32 @@
       return;
     }
 
+    let journey = null;
+    if (situation === 'university') {
+      const phase = $('input[name="journeyPhase"]:checked', event.currentTarget)?.value;
+      const universityId = $('#registerUniversity')?.value || '';
+      const courseName = $('#registerCourse')?.value || '';
+      const year = $('#registerStudyYear')?.value || '';
+      if (!phase) {
+        setMessage(message, 'Indica se sei già immatricolato o se stai per immatricolarti.');
+        return;
+      }
+      if (!universityId) {
+        setMessage(message, 'Seleziona l’ateneo del tuo percorso.');
+        return;
+      }
+      if (phase === 'enrolled' && !year) {
+        setMessage(message, 'Indica in quale anno di studi ti trovi.');
+        return;
+      }
+      journey = {
+        phase,
+        universityId,
+        courseName: courseName || null,
+        year: phase === 'enrolled' ? Number(year) : null
+      };
+    }
+
     const users = getUsers();
     if (users.some((user) => user.email === email)) {
       setMessage(message, 'Esiste già un profilo con questa email. Prova ad accedere.');
@@ -488,15 +761,52 @@
       email,
       passwordHash,
       situation,
+      journey,
       createdAt: new Date().toISOString()
     });
 
     if (!safeStorageSet(STORAGE_KEYS.users, users)) return;
     setSession(email);
     event.currentTarget.reset();
+    $('#registerJourneyFields').hidden = true;
     closeAuth();
     renderProfile();
     showToast('Profilo creato con successo.');
+    document.dispatchEvent(new CustomEvent('universitysite:userchange'));
+  }
+
+  function handleJourneyEdit(event) {
+    event.preventDefault();
+    const message = $('#journeyEditMessage');
+    const phase = $('input[name="editJourneyPhase"]:checked', event.currentTarget)?.value;
+    const universityId = $('#editJourneyUniversity')?.value || '';
+    const courseName = $('#editJourneyCourse')?.value || '';
+    const year = $('#editJourneyYear')?.value || '';
+    if (!phase || !universityId) {
+      setMessage(message, 'Indica lo stato del percorso e seleziona un ateneo.');
+      return;
+    }
+    if (phase === 'enrolled' && !year) {
+      setMessage(message, 'Indica in quale anno di studi ti trovi.');
+      return;
+    }
+
+    const updated = updateCurrentUser({
+      journey: {
+        phase,
+        universityId,
+        courseName: courseName || null,
+        year: phase === 'enrolled' ? Number(year) : null
+      }
+    });
+    if (!updated) {
+      setMessage(message, 'Non è stato possibile salvare i dati.');
+      return;
+    }
+    closeJourneyEditor();
+    renderProfile();
+    showToast('Dati del percorso aggiornati.');
+    document.dispatchEvent(new CustomEvent('universitysite:userchange'));
   }
 
   function initAuth() {
@@ -506,12 +816,21 @@
     });
 
     $$('[data-close-auth]').forEach((button) => button.addEventListener('click', closeAuth));
+    $$('[data-close-journey]').forEach((button) => button.addEventListener('click', closeJourneyEditor));
     $$('[data-auth-view]').forEach((button) => {
       button.addEventListener('click', () => setAuthView(button.dataset.authView));
     });
 
     $('#loginForm')?.addEventListener('submit', handleLogin);
     $('#registerForm')?.addEventListener('submit', handleRegistration);
+    $('#journeyEditForm')?.addEventListener('submit', handleJourneyEdit);
+
+    $$('input[name="situation"]').forEach((input) => input.addEventListener('change', syncRegisterJourneyFields));
+    $$('input[name="journeyPhase"]').forEach((input) => input.addEventListener('change', syncRegisterYearField));
+    $$('input[name="editJourneyPhase"]').forEach((input) => input.addEventListener('change', syncJourneyEditFields));
+
+    $('#registerUniversity')?.addEventListener('change', (event) => fillCourseSelect($('#registerCourse'), event.target.value));
+    $('#editJourneyUniversity')?.addEventListener('change', (event) => fillCourseSelect($('#editJourneyCourse'), event.target.value));
 
     document.addEventListener('click', (event) => {
       const profileWrap = $('.profile-wrap');
@@ -521,6 +840,7 @@
     document.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
       if (!$('#authModal')?.hidden) closeAuth();
+      if (!$('#journeyModal')?.hidden) closeJourneyEditor();
       closeProfileDropdown();
     });
 
@@ -552,87 +872,18 @@
   function initAuthTriggers() {
     $$('[data-open-auth]').forEach((button) => {
       button.addEventListener('click', () => {
-        if (getCurrentUser()) {
-          toggleProfile();
-        } else {
-          openAuth(button.dataset.openAuth || 'login');
-        }
+        if (getCurrentUser()) toggleProfile();
+        else openAuth(button.dataset.openAuth || 'login');
       });
     });
-  }
-
-  function initAreaPage() {
-    const host = $('[data-area-content]');
-    if (!host) return;
-
-    const sections = {
-      'borse-di-studio': {
-        eyebrow: 'Opportunità',
-        title: 'Borse di studio',
-        description: 'Uno spazio dedicato a bandi, requisiti, importi e documenti da preparare.',
-        items: ['Bandi nazionali e regionali', 'Requisiti economici e di merito', 'Promemoria per la domanda']
-      },
-      scadenze: {
-        eyebrow: 'Organizzazione',
-        title: 'Scadenze',
-        description: 'Raccogli qui le date da non perdere durante il tuo percorso universitario.',
-        items: ['Immatricolazioni e tasse', 'Domande per agevolazioni', 'Sessioni ed esami']
-      },
-      community: {
-        eyebrow: 'Persone',
-        title: 'Community',
-        description: 'Confrontati con studenti e futuri studenti in uno spazio pensato per domande concrete.',
-        items: ['Gruppi per ateneo', 'Esperienze degli studenti', 'Domande e risposte']
-      },
-      accompagnamento: {
-        eyebrow: 'Percorso',
-        title: 'Accompagnamento',
-        description: 'Una guida passo dopo passo, dall’orientamento fino alla laurea.',
-        items: ['Scelta del corso', 'Primi passi da matricola', 'Metodo e vita universitaria']
-      },
-      'libri-usati': {
-        eyebrow: 'Risparmio',
-        title: 'Libri usati',
-        description: 'Uno spazio per trovare e scambiare testi universitari in modo semplice.',
-        items: ['Ricerca per corso o esame', 'Annunci tra studenti', 'Preferiti e contatti']
-      }
-    };
-
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get('sezione') || 'borse-di-studio';
-    const section = sections[key] || sections['borse-di-studio'];
-    document.title = `${section.title} — ${config.name}`;
-
-    host.innerHTML = `
-      <span class="eyebrow">${section.eyebrow}</span>
-      <h1>${section.title}</h1>
-      <p class="page-lead">${section.description}</p>
-      <div class="coming-grid">
-        ${section.items
-          .map(
-            (item, index) => `
-              <article class="coming-card">
-                <span class="coming-number">0${index + 1}</span>
-                <h2>${item}</h2>
-                <p>Sezione predisposta per il prossimo sviluppo del sito.</p>
-              </article>
-            `
-          )
-          .join('')}
-      </div>
-      <a class="text-link" href="index.html">Torna alla homepage ${ICONS.arrow}</a>
-    `;
   }
 
   function initHomeActions() {
     const profileCta = $('#heroProfileCta');
     if (!profileCta) return;
     profileCta.addEventListener('click', () => {
-      if (getCurrentUser()) {
-        toggleProfile();
-      } else {
-        openAuth('register');
-      }
+      if (getCurrentUser()) toggleProfile();
+      else openAuth('register');
     });
   }
 
@@ -641,20 +892,31 @@
     initAuth();
     initMobileNav();
     initAuthTriggers();
-    initAreaPage();
     initHomeActions();
   }
 
   window.UniversitySite = {
     getCurrentUser,
+    getUsers,
+    updateCurrentUser,
+    getUniversities,
+    getUniversityById,
+    getUniversityCourses,
+    getGeneralCourses,
+    formatDate,
     openAuth,
+    openJourneyEditor,
     showToast,
-    renderProfile
+    renderProfile,
+    safeStorageGet,
+    safeStorageSet,
+    situationLabels: SITUATION_LABELS,
+    journeyPhaseLabels: JOURNEY_PHASE_LABELS,
+    isStudentToolUser(user = getCurrentUser()) {
+      return Boolean(user && STUDENT_TOOL_SITUATIONS.has(user.situation));
+    }
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

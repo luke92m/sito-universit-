@@ -69,3 +69,25 @@ Restano intenzionalmente da integrare con fonti omogenee e aggiornate:
 - vita studentesca e integrazione con il mercato del lavoro locale.
 
 L’interfaccia segnala questi campi come non collegati: non vengono generati valori fittizi.
+
+## Borse di studio — versione 3
+
+La verifica usa come riferimento orientativo i limiti massimi nazionali ISEE e ISPE indicati per l’a.a. 2026/27 nel file `js/student-services-data.js`.
+
+L’esito non rappresenta idoneità ufficiale perché ogni bando può aggiungere o modificare:
+
+- soglie effettive;
+- requisiti di merito;
+- definizione di studente in sede, pendolare o fuori sede;
+- incompatibilità e documenti;
+- termini e modalità di presentazione.
+
+I link regionali e di ateneo sono punti di partenza. Prima della pubblicazione definitiva devono essere verificati periodicamente e, dove possibile, sostituiti con la pagina precisa del bando corrente.
+
+## Preparazione ai test — versione 3
+
+Le 45 domande presenti in `js/student-services-data.js` sono originali e fisse. Non sono quesiti ufficiali CISIA e non riproducono banche dati protette. Le macroaree vengono associate in modo orientativo alle famiglie TOLC; struttura, sezioni, tempi, penalità e soglie devono essere controllati sul portale CISIA e nel bando del corso.
+
+## Burocrazia — versione 3
+
+La pagina utilizza la tipologia di accesso e i dati aggregati già disponibili nel dataset. Non determina automaticamente requisiti correnti, uso della media scolastica, documenti specifici o scadenze. Per questi elementi il prototipo genera una checklist e conduce l’utente verso le fonti ufficiali senza inventare dati mancanti.

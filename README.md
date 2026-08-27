@@ -1,6 +1,6 @@
-# NOME SITO — prototipo universitario v2
+# NOME SITO — prototipo universitario v3
 
-Sito statico multi-pagina in HTML, CSS e JavaScript, senza framework e senza dipendenze esterne. La versione è pronta per una demo locale o per la pubblicazione su Vercel.
+Sito statico multi-pagina in HTML, CSS e JavaScript, senza framework e senza dipendenze esterne. È utilizzabile come demo locale oppure pubblicabile su Vercel.
 
 ## Avvio sul computer
 
@@ -10,25 +10,74 @@ Dalla cartella `sito-universita`:
 python -m http.server 8000
 ```
 
-Poi apri `http://localhost:8000` nel browser. Puoi anche aprire direttamente `index.html`, ma alcuni browser gestiscono in modo diverso il `localStorage` quando il sito è aperto come file locale.
+Poi apri `http://localhost:8000`. È possibile aprire anche `index.html` direttamente, ma un server locale rende più uniforme il comportamento di `localStorage` e collegamenti tra pagine.
 
-## Funzioni incluse
+## Novità della versione 3
 
-- menu principale con `atenei`, `comparison`, `trova il mio corso`, `preparazione`, `scuole e aziende`;
-- questionario di orientamento in sei domande;
-- suggerimento di corsi generali, non legati a uno specifico ateneo;
-- salvataggio facoltativo delle preferenze nel browser;
+### Registrazione e profilo
+
+- l’opzione è diventata **“Sono studente universitario o mi sto per immatricolare”**;
+- per questo profilo vengono richiesti:
+  - stato `già immatricolato` o `mi sto per immatricolare`;
+  - ateneo scelto tra i 99 presenti nel sito;
+  - corso facoltativo;
+  - anno di studi, obbligatorio per chi è già immatricolato;
+- i dati del percorso possono essere modificati dal menu del profilo;
+- `Preparazione` e `Burocrazia` compaiono nel menu principale soltanto per il profilo **“Mi voglio iscrivere all’università”**.
+
+### Borse di studio
+
+- l’utente può scegliere se comunicare o meno dati economici e residenza;
+- selezione tramite fasce ISEE e ISPE;
+- verifica esclusivamente orientativa rispetto ai limiti nazionali indicati per l’a.a. 2026/27;
+- stima del profilo di residenza `in sede`, `pendolare` o `fuori sede`;
+- link al portale regionale di diritto allo studio e al sito dell’ateneo;
+- possibilità di salvare un’opportunità e la data letta nel bando;
+- le opportunità salvate confluiscono nella pagina Scadenze.
+
+### Scadenze
+
+- conteggio automatico dei giorni rispetto alla data attuale del dispositivo;
+- categorie diverse per studenti già iscritti e futuri studenti;
+- promemoria per rate, esami, test, immatricolazione, borse e procedure;
+- integrazione con le borse salvate;
+- nessuna data ufficiale viene inventata: l’utente la inserisce dopo averla verificata nel bando o nel portale dell’ateneo.
+
+### Community e libri usati
+
+- community associata allo stesso ateneo;
+- filtro facoltativo per mostrare soltanto lo stesso corso;
+- libri usati limitati alla combinazione esatta `stesso ateneo + stesso corso`;
+- pubblicazione locale di messaggi e annunci per la demo;
+- per comunicazione reale tra dispositivi servono backend, database, verifica email e moderazione.
+
+### Preparazione
+
+- accessibile soltanto al profilo **“Mi voglio iscrivere all’università”**;
+- scelta di ateneo e macroarea;
+- associazione orientativa al TOLC di riferimento o a un test interno dell’ateneo;
+- nove macroaree e 45 quesiti originali fissi;
+- ogni utente riceve gli stessi quesiti;
+- correzione con punteggio e spiegazione;
+- non vengono copiati quesiti protetti dalle prove ufficiali.
+
+### Burocrazia
+
+- scelta di ateneo e corso;
+- sintesi orientativa di accesso, possibile prova di area, modalità didattica e contribuzione media aggregata;
+- checklist di documenti e passaggi per l’immatricolazione;
+- collegamento alla ricerca della pagina ufficiale del corso;
+- collegamento al sito dell’ateneo;
+- passaggio alla verifica delle borse con ateneo e corso già selezionati;
+- passaggio alla creazione di una scadenza.
+
+## Funzioni già presenti
+
+- menu con `atenei`, `comparison`, `trova il mio corso`, sezioni condizionali e `scuole e aziende`;
+- questionario di orientamento con salvataggio facoltativo delle preferenze;
 - comparatore tra due università o due corsi;
-- riconoscimento dei tre scenari di confronto tra corsi:
-  - stesso corso generale in università diverse;
-  - corsi diversi nella stessa università;
-  - corsi diversi in università diverse;
-- preferenze personali mostrate nel confronto solo quando sono state salvate;
 - catalogo di 99 istituti universitari;
-- ordinamento alfabetico, filtro regionale, ranking generale QS e filtro per area disciplinare;
-- filtro indipendente per università pubbliche, private, telematiche e istituti superiori;
-- filtri combinabili, per esempio `private + ranking` oppure `pubbliche + regione`;
-- registrazione, accesso e menu profilo condizionale della demo precedente;
+- filtri alfabetico, regionale, ranking, macroarea disciplinare e tipologia di istituzione;
 - layout responsive per desktop, tablet e smartphone.
 
 ## Cambiare il nome del sito
@@ -39,39 +88,43 @@ Apri `js/config.js` e sostituisci:
 name: 'NOME SITO'
 ```
 
-## Dati collegati
+## Dati e aggiornamento
 
-Il prototipo usa:
+La **data odierna e i conti alla rovescia** vengono calcolati automaticamente dal browser. I dati ufficiali su bandi, importi, test, rette e scadenze non possono invece mantenersi aggiornati da soli in un sito statico: per una versione pubblica realmente aggiornata servono un backend, procedure di importazione da fonti ufficiali e controlli editoriali.
 
-- anagrafica degli atenei MUR/USTAT;
-- offerta formativa MUR, anno accademico 2024/25;
-- iscritti per corso MUR, anno accademico 2024/25;
-- contribuzione, esoneri, borse, mobilità e strutture MUR, rilevazione 2025;
-- QS World University Rankings 2027 per il ranking generale dell’ateneo.
+Il prototipo usa dati MUR/USTAT aggregati e il ranking generale QS già indicati in `data/NOTE_DATI.md`. I campi non disponibili in modo uniforme non vengono inventati.
 
-Il file generato `js/university-courses.js` contiene i dati già aggregati necessari al sito; non servono i CSV sorgente per pubblicare la demo.
+## Sicurezza e privacy
 
-### Indice per area disciplinare
+Questa è una demo front-end. Account, hash della password demo, percorso, scadenze, messaggi e annunci vengono salvati nel `localStorage` del browser. ISEE, ISPE e residenza inseriti nella verifica non vengono conservati dal prototipo; se salvi un’opportunità restano soltanto l’esito orientativo, l’ateneo, il corso e l’eventuale scadenza. Non usare comunque credenziali o dati personali reali.
 
-Il filtro `Dipartimento` non usa un ranking accademico ufficiale per materia. Mostra un indice sperimentale del prototipo, calcolato usando:
+Per una versione pubblica servono almeno:
 
-- 30% consistenza degli iscritti nell’area;
-- 20% numero di corsi nell’area;
-- 40% specializzazione dell’ateneo nell’area;
-- 10% posizione nel ranking generale QS, quando disponibile.
-
-Serve a rendere funzionante il filtro e a ordinare i risultati in modo trasparente. Prima di un uso editoriale reale va sostituito o affiancato da una fonte ufficiale/licenziata per materia.
-
-## Dati intenzionalmente non inventati
-
-Alcuni criteri richiesti non sono disponibili in modo uniforme nei dataset già collegati: ranking europeo per singolo corso, lingua di erogazione, occupazione a dodici mesi, prosecuzione degli studi, elenco dei partner Erasmus, affitti e indicatori urbani. Il comparatore mostra chiaramente `Dato non ancora collegato` anziché generare numeri non verificati.
-
-## Autenticazione: limite importante
-
-Questa versione è un prototipo front-end. Gli account e le preferenze vengono salvati nel `localStorage` del singolo browser. Non è un sistema di autenticazione adatto a utenti reali.
-
-Per una versione pubblica servono almeno un backend, un database, autenticazione sicura lato server, recupero password, verifica email, protezioni contro gli abusi, informativa privacy e gestione dei consensi.
+- autenticazione sicura lato server e verifica email;
+- password cifrate con algoritmi adatti e mai conservate nel browser;
+- database con permessi e separazione dei dati;
+- informativa privacy, base giuridica, consensi e tempi di conservazione;
+- moderazione, segnalazioni e protezioni anti-abuso;
+- collegamento verificato alle fonti ufficiali.
 
 ## Aggiornamento su GitHub e Vercel
 
-Nel repository già collegato a Vercel, sostituisci i file dentro la cartella esistente `sito-universita`. Non creare una seconda cartella `sito-universita` al suo interno. Dopo il commit, Vercel avvierà automaticamente un nuovo deploy.
+Nel repository collegato a Vercel, carica il **contenuto** di questa cartella nella stessa posizione già pubblicata. Non creare una seconda cartella `sito-universita` dentro quella esistente.
+
+Struttura corretta:
+
+```text
+sito-universita/
+├── index.html
+├── atenei.html
+├── comparison.html
+├── trova-corso.html
+├── preparazione.html
+├── burocrazia.html
+├── area-studente.html
+├── assets/
+├── data/
+└── js/
+```
+
+Dopo il commit su `main`, Vercel dovrebbe creare automaticamente un nuovo deployment. Se la Root Directory del progetto è la radice del repository, lasciala vuota; se i file sono dentro una singola cartella `sito-universita`, imposta quella cartella come Root Directory.
