@@ -128,14 +128,13 @@
     };
   }
 
-  function officialCourseSearch(universityUrl, courseName) {
-    try {
-      const domain = new URL(universityUrl).hostname.replace(/^www\./, '');
-      const query = `site:${domain} "${courseName}" ammissione immatricolazione contribuzione`;
-      return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-    } catch (_error) {
-      return universityUrl;
-    }
+  function officialCourseLink(university, course) {
+    const params = new URLSearchParams({
+      universityId: university.id,
+      course: course.name,
+      classCode: course.classCode || ''
+    });
+    return `api/course-link?${params.toString()}`;
   }
 
   function renderResult(university, course) {
@@ -144,9 +143,8 @@
     const access = accessSummary(course, university);
     const testArea = findTestArea(course);
     const universityUrl = serviceData.officialDomains?.[university.id] || serviceData.sources?.universitaly || '#';
-    const courseSearchUrl = officialCourseSearch(universityUrl, course.name);
+    const coursePageUrl = officialCourseLink(university, course);
     const scholarshipUrl = `area-studente.html?sezione=borse-di-studio&ateneo=${encodeURIComponent(university.id)}&corso=${encodeURIComponent(course.name)}`;
-    const deadlinesUrl = `area-studente.html?sezione=scadenze&titolo=${encodeURIComponent(`Immatricolazione — ${course.name}`)}`;
     const averageTuition = metrics.tuitionPayers || metrics.tuitionAllStudents;
     const delivery = course.delivery && course.delivery !== 'da verificare' ? course.delivery : 'Modalità da verificare';
 
@@ -182,10 +180,9 @@
             <span class="eyebrow">Azioni successive</span>
             <h3>Passa dai dati al bando ufficiale</h3>
             <div class="action-link-stack">
-              <a href="${escapeHtml(courseSearchUrl)}" target="_blank" rel="noreferrer"><strong>Cerca la pagina ufficiale del corso</strong><span>Ammissione, bando, immatricolazione e contribuzione →</span></a>
+              <a href="${escapeHtml(coursePageUrl)}" target="_blank" rel="noreferrer"><strong>Apri la pagina ufficiale del corso</strong><span>Il sito individua la pagina del corso nel portale dell’ateneo e la apre direttamente →</span></a>
               <a href="${escapeHtml(universityUrl)}" target="_blank" rel="noreferrer"><strong>Apri il sito dell’ateneo</strong><span>Fonte primaria da usare prima di inviare la domanda →</span></a>
               <a href="${escapeHtml(scholarshipUrl)}"><strong>Verifica le borse di studio</strong><span>Ateneo e corso vengono passati come campione di ricerca →</span></a>
-              <a href="${escapeHtml(deadlinesUrl)}"><strong>Aggiungi una scadenza</strong><span>Salva data di test, domanda o pagamento →</span></a>
             </div>
           </article>
         </div>
@@ -212,7 +209,7 @@
       <section class="service-card bureaucracy-selector-card">
         <div class="service-card-heading"><div><span class="eyebrow">Campione di ricerca</span><h2>Quale immatricolazione vuoi verificare?</h2></div></div>
         <form id="bureaucracyForm" class="service-form" novalidate>
-          <label class="field field-wide"><span>Ateneo</span><select id="bureaucracyUniversity" required><option value="">Seleziona un ateneo</option>${universityOptions(defaultUniversity)}</select></label>
+          <label class="field field-wide"><span>Ateneo</span><select id="bureaucracyUniversity" data-university-select required><option value="">Seleziona un ateneo</option>${universityOptions(defaultUniversity)}</select></label>
           <label class="field field-wide"><span>Corso</span><select id="bureaucracyCourse" required><option value="">Seleziona prima l’ateneo</option></select></label>
           <p class="service-form-note field-wide">La banca dati dei corsi è riferita all’anno accademico indicato nel progetto. Prima della domanda verifica che il corso sia attivo nell’anno di tuo interesse.</p>
           <p class="form-message field-wide" id="bureaucracyMessage" role="alert"></p>
@@ -223,6 +220,7 @@
       <div id="bureaucracyResultHost"></div>`;
 
     const universitySelect = $('#bureaucracyUniversity');
+    app.enhanceUniversitySelect?.(universitySelect);
     universitySelect?.addEventListener('change', () => fillCourses(universitySelect.value));
     if (defaultUniversity) fillCourses(defaultUniversity, user?.journey?.courseName || '');
 
@@ -236,6 +234,16 @@
         message.textContent = 'Seleziona un ateneo e un corso.';
         message.dataset.type = 'error';
         return;
+      }
+      const currentUser = app.getCurrentUser();
+      if (currentUser?.email) {
+        const contexts = app.safeStorageGet('universitaSemplice.bureaucracyContexts.v1', {});
+        contexts[currentUser.email] = {
+          universityId: university.id,
+          courseName: course.name,
+          savedAt: new Date().toISOString()
+        };
+        app.safeStorageSet('universitaSemplice.bureaucracyContexts.v1', contexts);
       }
       $('#bureaucracyResultHost').innerHTML = renderResult(university, course);
       $('#bureaucracyResultHost')?.scrollIntoView({ behavior: 'smooth', block: 'start' });

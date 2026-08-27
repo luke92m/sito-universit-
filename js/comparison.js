@@ -538,6 +538,8 @@
     fillUniversitySelect(universityB, true);
     universityA.value = findUniversityId('Bologna', 0, true);
     universityB.value = findUniversityId('Padova', 1, true);
+    window.UniversitySite?.enhanceUniversitySelect?.(universityA);
+    window.UniversitySite?.enhanceUniversitySelect?.(universityB);
     fillCourseSelect(universityA, courseA, 'economia-aziendale');
     fillCourseSelect(universityB, courseB, 'economia-aziendale');
 
@@ -571,6 +573,8 @@
     fillUniversitySelect(universityB);
     universityA.value = findUniversityId('Bologna', 0);
     universityB.value = findUniversityId('Padova', 1);
+    window.UniversitySite?.enhanceUniversitySelect?.(universityA);
+    window.UniversitySite?.enhanceUniversitySelect?.(universityB);
     initCourseSelectors();
 
     $$('.comparison-mode-button').forEach((button) => {

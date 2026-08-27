@@ -12,7 +12,8 @@
     community: 'universitaSemplice.community.v1',
     communityContexts: 'universitaSemplice.communityContexts.v1',
     books: 'universitaSemplice.books.v1',
-    bookContexts: 'universitaSemplice.bookContexts.v1'
+    bookContexts: 'universitaSemplice.bookContexts.v1',
+    bureaucracyContexts: 'universitaSemplice.bureaucracyContexts.v1'
   };
 
   const SECTION_META = {
@@ -29,7 +30,7 @@
     scadenze: {
       eyebrow: 'Organizzazione',
       title: 'Scadenze',
-      lead: 'Raccogli date importanti e visualizza quanto manca rispetto a oggi.'
+      lead: 'Consulta le scadenze che il sito rileva automaticamente dalle fonti ufficiali del tuo ateneo.'
     },
     community: {
       eyebrow: 'Persone',
@@ -198,7 +199,7 @@
       <section class="service-card data-privacy-card">
         <span class="eyebrow">Dati e limiti del prototipo</span>
         <h2>Che cosa viene salvato?</h2>
-        <p>Account, percorso, scadenze, messaggi e annunci vengono conservati nel <strong>localStorage</strong> di questo browser. Non vengono inviati a un server.</p>
+        <p>Account, percorso, preferenze, messaggi e annunci della demo vengono conservati nel <strong>localStorage</strong> di questo browser. Il contesto scelto per Scadenze viene salvato localmente; le date sono invece cercate online al momento della sincronizzazione.</p>
         <p>Per una pubblicazione reale serviranno consenso privacy, verifica email, autenticazione sicura, database, moderazione e regole di conservazione dei dati.</p>
       </section>
     `;
@@ -269,7 +270,6 @@
             <article><span>Anno accademico</span><strong>${escapeHtml(data.academicYear || '2026/2027')}</strong></article>
           </div>
           <div class="save-scholarship-row">
-            <label class="field compact-field"><span>Scadenza letta nel bando <small>(facoltativa)</small></span><input id="scholarshipDeadline" type="date"></label>
             <button class="button button-primary" id="saveScholarship" type="button">Salva questa opportunità</button>
             <a class="button button-secondary" href="${escapeHtml(regional.url)}" target="_blank" rel="noreferrer">Portale borsa ufficiale</a>
             <a class="text-link" href="${escapeHtml(ateneoPortal)}" target="_blank" rel="noreferrer">Sito dell’ateneo →</a>
@@ -288,7 +288,7 @@
       .map((item) => {
         const university = getUniversity(item.universityId);
         return `<article class="saved-opportunity">
-          <div><span>${item.deadline ? app.formatDate(item.deadline) : 'Scadenza da inserire'}</span><strong>${escapeHtml(university?.name || item.universityName || 'Ateneo')}</strong><small>${escapeHtml(item.statusLabel || 'Verifica orientativa salvata')}</small></div>
+          <div><span>${item.deadline ? app.formatDate(item.deadline) : 'Scadenza cercata automaticamente'}</span><strong>${escapeHtml(university?.name || item.universityName || 'Ateneo')}</strong><small>${escapeHtml(item.statusLabel || 'Verifica orientativa salvata')}</small></div>
           <div class="saved-opportunity-actions"><a href="${escapeHtml(item.portalUrl || '#')}" target="_blank" rel="noreferrer">Apri portale</a><button type="button" data-delete-scholarship="${item.id}">Elimina</button></div>
         </article>`;
       })
@@ -309,7 +309,7 @@
       <section class="service-card" id="scholarshipFormCard">
         <div class="service-card-heading"><div><span class="eyebrow">Verifica preliminare</span><h2>Inserisci i dati essenziali</h2></div><span class="data-year-badge">a.a. ${escapeHtml(data.academicYear || '')}</span></div>
         <form id="scholarshipForm" class="service-form" novalidate>
-          <label class="field field-wide"><span>Ateneo di riferimento</span><select id="scholarshipUniversity"><option value="">Seleziona</option>${universityOptions(defaultUniversityId)}</select></label>
+          <label class="field field-wide"><span>Ateneo di riferimento</span><select id="scholarshipUniversity" data-university-select><option value="">Seleziona</option>${universityOptions(defaultUniversityId)}</select></label>
           <label class="field"><span>Fascia ISEE universitario</span><select id="scholarshipIsee">${rangeOptions(data.iseeRanges || [])}</select></label>
           <label class="field"><span>Fascia ISPE <small>(facoltativa ma rilevante)</small></span><select id="scholarshipIspe">${rangeOptions(data.ispeRanges || [])}</select></label>
           <label class="field"><span>Regione di residenza</span><select id="scholarshipResidenceRegion"><option value="">Seleziona</option>${(data.regions || []).map((region) => `<option value="${escapeHtml(region)}">${escapeHtml(region)}</option>`).join('')}</select></label>
@@ -341,6 +341,7 @@
       </section>
     `;
     renderShell(host, 'borse-di-studio', content);
+    app.enhanceUniversitySelect?.($('#scholarshipUniversity'));
 
     const privacyInputs = $$('input[name="scholarshipPrivacy"]');
     privacyInputs.forEach((input) => input.addEventListener('change', () => {
@@ -378,7 +379,7 @@
           universityId: university.id,
           universityName: university.name,
           courseName: params.get('corso') || user.journey?.courseName || null,
-          deadline: $('#scholarshipDeadline')?.value || null,
+          deadline: null,
           portalUrl: regional.url,
           status: verdict,
           statusLabel: $('#scholarshipResultCard h2')?.textContent || 'Verifica orientativa',
@@ -387,7 +388,7 @@
         if (setOwnedItems(STORAGE.scholarships, items)) {
           $('#savedScholarships').innerHTML = savedScholarshipsTemplate(items);
           bindScholarshipDeletes();
-          app.showToast('Opportunità salvata nelle tue scadenze.');
+          app.showToast('Opportunità salvata. La scadenza verrà cercata automaticamente.');
         }
       });
     });
@@ -420,104 +421,303 @@
     return { label: `Mancano ${diff} giorni`, tone: 'success', days: diff };
   }
 
-  function combinedDeadlines() {
-    const personal = getOwnedItems(STORAGE.deadlines).map((item) => ({ ...item, source: 'personal' }));
-    const scholarships = getOwnedItems(STORAGE.scholarships)
+  function deadlineCategoryLabel(value) {
+    return {
+      borsa: 'Borsa di studio',
+      rata: 'Rata e contribuzione',
+      esame: 'Esame o appello',
+      test: 'Test o graduatoria',
+      immatricolazione: 'Immatricolazione',
+      burocrazia: 'Procedura amministrativa'
+    }[value] || 'Scadenza universitaria';
+  }
+
+  function getDeadlineContext(user) {
+    if (user.journey?.universityId) {
+      return {
+        universityId: user.journey.universityId,
+        courseName: user.journey.courseName || '',
+        source: 'profile'
+      };
+    }
+    const stored = readStore(STORAGE.bureaucracyContexts, {});
+    if (stored?.[user.email]?.universityId) return { ...stored[user.email], source: 'bureaucracy' };
+    const scholarship = getOwnedItems(STORAGE.scholarships).slice().reverse().find((item) => item.universityId);
+    if (scholarship) {
+      return {
+        universityId: scholarship.universityId,
+        courseName: scholarship.courseName || '',
+        source: 'scholarship'
+      };
+    }
+    return null;
+  }
+
+  function saveDeadlineContext(user, context) {
+    const stored = readStore(STORAGE.bureaucracyContexts, {});
+    stored[user.email] = context;
+    writeStore(STORAGE.bureaucracyContexts, stored);
+  }
+
+  function deadlineCourseOptions(universityId, selected = '') {
+    const courses = app.getUniversityCourses(universityId);
+    const seen = new Set();
+    const options = [];
+    (courses.length ? courses : app.getGeneralCourses()).forEach((course) => {
+      const name = course.name || '';
+      const key = normalize(name);
+      if (!name || seen.has(key)) return;
+      seen.add(key);
+      options.push(name);
+    });
+    return `<option value="">Tutti i corsi / corso non indicato</option>${options
+      .map((name) => `<option value="${escapeHtml(name)}"${name === selected ? ' selected' : ''}>${escapeHtml(name)}</option>`)
+      .join('')}`;
+  }
+
+  function legacyScholarshipDeadlines() {
+    return getOwnedItems(STORAGE.scholarships)
       .filter((item) => item.deadline)
       .map((item) => ({
         id: `saved-${item.id}`,
         title: `Borsa di studio — ${getUniversity(item.universityId)?.shortName || item.universityName || 'ateneo'}`,
         date: item.deadline,
         category: 'borsa',
-        notes: 'Opportunità salvata nella sezione Borse di studio.',
-        source: 'scholarship'
+        notes: 'Data salvata in una versione precedente del prototipo.',
+        sourceLabel: 'Opportunità salvata',
+        sourceUrl: item.portalUrl || '#',
+        sourceType: 'saved',
+        confidence: 'alta'
       }));
-    return [...personal, ...scholarships].sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  }
+
+  function mergeDeadlineItems(items) {
+    const map = new Map();
+    [...items, ...legacyScholarshipDeadlines()].forEach((item) => {
+      if (!item?.date) return;
+      const key = `${item.date}|${normalize(item.title)}|${item.category || ''}`;
+      if (!map.has(key)) map.set(key, item);
+    });
+    return Array.from(map.values());
+  }
+
+  function sortDeadlinesForList(items) {
+    return items.slice().sort((left, right) => {
+      const leftDiff = relativeDeadline(left.date).days;
+      const rightDiff = relativeDeadline(right.date).days;
+      const leftPast = leftDiff < 0;
+      const rightPast = rightDiff < 0;
+      if (leftPast !== rightPast) return leftPast ? 1 : -1;
+      return leftPast ? rightDiff - leftDiff : leftDiff - rightDiff;
+    });
   }
 
   function deadlinesListTemplate(items) {
-    if (!items.length) return '<p class="empty-state">Non ci sono ancora scadenze. Aggiungi una data oppure salva una borsa di studio.</p>';
-    return `<div class="deadline-list">${items.map((item) => {
+    const sorted = sortDeadlinesForList(items);
+    if (!sorted.length) {
+      return `<div class="automatic-deadline-empty"><strong>Nessuna data verificabile trovata.</strong><p>Il sito non inserisce date inventate. Usa “Aggiorna ora” oppure apri le fonti ufficiali indicate nel riquadro di sincronizzazione.</p></div>`;
+    }
+    return `<div class="deadline-list automatic-deadline-list">${sorted.map((item) => {
       const relative = relativeDeadline(item.date);
+      const date = new Date(`${item.date}T00:00:00`);
+      const sourceLink = item.sourceUrl && item.sourceUrl !== '#'
+        ? `<a class="deadline-source-link" href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">Apri la fonte ufficiale →</a>`
+        : '';
       return `<article class="deadline-item deadline-${relative.tone}">
-        <div class="deadline-date"><strong>${new Date(`${item.date}T00:00:00`).toLocaleDateString('it-IT', { day: '2-digit', month: 'short' })}</strong><span>${new Date(`${item.date}T00:00:00`).getFullYear()}</span></div>
-        <div class="deadline-copy"><span class="deadline-category">${escapeHtml(item.category || 'altro')}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.notes || '')}</p></div>
-        <div class="deadline-status"><strong>${relative.label}</strong>${item.source === 'personal' ? `<button type="button" data-delete-deadline="${item.id}">Elimina</button>` : '<small>Da borsa salvata</small>'}</div>
+        <div class="deadline-date"><strong>${date.toLocaleDateString('it-IT', { day: '2-digit', month: 'short' })}</strong><span>${date.getFullYear()}</span></div>
+        <div class="deadline-copy"><span class="deadline-category">${escapeHtml(deadlineCategoryLabel(item.category))}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.notes || '')}</p><small>${escapeHtml(item.sourceLabel || 'Fonte ufficiale')} · rilevamento ${escapeHtml(item.confidence || 'automatico')}</small>${sourceLink}</div>
+        <div class="deadline-status"><strong>${relative.label}</strong><small>Rilevata automaticamente</small></div>
       </article>`;
     }).join('')}</div>`;
   }
 
+  function isoDate(year, month, day) {
+    return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  }
+
+  function deadlineCalendarTemplate(items, monthDate) {
+    const year = monthDate.getFullYear();
+    const month = monthDate.getMonth();
+    const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const byDate = new Map();
+    items.forEach((item) => {
+      if (!byDate.has(item.date)) byDate.set(item.date, []);
+      byDate.get(item.date).push(item);
+    });
+    const cells = [];
+    for (let index = 0; index < firstWeekday; index += 1) cells.push('<div class="deadline-calendar-day is-empty" aria-hidden="true"></div>');
+    for (let day = 1; day <= daysInMonth; day += 1) {
+      const key = isoDate(year, month, day);
+      const dayItems = byDate.get(key) || [];
+      const today = key === isoDate(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+      const links = dayItems.slice(0, 2).map((item) => item.sourceUrl && item.sourceUrl !== '#'
+        ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer" title="${escapeHtml(item.title)}"><span>${escapeHtml(deadlineCategoryLabel(item.category))}</span>${escapeHtml(item.title)}</a>`
+        : `<span class="calendar-event-static" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</span>`).join('');
+      cells.push(`<div class="deadline-calendar-day${today ? ' is-today' : ''}${dayItems.length ? ' has-events' : ''}"><span class="calendar-day-number">${day}</span><div class="calendar-day-events">${links}${dayItems.length > 2 ? `<small>+${dayItems.length - 2} altre</small>` : ''}</div></div>`);
+    }
+    while (cells.length % 7) cells.push('<div class="deadline-calendar-day is-empty" aria-hidden="true"></div>');
+    return `
+      <div class="deadline-calendar-toolbar">
+        <button type="button" data-calendar-prev aria-label="Mese precedente">←</button>
+        <strong>${escapeHtml(monthDate.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' }))}</strong>
+        <button type="button" data-calendar-next aria-label="Mese successivo">→</button>
+      </div>
+      <div class="deadline-calendar-weekdays" aria-hidden="true">${['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'].map((day) => `<span>${day}</span>`).join('')}</div>
+      <div class="deadline-calendar-grid">${cells.join('')}</div>
+      <p class="calendar-help">Clicca una scadenza per aprire direttamente la pagina ufficiale da cui è stata rilevata.</p>`;
+  }
+
   function renderDeadlines(host, user) {
-    const categoryOptions = user.situation === 'enrolling'
-      ? [['immatricolazione', 'Immatricolazione'], ['test', 'Test d’ingresso'], ['borsa', 'Borsa di studio'], ['burocrazia', 'Documento o procedura'], ['altro', 'Altro']]
-      : [['rata', 'Rata universitaria'], ['esame', 'Esame'], ['borsa', 'Borsa di studio'], ['burocrazia', 'Documento o procedura'], ['altro', 'Altro']];
+    let context = getDeadlineContext(user);
+    const university = context ? getUniversity(context.universityId) : null;
+    const contextSourceLabel = {
+      profile: 'Dati del profilo',
+      bureaucracy: 'Ultima ricerca in Burocrazia',
+      scholarship: 'Ultima borsa salvata'
+    }[context?.source] || 'Contesto personale';
     const content = `
-      <section class="service-card">
-        <div class="service-card-heading"><div><span class="eyebrow">Nuovo promemoria</span><h2>Aggiungi una data importante</h2></div><small>Calcolo rispetto a oggi</small></div>
-        <form id="deadlineForm" class="service-form compact-service-form">
-          <label class="field"><span>Titolo</span><input id="deadlineTitle" type="text" placeholder="Es. Seconda rata" required></label>
-          <label class="field"><span>Categoria</span><select id="deadlineCategory">${categoryOptions.map(([value, label]) => `<option value="${value}">${label}</option>`).join('')}</select></label>
-          <label class="field"><span>Data</span><input id="deadlineDate" type="date" required></label>
-          <label class="field field-wide"><span>Nota <small>(facoltativa)</small></span><input id="deadlineNotes" type="text" placeholder="Documento, importo o luogo da ricordare"></label>
-          <p class="form-message field-wide" id="deadlineMessage"></p>
-          <button class="button button-primary field-wide" type="submit">Salva la scadenza</button>
-        </form>
+      <section class="service-card deadline-sync-card">
+        <div class="service-card-heading">
+          <div><span class="eyebrow">Sincronizzazione automatica</span><h2>Le scadenze arrivano dalle fonti ufficiali.</h2></div>
+          <button class="button button-secondary" type="button" id="refreshAutomaticDeadlines"${context ? '' : ' disabled'}>Aggiorna ora</button>
+        </div>
+        ${context && university ? `
+          <div class="deadline-context-summary" id="deadlineContextSummary">
+            <div><span>${escapeHtml(contextSourceLabel)}</span><strong>${escapeHtml(university.name)}</strong><small>${escapeHtml(context.courseName || 'Tutti i corsi')}</small></div>
+            <button class="text-button" type="button" id="changeDeadlineContext">${user.journey?.universityId ? 'Modifica nel profilo' : 'Cambia ateneo o corso'}</button>
+          </div>
+        ` : `
+          <form id="deadlineContextForm" class="service-form compact-service-form" novalidate>
+            <label class="field field-wide"><span>Ateneo da monitorare</span><select id="deadlineUniversity" data-university-select required><option value="">Seleziona un ateneo</option>${universityOptions()}</select></label>
+            <label class="field field-wide"><span>Corso <small>(facoltativo)</small></span><select id="deadlineCourse"><option value="">Seleziona prima l’ateneo</option></select></label>
+            <p class="service-form-note field-wide">Non stai inserendo una scadenza: stai soltanto indicando quali fonti ufficiali il sito deve monitorare.</p>
+            <p class="form-message field-wide" id="deadlineContextMessage"></p>
+            <button class="button button-primary field-wide" type="submit">Sincronizza le scadenze</button>
+          </form>
+        `}
+        <div class="deadline-sync-status" id="deadlineSyncStatus" role="status" aria-live="polite">
+          ${context ? '<span class="sync-spinner" aria-hidden="true"></span><p><strong>Ricerca in corso…</strong> Stiamo analizzando ateneo, portale studenti e diritto allo studio.</p>' : '<p><strong>Serve un ateneo di riferimento.</strong> Selezionalo una sola volta e il sito cercherà le date al posto tuo.</p>'}
+        </div>
       </section>
-      <section class="service-card">
-        <div class="service-card-heading"><div><span class="eyebrow">Calendario personale</span><h2>Le prossime date</h2></div><span class="data-year-badge">${escapeHtml(app.formatDate(new Date()))}</span></div>
-        <div id="deadlinesList">${deadlinesListTemplate(combinedDeadlines())}</div>
+
+      <section class="service-card automatic-deadline-board">
+        <div class="service-card-heading deadline-board-heading">
+          <div><span class="eyebrow">Calendario personale</span><h2>Scadenze rilevate</h2></div>
+          <div class="deadline-view-switch" role="group" aria-label="Modalità di visualizzazione">
+            <button class="is-active" type="button" data-deadline-view="calendar" aria-pressed="true">Calendario</button>
+            <button type="button" data-deadline-view="list" aria-pressed="false">Elenco</button>
+          </div>
+        </div>
+        <div id="automaticDeadlinesView" class="automatic-deadlines-view"><div class="deadline-loading-state"><span class="sync-spinner" aria-hidden="true"></span><p>${context ? 'Caricamento delle date ufficiali…' : 'Seleziona un ateneo per avviare la sincronizzazione.'}</p></div></div>
       </section>
-      <section class="source-disclaimer"><strong>Le date non vengono inventate dal sito.</strong><p>Inseriscile dal bando, dal portale studenti o dal calendario esami. In una versione online, un backend potrà sincronizzarle con fonti ufficiali quando disponibili.</p></section>
+
+      <section class="source-disclaimer"><strong>Aggiornamento automatico con controllo umano sempre consigliato.</strong><p>Il sito legge le pagine pubbliche dell’ateneo e dell’ente per il diritto allo studio, estrae le date e le ordina rispetto a oggi. Una pagina può cambiare struttura o contenere date riferite ad altri studenti: prima di pagare o inviare una domanda apri sempre la fonte ufficiale collegata.</p></section>
     `;
     renderShell(host, 'scadenze', content);
 
-    const deadlineParams = new URLSearchParams(window.location.search);
-    if (deadlineParams.get('titolo')) $('#deadlineTitle').value = deadlineParams.get('titolo');
-    if (deadlineParams.get('categoria')) {
-      const requestedCategory = deadlineParams.get('categoria');
-      const categorySelect = $('#deadlineCategory');
-      if (categorySelect && Array.from(categorySelect.options).some((option) => option.value === requestedCategory)) {
-        categorySelect.value = requestedCategory;
-      }
+    if (!context) {
+      const universitySelect = $('#deadlineUniversity');
+      app.enhanceUniversitySelect?.(universitySelect);
+      universitySelect?.addEventListener('change', () => {
+        $('#deadlineCourse').innerHTML = deadlineCourseOptions(universitySelect.value);
+      });
+      $('#deadlineContextForm')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const universityId = universitySelect.value;
+        const message = $('#deadlineContextMessage');
+        if (!universityId) {
+          message.textContent = 'Seleziona l’ateneo da monitorare.';
+          message.dataset.type = 'error';
+          return;
+        }
+        saveDeadlineContext(user, {
+          universityId,
+          courseName: $('#deadlineCourse').value || '',
+          savedAt: new Date().toISOString()
+        });
+        renderDeadlines(host, app.getCurrentUser());
+      });
+      return;
     }
 
-    function refresh() {
-      $('#deadlinesList').innerHTML = deadlinesListTemplate(combinedDeadlines());
-      $$('[data-delete-deadline]').forEach((button) => button.addEventListener('click', () => {
-        const next = getOwnedItems(STORAGE.deadlines).filter((item) => item.id !== button.dataset.deleteDeadline);
-        setOwnedItems(STORAGE.deadlines, next);
-        refresh();
-      }));
-    }
-
-    $('#deadlineForm')?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const title = $('#deadlineTitle').value.trim();
-      const date = $('#deadlineDate').value;
-      const message = $('#deadlineMessage');
-      if (!title || !date) {
-        message.textContent = 'Inserisci titolo e data.';
-        message.dataset.type = 'error';
+    $('#changeDeadlineContext')?.addEventListener('click', () => {
+      if (user.journey?.universityId) {
+        app.openJourneyEditor();
         return;
       }
-      const items = getOwnedItems(STORAGE.deadlines);
-      items.push({
-        id: uniqueId('deadline'),
-        title,
-        date,
-        category: $('#deadlineCategory').value,
-        notes: $('#deadlineNotes').value.trim(),
-        createdAt: new Date().toISOString()
-      });
-      if (setOwnedItems(STORAGE.deadlines, items)) {
-        event.currentTarget.reset();
-        message.textContent = '';
-        refresh();
-        app.showToast('Scadenza salvata.');
-      }
+      const stored = readStore(STORAGE.bureaucracyContexts, {});
+      delete stored[user.email];
+      writeStore(STORAGE.bureaucracyContexts, stored);
+      renderDeadlines(host, app.getCurrentUser());
     });
-    refresh();
+
+    let events = [];
+    let currentView = 'calendar';
+    let calendarMonth = new Date();
+    calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), 1);
+    let calendarAnchored = false;
+
+    function renderView() {
+      const viewHost = $('#automaticDeadlinesView');
+      if (!viewHost) return;
+      if (currentView === 'list') viewHost.innerHTML = deadlinesListTemplate(events);
+      else viewHost.innerHTML = deadlineCalendarTemplate(events, calendarMonth);
+      $('[data-calendar-prev]')?.addEventListener('click', () => {
+        calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1, 1);
+        renderView();
+      });
+      $('[data-calendar-next]')?.addEventListener('click', () => {
+        calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 1);
+        renderView();
+      });
+    }
+
+    $$('[data-deadline-view]').forEach((button) => button.addEventListener('click', () => {
+      currentView = button.dataset.deadlineView === 'list' ? 'list' : 'calendar';
+      $$('[data-deadline-view]').forEach((entry) => {
+        const active = entry.dataset.deadlineView === currentView;
+        entry.classList.toggle('is-active', active);
+        entry.setAttribute('aria-pressed', String(active));
+      });
+      renderView();
+    }));
+
+    async function loadAutomaticDeadlines(force = false) {
+      const status = $('#deadlineSyncStatus');
+      const viewHost = $('#automaticDeadlinesView');
+      if (status) status.innerHTML = '<span class="sync-spinner" aria-hidden="true"></span><p><strong>Sincronizzazione in corso…</strong> Cerchiamo date relative a iscrizioni, rate, borse, test, esami e procedure.</p>';
+      if (viewHost) viewHost.innerHTML = '<div class="deadline-loading-state"><span class="sync-spinner" aria-hidden="true"></span><p>Analisi delle fonti ufficiali…</p></div>';
+      try {
+        const params = new URLSearchParams({
+          universityId: context.universityId,
+          course: context.courseName || '',
+          situation: user.situation
+        });
+        const response = await fetch(`api/deadlines?${params.toString()}`, { cache: force ? 'reload' : 'default' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const result = await response.json();
+        events = mergeDeadlineItems(Array.isArray(result.events) ? result.events : []);
+        if (!calendarAnchored && events.length) {
+          const firstUpcoming = sortDeadlinesForList(events).find((item) => relativeDeadline(item.date).days >= 0) || events[0];
+          const date = new Date(`${firstUpcoming.date}T00:00:00`);
+          calendarMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+          calendarAnchored = true;
+        }
+        const generated = result.generatedAt ? app.formatDate(new Date(result.generatedAt), { hour: '2-digit', minute: '2-digit' }) : app.formatDate(new Date());
+        if (status) status.innerHTML = `<span class="sync-ok" aria-hidden="true">✓</span><p><strong>${events.length ? `${events.length} scadenze rilevate` : 'Nessuna scadenza verificabile rilevata'}.</strong> Ultimo controllo: ${escapeHtml(generated)}.<br><small>${escapeHtml(result.warning || '')}</small></p>`;
+        renderView();
+      } catch (_error) {
+        events = mergeDeadlineItems([]);
+        if (status) status.innerHTML = `<span class="sync-warning" aria-hidden="true">!</span><p><strong>Sincronizzazione non disponibile.</strong> Sul sito pubblicato in Vercel il servizio prova a leggere le fonti ufficiali; in un’anteprima locale il percorso API può non essere attivo.</p>`;
+        renderView();
+      }
+    }
+
+    $('#refreshAutomaticDeadlines')?.addEventListener('click', () => loadAutomaticDeadlines(true));
+    loadAutomaticDeadlines(false);
   }
+
 
   function getContext(storageKey, user) {
     if (user.journey?.universityId) {
@@ -539,7 +739,7 @@
         <span class="eyebrow">Gruppo di riferimento</span>
         <h2>${kind === 'community' ? 'Scegli l’ateneo in cui vuoi entrare nella community' : 'Indica ateneo e corso per vedere gli annunci compatibili'}</h2>
         <form id="contextSetupForm" class="service-form compact-service-form">
-          <label class="field field-wide"><span>Ateneo</span><select id="contextUniversity"><option value="">Seleziona</option>${universityOptions(current?.universityId || '')}</select></label>
+          <label class="field field-wide"><span>Ateneo</span><select id="contextUniversity" data-university-select><option value="">Seleziona</option>${universityOptions(current?.universityId || '')}</select></label>
           <label class="field field-wide"><span>Corso</span><select id="contextCourse"><option value="">Seleziona un corso</option>${generalCourseOptions(current?.courseName || '')}</select></label>
           <p class="form-message field-wide" id="contextMessage"></p>
           <button class="button button-primary field-wide" type="submit">Salva il gruppo</button>
@@ -592,6 +792,7 @@
       <section class="source-disclaimer"><strong>Community dimostrativa locale.</strong><p>Per permettere a persone su dispositivi diversi di comunicare servono database, moderazione, segnalazioni, verifica email, regole di condotta e strumenti anti-abuso.</p></section>
     `;
     renderShell(host, 'community', content);
+    app.enhanceUniversitySelect?.($('#contextUniversity'));
 
     function bindContextForm() {
       $('#contextSetupForm')?.addEventListener('submit', (event) => {
@@ -693,6 +894,7 @@
       <section class="source-disclaimer"><strong>Mercatino dimostrativo locale.</strong><p>Una versione pubblica richiede moderazione degli annunci, protezione dei contatti, segnalazioni, termini di utilizzo e misure antifrode. Il sito non gestisce pagamenti.</p></section>
     `;
     renderShell(host, 'libri-usati', content);
+    app.enhanceUniversitySelect?.($('#contextUniversity'));
 
     $('#contextSetupForm')?.addEventListener('submit', (event) => {
       event.preventDefault();

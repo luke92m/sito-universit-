@@ -237,6 +237,214 @@
     return `<option value="">Seleziona un ateneo</option>${options}`;
   }
 
+
+  function normalizeSearch(value) {
+    return String(value || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim()
+      .toLowerCase();
+  }
+
+  function enhanceUniversitySelect(select) {
+    if (!select) return null;
+    if (select._universityCombobox) {
+      select._universityCombobox.refresh();
+      return select._universityCombobox;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'university-combobox';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'university-combobox-input';
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    input.placeholder = select.dataset.searchPlaceholder || "Scrivi il nome dell’ateneo";
+    input.setAttribute('role', 'combobox');
+    input.setAttribute('aria-autocomplete', 'list');
+    input.setAttribute('aria-expanded', 'false');
+    const fieldLabel = select.closest('label')?.querySelector(':scope > span')?.textContent?.trim();
+    input.setAttribute('aria-label', fieldLabel || select.getAttribute('aria-label') || 'Cerca e seleziona un ateneo');
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'university-combobox-toggle';
+    toggle.setAttribute('aria-label', 'Mostra tutti gli atenei');
+    toggle.innerHTML = ICONS.chevron;
+
+    const list = document.createElement('div');
+    list.className = 'university-combobox-list';
+    list.setAttribute('role', 'listbox');
+    list.hidden = true;
+    const listId = `university-list-${Math.random().toString(36).slice(2, 9)}`;
+    list.id = listId;
+    input.setAttribute('aria-controls', listId);
+
+    wrapper.append(input, toggle, list);
+    select.insertAdjacentElement('afterend', wrapper);
+    select.classList.add('university-native-select');
+    select.setAttribute('aria-hidden', 'true');
+    select.tabIndex = -1;
+
+    let visibleOptions = [];
+    let activeIndex = -1;
+
+    function optionRecords() {
+      return Array.from(select.options)
+        .filter((option) => option.value)
+        .map((option) => {
+          const university = getUniversityById(option.value);
+          return {
+            value: option.value,
+            label: option.textContent.trim(),
+            name: university?.name || option.textContent.split('—')[0].trim(),
+            city: university?.city || '',
+            disabled: option.disabled
+          };
+        });
+    }
+
+    function filteredRecords(query) {
+      const records = optionRecords();
+      const term = normalizeSearch(query);
+      if (!term) return records;
+      const beginning = records.filter((record) => normalizeSearch(record.name).startsWith(term));
+      if (beginning.length) return beginning;
+      const wordBeginning = records.filter((record) => normalizeSearch(record.name).split(/\s+/).some((word) => word.startsWith(term)));
+      if (wordBeginning.length) return wordBeginning;
+      return records.filter((record) => normalizeSearch(record.name).includes(term));
+    }
+
+    function closeList(resetInput = false) {
+      list.hidden = true;
+      wrapper.classList.remove('is-open');
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      activeIndex = -1;
+      if (resetInput) syncFromSelect();
+    }
+
+    function setActive(index) {
+      const buttons = Array.from(list.querySelectorAll('[role="option"]'));
+      if (!buttons.length) return;
+      activeIndex = Math.max(0, Math.min(index, buttons.length - 1));
+      buttons.forEach((button, buttonIndex) => button.classList.toggle('is-active', buttonIndex === activeIndex));
+      const active = buttons[activeIndex];
+      input.setAttribute('aria-activedescendant', active.id);
+      active.scrollIntoView({ block: 'nearest' });
+    }
+
+    function choose(record) {
+      if (!record || record.disabled) return;
+      select.value = record.value;
+      input.value = record.label;
+      input.dataset.selectedValue = record.value;
+      closeList(false);
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      input.focus();
+    }
+
+    function renderList(query = '') {
+      visibleOptions = filteredRecords(query);
+      list.replaceChildren();
+      if (!visibleOptions.length) {
+        const empty = document.createElement('p');
+        empty.className = 'university-combobox-empty';
+        empty.textContent = 'Nessun ateneo corrisponde a questa ricerca.';
+        list.appendChild(empty);
+      } else {
+        visibleOptions.forEach((record, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.id = `${listId}-option-${index}`;
+          button.className = 'university-combobox-option';
+          button.setAttribute('role', 'option');
+          button.setAttribute('aria-selected', String(record.value === select.value));
+          button.disabled = record.disabled;
+          const name = document.createElement('strong');
+          name.textContent = record.name;
+          const detail = document.createElement('small');
+          detail.textContent = record.city || record.label.replace(record.name, '').replace(/^\s*—\s*/, '');
+          button.append(name, detail);
+          button.addEventListener('mousedown', (event) => event.preventDefault());
+          button.addEventListener('click', () => choose(record));
+          list.appendChild(button);
+        });
+      }
+      list.hidden = false;
+      wrapper.classList.add('is-open');
+      input.setAttribute('aria-expanded', 'true');
+      activeIndex = -1;
+      input.removeAttribute('aria-activedescendant');
+      if (wrapper.closest('.auth-dialog')) {
+        window.requestAnimationFrame(() => list.scrollIntoView({ block: 'center' }));
+      }
+    }
+
+    function syncFromSelect() {
+      const selected = optionRecords().find((record) => record.value === select.value);
+      input.value = selected?.label || '';
+      input.dataset.selectedValue = selected?.value || '';
+      input.disabled = select.disabled;
+      toggle.disabled = select.disabled;
+      input.setAttribute('aria-required', String(select.required));
+    }
+
+    function refresh() {
+      syncFromSelect();
+      if (!list.hidden) renderList(input.value === optionRecords().find((record) => record.value === select.value)?.label ? '' : input.value);
+    }
+
+    input.addEventListener('focus', () => renderList(''));
+    input.addEventListener('click', () => renderList(''));
+    input.addEventListener('input', () => {
+      if (input.value !== optionRecords().find((record) => record.value === select.value)?.label) {
+        select.value = '';
+        input.dataset.selectedValue = '';
+      }
+      renderList(input.value);
+    });
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (list.hidden) renderList(input.value);
+        setActive(activeIndex + 1);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (list.hidden) renderList(input.value);
+        setActive(activeIndex <= 0 ? visibleOptions.length - 1 : activeIndex - 1);
+      } else if (event.key === 'Enter' && !list.hidden && activeIndex >= 0) {
+        event.preventDefault();
+        choose(visibleOptions[activeIndex]);
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        closeList(true);
+      }
+    });
+    input.addEventListener('blur', () => window.setTimeout(() => closeList(true), 120));
+    toggle.addEventListener('mousedown', (event) => event.preventDefault());
+    toggle.addEventListener('click', () => {
+      if (list.hidden) {
+        input.focus();
+        renderList('');
+      } else closeList(true);
+    });
+    select.addEventListener('change', syncFromSelect);
+
+    const observer = new MutationObserver(refresh);
+    observer.observe(select, { childList: true, subtree: true, attributes: true });
+
+    const controller = { refresh, close: closeList, input, list };
+    select._universityCombobox = controller;
+    syncFromSelect();
+    return controller;
+  }
+
+  function refreshUniversitySelect(select) {
+    return enhanceUniversitySelect(select)?.refresh();
+  }
+
   function authModalTemplate() {
     return `
       <div class="auth-modal" id="authModal" aria-hidden="true" hidden>
@@ -317,7 +525,7 @@
 
               <label class="field">
                 <span>Ateneo</span>
-                <select id="registerUniversity" name="universityId">${universityOptionsTemplate()}</select>
+                <select id="registerUniversity" name="universityId" data-university-select>${universityOptionsTemplate()}</select>
               </label>
 
               <label class="field">
@@ -370,7 +578,7 @@
                 <label class="choice-pill"><input type="radio" name="editJourneyPhase" value="pre-enrolling"><span>Mi sto per immatricolare</span></label>
               </div>
             </fieldset>
-            <label class="field"><span>Ateneo</span><select id="editJourneyUniversity">${universityOptionsTemplate()}</select></label>
+            <label class="field"><span>Ateneo</span><select id="editJourneyUniversity" data-university-select>${universityOptionsTemplate()}</select></label>
             <label class="field"><span>Corso di studio <small>(facoltativo)</small></span><select id="editJourneyCourse"><option value="">Seleziona prima l’ateneo</option></select></label>
             <label class="field" id="editJourneyYearField" hidden><span>Anno di studi</span><select id="editJourneyYear"><option value="">Seleziona l’anno</option><option value="1">1° anno</option><option value="2">2° anno</option><option value="3">3° anno</option><option value="4">4° anno</option><option value="5">5° anno</option><option value="6">6° anno o successivo</option></select></label>
             <p class="form-message" id="journeyEditMessage" role="alert" aria-live="polite"></p>
@@ -515,6 +723,7 @@
     const radio = $(`input[name="editJourneyPhase"][value="${phase}"]`);
     if (radio) radio.checked = true;
     $('#editJourneyUniversity').value = journey.universityId || '';
+    refreshUniversitySelect($('#editJourneyUniversity'));
     fillCourseSelect($('#editJourneyCourse'), journey.universityId || '', journey.courseName || '');
     $('#editJourneyYear').value = journey.year ? String(journey.year) : '';
     syncJourneyEditFields();
@@ -831,6 +1040,8 @@
 
     $('#registerUniversity')?.addEventListener('change', (event) => fillCourseSelect($('#registerCourse'), event.target.value));
     $('#editJourneyUniversity')?.addEventListener('change', (event) => fillCourseSelect($('#editJourneyCourse'), event.target.value));
+    enhanceUniversitySelect($('#registerUniversity'));
+    enhanceUniversitySelect($('#editJourneyUniversity'));
 
     document.addEventListener('click', (event) => {
       const profileWrap = $('.profile-wrap');
@@ -910,6 +1121,8 @@
     renderProfile,
     safeStorageGet,
     safeStorageSet,
+    enhanceUniversitySelect,
+    refreshUniversitySelect,
     situationLabels: SITUATION_LABELS,
     journeyPhaseLabels: JOURNEY_PHASE_LABELS,
     isStudentToolUser(user = getCurrentUser()) {

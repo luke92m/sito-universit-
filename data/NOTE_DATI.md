@@ -91,3 +91,24 @@ Le 45 domande presenti in `js/student-services-data.js` sono originali e fisse. 
 ## Burocrazia — versione 3
 
 La pagina utilizza la tipologia di accesso e i dati aggregati già disponibili nel dataset. Non determina automaticamente requisiti correnti, uso della media scolastica, documenti specifici o scadenze. Per questi elementi il prototipo genera una checklist e conduce l’utente verso le fonti ufficiali senza inventare dati mancanti.
+
+## Scadenze automatiche — versione 4
+
+La funzione `api/deadlines.js` non contiene un calendario nazionale precompilato. Analizza, al momento della richiesta e con cache serverless, pagine pubbliche del dominio ufficiale dell’ateneo e del portale regionale per il diritto allo studio. Cerca espressioni di data vicine a termini relativi a immatricolazioni, test, rate, borse, esami e procedure.
+
+Il risultato è un rilevamento automatico e non una certificazione. Può:
+
+- non trovare una data pubblicata in aree riservate o documenti non indicizzati;
+- interpretare una data che riguarda una diversa categoria di studenti;
+- smettere di funzionare se la struttura del sito cambia;
+- ripiegare su un messaggio senza risultati invece di generare valori fittizi.
+
+Ogni evento conserva il collegamento alla pagina sorgente, che prevale sempre sull’interpretazione del prototipo.
+
+## Collegamento alla pagina del corso — versione 4
+
+`api/course-link.js` analizza sitemap e pagine del dominio ufficiale dell’ateneo, assegna un punteggio in base a nome del corso, classe, titolo e contenuto e reindirizza alla migliore corrispondenza. Se non emerge una pagina abbastanza affidabile, usa il catalogo ufficiale dei corsi o la homepage dell’ateneo. Non utilizza un motore di ricerca esterno.
+
+## Selettori di ateneo — versione 4
+
+I selettori HTML restano presenti per compatibilità, ma l’interfaccia li trasforma in combobox ricercabili. Il filtro privilegia l’inizio del nome dell’istituzione e mantiene una ricerca di riserva per parole interne.

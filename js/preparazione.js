@@ -72,7 +72,7 @@
           <form id="preparationSetupForm" class="service-form" novalidate>
             <label class="field field-wide">
               <span>Ateneo che ti interessa</span>
-              <select id="preparationUniversity" required>
+              <select id="preparationUniversity" data-university-select required>
                 <option value="">Seleziona un ateneo</option>
                 ${universityOptions(defaultUniversity)}
               </select>
@@ -123,6 +123,7 @@
       </section>`;
 
     const universitySelect = $('#preparationUniversity');
+    app.enhanceUniversitySelect?.(universitySelect);
     const modeSelect = $('#preparationMode');
     const syncMode = () => {
       if (!universitySelect?.value || !modeSelect || modeSelect.dataset.touched === 'true') return;
