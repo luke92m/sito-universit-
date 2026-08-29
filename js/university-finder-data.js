@@ -103,7 +103,7 @@
   };
 
   window.UNIVERSITY_FINDER_DATA = {
-    version: 2,
+    version: 3,
     referenceDate: '2026-08-29',
     regionNeighbors: REGION_NEIGHBORS,
     regionCenters: REGION_CENTERS,
@@ -115,7 +115,7 @@
       regionalCommuteLimitMinutes: 90,
       regionalTrainTypes: ['Regionale', 'Regionale Veloce'],
       costs: 'Valori dimostrativi per confrontare le città; devono essere collegati a una fonte urbana aggiornata prima della pubblicazione reale.',
-      ranking: 'Usa il ranking QS generale disponibile e l’indice disciplinare MUR del prototipo quando il QS per materia non è collegato.'
+      ranking: 'Usa QS World University Rankings by Subject 2026 per il corso o la materia collegata. Se il dato QS per materia manca, applica un fallback dichiarato e limitato basato su QS generale e indice disciplinare MUR del prototipo.'
     }
   };
 })();

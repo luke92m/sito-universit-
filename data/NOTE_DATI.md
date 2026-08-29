@@ -113,9 +113,9 @@ Ogni evento conserva il collegamento alla pagina sorgente, che prevale sempre su
 
 I selettori HTML restano presenti per compatibilità, ma l’interfaccia li trasforma in combobox ricercabili. Il filtro privilegia l’inizio del nome dell’istituzione e mantiene una ricerca di riserva per parole interne.
 
-## Trova la mia università — versione 6
+## Trova la mia università — versione 7
 
-Il secondo questionario della pagina `trova-corso.html` costruisce una graduatoria orientativa di massimo cinque atenei. Usa soltanto università che presentano nel dataset un corso o una macroarea coerente con la scelta e con il livello di laurea indicato.
+Il secondo questionario della pagina `trova-corso.html` mostra cinque atenei come risultato principale e offre, su richiesta, una classifica sintetica fino a 30 atenei. Usa soltanto università che presentano nel dataset un corso o una macroarea coerente con la scelta e con il livello di laurea indicato.
 
 Il punteggio combina:
 
@@ -127,22 +127,47 @@ Il punteggio combina:
 - 5% presenza relativa di borse, esoneri e sostegni nel dataset MUR.
 
 
-La versione 6 applica inoltre queste regole:
+La versione 7 applica inoltre queste regole:
 
 - le università telematiche sono escluse dalla graduatoria iniziale e vengono incluse soltanto su scelta esplicita dell’utente;
+- i corsi indicati come a distanza sono esclusi per impostazione predefinita; un secondo interruttore li include senza ripetere il test;
 - una soluzione pendolare ammessa e un trasferimento compatibile ricevono lo stesso punteggio geografico;
 - la sede nella città di residenza riceve un vantaggio lieve attraverso il diverso bilanciamento tra geografia e ranking;
 - l’ordinamento usa il punteggio non arrotondato;
 - quando lo stesso ateneo offre più sedi o corsi compatibili, il sistema valuta tutte le combinazioni e seleziona quella con il punteggio complessivo migliore.
 
-### Ranking
+### Ranking QS per materia
 
-Il prototipo non dispone di una base completa QS by Subject per tutti i corsi e tutti gli atenei. Quando il ranking QS per materia non è collegato, usa esplicitamente come fallback:
+Il file `js/qs-subject-rankings-2026.js` collega i corsi generali del questionario alle materie pertinenti del **QS World University Rankings by Subject 2026**. Quando un corso richiede più materie, il punteggio è una media pesata dei dati disponibili e la scheda mostra posizione o fascia QS, peso relativo e collegamento alla fonte. Per esempio, Economia aziendale usa principalmente *Business & Management Studies* e *Accounting & Finance*.
 
-- il ranking QS generale dell’ateneo, quando presente;
-- l’indice sperimentale di macroarea descritto in questo documento.
+La copertura locale è curata ma non completa per tutte le combinazioni corso–ateneo. Quando non è presente una posizione QS by Subject, il test usa soltanto l’indice sperimentale di macroarea del prototipo con un intervallo di punteggio prudenziale. Non usa automaticamente il ranking generale come sostituto e l’interfaccia dichiara il fallback come non-QS.
 
-L’interfaccia segnala questo fallback e non presenta l’indice interno come ranking QS.
+Le posizioni QS sono uno snapshot 2026, non un feed in tempo reale. Per aggiornamenti automatici servirebbero una fonte autorizzata, un processo periodico di sincronizzazione e controlli editoriali.
+
+### Corrispondenza del corso
+
+La corrispondenza tra corso desiderato e offerta MUR viene classificata così:
+
+- 100: titolo coincidente o denominazione pienamente equivalente;
+- 90–95: titolo molto vicino, classe coerente e focus aggiuntivo;
+- 75–89: stessa classe di laurea, ma focus differente;
+- 60–74: sola appartenenza alla stessa macroarea.
+
+Il punteggio usa titolo, alias, parole chiave e classe di laurea.
+
+### Indice borse e sostegni
+
+Il parametro borse è un indice comparativo, non una verifica di idoneità. Combina:
+
+- quota potenziale di beneficiari rispetto agli studenti;
+- copertura/qualità relativa degli interventi presenti nei dati aggregati;
+- alloggi assegnati, contributi alloggio e posti disponibili;
+- esoneri totali e parziali;
+- presenza del sistema regionale per il diritto allo studio;
+- componente collegata alla fascia ISEE;
+- proxy di sostegni legati al merito.
+
+Alcune categorie possono sovrapporsi e i dati non descrivono importi, requisiti o qualità individuale delle borse. Il punteggio è normalizzato rispetto agli altri atenei e limitato sotto 100 per evitare falsi punteggi pieni.
 
 ### Pendolarismo
 

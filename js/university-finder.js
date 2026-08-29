@@ -5,6 +5,7 @@
   const catalog = window.CourseCatalog;
   const finderData = window.UNIVERSITY_FINDER_DATA || {};
   const serviceData = window.STUDENT_SERVICE_DATA || {};
+  const qsSubjectData = window.QS_SUBJECT_RANKINGS || {};
   const universityData = window.UniversityData;
   if (!app || !catalog || !universityData) return;
 
@@ -55,6 +56,8 @@
     residenceEditing: true,
     iseeEditing: true,
     includeTelematic: false,
+    includeDistance: false,
+    target: null,
     allResults: [],
     results: [],
     launchSource: 'menu'
@@ -118,6 +121,8 @@
     state.residenceEditing = !(defaults.residenceRegion && defaults.residenceCity);
     state.iseeEditing = !defaults.iseeRange;
     state.includeTelematic = false;
+    state.includeDistance = false;
+    state.target = null;
     state.allResults = [];
     state.results = [];
     state.launchSource = options.source || 'menu';
@@ -281,7 +286,7 @@
         <p>Per pendolarismo intendiamo una percorrenza stimata entro 90 minuti usando treni regionali o regionali veloci, senza alta velocità.</p>
         ${optionCards('universityCommute', [
           { value: 'yes', label: 'Sì, posso fare il pendolare', hint: 'Considera solo regionali e regionali veloci entro 1 ora e 30 minuti. Nel punteggio vale quanto un trasferimento compatibile.' },
-          { value: 'no', label: 'No, preferisco evitare', hint: 'Mostra sedi nella mia città, corsi a distanza o opzioni compatibili con il trasferimento.' }
+          { value: 'no', label: 'No, preferisco evitare', hint: 'Mostra sedi nella mia città o opzioni compatibili con il trasferimento. I corsi a distanza restano esclusi salvo tua scelta nei risultati.' }
         ], state.answers.commute)}
         <p class="service-form-note">Restare nella città di residenza riceve un piccolo vantaggio. Fare il pendolare o trasferirsi, quando entrambe le opzioni sono compatibili con le tue risposte, hanno invece lo stesso peso geografico.</p>
       </fieldset>`;
@@ -293,7 +298,7 @@
         <legend>Se necessario, quanto lontano potresti trasferirti?</legend>
         <p>La risposta amplia o restringe l’area in cui cercare le università.</p>
         ${optionCards('universityRelocation', [
-          { value: 'none', label: 'Non voglio trasferirmi', hint: 'Restano soltanto sedi locali, pendolari compatibili e corsi a distanza.' },
+          { value: 'none', label: 'Non voglio trasferirmi', hint: 'Restano soltanto sedi locali o raggiungibili con regionali entro 90 minuti, se hai accettato il pendolarismo.' },
           { value: 'region', label: 'Nella mia regione', hint: 'Posso cambiare città, ma restando nella stessa regione.' },
           { value: 'neighbors', label: 'Anche in regioni confinanti', hint: 'Valuta la mia regione e quelle direttamente confinanti.' },
           { value: 'italy', label: 'In tutta Italia', hint: 'La distanza non deve escludere un’università molto adatta.' }
@@ -459,15 +464,174 @@
     return englishHits > italianHits && englishHits > 0 ? 'english' : 'italian';
   }
 
+  const COURSE_TOKEN_STOPWORDS = new Set([
+    'a', 'ad', 'al', 'alla', 'alle', 'con', 'da', 'dal', 'dalla', 'de', 'dei', 'del', 'della', 'delle',
+    'di', 'e', 'ed', 'for', 'in', 'il', 'la', 'le', 'lo', 'of', 'per', 'the', 'un', 'una', 'and',
+    'corso', 'laurea', 'scienze', 'science', 'studi', 'studies'
+  ]);
+
+  const MATCH_TIER_LABELS = {
+    exact: 'Corrispondenza esatta',
+    close: 'Corrispondenza molto vicina',
+    class: 'Stessa classe, focus diverso',
+    macro: 'Solo stessa macroarea',
+    group: 'Coerente con la macroarea scelta'
+  };
+
+  const REGIONAL_SUPPORT_AGENCIES = {
+    Abruzzo: 'ADSU territoriali',
+    Basilicata: 'ARDSU Basilicata',
+    Calabria: 'Enti regionali per il diritto allo studio',
+    Campania: 'ADISURC',
+    'Emilia-Romagna': 'ER.GO',
+    'Friuli-Venezia Giulia': 'ARDiS FVG',
+    Lazio: 'DiSCo Lazio',
+    Liguria: 'ALiSEO',
+    Lombardia: 'Diritto allo studio degli atenei lombardi',
+    Marche: 'ERDIS Marche',
+    Molise: 'ESU Molise',
+    Piemonte: 'EDISU Piemonte',
+    Puglia: 'ADISU Puglia',
+    Sardegna: 'ERSU territoriali',
+    Sicilia: 'ERSU territoriali',
+    Toscana: 'DSU Toscana',
+    'Trentino-Alto Adige/Südtirol': 'Opera Universitaria / enti provinciali',
+    Umbria: 'ADiSU Umbria',
+    "Valle d'Aosta": 'Regione Valle d’Aosta',
+    Veneto: 'ESU territoriali'
+  };
+
+  let supportBenchmarkCache = null;
+
+  function cleanCourseTitle(value) {
+    return normalize(String(value || '').replace(/\([^)]*\)/g, ' '));
+  }
+
+  function normalizedClassCode(value) {
+    return String(value || '').toUpperCase().replace(/\s+/g, '').replace(/[–—]/g, '-');
+  }
+
+  function titleTokens(value) {
+    return new Set(cleanCourseTitle(value).split(' ').filter((token) => token.length > 1 && !COURSE_TOKEN_STOPWORDS.has(token)));
+  }
+
+  function setSimilarity(left, right) {
+    if (!left.size || !right.size) return 0;
+    let intersection = 0;
+    left.forEach((token) => { if (right.has(token)) intersection += 1; });
+    return intersection / Math.max(left.size, right.size);
+  }
+
+  function isDistanceCourse(course) {
+    const delivery = normalize(course?.delivery);
+    return delivery.includes('distanza') || delivery.includes('online') || delivery.includes('telematic');
+  }
+
   function courseMatch(course, target) {
-    if (!course || course.group !== target.group) return 0;
-    if (target.type === 'group') return 88;
+    if (!course || course.group !== target.group) {
+      return { score: 0, tier: 'none', label: 'Non coerente', reason: 'Macroarea differente.', similarity: 0, classHit: false };
+    }
+
+    if (target.type === 'group') {
+      const matched = catalog.matchCourse(course);
+      const specificity = matched?.group === target.group ? 1 : 0;
+      const score = 68 + Math.min(6, specificity * 3 + Math.round(Math.log10(Math.max(1, Number(course.enrolled || 0))) * 0.8));
+      return {
+        score: clamp(score, 60, 74),
+        tier: 'group',
+        label: MATCH_TIER_LABELS.group,
+        reason: `Il corso appartiene alla macroarea ${target.group}; il punteggio varia in base alla specificità del titolo.`,
+        similarity: 0,
+        classHit: false
+      };
+    }
+
+    const profile = target.profile;
+    const title = cleanCourseTitle(course.name);
+    const canonical = cleanCourseTitle(profile.name);
+    const aliases = [profile.name, ...(profile.keywords || [])]
+      .map(cleanCourseTitle)
+      .filter(Boolean);
+    const titleTokenSet = titleTokens(course.name);
+    const canonicalTokens = titleTokens(profile.name);
+    const profileTokenSet = new Set(aliases.flatMap((alias) => Array.from(titleTokens(alias))));
+    const canonicalSimilarity = setSimilarity(titleTokenSet, canonicalTokens);
+    const profileSimilarity = setSimilarity(titleTokenSet, profileTokenSet);
+    const similarity = Math.max(canonicalSimilarity, profileSimilarity);
+    const exactCanonical = title === canonical;
+    const exactAlias = aliases.some((alias) => title === alias);
+    const containedAlias = aliases
+      .filter((alias) => alias.split(' ').length >= 2)
+      .sort((a, b) => b.length - a.length)
+      .find((alias) => title.includes(alias));
+    const courseClass = normalizedClassCode(course.classCode);
+    const classHit = (profile.classCodes || []).some((code) => {
+      const expected = normalizedClassCode(code);
+      return courseClass === expected || courseClass.startsWith(`${expected}/`) || courseClass.startsWith(`${expected}-`);
+    });
     const matched = catalog.matchCourse(course);
-    if (matched?.slug === target.profile.slug) return 100;
-    const normalizedName = normalize(course.name);
-    const keywordHits = (target.profile.keywords || []).filter((keyword) => normalizedName.includes(normalize(keyword))).length;
-    const classHit = (target.profile.classCodes || []).some((code) => String(course.classCode || '').toUpperCase().startsWith(String(code).toUpperCase()));
-    return clamp(67 + keywordHits * 5 + (classHit ? 8 : 0), 67, 92);
+    const catalogHit = matched?.slug === profile.slug;
+
+    const classRequired = Boolean(profile.classCodes?.length);
+    const classCompatible = !classRequired || classHit;
+
+    if ((exactCanonical || exactAlias) && classCompatible) {
+      return {
+        score: 100,
+        tier: 'exact',
+        label: MATCH_TIER_LABELS.exact,
+        reason: `Il titolo del corso coincide con “${profile.name}” o con una denominazione pienamente equivalente, nella classe di laurea attesa.`,
+        classHit,
+        similarity
+      };
+    }
+
+    if ((exactCanonical || exactAlias) && !classCompatible) {
+      return {
+        score: 90,
+        tier: 'close',
+        label: MATCH_TIER_LABELS.close,
+        reason: 'Il titolo coincide, ma la classe di laurea è diversa da quella normalmente associata al corso scelto.',
+        classHit,
+        similarity
+      };
+    }
+
+    if ((containedAlias && classHit) || (catalogHit && classHit && similarity >= 0.60)) {
+      const score = Math.round(clamp(90 + similarity * 5, 90, 95));
+      return {
+        score,
+        tier: 'close',
+        label: MATCH_TIER_LABELS.close,
+        reason: containedAlias
+          ? `Il titolo contiene “${containedAlias}”, ma aggiunge un focus o una specializzazione.`
+          : 'Titolo, parole chiave e classe di laurea sono molto vicini al corso desiderato.',
+        classHit,
+        similarity
+      };
+    }
+
+    if (classHit) {
+      const score = Math.round(clamp(75 + similarity * 16, 75, 89));
+      return {
+        score,
+        tier: 'class',
+        label: MATCH_TIER_LABELS.class,
+        reason: `La classe ${course.classCode || 'del corso'} è compatibile, ma il titolo indica un focus diverso.`,
+        classHit,
+        similarity
+      };
+    }
+
+    const score = Math.round(clamp(60 + similarity * 16, 60, 74));
+    return {
+      score,
+      tier: 'macro',
+      label: MATCH_TIER_LABELS.macro,
+      reason: `Il corso è nella stessa macroarea ${target.group}, ma classe e focus non coincidono.`,
+      classHit,
+      similarity
+    };
   }
 
   function coordinateFor(value, region = '') {
@@ -505,8 +669,9 @@
   }
 
   function geographyFit(university, course, answers) {
-    const isOnline = normalize(course.delivery).includes('distanza');
-    if (isOnline) return { allowed: true, score: 90, label: 'Corso a distanza: nessun trasferimento necessario', commute: null, online: true, sameCity: false, mode: 'online' };
+    if (isDistanceCourse(course)) {
+      return { allowed: true, score: 90, label: 'Corso a distanza: nessun trasferimento necessario', commute: null, online: true, sameCity: false, mode: 'online' };
+    }
 
     const residence = coordinateFor(answers.residenceCity, answers.residenceRegion);
     const destination = coordinateFor(course.city || university.city, university.region);
@@ -549,23 +714,9 @@
 
   function resultWeights(geography) {
     if (geography?.sameCity) {
-      return {
-        course: 0.30,
-        geography: 0.20,
-        ranking: 0.23,
-        cost: 0.18,
-        language: 0.04,
-        support: 0.05
-      };
+      return { course: 0.30, geography: 0.20, ranking: 0.23, cost: 0.18, language: 0.04, support: 0.05 };
     }
-    return {
-      course: 0.30,
-      geography: 0.18,
-      ranking: 0.25,
-      cost: 0.18,
-      language: 0.04,
-      support: 0.05
-    };
+    return { course: 0.30, geography: 0.18, ranking: 0.25, cost: 0.18, language: 0.04, support: 0.05 };
   }
 
   function costForCity(city, macroArea) {
@@ -586,62 +737,200 @@
     return university.isPublic ? 1600 : 6500;
   }
 
-  function supportScore(university) {
+  function supportRawMetrics(university) {
     const metrics = universityData.getMetrics(university.id);
     const students = Math.max(1, Number(metrics.students || 0));
-    const scholarships = Number(metrics.scholarshipsUniversityMur || 0);
-    const full = Number(metrics.fullExemptions || 0);
-    const partial = Number(metrics.partialExemptions || 0);
-    const housing = Number(metrics.housingAssigned || 0) + Number(metrics.housingContributions || 0);
-    const weightedRate = (scholarships * 1.4 + full * 1.2 + partial * 0.32 + housing * 0.45) / students;
-    return clamp(24 + Math.sqrt(Math.max(0, weightedRate)) * 210, 20, 100);
+    const scholarships = Math.max(0, Number(metrics.scholarshipsUniversityMur || 0));
+    const full = Math.max(0, Number(metrics.fullExemptions || 0));
+    const partial = Math.max(0, Number(metrics.partialExemptions || 0));
+    const housingAssigned = Math.max(0, Number(metrics.housingAssigned || 0));
+    const housingContributions = Math.max(0, Number(metrics.housingContributions || 0));
+    const housingPlaces = Math.max(0, Number(metrics.residencePlacesDirect || 0)) + Math.max(0, Number(metrics.residencePlacesPartner || 0));
+    const canteenPlaces = Math.max(0, Number(metrics.canteenPlaces || 0));
+    const beneficiaryProxy = Math.min(students, scholarships + full + partial + housingAssigned + housingContributions);
+    return {
+      students,
+      scholarships,
+      full,
+      partial,
+      housingAssigned,
+      housingContributions,
+      housingPlaces,
+      canteenPlaces,
+      beneficiaryRate: beneficiaryProxy / students * 100,
+      scholarshipRate: scholarships / students * 1000,
+      exemptionRate: (full + partial * 0.35) / students * 1000,
+      housingRate: (housingAssigned + housingContributions + housingPlaces * 0.35) / students * 1000,
+      qualityProxy: (scholarships * 1.15 + full * 1.35 + housingAssigned * 0.45 + housingContributions * 0.35) / students * 1000,
+      meritProxy: (scholarships * 0.75 + full * 0.35) / students * 1000
+    };
   }
 
-  function iseeSensitivity(value) {
+  function supportBenchmarks() {
+    if (supportBenchmarkCache) return supportBenchmarkCache;
+    const rows = app.getUniversities().map(supportRawMetrics);
+    const keys = ['beneficiaryRate', 'scholarshipRate', 'exemptionRate', 'housingRate', 'qualityProxy', 'meritProxy'];
+    supportBenchmarkCache = Object.fromEntries(keys.map((key) => [key, rows.map((row) => Number(row[key]) || 0).sort((a, b) => a - b)]));
+    return supportBenchmarkCache;
+  }
+
+  function comparativeScore(value, values, options = {}) {
+    const floor = options.floor ?? 16;
+    const ceiling = options.ceiling ?? 92;
+    const number = Number(value) || 0;
+    if (number <= 0 || !values.length) return floor;
+    const lowerOrEqual = values.filter((entry) => entry <= number).length;
+    const percentile = lowerOrEqual / values.length;
+    return clamp(floor + percentile * (ceiling - floor), floor, ceiling);
+  }
+
+  function supportScore(university, answers) {
+    const raw = supportRawMetrics(university);
+    const benchmarks = supportBenchmarks();
+    const beneficiary = comparativeScore(raw.beneficiaryRate, benchmarks.beneficiaryRate, { floor: 18, ceiling: 92 });
+    const quality = comparativeScore(raw.qualityProxy, benchmarks.qualityProxy, { floor: 16, ceiling: 90 });
+    const housing = comparativeScore(raw.housingRate, benchmarks.housingRate, { floor: 12, ceiling: 90 });
+    const exemptions = comparativeScore(raw.exemptionRate, benchmarks.exemptionRate, { floor: 14, ceiling: 91 });
+    const regional = REGIONAL_SUPPORT_AGENCIES[university.region] ? 72 : 48;
+    const lowIsee = ['0-13000', '13000-18000', '18000-22000', '22000-26000', '26000-limit'].includes(answers.iseeRange);
+    const isee = lowIsee
+      ? clamp(exemptions * 0.58 + beneficiary * 0.28 + regional * 0.14, 15, 91)
+      : clamp(quality * 0.40 + beneficiary * 0.20 + 42, 15, 86);
+    const meritBase = comparativeScore(raw.meritProxy, benchmarks.meritProxy, { floor: 15, ceiling: 88 });
+    const merit = answers.iseeRange === 'over-limit' ? clamp(meritBase + 4, 15, 90) : meritBase;
+    const score = clamp(
+      beneficiary * 0.30 +
+      quality * 0.20 +
+      housing * 0.15 +
+      exemptions * 0.15 +
+      regional * 0.10 +
+      isee * 0.05 +
+      merit * 0.05,
+      12,
+      93
+    );
+
     return {
-      '0-13000': 1.35,
-      '13000-18000': 1.22,
-      '18000-22000': 1.08,
-      '22000-26000': 0.94,
-      '26000-limit': 0.84,
-      'over-limit': 0.68,
-      unknown: 0.92
-    }[value] || 0.92;
+      score,
+      agency: REGIONAL_SUPPORT_AGENCIES[university.region] || 'Ente territoriale da verificare',
+      raw,
+      breakdown: { beneficiary, quality, housing, exemptions, regional, isee, merit },
+      note: 'Indice comparativo su dati aggregati: non misura l’idoneità personale e alcune categorie possono sovrapporsi.'
+    };
+  }
+
+  function iseeBudget(value) {
+    return {
+      '0-13000': 10500,
+      '13000-18000': 13000,
+      '18000-22000': 15000,
+      '22000-26000': 17500,
+      '26000-limit': 20500,
+      'over-limit': 28000,
+      unknown: 16500
+    }[value] || 16500;
   }
 
   function affordability(university, course, answers, support) {
     const tuition = tuitionFor(university);
     const cityCost = costForCity(course.city || university.city, university.macroArea);
-    const online = normalize(course.delivery).includes('distanza');
+    const online = isDistanceCourse(course);
     const livingAnnual = online ? 1200 : cityCost.monthly * 10;
     const annual = tuition + livingAnnual;
-    const sensitivity = iseeSensitivity(answers.iseeRange);
-    const raw = 101 - ((annual - 5000) / 23000) * 74 - (sensitivity - 0.8) * 22;
-    const scholarshipOffset = support * Math.max(0, sensitivity - 0.75) * 0.2;
+    const budget = iseeBudget(answers.iseeRange);
+    const ratio = annual / Math.max(1, budget);
+    const base = 100 - Math.max(0, ratio - 0.45) * 42 - Math.max(0, ratio - 1) * 28;
+    const lowIsee = ['0-13000', '13000-18000', '18000-22000'].includes(answers.iseeRange);
+    const aidOffset = lowIsee ? support.score * 0.065 : support.score * 0.025;
     return {
-      score: clamp(raw + scholarshipOffset, 8, 100),
+      score: clamp(base + aidOffset, 12, 100),
       tuition,
       cityCost,
       annual,
+      budget,
+      ratio,
       online,
-      needsAid: sensitivity >= 1.08 && (annual > 13500 || cityCost.tier === 'molto alto' || tuition > 4500),
-      support
+      needsAid: lowIsee && (annual > budget * 0.88 || cityCost.tier === 'molto alto' || tuition > 4500),
+      support: support.score
     };
   }
 
-  function rankingFit(university, group) {
-    const stats = universityData.getGroupStats(university.id, group);
-    const qsRank = Number(university.qsRankValue);
-    let qsScore = null;
-    if (Number.isFinite(qsRank) && qsRank > 0) {
-      if (qsRank <= 100) qsScore = 100 - qsRank * 0.24;
-      else if (qsRank <= 500) qsScore = 76 - (qsRank - 100) * 0.085;
-      else qsScore = 42 - (qsRank - 500) * 0.025;
-      qsScore = clamp(qsScore, 12, 98);
+  function rankMidpoint(record) {
+    if (Number(record?.rank) > 0) return Number(record.rank);
+    if (Array.isArray(record?.band) && record.band.length === 2) return (Number(record.band[0]) + Number(record.band[1])) / 2;
+    return null;
+  }
+
+  function rankLabel(record) {
+    if (Number(record?.rank) > 0) return `#${Number(record.rank)}`;
+    if (Array.isArray(record?.band) && record.band.length === 2) return `${record.band[0]}–${record.band[1]}`;
+    return 'n.d.';
+  }
+
+  function rankToScore(record) {
+    if (Number(record?.score) > 0) return clamp(Number(record.score), 20, 99);
+    const rank = rankMidpoint(record);
+    if (!Number.isFinite(rank)) return null;
+    if (rank <= 10) return clamp(96 - (rank - 1) * 0.75, 20, 99);
+    if (rank <= 50) return clamp(89.25 - (rank - 10) * 0.34, 20, 99);
+    if (rank <= 100) return clamp(75.65 - (rank - 50) * 0.22, 20, 99);
+    if (rank <= 200) return clamp(64.65 - (rank - 100) * 0.16, 20, 99);
+    if (rank <= 500) return clamp(48.65 - (rank - 200) * 0.085, 20, 99);
+    return clamp(23.15 - (rank - 500) * 0.02, 12, 99);
+  }
+
+  function subjectSelections(target) {
+    if (target.type === 'course' && target.profile?.slug) {
+      return qsSubjectData.courseSubjects?.[target.profile.slug] || qsSubjectData.groupSubjects?.[target.group] || [];
     }
-    const subjectScore = stats ? clamp(Number(stats.index || 0), 5, 100) : null;
-    const score = subjectScore != null && qsScore != null ? subjectScore * 0.62 + qsScore * 0.38 : subjectScore ?? qsScore ?? 28;
-    return { score, stats, qsRank: Number.isFinite(qsRank) && qsRank > 0 ? qsRank : null };
+    return qsSubjectData.groupSubjects?.[target.group] || [];
+  }
+
+  function rankingFit(university, target) {
+    const selections = subjectSelections(target);
+    const details = selections
+      .map((selection) => {
+        const record = qsSubjectData.rankings?.[selection.subject]?.[university.id];
+        const score = rankToScore(record);
+        if (!record || score == null) return null;
+        const meta = qsSubjectData.subjects?.[selection.subject] || { label: selection.subject, url: '' };
+        return {
+          subject: selection.subject,
+          label: meta.label,
+          url: meta.url,
+          rank: rankLabel(record),
+          score,
+          weight: Number(selection.weight) || 1,
+          explicitScore: Number(record.score) || null
+        };
+      })
+      .filter(Boolean);
+
+    if (details.length) {
+      const weightSum = details.reduce((sum, entry) => sum + entry.weight, 0) || 1;
+      const score = details.reduce((sum, entry) => sum + entry.score * entry.weight, 0) / weightSum;
+      return {
+        score: clamp(score, 12, 99),
+        source: 'qs-subject',
+        official: true,
+        year: qsSubjectData.year || 2026,
+        details,
+        stats: universityData.getGroupStats(university.id, target.group),
+        note: 'Punteggio ricavato dal QS World University Rankings by Subject; se più materie sono pertinenti, vengono mediate con pesi dichiarati.'
+      };
+    }
+
+    const stats = universityData.getGroupStats(university.id, target.group);
+    const fallbackScore = stats ? clamp(28 + Number(stats.index || 0) * 0.34, 26, 62) : 26;
+    return {
+      score: fallbackScore,
+      source: 'internal-fallback',
+      official: false,
+      year: qsSubjectData.year || 2026,
+      details: [],
+      stats,
+      note: 'QS per materia non disponibile nel dataset locale: viene usato l’indice disciplinare interno del prototipo, non un ranking QS.'
+    };
   }
 
   function languageFit(course, preference) {
@@ -655,17 +944,21 @@
     };
   }
 
-  function rankCandidates(target, answers) {
+  function rankCandidates(target, answers, options = {}) {
+    const includeDistance = Boolean(options.includeDistance);
+    const includeTelematic = Boolean(options.includeTelematic);
     const candidates = [];
+
     app.getUniversities().forEach((university) => {
       const relevant = app.getUniversityCourses(university.id)
         .filter((course) => degreeMatches(course, answers.degree))
+        .filter((course) => includeDistance || !isDistanceCourse(course) || (includeTelematic && university.category === 'Telematica'))
         .map((course) => ({ course, match: courseMatch(course, target) }))
-        .filter((entry) => entry.match >= 67);
+        .filter((entry) => entry.match.score >= 60);
 
       if (!relevant.length) return;
-      const support = supportScore(university);
-      const ranking = rankingFit(university, target.group);
+      const support = supportScore(university, answers);
+      const ranking = rankingFit(university, target);
 
       const evaluated = relevant
         .map((entry) => {
@@ -674,13 +967,15 @@
           const cost = affordability(university, entry.course, answers, support);
           const language = languageFit(entry.course, answers.language);
           const weights = resultWeights(geography);
-          const totalRaw =
-            entry.match * weights.course +
-            geography.score * weights.geography +
-            ranking.score * weights.ranking +
-            cost.score * weights.cost +
-            language.score * weights.language +
-            support * weights.support;
+          const contributions = {
+            course: entry.match.score * weights.course,
+            geography: geography.score * weights.geography,
+            ranking: ranking.score * weights.ranking,
+            cost: cost.score * weights.cost,
+            language: language.score * weights.language,
+            support: support.score * weights.support
+          };
+          const totalRaw = Object.values(contributions).reduce((sum, value) => sum + value, 0);
 
           return {
             university,
@@ -692,6 +987,7 @@
             language,
             support,
             weights,
+            contributions,
             totalRaw,
             total: Math.round(totalRaw),
             target
@@ -700,7 +996,7 @@
         .filter(Boolean)
         .sort((a, b) =>
           b.totalRaw - a.totalRaw ||
-          b.courseMatch - a.courseMatch ||
+          b.courseMatch.score - a.courseMatch.score ||
           Number(b.geography.sameCity) - Number(a.geography.sameCity) ||
           Number(b.course.enrolled || 0) - Number(a.course.enrolled || 0) ||
           String(a.course.name || '').localeCompare(String(b.course.name || ''), 'it')
@@ -711,23 +1007,33 @@
 
     return candidates.sort((a, b) =>
       b.totalRaw - a.totalRaw ||
-      b.courseMatch - a.courseMatch ||
+      b.courseMatch.score - a.courseMatch.score ||
       a.university.name.localeCompare(b.university.name, 'it')
     );
   }
 
-  function visibleUniversityResults() {
-    const pool = state.includeTelematic
+  function filteredUniversityResults() {
+    return state.includeTelematic
       ? state.allResults
       : state.allResults.filter((item) => item.university.category !== 'Telematica');
-    return pool.slice(0, 5);
+  }
+
+  function visibleUniversityResults() {
+    return filteredUniversityResults().slice(0, 5);
   }
 
   function rankingText(item) {
-    const parts = [];
-    if (item.ranking.qsRank) parts.push(`QS generale #${item.university.qsRank}`);
-    if (item.ranking.stats) parts.push(`area ${item.target.group}: #${item.ranking.stats.rank} su ${item.ranking.stats.rankedUniversities}`);
-    return parts.length ? parts.join(' · ') : 'Ranking disciplinare non collegato';
+    if (item.ranking.official && item.ranking.details.length) {
+      return `QS by Subject ${item.ranking.year}: ${item.ranking.details.map((detail) => `${detail.label} ${detail.rank}`).join(' · ')}`;
+    }
+    if (item.ranking.stats) return `Fallback area ${item.target.group}: #${item.ranking.stats.rank} su ${item.ranking.stats.rankedUniversities}`;
+    return 'Ranking disciplinare non disponibile';
+  }
+
+  function rankingSourceText(item) {
+    return item.ranking.official
+      ? 'Dati QS per materia collegati al corso scelto'
+      : 'Fallback interno: non è una posizione QS';
   }
 
   function courseLink(item) {
@@ -753,15 +1059,70 @@
     return `area-studente.html?${params.toString()}`;
   }
 
+  function scoreRows(item) {
+    return [
+      { key: 'course', label: 'Compatibilità del corso', score: item.courseMatch.score },
+      { key: 'geography', label: 'Compatibilità geografica', score: item.geography.score },
+      { key: 'ranking', label: 'Ranking per materia', score: item.ranking.score },
+      { key: 'cost', label: 'Sostenibilità economica', score: item.cost.score },
+      { key: 'language', label: 'Lingua', score: item.language.score },
+      { key: 'support', label: 'Borse e sostegni', score: item.support.score }
+    ];
+  }
+
+  function calculationDetails(item) {
+    const rankingLinks = item.ranking.official
+      ? `<ul class="university-ranking-source-list">${item.ranking.details.map((detail) => `<li><a href="${escapeHtml(detail.url)}" target="_blank" rel="noreferrer">${escapeHtml(detail.label)} ${escapeHtml(detail.rank)}</a><span>punteggio ${detail.score.toFixed(1)} · peso relativo ${Math.round(detail.weight * 100)}%</span></li>`).join('')}</ul>`
+      : `<p class="university-calculation-note">${escapeHtml(item.ranking.note)}</p>`;
+    const support = item.support.breakdown;
+    const supportItems = [
+      ['Beneficiari', support.beneficiary],
+      ['Qualità/copertura', support.quality],
+      ['Alloggi', support.housing],
+      ['Esoneri', support.exemptions],
+      ['Sistema regionale', support.regional],
+      ['Sostegno ISEE', support.isee],
+      ['Merito', support.merit]
+    ];
+
+    return `
+      <details class="university-calculation-details">
+        <summary>Vedi il calcolo completo</summary>
+        <div class="university-calculation-body">
+          <div class="university-score-table" role="table" aria-label="Calcolo del punteggio">
+            <div class="university-score-row is-header" role="row"><span>Parametro</span><span>Punteggio</span><span>Peso</span><span>Contributo</span></div>
+            ${scoreRows(item).map((row) => `<div class="university-score-row" role="row"><strong>${escapeHtml(row.label)}</strong><span>${row.score.toFixed(1)}</span><span>${Math.round(item.weights[row.key] * 100)}%</span><span>${item.contributions[row.key].toFixed(2)}</span></div>`).join('')}
+            <div class="university-score-row is-total" role="row"><strong>Totale</strong><span></span><span>100%</span><span>${item.totalRaw.toFixed(2)}</span></div>
+          </div>
+
+          <section class="university-calculation-section">
+            <h4>Corrispondenza del corso</h4>
+            <p><strong>${escapeHtml(item.courseMatch.label)} · ${item.courseMatch.score}/100.</strong> ${escapeHtml(item.courseMatch.reason)}</p>
+          </section>
+
+          <section class="university-calculation-section">
+            <h4>Ranking</h4>
+            <p>${escapeHtml(item.ranking.note)}</p>
+            ${rankingLinks}
+          </section>
+
+          <section class="university-calculation-section">
+            <h4>Borse e sostegni · ${item.support.score.toFixed(1)}/100</h4>
+            <div class="university-support-breakdown">${supportItems.map(([label, score]) => `<span><strong>${escapeHtml(label)}</strong><small>${score.toFixed(1)}</small></span>`).join('')}</div>
+            <p class="university-calculation-note">Ente regionale di riferimento: ${escapeHtml(item.support.agency)}. ${escapeHtml(item.support.note)}</p>
+          </section>
+        </div>
+      </details>`;
+  }
+
   function universityResultCard(item, index) {
     const costWarning = item.cost.needsAid ? `
       <div class="university-aid-warning">
         <strong>Questa opzione può restare valida, ma il costo è impegnativo per la fascia ISEE indicata.</strong>
-        <p>La presenza di borse ed esoneri ha attenuato la penalizzazione. Verifica subito requisiti e scadenze sul canale ufficiale.</p>
+        <p>La presenza relativa di borse ed esoneri attenua la penalizzazione, senza garantire l’idoneità. Verifica requisiti e scadenze sul canale ufficiale.</p>
         <a href="${escapeHtml(scholarshipLink(item))}" target="_blank" rel="noreferrer">Apri la pagina ufficiale delle borse</a>
       </div>` : '';
 
-    const courseMatchLabel = item.courseMatch >= 96 ? 'Corso molto coerente' : 'Percorso affine nella stessa area';
     const costCity = item.cost.online ? 'corso a distanza' : `${formatCurrency(item.cost.cityCost.monthly)}/mese stimati`;
     const commutePrecision = item.geography.commute?.precision === 'region' ? ' · stima basata sul centro regionale' : '';
     const geographyDetail = item.geography.mode === 'commute'
@@ -769,7 +1130,7 @@
       : item.geography.sameCity
         ? 'La sede nella città di residenza riceve un piccolo vantaggio'
         : item.geography.online
-          ? 'Corso a distanza: pendolarismo e trasferimento non sono necessari'
+          ? 'Corso a distanza incluso su richiesta'
           : 'Pendolarismo compatibile e trasferimento hanno lo stesso peso geografico';
 
     return `
@@ -777,25 +1138,26 @@
         <div class="university-match-rank"><span>${String(index + 1).padStart(2, '0')}</span><strong>${item.total}%</strong><small>affinità</small></div>
         <div class="university-match-content">
           <div class="university-match-heading">
-            <div><span class="course-result-group">${escapeHtml(courseMatchLabel)}</span><h3>${escapeHtml(item.university.name)}</h3><p>${escapeHtml(item.course.name)} · ${escapeHtml(item.course.city || item.university.city)}</p></div>
+            <div><span class="course-result-group">${escapeHtml(item.courseMatch.label)}</span><h3>${escapeHtml(item.university.name)}</h3><p>${escapeHtml(item.course.name)} · ${escapeHtml(item.course.city || item.university.city)}${item.cost.online ? ' · a distanza' : ''}</p></div>
             <span class="university-type-chip">${escapeHtml(item.university.category === 'Scuola superiore' ? 'Istituto superiore' : item.university.category)}</span>
           </div>
 
           <div class="university-match-metrics">
-            <article><span>Ranking</span><strong>${escapeHtml(rankingText(item))}</strong><small>QS per materia non collegato: fallback dichiarato</small></article>
+            <article><span>Ranking</span><strong>${escapeHtml(rankingText(item))}</strong><small>${escapeHtml(rankingSourceText(item))}</small></article>
             <article><span>Geografia</span><strong>${escapeHtml(item.geography.label)}</strong><small>${escapeHtml(geographyDetail)}</small></article>
-            <article><span>Costo orientativo</span><strong>${escapeHtml(costCity)} · retta media ${escapeHtml(formatCurrency(item.cost.tuition))}/anno</strong><small>Stima comparativa, non preventivo personale</small></article>
+            <article><span>Costo orientativo</span><strong>${escapeHtml(costCity)} · retta media ${escapeHtml(formatCurrency(item.cost.tuition))}/anno</strong><small>Totale annuo stimato ${escapeHtml(formatCurrency(item.cost.annual))}; non è un preventivo personale</small></article>
             <article><span>Lingua</span><strong>${escapeHtml(item.language.label)}</strong><small>Da confermare nella scheda ufficiale</small></article>
           </div>
 
           <ul class="university-match-reasons">
-            <li>Compatibilità del corso: <strong>${item.courseMatch}%</strong>.</li>
-            <li>Peso ranking applicato: <strong>${Math.round(item.weights.ranking * 100)}%</strong>.</li>
-            <li>Indice di sostenibilità economica orientativa: <strong>${Math.round(item.cost.score)}%</strong>.</li>
-            <li>Presenza relativa di borse, esoneri o sostegni nel dataset: <strong>${Math.round(item.support)}%</strong>.</li>
+            <li>Corso: <strong>${item.courseMatch.score}%</strong> · ${escapeHtml(item.courseMatch.label.toLowerCase())}.</li>
+            <li>Ranking per materia: <strong>${item.ranking.score.toFixed(1)}%</strong>.</li>
+            <li>Sostenibilità: <strong>${item.cost.score.toFixed(1)}%</strong>.</li>
+            <li>Borse e sostegni: <strong>${item.support.score.toFixed(1)}%</strong>.</li>
           </ul>
 
           ${costWarning}
+          ${calculationDetails(item)}
 
           <div class="university-match-actions">
             <a class="button button-primary" href="${escapeHtml(courseLink(item))}" target="_blank" rel="noreferrer">Apri il corso ufficiale</a>
@@ -804,6 +1166,25 @@
           </div>
         </div>
       </article>`;
+  }
+
+  function extendedRankingMarkup() {
+    const extended = filteredUniversityResults().slice(0, 30);
+    if (extended.length <= 5) return '';
+    return `
+      <details class="university-extended-ranking">
+        <summary>Mostra la classifica sintetica fino a 30 università</summary>
+        <div class="university-extended-list">
+          ${extended.map((item, index) => `
+            <article class="university-extended-row">
+              <span class="university-extended-position">${index + 1}</span>
+              <div><strong>${escapeHtml(item.university.name)}</strong><small>${escapeHtml(item.course.name)} · ${escapeHtml(item.course.city || item.university.city)}</small></div>
+              <span class="university-extended-match">${escapeHtml(item.courseMatch.label)} · ${item.courseMatch.score}</span>
+              <span class="university-extended-ranking-copy">${escapeHtml(item.ranking.official ? item.ranking.details.map((detail) => `${detail.label} ${detail.rank}`).join(' · ') : 'fallback interno')}</span>
+              <strong class="university-extended-score">${item.total}%</strong>
+            </article>`).join('')}
+        </div>
+      </details>`;
   }
 
   function renderUniversityResults(target, options = {}) {
@@ -815,20 +1196,29 @@
 
     const results = visibleUniversityResults();
     state.results = results;
-
+    const filtered = filteredUniversityResults();
     const courseLabel = target.type === 'course' ? `corso ${target.label}` : `area ${target.label}`;
+
     $('#universityResultSummary').innerHTML = `
       <span class="eyebrow">Risultato personalizzato</span>
       <h2>Le università più adatte al tuo profilo.</h2>
       <p>Classifica per ${escapeHtml(courseLabel)}, ${escapeHtml(DEGREE_LABELS[state.answers.degree] || '')}, residenza a ${escapeHtml(state.answers.residenceCity)} e preferenze economiche e geografiche indicate.</p>
-      <div class="result-method-note"><strong>${results.length} opzioni mostrate</strong><span>Corso 30% · geografia 18% · ranking 25% · sostenibilità 18% · lingua 4% · borse 5%. Per una sede nella tua città: geografia 20% e ranking 23%.</span></div>
+      <div class="result-method-note"><strong>${results.length} opzioni principali</strong><span>Corso 30% · geografia 18% · ranking QS per materia 25% · sostenibilità 18% · lingua 4% · borse 5%. Nella città di residenza: geografia 20% e ranking 23%.</span></div>
       <div class="university-result-controls">
         <label class="university-telematic-toggle" for="includeTelematicResults">
           <input id="includeTelematicResults" type="checkbox"${state.includeTelematic ? ' checked' : ''}>
           <span class="university-toggle-control" aria-hidden="true"><span></span></span>
           <span class="university-toggle-copy">
             <strong>Considera anche le università telematiche</strong>
-            <small>${state.includeTelematic ? 'Attivato. Gli atenei telematici partecipano alla stessa classifica in base al punteggio.' : 'Disattivato di default. Attivandolo, gli atenei telematici entrano nella stessa classifica in base al punteggio.'}</small>
+            <small>${state.includeTelematic ? 'Attivato. Gli atenei telematici e i loro corsi online partecipano alla classifica.' : 'Disattivato di default.'}</small>
+          </span>
+        </label>
+        <label class="university-telematic-toggle" for="includeDistanceResults">
+          <input id="includeDistanceResults" type="checkbox"${state.includeDistance ? ' checked' : ''}>
+          <span class="university-toggle-control" aria-hidden="true"><span></span></span>
+          <span class="university-toggle-copy">
+            <strong>Considera anche i corsi a distanza</strong>
+            <small>${state.includeDistance ? 'Attivato. Possono essere scelti corsi online offerti anche da atenei tradizionali.' : 'Disattivato di default, separatamente dal filtro sugli atenei telematici.'}</small>
           </span>
         </label>
       </div>`;
@@ -843,14 +1233,22 @@
           <p>${telematicOnly ? 'Attiva l’opzione qui sopra per includerle nella classifica.' : 'Torna indietro e prova a consentire il trasferimento in regioni confinanti o in tutta Italia.'}</p>
         </div>`;
     } else {
-      list.innerHTML = results.map(universityResultCard).join('');
+      list.innerHTML = results.map(universityResultCard).join('') + extendedRankingMarkup();
     }
 
     $('#includeTelematicResults')?.addEventListener('change', (event) => {
       state.includeTelematic = Boolean(event.currentTarget.checked);
+      state.allResults = rankCandidates(target, state.answers, { includeDistance: state.includeDistance, includeTelematic: state.includeTelematic });
       renderUniversityResults(target, { preserveScroll: true });
     });
 
+    $('#includeDistanceResults')?.addEventListener('change', (event) => {
+      state.includeDistance = Boolean(event.currentTarget.checked);
+      state.allResults = rankCandidates(target, state.answers, { includeDistance: state.includeDistance, includeTelematic: state.includeTelematic });
+      renderUniversityResults(target, { preserveScroll: true });
+    });
+
+    if (!filtered.length && !results.length) state.results = [];
     if (!options.preserveScroll) resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -874,7 +1272,9 @@
     });
 
     state.includeTelematic = false;
-    state.allResults = rankCandidates(target, state.answers);
+    state.includeDistance = false;
+    state.target = target;
+    state.allResults = rankCandidates(target, state.answers, { includeDistance: false, includeTelematic: false });
     state.results = visibleUniversityResults();
     renderUniversityResults(target);
   }

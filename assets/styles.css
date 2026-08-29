@@ -6004,3 +6004,282 @@ main {
   margin-top: 7px;
   box-shadow: 0 12px 30px rgba(31, 39, 72, 0.12);
 }
+
+/* Versione 7: QS per materia, calcolo trasparente e classifica estesa */
+.university-result-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 980px;
+  gap: 10px;
+}
+
+.university-result-controls .university-telematic-toggle {
+  max-width: none;
+}
+
+.university-calculation-details,
+.university-extended-ranking {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: rgba(249, 249, 253, 0.9);
+}
+
+.university-calculation-details > summary,
+.university-extended-ranking > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 46px;
+  padding: 12px 15px;
+  color: var(--primary-dark);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 850;
+  list-style: none;
+}
+
+.university-calculation-details > summary::-webkit-details-marker,
+.university-extended-ranking > summary::-webkit-details-marker {
+  display: none;
+}
+
+.university-calculation-details > summary::after,
+.university-extended-ranking > summary::after {
+  content: '+';
+  display: grid;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  place-items: center;
+  transition: transform 160ms ease;
+}
+
+.university-calculation-details[open] > summary::after,
+.university-extended-ranking[open] > summary::after {
+  transform: rotate(45deg);
+}
+
+.university-calculation-body {
+  display: grid;
+  padding: 0 15px 16px;
+  gap: 14px;
+}
+
+.university-score-table {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.university-score-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.5fr) repeat(3, minmax(62px, 0.5fr));
+  align-items: center;
+  min-height: 37px;
+  padding: 7px 11px;
+  border-top: 1px solid var(--line);
+  gap: 8px;
+  font-size: 9px;
+}
+
+.university-score-row:first-child {
+  border-top: 0;
+}
+
+.university-score-row.is-header {
+  color: var(--ink-faint);
+  background: var(--surface-soft);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.university-score-row.is-total {
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  font-weight: 900;
+}
+
+.university-calculation-section {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.university-calculation-section h4 {
+  margin: 0 0 5px;
+  font-size: 10px;
+}
+
+.university-calculation-section p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.university-ranking-source-list {
+  display: grid;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  gap: 7px;
+}
+
+.university-ranking-source-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--surface-soft);
+  gap: 10px;
+}
+
+.university-ranking-source-list a {
+  color: var(--primary-dark);
+  font-size: 9px;
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.university-ranking-source-list span {
+  color: var(--ink-faint);
+  font-size: 8px;
+  text-align: right;
+}
+
+.university-support-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 10px 0;
+  gap: 6px;
+}
+
+.university-support-breakdown span {
+  display: grid;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--surface-soft);
+  gap: 3px;
+}
+
+.university-support-breakdown strong {
+  font-size: 8px;
+}
+
+.university-support-breakdown small {
+  color: var(--primary-dark);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.university-calculation-note {
+  color: var(--ink-faint) !important;
+  font-size: 8px !important;
+}
+
+.university-extended-ranking {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 34px rgba(25, 31, 54, 0.04);
+}
+
+.university-extended-list {
+  display: grid;
+  padding: 0 14px 14px;
+  gap: 5px;
+}
+
+.university-extended-row {
+  display: grid;
+  grid-template-columns: 34px minmax(220px, 1.2fr) minmax(160px, 0.7fr) minmax(210px, 1fr) 52px;
+  align-items: center;
+  min-height: 54px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  gap: 10px;
+}
+
+.university-extended-position {
+  color: var(--ink-faint);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.university-extended-row > div {
+  display: grid;
+  gap: 2px;
+}
+
+.university-extended-row > div strong {
+  font-size: 10px;
+}
+
+.university-extended-row > div small,
+.university-extended-match,
+.university-extended-ranking-copy {
+  color: var(--ink-faint);
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+.university-extended-score {
+  color: var(--primary-dark);
+  font-size: 13px;
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .university-result-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .university-support-breakdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .university-extended-row {
+    grid-template-columns: 30px minmax(0, 1fr) 48px;
+  }
+
+  .university-extended-match,
+  .university-extended-ranking-copy {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .university-score-table {
+    overflow-x: auto;
+  }
+
+  .university-score-row {
+    min-width: 520px;
+  }
+
+  .university-ranking-source-list li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .university-ranking-source-list span {
+    text-align: left;
+  }
+
+  .university-support-breakdown {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .university-extended-row {
+    grid-template-columns: 24px minmax(0, 1fr) 46px;
+    padding: 9px 7px;
+  }
+}

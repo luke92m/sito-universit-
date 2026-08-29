@@ -1,4 +1,4 @@
-# NOME SITO — prototipo universitario v6
+# NOME SITO — prototipo universitario v7
 
 Progetto multi-pagina in HTML, CSS e JavaScript, con funzioni serverless per Vercel. Non usa framework front-end né dipendenze esterne.
 
@@ -13,6 +13,40 @@ python -m http.server 8000
 Poi apri `http://localhost:8000`.
 
 Le pagine statiche, il login dimostrativo e i selettori funzionano anche in locale. Le funzioni automatiche contenute nella cartella `api/` — sincronizzazione delle scadenze e risoluzione della pagina ufficiale del corso — richiedono il deploy su Vercel oppure un ambiente compatibile con funzioni serverless.
+
+## Novità della versione 7
+
+### Ranking QS per materia
+
+Il test **Trova la mia università** usa ora una base locale di posizioni **QS World University Rankings by Subject 2026**, associando ogni corso generale alle materie QS più pertinenti. Per esempio, Economia aziendale combina principalmente *Business & Management Studies* e *Accounting & Finance*. Un ateneo specializzato che non compare nel ranking generale, come Bocconi, può quindi ricevere il punteggio accademico derivante dalle classifiche per materia.
+
+Il file `js/qs-subject-rankings-2026.js` contiene materie, pesi, posizioni o fasce e collegamenti alle pagine QS. La copertura è curata ma non completa per tutti i 99 atenei e tutte le materie. Quando manca un dato QS by Subject, viene mostrato un fallback disciplinare interno con un punteggio più prudente; il sito non lo presenta come dato QS.
+
+### Corsi a distanza esclusi per impostazione predefinita
+
+Oltre agli atenei telematici, anche i singoli corsi indicati come `a distanza` sono esclusi dalla graduatoria iniziale. Due interruttori separati permettono di includere:
+
+- gli atenei telematici e i loro corsi online;
+- i corsi a distanza offerti da atenei tradizionali.
+
+### Corrispondenza più precisa del corso
+
+Il confronto tra corso desiderato e corso effettivamente offerto usa quattro livelli:
+
+- corrispondenza esatta: **100 punti**;
+- corrispondenza molto vicina: **90–95 punti**;
+- stessa classe di laurea ma focus diverso: **75–89 punti**;
+- sola appartenenza alla stessa macroarea: **60–74 punti**.
+
+Il punteggio considera titolo, denominazioni equivalenti, parole chiave e classe di laurea. Lo stesso corso generale può quindi ricevere valori diversi in atenei diversi.
+
+### Borse e sostegni più selettivi
+
+Il parametro borse non raggiunge più facilmente 100. L’indice, sempre comparativo e non personale, combina percentuale potenziale di beneficiari, copertura/qualità relativa degli interventi, alloggi, esoneri, sistema regionale, componente legata all’ISEE e sostegni di merito. Il massimo tecnico è limitato e la scheda completa mostra ogni sottopunteggio.
+
+### Calcolo completo e classifica fino a 30 università
+
+Le prime cinque università restano la visualizzazione predefinita. Ogni scheda contiene però il comando **Vedi il calcolo completo**, con punteggio, peso e contributo di ogni parametro, fonti QS e dettaglio dell’indice borse. In fondo è disponibile, chiusa per impostazione predefinita, una classifica sintetica fino alle prime 30 università.
 
 ## Novità della versione 6
 
@@ -59,7 +93,7 @@ Il questionario universitario considera:
 - fascia ISEE, con riuso e conferma quando già disponibile;
 - preferenza per corsi in italiano o inglese.
 
-Il risultato mostra al massimo cinque atenei in ordine decrescente di affinità. Le università telematiche sono escluse per impostazione predefinita e possono essere incluse con un interruttore presente sopra la graduatoria. Il punteggio usa: compatibilità del corso 30%, compatibilità geografica 18%, ranking 25%, sostenibilità economica 18%, lingua 4% e borse/sostegni 5%. Quando la sede è nella città di residenza, la geografia passa al 20% e il ranking al 23%, producendo un vantaggio locale lieve. Un pendolarismo regionale entro 90 minuti e un trasferimento compatibile hanno lo stesso valore geografico. Ogni scheda collega alla pagina ufficiale del corso e alla pagina ufficiale o regionale più pertinente per le borse di studio.
+Il risultato mostra per impostazione predefinita cinque atenei in ordine decrescente di affinità, con una classifica sintetica opzionale fino a 30. Le università telematiche e i corsi a distanza sono esclusi per impostazione predefinita e possono essere inclusi con due interruttori distinti sopra la graduatoria. Il punteggio usa: compatibilità del corso 30%, compatibilità geografica 18%, ranking 25%, sostenibilità economica 18%, lingua 4% e borse/sostegni 5%. Quando la sede è nella città di residenza, la geografia passa al 20% e il ranking al 23%, producendo un vantaggio locale lieve. Un pendolarismo regionale entro 90 minuti e un trasferimento compatibile hanno lo stesso valore geografico. Ogni scheda collega alla pagina ufficiale del corso e alla pagina ufficiale o regionale più pertinente per le borse di studio.
 
 Le stime di percorrenza ferroviaria e costo della città sono dichiaratamente dimostrative: non sostituiscono orari, tariffe, affitti o dati ufficiali.
 
