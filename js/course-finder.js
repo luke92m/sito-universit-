@@ -165,6 +165,7 @@
     $('#finderResult').hidden = false;
     $('#finderResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
     updateRememberButton(false);
+    document.dispatchEvent(new CustomEvent('coursefinder:result', { detail: state.result }));
   }
 
   function updateRememberButton(saved) {
@@ -203,8 +204,15 @@
         <span>Preferenze già salvate</span>
         <strong>${escapeHtml(top.name)} · ${escapeHtml(top.score)}%</strong>
       </div>
-      <a href="comparison.html?mode=courses">Usale nel comparatore</a>
+      <div class="saved-preference-links">
+        <button type="button" data-open-university-finder>Trova la tua università</button>
+        <a href="comparison.html?mode=courses">Usale nel comparatore</a>
+      </div>
     `;
+
+    banner.querySelector('[data-open-university-finder]')?.addEventListener('click', () => {
+      window.UniversityFinder?.switchMode?.('university', { source: 'saved-preferences' });
+    });
   }
 
   function restart() {
@@ -228,6 +236,13 @@
     renderSavedBanner();
     renderStep();
   }
+
+  window.CourseFinder = {
+    getResult() {
+      return state.result;
+    },
+    restart
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

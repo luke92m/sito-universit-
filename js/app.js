@@ -8,7 +8,8 @@
 
   const STORAGE_KEYS = {
     users: 'universitaSemplice.users.v1',
-    session: 'universitaSemplice.session.v1'
+    session: 'universitaSemplice.session.v1',
+    guidanceProfiles: 'universitaSemplice.guidanceProfiles.v1'
   };
 
   const SITUATION_LABELS = {
@@ -132,6 +133,33 @@
     };
     users[index] = next;
     return safeStorageSet(STORAGE_KEYS.users, users) ? next : null;
+  }
+
+  function guidanceOwnerKey() {
+    return getSessionEmail() || 'guest';
+  }
+
+  function getGuidanceProfile() {
+    const store = safeStorageGet(STORAGE_KEYS.guidanceProfiles, {});
+    if (!store || typeof store !== 'object' || Array.isArray(store)) return null;
+    const owner = guidanceOwnerKey();
+    return store[owner] || (owner !== 'guest' ? store.guest : null) || null;
+  }
+
+  function updateGuidanceProfile(patch) {
+    const store = safeStorageGet(STORAGE_KEYS.guidanceProfiles, {});
+    const nextStore = store && typeof store === 'object' && !Array.isArray(store) ? store : {};
+    const owner = guidanceOwnerKey();
+    const current = nextStore[owner] || (owner !== 'guest' ? nextStore.guest : null) || {};
+    const change = typeof patch === 'function' ? patch(current) : patch;
+    const next = {
+      ...current,
+      ...(change && typeof change === 'object' ? change : {}),
+      owner,
+      updatedAt: new Date().toISOString()
+    };
+    nextStore[owner] = next;
+    return safeStorageSet(STORAGE_KEYS.guidanceProfiles, nextStore) ? next : null;
   }
 
   function getUniversities() {
@@ -1121,6 +1149,8 @@
     renderProfile,
     safeStorageGet,
     safeStorageSet,
+    getGuidanceProfile,
+    updateGuidanceProfile,
     enhanceUniversitySelect,
     refreshUniversitySelect,
     situationLabels: SITUATION_LABELS,

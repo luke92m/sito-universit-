@@ -18,9 +18,17 @@
       <h1 id="finderTitle">Trova un corso<br>che ti somiglia.</h1>
       <p class="page-lead">Rispondi a sei domande sui tuoi interessi. Alla fine riceverai un suggerimento generale, non legato a un ateneo specifico.</p>
       <div class="saved-preference-banner" id="savedPreferenceBanner" hidden></div>
+      <div class="finder-mode-launcher" aria-label="Scegli lo strumento di orientamento">
+        <button class="finder-mode-card is-active" id="finderModeCourse" type="button" aria-pressed="true">
+          <span>01</span><strong>Trova il mio corso</strong><small>Parti dai tuoi interessi e scopri i percorsi più vicini a te.</small>
+        </button>
+        <button class="finder-mode-card" id="finderModeUniversity" type="button" aria-pressed="false">
+          <span>02</span><strong>Trova la mia università</strong><small>Scegli già un corso o una macroarea e trova gli atenei più adatti.</small>
+        </button>
+      </div>
     </section>
 
-    <section class="finder-section" aria-label="Questionario per trovare il corso">
+    <section class="finder-section" id="courseFinderPanel" aria-label="Questionario per trovare il corso">
       <div class="finder-layout" id="finderLayout">
         <form class="quiz-card" id="courseFinderForm" novalidate>
           <div class="quiz-progress-block">
@@ -75,6 +83,68 @@
             <button class="text-button" id="restartFinder" type="button">Rifai il questionario</button>
           </div>
         </div>
+
+        <div class="university-next-card">
+          <div>
+            <span class="eyebrow">Passo successivo</span>
+            <h3>Ora che hai trovato il corso adatto a te, trova la tua università.</h3>
+            <p>Il nuovo test parte dal corso più compatibile e considera residenza, pendolarismo, trasferimento, ISEE, lingua, costi e ranking disponibili.</p>
+          </div>
+          <button class="button button-primary" id="startUniversityFromResult" type="button">Trova la mia università</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="finder-section university-finder-panel" id="universityFinderPanel" aria-labelledby="universityFinderTitle" hidden>
+      <div class="university-finder-intro">
+        <div>
+          <span class="eyebrow">Orientamento tra gli atenei</span>
+          <h2 id="universityFinderTitle">Trova l’università<br>più adatta a te.</h2>
+          <p>Puoi partire da uno dei corsi salvati nelle tue preferenze oppure scegliere direttamente un corso o una macroarea, anche senza aver svolto il primo test.</p>
+        </div>
+        <button class="text-button" id="switchBackToCourse" type="button">Torna al test sul corso</button>
+      </div>
+
+      <div class="finder-layout university-finder-layout" id="universityFinderLayout">
+        <form class="quiz-card" id="universityFinderForm" novalidate>
+          <div class="quiz-progress-block">
+            <div class="quiz-progress-copy">
+              <span id="universityStepLabel">Domanda 1 di 7</span>
+              <strong id="universityProgressTitle">Partiamo dal corso o dalla macroarea</strong>
+            </div>
+            <div class="quiz-progress-track" aria-hidden="true"><span id="universityProgressBar"></span></div>
+          </div>
+
+          <div class="quiz-question-host" id="universityQuestionHost"></div>
+          <p class="form-message quiz-message" id="universityFinderMessage" role="alert" aria-live="polite"></p>
+
+          <div class="quiz-actions">
+            <button class="button button-secondary" id="universityFinderBack" type="button">Indietro</button>
+            <button class="button button-primary" id="universityFinderNext" type="submit">Continua</button>
+          </div>
+        </form>
+
+        <aside class="finder-guide-card university-guide-card" aria-label="Come vengono ordinate le università">
+          <span class="finder-guide-number">02</span>
+          <h2>Una lista breve, non un verdetto.</h2>
+          <p>Il punteggio serve a restringere la ricerca. Ogni dato importante deve poi essere controllato sulle pagine ufficiali.</p>
+          <ol class="finder-guide-list">
+            <li><span>Corso</span><strong>Presenza e coerenza del percorso</strong></li>
+            <li><span>Geografia</span><strong>Pendolarismo e disponibilità al trasferimento</strong></li>
+            <li><span>Economia</span><strong>Retta, città, ISEE e sostegni</strong></li>
+            <li><span>Qualità</span><strong>QS generale e indice disciplinare disponibile</strong></li>
+          </ol>
+          <p class="finder-guide-note">I tempi ferroviari e i costi urbani sono stime dimostrative. Non vengono presentati come dati ufficiali.</p>
+        </aside>
+      </div>
+
+      <section class="university-finder-result" id="universityFinderResult" aria-labelledby="universityResultTitle" hidden>
+        <div class="result-heading" id="universityResultSummary"></div>
+        <div class="university-result-list" id="universityResultList"></div>
+        <div class="university-result-footer">
+          <button class="button button-primary" id="restartUniversityFinder" type="button">Modifica le risposte</button>
+          <a class="button button-secondary" href="comparison.html">Apri il comparatore</a>
+        </div>
       </section>
     </section>
   </main>
@@ -86,7 +156,9 @@
   <script src="js/university-courses.js"></script>
   <script src="js/course-catalog.js"></script>
   <script src="js/student-services-data.js"></script>
+  <script src="js/university-finder-data.js"></script>
   <script src="js/app.js"></script>
   <script src="js/course-finder.js"></script>
+  <script src="js/university-finder.js"></script>
 </body>
 </html>

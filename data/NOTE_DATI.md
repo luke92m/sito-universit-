@@ -112,3 +112,50 @@ Ogni evento conserva il collegamento alla pagina sorgente, che prevale sempre su
 ## Selettori di ateneo — versione 4
 
 I selettori HTML restano presenti per compatibilità, ma l’interfaccia li trasforma in combobox ricercabili. Il filtro privilegia l’inizio del nome dell’istituzione e mantiene una ricerca di riserva per parole interne.
+
+## Trova la mia università — versione 5
+
+Il secondo questionario della pagina `trova-corso.html` costruisce una graduatoria orientativa di massimo cinque atenei. Usa soltanto università che presentano nel dataset un corso o una macroarea coerente con la scelta e con il livello di laurea indicato.
+
+Il punteggio combina:
+
+- 30% coerenza tra corso richiesto e offerta formativa MUR collegata;
+- 22% compatibilità geografica;
+- 19% ranking disponibile;
+- 18% sostenibilità economica orientativa;
+- 7% compatibilità linguistica ricavabile dal titolo del corso;
+- 4% presenza relativa di borse, esoneri e sostegni nel dataset MUR.
+
+### Ranking
+
+Il prototipo non dispone di una base completa QS by Subject per tutti i corsi e tutti gli atenei. Quando il ranking QS per materia non è collegato, usa esplicitamente come fallback:
+
+- il ranking QS generale dell’ateneo, quando presente;
+- l’indice sperimentale di macroarea descritto in questo documento.
+
+L’interfaccia segnala questo fallback e non presenta l’indice interno come ranking QS.
+
+### Pendolarismo
+
+La soglia di 90 minuti non viene calcolata attraverso un sistema ferroviario o gli orari reali. Il prototipo:
+
+- usa coordinate indicative di città universitarie, principali capoluoghi e centri regionali;
+- calcola la distanza geografica;
+- applica un coefficiente di percorso e una velocità media compatibile con un collegamento regionale;
+- esclude i collegamenti tra isole e altre regioni dalla logica pendolare.
+
+È quindi una stima utile soltanto a ordinare le opzioni. Cambi, frequenza, stazione di partenza, lavori, tempi a piedi e orari effettivi devono essere controllati separatamente.
+
+### Costi
+
+I costi mensili delle città presenti in `js/university-finder-data.js` sono valori dimostrativi editoriali e non una rilevazione statistica aggiornata. Servono a testare la logica dell’interfaccia. Prima della pubblicazione reale devono essere sostituiti da una fonte omogenea, datata e periodicamente aggiornata.
+
+La fascia ISEE non viene interpretata come reddito disponibile. Aumenta o riduce soltanto la sensibilità del punteggio al costo complessivo e attiva l’avvertenza di verificare borse ed esoneri.
+
+### Lingua
+
+Il dataset MUR collegato non contiene un campo linguistico completo. La lingua viene inferita dal titolo del corso quando possibile; ogni scheda invita a confermarla sulla pagina ufficiale.
+
+## Collegamento alle borse — versione 5
+
+`api/scholarship-link.js` cerca pagine relative a borse, diritto allo studio, agevolazioni, esoneri e benefici nel dominio ufficiale dell’ateneo. Quando non emerge una pagina abbastanza pertinente, prova il portale regionale competente e infine usa il relativo punto di ingresso ufficiale. Il collegamento deve comunque essere verificato periodicamente perché sitemap e pagine possono cambiare.

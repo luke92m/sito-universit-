@@ -1,4 +1,4 @@
-# NOME SITO — prototipo universitario v4
+# NOME SITO — prototipo universitario v5
 
 Progetto multi-pagina in HTML, CSS e JavaScript, con funzioni serverless per Vercel. Non usa framework front-end né dipendenze esterne.
 
@@ -13,6 +13,38 @@ python -m http.server 8000
 Poi apri `http://localhost:8000`.
 
 Le pagine statiche, il login dimostrativo e i selettori funzionano anche in locale. Le funzioni automatiche contenute nella cartella `api/` — sincronizzazione delle scadenze e risoluzione della pagina ufficiale del corso — richiedono il deploy su Vercel oppure un ambiente compatibile con funzioni serverless.
+
+## Novità della versione 5
+
+### “Trova la mia università” dentro Trova il mio corso
+
+La pagina `trova-corso.html` contiene ora due strumenti accessibili dallo stesso menu:
+
+- **Trova il mio corso**, il questionario già presente;
+- **Trova la mia università**, utilizzabile anche senza completare prima il test sul corso.
+
+Dopo il risultato del primo test compare la frase **“Ora che hai trovato il corso adatto a te, trova la tua università”** con il relativo pulsante. Il secondo test può partire dal corso principale appena suggerito oppure da uno qualunque dei corsi ricordati nelle preferenze dell’account. In assenza di preferenze, la prima domanda chiede direttamente un corso generale o una macroarea.
+
+Il questionario universitario considera:
+
+- livello del titolo desiderato;
+- regione e città di residenza, con riuso e conferma dei dati già inseriti;
+- disponibilità al pendolarismo entro 90 minuti stimati con servizi regionali;
+- disponibilità al trasferimento nella stessa regione, in regioni confinanti o in tutta Italia;
+- fascia ISEE, con riuso e conferma quando già disponibile;
+- preferenza per corsi in italiano o inglese.
+
+Il risultato mostra al massimo cinque atenei in ordine decrescente di affinità. Il punteggio combina coerenza dell’offerta formativa, geografia, costo orientativo, sostegni economici, ranking QS generale disponibile e indice disciplinare del prototipo. Ogni scheda collega alla pagina ufficiale del corso e alla pagina ufficiale o regionale più pertinente per le borse di studio.
+
+Le stime di percorrenza ferroviaria e costo della città sono dichiaratamente dimostrative: non sostituiscono orari, tariffe, affitti o dati ufficiali.
+
+### Riuso locale di ISEE e residenza
+
+Quando l’utente completa la verifica delle borse o il test sull’università, fascia ISEE, regione e città vengono conservate nel `localStorage` del dispositivo. Negli strumenti successivi sono mostrate già compilate e devono soltanto essere confermate o modificate.
+
+### Nuova funzione serverless per le borse
+
+`api/scholarship-link.js` analizza il dominio ufficiale dell’ateneo e, quando necessario, il portale regionale per il diritto allo studio. Reindirizza alla pagina più pertinente per borse, benefici o agevolazioni; se non trova una corrispondenza affidabile, usa il portale regionale o la homepage ufficiale.
 
 ## Novità della versione 4
 
@@ -65,7 +97,7 @@ Se il sito dell’ateneo non rende individuabile una pagina specifica, il colleg
 - verifica esclusivamente orientativa;
 - stima del profilo di residenza;
 - collegamenti al portale regionale e all’ateneo;
-- salvataggio dell’opportunità senza conservare ISEE, ISPE o residenza.
+- salvataggio dell’opportunità; fascia ISEE e residenza possono essere ricordate localmente per riutilizzarle negli strumenti di orientamento.
 
 ### Community e libri usati
 
@@ -111,7 +143,8 @@ sito-universita/
 ├── api/
 │   ├── _shared.js
 │   ├── course-link.js
-│   └── deadlines.js
+│   ├── deadlines.js
+│   └── scholarship-link.js
 ├── assets/
 ├── data/
 │   ├── atenei.json

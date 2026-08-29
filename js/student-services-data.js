@@ -209,7 +209,7 @@
 
   window.STUDENT_SERVICE_DATA = {
     version: 4,
-    referenceDate: '2026-08-27',
+    referenceDate: '2026-08-29',
     academicYear: '2026/2027',
     nationalThresholds: { isee: iseeLimit, ispe: ispeLimit },
     iseeRanges: [

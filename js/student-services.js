@@ -207,8 +207,8 @@
     $('#editJourneyFromArea')?.addEventListener('click', () => app.openJourneyEditor());
   }
 
-  function rangeOptions(ranges) {
-    return ranges.map((range) => `<option value="${range.value}">${escapeHtml(range.label)}</option>`).join('');
+  function rangeOptions(ranges, selected = '') {
+    return ranges.map((range) => `<option value="${range.value}"${range.value === selected ? ' selected' : ''}>${escapeHtml(range.label)}</option>`).join('');
   }
 
   function findRange(ranges, value) {
@@ -297,6 +297,7 @@
 
   function renderScholarships(host, user, params) {
     const defaultUniversityId = params.get('ateneo') || user.journey?.universityId || app.getUniversities()[0]?.id || '';
+    const guidanceProfile = app.getGuidanceProfile?.() || {};
     const content = `
       <section class="service-card decision-card">
         <div><span class="eyebrow">Scelta dei dati</span><h2>Decidi tu quanto condividere</h2><p>I dati economici restano nel browser di questo dispositivo. Puoi rifiutare: in quel caso il sito non calcolerà una possibile idoneità.</p></div>
@@ -310,11 +311,11 @@
         <div class="service-card-heading"><div><span class="eyebrow">Verifica preliminare</span><h2>Inserisci i dati essenziali</h2></div><span class="data-year-badge">a.a. ${escapeHtml(data.academicYear || '')}</span></div>
         <form id="scholarshipForm" class="service-form" novalidate>
           <label class="field field-wide"><span>Ateneo di riferimento</span><select id="scholarshipUniversity" data-university-select><option value="">Seleziona</option>${universityOptions(defaultUniversityId)}</select></label>
-          <label class="field"><span>Fascia ISEE universitario</span><select id="scholarshipIsee">${rangeOptions(data.iseeRanges || [])}</select></label>
+          <label class="field"><span>Fascia ISEE universitario</span><select id="scholarshipIsee">${rangeOptions(data.iseeRanges || [], guidanceProfile.iseeRange || '')}</select></label>
           <label class="field"><span>Fascia ISPE <small>(facoltativa ma rilevante)</small></span><select id="scholarshipIspe">${rangeOptions(data.ispeRanges || [])}</select></label>
-          <label class="field"><span>Regione di residenza</span><select id="scholarshipResidenceRegion"><option value="">Seleziona</option>${(data.regions || []).map((region) => `<option value="${escapeHtml(region)}">${escapeHtml(region)}</option>`).join('')}</select></label>
-          <label class="field"><span>Comune di residenza</span><input id="scholarshipResidenceCity" type="text" placeholder="Es. Roma"></label>
-          <p class="service-form-note field-wide">Gli intervalli seguono il limite massimo nazionale MUR ${escapeHtml(data.academicYear || '')}. Il bando regionale o dell’ateneo può prevedere soglie inferiori, requisiti di merito, documenti e scadenze ulteriori.</p>
+          <label class="field"><span>Regione di residenza</span><select id="scholarshipResidenceRegion"><option value="">Seleziona</option>${(data.regions || []).map((region) => `<option value="${escapeHtml(region)}"${region === guidanceProfile.residenceRegion ? ' selected' : ''}>${escapeHtml(region)}</option>`).join('')}</select></label>
+          <label class="field"><span>Comune di residenza</span><input id="scholarshipResidenceCity" type="text" value="${escapeHtml(guidanceProfile.residenceCity || '')}" placeholder="Es. Roma"></label>
+          <p class="service-form-note field-wide">Gli intervalli seguono il limite massimo nazionale MUR ${escapeHtml(data.academicYear || '')}. ISEE e residenza vengono ricordati localmente per non doverli digitare di nuovo negli strumenti di orientamento.</p>
           <p class="form-message field-wide" id="scholarshipMessage" role="alert"></p>
           <button class="button button-primary field-wide" type="submit">Verifica la possibilità</button>
         </form>
@@ -368,6 +369,12 @@
       }
       const verdict = scholarshipVerdict(iseeRange, ispeRange);
       const profile = residenceProfile(university, residenceRegion, residenceCity);
+      app.updateGuidanceProfile?.({
+        iseeRange: iseeRange?.value || '',
+        residenceRegion,
+        residenceCity,
+        lastScholarshipCheckAt: new Date().toISOString()
+      });
       $('#scholarshipResultHost').innerHTML = scholarshipResultTemplate(verdict, university, residenceRegion, residenceCity, profile);
       $('#scholarshipResultCard')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
