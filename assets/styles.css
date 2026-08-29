@@ -2563,6 +2563,90 @@ main {
   line-height: 1.45;
 }
 
+.university-result-controls {
+  margin-top: 12px;
+}
+
+.university-telematic-toggle {
+  display: flex;
+  width: 100%;
+  max-width: 760px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  gap: 12px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.university-telematic-toggle:hover {
+  border-color: rgba(90, 76, 240, 0.32);
+  box-shadow: 0 10px 28px rgba(25, 31, 54, 0.07);
+  transform: translateY(-1px);
+}
+
+.university-telematic-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.university-toggle-control {
+  display: flex;
+  width: 42px;
+  height: 24px;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.university-toggle-control > span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 7px rgba(25, 31, 54, 0.2);
+  transition: transform 160ms ease;
+}
+
+.university-telematic-toggle input:checked + .university-toggle-control {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.university-telematic-toggle input:checked + .university-toggle-control > span {
+  transform: translateX(18px);
+}
+
+.university-telematic-toggle input:focus-visible + .university-toggle-control {
+  outline: 3px solid rgba(90, 76, 240, 0.2);
+  outline-offset: 3px;
+}
+
+.university-toggle-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.university-toggle-copy strong {
+  font-size: 11px;
+}
+
+.university-toggle-copy small {
+  color: var(--ink-faint);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
 .university-result-list {
   display: grid;
   gap: 14px;
@@ -3393,6 +3477,10 @@ main {
   .result-method-note {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .university-telematic-toggle {
+    align-items: flex-start;
   }
 
   .university-match-card {

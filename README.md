@@ -1,4 +1,4 @@
-# NOME SITO — prototipo universitario v5
+# NOME SITO — prototipo universitario v6
 
 Progetto multi-pagina in HTML, CSS e JavaScript, con funzioni serverless per Vercel. Non usa framework front-end né dipendenze esterne.
 
@@ -14,7 +14,32 @@ Poi apri `http://localhost:8000`.
 
 Le pagine statiche, il login dimostrativo e i selettori funzionano anche in locale. Le funzioni automatiche contenute nella cartella `api/` — sincronizzazione delle scadenze e risoluzione della pagina ufficiale del corso — richiedono il deploy su Vercel oppure un ambiente compatibile con funzioni serverless.
 
-## Novità della versione 5
+## Novità della versione 6
+
+### Classifica universitaria senza telematiche per impostazione predefinita
+
+Nei risultati di **Trova la mia università**, gli atenei telematici sono esclusi per impostazione predefinita. Un interruttore sopra la classifica permette di includerli immediatamente senza ripetere il questionario. Quando l’interruttore viene attivato, gli atenei telematici entrano nella stessa graduatoria e vengono ordinati con gli stessi criteri delle altre università.
+
+### Nuova interpretazione della geografia
+
+Per pendolarismo si intende esclusivamente una percorrenza stimata entro **90 minuti** con treni regionali o regionali veloci, senza considerare l’alta velocità. Una sede raggiungibile da pendolare non riceve un vantaggio rispetto a una sede che richiede un trasferimento compatibile con le preferenze indicate: le due situazioni hanno lo stesso punteggio geografico.
+
+Restare nella città di residenza mantiene soltanto un piccolo vantaggio. Quando uno stesso ateneo offre più sedi o più corsi affini, il sistema valuta ogni alternativa e sceglie quella con il punteggio complessivo più alto, invece di privilegiare automaticamente il corso con più iscritti.
+
+### Nuovi pesi del risultato
+
+Per sedi fuori dalla città di residenza, il punteggio usa:
+
+- compatibilità del corso: **30%**;
+- compatibilità geografica: **18%**;
+- ranking: **25%**;
+- sostenibilità economica: **18%**;
+- lingua: **4%**;
+- borse, esoneri e sostegni: **5%**.
+
+Per una sede nella città di residenza, geografia e ranking diventano rispettivamente **20%** e **23%**, mantenendo invariato il totale. La classifica viene ordinata usando il punteggio completo con i decimali; la percentuale arrotondata viene usata soltanto nella visualizzazione.
+
+## Strumenti di orientamento già presenti
 
 ### “Trova la mia università” dentro Trova il mio corso
 
@@ -29,14 +54,24 @@ Il questionario universitario considera:
 
 - livello del titolo desiderato;
 - regione e città di residenza, con riuso e conferma dei dati già inseriti;
-- disponibilità al pendolarismo entro 90 minuti stimati con servizi regionali;
+- disponibilità al pendolarismo entro 90 minuti stimati usando soltanto Regionali o Regionali Veloci, senza Alta Velocità;
 - disponibilità al trasferimento nella stessa regione, in regioni confinanti o in tutta Italia;
 - fascia ISEE, con riuso e conferma quando già disponibile;
 - preferenza per corsi in italiano o inglese.
 
-Il risultato mostra al massimo cinque atenei in ordine decrescente di affinità. Il punteggio combina coerenza dell’offerta formativa, geografia, costo orientativo, sostegni economici, ranking QS generale disponibile e indice disciplinare del prototipo. Ogni scheda collega alla pagina ufficiale del corso e alla pagina ufficiale o regionale più pertinente per le borse di studio.
+Il risultato mostra al massimo cinque atenei in ordine decrescente di affinità. Le università telematiche sono escluse per impostazione predefinita e possono essere incluse con un interruttore presente sopra la graduatoria. Il punteggio usa: compatibilità del corso 30%, compatibilità geografica 18%, ranking 25%, sostenibilità economica 18%, lingua 4% e borse/sostegni 5%. Quando la sede è nella città di residenza, la geografia passa al 20% e il ranking al 23%, producendo un vantaggio locale lieve. Un pendolarismo regionale entro 90 minuti e un trasferimento compatibile hanno lo stesso valore geografico. Ogni scheda collega alla pagina ufficiale del corso e alla pagina ufficiale o regionale più pertinente per le borse di studio.
 
 Le stime di percorrenza ferroviaria e costo della città sono dichiaratamente dimostrative: non sostituiscono orari, tariffe, affitti o dati ufficiali.
+
+
+### Nuovo ordinamento della versione 6
+
+- gli atenei telematici non compaiono nella prima graduatoria;
+- l’utente può includerli senza ripetere il test;
+- la classifica viene ordinata usando il punteggio decimale completo e arrotondata soltanto nella visualizzazione;
+- se un ateneo offre più sedi o più corsi coerenti, vengono valutate tutte le alternative e viene scelta quella con il miglior punteggio complessivo;
+- Regionali e Regionali Veloci entro 90 minuti e trasferimento compatibile sono equivalenti nel criterio geografico;
+- restare nella propria città riceve un vantaggio piccolo, non assoluto.
 
 ### Riuso locale di ISEE e residenza
 

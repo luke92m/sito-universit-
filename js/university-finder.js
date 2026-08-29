@@ -54,6 +54,8 @@
     answers: {},
     residenceEditing: true,
     iseeEditing: true,
+    includeTelematic: false,
+    allResults: [],
     results: [],
     launchSource: 'menu'
   };
@@ -115,6 +117,8 @@
     state.answers = defaults;
     state.residenceEditing = !(defaults.residenceRegion && defaults.residenceCity);
     state.iseeEditing = !defaults.iseeRange;
+    state.includeTelematic = false;
+    state.allResults = [];
     state.results = [];
     state.launchSource = options.source || 'menu';
     const form = $('#universityFinderForm');
@@ -274,11 +278,12 @@
     return `
       <fieldset class="quiz-fieldset university-question-fieldset">
         <legend>Prenderesti in considerazione il pendolarismo?</legend>
-        <p>Se rispondi sì, verranno privilegiate sedi con una percorrenza regionale stimata entro 90 minuti.</p>
+        <p>Per pendolarismo intendiamo una percorrenza stimata entro 90 minuti usando treni regionali o regionali veloci, senza alta velocità.</p>
         ${optionCards('universityCommute', [
-          { value: 'yes', label: 'Sì, posso fare il pendolare', hint: 'Considera treni non ad alta velocità fino a circa 1 ora e 30 minuti.' },
+          { value: 'yes', label: 'Sì, posso fare il pendolare', hint: 'Considera solo regionali e regionali veloci entro 1 ora e 30 minuti. Nel punteggio vale quanto un trasferimento compatibile.' },
           { value: 'no', label: 'No, preferisco evitare', hint: 'Mostra sedi nella mia città, corsi a distanza o opzioni compatibili con il trasferimento.' }
         ], state.answers.commute)}
+        <p class="service-form-note">Restare nella città di residenza riceve un piccolo vantaggio. Fare il pendolare o trasferirsi, quando entrambe le opzioni sono compatibili con le tue risposte, hanno invece lo stesso peso geografico.</p>
       </fieldset>`;
   }
 
@@ -501,35 +506,66 @@
 
   function geographyFit(university, course, answers) {
     const isOnline = normalize(course.delivery).includes('distanza');
-    if (isOnline) return { allowed: true, score: 94, label: 'Corso a distanza: nessun trasferimento necessario', commute: null, online: true };
+    if (isOnline) return { allowed: true, score: 90, label: 'Corso a distanza: nessun trasferimento necessario', commute: null, online: true, sameCity: false, mode: 'online' };
 
     const residence = coordinateFor(answers.residenceCity, answers.residenceRegion);
     const destination = coordinateFor(course.city || university.city, university.region);
     const commute = estimateCommute(residence, destination, answers.residenceRegion, university.region);
     const sameCity = normalize(answers.residenceCity) === normalize(course.city || university.city);
-    const canCommute = answers.commute === 'yes' && Number.isFinite(commute.minutes) && commute.minutes <= 90;
+    const commuteLimit = Number(finderData.methodology?.regionalCommuteLimitMinutes) || 90;
+    const canCommute = answers.commute === 'yes' && Number.isFinite(commute.minutes) && commute.minutes <= commuteLimit;
 
-    if (sameCity) return { allowed: true, score: 100, label: 'Sede nella tua città', commute, online: false };
+    if (sameCity) return { allowed: true, score: 100, label: 'Sede nella tua città', commute, online: false, sameCity: true, mode: 'home' };
     if (canCommute) {
       return {
         allowed: true,
-        score: clamp(98 - commute.minutes * 0.38, 62, 94),
-        label: `Pendolarismo stimato: circa ${commute.minutes} minuti con servizi regionali`,
+        score: 90,
+        label: `Pendolarismo compatibile: circa ${commute.minutes} minuti stimati con regionali o regionali veloci`,
         commute,
-        online: false
+        online: false,
+        sameCity: false,
+        mode: 'commute'
       };
     }
 
     const neighbors = finderData.regionNeighbors?.[answers.residenceRegion] || [];
-    if (answers.relocation === 'region' && university.region === answers.residenceRegion) return { allowed: true, score: 80, label: 'Trasferimento nella stessa regione', commute, online: false };
-    if (answers.relocation === 'neighbors' && university.region === answers.residenceRegion) return { allowed: true, score: 84, label: 'Sede nella tua regione', commute, online: false };
-    if (answers.relocation === 'neighbors' && neighbors.includes(university.region)) return { allowed: true, score: 72, label: 'Trasferimento in una regione confinante', commute, online: false };
+    if (answers.relocation === 'region' && university.region === answers.residenceRegion) return { allowed: true, score: 90, label: 'Trasferimento compatibile nella tua regione', commute, online: false, sameCity: false, mode: 'relocation' };
+    if (answers.relocation === 'neighbors' && university.region === answers.residenceRegion) return { allowed: true, score: 90, label: 'Trasferimento compatibile nella tua regione', commute, online: false, sameCity: false, mode: 'relocation' };
+    if (answers.relocation === 'neighbors' && neighbors.includes(university.region)) return { allowed: true, score: 90, label: 'Trasferimento compatibile in una regione confinante', commute, online: false, sameCity: false, mode: 'relocation' };
     if (answers.relocation === 'italy') {
-      const score = university.region === answers.residenceRegion ? 86 : neighbors.includes(university.region) ? 76 : 62;
-      return { allowed: true, score, label: university.region === answers.residenceRegion ? 'Sede nella tua regione' : 'Trasferimento compatibile con la disponibilità nazionale', commute, online: false };
+      return {
+        allowed: true,
+        score: 90,
+        label: university.region === answers.residenceRegion ? 'Trasferimento compatibile nella tua regione' : 'Trasferimento compatibile con la disponibilità nazionale',
+        commute,
+        online: false,
+        sameCity: false,
+        mode: 'relocation'
+      };
     }
 
-    return { allowed: false, score: 0, label: 'Fuori dall’area geografica indicata', commute, online: false };
+    return { allowed: false, score: 0, label: 'Fuori dall’area geografica indicata', commute, online: false, sameCity: false, mode: 'excluded' };
+  }
+
+  function resultWeights(geography) {
+    if (geography?.sameCity) {
+      return {
+        course: 0.30,
+        geography: 0.20,
+        ranking: 0.23,
+        cost: 0.18,
+        language: 0.04,
+        support: 0.05
+      };
+    }
+    return {
+      course: 0.30,
+      geography: 0.18,
+      ranking: 0.25,
+      cost: 0.18,
+      language: 0.04,
+      support: 0.05
+    };
   }
 
   function costForCity(city, macroArea) {
@@ -625,47 +661,66 @@
       const relevant = app.getUniversityCourses(university.id)
         .filter((course) => degreeMatches(course, answers.degree))
         .map((course) => ({ course, match: courseMatch(course, target) }))
-        .filter((entry) => entry.match >= 67)
-        .sort((a, b) => b.match - a.match || b.course.enrolled - a.course.enrolled);
+        .filter((entry) => entry.match >= 67);
 
       if (!relevant.length) return;
-      const best = relevant[0];
-      const geography = geographyFit(university, best.course, answers);
-      if (!geography.allowed) return;
       const support = supportScore(university);
-      const cost = affordability(university, best.course, answers, support);
       const ranking = rankingFit(university, target.group);
-      const language = languageFit(best.course, answers.language);
-      const total = Math.round(
-        best.match * 0.30 +
-        geography.score * 0.22 +
-        ranking.score * 0.19 +
-        cost.score * 0.18 +
-        language.score * 0.07 +
-        support * 0.04
-      );
 
-      candidates.push({
-        university,
-        course: best.course,
-        courseMatch: best.match,
-        geography,
-        cost,
-        ranking,
-        language,
-        support,
-        total,
-        target
-      });
+      const evaluated = relevant
+        .map((entry) => {
+          const geography = geographyFit(university, entry.course, answers);
+          if (!geography.allowed) return null;
+          const cost = affordability(university, entry.course, answers, support);
+          const language = languageFit(entry.course, answers.language);
+          const weights = resultWeights(geography);
+          const totalRaw =
+            entry.match * weights.course +
+            geography.score * weights.geography +
+            ranking.score * weights.ranking +
+            cost.score * weights.cost +
+            language.score * weights.language +
+            support * weights.support;
+
+          return {
+            university,
+            course: entry.course,
+            courseMatch: entry.match,
+            geography,
+            cost,
+            ranking,
+            language,
+            support,
+            weights,
+            totalRaw,
+            total: Math.round(totalRaw),
+            target
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) =>
+          b.totalRaw - a.totalRaw ||
+          b.courseMatch - a.courseMatch ||
+          Number(b.geography.sameCity) - Number(a.geography.sameCity) ||
+          Number(b.course.enrolled || 0) - Number(a.course.enrolled || 0) ||
+          String(a.course.name || '').localeCompare(String(b.course.name || ''), 'it')
+        );
+
+      if (evaluated.length) candidates.push(evaluated[0]);
     });
 
-    const sorted = candidates.sort((a, b) => b.total - a.total || b.courseMatch - a.courseMatch || a.university.name.localeCompare(b.university.name, 'it'));
-    const nonTelematic = sorted.filter((item) => item.university.category !== 'Telematica');
-    const telematic = sorted.filter((item) => item.university.category === 'Telematica');
-    if (answers.relocation === 'none' && nonTelematic.length < 3) return sorted.slice(0, 5);
-    const output = nonTelematic.slice(0, 5);
-    if (telematic.length && output.length < 5) output.push(telematic[0]);
-    return output.sort((a, b) => b.total - a.total).slice(0, 5);
+    return candidates.sort((a, b) =>
+      b.totalRaw - a.totalRaw ||
+      b.courseMatch - a.courseMatch ||
+      a.university.name.localeCompare(b.university.name, 'it')
+    );
+  }
+
+  function visibleUniversityResults() {
+    const pool = state.includeTelematic
+      ? state.allResults
+      : state.allResults.filter((item) => item.university.category !== 'Telematica');
+    return pool.slice(0, 5);
   }
 
   function rankingText(item) {
@@ -709,6 +764,13 @@
     const courseMatchLabel = item.courseMatch >= 96 ? 'Corso molto coerente' : 'Percorso affine nella stessa area';
     const costCity = item.cost.online ? 'corso a distanza' : `${formatCurrency(item.cost.cityCost.monthly)}/mese stimati`;
     const commutePrecision = item.geography.commute?.precision === 'region' ? ' · stima basata sul centro regionale' : '';
+    const geographyDetail = item.geography.mode === 'commute'
+      ? `Stima con regionali o regionali veloci, senza alta velocità${commutePrecision}`
+      : item.geography.sameCity
+        ? 'La sede nella città di residenza riceve un piccolo vantaggio'
+        : item.geography.online
+          ? 'Corso a distanza: pendolarismo e trasferimento non sono necessari'
+          : 'Pendolarismo compatibile e trasferimento hanno lo stesso peso geografico';
 
     return `
       <article class="university-match-card">
@@ -721,13 +783,14 @@
 
           <div class="university-match-metrics">
             <article><span>Ranking</span><strong>${escapeHtml(rankingText(item))}</strong><small>QS per materia non collegato: fallback dichiarato</small></article>
-            <article><span>Geografia</span><strong>${escapeHtml(item.geography.label)}</strong><small>${item.geography.commute?.minutes && Number.isFinite(item.geography.commute.minutes) ? `Percorrenza regionale stimata${escapeHtml(commutePrecision)}` : escapeHtml(RELOCATION_LABELS[state.answers.relocation] || '')}</small></article>
+            <article><span>Geografia</span><strong>${escapeHtml(item.geography.label)}</strong><small>${escapeHtml(geographyDetail)}</small></article>
             <article><span>Costo orientativo</span><strong>${escapeHtml(costCity)} · retta media ${escapeHtml(formatCurrency(item.cost.tuition))}/anno</strong><small>Stima comparativa, non preventivo personale</small></article>
             <article><span>Lingua</span><strong>${escapeHtml(item.language.label)}</strong><small>Da confermare nella scheda ufficiale</small></article>
           </div>
 
           <ul class="university-match-reasons">
             <li>Compatibilità del corso: <strong>${item.courseMatch}%</strong>.</li>
+            <li>Peso ranking applicato: <strong>${Math.round(item.weights.ranking * 100)}%</strong>.</li>
             <li>Indice di sostenibilità economica orientativa: <strong>${Math.round(item.cost.score)}%</strong>.</li>
             <li>Presenza relativa di borse, esoneri o sostegni nel dataset: <strong>${Math.round(item.support)}%</strong>.</li>
           </ul>
@@ -743,32 +806,52 @@
       </article>`;
   }
 
-  function renderUniversityResults(target, results) {
+  function renderUniversityResults(target, options = {}) {
     const resultSection = $('#universityFinderResult');
     const layout = $('#universityFinderLayout');
     if (!resultSection) return;
     if (layout) layout.hidden = true;
     resultSection.hidden = false;
 
+    const results = visibleUniversityResults();
+    state.results = results;
+
     const courseLabel = target.type === 'course' ? `corso ${target.label}` : `area ${target.label}`;
     $('#universityResultSummary').innerHTML = `
       <span class="eyebrow">Risultato personalizzato</span>
       <h2>Le università più adatte al tuo profilo.</h2>
       <p>Classifica per ${escapeHtml(courseLabel)}, ${escapeHtml(DEGREE_LABELS[state.answers.degree] || '')}, residenza a ${escapeHtml(state.answers.residenceCity)} e preferenze economiche e geografiche indicate.</p>
-      <div class="result-method-note"><strong>${results.length} opzioni mostrate</strong><span>Ordine decrescente di affinità. Il punteggio non sostituisce bandi, orari ferroviari o dati ufficiali dei corsi.</span></div>`;
+      <div class="result-method-note"><strong>${results.length} opzioni mostrate</strong><span>Corso 30% · geografia 18% · ranking 25% · sostenibilità 18% · lingua 4% · borse 5%. Per una sede nella tua città: geografia 20% e ranking 23%.</span></div>
+      <div class="university-result-controls">
+        <label class="university-telematic-toggle" for="includeTelematicResults">
+          <input id="includeTelematicResults" type="checkbox"${state.includeTelematic ? ' checked' : ''}>
+          <span class="university-toggle-control" aria-hidden="true"><span></span></span>
+          <span class="university-toggle-copy">
+            <strong>Considera anche le università telematiche</strong>
+            <small>${state.includeTelematic ? 'Attivato. Gli atenei telematici partecipano alla stessa classifica in base al punteggio.' : 'Disattivato di default. Attivandolo, gli atenei telematici entrano nella stessa classifica in base al punteggio.'}</small>
+          </span>
+        </label>
+      </div>`;
 
     const list = $('#universityResultList');
     if (!results.length) {
+      const telematicOnly = !state.includeTelematic && state.allResults.some((item) => item.university.category === 'Telematica');
       list.innerHTML = `
         <div class="university-no-results">
           <span class="eyebrow">Nessuna corrispondenza sufficiente</span>
-          <h3>Le preferenze geografiche sono troppo restrittive per il corso scelto.</h3>
-          <p>Torna indietro e prova a consentire il trasferimento in regioni confinanti o in tutta Italia.</p>
+          <h3>${telematicOnly ? 'Le opzioni disponibili sono telematiche.' : 'Le preferenze geografiche sono troppo restrittive per il corso scelto.'}</h3>
+          <p>${telematicOnly ? 'Attiva l’opzione qui sopra per includerle nella classifica.' : 'Torna indietro e prova a consentire il trasferimento in regioni confinanti o in tutta Italia.'}</p>
         </div>`;
     } else {
       list.innerHTML = results.map(universityResultCard).join('');
     }
-    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    $('#includeTelematicResults')?.addEventListener('change', (event) => {
+      state.includeTelematic = Boolean(event.currentTarget.checked);
+      renderUniversityResults(target, { preserveScroll: true });
+    });
+
+    if (!options.preserveScroll) resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function buildUniversityResults() {
@@ -790,8 +873,10 @@
       lastUniversityFinderAt: new Date().toISOString()
     });
 
-    state.results = rankCandidates(target, state.answers);
-    renderUniversityResults(target, state.results);
+    state.includeTelematic = false;
+    state.allResults = rankCandidates(target, state.answers);
+    state.results = visibleUniversityResults();
+    renderUniversityResults(target);
   }
 
   function restartUniversityFinder() {
@@ -817,7 +902,12 @@
     else resetUniversityFinder({ source: 'menu' });
   }
 
-  window.UniversityFinder = { switchMode, reset: resetUniversityFinder, getResults: () => state.results.slice() };
+  window.UniversityFinder = {
+    switchMode,
+    reset: resetUniversityFinder,
+    getResults: () => state.results.slice(),
+    getAllResults: () => state.allResults.slice()
+  };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

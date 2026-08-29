@@ -113,18 +113,27 @@ Ogni evento conserva il collegamento alla pagina sorgente, che prevale sempre su
 
 I selettori HTML restano presenti per compatibilità, ma l’interfaccia li trasforma in combobox ricercabili. Il filtro privilegia l’inizio del nome dell’istituzione e mantiene una ricerca di riserva per parole interne.
 
-## Trova la mia università — versione 5
+## Trova la mia università — versione 6
 
 Il secondo questionario della pagina `trova-corso.html` costruisce una graduatoria orientativa di massimo cinque atenei. Usa soltanto università che presentano nel dataset un corso o una macroarea coerente con la scelta e con il livello di laurea indicato.
 
 Il punteggio combina:
 
 - 30% coerenza tra corso richiesto e offerta formativa MUR collegata;
-- 22% compatibilità geografica;
-- 19% ranking disponibile;
+- 18% compatibilità geografica, elevata al 20% quando la sede è nella città di residenza;
+- 25% ranking disponibile, ridotto al 23% quando la sede è nella città di residenza;
 - 18% sostenibilità economica orientativa;
-- 7% compatibilità linguistica ricavabile dal titolo del corso;
-- 4% presenza relativa di borse, esoneri e sostegni nel dataset MUR.
+- 4% compatibilità linguistica ricavabile dal titolo del corso;
+- 5% presenza relativa di borse, esoneri e sostegni nel dataset MUR.
+
+
+La versione 6 applica inoltre queste regole:
+
+- le università telematiche sono escluse dalla graduatoria iniziale e vengono incluse soltanto su scelta esplicita dell’utente;
+- una soluzione pendolare ammessa e un trasferimento compatibile ricevono lo stesso punteggio geografico;
+- la sede nella città di residenza riceve un vantaggio lieve attraverso il diverso bilanciamento tra geografia e ranking;
+- l’ordinamento usa il punteggio non arrotondato;
+- quando lo stesso ateneo offre più sedi o corsi compatibili, il sistema valuta tutte le combinazioni e seleziona quella con il punteggio complessivo migliore.
 
 ### Ranking
 
@@ -141,7 +150,8 @@ La soglia di 90 minuti non viene calcolata attraverso un sistema ferroviario o g
 
 - usa coordinate indicative di città universitarie, principali capoluoghi e centri regionali;
 - calcola la distanza geografica;
-- applica un coefficiente di percorso e una velocità media compatibile con un collegamento regionale;
+- applica un coefficiente di percorso e una velocità media compatibile con Regionali e Regionali Veloci;
+- non considera treni ad Alta Velocità nel significato attribuito al pendolarismo;
 - esclude i collegamenti tra isole e altre regioni dalla logica pendolare.
 
 È quindi una stima utile soltanto a ordinare le opzioni. Cambi, frequenza, stazione di partenza, lavori, tempi a piedi e orari effettivi devono essere controllati separatamente.

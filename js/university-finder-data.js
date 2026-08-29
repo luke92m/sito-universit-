@@ -103,7 +103,7 @@
   };
 
   window.UNIVERSITY_FINDER_DATA = {
-    version: 1,
+    version: 2,
     referenceDate: '2026-08-29',
     regionNeighbors: REGION_NEIGHBORS,
     regionCenters: REGION_CENTERS,
@@ -111,7 +111,9 @@
     cityCosts: CITY_COSTS,
     macroDefaultCost: MACRO_DEFAULT_COST,
     methodology: {
-      commute: 'Stima geometrica trasformata in tempo ferroviario regionale; non usa orari o coincidenze reali.',
+      commute: 'Stima geometrica prudenziale per soli Regionali e Regionali Veloci, senza Alta Velocità; non usa ancora orari, cambi o coincidenze reali.',
+      regionalCommuteLimitMinutes: 90,
+      regionalTrainTypes: ['Regionale', 'Regionale Veloce'],
       costs: 'Valori dimostrativi per confrontare le città; devono essere collegati a una fonte urbana aggiornata prima della pubblicazione reale.',
       ranking: 'Usa il ranking QS generale disponibile e l’indice disciplinare MUR del prototipo quando il QS per materia non è collegato.'
     }
