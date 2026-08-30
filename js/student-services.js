@@ -207,12 +207,26 @@
     $('#editJourneyFromArea')?.addEventListener('click', () => app.openJourneyEditor());
   }
 
+  const LEGACY_ISEE_VALUES = {
+    '13000-18000': '16000-18000',
+    '18000-22000': '20000-22000',
+    '22000-26000': '24000-26000',
+    '26000-limit': '28000-scholarship-limit',
+    'over-limit': '30000-40000'
+  };
+
+  function normalizeIseeValue(value) {
+    return LEGACY_ISEE_VALUES[value] || value || '';
+  }
+
   function rangeOptions(ranges, selected = '') {
-    return ranges.map((range) => `<option value="${range.value}"${range.value === selected ? ' selected' : ''}>${escapeHtml(range.label)}</option>`).join('');
+    const normalized = normalizeIseeValue(selected);
+    return ranges.map((range) => `<option value="${range.value}"${range.value === normalized ? ' selected' : ''}>${escapeHtml(range.label)}</option>`).join('');
   }
 
   function findRange(ranges, value) {
-    return ranges.find((range) => range.value === value) || null;
+    const normalized = normalizeIseeValue(value);
+    return ranges.find((range) => range.value === normalized) || null;
   }
 
   function residenceProfile(university, region, city) {
@@ -315,7 +329,7 @@
           <label class="field"><span>Fascia ISPE <small>(facoltativa ma rilevante)</small></span><select id="scholarshipIspe">${rangeOptions(data.ispeRanges || [])}</select></label>
           <label class="field"><span>Regione di residenza</span><select id="scholarshipResidenceRegion"><option value="">Seleziona</option>${(data.regions || []).map((region) => `<option value="${escapeHtml(region)}"${region === guidanceProfile.residenceRegion ? ' selected' : ''}>${escapeHtml(region)}</option>`).join('')}</select></label>
           <label class="field"><span>Comune di residenza</span><input id="scholarshipResidenceCity" type="text" value="${escapeHtml(guidanceProfile.residenceCity || '')}" placeholder="Es. Roma"></label>
-          <p class="service-form-note field-wide">Gli intervalli seguono il limite massimo nazionale MUR ${escapeHtml(data.academicYear || '')}. ISEE e residenza vengono ricordati localmente per non doverli digitare di nuovo negli strumenti di orientamento.</p>
+          <p class="service-form-note field-wide">Le fasce fino a €30.000 seguono le soglie nazionali minime della no-tax area e delle riduzioni per gli atenei statali; il limite DSU per la borsa ${escapeHtml(data.academicYear || '')} è separato. Ogni ateneo e ogni bando possono adottare soglie più favorevoli o criteri ulteriori. ISEE e residenza vengono ricordati localmente per gli strumenti di orientamento.</p>
           <p class="form-message field-wide" id="scholarshipMessage" role="alert"></p>
           <button class="button button-primary field-wide" type="submit">Verifica la possibilità</button>
         </form>

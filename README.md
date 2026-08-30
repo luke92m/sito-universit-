@@ -1,4 +1,4 @@
-# NOME SITO — prototipo universitario v7
+# NOME SITO — prototipo universitario v8
 
 Progetto multi-pagina in HTML, CSS e JavaScript, con funzioni serverless per Vercel. Non usa framework front-end né dipendenze esterne.
 
@@ -14,13 +14,40 @@ Poi apri `http://localhost:8000`.
 
 Le pagine statiche, il login dimostrativo e i selettori funzionano anche in locale. Le funzioni automatiche contenute nella cartella `api/` — sincronizzazione delle scadenze e risoluzione della pagina ufficiale del corso — richiedono il deploy su Vercel oppure un ambiente compatibile con funzioni serverless.
 
+## Novità della versione 8
+
+### Gerarchia QS → CENSIS, senza indici interni
+
+Il test **Trova la mia università**, il catalogo Atenei e la Comparison usano una gerarchia comune di fonti ufficiali:
+
+1. **QS by Subject 2026** quando serve valutare una materia o un corso;
+2. **CENSIS 2026/2027 della didattica** per livello e raggruppamento disciplinare, quando collegato;
+3. **CENSIS 2026/2027 generale** nella categoria omogenea dell’ateneo;
+4. indicazione esplicita di ranking non disponibile, senza sostituzione con un indice interno.
+
+Il punteggio tecnico mantiene i risultati QS sopra ai fallback CENSIS, come scelta editoriale del prototipo. QS e CENSIS usano però metodologie e universi diversi e non sono direttamente convertibili in una singola classifica scientifica.
+
+### Schede degli atenei
+
+Ogni card nella pagina `atenei.html` è apribile. La scheda mostra descrizione generale, breve storia, link ufficiale, ranking ufficiale disponibile, dimensione dell’offerta e aree di forza. Le aree di forza privilegiano QS by Subject e CENSIS della didattica; se mancano entrambi, viene mostrata soltanto la maggiore presenza MUR nell’offerta, dichiarata come dato quantitativo e non come ranking di qualità.
+
+### Comparison con fonti collegate
+
+Le comparison usano QS/CENSIS per prestigio e materia, MUR per offerta, contribuzione, borse, strutture e mobilità, ISTAT per il contesto di spesa, Immobiliare.it Insights per le stanze e Il Sole 24 Ore per l’indice provinciale della qualità della vita giovanile. Le percentuali a 12 mesi non vengono inventate: quando non esiste un dato omogeneo del singolo corso, viene mostrato un proxy ufficiale qualificato o un collegamento diretto alla scheda dell’ateneo.
+
+La voce “Perché scegliere questa sede/alternativa” descrive l’obiettivo e il focus formativo del corso rispetto a quello comparato, senza ripetere ranking, retta e costo della città.
+
+### Fasce ISEE più realistiche
+
+Le fasce distinguono le soglie nazionali minime della no-tax area degli atenei statali (€22.000 e riduzioni graduate fino a €30.000) dal limite massimo ISEE per i benefici DSU 2026/2027 (€28.339,88). Le soglie non sono universali: atenei e bandi possono offrire fasce più favorevoli, richiedere ISPE e merito o applicare regole diverse.
+
 ## Novità della versione 7
 
 ### Ranking QS per materia
 
 Il test **Trova la mia università** usa ora una base locale di posizioni **QS World University Rankings by Subject 2026**, associando ogni corso generale alle materie QS più pertinenti. Per esempio, Economia aziendale combina principalmente *Business & Management Studies* e *Accounting & Finance*. Un ateneo specializzato che non compare nel ranking generale, come Bocconi, può quindi ricevere il punteggio accademico derivante dalle classifiche per materia.
 
-Il file `js/qs-subject-rankings-2026.js` contiene materie, pesi, posizioni o fasce e collegamenti alle pagine QS. La copertura è curata ma non completa per tutti i 99 atenei e tutte le materie. Quando manca un dato QS by Subject, viene mostrato un fallback disciplinare interno con un punteggio più prudente; il sito non lo presenta come dato QS.
+Il file `js/qs-subject-rankings-2026.js` contiene materie, pesi, posizioni o fasce e collegamenti alle pagine QS. La copertura è curata ma non completa per tutti i 99 atenei e tutte le materie. Quando manca un dato QS by Subject, viene usata la classifica CENSIS della didattica collegata; se non disponibile, il CENSIS generale nella categoria omogenea dell’ateneo. Non vengono più usati indici interni come ranking.
 
 ### Corsi a distanza esclusi per impostazione predefinita
 

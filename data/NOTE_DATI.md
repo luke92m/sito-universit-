@@ -29,46 +29,31 @@ Il dataset del sito include 5.833 offerte di corso collegate a 92 istituzioni de
 
 Le aree disciplinari usate nel filtro sono raggruppamenti editoriali costruiti dalle classi di laurea e dai campi MUR. Il termine `Dipartimento` è usato nell’interfaccia per essere comprensibile, ma il filtro rappresenta una macroarea disciplinare e non l’organigramma ufficiale dei dipartimenti di ciascun ateneo.
 
-## Indice sperimentale di area
+## Ranking ufficiali e fallback CENSIS — versione 8
 
-Per ordinare gli atenei dentro una macroarea, il prototipo calcola un indice 0–100 con questa formula:
+Il catalogo, il test sull’università e il comparatore non usano più un indice interno come ranking. La priorità è:
 
-- 30% percentile degli iscritti nell’area;
-- 20% percentile del numero di corsi nell’area;
-- 40% quota degli iscritti dell’ateneo concentrata nell’area;
-- 10% percentile della posizione QS generale, quando presente.
+1. QS by Subject per una materia o un corso;
+2. CENSIS della didattica per livello e raggruppamento disciplinare, quando collegato;
+3. CENSIS generale nella categoria omogenea dell’ateneo;
+4. ranking ufficiale non disponibile.
 
-Questo indice:
+Il CENSIS generale confronta atenei divisi per dimensione e tipologia e non rappresenta una graduatoria unica di tutte le università italiane. Le graduatorie della didattica considerano progressione di carriera e rapporti internazionali. QS e CENSIS non sono metodologicamente equivalenti: la gerarchia tecnica del sito è una scelta editoriale di ordinamento, non una prova scientifica che l’assenza da QS renda automaticamente un ateneo peggiore.
 
-- non è un ranking accademico ufficiale;
-- non misura qualità della didattica o della ricerca;
-- non sostituisce QS by Subject, THE by Subject, Censis o altre classifiche;
-- serve soltanto alla navigazione del prototipo.
+## Comparatore — versione 8
 
-## Comparatore
+Sono collegati:
 
-Sono collegati e mostrati, quando disponibili:
+- QS by Subject 2026 e QS generale 2027;
+- CENSIS 2026/2027 della didattica e degli atenei;
+- MUR per corsi, accesso, iscritti, contribuzione, esoneri, borse, mobilità e strutture;
+- ISTAT per la spesa media territoriale;
+- Immobiliare.it Insights 2026 per le stanze singole;
+- Il Sole 24 Ore 2025 per la qualità della vita dei giovani.
 
-- ranking QS generale;
-- tipologia di accesso dichiarata nell’offerta formativa;
-- contribuzione media;
-- borse ed esoneri censiti;
-- mobilità internazionale in entrata e uscita;
-- mense, residenze e posti alloggio censiti;
-- corsi, classe di laurea, modalità didattica e iscritti.
+Le percentuali di occupazione o prosecuzione a 12 mesi del singolo corso non sono disponibili in forma omogenea per ogni corso del catalogo. Il sito non le inventa: mostra l’indicatore CENSIS di occupabilità dell’ateneo, il CENSIS della didattica o un collegamento diretto alla scheda ufficiale/AlmaLaurea, specificando che si tratta di un proxy e non della percentuale del corso.
 
-Restano intenzionalmente da integrare con fonti omogenee e aggiornate:
-
-- ranking europeo per materia o singolo corso;
-- lingua principale del corso;
-- occupazione entro un anno;
-- prosecuzione degli studi entro un anno;
-- partner Erasmus e accordi specifici;
-- costo della vita e affitto medio per città;
-- qualità della vita giovanile;
-- vita studentesca e integrazione con il mercato del lavoro locale.
-
-L’interfaccia segnala questi campi come non collegati: non vengono generati valori fittizi.
+La stima mensile della vita studentesca combina il canone di una camera singola con una quota dichiarata della spesa familiare media della ripartizione ISTAT. È un indicatore comparativo trasparente, non un preventivo individuale.
 
 ## Borse di studio — versione 3
 
@@ -140,7 +125,7 @@ La versione 7 applica inoltre queste regole:
 
 Il file `js/qs-subject-rankings-2026.js` collega i corsi generali del questionario alle materie pertinenti del **QS World University Rankings by Subject 2026**. Quando un corso richiede più materie, il punteggio è una media pesata dei dati disponibili e la scheda mostra posizione o fascia QS, peso relativo e collegamento alla fonte. Per esempio, Economia aziendale usa principalmente *Business & Management Studies* e *Accounting & Finance*.
 
-La copertura locale è curata ma non completa per tutte le combinazioni corso–ateneo. Quando non è presente una posizione QS by Subject, il test usa soltanto l’indice sperimentale di macroarea del prototipo con un intervallo di punteggio prudenziale. Non usa automaticamente il ranking generale come sostituto e l’interfaccia dichiara il fallback come non-QS.
+La copertura locale è curata ma non completa per tutte le combinazioni corso–ateneo. Quando non è presente una posizione QS by Subject, il test usa il CENSIS della didattica collegato; in assenza anche di quello usa il CENSIS generale nella categoria omogenea dell’ateneo. Se nessuna classifica ufficiale è disponibile, lo dichiara senza creare un indice interno.
 
 Le posizioni QS sono uno snapshot 2026, non un feed in tempo reale. Per aggiornamenti automatici servirebbero una fonte autorizzata, un processo periodico di sincronizzazione e controlli editoriali.
 
@@ -183,7 +168,7 @@ La soglia di 90 minuti non viene calcolata attraverso un sistema ferroviario o g
 
 ### Costi
 
-I costi mensili delle città presenti in `js/university-finder-data.js` sono valori dimostrativi editoriali e non una rilevazione statistica aggiornata. Servono a testare la logica dell’interfaccia. Prima della pubblicazione reale devono essere sostituiti da una fonte omogenea, datata e periodicamente aggiornata.
+Per la Comparison i canoni delle stanze provengono da Immobiliare.it Insights 2026 e il contesto di spesa da ISTAT 2024. Il test “Trova la mia università” conserva alcune stime editoriali di città come indicatore orientativo: prima di una decisione economica vanno sempre verificati canoni reali, trasporti e spese personali.
 
 La fascia ISEE non viene interpretata come reddito disponibile. Aumenta o riduce soltanto la sensibilità del punteggio al costo complessivo e attiva l’avvertenza di verificare borse ed esoneri.
 

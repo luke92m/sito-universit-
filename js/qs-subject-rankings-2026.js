@@ -461,7 +461,7 @@
     groupSubjects: GROUP_SUBJECTS,
     rankings: RANKINGS,
     methodology: {
-      note: 'Il dataset include posizioni QS by Subject 2026 verificate su QS e su pagine ufficiali degli atenei. Quando una posizione non è presente, il test usa un fallback disciplinare interno e lo dichiara.',
+      note: 'Il dataset include posizioni QS by Subject 2026 verificate su QS e su pagine ufficiali degli atenei. Quando una posizione non è presente, il sito usa la classifica CENSIS della didattica collegata o, in sua assenza, il CENSIS generale; non crea un ranking interno sostitutivo.',
       bandPolicy: 'Per una fascia QS viene usato il punto medio esclusivamente per trasformarla in un punteggio comparabile; la fascia originale resta visibile.',
       sources: [
         'https://www.qs.com/insights/qs-world-university-ranking-subject',

@@ -4,7 +4,11 @@
   const universities = Array.isArray(window.UNIVERSITIES) ? window.UNIVERSITIES.slice() : [];
   const universityData = window.UniversityData;
   const courseCatalog = window.CourseCatalog;
-  if (!universities.length || !universityData || !courseCatalog) return;
+  const officialRankings = window.OfficialRankings;
+  const cityIndicators = window.CITY_INDICATORS;
+  const studentServices = window.STUDENT_SERVICE_DATA || {};
+  const censis = window.CENSIS_RANKINGS || {};
+  if (!universities.length || !universityData || !courseCatalog || !officialRankings || !cityIndicators) return;
 
   const $ = (selector, parent = document) => parent.querySelector(selector);
   const $$ = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
@@ -117,10 +121,6 @@
     `;
   }
 
-  function unknownValue(note) {
-    return valueBlock('Dato non ancora collegato', note, 'Da integrare');
-  }
-
   function renderComparison(title, description, leftTitle, rightTitle, rows, scenarioLabel = '') {
     const host = $('#comparisonResults');
     if (!host) return;
@@ -157,92 +157,209 @@
     host.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  function officialSite(university) {
+    return studentServices.officialDomains?.[university.id] || '#';
+  }
+
   function rankingValue(university) {
-    if (!university.qsRank) return valueBlock('Non classificato', 'QS World University Rankings 2027', 'QS 2027');
-    return valueBlock(`#${university.qsRank}`, university.qsScore != null ? `punteggio ${Number(university.qsScore).toFixed(1)}` : 'ranking generale', 'QS 2027');
+    const ranking = officialRankings.general(university);
+    const source = ranking.sourceFamily || 'Ufficiale';
+    return htmlValueBlock(
+      `<a class="comparison-data-link" href="${escapeHtml(ranking.url || officialSite(university))}" target="_blank" rel="noreferrer">${escapeHtml(ranking.summary || ranking.label)}</a>`,
+      escapeHtml(ranking.note || 'Ranking ufficiale disponibile'),
+      source
+    );
   }
 
   function reputationValue(university) {
-    const rank = university.qsRankValue;
-    if (rank == null) return valueBlock('Non valutabile con questo indicatore', 'assenza nel ranking generale QS collegato', 'Proxy QS');
-    let label = 'Presenza internazionale';
-    if (rank <= 150) label = 'Visibilità internazionale molto alta';
-    else if (rank <= 350) label = 'Visibilità internazionale alta';
-    else if (rank <= 700) label = 'Buona visibilità internazionale';
-    return valueBlock(label, 'proxy basato sul ranking generale, non su un sondaggio proprietario', 'Proxy QS');
+    const ranking = officialRankings.general(university);
+    let label = 'Posizionamento ufficiale non disponibile';
+    if (ranking.source === 'qs-general') {
+      label = ranking.score >= 90 ? 'Prestigio internazionale molto elevato' : ranking.score >= 80 ? 'Prestigio internazionale elevato' : 'Presenza nel ranking internazionale QS';
+    } else if (ranking.source === 'censis-general') {
+      label = ranking.score >= 48 ? 'Posizionamento nazionale molto forte nella propria categoria' : 'Posizionamento nazionale CENSIS nella propria categoria';
+    }
+    return valueBlock(label, ranking.summary || ranking.note, ranking.sourceFamily || 'Ufficiale');
   }
 
-  function supportValue(universityId) {
-    const metrics = universityData.getMetrics(universityId);
-    if (!metrics.students) return unknownValue('mancano iscritti o interventi comparabili nel dataset collegato');
+  function supportValue(university) {
+    const metrics = universityData.getMetrics(university.id);
+    const students = Number(metrics.students || 0);
     const exemptions = Number(metrics.fullExemptions || 0) + Number(metrics.partialExemptions || 0);
-    const rate = exemptions / metrics.students * 100;
     const scholarships = Number(metrics.scholarshipsUniversityMur || 0);
+    const censisRecord = censis.general?.[university.id];
+    if (students > 0) {
+      const rate = exemptions / students * 100;
+      const note = `${formatNumber(exemptions)} esoneri totali/parziali su ${formatNumber(students)} iscritti` +
+        (censisRecord?.scholarships != null ? ` · indicatore CENSIS borse ${censisRecord.scholarships}/110` : '');
+      return htmlValueBlock(
+        `${formatNumber(scholarships)} borse di ateneo · ${formatPercent(rate)} esoneri`,
+        `${escapeHtml(note)}. Non equivale alla probabilità individuale di ottenere il beneficio.`,
+        'MUR 2025 + CENSIS'
+      );
+    }
+    if (censisRecord?.scholarships != null) {
+      return valueBlock(`Indicatore borse CENSIS ${censisRecord.scholarships}/110`, 'Dato comparativo della categoria CENSIS; consulta il bando ufficiale per requisiti e importi.', 'CENSIS 2026/27');
+    }
     return htmlValueBlock(
-      `${formatNumber(scholarships)} borse · ${formatPercent(rate)} esoneri`,
-      `${formatNumber(exemptions)} esoneri totali/parziali dichiarati su ${formatNumber(metrics.students)} iscritti; non equivale a probabilità individuale`,
-      'MUR 2025'
+      `<a class="comparison-data-link" href="${escapeHtml(officialSite(university))}" target="_blank" rel="noreferrer">Consulta borse e agevolazioni ufficiali</a>`,
+      'Il dataset aggregato non consente un tasso omogeneo per questo ateneo.',
+      'Fonte ateneo'
     );
   }
 
-  function mobilityValue(universityId) {
-    const metrics = universityData.getMetrics(universityId);
-    const out = metrics.mobilityOut;
-    const incoming = metrics.mobilityIn;
-    if (out == null && incoming == null) return unknownValue('elenco partner e flussi non disponibili per questo ateneo');
+  function mobilityValue(university) {
+    const metrics = universityData.getMetrics(university.id);
+    const out = Number(metrics.mobilityOut || 0);
+    const incoming = Number(metrics.mobilityIn || 0);
+    const censisRecord = censis.general?.[university.id];
+    if (out || incoming) {
+      const extra = censisRecord?.international != null ? ` · indicatore CENSIS internazionalizzazione ${censisRecord.international}/110` : '';
+      return htmlValueBlock(
+        `Uscita ${formatNumber(out)} · entrata ${formatNumber(incoming)}`,
+        `Studenti in mobilità censiti dal MUR${escapeHtml(extra)}. I singoli partner vanno verificati nella pagina Erasmus dell’ateneo.`,
+        'MUR 2025 + CENSIS'
+      );
+    }
+    if (censisRecord?.international != null) {
+      return valueBlock(`Internazionalizzazione ${censisRecord.international}/110`, 'Indicatore CENSIS; partner e accordi specifici sono pubblicati dall’ateneo.', 'CENSIS 2026/27');
+    }
     return htmlValueBlock(
-      `Uscita ${formatNumber(out || 0)} · entrata ${formatNumber(incoming || 0)}`,
-      'numero di studenti in mobilità; l’elenco delle università partner deve essere collegato separatamente',
-      'MUR 2025'
+      `<a class="comparison-data-link" href="${escapeHtml(officialSite(university))}" target="_blank" rel="noreferrer">Apri la mobilità internazionale dell’ateneo</a>`,
+      'Nessun flusso comparabile è presente nel dataset aggregato.',
+      'Fonte ateneo'
     );
   }
 
-  function campusValue(universityId) {
-    const metrics = universityData.getMetrics(universityId);
+  function campusValue(university) {
+    const metrics = universityData.getMetrics(university.id);
     const canteens = Number(metrics.canteens || 0);
     const residences = Number(metrics.residencesDirect || 0) + Number(metrics.residencesPartner || 0);
-    if (!canteens && !residences) {
-      return valueBlock('Nessuna struttura diretta censita', 'possono esistere servizi regionali DSU o strutture non incluse', 'MUR 2025');
-    }
-    return valueBlock(`${canteens} mense · ${residences} residenze`, 'strutture gestite direttamente o in convenzione censite dal MUR', 'MUR 2025');
+    const censisRecord = censis.general?.[university.id];
+    const suffix = censisRecord?.structures != null ? ` · strutture CENSIS ${censisRecord.structures}/110` : '';
+    return valueBlock(
+      `${canteens} mense · ${residences} residenze censite`,
+      `${canteens || residences ? 'Strutture dirette o convenzionate registrate dal MUR' : 'Nessuna struttura diretta censita; possono esistere servizi regionali'}${suffix}`,
+      'MUR 2025 + CENSIS'
+    );
   }
 
-  function housingValue(universityId) {
-    const metrics = universityData.getMetrics(universityId);
+  function housingValue(university) {
+    const metrics = universityData.getMetrics(university.id);
     const structures = Number(metrics.residencesDirect || 0) + Number(metrics.residencesPartner || 0);
     const places = Number(metrics.residencePlacesDirect || 0) + Number(metrics.residencePlacesPartner || 0);
-    if (!structures && !places) return valueBlock('Nessun posto censito', 'esclusi gli alloggi del diritto allo studio regionale', 'MUR 2025');
-    return valueBlock(`${formatNumber(places)} posti`, `${structures} strutture dirette o convenzionate`, 'MUR 2025');
-  }
-
-  function tuitionValue(universityId) {
-    const metrics = universityData.getMetrics(universityId);
-    if (metrics.tuitionAllStudents == null) return unknownValue('contribuzione media non disponibile nel file collegato');
+    const contributions = Number(metrics.housingContributions || 0) + Number(metrics.housingAssigned || 0);
     return valueBlock(
-      `${formatEuro(metrics.tuitionAllStudents)} / anno`,
-      metrics.tuitionPayers != null ? `media su tutti gli iscritti; media dei soli paganti ${formatEuro(metrics.tuitionPayers)}` : 'media effettiva su tutti gli iscritti',
+      `${formatNumber(places)} posti · ${formatNumber(contributions)} interventi`,
+      `${structures} strutture dirette/convenzionate; gli alloggi degli enti regionali possono non essere inclusi.`,
       'MUR 2025'
     );
   }
 
-  function cityUnknown(university, metric) {
-    return unknownValue(`${metric} per ${university.city}: collegare una fonte urbana omogenea e aggiornata`);
+  function tuitionValue(university) {
+    const metrics = universityData.getMetrics(university.id);
+    if (metrics.tuitionAllStudents != null) {
+      return valueBlock(
+        `${formatEuro(metrics.tuitionAllStudents)} / anno`,
+        metrics.tuitionPayers != null ? `media su tutti gli iscritti; media dei soli paganti ${formatEuro(metrics.tuitionPayers)}` : 'media effettiva su tutti gli iscritti',
+        'MUR 2025'
+      );
+    }
+    return htmlValueBlock(
+      `<a class="comparison-data-link" href="${escapeHtml(officialSite(university))}" target="_blank" rel="noreferrer">Apri il tariffario ufficiale</a>`,
+      'Contribuzione non disponibile nel file aggregato MUR collegato.',
+      'Fonte ateneo'
+    );
+  }
+
+  function cityContext(university, city = '') {
+    const effectiveCity = city || university.city;
+    return {
+      city: effectiveCity,
+      province: university.province || effectiveCity,
+      estimate: cityIndicators.studentMonthlyEstimate(effectiveCity, university.macroArea),
+      youth: cityIndicators.youth(university.province || effectiveCity, effectiveCity)
+    };
+  }
+
+  function costOfLivingValue(university, city = '') {
+    const context = cityContext(university, city);
+    const estimate = context.estimate;
+    return valueBlock(
+      `circa ${formatEuro(estimate.monthly)} / mese`,
+      `stima comparativa: camera ${formatEuro(estimate.rent)} + spese non abitative ${formatEuro(estimate.nonHousing)}; base ISTAT ${formatEuro(estimate.householdSpending)} mensili per famiglia nella ripartizione ${university.macroArea}`,
+      'ISTAT 2024 + Immobiliare.it 2026'
+    );
+  }
+
+  function roomRentValue(university, city = '') {
+    const context = cityContext(university, city);
+    const estimate = context.estimate;
+    return valueBlock(
+      `${formatEuro(estimate.rent)} / mese`,
+      estimate.rentExact ? `prezzo medio richiesto per una stanza singola a ${context.city}` : `valore territoriale prudenziale: ${context.city} non è tra le città pubblicate nello studio`,
+      'Immobiliare.it Insights 2026'
+    );
+  }
+
+  function youthValue(university, city = '') {
+    const context = cityContext(university, city);
+    if (!context.youth) {
+      return valueBlock('Provincia non presente nella selezione locale', 'Consulta la classifica completa delle 107 province.', 'Sole 24 Ore 2025');
+    }
+    return valueBlock(
+      `#${context.youth.rank} su ${context.youth.total}`,
+      `indice “Qualità della vita dei giovani” ${context.youth.score.toFixed(2).replace('.', ',')} punti per la provincia di ${context.youth.province}`,
+      'Sole 24 Ore 2025'
+    );
+  }
+
+  function studentLifeValue(university, city = '') {
+    const context = cityContext(university, city);
+    const metrics = universityData.getMetrics(university.id);
+    const students = Number(metrics.students || 0);
+    const mobility = Number(metrics.mobilityOut || 0) + Number(metrics.mobilityIn || 0);
+    let label = students >= 40000 ? 'Ecosistema universitario molto ampio' : students >= 18000 ? 'Ecosistema universitario ampio' : students >= 6000 ? 'Comunità universitaria di dimensione media' : 'Comunità universitaria più raccolta';
+    if (context.youth?.rank <= 25) label += ' in un contesto giovanile favorevole';
+    else if (context.youth?.rank >= 80) label += ' in un contesto giovanile più debole nell’indice territoriale';
+    return valueBlock(
+      label,
+      `${formatNumber(students)} iscritti censiti · ${formatNumber(mobility)} movimenti internazionali · provincia ${context.youth ? `#${context.youth.rank}/107 per i giovani` : 'da verificare'}`,
+      'Sintesi MUR + Sole 24 Ore'
+    );
+  }
+
+  function workConnectionValue(university) {
+    const record = censis.general?.[university.id];
+    if (record?.employability != null) {
+      return valueBlock(
+        `Occupabilità CENSIS ${record.employability}/110`,
+        `indicatore ufficiale della categoria “${record.group}”; misura l’ateneo, non il singolo corso né la sola città`,
+        'CENSIS 2026/27'
+      );
+    }
+    const ranking = officialRankings.general(university);
+    return htmlValueBlock(
+      `<a class="comparison-data-link" href="${escapeHtml(officialSite(university))}" target="_blank" rel="noreferrer">Apri career service e rapporti con le imprese</a>`,
+      `Il CENSIS non pubblica un indicatore separato di occupabilità per questa tipologia; contesto disponibile: ${escapeHtml(ranking.summary || 'ranking non disponibile')}.`,
+      'Fonte ateneo'
+    );
   }
 
   function universityRows(left, right) {
     return [
-      { label: 'Ranking generale', hint: 'Posizione internazionale complessiva', left: rankingValue(left), right: rankingValue(right) },
-      { label: 'Reputazione', hint: 'Indicatore preliminare, non una misura assoluta', left: reputationValue(left), right: reputationValue(right) },
-      { label: 'Borse e agevolazioni', hint: 'Numeri dichiarati e copertura esoneri', left: supportValue(left.id), right: supportValue(right.id) },
-      { label: 'Erasmus e periodi all’estero', hint: 'Flussi di mobilità; partner da integrare', left: mobilityValue(left.id), right: mobilityValue(right.id) },
-      { label: 'Campus e servizi', hint: 'Mense e residenze censite', left: campusValue(left.id), right: campusValue(right.id) },
-      { label: 'Studentati', hint: 'Posti direttamente gestiti o convenzionati', left: housingValue(left.id), right: housingValue(right.id) },
-      { label: 'Rata universitaria annuale', hint: 'Contribuzione media effettiva', left: tuitionValue(left.id), right: tuitionValue(right.id) },
-      { label: 'Costo della vita', hint: 'Città sede principale', left: cityUnknown(left, 'costo della vita'), right: cityUnknown(right, 'costo della vita') },
-      { label: 'Camera singola in affitto', hint: 'Prezzo medio mensile', left: cityUnknown(left, 'affitto medio'), right: cityUnknown(right, 'affitto medio') },
-      { label: 'Qualità della vita dei giovani', hint: 'Indicatore urbano', left: cityUnknown(left, 'qualità della vita giovanile'), right: cityUnknown(right, 'qualità della vita giovanile') },
-      { label: 'Vita studentesca fuori dall’ateneo', hint: 'Associazioni, eventi e socialità', left: cityUnknown(left, 'vita studentesca'), right: cityUnknown(right, 'vita studentesca') },
-      { label: 'Connessione con il lavoro in città', hint: 'Rapporto con imprese e territorio', left: cityUnknown(left, 'integrazione università-lavoro'), right: cityUnknown(right, 'integrazione università-lavoro') }
+      { label: 'Ranking generale', hint: 'QS quando presente; altrimenti CENSIS nella categoria omogenea', left: rankingValue(left), right: rankingValue(right) },
+      { label: 'Reputazione', hint: 'Lettura del ranking ufficiale disponibile', left: reputationValue(left), right: reputationValue(right) },
+      { label: 'Borse e agevolazioni', hint: 'Borse, esoneri e indicatore CENSIS', left: supportValue(left), right: supportValue(right) },
+      { label: 'Erasmus e periodi all’estero', hint: 'Flussi MUR e internazionalizzazione CENSIS', left: mobilityValue(left), right: mobilityValue(right) },
+      { label: 'Campus e servizi', hint: 'Mense, residenze e strutture', left: campusValue(left), right: campusValue(right) },
+      { label: 'Studentati', hint: 'Posti e interventi abitativi censiti', left: housingValue(left), right: housingValue(right) },
+      { label: 'Rata universitaria annuale', hint: 'Contribuzione media effettiva', left: tuitionValue(left), right: tuitionValue(right) },
+      { label: 'Costo della vita', hint: 'Stima comparativa da fonti nazionali e immobiliari', left: costOfLivingValue(left), right: costOfLivingValue(right) },
+      { label: 'Camera singola in affitto', hint: 'Prezzo medio mensile richiesto', left: roomRentValue(left), right: roomRentValue(right) },
+      { label: 'Qualità della vita dei giovani', hint: 'Indice provinciale su 12 parametri', left: youthValue(left), right: youthValue(right) },
+      { label: 'Vita studentesca fuori dall’ateneo', hint: 'Sintesi su dimensione, mobilità e contesto giovanile', left: studentLifeValue(left), right: studentLifeValue(right) },
+      { label: 'Connessione con il lavoro', hint: 'Indicatore CENSIS di occupabilità o career service ufficiale', left: workConnectionValue(left), right: workConnectionValue(right) }
     ];
   }
 
@@ -257,7 +374,7 @@
     }
     renderComparison(
       'Confronto tra università',
-      'I dati mancanti restano visibili come promemoria per le prossime integrazioni.',
+      'Il confronto usa ranking ufficiali e indicatori MUR, CENSIS, ISTAT, Immobiliare.it Insights e Sole 24 Ore, dichiarando sempre la fonte e i limiti.',
       left.name,
       right.name,
       universityRows(left, right),
@@ -273,30 +390,84 @@
     return valueBlock(course.access || 'Da verificare', 'modalità di accesso del corso', 'MUR offerta');
   }
 
-  function languageValue(course) {
-    return unknownValue(`lingua non presente nel dataset collegato per “${course.name}”`);
+  function courseOfficialLink(course, university) {
+    const params = new URLSearchParams({
+      universityId: university.id,
+      course: course.name,
+      classCode: course.classCode || ''
+    });
+    return `api/course-link?${params.toString()}`;
   }
 
-  function employmentValue(course) {
-    return unknownValue(`collegare un dato occupazionale a 12 mesi per classe, corso e ateneo`);
+  function inferCourseLanguage(course) {
+    const name = normalize(course?.name);
+    const englishSignals = ['business', 'management', 'economics', 'finance', 'engineering', 'science', 'artificial intelligence', 'data', 'international', 'marketing', 'medicine', 'design', 'computer'];
+    const italianSignals = ['scienze', 'ingegneria', 'economia', 'giurisprudenza', 'laurea', 'comunicazione', 'aziendale', 'medicina e chirurgia'];
+    const english = englishSignals.some((signal) => name.includes(signal));
+    const italian = italianSignals.some((signal) => name.includes(signal));
+    if (english && !italian) return 'Probabilmente inglese';
+    if (italian && !english) return 'Probabilmente italiano';
+    return 'Lingua da confermare';
   }
 
-  function specialisationValue(course) {
-    if (course.level === 'magistrale' || course.level === 'ciclo-unico') {
-      return valueBlock('Parametro non prioritario', 'il corso è già magistrale o a ciclo unico; valutare eventuale post-laurea', 'Regola prototipo');
+  function languageValue(course, university) {
+    const inferred = inferCourseLanguage(course);
+    return htmlValueBlock(
+      `${escapeHtml(inferred)} · <a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">verifica sul corso ufficiale</a>`,
+      'La denominazione del corso è un indizio; fa fede la pagina ufficiale dell’offerta formativa.',
+      'Fonte ateneo'
+    );
+  }
+
+  function employmentValue(course, university) {
+    const record = censis.general?.[university.id];
+    if (record?.employability != null) {
+      return htmlValueBlock(
+        `Occupabilità ateneo ${escapeHtml(record.employability)}/110`,
+        `Indicatore CENSIS della categoria “${escapeHtml(record.group)}”. È un proxy ufficiale dell’ateneo, non la percentuale occupata a 12 mesi del singolo corso.`,
+        'CENSIS 2026/27'
+      );
     }
-    return unknownValue('collegare la quota che prosegue con laurea magistrale o altra specializzazione entro un anno');
+    return htmlValueBlock(
+      `<a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">Apri la scheda ufficiale del corso</a>`,
+      'Per questo corso il prototipo non dispone di una percentuale omogenea a 12 mesi; verifica i dati AlmaLaurea o il rapporto occupazionale pubblicato dall’ateneo.',
+      'Fonte ateneo / AlmaLaurea'
+    );
+  }
+
+  function specialisationValue(course, university) {
+    if (course.level === 'magistrale' || course.level === 'ciclo-unico') {
+      return htmlValueBlock(
+        `Percorso già ${course.level === 'ciclo-unico' ? 'a ciclo unico' : 'magistrale'}`,
+        `Per dottorati, scuole di specializzazione o master consulta la <a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">pagina ufficiale</a>.`,
+        'MUR offerta'
+      );
+    }
+    const ranking = officialRankings.forCourse(university, course);
+    if (ranking.source === 'censis-teaching') {
+      return htmlValueBlock(
+        `${escapeHtml(ranking.summary)}`,
+        'La graduatoria CENSIS della didattica incorpora la progressione di carriera e i rapporti internazionali; non equivale alla quota di laureati che prosegue entro un anno.',
+        'CENSIS 2026/27'
+      );
+    }
+    const profile = courseCatalog.matchCourse(course);
+    return htmlValueBlock(
+      `${profile ? `Prosecuzione tipica: lauree magistrali dell’area ${escapeHtml(profile.group)}` : 'Prosecuzione da verificare nel piano formativo'}`,
+      `Consulta gli sbocchi e i percorsi successivi nella <a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">scheda ufficiale del corso</a>.`,
+      'Profilo MUR + ateneo'
+    );
   }
 
   function subjectRankingValue(course, university) {
-    const stats = universityData.getGroupStats(university.id, course.group);
-    if (!stats) {
-      return unknownValue(`ranking europeo per ${course.group} non collegato; nessun indice interno disponibile`);
-    }
+    const subject = officialRankings.forCourse(university, course);
+    const general = officialRankings.general(university);
+    const subjectLink = subject.url || officialSite(university);
+    const generalCopy = general.source === 'unavailable' ? 'prestigio generale non classificato' : `${general.label}: ${general.summary}`;
     return htmlValueBlock(
-      `Ranking europeo: non collegato<br><span class="comparison-inline-index">Indice interno #${escapeHtml(stats.rank)} / ${escapeHtml(stats.rankedUniversities)}</span>`,
-      `indice sperimentale ${Number(stats.index).toFixed(1).replace('.', ',')}/100 per l’area ${escapeHtml(course.group)}; non è un ranking accademico ufficiale`,
-      'Indice prototipo'
+      `<a class="comparison-data-link" href="${escapeHtml(subjectLink)}" target="_blank" rel="noreferrer">${escapeHtml(subject.summary || subject.label)}</a>`,
+      `${escapeHtml(subject.note || '')}<br><strong>Contesto dell’ateneo:</strong> ${escapeHtml(generalCopy)}.`,
+      subject.sourceFamily || 'Ufficiale'
     );
   }
 
@@ -308,52 +479,88 @@
     return valueBlock(`${score}%`, `compatibilità con il profilo salvato “${profile?.name || course.name}”`, 'Preferenze');
   }
 
-  function subjectsDifference(profile, otherProfile) {
-    if (!profile || !otherProfile) return unknownValue('profilo didattico non disponibile');
+  function subjectsDifference(profile, otherProfile, course, university) {
+    if (!profile || !otherProfile) {
+      return htmlValueBlock(
+        `<a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">Apri il piano di studi ufficiale</a>`,
+        'Il profilo editoriale non è sufficiente per estrarre differenze affidabili tra gli esami.',
+        'Fonte ateneo'
+      );
+    }
     const other = new Set(otherProfile.subjects.map((subject) => normalize(subject)));
     const unique = profile.subjects.filter((subject) => !other.has(normalize(subject))).slice(0, 5);
-    if (!unique.length) return valueBlock('Nessuna differenza netta nel profilo generale', 'confrontare i piani di studio ufficiali', 'Indicativo');
+    if (!unique.length) {
+      return htmlValueBlock(
+        `<a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">Confronta il piano di studi ufficiale</a>`,
+        'I profili generali non mostrano differenze nette; fanno fede gli insegnamenti pubblicati dall’ateneo.',
+        'Fonte ateneo'
+      );
+    }
     return htmlValueBlock(
       unique.map((subject) => `<span class="comparison-subject-chip">${escapeHtml(subject)}</span>`).join(''),
-      'materie indicative del profilo generale, non elenco ufficiale degli esami',
-      'Indicativo'
+      `Materie distintive del profilo generale. <a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">Verifica gli esami ufficiali</a>.`,
+      'Profilo + fonte ateneo'
+    );
+  }
+  function objectiveValue(profile, course, university) {
+    const objective = profile?.objective || `Approfondire le competenze dell’area ${course.group || 'disciplinare'} indicate dal piano di studi.`;
+    return htmlValueBlock(
+      `${escapeHtml(objective)}`,
+      `Sintesi orientativa dal profilo del corso. <a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">Leggi gli obiettivi ufficiali dell’ateneo</a>.`,
+      'Profilo corso + fonte ateneo'
     );
   }
 
-  function objectiveValue(profile) {
-    if (!profile) return unknownValue('obiettivo formativo non disponibile');
-    return valueBlock(profile.objective, 'sintesi generale del tipo di corso, non testo ufficiale dell’ateneo', 'Profilo corso');
+  const FOCUS_PATTERNS = [
+    ['management', 'gestione strategica e organizzazione d’impresa'],
+    ['aziendal', 'amministrazione, controllo e gestione aziendale'],
+    ['finanz', 'finanza, mercati e decisioni quantitative'],
+    ['marketing', 'mercati, consumatori e comunicazione commerciale'],
+    ['innovaz', 'innovazione e trasformazione dei modelli organizzativi'],
+    ['internaz', 'dimensione internazionale e contesti globali'],
+    ['sostenib', 'sostenibilità e impatto ambientale/sociale'],
+    ['digital', 'processi digitali e tecnologie applicate'],
+    ['data', 'analisi dei dati e metodi quantitativi'],
+    ['informat', 'software, sistemi informativi e calcolo'],
+    ['aerospaz', 'sistemi aeronautici e spaziali'],
+    ['meccanic', 'macchine, energia e processi industriali'],
+    ['biomed', 'applicazioni biomediche e sanitarie'],
+    ['comunicaz', 'media, contenuti e processi comunicativi'],
+    ['turism', 'gestione dei sistemi turistici e territoriali'],
+    ['pubblic', 'organizzazioni e amministrazioni pubbliche'],
+    ['giurid', 'norme, istituzioni e ragionamento giuridico'],
+    ['ambient', 'ambiente, territorio e transizione ecologica']
+  ];
+
+  function courseFocuses(course) {
+    const haystack = normalize(`${course.name} ${course.className || ''}`);
+    return FOCUS_PATTERNS.filter(([needle]) => haystack.includes(needle)).map(([, label]) => label);
   }
 
   function whyChoose(course, university, otherCourse, otherUniversity) {
-    const reasons = [];
-    const interest = interestValue(course);
-    const interestOther = interestValue(otherCourse);
-    if (interest && interestOther) {
-      const score = courseCatalog.scoreActualCourse(course);
-      const otherScore = courseCatalog.scoreActualCourse(otherCourse);
-      if (score > otherScore) reasons.push(`È più vicino alle preferenze salvate (${score}% contro ${otherScore}%).`);
+    const profile = courseCatalog.matchCourse(course);
+    const otherProfile = courseCatalog.matchCourse(otherCourse);
+    const objective = profile?.objective || `sviluppare competenze nell’area ${course.group}`;
+    const focuses = courseFocuses(course);
+    const otherFocuses = new Set(courseFocuses(otherCourse));
+    const uniqueFocus = focuses.filter((item) => !otherFocuses.has(item));
+    const otherUnique = Array.from(otherFocuses).filter((item) => !focuses.includes(item));
+
+    let contrast;
+    if (profile?.slug && profile.slug === otherProfile?.slug) {
+      if (uniqueFocus.length || otherUnique.length) {
+        contrast = `Rispetto a “${otherCourse.name}”, questa denominazione mette maggiormente l’accento su ${uniqueFocus[0] || 'il proprio taglio applicativo'}, mentre l’alternativa evidenzia ${otherUnique[0] || 'un’impostazione più generale'}.`;
+      } else {
+        contrast = `I due corsi condividono un obiettivo generale molto simile. La differenza reale dipende soprattutto dagli insegnamenti obbligatori, dai laboratori e dagli sbocchi dichiarati nei rispettivi piani di studio.`;
+      }
+    } else {
+      contrast = `Si distingue da “${otherCourse.name}” perché concentra la formazione su ${uniqueFocus[0] || profile?.group || course.group}, mentre l’altro percorso mira soprattutto a ${otherProfile?.objective || otherUnique[0] || otherCourse.group}.`;
     }
 
-    const rank = university.qsRankValue;
-    const otherRank = otherUniversity.qsRankValue;
-    if (rank != null && (otherRank == null || rank < otherRank)) reasons.push('L’ateneo ha una posizione migliore nel ranking generale QS collegato.');
-
-    const tuition = universityData.getMetrics(university.id).tuitionAllStudents;
-    const otherTuition = universityData.getMetrics(otherUniversity.id).tuitionAllStudents;
-    if (tuition != null && otherTuition != null && tuition < otherTuition) reasons.push(`La contribuzione media è più bassa di circa ${formatEuro(otherTuition - tuition)} l’anno.`);
-
-    if (normalize(course.access).includes('libero') && !normalize(otherCourse.access).includes('libero')) reasons.push('Il corso risulta ad accesso libero nel dataset MUR.');
-
-    const places = Number(universityData.getMetrics(university.id).residencePlacesDirect || 0) + Number(universityData.getMetrics(university.id).residencePlacesPartner || 0);
-    const otherPlaces = Number(universityData.getMetrics(otherUniversity.id).residencePlacesDirect || 0) + Number(universityData.getMetrics(otherUniversity.id).residencePlacesPartner || 0);
-    if (places > otherPlaces && places > 0) reasons.push(`Sono censiti più posti in residenze dirette o convenzionate (${formatNumber(places)}).`);
-
-    if (!reasons.length) reasons.push('La scelta dipende soprattutto dal piano di studio, dalla città e dai servizi che devono ancora essere approfonditi.');
     return htmlValueBlock(
-      `<ul class="comparison-reasons">${reasons.slice(0, 3).map((reason) => `<li>${escapeHtml(reason)}</li>`).join('')}</ul>`,
-      'lettura automatica dei dati disponibili, da verificare prima di decidere',
-      'Sintesi prototipo'
+      `<p class="comparison-objective-copy"><strong>Obiettivo:</strong> ${escapeHtml(objective)}</p><p>${escapeHtml(contrast)}</p><a class="comparison-data-link" href="${escapeHtml(courseOfficialLink(course, university))}" target="_blank" rel="noreferrer">Verifica obiettivi e piano di studi ufficiali</a>`,
+      `Sintesi costruita sul profilo generale e sulla denominazione del corso di ${escapeHtml(university.shortName)}; non riassume ranking, costi o ammissione.`,
+      'Confronto obiettivi'
     );
   }
 
@@ -371,21 +578,21 @@
       }
     }
     rows.push(
-      { label: 'Lingua', hint: 'Lingua principale di erogazione', left: languageValue(leftCourse), right: languageValue(rightCourse) },
-      { label: 'Occupazione entro un anno', hint: 'Ex studenti che lavorano', left: employmentValue(leftCourse), right: employmentValue(rightCourse) },
-      { label: 'Prosecuzione degli studi entro un anno', hint: 'Magistrale o altra specializzazione', left: specialisationValue(leftCourse), right: specialisationValue(rightCourse) }
+      { label: 'Lingua', hint: 'Lingua principale di erogazione', left: languageValue(leftCourse, leftUniversity), right: languageValue(rightCourse, rightUniversity) },
+      { label: 'Occupabilità ed esiti professionali', hint: 'Indicatore ufficiale disponibile; non sempre percentuale del singolo corso a 12 mesi', left: employmentValue(leftCourse, leftUniversity), right: employmentValue(rightCourse, rightUniversity) },
+      { label: 'Progressione e prosecuzione degli studi', hint: 'CENSIS della didattica o percorsi ufficiali successivi', left: specialisationValue(leftCourse, leftUniversity), right: specialisationValue(rightCourse, rightUniversity) }
     );
     return rows;
   }
 
   function sameCourseDifferentUniversitiesRows(leftCourse, leftUniversity, rightCourse, rightUniversity) {
     return [
-      { label: 'Ranking europeo del corso', hint: 'Area disciplinare o macroargomento', left: subjectRankingValue(leftCourse, leftUniversity), right: subjectRankingValue(rightCourse, rightUniversity) },
-      { label: 'Reputazione dell’università', hint: 'Proxy dal QS generale', left: reputationValue(leftUniversity), right: reputationValue(rightUniversity) },
+      { label: 'Ranking ufficiale del corso', hint: 'QS per materia; fallback CENSIS didattica o generale', left: subjectRankingValue(leftCourse, leftUniversity), right: subjectRankingValue(rightCourse, rightUniversity) },
+      { label: 'Reputazione dell’università', hint: 'QS generale; fallback CENSIS nella categoria omogenea', left: reputationValue(leftUniversity), right: reputationValue(rightUniversity) },
       { label: 'Facilità di ammissione', hint: 'Tipo di accesso dichiarato', left: admissionValue(leftCourse), right: admissionValue(rightCourse) },
       ...commonCourseRows(leftCourse, leftUniversity, rightCourse, rightUniversity, false),
-      { label: 'Rata annuale', hint: 'Contribuzione media dell’ateneo', left: tuitionValue(leftUniversity.id), right: tuitionValue(rightUniversity.id) },
-      { label: 'Perché scegliere questa sede', hint: 'Sintesi dei dati oggi disponibili', left: whyChoose(leftCourse, leftUniversity, rightCourse, rightUniversity), right: whyChoose(rightCourse, rightUniversity, leftCourse, leftUniversity) }
+      { label: 'Rata annuale', hint: 'Contribuzione media dell’ateneo', left: tuitionValue(leftUniversity), right: tuitionValue(rightUniversity) },
+      { label: 'Perché scegliere questa sede', hint: 'Obiettivo del corso e differenze formative', left: whyChoose(leftCourse, leftUniversity, rightCourse, rightUniversity), right: whyChoose(rightCourse, rightUniversity, leftCourse, leftUniversity) }
     ];
   }
 
@@ -397,15 +604,15 @@
       rows.push({
         label: 'Principali materie distintive',
         hint: `Entrambi nell’area ${leftCourse.group}`,
-        left: subjectsDifference(leftProfile, rightProfile),
-        right: subjectsDifference(rightProfile, leftProfile)
+        left: subjectsDifference(leftProfile, rightProfile, leftCourse, university),
+        right: subjectsDifference(rightProfile, leftProfile, rightCourse, university)
       });
     }
     rows.push({
       label: 'Obiettivo formativo',
       hint: 'Che cosa prova a costruire il percorso',
-      left: objectiveValue(leftProfile),
-      right: objectiveValue(rightProfile)
+      left: objectiveValue(leftProfile, leftCourse, university),
+      right: objectiveValue(rightProfile, rightCourse, university)
     });
     return rows;
   }
@@ -418,22 +625,22 @@
     const rightInterest = interestValue(rightCourse);
     if (leftInterest && rightInterest) rows.push({ label: 'Interesse personale', hint: 'Da “Trova il mio corso”', left: leftInterest, right: rightInterest });
     rows.push(
-      { label: 'Ranking del corso e dell’ateneo', hint: 'Materia da integrare; QS generale già collegato', left: subjectRankingValue(leftCourse, leftUniversity), right: subjectRankingValue(rightCourse, rightUniversity) },
-      { label: 'Occupazione entro un anno', hint: 'Ex studenti che lavorano', left: employmentValue(leftCourse), right: employmentValue(rightCourse) },
-      { label: 'Prosecuzione degli studi entro un anno', hint: 'Magistrale o altra specializzazione', left: specialisationValue(leftCourse), right: specialisationValue(rightCourse) },
-      { label: 'Lingua', hint: 'Lingua principale di erogazione', left: languageValue(leftCourse), right: languageValue(rightCourse) }
+      { label: 'Ranking del corso e dell’ateneo', hint: 'Materia QS o CENSIS, con contesto generale dell’ateneo', left: subjectRankingValue(leftCourse, leftUniversity), right: subjectRankingValue(rightCourse, rightUniversity) },
+      { label: 'Occupabilità ed esiti professionali', hint: 'Indicatore ufficiale disponibile; non sempre percentuale del singolo corso a 12 mesi', left: employmentValue(leftCourse, leftUniversity), right: employmentValue(rightCourse, rightUniversity) },
+      { label: 'Progressione e prosecuzione degli studi', hint: 'CENSIS della didattica o percorsi ufficiali successivi', left: specialisationValue(leftCourse, leftUniversity), right: specialisationValue(rightCourse, rightUniversity) },
+      { label: 'Lingua', hint: 'Lingua principale di erogazione', left: languageValue(leftCourse, leftUniversity), right: languageValue(rightCourse, rightUniversity) }
     );
     if (leftCourse.group === rightCourse.group) {
-      rows.push({ label: 'Principali materie distintive', hint: `Entrambi nell’area ${leftCourse.group}`, left: subjectsDifference(leftProfile, rightProfile), right: subjectsDifference(rightProfile, leftProfile) });
+      rows.push({ label: 'Principali materie distintive', hint: `Entrambi nell’area ${leftCourse.group}`, left: subjectsDifference(leftProfile, rightProfile, leftCourse, leftUniversity), right: subjectsDifference(rightProfile, leftProfile, rightCourse, rightUniversity) });
     }
     rows.push(
-      { label: 'Obiettivo formativo', hint: 'Direzione generale del percorso', left: objectiveValue(leftProfile), right: objectiveValue(rightProfile) },
-      { label: 'Perché scegliere questa alternativa', hint: 'Sintesi automatica', left: whyChoose(leftCourse, leftUniversity, rightCourse, rightUniversity), right: whyChoose(rightCourse, rightUniversity, leftCourse, leftUniversity) },
-      { label: 'Rata annuale', hint: 'Contribuzione media dell’ateneo', left: tuitionValue(leftUniversity.id), right: tuitionValue(rightUniversity.id) },
-      { label: 'Costo della vita', hint: 'Città del corso', left: cityUnknown(leftUniversity, 'costo della vita'), right: cityUnknown(rightUniversity, 'costo della vita') },
-      { label: 'Camera singola in affitto', hint: 'Prezzo medio mensile', left: cityUnknown(leftUniversity, 'affitto medio'), right: cityUnknown(rightUniversity, 'affitto medio') },
-      { label: 'Vita fuori dall’università', hint: 'Socialità, cultura e servizi', left: cityUnknown(leftUniversity, 'vita studentesca'), right: cityUnknown(rightUniversity, 'vita studentesca') },
-      { label: 'Qualità della vita dei giovani', hint: 'Indicatore urbano', left: cityUnknown(leftUniversity, 'qualità della vita giovanile'), right: cityUnknown(rightUniversity, 'qualità della vita giovanile') }
+      { label: 'Obiettivo formativo', hint: 'Direzione generale del percorso', left: objectiveValue(leftProfile, leftCourse, leftUniversity), right: objectiveValue(rightProfile, rightCourse, rightUniversity) },
+      { label: 'Perché scegliere questa alternativa', hint: 'Obiettivo del corso e differenze formative', left: whyChoose(leftCourse, leftUniversity, rightCourse, rightUniversity), right: whyChoose(rightCourse, rightUniversity, leftCourse, leftUniversity) },
+      { label: 'Rata annuale', hint: 'Contribuzione media dell’ateneo', left: tuitionValue(leftUniversity), right: tuitionValue(rightUniversity) },
+      { label: 'Costo della vita', hint: 'Stima comparativa della città del corso', left: costOfLivingValue(leftUniversity, leftCourse.city), right: costOfLivingValue(rightUniversity, rightCourse.city) },
+      { label: 'Camera singola in affitto', hint: 'Prezzo medio mensile richiesto', left: roomRentValue(leftUniversity, leftCourse.city), right: roomRentValue(rightUniversity, rightCourse.city) },
+      { label: 'Vita fuori dall’università', hint: 'Sintesi da dimensione universitaria e contesto giovanile', left: studentLifeValue(leftUniversity, leftCourse.city), right: studentLifeValue(rightUniversity, rightCourse.city) },
+      { label: 'Qualità della vita dei giovani', hint: 'Indice provinciale su 12 parametri', left: youthValue(leftUniversity, leftCourse.city), right: youthValue(rightUniversity, rightCourse.city) }
     );
     return rows;
   }

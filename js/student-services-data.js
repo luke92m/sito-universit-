@@ -208,17 +208,24 @@
   };
 
   window.STUDENT_SERVICE_DATA = {
-    version: 4,
-    referenceDate: '2026-08-29',
+    version: 8,
+    referenceDate: '2026-08-30',
     academicYear: '2026/2027',
     nationalThresholds: { isee: iseeLimit, ispe: ispeLimit },
     iseeRanges: [
       { value: '0-13000', label: 'Fino a €13.000', min: 0, max: 13000 },
-      { value: '13000-18000', label: 'Da €13.000,01 a €18.000', min: 13000.01, max: 18000 },
-      { value: '18000-22000', label: 'Da €18.000,01 a €22.000', min: 18000.01, max: 22000 },
-      { value: '22000-26000', label: 'Da €22.000,01 a €26.000', min: 22000.01, max: 26000 },
-      { value: '26000-limit', label: `Da €26.000,01 a €${iseeLimit.toLocaleString('it-IT', { minimumFractionDigits: 2 })}`, min: 26000.01, max: iseeLimit },
-      { value: 'over-limit', label: `Oltre €${iseeLimit.toLocaleString('it-IT', { minimumFractionDigits: 2 })}`, min: iseeLimit + 0.01, max: Infinity },
+      { value: '13000-16000', label: 'Da €13.000,01 a €16.000', min: 13000.01, max: 16000 },
+      { value: '16000-18000', label: 'Da €16.000,01 a €18.000', min: 16000.01, max: 18000 },
+      { value: '18000-20000', label: 'Da €18.000,01 a €20.000', min: 18000.01, max: 20000 },
+      { value: '20000-22000', label: 'Da €20.000,01 a €22.000 · no tax area nazionale', min: 20000.01, max: 22000 },
+      { value: '22000-24000', label: 'Da €22.000,01 a €24.000 · riduzione nazionale minima 80%', min: 22000.01, max: 24000 },
+      { value: '24000-26000', label: 'Da €24.000,01 a €26.000 · riduzione nazionale minima 50%', min: 24000.01, max: 26000 },
+      { value: '26000-28000', label: 'Da €26.000,01 a €28.000 · riduzione nazionale minima 25%', min: 26000.01, max: 28000 },
+      { value: '28000-scholarship-limit', label: `Da €28.000,01 a €${iseeLimit.toLocaleString('it-IT', { minimumFractionDigits: 2 })} · limite massimo borsa DSU 2026/27`, min: 28000.01, max: iseeLimit },
+      { value: 'scholarship-limit-30000', label: `Da €${(iseeLimit + 0.01).toLocaleString('it-IT', { minimumFractionDigits: 2 })} a €30.000 · riduzione nazionale minima 10%`, min: iseeLimit + 0.01, max: 30000 },
+      { value: '30000-40000', label: 'Da €30.000,01 a €40.000', min: 30000.01, max: 40000 },
+      { value: '40000-60000', label: 'Da €40.000,01 a €60.000', min: 40000.01, max: 60000 },
+      { value: 'over-60000', label: 'Oltre €60.000', min: 60000.01, max: Infinity },
       { value: 'unknown', label: 'Non conosco ancora il mio ISEE universitario', min: null, max: null }
     ],
     ispeRanges: [

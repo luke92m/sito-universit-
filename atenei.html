@@ -16,7 +16,7 @@
     <section class="page-hero compact" aria-labelledby="catalogTitle">
       <span class="eyebrow">Orientati con ordine</span>
       <h1 id="catalogTitle"><span id="catalogTotal">99</span> istituti universitari,<br>un solo punto di partenza.</h1>
-      <p class="page-lead">Esplora gli atenei in ordine alfabetico, per regione, secondo il ranking generale QS oppure per area disciplinare.</p>
+      <p class="page-lead">Esplora gli atenei in ordine alfabetico, per regione, secondo ranking ufficiali QS e CENSIS oppure per area disciplinare.</p>
     </section>
 
     <section class="catalog-section" aria-label="Catalogo degli atenei">
@@ -43,7 +43,7 @@
               </button>
               <button class="filter-option" type="button" data-mode="ranking" aria-pressed="false">
                 <span class="filter-option-icon">Q</span>
-                <span class="filter-option-copy"><strong>Ranking QS</strong><small>QS World University Rankings 2027</small></span>
+                <span class="filter-option-copy"><strong>Ranking ufficiali</strong><small>QS 2027; fallback CENSIS 2026/27</small></span>
                 <span class="filter-option-check" aria-hidden="true"></span>
               </button>
               <button class="filter-option" type="button" data-mode="department" aria-pressed="false">
@@ -61,7 +61,7 @@
             <div class="conditional-filter-control" id="departmentControl" hidden>
               <label for="departmentSelect">Scegli l’area disciplinare</label>
               <select id="departmentSelect" name="department"></select>
-              <small>Gli atenei sono ordinati con un indice interno del prototipo, non con un ranking accademico ufficiale per materia.</small>
+              <small>Gli atenei sono ordinati prima con il QS per materia; quando manca, il sito usa la classifica ufficiale CENSIS della didattica o dell’ateneo e indica chiaramente il tipo di fallback.</small>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
       <div class="university-list" id="universityList"></div>
 
       <p class="source-note">
-        <strong>Nota sui dati.</strong> L’anagrafica deriva dagli Open Data USTAT del Ministero dell’Università e della Ricerca. Il ranking generale usa la <a href="https://www.qs.com/insights/qs-world-university-rankings" target="_blank" rel="noreferrer">QS World University Rankings 2027</a>; gli atenei non presenti sono indicati con “n.d.”. Il filtro “Dipartimento” usa corsi e iscritti MUR 2024/25 e un <strong>indice interno sperimentale</strong> costruito per questo prototipo: non è una classifica ufficiale per materia. Fonte anagrafica: <a href="https://dati-ustat.mur.gov.it/dataset/metadati/resource/a332a119-6c4b-44f5-80eb-3aca45a9e8e8" target="_blank" rel="noreferrer">Open Data MUR — Atenei</a>.
+        <strong>Nota sui dati.</strong> L’anagrafica deriva dagli Open Data USTAT del Ministero dell’Università e della Ricerca. Il ranking generale usa la <a href="https://www.qs.com/insights/qs-world-university-rankings" target="_blank" rel="noreferrer">QS World University Rankings 2027</a>; in assenza di QS viene mostrata la <a href="https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/" target="_blank" rel="noreferrer">Classifica CENSIS 2026/2027</a> nella categoria omogenea dell’ateneo. Il filtro “Dipartimento” usa QS per materia e, quando non disponibile, il CENSIS della didattica o il CENSIS generale. Non vengono più usati indici interni come ranking. Fonte anagrafica: <a href="https://dati-ustat.mur.gov.it/dataset/metadati/resource/a332a119-6c4b-44f5-80eb-3aca45a9e8e8" target="_blank" rel="noreferrer">Open Data MUR — Atenei</a>.
       </p>
     </section>
   </main>
@@ -101,6 +101,10 @@
   <script src="js/university-courses.js"></script>
   <script src="js/course-catalog.js"></script>
   <script src="js/student-services-data.js"></script>
+  <script src="js/qs-subject-rankings-2026.js"></script>
+  <script src="js/censis-rankings-2026.js"></script>
+  <script src="js/official-rankings.js"></script>
+  <script src="js/university-profiles.js"></script>
   <script src="js/app.js"></script>
   <script src="js/atenei.js"></script>
 </body>

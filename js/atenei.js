@@ -3,6 +3,8 @@
 
   const universities = Array.isArray(window.UNIVERSITIES) ? window.UNIVERSITIES.slice() : [];
   const universityData = window.UniversityData || null;
+  const officialRankings = window.OfficialRankings || null;
+  const universityProfiles = window.UniversityProfiles || null;
   const state = {
     mode: 'alphabetical',
     region: 'Abruzzo',
@@ -14,7 +16,7 @@
   const modeLabels = {
     alphabetical: 'Alfabetico',
     region: 'Regione',
-    ranking: 'Ranking QS',
+    ranking: 'Ranking ufficiali',
     department: 'Dipartimento'
   };
 
@@ -52,10 +54,10 @@
   }
 
   function rankSort(a, b) {
-    if (a.qsRankValue == null && b.qsRankValue == null) return alphaSort(a, b);
-    if (a.qsRankValue == null) return 1;
-    if (b.qsRankValue == null) return -1;
-    if (a.qsRankValue !== b.qsRankValue) return a.qsRankValue - b.qsRankValue;
+    const left = officialRankings?.general?.(a);
+    const right = officialRankings?.general?.(b);
+    if ((left?.tier || 0) !== (right?.tier || 0)) return (right?.tier || 0) - (left?.tier || 0);
+    if ((left?.score || 0) !== (right?.score || 0)) return (right?.score || 0) - (left?.score || 0);
     return alphaSort(a, b);
   }
 
@@ -63,14 +65,15 @@
     return universityData?.getGroupStats?.(university.id, state.department) || null;
   }
 
+  function departmentRanking(university) {
+    return officialRankings?.forGroup?.(university, state.department) || null;
+  }
+
   function departmentSort(a, b) {
-    const left = groupStats(a);
-    const right = groupStats(b);
-    if (!left && !right) return alphaSort(a, b);
-    if (!left) return 1;
-    if (!right) return -1;
-    if (left.rank !== right.rank) return Number(left.rank || Infinity) - Number(right.rank || Infinity);
-    if (left.index !== right.index) return Number(right.index || 0) - Number(left.index || 0);
+    const left = departmentRanking(a);
+    const right = departmentRanking(b);
+    if ((left?.tier || 0) !== (right?.tier || 0)) return (right?.tier || 0) - (left?.tier || 0);
+    if ((left?.score || 0) !== (right?.score || 0)) return (right?.score || 0) - (left?.score || 0);
     return alphaSort(a, b);
   }
 
@@ -127,33 +130,31 @@
   }
 
   function rankingTemplate(university) {
-    const rank = university.qsRank
-      ? `<div class="qs-pill"><span>QS 2027</span><strong>#${escapeHtml(university.qsRank)}</strong></div>`
-      : '<div class="qs-pill is-unranked"><span>QS 2027</span><strong>n.d.</strong></div>';
-
-    const score = university.qsScore != null
-      ? `<span class="score-note">punteggio ${escapeHtml(Number(university.qsScore).toFixed(1).replace('.', ','))}</span>`
-      : '';
-
-    return `${rank}${score}`;
+    const ranking = officialRankings?.general?.(university);
+    if (!ranking || ranking.source === 'unavailable') {
+      return '<div class="qs-pill is-unranked"><span>Ranking ufficiale</span><strong>n.d.</strong></div>';
+    }
+    const label = ranking.source === 'qs-general' ? 'QS 2027' : 'CENSIS 2026/27';
+    return `
+      <div class="qs-pill${ranking.source === 'censis-general' ? ' is-censis' : ''}"><span>${escapeHtml(label)}</span><strong>${escapeHtml(ranking.summary)}</strong></div>
+      <span class="score-note">${escapeHtml(ranking.source === 'censis-general' ? 'categoria omogenea per dimensione/tipologia' : 'ranking internazionale generale')}</span>
+    `;
   }
 
   function departmentRankingTemplate(university) {
+    const ranking = departmentRanking(university);
     const stats = groupStats(university);
-    if (!stats) return '';
-    const rank = Number(stats.rank) || 0;
-    const total = Number(stats.rankedUniversities) || 0;
-    const score = Number(stats.index) || 0;
-    const courseCount = Number(stats.courseCount) || 0;
-    const enrolled = Number(stats.enrolled) || 0;
+    if (!ranking) return '';
+    const courseCount = Number(stats?.courseCount) || 0;
+    const enrolled = Number(stats?.enrolled) || 0;
     const courseWord = courseCount === 1 ? 'corso' : 'corsi';
-
+    const label = ranking.source === 'qs-subject' ? `QS by Subject ${ranking.year}` : ranking.source.startsWith('censis') ? 'CENSIS 2026/27' : 'Ranking ufficiale';
     return `
-      <div class="area-pill" title="Indice interno sperimentale del prototipo">
-        <span>Indice area</span>
-        <strong>#${escapeHtml(rank)}${total ? ` / ${escapeHtml(total)}` : ''}</strong>
+      <div class="area-pill${ranking.source.startsWith('censis') ? ' is-censis' : ''}" title="${escapeHtml(ranking.note || '')}">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(ranking.summary || 'n.d.')}</strong>
       </div>
-      <span class="score-note">${escapeHtml(score.toFixed(1).replace('.', ','))}/100 · ${escapeHtml(courseCount)} ${courseWord} · ${escapeHtml(integerFormatter.format(enrolled))} iscritti</span>
+      <span class="score-note">${escapeHtml(courseCount)} ${courseWord} · ${escapeHtml(integerFormatter.format(enrolled))} iscritti</span>
     `;
   }
 
@@ -164,7 +165,7 @@
       : rankingTemplate(university);
 
     return `
-      <article class="university-card" id="${escapeHtml(university.id)}">
+      <article class="university-card" id="${escapeHtml(university.id)}" data-university-id="${escapeHtml(university.id)}" role="button" tabindex="0" aria-label="Apri la scheda di ${escapeHtml(university.name)}">
         <div class="university-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</div>
         <div class="university-main">
           <div class="university-badges">
@@ -178,9 +179,110 @@
         </div>
         <div class="university-ranking">
           ${rightColumn}
+          <span class="university-open-hint">Apri scheda →</span>
         </div>
       </article>
     `;
+  }
+
+  function ensureProfileModal() {
+    let modal = $('#universityProfileModal');
+    if (modal) return modal;
+    document.body.insertAdjacentHTML('beforeend', `
+      <div class="university-profile-modal" id="universityProfileModal" hidden>
+        <button class="university-profile-backdrop" type="button" data-close-profile aria-label="Chiudi la scheda"></button>
+        <section class="university-profile-dialog" role="dialog" aria-modal="true" aria-labelledby="universityProfileTitle">
+          <button class="university-profile-close" type="button" data-close-profile aria-label="Chiudi">×</button>
+          <div id="universityProfileContent"></div>
+        </section>
+      </div>
+    `);
+    modal = $('#universityProfileModal');
+    $$('[data-close-profile]', modal).forEach((button) => button.addEventListener('click', closeUniversityProfile));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) closeUniversityProfile();
+    });
+    return modal;
+  }
+
+  function closeUniversityProfile() {
+    const modal = $('#universityProfileModal');
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove('has-profile-modal');
+  }
+
+  function strengthRows(profile) {
+    const rows = profile.strengths?.rows || [];
+    if (!rows.length) return '<p class="university-profile-empty">Nessuna area ufficiale collegata per questo ateneo.</p>';
+    return `<div class="university-strength-list">${rows.map((item) => `
+      <a class="university-strength-item" href="${escapeHtml(item.url || profile.officialUrl)}" target="_blank" rel="noreferrer">
+        <span>${escapeHtml(item.source)}</span>
+        <strong>${escapeHtml(item.label)}</strong>
+        <small>${escapeHtml(item.visibleRank)}</small>
+      </a>
+    `).join('')}</div>`;
+  }
+
+  function openUniversityProfile(universityId) {
+    const university = universities.find((item) => item.id === universityId);
+    if (!university || !universityProfiles) return;
+    const profile = universityProfiles.profile(university);
+    const ranking = officialRankings?.general?.(university);
+    const metrics = universityData?.getMetrics?.(university.id) || {};
+    const courses = universityData?.getCourses?.(university.id) || [];
+    const groups = new Set(courses.map((course) => course.group).filter(Boolean));
+    const modal = ensureProfileModal();
+    const host = $('#universityProfileContent');
+    const category = displayCategory(university.category);
+    const rankingCopy = ranking?.source === 'unavailable' ? 'Nessun ranking ufficiale collegato' : `${ranking.label}: ${ranking.summary}`;
+
+    host.innerHTML = `
+      <header class="university-profile-header">
+        <div>
+          <span class="type-badge type-${categoryClass(university.category)}">${escapeHtml(category)}</span>
+          <p>${escapeHtml(university.city)}, ${escapeHtml(university.region)}</p>
+          <h2 id="universityProfileTitle">${escapeHtml(university.name)}</h2>
+        </div>
+        <div class="university-profile-ranking">
+          <span>Ranking disponibile</span>
+          <strong>${escapeHtml(rankingCopy)}</strong>
+          <small>${escapeHtml(ranking?.note || '')}</small>
+        </div>
+      </header>
+
+      <div class="university-profile-facts">
+        <article><span>Studenti censiti</span><strong>${escapeHtml(metrics.students ? integerFormatter.format(metrics.students) : 'n.d.')}</strong></article>
+        <article><span>Corsi collegati</span><strong>${escapeHtml(courses.length)}</strong></article>
+        <article><span>Aree disciplinari</span><strong>${escapeHtml(groups.size)}</strong></article>
+        <article><span>Tipologia</span><strong>${escapeHtml(category)}</strong></article>
+      </div>
+
+      <section class="university-profile-section">
+        <span class="eyebrow">Descrizione generale</span>
+        <p>${escapeHtml(profile.overview)}</p>
+      </section>
+
+      <section class="university-profile-section">
+        <span class="eyebrow">Storia in breve</span>
+        <p>${escapeHtml(profile.history)}</p>
+      </section>
+
+      <section class="university-profile-section">
+        <span class="eyebrow">Aree più forti o rappresentative</span>
+        <h3>${profile.strengths?.kind === 'ranking' ? 'Ranking ufficiali disponibili' : 'Aree con maggiore presenza nell’offerta'}</h3>
+        ${strengthRows(profile)}
+        <p class="micro-note">Quando QS o CENSIS non coprono l’area, la scheda mostra soltanto la consistenza dell’offerta MUR e la dichiara come tale: non è una classifica di qualità.</p>
+      </section>
+
+      <footer class="university-profile-actions">
+        <a class="button button-primary" href="${escapeHtml(profile.officialUrl)}" target="_blank" rel="noreferrer">Apri il sito ufficiale</a>
+        <a class="button button-secondary" href="comparison.html?mode=universities">Confronta questo ateneo</a>
+      </footer>
+    `;
+    modal.hidden = false;
+    document.body.classList.add('has-profile-modal');
+    $('.university-profile-close', modal)?.focus();
   }
 
   function emptyTemplate() {
@@ -209,11 +311,12 @@
       return `<strong>${resultCount}</strong> ${noun} tra ${typeCopy} in <strong>${escapeHtml(state.region)}</strong>${suffix}`;
     }
     if (state.mode === 'ranking') {
-      const ranked = results.filter((item) => item.qsRank).length;
-      return `<strong>${resultCount}</strong> risultati tra ${typeCopy}: <strong>${ranked}</strong> presenti nel QS 2027, poi gli altri in ordine alfabetico${suffix}`;
+      const qsCount = results.filter((item) => officialRankings?.general?.(item)?.source === 'qs-general').length;
+      const censisCount = results.filter((item) => officialRankings?.general?.(item)?.source === 'censis-general').length;
+      return `<strong>${resultCount}</strong> risultati tra ${typeCopy}: <strong>${qsCount}</strong> con QS e <strong>${censisCount}</strong> con fallback CENSIS${suffix}`;
     }
     if (state.mode === 'department') {
-      return `<strong>${resultCount}</strong> ${noun} tra ${typeCopy} con corsi nell’area <strong>${escapeHtml(state.department)}</strong>, ordinati per indice sperimentale${suffix}`;
+      return `<strong>${resultCount}</strong> ${noun} tra ${typeCopy} con corsi nell’area <strong>${escapeHtml(state.department)}</strong>, ordinati con QS per materia e fallback CENSIS ufficiale${suffix}`;
     }
     return `<strong>${resultCount}</strong> ${noun} tra ${typeCopy} in ordine alfabetico${suffix}`;
   }
@@ -250,6 +353,16 @@
     });
 
     $('#resetCatalog')?.addEventListener('click', resetFilters);
+    $$('.university-card', list).forEach((card) => {
+      const open = () => openUniversityProfile(card.dataset.universityId);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          open();
+        }
+      });
+    });
   }
 
   function resetFilters() {

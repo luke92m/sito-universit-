@@ -6,8 +6,9 @@
   const finderData = window.UNIVERSITY_FINDER_DATA || {};
   const serviceData = window.STUDENT_SERVICE_DATA || {};
   const qsSubjectData = window.QS_SUBJECT_RANKINGS || {};
+  const officialRankings = window.OfficialRankings;
   const universityData = window.UniversityData;
-  if (!app || !catalog || !universityData) return;
+  if (!app || !catalog || !universityData || !officialRankings) return;
 
   const $ = (selector, parent = document) => parent.querySelector(selector);
   const $$ = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
@@ -76,8 +77,21 @@
     return catalog.courses.find((course) => course.slug === slug) || null;
   }
 
+  const LEGACY_ISEE_VALUES = {
+    '13000-18000': '16000-18000',
+    '18000-22000': '20000-22000',
+    '22000-26000': '24000-26000',
+    '26000-limit': '28000-scholarship-limit',
+    'over-limit': '30000-40000'
+  };
+
+  function normalizedIseeValue(value) {
+    return LEGACY_ISEE_VALUES[value] || value || '';
+  }
+
   function getIseeRange(value) {
-    return (serviceData.iseeRanges || []).find((range) => range.value === value) || null;
+    const normalized = normalizedIseeValue(value);
+    return (serviceData.iseeRanges || []).find((range) => range.value === normalized) || null;
   }
 
   function formatCurrency(value, maximumFractionDigits = 0) {
@@ -109,7 +123,7 @@
       residenceCity: stored.residenceCity || '',
       commute: stored.commutePreference || '',
       relocation: stored.relocationScope || '',
-      iseeRange: stored.iseeRange || '',
+      iseeRange: normalizedIseeValue(stored.iseeRange || ''),
       language: stored.languagePreference || ''
     };
   }
@@ -792,12 +806,14 @@
     const housing = comparativeScore(raw.housingRate, benchmarks.housingRate, { floor: 12, ceiling: 90 });
     const exemptions = comparativeScore(raw.exemptionRate, benchmarks.exemptionRate, { floor: 14, ceiling: 91 });
     const regional = REGIONAL_SUPPORT_AGENCIES[university.region] ? 72 : 48;
-    const lowIsee = ['0-13000', '13000-18000', '18000-22000', '22000-26000', '26000-limit'].includes(answers.iseeRange);
+    const selectedRange = getIseeRange(answers.iseeRange);
+    const lowIsee = selectedRange?.min != null && selectedRange.min <= Number(serviceData.nationalThresholds?.isee || 28339.88);
     const isee = lowIsee
       ? clamp(exemptions * 0.58 + beneficiary * 0.28 + regional * 0.14, 15, 91)
       : clamp(quality * 0.40 + beneficiary * 0.20 + 42, 15, 86);
     const meritBase = comparativeScore(raw.meritProxy, benchmarks.meritProxy, { floor: 15, ceiling: 88 });
-    const merit = answers.iseeRange === 'over-limit' ? clamp(meritBase + 4, 15, 90) : meritBase;
+    const highIsee = selectedRange?.min != null && selectedRange.min > 30000;
+    const merit = highIsee ? clamp(meritBase + 4, 15, 90) : meritBase;
     const score = clamp(
       beneficiary * 0.30 +
       quality * 0.20 +
@@ -820,15 +836,13 @@
   }
 
   function iseeBudget(value) {
-    return {
-      '0-13000': 10500,
-      '13000-18000': 13000,
-      '18000-22000': 15000,
-      '22000-26000': 17500,
-      '26000-limit': 20500,
-      'over-limit': 28000,
-      unknown: 16500
-    }[value] || 16500;
+    const range = getIseeRange(value);
+    if (!range || range.min == null) return 18000;
+    if (!Number.isFinite(range.max)) return 60000;
+    const midpoint = (Number(range.min) + Number(range.max)) / 2;
+    // L’ISEE non è un budget di spesa: questa trasformazione serve soltanto a
+    // graduare il peso di rette e città, mantenendo separata la stima economica.
+    return clamp(6500 + midpoint * 0.72, 10000, 52000);
   }
 
   function affordability(university, course, answers, support) {
@@ -840,7 +854,8 @@
     const budget = iseeBudget(answers.iseeRange);
     const ratio = annual / Math.max(1, budget);
     const base = 100 - Math.max(0, ratio - 0.45) * 42 - Math.max(0, ratio - 1) * 28;
-    const lowIsee = ['0-13000', '13000-18000', '18000-22000'].includes(answers.iseeRange);
+    const selectedRange = getIseeRange(answers.iseeRange);
+    const lowIsee = selectedRange?.max != null && selectedRange.max <= 22000;
     const aidOffset = lowIsee ? support.score * 0.065 : support.score * 0.025;
     return {
       score: clamp(base + aidOffset, 12, 100),
@@ -886,51 +901,8 @@
     return qsSubjectData.groupSubjects?.[target.group] || [];
   }
 
-  function rankingFit(university, target) {
-    const selections = subjectSelections(target);
-    const details = selections
-      .map((selection) => {
-        const record = qsSubjectData.rankings?.[selection.subject]?.[university.id];
-        const score = rankToScore(record);
-        if (!record || score == null) return null;
-        const meta = qsSubjectData.subjects?.[selection.subject] || { label: selection.subject, url: '' };
-        return {
-          subject: selection.subject,
-          label: meta.label,
-          url: meta.url,
-          rank: rankLabel(record),
-          score,
-          weight: Number(selection.weight) || 1,
-          explicitScore: Number(record.score) || null
-        };
-      })
-      .filter(Boolean);
-
-    if (details.length) {
-      const weightSum = details.reduce((sum, entry) => sum + entry.weight, 0) || 1;
-      const score = details.reduce((sum, entry) => sum + entry.score * entry.weight, 0) / weightSum;
-      return {
-        score: clamp(score, 12, 99),
-        source: 'qs-subject',
-        official: true,
-        year: qsSubjectData.year || 2026,
-        details,
-        stats: universityData.getGroupStats(university.id, target.group),
-        note: 'Punteggio ricavato dal QS World University Rankings by Subject; se più materie sono pertinenti, vengono mediate con pesi dichiarati.'
-      };
-    }
-
-    const stats = universityData.getGroupStats(university.id, target.group);
-    const fallbackScore = stats ? clamp(28 + Number(stats.index || 0) * 0.34, 26, 62) : 26;
-    return {
-      score: fallbackScore,
-      source: 'internal-fallback',
-      official: false,
-      year: qsSubjectData.year || 2026,
-      details: [],
-      stats,
-      note: 'QS per materia non disponibile nel dataset locale: viene usato l’indice disciplinare interno del prototipo, non un ranking QS.'
-    };
+  function rankingFit(university, target, degree = '') {
+    return officialRankings.forTarget(university, target, degree);
   }
 
   function languageFit(course, preference) {
@@ -958,7 +930,7 @@
 
       if (!relevant.length) return;
       const support = supportScore(university, answers);
-      const ranking = rankingFit(university, target);
+      const ranking = rankingFit(university, target, answers.degree);
 
       const evaluated = relevant
         .map((entry) => {
@@ -1023,17 +995,14 @@
   }
 
   function rankingText(item) {
-    if (item.ranking.official && item.ranking.details.length) {
-      return `QS by Subject ${item.ranking.year}: ${item.ranking.details.map((detail) => `${detail.label} ${detail.rank}`).join(' · ')}`;
-    }
-    if (item.ranking.stats) return `Fallback area ${item.target.group}: #${item.ranking.stats.rank} su ${item.ranking.stats.rankedUniversities}`;
-    return 'Ranking disciplinare non disponibile';
+    return officialRankings.shortLabel(item.ranking);
   }
 
   function rankingSourceText(item) {
-    return item.ranking.official
-      ? 'Dati QS per materia collegati al corso scelto'
-      : 'Fallback interno: non è una posizione QS';
+    if (item.ranking.source === 'qs-subject') return 'QS per materia: fonte prioritaria per valutare il corso';
+    if (item.ranking.source === 'censis-teaching') return 'Fallback ufficiale CENSIS della didattica';
+    if (item.ranking.source === 'censis-general') return 'Fallback ufficiale CENSIS generale, nella categoria omogenea dell’ateneo';
+    return 'Nessun ranking ufficiale collegato: nessun indice interno sostitutivo';
   }
 
   function courseLink(item) {
@@ -1063,7 +1032,7 @@
     return [
       { key: 'course', label: 'Compatibilità del corso', score: item.courseMatch.score },
       { key: 'geography', label: 'Compatibilità geografica', score: item.geography.score },
-      { key: 'ranking', label: 'Ranking per materia', score: item.ranking.score },
+      { key: 'ranking', label: 'Ranking ufficiale', score: item.ranking.score },
       { key: 'cost', label: 'Sostenibilità economica', score: item.cost.score },
       { key: 'language', label: 'Lingua', score: item.language.score },
       { key: 'support', label: 'Borse e sostegni', score: item.support.score }
@@ -1072,7 +1041,12 @@
 
   function calculationDetails(item) {
     const rankingLinks = item.ranking.official
-      ? `<ul class="university-ranking-source-list">${item.ranking.details.map((detail) => `<li><a href="${escapeHtml(detail.url)}" target="_blank" rel="noreferrer">${escapeHtml(detail.label)} ${escapeHtml(detail.rank)}</a><span>punteggio ${detail.score.toFixed(1)} · peso relativo ${Math.round(detail.weight * 100)}%</span></li>`).join('')}</ul>`
+      ? `<ul class="university-ranking-source-list">${item.ranking.details.map((detail) => {
+          const visible = detail.rank || (detail.position ? `#${detail.position}` : '');
+          const scoreCopy = Number.isFinite(Number(detail.score)) ? `punteggio algoritmo ${Number(detail.score).toFixed(1)}` : (Number.isFinite(Number(detail.rawScore)) ? `punteggio fonte ${Number(detail.rawScore).toFixed(1)}` : 'dato ufficiale');
+          const weightCopy = Number.isFinite(Number(detail.weight)) ? ` · peso relativo ${Math.round(detail.weight * 100)}%` : '';
+          return `<li><a href="${escapeHtml(detail.url || item.ranking.url || '#')}" target="_blank" rel="noreferrer">${escapeHtml(detail.label)} ${escapeHtml(visible)}</a><span>${escapeHtml(scoreCopy + weightCopy)}</span></li>`;
+        }).join('')}</ul>`
       : `<p class="university-calculation-note">${escapeHtml(item.ranking.note)}</p>`;
     const support = item.support.breakdown;
     const supportItems = [
@@ -1151,7 +1125,7 @@
 
           <ul class="university-match-reasons">
             <li>Corso: <strong>${item.courseMatch.score}%</strong> · ${escapeHtml(item.courseMatch.label.toLowerCase())}.</li>
-            <li>Ranking per materia: <strong>${item.ranking.score.toFixed(1)}%</strong>.</li>
+            <li>Ranking ufficiale: <strong>${item.ranking.score.toFixed(1)}%</strong>.</li>
             <li>Sostenibilità: <strong>${item.cost.score.toFixed(1)}%</strong>.</li>
             <li>Borse e sostegni: <strong>${item.support.score.toFixed(1)}%</strong>.</li>
           </ul>
@@ -1180,7 +1154,7 @@
               <span class="university-extended-position">${index + 1}</span>
               <div><strong>${escapeHtml(item.university.name)}</strong><small>${escapeHtml(item.course.name)} · ${escapeHtml(item.course.city || item.university.city)}</small></div>
               <span class="university-extended-match">${escapeHtml(item.courseMatch.label)} · ${item.courseMatch.score}</span>
-              <span class="university-extended-ranking-copy">${escapeHtml(item.ranking.official ? item.ranking.details.map((detail) => `${detail.label} ${detail.rank}`).join(' · ') : 'fallback interno')}</span>
+              <span class="university-extended-ranking-copy">${escapeHtml(officialRankings.shortLabel(item.ranking))}</span>
               <strong class="university-extended-score">${item.total}%</strong>
             </article>`).join('')}
         </div>
