@@ -1,13 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { SITE_CONFIG, formatDate } from '@/lib/site-config';
+import { useToday } from '@/lib/client/use-today';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export function Footer() {
-  // La data è calcolata nel browser: le pagine statiche non devono mostrare la data di build.
-  const [today, setToday] = useState('');
-  useEffect(() => setToday(formatDate(new Date())), []);
+  const today = useToday();
 
   return (
     <footer className="site-footer">

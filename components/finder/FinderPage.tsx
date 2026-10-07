@@ -38,13 +38,14 @@ export function FinderPage() {
     }
   };
 
-  // Accesso diretto al secondo test: /trova-corso#trova-universita oppure ?mode=university
+  // Accesso diretto al secondo test: /trova-corso#trova-universita oppure ?mode=university.
+  // L'URL è uno stato esterno al componente: lo si legge dopo l'idratazione.
+  const switchModeRef = useRef(switchMode);
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    if (location.hash === '#trova-universita' || params.get('mode') === 'university') {
-      switchMode('university', { instant: true });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (location.hash !== '#trova-universita' && params.get('mode') !== 'university') return;
+    const frame = window.requestAnimationFrame(() => switchModeRef.current('university', { instant: true }));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const top = coursePreferences?.recommendations?.[0];
@@ -112,8 +113,8 @@ export function FinderPage() {
       <div ref={universityRef} hidden={mode !== 'university'}>
         {universityStart.token > 0 ? (
           <UniversityFinder
+            key={universityStart.token}
             startCourseSlug={universityStart.slug}
-            startToken={universityStart.token}
             currentCourseResult={courseResult}
             onBackToCourse={() => switchMode('course')}
           />

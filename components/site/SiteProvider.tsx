@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
-import { LOCAL_KEYS, readLocal, removeLocal, writeLocal } from '@/lib/client/local-store';
+import { LOCAL_KEYS, removeLocal, useLocalValue, writeLocal } from '@/lib/client/local-store';
 import type {
   CoursePreferences,
   GuidanceProfile,
@@ -49,6 +49,10 @@ interface SiteContextValue {
 
 const SiteContext = createContext<SiteContextValue | null>(null);
 
+// Riferimenti stabili per i valori locali assenti (richiesto da useSyncExternalStore).
+const EMPTY_GUIDANCE: GuidanceProfile = {};
+const NO_PREFERENCES: CoursePreferences | null = null;
+
 export function useSite(): SiteContextValue {
   const value = useContext(SiteContext);
   if (!value) throw new Error('useSite deve essere usato dentro <SiteProvider>.');
@@ -91,8 +95,8 @@ export function SiteProvider({ universities, children }: { universities: Univers
   const [authModal, setAuthModal] = useState<AuthView | null>(null);
   const [journeyModalOpen, setJourneyModalOpen] = useState(false);
   const [toast, setToast] = useState('');
-  const [guestGuidance, setGuestGuidance] = useState<GuidanceProfile>({});
-  const [guestPreferences, setGuestPreferences] = useState<CoursePreferences | null>(null);
+  const guestGuidance = useLocalValue<GuidanceProfile>(LOCAL_KEYS.guidance, EMPTY_GUIDANCE);
+  const guestPreferences = useLocalValue<CoursePreferences | null>(LOCAL_KEYS.coursePreferences, NO_PREFERENCES);
   const [userPreferences, setUserPreferences] = useState<CoursePreferences | null>(null);
   const toastTimer = useRef<number | undefined>(undefined);
 
@@ -103,12 +107,6 @@ export function SiteProvider({ universities, children }: { universities: Univers
     setToast(message);
     window.clearTimeout(toastTimer.current);
     toastTimer.current = window.setTimeout(() => setToast(''), 3200);
-  }, []);
-
-  // Dati locali dell'ospite: letti solo nel browser, dopo l'idratazione.
-  useEffect(() => {
-    setGuestGuidance(readLocal<GuidanceProfile>(LOCAL_KEYS.guidance, {}));
-    setGuestPreferences(readLocal<CoursePreferences | null>(LOCAL_KEYS.coursePreferences, null));
   }, []);
 
   const applyAuthUser = useCallback(async (authUser: User | null) => {
@@ -181,7 +179,6 @@ export function SiteProvider({ universities, children }: { universities: Univers
       if (user) {
         await updateProfile({ guidance: next });
       } else {
-        setGuestGuidance(next);
         writeLocal(LOCAL_KEYS.guidance, next);
       }
     },
@@ -206,9 +203,7 @@ export function SiteProvider({ universities, children }: { universities: Univers
         return true;
       }
       const next = { ...preferences, savedAt };
-      if (!writeLocal(LOCAL_KEYS.coursePreferences, next)) return false;
-      setGuestPreferences(next);
-      return true;
+      return writeLocal(LOCAL_KEYS.coursePreferences, next);
     },
     [user, supabase]
   );
@@ -219,7 +214,6 @@ export function SiteProvider({ universities, children }: { universities: Univers
       setUserPreferences(null);
     }
     removeLocal(LOCAL_KEYS.coursePreferences);
-    setGuestPreferences(null);
   }, [user, supabase]);
 
   const value: SiteContextValue = {

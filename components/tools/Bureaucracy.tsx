@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { saveContext } from '@/lib/client/contexts';
@@ -9,7 +9,7 @@ import { journeyOf, type UniversitySummary } from '@/lib/client/types';
 import { useUniversityCourses, type CourseOption, type UniversityCoursesPayload } from '@/lib/client/use-courses';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { generalCoursesSorted } from '@/lib/domain/course-catalog';
-import { formatDate } from '@/lib/site-config';
+import { useToday } from '@/lib/client/use-today';
 import { AccessGate, LoadingGate } from './AccessGate';
 
 interface SelectedCourse {
@@ -194,35 +194,25 @@ function BureaucracyResult({
 
 export function Bureaucracy() {
   const { user, loading, getUniversity } = useSite();
-  const [universityId, setUniversityId] = useState('');
-  const [courseValue, setCourseValue] = useState('');
+  const [chosenUniversity, setUniversityId] = useState<string | null>(null);
+  const [chosenCourse, setCourseValue] = useState<string | null>(null);
   const [message, setMessage] = useState('');
   const [result, setResult] = useState<{
     university: UniversitySummary;
     course: SelectedCourse;
     payload: UniversityCoursesPayload;
   } | null>(null);
-  const [today, setToday] = useState('');
+  const today = useToday();
   const resultRef = useRef<HTMLDivElement>(null);
-  const preferredCourseName = useRef('');
+  const journey = journeyOf(user);
+  // Ateneo e corso del profilo come proposta iniziale, finché l'utente non sceglie altro.
+  const universityId = chosenUniversity ?? (journey?.universityId || '');
   const payload = useUniversityCourses(universityId);
-
-  useEffect(() => setToday(formatDate(new Date())), []);
-  useEffect(() => {
-    const journey = journeyOf(user);
-    if (journey?.universityId) {
-      setUniversityId((current) => current || journey.universityId);
-      preferredCourseName.current = journey.courseName || '';
-    }
-  }, [user]);
-
-  // Preseleziona il corso del profilo quando l'elenco è disponibile.
-  useEffect(() => {
-    if (payload.loading || !preferredCourseName.current) return;
-    const match = payload.courses.find((course) => course.name === preferredCourseName.current);
-    if (match) setCourseValue(`actual::${match.id}`);
-    preferredCourseName.current = '';
-  }, [payload.loading, payload.courses]);
+  const profileCourse =
+    journey?.courseName && universityId === journey.universityId
+      ? payload.courses.find((course) => course.name === journey.courseName)
+      : null;
+  const courseValue = chosenCourse ?? (profileCourse ? `actual::${profileCourse.id}` : '');
 
   if (loading) return <LoadingGate />;
   if (!user || user.profile.situation !== 'enrolling') {

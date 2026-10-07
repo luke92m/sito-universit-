@@ -1,10 +1,11 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
+import { useLoader } from '@/lib/client/use-loader';
 import { STUDENT_SERVICES as data } from '@/lib/data/student-services';
 import { findRange, normalizedIseeValue } from '@/lib/domain/isee';
 import { VERDICT_COPY, residenceProfile, scholarshipVerdict, type ScholarshipVerdict } from '@/lib/domain/scholarships';
@@ -30,6 +31,8 @@ export async function loadSavedScholarships(): Promise<SavedScholarship[]> {
   return (rows as SavedScholarship[]) || [];
 }
 
+const NO_SCHOLARSHIPS: SavedScholarship[] = [];
+
 interface Verification {
   verdict: ScholarshipVerdict;
   universityId: string;
@@ -52,13 +55,9 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
   const [city, setCity] = useState(guidance.residenceCity || '');
   const [message, setMessage] = useState('');
   const [verification, setVerification] = useState<Verification | null>(null);
-  const [saved, setSaved] = useState<SavedScholarship[]>([]);
   const resultRef = useRef<HTMLElement>(null);
 
-  const refresh = useCallback(async () => setSaved(await loadSavedScholarships()), []);
-  useEffect(() => {
-    refresh();
-  }, [refresh]);
+  const [saved, refresh] = useLoader(loadSavedScholarships, NO_SCHOLARSHIPS);
 
   const submit = async (event: FormEvent) => {
     event.preventDefault();
@@ -106,7 +105,7 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
       showToast('Non è stato possibile salvare l’opportunità.');
       return;
     }
-    await refresh();
+    refresh();
     showToast('Opportunità salvata. La scadenza verrà cercata automaticamente.');
   };
 
@@ -114,7 +113,7 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
     const supabase = getSupabaseBrowserClient();
     if (!supabase) return;
     await supabase.from('saved_scholarships').delete().eq('id', id);
-    await refresh();
+    refresh();
   };
 
   const verifiedUniversity = verification ? getUniversity(verification.universityId) : null;

@@ -44,8 +44,16 @@ function siteOrigin(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
 }
 
+type AuthView = 'login' | 'register' | 'reset';
+
 export function AuthModal() {
-  const { authModal, openAuth, closeAuth, showToast, authAvailable, universities } = useSite();
+  const { authModal } = useSite();
+  // Il dialogo viene smontato alla chiusura: i campi ripartono vuoti a ogni apertura.
+  return authModal ? <AuthDialog view={authModal} /> : null;
+}
+
+function AuthDialog({ view: authModal }: { view: AuthView }) {
+  const { openAuth, closeAuth, showToast, authAvailable, universities } = useSite();
   const [message, setMessage] = useState<Message>(null);
   const [busy, setBusy] = useState(false);
   const firstInput = useRef<HTMLInputElement>(null);
@@ -62,8 +70,6 @@ export function AuthModal() {
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   useEffect(() => {
-    if (!authModal) return;
-    setMessage(null);
     document.body.classList.add('modal-open');
     const timer = window.setTimeout(() => firstInput.current?.focus(), 30);
     const onKey = (event: KeyboardEvent) => {
@@ -77,7 +83,6 @@ export function AuthModal() {
     };
   }, [authModal, closeAuth]);
 
-  if (!authModal) return null;
   const heading = HEADINGS[authModal];
   const supabase = getSupabaseBrowserClient();
 
@@ -206,7 +211,7 @@ export function AuthModal() {
     setMessage({ text: 'Se l’email è registrata, riceverai a breve il link per reimpostare la password.', type: 'success' });
   }
 
-  const switchView = (view: 'login' | 'register' | 'reset') => {
+  const switchView = (view: AuthView) => {
     setMessage(null);
     openAuth(view);
   };

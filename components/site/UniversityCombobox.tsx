@@ -48,17 +48,15 @@ export function UniversityCombobox({
   const { universities } = useSite();
   const records = options || universities;
   const selected = useMemo(() => records.find((record) => record.id === value) || null, [records, value]);
-  const [text, setText] = useState(selected ? labelOf(selected) : '');
+  // Testo digitato dall'utente; quando è null l'input mostra l'ateneo selezionato.
+  const [draft, setDraft] = useState<string | null>(null);
+  const text = draft ?? (selected ? labelOf(selected) : '');
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const listId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setText(selected ? labelOf(selected) : '');
-  }, [selected]);
 
   const visible = useMemo(() => filterUniversities(records, query), [records, query]);
 
@@ -71,12 +69,12 @@ export function UniversityCombobox({
   const close = (resetInput: boolean) => {
     setOpen(false);
     setActive(-1);
-    if (resetInput) setText(selected ? labelOf(selected) : '');
+    if (resetInput) setDraft(null);
   };
 
   const choose = (record: UniversitySummary) => {
     onChange(record.id);
-    setText(labelOf(record));
+    setDraft(null);
     close(false);
     inputRef.current?.focus();
   };
@@ -108,7 +106,7 @@ export function UniversityCombobox({
         onFocus={() => openList('')}
         onClick={() => openList('')}
         onChange={(event) => {
-          setText(event.target.value);
+          setDraft(event.target.value);
           if (selected && event.target.value !== labelOf(selected)) onChange('');
           openList(event.target.value);
         }}

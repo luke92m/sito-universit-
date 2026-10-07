@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitest/config';
+import { loadEnv } from 'vite';
 import { fileURLToPath } from 'node:url';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url)),
@@ -11,6 +12,8 @@ export default defineConfig({
   },
   test: {
     include: ['tests/**/*.test.ts'],
-    environment: 'node'
+    environment: 'node',
+    // Rende disponibili le variabili di .env.local ai test RLS (saltati se mancano).
+    env: loadEnv(mode, process.cwd(), '')
   }
-});
+}));

@@ -14,8 +14,6 @@ export function UniversityProfileModal({ universityId, onClose }: { universityId
 
   useEffect(() => {
     let active = true;
-    setCard(null);
-    setFailed(false);
     fetch(`/api/atenei/${encodeURIComponent(universityId)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
       .then((payload: UniversityCard) => {

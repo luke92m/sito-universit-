@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { journeyOf, type UniversitySummary } from '@/lib/client/types';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
-import { formatDate } from '@/lib/site-config';
+import { useToday } from '@/lib/client/use-today';
 import type { TestArea } from '@/lib/types';
 import { AccessGate, LoadingGate } from './AccessGate';
 
@@ -133,29 +133,21 @@ function Quiz({ university, area, mode, onReset }: { university: UniversitySumma
 
 export function Preparation() {
   const { user, loading, getUniversity } = useSite();
-  const [universityId, setUniversityId] = useState('');
+  const [chosenUniversity, setUniversityId] = useState<string | null>(null);
   const [areaId, setAreaId] = useState('');
-  const [mode, setMode] = useState<Mode>('auto');
-  const [modeTouched, setModeTouched] = useState(false);
+  const [chosenMode, setMode] = useState<Mode | null>(null);
   const [message, setMessage] = useState('');
   const [quiz, setQuiz] = useState<{ university: UniversitySummary; area: TestArea; mode: 'tolc' | 'internal'; key: number } | null>(
     null
   );
-  const [today, setToday] = useState('');
+  const today = useToday();
   const quizRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => setToday(formatDate(new Date())), []);
-  useEffect(() => {
-    const journeyUniversity = journeyOf(user)?.universityId;
-    if (journeyUniversity) setUniversityId((current) => current || journeyUniversity);
-  }, [user]);
-
+  // Ateneo del profilo come proposta iniziale, finché l'utente non ne sceglie un altro.
+  const universityId = chosenUniversity ?? (journeyOf(user)?.universityId || '');
   // Tipo di prova suggerito: TOLC per gli atenei statali, test interno per gli altri (finché l'utente non sceglie).
-  useEffect(() => {
-    if (!universityId || modeTouched) return;
-    setMode(getUniversity(universityId)?.isPublic ? 'tolc' : 'internal');
-  }, [universityId, modeTouched, getUniversity]);
+  const mode: Mode = chosenMode ?? (universityId ? (getUniversity(universityId)?.isPublic ? 'tolc' : 'internal') : 'auto');
 
   if (loading) return <LoadingGate />;
   if (!user || user.profile.situation !== 'enrolling') {
@@ -231,10 +223,7 @@ export function Preparation() {
               <span>Tipo di prova indicato nel bando</span>
               <select
                 value={mode}
-                onChange={(event) => {
-                  setMode(event.target.value as Mode);
-                  setModeTouched(true);
-                }}
+                onChange={(event) => setMode(event.target.value as Mode)}
               >
                 <option value="auto">Rilevamento orientativo</option>
                 <option value="tolc">TOLC CISIA</option>

@@ -1,11 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { CourseNameSelect } from '@/components/site/CourseNameSelect';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { clearContext, loadContext, saveContext } from '@/lib/client/contexts';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
+import { useLoader } from '@/lib/client/use-loader';
 import { formatDate } from '@/lib/site-config';
 import { loadSavedScholarships, type SavedScholarship } from './ScholarshipsSection';
 
@@ -231,96 +232,115 @@ type SyncState =
   | { kind: 'done'; count: number; generated: string; warning: string }
   | { kind: 'error' };
 
+interface ContextBase {
+  stored: DeadlineContext | null;
+  scholarships: SavedScholarship[];
+}
+
+interface EventsResult {
+  key: string;
+  events: DeadlineEvent[];
+  sync: SyncState;
+}
+
 export function DeadlinesSection({ user }: { user: SiteUser }) {
   const { getUniversity, openJourneyEditor } = useSite();
   const journey = journeyOf(user);
-  const [context, setContext] = useState<DeadlineContext | null | undefined>(undefined);
-  const [saved, setSaved] = useState<SavedScholarship[]>([]);
-  const [events, setEvents] = useState<DeadlineEvent[]>([]);
+  const journeyUniversity = journey?.universityId || '';
+  const journeyCourse = journey?.courseName || '';
+  // Scelta fatta in questa sessione (undefined = usa quella salvata).
+  const [override, setOverride] = useState<DeadlineContext | null | undefined>(undefined);
+  const [version, setVersion] = useState(0);
+  const [force, setForce] = useState(false);
+  const [result, setResult] = useState<EventsResult | null>(null);
   const [view, setView] = useState<'calendar' | 'list'>('calendar');
   const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
-  const [anchored, setAnchored] = useState(false);
-  const [sync, setSync] = useState<SyncState>({ kind: 'idle' });
+  const anchored = useRef(false);
   const [formUniversity, setFormUniversity] = useState('');
   const [formCourse, setFormCourse] = useState('');
   const [formMessage, setFormMessage] = useState('');
 
   // Porting di getDeadlineContext(): profilo → scelta esplicita → Burocrazia → ultima borsa salvata.
-  const resolveContext = useCallback(async () => {
+  const loadBase = useCallback(async (): Promise<ContextBase> => {
     const scholarships = await loadSavedScholarships();
-    setSaved(scholarships);
-    if (journey?.universityId) {
-      setContext({ universityId: journey.universityId, courseName: journey.courseName || '', source: 'profile' });
-      return;
-    }
+    if (journeyUniversity) return { stored: null, scholarships };
     const explicit = await loadContext('deadlines');
-    if (explicit) {
-      setContext({ ...explicit, source: 'deadlines' });
-      return;
-    }
+    if (explicit) return { stored: { ...explicit, source: 'deadlines' }, scholarships };
     const bureaucracy = await loadContext('bureaucracy');
-    if (bureaucracy) {
-      setContext({ ...bureaucracy, source: 'bureaucracy' });
-      return;
-    }
+    if (bureaucracy) return { stored: { ...bureaucracy, source: 'bureaucracy' }, scholarships };
     const scholarship = scholarships.slice().reverse().find((item) => item.university_id);
-    setContext(
-      scholarship ? { universityId: scholarship.university_id, courseName: scholarship.course_name || '', source: 'scholarship' } : null
-    );
-  }, [journey?.universityId, journey?.courseName]);
+    return {
+      stored: scholarship
+        ? { universityId: scholarship.university_id, courseName: scholarship.course_name || '', source: 'scholarship' }
+        : null,
+      scholarships
+    };
+  }, [journeyUniversity]);
+  const [base] = useLoader<ContextBase | null>(loadBase, null);
 
-  useEffect(() => {
-    resolveContext();
-  }, [resolveContext]);
+  const context: DeadlineContext | null | undefined = journeyUniversity
+    ? { universityId: journeyUniversity, courseName: journeyCourse, source: 'profile' }
+    : override !== undefined
+      ? override
+      : base
+        ? base.stored
+        : undefined;
 
   const savedEvents = useMemo(
-    () => savedScholarshipDeadlines(saved, (id) => getUniversity(id)?.shortName || ''),
-    [saved, getUniversity]
+    () => savedScholarshipDeadlines(base?.scholarships || [], (id) => getUniversity(id)?.shortName || ''),
+    [base, getUniversity]
   );
 
-  const load = useCallback(
-    async (force: boolean) => {
-      if (!context) return;
-      setSync({ kind: 'loading' });
-      try {
-        const params = new URLSearchParams({
-          universityId: context.universityId,
-          course: context.courseName || '',
-          situation: user.profile.situation
-        });
-        const response = await fetch(`/api/deadlines?${params.toString()}`, { cache: force ? 'reload' : 'default' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const result = await response.json();
-        const merged = mergeDeadlines(Array.isArray(result.events) ? result.events : [], savedEvents);
-        setEvents(merged);
-        if (!anchored && merged.length) {
+  const contextUniversity = context?.universityId || '';
+  const contextCourse = context?.courseName || '';
+  const requestKey = contextUniversity ? `${contextUniversity}|${contextCourse}|${version}` : '';
+  const situation = user.profile.situation;
+
+  useEffect(() => {
+    if (!requestKey) return;
+    let active = true;
+    const params = new URLSearchParams({ universityId: contextUniversity, course: contextCourse, situation });
+    fetch(`/api/deadlines?${params.toString()}`, { cache: force ? 'reload' : 'default' })
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`))))
+      .then((payload) => {
+        if (!active) return;
+        const merged = mergeDeadlines(Array.isArray(payload.events) ? payload.events : [], savedEvents);
+        if (!anchored.current && merged.length) {
           const first = sortForList(merged).find((item) => relativeDeadline(item.date).days >= 0) || merged[0];
           const date = new Date(`${first.date}T00:00:00`);
           setMonth(new Date(date.getFullYear(), date.getMonth(), 1));
-          setAnchored(true);
+          anchored.current = true;
         }
-        setSync({
-          kind: 'done',
-          count: merged.length,
-          generated: result.generatedAt
-            ? formatDate(new Date(result.generatedAt), { hour: '2-digit', minute: '2-digit' })
-            : formatDate(new Date()),
-          warning: result.warning || ''
+        setResult({
+          key: requestKey,
+          events: merged,
+          sync: {
+            kind: 'done',
+            count: merged.length,
+            generated: payload.generatedAt
+              ? formatDate(new Date(payload.generatedAt), { hour: '2-digit', minute: '2-digit' })
+              : formatDate(new Date()),
+            warning: payload.warning || ''
+          }
         });
-      } catch {
-        setEvents(mergeDeadlines([], savedEvents));
-        setSync({ kind: 'error' });
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [context, savedEvents, user.profile.situation]
-  );
+      })
+      .catch(() => {
+        if (active) setResult({ key: requestKey, events: mergeDeadlines([], savedEvents), sync: { kind: 'error' } });
+      });
+    return () => {
+      active = false;
+    };
+  }, [requestKey, contextUniversity, contextCourse, situation, force, savedEvents]);
 
-  useEffect(() => {
-    if (context) load(false);
-  }, [context, load]);
-
+  const current = result && result.key === requestKey ? result : null;
+  const events = current?.events || [];
+  const sync: SyncState = !context ? { kind: 'idle' } : current ? current.sync : { kind: 'loading' };
   const university = context ? getUniversity(context.universityId) : null;
+
+  const refreshNow = () => {
+    setForce(true);
+    setVersion((value) => value + 1);
+  };
 
   const saveFormContext = async (event: FormEvent) => {
     event.preventDefault();
@@ -330,21 +350,19 @@ export function DeadlinesSection({ user }: { user: SiteUser }) {
     }
     await saveContext(user.id, 'deadlines', { universityId: formUniversity, courseName: formCourse });
     setFormMessage('');
-    setAnchored(false);
-    setContext({ universityId: formUniversity, courseName: formCourse, source: 'deadlines' });
+    anchored.current = false;
+    setOverride({ universityId: formUniversity, courseName: formCourse, source: 'deadlines' });
   };
 
   const changeContext = async () => {
-    if (journey?.universityId) {
+    if (journeyUniversity) {
       openJourneyEditor();
       return;
     }
     await clearContext('deadlines');
     await clearContext('bureaucracy');
-    setEvents([]);
-    setSync({ kind: 'idle' });
-    setAnchored(false);
-    setContext(null);
+    anchored.current = false;
+    setOverride(null);
   };
 
   if (context === undefined) {
@@ -363,7 +381,7 @@ export function DeadlinesSection({ user }: { user: SiteUser }) {
             className="button button-secondary"
             type="button"
             disabled={!context || sync.kind === 'loading'}
-            onClick={() => load(true)}
+            onClick={refreshNow}
           >
             Aggiorna ora
           </button>

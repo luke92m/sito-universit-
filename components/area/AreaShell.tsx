@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import { SECTION_META, type SectionKey } from '@/lib/area-sections';
-import { SITE_CONFIG, formatDate } from '@/lib/site-config';
+import { useToday } from '@/lib/client/use-today';
+import { SITE_CONFIG } from '@/lib/site-config';
 
 export type { SectionKey };
-
 
 const TABS: [SectionKey, string][] = [
   ['dati-percorso', 'Dati del percorso'],
@@ -42,9 +42,8 @@ export function AreaLocked({ reason }: { reason: 'login' | 'profile' }) {
 
 export function AreaShell({ section, children }: { section: SectionKey; children: ReactNode }) {
   const meta = SECTION_META[section];
-  const [today, setToday] = useState('');
+  const today = useToday();
   useEffect(() => {
-    setToday(formatDate(new Date()));
     document.title = `${meta.title} — ${SITE_CONFIG.name}`;
   }, [meta.title]);
 

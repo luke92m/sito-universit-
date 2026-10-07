@@ -1,8 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useState, type FormEvent } from 'react';
+import { useCallback, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import type { SiteUser } from '@/lib/client/types';
+import { useLoader } from '@/lib/client/use-loader';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/site-config';
 import { ContextSetup, useGroupContext } from './GroupContext';
@@ -17,6 +18,8 @@ interface Message {
   created_at: string;
 }
 
+const NO_MESSAGES: Message[] = [];
+
 function normalize(value: unknown): string {
   return String(value || '')
     .normalize('NFD')
@@ -28,27 +31,23 @@ function normalize(value: unknown): string {
 export function CommunitySection({ user }: { user: SiteUser }) {
   const { getUniversity, showToast } = useSite();
   const { context, save, reset, fromProfile } = useGroupContext(user, 'community');
-  const [messages, setMessages] = useState<Message[]>([]);
   const [sameCourse, setSameCourse] = useState(false);
   const [text, setText] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
-  const refresh = useCallback(async () => {
+  const loadMessages = useCallback(async (): Promise<Message[]> => {
     const supabase = getSupabaseBrowserClient();
-    if (!supabase || !context) return;
+    if (!supabase || !context) return [];
     const { data } = await supabase
       .from('community_messages')
       .select('id, author_id, author_alias, university_id, course_name, body, created_at')
       .eq('university_id', context.universityId)
       .order('created_at', { ascending: false })
       .limit(200);
-    setMessages((data as Message[]) || []);
+    return (data as Message[]) || [];
   }, [context]);
-
-  useEffect(() => {
-    refresh();
-  }, [refresh]);
+  const [messages, refresh] = useLoader(loadMessages, NO_MESSAGES);
 
   if (context === undefined) return <p className="empty-state">Caricamento del gruppo…</p>;
 
@@ -80,7 +79,7 @@ export function CommunitySection({ user }: { user: SiteUser }) {
     }
     setText('');
     setError('');
-    await refresh();
+    refresh();
     showToast('Messaggio pubblicato nel gruppo.');
   };
 
@@ -88,7 +87,7 @@ export function CommunitySection({ user }: { user: SiteUser }) {
     const supabase = getSupabaseBrowserClient();
     if (!supabase) return;
     await supabase.from('community_messages').delete().eq('id', id);
-    await refresh();
+    refresh();
   };
 
   return (

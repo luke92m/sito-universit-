@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState, type FormEvent } from 'react';
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { clearContext, loadContext, saveContext, type ToolContext } from '@/lib/client/contexts';
@@ -13,36 +13,48 @@ import { generalCoursesSorted } from '@/lib/domain/course-catalog';
  */
 export function useGroupContext(user: SiteUser, kind: 'community' | 'books') {
   const journey = journeyOf(user);
-  const [context, setContext] = useState<ToolContext | null | undefined>(undefined);
+  const fromProfile = Boolean(journey?.universityId);
+  // Scelta fatta in questa sessione (undefined = usa quella salvata).
+  const [override, setOverride] = useState<ToolContext | null | undefined>(undefined);
+  const loadStored = useCallback(
+    (): Promise<ToolContext | null> => (fromProfile ? Promise.resolve(null) : loadContext(kind)),
+    [fromProfile, kind]
+  );
+  const [stored, setStored] = useState<{ kind: string; value: ToolContext | null } | null>(null);
 
   useEffect(() => {
     let active = true;
-    if (journey?.universityId) {
-      setContext({ universityId: journey.universityId, courseName: journey.courseName || '' });
-      return;
-    }
-    loadContext(kind).then((stored) => {
-      if (active) setContext(stored);
+    loadStored().then((value) => {
+      if (active) setStored({ kind, value });
     });
     return () => {
       active = false;
     };
-  }, [journey?.universityId, journey?.courseName, kind]);
+  }, [loadStored, kind]);
+
+  const journeyUniversity = journey?.universityId || '';
+  const journeyCourse = journey?.courseName || '';
+  // Memorizzato: le query di community e libri dipendono dall'identità di questo oggetto.
+  const context = useMemo<ToolContext | null | undefined>(() => {
+    if (fromProfile) return { universityId: journeyUniversity, courseName: journeyCourse };
+    if (override !== undefined) return override;
+    return stored?.kind === kind ? stored.value : undefined;
+  }, [fromProfile, journeyUniversity, journeyCourse, override, stored, kind]);
 
   const save = useCallback(
     async (next: ToolContext) => {
       await saveContext(user.id, kind, next);
-      setContext(next);
+      setOverride(next);
     },
     [user.id, kind]
   );
 
   const reset = useCallback(async () => {
     await clearContext(kind);
-    setContext(null);
+    setOverride(null);
   }, [kind]);
 
-  return { context, save, reset, fromProfile: Boolean(journey?.universityId) };
+  return { context, save, reset, fromProfile };
 }
 
 export function ContextSetup({

@@ -1,8 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useState, type FormEvent } from 'react';
+import { useCallback, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import type { SiteUser } from '@/lib/client/types';
+import { useLoader } from '@/lib/client/use-loader';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 import { ContextSetup, useGroupContext } from './GroupContext';
 
@@ -20,12 +21,12 @@ interface Listing {
   created_at: string;
 }
 
+const NO_LISTINGS: Listing[] = [];
 const CONDITIONS = ['Come nuovo', 'Buono stato', 'Con sottolineature', 'Da valutare'];
 
 export function BooksSection({ user }: { user: SiteUser }) {
   const { getUniversity, showToast } = useSite();
   const { context, save, reset, fromProfile } = useGroupContext(user, 'books');
-  const [listings, setListings] = useState<Listing[]>([]);
   const [form, setForm] = useState({
     type: 'sell',
     title: '',
@@ -41,9 +42,9 @@ export function BooksSection({ user }: { user: SiteUser }) {
 
   const hasExactContext = Boolean(context?.universityId && context?.courseName);
 
-  const refresh = useCallback(async () => {
+  const loadListings = useCallback(async (): Promise<Listing[]> => {
     const supabase = getSupabaseBrowserClient();
-    if (!supabase || !context?.universityId || !context.courseName) return;
+    if (!supabase || !context?.universityId || !context.courseName) return [];
     const { data } = await supabase
       .from('book_listings')
       .select('id, seller_id, seller_alias, type, title, author, price, condition, notes, contact, created_at')
@@ -51,12 +52,9 @@ export function BooksSection({ user }: { user: SiteUser }) {
       .eq('course_name', context.courseName)
       .eq('status', 'active')
       .order('created_at', { ascending: false });
-    setListings((data as Listing[]) || []);
+    return (data as Listing[]) || [];
   }, [context]);
-
-  useEffect(() => {
-    refresh();
-  }, [refresh]);
+  const [listings, refresh] = useLoader(loadListings, NO_LISTINGS);
 
   if (context === undefined) return <p className="empty-state">Caricamento del gruppo…</p>;
   const university = hasExactContext ? getUniversity(context?.universityId) : null;
@@ -91,7 +89,7 @@ export function BooksSection({ user }: { user: SiteUser }) {
     }
     setForm({ type: 'sell', title: '', author: '', price: '', condition: CONDITIONS[0], notes: '', contact: form.contact });
     setError('');
-    await refresh();
+    refresh();
     showToast('Annuncio pubblicato nel gruppo.');
   };
 
@@ -99,7 +97,7 @@ export function BooksSection({ user }: { user: SiteUser }) {
     const supabase = getSupabaseBrowserClient();
     if (!supabase) return;
     await supabase.from('book_listings').delete().eq('id', id);
-    await refresh();
+    refresh();
   };
 
   return (

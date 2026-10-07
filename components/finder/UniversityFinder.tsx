@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { useMemo, useRef, useState, type FormEvent } from 'react';
 import type { FinderApiResponse } from '@/app/api/finder/route';
 import { useSite } from '@/components/site/SiteProvider';
 import type { CoursePreferences } from '@/lib/client/types';
@@ -82,27 +82,32 @@ function OptionCards({
 interface Props {
   /** Corso suggerito dal primo test, se si arriva da lì. */
   startCourseSlug: string;
-  /** Cambia a ogni nuovo avvio del test, per reimpostare le risposte. */
-  startToken: number;
   currentCourseResult: CoursePreferences | null;
   onBackToCourse: () => void;
 }
 
-export function UniversityFinder({ startCourseSlug, startToken, currentCourseResult, onBackToCourse }: Props) {
+export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackToCourse }: Props) {
   const { guidance, updateGuidance, coursePreferences } = useSite();
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Answers>({
-    courseChoice: '',
-    degree: '',
-    residenceRegion: '',
-    residenceCity: '',
-    commute: '',
-    relocation: '',
-    iseeRange: '',
-    language: ''
+  // Risposte iniziali dai dati già noti (porting di profileDefaults()): il genitore rimonta
+  // il componente a ogni nuovo avvio, quindi il calcolo avviene una sola volta.
+  const [answers, setAnswers] = useState<Answers>(() => {
+    const savedSlug = coursePreferences?.recommendations?.find((item) => getCourseProfile(item.slug))?.slug || '';
+    return {
+      courseChoice: startCourseSlug
+        ? `course:${startCourseSlug}`
+        : guidance.lastCourseChoice || (savedSlug ? `course:${savedSlug}` : ''),
+      degree: guidance.preferredDegree || '',
+      residenceRegion: guidance.residenceRegion || '',
+      residenceCity: guidance.residenceCity || '',
+      commute: guidance.commutePreference || '',
+      relocation: guidance.relocationScope || '',
+      iseeRange: normalizedIseeValue(guidance.iseeRange || ''),
+      language: guidance.languagePreference || ''
+    };
   });
-  const [residenceEditing, setResidenceEditing] = useState(true);
-  const [iseeEditing, setIseeEditing] = useState(true);
+  const [residenceEditing, setResidenceEditing] = useState(() => !(answers.residenceRegion && answers.residenceCity));
+  const [iseeEditing, setIseeEditing] = useState(() => !answers.iseeRange);
   const [message, setMessage] = useState('');
   const [includeTelematic, setIncludeTelematic] = useState(false);
   const [includeDistance, setIncludeDistance] = useState(false);
@@ -126,34 +131,6 @@ export function UniversityFinder({ startCourseSlug, startToken, currentCourseRes
     coursePreferences?.recommendations?.forEach(add);
     return items;
   }, [currentCourseResult, coursePreferences]);
-
-  // Reimposta il questionario a ogni avvio, riusando i dati già noti (porting di profileDefaults()).
-  useEffect(() => {
-    const savedSlug = coursePreferences?.recommendations?.find((item) => getCourseProfile(item.slug))?.slug || '';
-    const choice = startCourseSlug
-      ? `course:${startCourseSlug}`
-      : guidance.lastCourseChoice || (savedSlug ? `course:${savedSlug}` : '');
-    const defaults: Answers = {
-      courseChoice: choice,
-      degree: guidance.preferredDegree || '',
-      residenceRegion: guidance.residenceRegion || '',
-      residenceCity: guidance.residenceCity || '',
-      commute: guidance.commutePreference || '',
-      relocation: guidance.relocationScope || '',
-      iseeRange: normalizedIseeValue(guidance.iseeRange || ''),
-      language: guidance.languagePreference || ''
-    };
-    setAnswers(defaults);
-    setResidenceEditing(!(defaults.residenceRegion && defaults.residenceCity));
-    setIseeEditing(!defaults.iseeRange);
-    setStep(0);
-    setMessage('');
-    setResponse(null);
-    setIncludeTelematic(false);
-    setIncludeDistance(false);
-    // Solo all'avvio: i dati del profilo arrivati dopo non devono sovrascrivere le risposte in corso.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startToken]);
 
   const key = STEPS[step];
   const set = (patch: Partial<Answers>) => setAnswers((current) => ({ ...current, ...patch }));

@@ -244,7 +244,11 @@ function dedupeEvents(events: ScoredEvent[]): DeadlineEvent[] {
   return Array.from(byKey.values())
     .sort((a, b) => a.date.localeCompare(b.date) || b.score - a.score)
     .slice(0, 45)
-    .map(({ score: _score, ...event }) => event);
+    .map((event) => {
+      const { score, ...rest } = event;
+      void score;
+      return rest;
+    });
 }
 
 async function sourcePages(

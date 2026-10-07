@@ -18,7 +18,7 @@
     "test:e2e": "playwright test",
     "data:extract": "node scripts/extract-legacy-data.mjs",
     "parity:snapshot": "node scripts/parity-snapshot.mjs",
-    "legacy": "python -m http.server 8000 --directory legacy"
+    "legacy": "npx --yes http-server legacy -p 8000 -c-1"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

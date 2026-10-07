@@ -1,29 +1,29 @@
 'use client';
 
 import { useEffect, useState, type FormEvent } from 'react';
-import { journeyOf } from '@/lib/client/types';
+import { journeyOf, type SiteUser } from '@/lib/client/types';
 import { CourseNameSelect } from './CourseNameSelect';
 import { Icon } from './Icons';
 import { useSite } from './SiteProvider';
 import { UniversityCombobox } from './UniversityCombobox';
 
 export function JourneyModal() {
-  const { journeyModalOpen, closeJourneyEditor, user, updateProfile, showToast } = useSite();
-  const [phase, setPhase] = useState<'enrolled' | 'pre-enrolling'>('enrolled');
-  const [universityId, setUniversityId] = useState('');
-  const [courseName, setCourseName] = useState('');
-  const [year, setYear] = useState('');
+  const { journeyModalOpen, user } = useSite();
+  // Smontato alla chiusura: a ogni apertura il form riparte dai dati salvati nel profilo.
+  return journeyModalOpen && user ? <JourneyDialog user={user} /> : null;
+}
+
+function JourneyDialog({ user }: { user: SiteUser }) {
+  const { closeJourneyEditor, updateProfile, showToast } = useSite();
+  const initial = journeyOf(user);
+  const [phase, setPhase] = useState<'enrolled' | 'pre-enrolling'>(initial?.phase || 'enrolled');
+  const [universityId, setUniversityId] = useState(initial?.universityId || '');
+  const [courseName, setCourseName] = useState(initial?.courseName || '');
+  const [year, setYear] = useState(initial?.year ? String(initial.year) : '');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    if (!journeyModalOpen) return;
-    const journey = journeyOf(user);
-    setPhase(journey?.phase || 'enrolled');
-    setUniversityId(journey?.universityId || '');
-    setCourseName(journey?.courseName || '');
-    setYear(journey?.year ? String(journey.year) : '');
-    setMessage('');
     document.body.classList.add('modal-open');
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') closeJourneyEditor();
@@ -33,9 +33,7 @@ export function JourneyModal() {
       document.body.classList.remove('modal-open');
       document.removeEventListener('keydown', onKey);
     };
-  }, [journeyModalOpen, user, closeJourneyEditor]);
-
-  if (!journeyModalOpen || !user) return null;
+  }, [closeJourneyEditor]);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();

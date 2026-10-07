@@ -51,6 +51,8 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
   const [departmentData, setDepartmentData] = useState<{ group: string; rankings: Record<string, DepartmentEntry> } | null>(
     null
   );
+  const closeProfile = useCallback(() => setOpenProfile(null), []);
+  const filterWrapRef = useRef<HTMLDivElement>(null);
   const regionRef = useRef<HTMLSelectElement>(null);
   const departmentRef = useRef<HTMLSelectElement>(null);
 
@@ -71,10 +73,15 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
     };
   }, [mode, department, departmentData?.group]);
 
+  // React (App Router) gestisce gli eventi su document: stopPropagation non ferma questo listener,
+  // quindi si ignorano esplicitamente i clic dentro il pannello dei filtri.
   useEffect(() => {
-    const close = () => setPanelOpen(false);
+    const close = (event: Event) => {
+      if (event.type === 'click' && filterWrapRef.current?.contains(event.target as Node)) return;
+      setPanelOpen(false);
+    };
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') close();
+      if (event.key === 'Escape') close(event);
     };
     document.addEventListener('click', close);
     document.addEventListener('keydown', onKey);
@@ -173,23 +180,20 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
   return (
     <>
       <div className="catalog-toolbar">
-        <div className="filter-wrap">
+        <div className="filter-wrap" ref={filterWrapRef}>
           <button
             className="filter-toggle"
             type="button"
             aria-expanded={panelOpen}
             aria-controls="filterPanel"
-            onClick={(event) => {
-              event.stopPropagation();
-              setPanelOpen((open) => !open);
-            }}
+            onClick={() => setPanelOpen((open) => !open)}
           >
             <Icon name="filter" />
             <span>Filtra</span>
             <span className="active-filter-label">{MODE_LABELS[mode]}</span>
           </button>
 
-          <div className="filter-panel" id="filterPanel" hidden={!panelOpen} onClick={(event) => event.stopPropagation()}>
+          <div className="filter-panel" id="filterPanel" hidden={!panelOpen}>
             <p className="filter-panel-title">Ordina e raggruppa</p>
             <div className="filter-options">
               {MODE_OPTIONS.map((option) => (
@@ -351,7 +355,7 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
         ) : null}
       </div>
 
-      {openProfile ? <UniversityProfileModal universityId={openProfile} onClose={() => setOpenProfile(null)} /> : null}
+      {openProfile ? <UniversityProfileModal key={openProfile} universityId={openProfile} onClose={closeProfile} /> : null}
     </>
   );
 }
