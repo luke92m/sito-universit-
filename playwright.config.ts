@@ -1,4 +1,7 @@
 import { defineConfig } from '@playwright/test';
+import nextEnv from '@next/env';
+
+nextEnv.loadEnvConfig(process.cwd());
 
 // Usa il browser di sistema (Edge su Windows, Chrome altrove) per non scaricare binari aggiuntivi.
 // In CI si può impostare PLAYWRIGHT_CHANNEL=chromium dopo `npx playwright install chromium`.

@@ -26,7 +26,7 @@ const universitySummaries = UNIVERSITIES.slice()
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it">
+    <html lang="it" data-scroll-behavior="smooth">
       <body>
         <SiteProvider universities={universitySummaries}>
           <Header />

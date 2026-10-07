@@ -20,9 +20,9 @@ test.describe('account', () => {
     await page.goto('/area-studente/dati-percorso');
     await page.getByRole('button', { name: /dati/ }).click();
     const journey = page.getByRole('dialog');
-    await journey.getByLabel('Ateneo').click();
-    await journey.getByRole('option').first().click();
-    await journey.getByText('Già immatricolato').click();
+    await journey.getByRole('combobox', { name: 'Ateneo', exact: true }).click();
+    await page.getByRole('listbox').getByRole('option').first().click();
+    await journey.getByRole('radio', { name: 'Già immatricolato' }).check();
     await journey.locator('select').last().selectOption('2');
     await journey.getByRole('button', { name: 'Salva il percorso' }).click();
     await expect(page.locator('.site-toast')).toHaveText('Dati del percorso aggiornati.');
