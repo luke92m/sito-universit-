@@ -1,0 +1,1352 @@
+{
+  "dimensions": [
+    "quantitative",
+    "technology",
+    "business",
+    "science",
+    "health",
+    "environment",
+    "people",
+    "society",
+    "communication",
+    "creativity",
+    "languages",
+    "law"
+  ],
+  "questions": [
+    {
+      "id": "activities",
+      "title": "Quali attività ti attirano di più?",
+      "description": "Scegline fino a tre: non devono essere materie in cui sei già bravo.",
+      "type": "multiple",
+      "max": 3,
+      "options": [
+        {
+          "value": "numbers",
+          "label": "Analizzare numeri, dati e strategie",
+          "hint": "Logica, decisioni, scenari",
+          "weights": {
+            "quantitative": 3,
+            "business": 2
+          }
+        },
+        {
+          "value": "technology",
+          "label": "Progettare tecnologie e sistemi",
+          "hint": "Software, macchine, soluzioni",
+          "weights": {
+            "technology": 3,
+            "quantitative": 1,
+            "creativity": 1
+          }
+        },
+        {
+          "value": "nature",
+          "label": "Capire come funziona la natura",
+          "hint": "Esperimenti, ambiente, fenomeni",
+          "weights": {
+            "science": 3,
+            "environment": 2
+          }
+        },
+        {
+          "value": "health",
+          "label": "Prendermi cura della salute",
+          "hint": "Prevenzione, diagnosi, benessere",
+          "weights": {
+            "health": 3,
+            "people": 2,
+            "science": 1
+          }
+        },
+        {
+          "value": "people",
+          "label": "Capire e aiutare le persone",
+          "hint": "Comportamenti, educazione, relazioni",
+          "weights": {
+            "people": 3,
+            "society": 2
+          }
+        },
+        {
+          "value": "communication",
+          "label": "Scrivere, raccontare e comunicare",
+          "hint": "Media, contenuti, idee",
+          "weights": {
+            "communication": 3,
+            "creativity": 2
+          }
+        },
+        {
+          "value": "international",
+          "label": "Usare le lingue e muovermi in contesti internazionali",
+          "hint": "Culture, mediazione, relazioni",
+          "weights": {
+            "languages": 3,
+            "society": 1,
+            "communication": 1
+          }
+        },
+        {
+          "value": "justice",
+          "label": "Ragionare su regole, diritti e giustizia",
+          "hint": "Norme, istituzioni, conflitti",
+          "weights": {
+            "law": 3,
+            "society": 2
+          }
+        },
+        {
+          "value": "design",
+          "label": "Creare oggetti, spazi o esperienze",
+          "hint": "Forma, progetto, estetica",
+          "weights": {
+            "creativity": 3,
+            "technology": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "subjects",
+      "title": "Quali materie affronteresti più volentieri?",
+      "description": "Scegline fino a tre, anche se non le hai ancora studiate bene.",
+      "type": "multiple",
+      "max": 3,
+      "options": [
+        {
+          "value": "math",
+          "label": "Matematica e statistica",
+          "hint": "Modelli, numeri, probabilità",
+          "weights": {
+            "quantitative": 4
+          }
+        },
+        {
+          "value": "physics-tech",
+          "label": "Fisica, informatica e tecnologia",
+          "hint": "Calcolo, sistemi, innovazione",
+          "weights": {
+            "technology": 3,
+            "science": 2,
+            "quantitative": 1
+          }
+        },
+        {
+          "value": "bio-chem",
+          "label": "Biologia e chimica",
+          "hint": "Vita, sostanze, laboratorio",
+          "weights": {
+            "science": 3,
+            "health": 2,
+            "environment": 1
+          }
+        },
+        {
+          "value": "economics",
+          "label": "Economia e organizzazione",
+          "hint": "Imprese, mercati, gestione",
+          "weights": {
+            "business": 4,
+            "quantitative": 1
+          }
+        },
+        {
+          "value": "law-history",
+          "label": "Diritto, storia e istituzioni",
+          "hint": "Società, regole, cambiamenti",
+          "weights": {
+            "law": 3,
+            "society": 3
+          }
+        },
+        {
+          "value": "literature-languages",
+          "label": "Letteratura e lingue",
+          "hint": "Testi, culture, espressione",
+          "weights": {
+            "communication": 3,
+            "languages": 3,
+            "creativity": 1
+          }
+        },
+        {
+          "value": "psychology",
+          "label": "Psicologia e scienze sociali",
+          "hint": "Persone, gruppi, comportamenti",
+          "weights": {
+            "people": 3,
+            "society": 3
+          }
+        },
+        {
+          "value": "art",
+          "label": "Arte, disegno e progettazione",
+          "hint": "Immagini, spazi, creatività",
+          "weights": {
+            "creativity": 4,
+            "communication": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "problem",
+      "title": "Quale problema ti piacerebbe risolvere?",
+      "description": "Scegli quello che ti incuriosisce di più, non quello che sembra più facile.",
+      "type": "single",
+      "options": [
+        {
+          "value": "organisation",
+          "label": "Far funzionare meglio un’organizzazione",
+          "hint": "Persone, risorse, strategia",
+          "weights": {
+            "business": 4,
+            "people": 1
+          }
+        },
+        {
+          "value": "system",
+          "label": "Costruire un sistema più efficiente",
+          "hint": "Tecnologia, processi, calcolo",
+          "weights": {
+            "technology": 4,
+            "quantitative": 2
+          }
+        },
+        {
+          "value": "research",
+          "label": "Spiegare un fenomeno ancora poco chiaro",
+          "hint": "Ipotesi, prove, ricerca",
+          "weights": {
+            "science": 4,
+            "quantitative": 1
+          }
+        },
+        {
+          "value": "care",
+          "label": "Migliorare la salute o il benessere di qualcuno",
+          "hint": "Ascolto, scienza, intervento",
+          "weights": {
+            "health": 4,
+            "people": 2
+          }
+        },
+        {
+          "value": "rights",
+          "label": "Risolvere un conflitto tra interessi e diritti",
+          "hint": "Norme, argomentazione, istituzioni",
+          "weights": {
+            "law": 4,
+            "society": 2,
+            "communication": 1
+          }
+        },
+        {
+          "value": "message",
+          "label": "Rendere un’idea comprensibile e coinvolgente",
+          "hint": "Parole, immagini, pubblico",
+          "weights": {
+            "communication": 4,
+            "creativity": 2
+          }
+        },
+        {
+          "value": "planet",
+          "label": "Proteggere un territorio o una risorsa naturale",
+          "hint": "Ambiente, dati, sostenibilità",
+          "weights": {
+            "environment": 4,
+            "science": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "studyStyle",
+      "title": "Come preferisci imparare?",
+      "description": "Pensa alle attività in cui riesci a mantenere più facilmente l’attenzione.",
+      "type": "single",
+      "options": [
+        {
+          "value": "models",
+          "label": "Con esercizi, formule e modelli",
+          "hint": "Passaggi logici e risultati verificabili",
+          "weights": {
+            "quantitative": 4,
+            "technology": 1
+          }
+        },
+        {
+          "value": "lab",
+          "label": "Con esperimenti e attività di laboratorio",
+          "hint": "Osservare, misurare, provare",
+          "weights": {
+            "science": 3,
+            "health": 1
+          }
+        },
+        {
+          "value": "projects",
+          "label": "Con progetti concreti e lavoro di gruppo",
+          "hint": "Creare qualcosa dall’inizio alla fine",
+          "weights": {
+            "creativity": 2,
+            "technology": 1,
+            "business": 1,
+            "people": 1
+          }
+        },
+        {
+          "value": "reading",
+          "label": "Con letture, scrittura e discussione",
+          "hint": "Interpretare, argomentare, collegare",
+          "weights": {
+            "society": 2,
+            "law": 2,
+            "communication": 2,
+            "languages": 1
+          }
+        },
+        {
+          "value": "field",
+          "label": "Osservando persone, luoghi o situazioni reali",
+          "hint": "Interviste, territorio, esperienza",
+          "weights": {
+            "people": 2,
+            "environment": 2,
+            "society": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "workplace",
+      "title": "In quale ambiente ti immagini più facilmente?",
+      "description": "Non è una scelta definitiva: serve solo a capire che tipo di contesto ti motiva.",
+      "type": "single",
+      "options": [
+        {
+          "value": "company",
+          "label": "Impresa, consulenza o startup",
+          "hint": "Obiettivi, clienti, innovazione",
+          "weights": {
+            "business": 3,
+            "technology": 1,
+            "communication": 1
+          }
+        },
+        {
+          "value": "research",
+          "label": "Laboratorio o centro di ricerca",
+          "hint": "Domande, dati, sperimentazione",
+          "weights": {
+            "science": 3,
+            "quantitative": 1
+          }
+        },
+        {
+          "value": "hospital",
+          "label": "Ospedale, clinica o servizio sanitario",
+          "hint": "Responsabilità e relazione con le persone",
+          "weights": {
+            "health": 4,
+            "people": 2
+          }
+        },
+        {
+          "value": "institutions",
+          "label": "Istituzioni pubbliche o organizzazioni internazionali",
+          "hint": "Politiche, regole, cooperazione",
+          "weights": {
+            "society": 3,
+            "law": 2,
+            "languages": 1
+          }
+        },
+        {
+          "value": "education",
+          "label": "Scuola, formazione o servizi alla persona",
+          "hint": "Crescita, ascolto, accompagnamento",
+          "weights": {
+            "people": 4,
+            "communication": 1
+          }
+        },
+        {
+          "value": "creative",
+          "label": "Studio creativo, media o progettazione",
+          "hint": "Idee, linguaggi, prodotti",
+          "weights": {
+            "creativity": 4,
+            "communication": 2
+          }
+        },
+        {
+          "value": "territory",
+          "label": "Territorio, ambiente o attività sul campo",
+          "hint": "Natura, comunità, sostenibilità",
+          "weights": {
+            "environment": 4,
+            "science": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "title": "Che cosa vorresti soprattutto dal tuo percorso?",
+      "description": "Scegli il risultato che oggi senti più importante.",
+      "type": "single",
+      "options": [
+        {
+          "value": "practical",
+          "label": "Competenze subito spendibili",
+          "hint": "Strumenti concreti e applicazioni",
+          "weights": {
+            "business": 2,
+            "technology": 2,
+            "health": 1
+          }
+        },
+        {
+          "value": "understand",
+          "label": "Capire a fondo un argomento",
+          "hint": "Metodo, ricerca, curiosità",
+          "weights": {
+            "science": 3,
+            "quantitative": 1,
+            "society": 1
+          }
+        },
+        {
+          "value": "impact",
+          "label": "Avere un impatto sulle persone",
+          "hint": "Aiuto, diritti, servizi",
+          "weights": {
+            "people": 3,
+            "law": 1,
+            "health": 1
+          }
+        },
+        {
+          "value": "international",
+          "label": "Avere possibilità internazionali",
+          "hint": "Lingue, mobilità, contesti globali",
+          "weights": {
+            "languages": 3,
+            "business": 1,
+            "society": 1
+          }
+        },
+        {
+          "value": "express",
+          "label": "Esprimere e trasformare idee",
+          "hint": "Creatività, comunicazione, progetto",
+          "weights": {
+            "creativity": 3,
+            "communication": 3
+          }
+        },
+        {
+          "value": "sustainability",
+          "label": "Contribuire alla sostenibilità",
+          "hint": "Ambiente, risorse, futuro",
+          "weights": {
+            "environment": 4,
+            "science": 1
+          }
+        }
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "slug": "economia-aziendale",
+      "name": "Economia aziendale",
+      "group": "Economico",
+      "description": "Studia come funzionano imprese, bilanci, organizzazioni e decisioni manageriali.",
+      "objective": "Formare persone capaci di leggere i risultati di un’organizzazione e prendere decisioni economiche e gestionali.",
+      "subjects": [
+        "Economia aziendale",
+        "Contabilità e bilancio",
+        "Microeconomia",
+        "Diritto commerciale",
+        "Organizzazione aziendale"
+      ],
+      "keywords": [
+        "economia aziendale",
+        "business administration",
+        "amministrazione aziendale",
+        "gestione aziendale"
+      ],
+      "classCodes": [
+        "L-18"
+      ],
+      "weights": {
+        "business": 5,
+        "quantitative": 3,
+        "people": 2,
+        "communication": 1,
+        "law": 1
+      }
+    },
+    {
+      "slug": "economia-finanza",
+      "name": "Economia e finanza",
+      "group": "Economico",
+      "description": "Analizza mercati, politiche economiche, investimenti e fenomeni finanziari.",
+      "objective": "Sviluppare strumenti quantitativi ed economici per interpretare mercati, finanza e scelte pubbliche o private.",
+      "subjects": [
+        "Microeconomia",
+        "Macroeconomia",
+        "Statistica",
+        "Matematica finanziaria",
+        "Econometria"
+      ],
+      "keywords": [
+        "economia e finanza",
+        "economics and finance",
+        "finanza",
+        "economics",
+        "economia politica"
+      ],
+      "classCodes": [
+        "L-33"
+      ],
+      "weights": {
+        "business": 4,
+        "quantitative": 5,
+        "society": 1
+      }
+    },
+    {
+      "slug": "management",
+      "name": "Management",
+      "group": "Economico",
+      "description": "Si concentra su strategia, organizzazione, persone e sviluppo delle imprese.",
+      "objective": "Preparare alla gestione di progetti, team e processi organizzativi in contesti complessi.",
+      "subjects": [
+        "Strategia aziendale",
+        "Organizzazione",
+        "Controllo di gestione",
+        "Gestione delle risorse umane",
+        "Project management"
+      ],
+      "keywords": [
+        "management",
+        "gestione d impresa",
+        "gestione delle imprese",
+        "business management"
+      ],
+      "classCodes": [
+        "L-18"
+      ],
+      "weights": {
+        "business": 5,
+        "people": 3,
+        "communication": 2,
+        "quantitative": 2
+      }
+    },
+    {
+      "slug": "marketing-comunicazione",
+      "name": "Marketing e comunicazione",
+      "group": "Politico-Sociale e Comunicazione",
+      "description": "Unisce analisi dei mercati, comportamento dei consumatori, contenuti e strategie di marca.",
+      "objective": "Progettare strategie e messaggi capaci di mettere in relazione organizzazioni, prodotti e pubblici.",
+      "subjects": [
+        "Marketing",
+        "Comportamento del consumatore",
+        "Comunicazione d’impresa",
+        "Ricerca di mercato",
+        "Digital strategy"
+      ],
+      "keywords": [
+        "marketing",
+        "comunicazione d impresa",
+        "advertising",
+        "brand",
+        "pubblicita"
+      ],
+      "classCodes": [
+        "L-20",
+        "L-18"
+      ],
+      "weights": {
+        "business": 3,
+        "communication": 5,
+        "creativity": 3,
+        "people": 2
+      }
+    },
+    {
+      "slug": "data-science-statistica",
+      "name": "Data science e statistica",
+      "group": "Scientifico",
+      "description": "Trasforma dati complessi in modelli, previsioni e supporto alle decisioni.",
+      "objective": "Fornire competenze matematiche, statistiche e informatiche per analizzare grandi quantità di dati.",
+      "subjects": [
+        "Statistica",
+        "Programmazione",
+        "Algebra lineare",
+        "Machine learning",
+        "Basi di dati"
+      ],
+      "keywords": [
+        "data science",
+        "statistica",
+        "data analytics",
+        "scienze dei dati",
+        "big data"
+      ],
+      "classCodes": [
+        "L-41",
+        "L-35",
+        "L-31"
+      ],
+      "weights": {
+        "quantitative": 5,
+        "technology": 4,
+        "science": 2,
+        "business": 1
+      }
+    },
+    {
+      "slug": "giurisprudenza",
+      "name": "Giurisprudenza",
+      "group": "Giuridico",
+      "description": "Studia norme, istituzioni e strumenti per interpretare e applicare il diritto.",
+      "objective": "Formare una solida capacità giuridica e argomentativa per affrontare casi, regole e responsabilità.",
+      "subjects": [
+        "Diritto privato",
+        "Diritto costituzionale",
+        "Diritto penale",
+        "Diritto amministrativo",
+        "Diritto dell’Unione europea"
+      ],
+      "keywords": [
+        "giurisprudenza",
+        "diritto",
+        "legal studies",
+        "law"
+      ],
+      "classCodes": [
+        "LMG/01",
+        "L-14"
+      ],
+      "weights": {
+        "law": 5,
+        "society": 3,
+        "communication": 3,
+        "people": 1
+      }
+    },
+    {
+      "slug": "scienze-politiche",
+      "name": "Scienze politiche e relazioni internazionali",
+      "group": "Politico-Sociale e Comunicazione",
+      "description": "Esamina istituzioni, politiche pubbliche, società e relazioni tra paesi.",
+      "objective": "Comprendere i processi politici e internazionali e progettare interventi nelle istituzioni e nelle organizzazioni.",
+      "subjects": [
+        "Scienza politica",
+        "Relazioni internazionali",
+        "Diritto pubblico",
+        "Economia politica",
+        "Sociologia"
+      ],
+      "keywords": [
+        "scienze politiche",
+        "relazioni internazionali",
+        "international relations",
+        "politiche pubbliche",
+        "global studies"
+      ],
+      "classCodes": [
+        "L-36",
+        "L-16"
+      ],
+      "weights": {
+        "society": 5,
+        "languages": 3,
+        "law": 2,
+        "communication": 2,
+        "business": 1
+      }
+    },
+    {
+      "slug": "psicologia",
+      "name": "Psicologia",
+      "group": "Psicologico",
+      "description": "Studia pensiero, emozioni, comportamento e relazioni nei diversi contesti di vita.",
+      "objective": "Sviluppare strumenti scientifici per comprendere il comportamento e progettare interventi psicologici.",
+      "subjects": [
+        "Psicologia generale",
+        "Psicologia dello sviluppo",
+        "Psicometria",
+        "Psicologia sociale",
+        "Neuroscienze"
+      ],
+      "keywords": [
+        "psicologia",
+        "psychology",
+        "scienze psicologiche"
+      ],
+      "classCodes": [
+        "L-24"
+      ],
+      "weights": {
+        "people": 5,
+        "society": 3,
+        "science": 3,
+        "health": 2,
+        "quantitative": 1
+      }
+    },
+    {
+      "slug": "scienze-educazione",
+      "name": "Scienze dell’educazione e della formazione",
+      "group": "Educazione e Formazione",
+      "description": "Approfondisce apprendimento, crescita e progettazione di servizi educativi.",
+      "objective": "Preparare a progettare e gestire percorsi educativi per persone, gruppi e comunità.",
+      "subjects": [
+        "Pedagogia generale",
+        "Psicologia dello sviluppo",
+        "Sociologia dell’educazione",
+        "Didattica",
+        "Progettazione educativa"
+      ],
+      "keywords": [
+        "scienze dell educazione",
+        "scienze della formazione",
+        "educazione",
+        "pedagogia"
+      ],
+      "classCodes": [
+        "L-19"
+      ],
+      "weights": {
+        "people": 5,
+        "communication": 3,
+        "society": 2,
+        "creativity": 1
+      }
+    },
+    {
+      "slug": "lettere-beni-culturali",
+      "name": "Lettere e beni culturali",
+      "group": "Letterario-Umanistico",
+      "description": "Studia testi, storia, patrimonio culturale e strumenti per interpretarli e valorizzarli.",
+      "objective": "Costruire competenze critiche e culturali per la ricerca, la comunicazione e la valorizzazione del patrimonio.",
+      "subjects": [
+        "Letteratura italiana",
+        "Storia",
+        "Filologia",
+        "Linguistica",
+        "Storia dell’arte"
+      ],
+      "keywords": [
+        "lettere",
+        "beni culturali",
+        "studi umanistici",
+        "filologia",
+        "storia dell arte",
+        "archeologia"
+      ],
+      "classCodes": [
+        "L-10",
+        "L-1"
+      ],
+      "weights": {
+        "communication": 4,
+        "society": 3,
+        "creativity": 2,
+        "languages": 1
+      }
+    },
+    {
+      "slug": "lingue-mediazione",
+      "name": "Lingue e mediazione linguistica",
+      "group": "Linguistico",
+      "description": "Sviluppa competenze linguistiche e interculturali per comunicare tra persone e organizzazioni.",
+      "objective": "Formare professionisti capaci di usare più lingue e mediare tra contesti culturali differenti.",
+      "subjects": [
+        "Lingua inglese",
+        "Seconda lingua straniera",
+        "Linguistica",
+        "Traduzione",
+        "Cultura dei paesi di studio"
+      ],
+      "keywords": [
+        "lingue",
+        "mediazione linguistica",
+        "traduzione",
+        "interpretariato",
+        "languages"
+      ],
+      "classCodes": [
+        "L-11",
+        "L-12"
+      ],
+      "weights": {
+        "languages": 5,
+        "communication": 4,
+        "society": 2,
+        "creativity": 1
+      }
+    },
+    {
+      "slug": "scienze-comunicazione",
+      "name": "Scienze della comunicazione",
+      "group": "Politico-Sociale e Comunicazione",
+      "description": "Analizza media, linguaggi, pubblici e processi con cui circolano informazioni e idee.",
+      "objective": "Progettare contenuti e strategie comunicative consapevoli nei media, nelle istituzioni e nelle imprese.",
+      "subjects": [
+        "Teorie della comunicazione",
+        "Sociologia dei media",
+        "Semiotica",
+        "Comunicazione digitale",
+        "Metodi della ricerca sociale"
+      ],
+      "keywords": [
+        "scienze della comunicazione",
+        "media",
+        "comunicazione digitale",
+        "communication"
+      ],
+      "classCodes": [
+        "L-20"
+      ],
+      "weights": {
+        "communication": 5,
+        "society": 3,
+        "creativity": 3,
+        "people": 1
+      }
+    },
+    {
+      "slug": "informatica",
+      "name": "Informatica",
+      "group": "Informatica e Tecnologie ICT",
+      "description": "Studia algoritmi, software, dati e sistemi informatici.",
+      "objective": "Formare competenze per progettare, sviluppare e comprendere sistemi software e infrastrutture digitali.",
+      "subjects": [
+        "Programmazione",
+        "Algoritmi e strutture dati",
+        "Basi di dati",
+        "Sistemi operativi",
+        "Reti di calcolatori"
+      ],
+      "keywords": [
+        "informatica",
+        "computer science",
+        "software",
+        "computing"
+      ],
+      "classCodes": [
+        "L-31"
+      ],
+      "weights": {
+        "technology": 5,
+        "quantitative": 4,
+        "science": 2,
+        "creativity": 1
+      }
+    },
+    {
+      "slug": "ingegneria-informatica",
+      "name": "Ingegneria informatica",
+      "group": "Ingegneria industriale e dell'informazione",
+      "description": "Unisce informatica, elettronica e metodo ingegneristico per progettare sistemi complessi.",
+      "objective": "Progettare soluzioni hardware e software affidabili, integrate e adatte a problemi reali.",
+      "subjects": [
+        "Programmazione",
+        "Elettronica",
+        "Automatica",
+        "Reti",
+        "Architettura dei calcolatori"
+      ],
+      "keywords": [
+        "ingegneria informatica",
+        "computer engineering",
+        "ingegneria dell informazione",
+        "cybersecurity"
+      ],
+      "classCodes": [
+        "L-8"
+      ],
+      "weights": {
+        "technology": 5,
+        "quantitative": 5,
+        "science": 2,
+        "creativity": 1
+      }
+    },
+    {
+      "slug": "ingegneria-aerospaziale",
+      "name": "Ingegneria aerospaziale",
+      "group": "Ingegneria industriale e dell'informazione",
+      "description": "Applica matematica e fisica alla progettazione di velivoli, satelliti e sistemi spaziali.",
+      "objective": "Formare ingegneri capaci di analizzare e progettare sistemi aeronautici e spaziali.",
+      "subjects": [
+        "Meccanica del volo",
+        "Aerodinamica",
+        "Propulsione",
+        "Strutture aerospaziali",
+        "Controlli automatici"
+      ],
+      "keywords": [
+        "aerospaziale",
+        "aeronautica",
+        "aerospace",
+        "space engineering"
+      ],
+      "classCodes": [
+        "L-9"
+      ],
+      "weights": {
+        "technology": 5,
+        "quantitative": 5,
+        "science": 4,
+        "creativity": 1
+      }
+    },
+    {
+      "slug": "ingegneria-meccanica",
+      "name": "Ingegneria meccanica",
+      "group": "Ingegneria industriale e dell'informazione",
+      "description": "Studia macchine, materiali, energia e processi produttivi.",
+      "objective": "Progettare e migliorare componenti, impianti e processi industriali.",
+      "subjects": [
+        "Meccanica applicata",
+        "Disegno tecnico",
+        "Termodinamica",
+        "Scienza delle costruzioni",
+        "Tecnologia meccanica"
+      ],
+      "keywords": [
+        "ingegneria meccanica",
+        "mechanical engineering",
+        "meccatronica",
+        "ingegneria industriale"
+      ],
+      "classCodes": [
+        "L-9"
+      ],
+      "weights": {
+        "technology": 5,
+        "quantitative": 4,
+        "science": 3,
+        "creativity": 1
+      }
+    },
+    {
+      "slug": "ingegneria-civile-architettura",
+      "name": "Ingegneria civile e architettura",
+      "group": "Architettura e Ingegneria civile",
+      "description": "Progetta edifici, infrastrutture e spazi tenendo insieme sicurezza, funzione e qualità.",
+      "objective": "Formare competenze per ideare e realizzare opere e ambienti sostenibili e sicuri.",
+      "subjects": [
+        "Scienza delle costruzioni",
+        "Tecnica delle costruzioni",
+        "Disegno",
+        "Urbanistica",
+        "Geotecnica"
+      ],
+      "keywords": [
+        "ingegneria civile",
+        "architettura",
+        "edile",
+        "urbanistica",
+        "civil engineering"
+      ],
+      "classCodes": [
+        "L-7",
+        "L-17",
+        "LM-4"
+      ],
+      "weights": {
+        "technology": 4,
+        "quantitative": 3,
+        "creativity": 3,
+        "environment": 2
+      }
+    },
+    {
+      "slug": "matematica",
+      "name": "Matematica",
+      "group": "Scientifico",
+      "description": "Studia strutture, modelli e metodi astratti usati per descrivere problemi complessi.",
+      "objective": "Sviluppare capacità di ragionamento rigoroso e strumenti matematici per ricerca e applicazioni.",
+      "subjects": [
+        "Analisi matematica",
+        "Algebra",
+        "Geometria",
+        "Probabilità",
+        "Analisi numerica"
+      ],
+      "keywords": [
+        "matematica",
+        "mathematics"
+      ],
+      "classCodes": [
+        "L-35"
+      ],
+      "weights": {
+        "quantitative": 5,
+        "science": 4,
+        "technology": 1
+      }
+    },
+    {
+      "slug": "fisica",
+      "name": "Fisica",
+      "group": "Scientifico",
+      "description": "Indaga le leggi fondamentali della materia, dell’energia e dell’universo.",
+      "objective": "Formare alla modellazione e alla sperimentazione dei fenomeni fisici.",
+      "subjects": [
+        "Meccanica",
+        "Elettromagnetismo",
+        "Analisi matematica",
+        "Fisica quantistica",
+        "Laboratorio di fisica"
+      ],
+      "keywords": [
+        "fisica",
+        "physics"
+      ],
+      "classCodes": [
+        "L-30"
+      ],
+      "weights": {
+        "science": 5,
+        "quantitative": 5,
+        "technology": 1
+      }
+    },
+    {
+      "slug": "chimica",
+      "name": "Chimica",
+      "group": "Scientifico",
+      "description": "Studia composizione, proprietà e trasformazioni della materia.",
+      "objective": "Sviluppare competenze sperimentali e teoriche per analizzare e progettare sostanze e processi.",
+      "subjects": [
+        "Chimica generale",
+        "Chimica organica",
+        "Chimica analitica",
+        "Chimica fisica",
+        "Laboratorio"
+      ],
+      "keywords": [
+        "chimica",
+        "chemical sciences",
+        "chemistry"
+      ],
+      "classCodes": [
+        "L-27"
+      ],
+      "weights": {
+        "science": 5,
+        "quantitative": 3,
+        "health": 1,
+        "environment": 1
+      }
+    },
+    {
+      "slug": "scienze-biologiche",
+      "name": "Scienze biologiche",
+      "group": "Scientifico",
+      "description": "Studia organismi viventi, cellule, genetica ed ecosistemi.",
+      "objective": "Comprendere i processi biologici attraverso laboratorio, osservazione e analisi dei dati.",
+      "subjects": [
+        "Biologia cellulare",
+        "Genetica",
+        "Biochimica",
+        "Fisiologia",
+        "Ecologia"
+      ],
+      "keywords": [
+        "scienze biologiche",
+        "biologia",
+        "biology"
+      ],
+      "classCodes": [
+        "L-13"
+      ],
+      "weights": {
+        "science": 5,
+        "health": 2,
+        "environment": 2,
+        "quantitative": 1
+      }
+    },
+    {
+      "slug": "biotecnologie",
+      "name": "Biotecnologie",
+      "group": "Scientifico",
+      "description": "Usa sistemi biologici e tecnologie di laboratorio per salute, industria e ambiente.",
+      "objective": "Applicare biologia, chimica e tecnologia allo sviluppo di prodotti e processi innovativi.",
+      "subjects": [
+        "Biologia molecolare",
+        "Genetica",
+        "Biochimica",
+        "Microbiologia",
+        "Tecnologie di laboratorio"
+      ],
+      "keywords": [
+        "biotecnologie",
+        "biotechnology",
+        "biotech"
+      ],
+      "classCodes": [
+        "L-2"
+      ],
+      "weights": {
+        "science": 5,
+        "health": 3,
+        "technology": 2,
+        "environment": 1
+      }
+    },
+    {
+      "slug": "scienze-naturali-ambientali",
+      "name": "Scienze naturali e ambientali",
+      "group": "Scientifico",
+      "description": "Studia ecosistemi, territorio, biodiversità e impatti delle attività umane.",
+      "objective": "Formare competenze per analizzare e proteggere ambiente e risorse naturali.",
+      "subjects": [
+        "Ecologia",
+        "Geologia",
+        "Botanica",
+        "Zoologia",
+        "Chimica ambientale"
+      ],
+      "keywords": [
+        "scienze naturali",
+        "scienze ambientali",
+        "ambiente",
+        "environmental",
+        "ecologia",
+        "geologia"
+      ],
+      "classCodes": [
+        "L-32",
+        "L-34"
+      ],
+      "weights": {
+        "environment": 5,
+        "science": 4,
+        "quantitative": 1
+      }
+    },
+    {
+      "slug": "medicina-chirurgia",
+      "name": "Medicina e chirurgia",
+      "group": "Medico-Sanitario e Farmaceutico",
+      "description": "Integra scienze di base, clinica e relazione con il paziente per prevenire e curare le malattie.",
+      "objective": "Formare medici con competenze scientifiche, cliniche ed etiche per la tutela della salute.",
+      "subjects": [
+        "Anatomia",
+        "Fisiologia",
+        "Patologia",
+        "Farmacologia",
+        "Clinica medica"
+      ],
+      "keywords": [
+        "medicina e chirurgia",
+        "medicine and surgery",
+        "medicina"
+      ],
+      "classCodes": [
+        "LM-41"
+      ],
+      "weights": {
+        "health": 5,
+        "science": 5,
+        "people": 3,
+        "quantitative": 1
+      }
+    },
+    {
+      "slug": "professioni-sanitarie",
+      "name": "Professioni sanitarie",
+      "group": "Medico-Sanitario e Farmaceutico",
+      "description": "Prepara a ruoli sanitari pratici e regolamentati, dalla prevenzione all’assistenza e riabilitazione.",
+      "objective": "Sviluppare competenze tecniche e relazionali per operare nei servizi sanitari.",
+      "subjects": [
+        "Scienze biomediche",
+        "Assistenza clinica",
+        "Tirocinio professionale",
+        "Igiene",
+        "Psicologia della salute"
+      ],
+      "keywords": [
+        "infermieristica",
+        "fisioterapia",
+        "tecniche di",
+        "ostetricia",
+        "logopedia",
+        "professioni sanitarie",
+        "riabilitazione"
+      ],
+      "classCodes": [
+        "L/SNT1",
+        "L/SNT2",
+        "L/SNT3",
+        "L/SNT4"
+      ],
+      "weights": {
+        "health": 5,
+        "people": 4,
+        "science": 3
+      }
+    },
+    {
+      "slug": "farmacia",
+      "name": "Farmacia e chimica farmaceutica",
+      "group": "Medico-Sanitario e Farmaceutico",
+      "description": "Studia farmaci, principi attivi, sicurezza e rapporto tra prodotti sanitari e persone.",
+      "objective": "Formare competenze scientifiche e professionali sul farmaco, dalla progettazione all’uso corretto.",
+      "subjects": [
+        "Chimica farmaceutica",
+        "Farmacologia",
+        "Tecnologia farmaceutica",
+        "Biochimica",
+        "Legislazione farmaceutica"
+      ],
+      "keywords": [
+        "farmacia",
+        "chimica e tecnologia farmaceutiche",
+        "pharmacy",
+        "farmaceutica"
+      ],
+      "classCodes": [
+        "LM-13"
+      ],
+      "weights": {
+        "health": 4,
+        "science": 5,
+        "quantitative": 2,
+        "people": 1
+      }
+    },
+    {
+      "slug": "agraria-alimentare",
+      "name": "Agraria e scienze alimentari",
+      "group": "Agrario-Forestale e Veterinario",
+      "description": "Studia produzioni agricole, alimenti, territorio e sostenibilità delle filiere.",
+      "objective": "Migliorare sistemi agricoli e alimentari con competenze scientifiche, tecniche ed economiche.",
+      "subjects": [
+        "Agronomia",
+        "Chimica degli alimenti",
+        "Economia agraria",
+        "Microbiologia",
+        "Tecnologie alimentari"
+      ],
+      "keywords": [
+        "agraria",
+        "scienze alimentari",
+        "tecnologie alimentari",
+        "agricoltura",
+        "food science",
+        "forestale"
+      ],
+      "classCodes": [
+        "L-25",
+        "L-26"
+      ],
+      "weights": {
+        "environment": 4,
+        "science": 4,
+        "business": 2,
+        "health": 1
+      }
+    },
+    {
+      "slug": "veterinaria",
+      "name": "Medicina veterinaria",
+      "group": "Agrario-Forestale e Veterinario",
+      "description": "Si occupa di salute animale, sicurezza alimentare e rapporto tra animali, persone e ambiente.",
+      "objective": "Formare veterinari capaci di prevenire, diagnosticare e curare patologie animali.",
+      "subjects": [
+        "Anatomia veterinaria",
+        "Patologia",
+        "Clinica veterinaria",
+        "Microbiologia",
+        "Ispezione degli alimenti"
+      ],
+      "keywords": [
+        "medicina veterinaria",
+        "veterinaria",
+        "veterinary"
+      ],
+      "classCodes": [
+        "LM-42"
+      ],
+      "weights": {
+        "health": 4,
+        "science": 5,
+        "environment": 2,
+        "people": 1
+      }
+    },
+    {
+      "slug": "design",
+      "name": "Design",
+      "group": "Arte e Design",
+      "description": "Progetta prodotti, servizi, comunicazione visiva ed esperienze mettendo al centro gli utenti.",
+      "objective": "Trasformare bisogni e idee in soluzioni funzionali, comprensibili e curate.",
+      "subjects": [
+        "Disegno",
+        "Storia del design",
+        "Progettazione",
+        "Materiali",
+        "Comunicazione visiva"
+      ],
+      "keywords": [
+        "design",
+        "disegno industriale",
+        "visual",
+        "product design",
+        "fashion"
+      ],
+      "classCodes": [
+        "L-4"
+      ],
+      "weights": {
+        "creativity": 5,
+        "technology": 2,
+        "communication": 3,
+        "people": 1
+      }
+    },
+    {
+      "slug": "scienze-motorie",
+      "name": "Scienze motorie",
+      "group": "Scienze motorie e sportive",
+      "description": "Studia movimento, allenamento, salute e organizzazione delle attività sportive.",
+      "objective": "Progettare attività motorie e sportive sicure, efficaci e adatte alle persone.",
+      "subjects": [
+        "Anatomia",
+        "Fisiologia dell’esercizio",
+        "Teoria dell’allenamento",
+        "Biomeccanica",
+        "Psicologia dello sport"
+      ],
+      "keywords": [
+        "scienze motorie",
+        "sport",
+        "attivita motorie"
+      ],
+      "classCodes": [
+        "L-22"
+      ],
+      "weights": {
+        "health": 4,
+        "people": 3,
+        "science": 2,
+        "business": 1
+      }
+    }
+  ]
+}

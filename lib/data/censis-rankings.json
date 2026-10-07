@@ -1,0 +1,2133 @@
+{
+  "edition": "2026/2027",
+  "published": "2026-07-14",
+  "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/",
+  "generalSource": "https://www.censis.it/wp-content/uploads/2026/07/Classifica-Censis-delle-Universita-Italiane-2026-2027-1.pdf",
+  "methodology": "Gli atenei generali sono confrontati in gruppi omogenei per dimensione e tipologia; le graduatorie didattiche aggregano classi di laurea e considerano progressione di carriera e rapporti internazionali.",
+  "general": {
+    "ateneo-02801": {
+      "group": "Mega atenei statali",
+      "position": 1,
+      "score": 91.2,
+      "kind": "statale",
+      "services": 77,
+      "scholarships": 84,
+      "structures": 88,
+      "digital": 110,
+      "international": 94,
+      "employability": 94
+    },
+    "ateneo-03701": {
+      "group": "Mega atenei statali",
+      "position": 2,
+      "score": 87.8,
+      "kind": "statale",
+      "services": 74,
+      "scholarships": 80,
+      "structures": 89,
+      "digital": 97,
+      "international": 96,
+      "employability": 91
+    },
+    "ateneo-05801": {
+      "group": "Mega atenei statali",
+      "position": 3,
+      "score": 86,
+      "kind": "statale",
+      "services": 69,
+      "scholarships": 97,
+      "structures": 79,
+      "digital": 101,
+      "international": 81,
+      "employability": 89
+    },
+    "ateneo-05001": {
+      "group": "Mega atenei statali",
+      "position": 4,
+      "score": 85.5,
+      "kind": "statale",
+      "services": 88,
+      "scholarships": 73,
+      "structures": 75,
+      "digital": 101,
+      "international": 82,
+      "employability": 94
+    },
+    "ateneo-01501": {
+      "group": "Mega atenei statali",
+      "position": 5,
+      "score": 85.3,
+      "kind": "statale",
+      "services": 77,
+      "scholarships": 70,
+      "structures": 82,
+      "digital": 104,
+      "international": 84,
+      "employability": 95
+    },
+    "ateneo-04801": {
+      "group": "Mega atenei statali",
+      "position": 6,
+      "score": 84.7,
+      "kind": "statale",
+      "services": 80,
+      "scholarships": 67,
+      "structures": 81,
+      "digital": 107,
+      "international": 82,
+      "employability": 91
+    },
+    "ateneo-08201": {
+      "group": "Mega atenei statali",
+      "position": 7,
+      "score": 84.3,
+      "kind": "statale",
+      "services": 74,
+      "scholarships": 89,
+      "structures": 86,
+      "digital": 99,
+      "international": 82,
+      "employability": 76
+    },
+    "ateneo-00101": {
+      "group": "Mega atenei statali",
+      "position": 8,
+      "score": 83.8,
+      "kind": "statale",
+      "services": 72,
+      "scholarships": 73,
+      "structures": 85,
+      "digital": 104,
+      "international": 81,
+      "employability": 88
+    },
+    "ateneo-07201": {
+      "group": "Mega atenei statali",
+      "position": 9,
+      "score": 79.7,
+      "kind": "statale",
+      "services": 77,
+      "scholarships": 95,
+      "structures": 83,
+      "digital": 80,
+      "international": 66,
+      "employability": 77
+    },
+    "ateneo-06301": {
+      "group": "Mega atenei statali",
+      "position": 10,
+      "score": 74.2,
+      "kind": "statale",
+      "services": 71,
+      "scholarships": 86,
+      "structures": 66,
+      "digital": 66,
+      "international": 75,
+      "employability": 81
+    },
+    "ateneo-07801": {
+      "group": "Grandi atenei statali",
+      "position": 1,
+      "score": 91.7,
+      "kind": "statale",
+      "services": 110,
+      "scholarships": 109,
+      "structures": 91,
+      "digital": 94,
+      "international": 78,
+      "employability": 68
+    },
+    "ateneo-01801": {
+      "group": "Grandi atenei statali",
+      "position": 2,
+      "score": 90.2,
+      "kind": "statale",
+      "services": 78,
+      "scholarships": 83,
+      "structures": 96,
+      "digital": 99,
+      "international": 92,
+      "employability": 93
+    },
+    "ateneo-09201": {
+      "group": "Grandi atenei statali",
+      "position": 3,
+      "score": 88.5,
+      "kind": "statale",
+      "services": 81,
+      "scholarships": 106,
+      "structures": 85,
+      "digital": 96,
+      "international": 82,
+      "employability": 81
+    },
+    "ateneo-03401": {
+      "group": "Grandi atenei statali",
+      "position": 4,
+      "score": 88.3,
+      "kind": "statale",
+      "services": 74,
+      "scholarships": 75,
+      "structures": 99,
+      "digital": 102,
+      "international": 83,
+      "employability": 97
+    },
+    "ateneo-05401": {
+      "group": "Grandi atenei statali",
+      "position": 5,
+      "score": 86.7,
+      "kind": "statale",
+      "services": 78,
+      "scholarships": 85,
+      "structures": 89,
+      "digital": 93,
+      "international": 86,
+      "employability": 89
+    },
+    "ateneo-06501": {
+      "group": "Grandi atenei statali",
+      "position": 6,
+      "score": 84.5,
+      "kind": "statale",
+      "services": 82,
+      "scholarships": 82,
+      "structures": 93,
+      "digital": 101,
+      "international": 71,
+      "employability": 78
+    },
+    "ateneo-01509": {
+      "group": "Grandi atenei statali",
+      "position": 6,
+      "score": 84.5,
+      "kind": "statale",
+      "services": 73,
+      "scholarships": 78,
+      "structures": 85,
+      "digital": 94,
+      "international": 77,
+      "employability": 100
+    },
+    "ateneo-05802": {
+      "group": "Grandi atenei statali",
+      "position": 7,
+      "score": 84.3,
+      "kind": "statale",
+      "services": 74,
+      "scholarships": 75,
+      "structures": 88,
+      "digital": 90,
+      "international": 83,
+      "employability": 96
+    },
+    "ateneo-06901": {
+      "group": "Grandi atenei statali",
+      "position": 8,
+      "score": 84.2,
+      "kind": "statale",
+      "services": 76,
+      "scholarships": 90,
+      "structures": 95,
+      "digital": 96,
+      "international": 80,
+      "employability": 68
+    },
+    "ateneo-01001": {
+      "group": "Grandi atenei statali",
+      "position": 9,
+      "score": 83.2,
+      "kind": "statale",
+      "services": 73,
+      "scholarships": 66,
+      "structures": 87,
+      "digital": 94,
+      "international": 82,
+      "employability": 97
+    },
+    "ateneo-03601": {
+      "group": "Grandi atenei statali",
+      "position": 10,
+      "score": 83,
+      "kind": "statale",
+      "services": 73,
+      "scholarships": 69,
+      "structures": 91,
+      "digital": 85,
+      "international": 76,
+      "employability": 104
+    },
+    "ateneo-02301": {
+      "group": "Grandi atenei statali",
+      "position": 11,
+      "score": 82.3,
+      "kind": "statale",
+      "services": 70,
+      "scholarships": 68,
+      "structures": 85,
+      "digital": 86,
+      "international": 79,
+      "employability": 106
+    },
+    "ateneo-08301": {
+      "group": "Grandi atenei statali",
+      "position": 12,
+      "score": 81.5,
+      "kind": "statale",
+      "services": 74,
+      "scholarships": 88,
+      "structures": 79,
+      "digital": 107,
+      "international": 74,
+      "employability": 67
+    },
+    "ateneo-03801": {
+      "group": "Grandi atenei statali",
+      "position": 13,
+      "score": 80.8,
+      "kind": "statale",
+      "services": 70,
+      "scholarships": 73,
+      "structures": 89,
+      "digital": 82,
+      "international": 76,
+      "employability": 95
+    },
+    "ateneo-06306": {
+      "group": "Grandi atenei statali",
+      "position": 14,
+      "score": 80,
+      "kind": "statale",
+      "services": 76,
+      "scholarships": 83,
+      "structures": 85,
+      "digital": 86,
+      "international": 73,
+      "employability": 77
+    },
+    "ateneo-05807": {
+      "group": "Grandi atenei statali",
+      "position": 14,
+      "score": 80,
+      "kind": "statale",
+      "services": 70,
+      "scholarships": 70,
+      "structures": 92,
+      "digital": 90,
+      "international": 76,
+      "employability": 82
+    },
+    "ateneo-08701": {
+      "group": "Grandi atenei statali",
+      "position": 15,
+      "score": 79.2,
+      "kind": "statale",
+      "services": 71,
+      "scholarships": 77,
+      "structures": 83,
+      "digital": 96,
+      "international": 70,
+      "employability": 78
+    },
+    "ateneo-09001": {
+      "group": "Medi atenei statali",
+      "position": 1,
+      "score": 93.2,
+      "kind": "statale",
+      "services": 84,
+      "scholarships": 95,
+      "structures": 110,
+      "digital": 107,
+      "international": 85,
+      "employability": 78
+    },
+    "ateneo-04201": {
+      "group": "Medi atenei statali",
+      "position": 2,
+      "score": 92.8,
+      "kind": "statale",
+      "services": 79,
+      "scholarships": 90,
+      "structures": 106,
+      "digital": 96,
+      "international": 80,
+      "employability": 106
+    },
+    "ateneo-02201": {
+      "group": "Medi atenei statali",
+      "position": 3,
+      "score": 92.7,
+      "kind": "statale",
+      "services": 78,
+      "scholarships": 80,
+      "structures": 100,
+      "digital": 94,
+      "international": 110,
+      "employability": 94
+    },
+    "ateneo-03001": {
+      "group": "Medi atenei statali",
+      "position": 3,
+      "score": 92.7,
+      "kind": "statale",
+      "services": 84,
+      "scholarships": 88,
+      "structures": 93,
+      "digital": 108,
+      "international": 82,
+      "employability": 101
+    },
+    "ateneo-03201": {
+      "group": "Medi atenei statali",
+      "position": 4,
+      "score": 91.7,
+      "kind": "statale",
+      "services": 84,
+      "scholarships": 83,
+      "structures": 95,
+      "digital": 107,
+      "international": 83,
+      "employability": 98
+    },
+    "ateneo-05201": {
+      "group": "Medi atenei statali",
+      "position": 5,
+      "score": 90,
+      "kind": "statale",
+      "services": 91,
+      "scholarships": 79,
+      "structures": 101,
+      "digital": 91,
+      "international": 91,
+      "employability": 87
+    },
+    "ateneo-02701": {
+      "group": "Medi atenei statali",
+      "position": 6,
+      "score": 89.3,
+      "kind": "statale",
+      "services": 78,
+      "scholarships": 74,
+      "structures": 82,
+      "digital": 108,
+      "international": 102,
+      "employability": 92
+    },
+    "ateneo-07501": {
+      "group": "Medi atenei statali",
+      "position": 7,
+      "score": 86.8,
+      "kind": "statale",
+      "services": 96,
+      "scholarships": 100,
+      "structures": 91,
+      "digital": 90,
+      "international": 72,
+      "employability": 72
+    },
+    "ateneo-01701": {
+      "group": "Medi atenei statali",
+      "position": 8,
+      "score": 86.2,
+      "kind": "statale",
+      "services": 85,
+      "scholarships": 66,
+      "structures": 86,
+      "digital": 99,
+      "international": 76,
+      "employability": 105
+    },
+    "ateneo-00201": {
+      "group": "Medi atenei statali",
+      "position": 9,
+      "score": 85.3,
+      "kind": "statale",
+      "services": 69,
+      "scholarships": 69,
+      "structures": 102,
+      "digital": 96,
+      "international": 76,
+      "employability": 100
+    },
+    "ateneo-01601": {
+      "group": "Medi atenei statali",
+      "position": 10,
+      "score": 84.7,
+      "kind": "statale",
+      "services": 77,
+      "scholarships": 66,
+      "structures": 93,
+      "digital": 86,
+      "international": 88,
+      "employability": 98
+    },
+    "ateneo-07101": {
+      "group": "Medi atenei statali",
+      "position": 11,
+      "score": 83.3,
+      "kind": "statale",
+      "services": 74,
+      "scholarships": 91,
+      "structures": 81,
+      "digital": 91,
+      "international": 85,
+      "employability": 78
+    },
+    "ateneo-01202": {
+      "group": "Medi atenei statali",
+      "position": 12,
+      "score": 83.2,
+      "kind": "statale",
+      "services": 77,
+      "scholarships": 66,
+      "structures": 76,
+      "digital": 91,
+      "international": 84,
+      "employability": 105
+    },
+    "ateneo-06601": {
+      "group": "Medi atenei statali",
+      "position": 13,
+      "score": 82.7,
+      "kind": "statale",
+      "services": 72,
+      "scholarships": 73,
+      "structures": 80,
+      "digital": 96,
+      "international": 82,
+      "employability": 93
+    },
+    "ateneo-04101": {
+      "group": "Medi atenei statali",
+      "position": 14,
+      "score": 81.7,
+      "kind": "statale",
+      "services": 88,
+      "scholarships": 76,
+      "structures": 86,
+      "digital": 83,
+      "international": 71,
+      "employability": 86
+    },
+    "ateneo-06302": {
+      "group": "Medi atenei statali",
+      "position": 15,
+      "score": 81.3,
+      "kind": "statale",
+      "services": 81,
+      "scholarships": 90,
+      "structures": 91,
+      "digital": 77,
+      "international": 73,
+      "employability": 76
+    },
+    "ateneo-07901": {
+      "group": "Medi atenei statali",
+      "position": 16,
+      "score": 78.8,
+      "kind": "statale",
+      "services": 73,
+      "scholarships": 103,
+      "structures": 85,
+      "digital": 77,
+      "international": 67,
+      "employability": 68
+    },
+    "ateneo-04302": {
+      "group": "Piccoli atenei statali",
+      "position": 1,
+      "score": 95.3,
+      "kind": "statale",
+      "services": 98,
+      "scholarships": 86,
+      "structures": 96,
+      "digital": 104,
+      "international": 98,
+      "employability": 90
+    },
+    "ateneo-06001": {
+      "group": "Piccoli atenei statali",
+      "position": 2,
+      "score": 87.3,
+      "kind": "statale",
+      "services": 70,
+      "scholarships": 106,
+      "structures": 90,
+      "digital": 99,
+      "international": 87,
+      "employability": 72
+    },
+    "ateneo-08001": {
+      "group": "Piccoli atenei statali",
+      "position": 3,
+      "score": 86,
+      "kind": "statale",
+      "services": 78,
+      "scholarships": 110,
+      "structures": 102,
+      "digital": 68,
+      "international": 78,
+      "employability": 80
+    },
+    "ateneo-04301": {
+      "group": "Piccoli atenei statali",
+      "position": 4,
+      "score": 85.8,
+      "kind": "statale",
+      "services": 86,
+      "scholarships": 76,
+      "structures": 98,
+      "digital": 91,
+      "international": 80,
+      "employability": 84
+    },
+    "ateneo-06201": {
+      "group": "Piccoli atenei statali",
+      "position": 5,
+      "score": 84.3,
+      "kind": "statale",
+      "services": 80,
+      "scholarships": 82,
+      "structures": 91,
+      "digital": 94,
+      "international": 82,
+      "employability": 77
+    },
+    "ateneo-05601": {
+      "group": "Piccoli atenei statali",
+      "position": 6,
+      "score": 84,
+      "kind": "statale",
+      "services": 71,
+      "scholarships": 89,
+      "structures": 96,
+      "digital": 83,
+      "international": 90,
+      "employability": 75
+    },
+    "ateneo-06701": {
+      "group": "Piccoli atenei statali",
+      "position": 7,
+      "score": 81,
+      "kind": "statale",
+      "services": 69,
+      "scholarships": 74,
+      "structures": 105,
+      "digital": 99,
+      "international": 73,
+      "employability": 66
+    },
+    "ateneo-07601": {
+      "group": "Piccoli atenei statali",
+      "position": 8,
+      "score": 79,
+      "kind": "statale",
+      "services": 77,
+      "scholarships": 73,
+      "structures": 99,
+      "digital": 80,
+      "international": 67,
+      "employability": 78
+    },
+    "ateneo-07001": {
+      "group": "Piccoli atenei statali",
+      "position": 9,
+      "score": 75.8,
+      "kind": "statale",
+      "services": 66,
+      "scholarships": 85,
+      "structures": 93,
+      "digital": 69,
+      "international": 66,
+      "employability": 76
+    },
+    "ateneo-06303": {
+      "group": "Piccoli atenei statali",
+      "position": 10,
+      "score": 73,
+      "kind": "statale",
+      "services": 71,
+      "scholarships": 83,
+      "structures": 75,
+      "digital": 68,
+      "international": 75,
+      "employability": 66
+    },
+    "ateneo-01502": {
+      "group": "Politecnici",
+      "position": 1,
+      "score": 100.8,
+      "kind": "statale",
+      "services": 81,
+      "scholarships": 110,
+      "structures": 96,
+      "digital": 104,
+      "international": 104,
+      "employability": 110
+    },
+    "ateneo-00102": {
+      "group": "Politecnici",
+      "position": 2,
+      "score": 94.8,
+      "kind": "statale",
+      "services": 72,
+      "scholarships": 92,
+      "structures": 81,
+      "digital": 110,
+      "international": 104,
+      "employability": 110
+    },
+    "ateneo-07202": {
+      "group": "Politecnici",
+      "position": 3,
+      "score": 85.7,
+      "kind": "statale",
+      "services": 79,
+      "scholarships": 93,
+      "structures": 80,
+      "digital": 74,
+      "international": 78,
+      "employability": 110
+    },
+    "ateneo-02702": {
+      "group": "Politecnici",
+      "position": 4,
+      "score": 83.7,
+      "kind": "statale",
+      "services": 73,
+      "scholarships": 70,
+      "structures": 82,
+      "digital": 80,
+      "international": 102,
+      "employability": 95
+    },
+    "ateneo-05805": {
+      "group": "Grandi atenei non statali",
+      "position": 1,
+      "score": 95.8,
+      "kind": "non-statale",
+      "services": 72,
+      "scholarships": 110,
+      "structures": 85,
+      "digital": 108,
+      "international": 104
+    },
+    "ateneo-01503": {
+      "group": "Grandi atenei non statali",
+      "position": 2,
+      "score": 92.6,
+      "kind": "non-statale",
+      "services": 76,
+      "scholarships": 104,
+      "structures": 66,
+      "digital": 107,
+      "international": 110
+    },
+    "ateneo-01504": {
+      "group": "Grandi atenei non statali",
+      "position": 3,
+      "score": 79,
+      "kind": "non-statale",
+      "services": 81,
+      "scholarships": 69,
+      "structures": 70,
+      "digital": 96,
+      "international": 79
+    },
+    "ateneo-05803": {
+      "group": "Medi atenei non statali",
+      "position": 1,
+      "score": 89.2,
+      "kind": "non-statale",
+      "services": 95,
+      "scholarships": 83,
+      "structures": 84,
+      "digital": 107,
+      "international": 77
+    },
+    "ateneo-01505": {
+      "group": "Medi atenei non statali",
+      "position": 2,
+      "score": 83.8,
+      "kind": "non-statale",
+      "services": 72,
+      "scholarships": 69,
+      "structures": 104,
+      "digital": 95,
+      "international": 79
+    },
+    "ateneo-08601": {
+      "group": "Medi atenei non statali",
+      "position": 3,
+      "score": 80,
+      "kind": "non-statale",
+      "services": 70,
+      "scholarships": 75,
+      "structures": 104,
+      "digital": 85,
+      "international": 66
+    },
+    "ateneo-01508": {
+      "group": "Medi atenei non statali",
+      "position": 4,
+      "score": 75.4,
+      "kind": "non-statale",
+      "services": 68,
+      "scholarships": 66,
+      "structures": 85,
+      "digital": 86,
+      "international": 72
+    },
+    "ateneo-06304": {
+      "group": "Medi atenei non statali",
+      "position": 5,
+      "score": 74.6,
+      "kind": "non-statale",
+      "services": 83,
+      "scholarships": 78,
+      "structures": 79,
+      "digital": 67,
+      "international": 66
+    },
+    "ateneo-02101": {
+      "group": "Piccoli atenei non statali",
+      "position": 1,
+      "score": 95.8,
+      "kind": "non-statale",
+      "services": 110,
+      "scholarships": 73,
+      "structures": 110,
+      "digital": 98,
+      "international": 88
+    },
+    "ateneo-05808": {
+      "group": "Piccoli atenei non statali",
+      "position": 2,
+      "score": 92.4,
+      "kind": "non-statale",
+      "services": 105,
+      "scholarships": 87,
+      "structures": 100,
+      "digital": 98,
+      "international": 72
+    },
+    "ateneo-01201": {
+      "group": "Piccoli atenei non statali",
+      "position": 3,
+      "score": 90.6,
+      "kind": "non-statale",
+      "services": 78,
+      "scholarships": 79,
+      "structures": 97,
+      "digital": 98,
+      "international": 101
+    },
+    "ateneo-05809": {
+      "group": "Piccoli atenei non statali",
+      "position": 4,
+      "score": 90,
+      "kind": "non-statale",
+      "services": 70,
+      "scholarships": 76,
+      "structures": 108,
+      "digital": 110,
+      "international": 86
+    },
+    "ateneo-05812": {
+      "group": "Piccoli atenei non statali",
+      "position": 5,
+      "score": 87.6,
+      "kind": "non-statale",
+      "services": 72,
+      "scholarships": 74,
+      "structures": 110,
+      "digital": 102,
+      "international": 80
+    },
+    "ateneo-07203": {
+      "group": "Piccoli atenei non statali",
+      "position": 6,
+      "score": 78.2,
+      "kind": "non-statale",
+      "services": 77,
+      "scholarships": 72,
+      "structures": 95,
+      "digital": 74,
+      "international": 73
+    },
+    "ateneo-00701": {
+      "group": "Piccoli atenei non statali",
+      "position": 7,
+      "score": 76,
+      "kind": "non-statale",
+      "services": 69,
+      "scholarships": 72,
+      "structures": 91,
+      "digital": 66,
+      "international": 82
+    },
+    "ateneo-05817": {
+      "group": "Piccoli atenei non statali",
+      "position": 8,
+      "score": 74.4,
+      "kind": "non-statale",
+      "services": 66,
+      "scholarships": 78,
+      "structures": 84,
+      "digital": 73,
+      "international": 71
+    }
+  },
+  "teaching": {
+    "bachelor": {
+      "Architettura e Ingegneria civile": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_L-17.pdf",
+        "records": {
+          "ateneo-02702": {
+            "position": 1,
+            "score": 108
+          },
+          "ateneo-01502": {
+            "position": 2,
+            "score": 105.5
+          },
+          "ateneo-04302": {
+            "position": 3,
+            "score": 104.5
+          },
+          "ateneo-09001": {
+            "position": 4,
+            "score": 104
+          },
+          "ateneo-05601": {
+            "position": 5,
+            "score": 99
+          },
+          "ateneo-00102": {
+            "position": 6,
+            "score": 97.5
+          },
+          "ateneo-03701": {
+            "position": 7,
+            "score": 96.5
+          },
+          "ateneo-05801": {
+            "position": 8,
+            "score": 92.5
+          },
+          "ateneo-03001": {
+            "position": 8,
+            "score": 92.5
+          },
+          "ateneo-05807": {
+            "position": 10,
+            "score": 92
+          },
+          "ateneo-06901": {
+            "position": 11,
+            "score": 91.5
+          },
+          "ateneo-03401": {
+            "position": 12,
+            "score": 90
+          },
+          "ateneo-03601": {
+            "position": 13,
+            "score": 89
+          },
+          "ateneo-01001": {
+            "position": 14,
+            "score": 87.5
+          },
+          "ateneo-01801": {
+            "position": 15,
+            "score": 87
+          },
+          "ateneo-05401": {
+            "position": 15,
+            "score": 87
+          },
+          "ateneo-09201": {
+            "position": 17,
+            "score": 86
+          },
+          "ateneo-02801": {
+            "position": 17,
+            "score": 86
+          },
+          "ateneo-08301": {
+            "position": 19,
+            "score": 85
+          },
+          "ateneo-06301": {
+            "position": 20,
+            "score": 84.5
+          },
+          "ateneo-03801": {
+            "position": 21,
+            "score": 83.5
+          },
+          "ateneo-07202": {
+            "position": 22,
+            "score": 83
+          },
+          "ateneo-07501": {
+            "position": 23,
+            "score": 82.5
+          },
+          "ateneo-04801": {
+            "position": 24,
+            "score": 81
+          },
+          "ateneo-02201": {
+            "position": 24,
+            "score": 81
+          },
+          "ateneo-03201": {
+            "position": 24,
+            "score": 81
+          },
+          "ateneo-08201": {
+            "position": 27,
+            "score": 80
+          },
+          "ateneo-01601": {
+            "position": 28,
+            "score": 79.5
+          },
+          "ateneo-06306": {
+            "position": 28,
+            "score": 79.5
+          },
+          "ateneo-06001": {
+            "position": 30,
+            "score": 78.5
+          },
+          "ateneo-08701": {
+            "position": 30,
+            "score": 78.5
+          },
+          "ateneo-04201": {
+            "position": 32,
+            "score": 77
+          },
+          "ateneo-01701": {
+            "position": 33,
+            "score": 76
+          },
+          "ateneo-07801": {
+            "position": 34,
+            "score": 74.5
+          },
+          "ateneo-01202": {
+            "position": 35,
+            "score": 73
+          },
+          "ateneo-06601": {
+            "position": 35,
+            "score": 73
+          },
+          "ateneo-05001": {
+            "position": 35,
+            "score": 73
+          },
+          "ateneo-06501": {
+            "position": 38,
+            "score": 72.5
+          },
+          "ateneo-07601": {
+            "position": 39,
+            "score": 70.5
+          },
+          "ateneo-05802": {
+            "position": 39,
+            "score": 70.5
+          },
+          "ateneo-08001": {
+            "position": 41,
+            "score": 66.5
+          }
+        }
+      },
+      "Informatica e Tecnologie ICT": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report%20L-31_INF%20e%20INF_COM_DIG.pdf",
+        "records": {
+          "ateneo-01801": {
+            "position": 1,
+            "score": 110
+          },
+          "ateneo-03201": {
+            "position": 2,
+            "score": 101.5
+          },
+          "ateneo-02201": {
+            "position": 3,
+            "score": 100.5
+          },
+          "ateneo-09201": {
+            "position": 4,
+            "score": 96.5
+          },
+          "ateneo-04302": {
+            "position": 5,
+            "score": 91.5
+          },
+          "ateneo-01509": {
+            "position": 6,
+            "score": 90.5
+          },
+          "ateneo-03801": {
+            "position": 7,
+            "score": 89
+          },
+          "ateneo-08201": {
+            "position": 8,
+            "score": 87
+          },
+          "ateneo-08301": {
+            "position": 9,
+            "score": 86.5
+          },
+          "ateneo-03001": {
+            "position": 10,
+            "score": 86
+          },
+          "ateneo-01202": {
+            "position": 11,
+            "score": 85
+          },
+          "ateneo-03701": {
+            "position": 12,
+            "score": 84.5
+          },
+          "ateneo-02801": {
+            "position": 13,
+            "score": 84
+          },
+          "ateneo-08701": {
+            "position": 14,
+            "score": 83.5
+          },
+          "ateneo-00201": {
+            "position": 15,
+            "score": 83
+          },
+          "ateneo-05801": {
+            "position": 16,
+            "score": 83
+          },
+          "ateneo-02301": {
+            "position": 17,
+            "score": 83
+          },
+          "ateneo-07801": {
+            "position": 18,
+            "score": 82
+          },
+          "ateneo-05401": {
+            "position": 19,
+            "score": 81
+          },
+          "ateneo-06501": {
+            "position": 20,
+            "score": 81
+          },
+          "ateneo-03401": {
+            "position": 21,
+            "score": 80.5
+          },
+          "ateneo-05001": {
+            "position": 22,
+            "score": 80
+          },
+          "ateneo-02701": {
+            "position": 23,
+            "score": 80
+          },
+          "ateneo-07201": {
+            "position": 24,
+            "score": 79.5
+          },
+          "ateneo-03601": {
+            "position": 25,
+            "score": 79
+          },
+          "ateneo-07001": {
+            "position": 26,
+            "score": 79
+          },
+          "ateneo-01501": {
+            "position": 27,
+            "score": 78
+          },
+          "ateneo-01001": {
+            "position": 28,
+            "score": 77.5
+          },
+          "ateneo-00101": {
+            "position": 29,
+            "score": 77.5
+          },
+          "ateneo-04801": {
+            "position": 30,
+            "score": 77
+          },
+          "ateneo-05802": {
+            "position": 31,
+            "score": 76
+          },
+          "ateneo-06302": {
+            "position": 32,
+            "score": 74.5
+          },
+          "ateneo-06601": {
+            "position": 33,
+            "score": 73.5
+          },
+          "ateneo-06301": {
+            "position": 34,
+            "score": 72.5
+          },
+          "ateneo-07601": {
+            "position": 35,
+            "score": 72
+          }
+        }
+      },
+      "Scientifico": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report%20L2_tuttescientifiche.pdf",
+        "records": {
+          "ateneo-04302": {
+            "position": 1,
+            "score": 105.5
+          },
+          "ateneo-03701": {
+            "position": 2,
+            "score": 104
+          },
+          "ateneo-02201": {
+            "position": 3,
+            "score": 99
+          },
+          "ateneo-03201": {
+            "position": 4,
+            "score": 93
+          },
+          "ateneo-09001": {
+            "position": 5,
+            "score": 92.5
+          },
+          "ateneo-02801": {
+            "position": 6,
+            "score": 92
+          },
+          "ateneo-03601": {
+            "position": 7,
+            "score": 92
+          },
+          "ateneo-01509": {
+            "position": 8,
+            "score": 91
+          },
+          "ateneo-02301": {
+            "position": 9,
+            "score": 90.5
+          },
+          "ateneo-03401": {
+            "position": 10,
+            "score": 90
+          },
+          "ateneo-05401": {
+            "position": 11,
+            "score": 88.5
+          },
+          "ateneo-00101": {
+            "position": 12,
+            "score": 88.5
+          },
+          "ateneo-00102": {
+            "position": 13,
+            "score": 88
+          },
+          "ateneo-01501": {
+            "position": 14,
+            "score": 88
+          },
+          "ateneo-04101": {
+            "position": 15,
+            "score": 87
+          },
+          "ateneo-08201": {
+            "position": 16,
+            "score": 86.5
+          },
+          "ateneo-03801": {
+            "position": 17,
+            "score": 86
+          },
+          "ateneo-01801": {
+            "position": 18,
+            "score": 85
+          },
+          "ateneo-05201": {
+            "position": 19,
+            "score": 85
+          },
+          "ateneo-04201": {
+            "position": 20,
+            "score": 85
+          },
+          "ateneo-00201": {
+            "position": 21,
+            "score": 84
+          },
+          "ateneo-06306": {
+            "position": 22,
+            "score": 84
+          },
+          "ateneo-05807": {
+            "position": 23,
+            "score": 84
+          },
+          "ateneo-08701": {
+            "position": 24,
+            "score": 83.5
+          },
+          "ateneo-01001": {
+            "position": 25,
+            "score": 83
+          },
+          "ateneo-05801": {
+            "position": 26,
+            "score": 82.5
+          },
+          "ateneo-09201": {
+            "position": 27,
+            "score": 82.5
+          },
+          "ateneo-01202": {
+            "position": 28,
+            "score": 82
+          },
+          "ateneo-06301": {
+            "position": 29,
+            "score": 81.5
+          },
+          "ateneo-07201": {
+            "position": 30,
+            "score": 81.5
+          },
+          "ateneo-06201": {
+            "position": 31,
+            "score": 81
+          },
+          "ateneo-04801": {
+            "position": 32,
+            "score": 79
+          },
+          "ateneo-06302": {
+            "position": 33,
+            "score": 78.5
+          },
+          "ateneo-05802": {
+            "position": 34,
+            "score": 78
+          },
+          "ateneo-07501": {
+            "position": 35,
+            "score": 75
+          },
+          "ateneo-06601": {
+            "position": 36,
+            "score": 75
+          },
+          "ateneo-08301": {
+            "position": 37,
+            "score": 74
+          },
+          "ateneo-05601": {
+            "position": 38,
+            "score": 74
+          },
+          "ateneo-05001": {
+            "position": 39,
+            "score": 74
+          },
+          "ateneo-06501": {
+            "position": 40,
+            "score": 73
+          },
+          "ateneo-07801": {
+            "position": 41,
+            "score": 71.5
+          }
+        }
+      },
+      "Agrario-Forestale e Veterinario": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_L-38.pdf",
+        "records": {
+          "ateneo-02801": {
+            "position": 1,
+            "score": 103.5
+          },
+          "ateneo-03701": {
+            "position": 2,
+            "score": 101.5
+          },
+          "ateneo-02201": {
+            "position": 3,
+            "score": 98.5
+          },
+          "ateneo-05601": {
+            "position": 4,
+            "score": 97.5
+          },
+          "ateneo-03401": {
+            "position": 5,
+            "score": 95.5
+          },
+          "ateneo-07101": {
+            "position": 6,
+            "score": 95
+          },
+          "ateneo-05401": {
+            "position": 7,
+            "score": 91
+          },
+          "ateneo-06701": {
+            "position": 8,
+            "score": 89.5
+          },
+          "ateneo-01501": {
+            "position": 9,
+            "score": 89
+          },
+          "ateneo-03601": {
+            "position": 10,
+            "score": 88
+          },
+          "ateneo-05807": {
+            "position": 11,
+            "score": 88
+          },
+          "ateneo-04801": {
+            "position": 12,
+            "score": 87.5
+          },
+          "ateneo-04201": {
+            "position": 13,
+            "score": 87.5
+          },
+          "ateneo-05201": {
+            "position": 14,
+            "score": 87.5
+          },
+          "ateneo-08301": {
+            "position": 15,
+            "score": 86.5
+          },
+          "ateneo-06301": {
+            "position": 16,
+            "score": 85
+          },
+          "ateneo-07501": {
+            "position": 17,
+            "score": 84.5
+          },
+          "ateneo-03001": {
+            "position": 18,
+            "score": 84.5
+          },
+          "ateneo-04302": {
+            "position": 19,
+            "score": 84.5
+          },
+          "ateneo-09001": {
+            "position": 20,
+            "score": 83.5
+          },
+          "ateneo-06501": {
+            "position": 21,
+            "score": 83.5
+          },
+          "ateneo-01701": {
+            "position": 22,
+            "score": 83
+          },
+          "ateneo-08701": {
+            "position": 23,
+            "score": 82
+          },
+          "ateneo-08201": {
+            "position": 24,
+            "score": 81
+          },
+          "ateneo-00101": {
+            "position": 25,
+            "score": 81
+          },
+          "ateneo-07201": {
+            "position": 26,
+            "score": 80.5
+          },
+          "ateneo-02301": {
+            "position": 27,
+            "score": 80.5
+          },
+          "ateneo-05001": {
+            "position": 28,
+            "score": 79.5
+          },
+          "ateneo-08001": {
+            "position": 29,
+            "score": 79
+          },
+          "ateneo-07001": {
+            "position": 30,
+            "score": 75.5
+          },
+          "ateneo-07601": {
+            "position": 31,
+            "score": 72.5
+          },
+          "ateneo-07901": {
+            "position": 32,
+            "score": 66
+          }
+        }
+      }
+    },
+    "master": {
+      "Informatica e Tecnologie ICT": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_LM-18.pdf",
+        "records": {
+          "ateneo-02201": {
+            "position": 1,
+            "score": 108
+          },
+          "ateneo-03701": {
+            "position": 2,
+            "score": 101
+          },
+          "ateneo-02801": {
+            "position": 2,
+            "score": 101
+          },
+          "ateneo-02701": {
+            "position": 4,
+            "score": 99
+          },
+          "ateneo-06601": {
+            "position": 5,
+            "score": 98
+          },
+          "ateneo-02301": {
+            "position": 6,
+            "score": 98
+          },
+          "ateneo-08701": {
+            "position": 7,
+            "score": 97.5
+          },
+          "ateneo-06306": {
+            "position": 8,
+            "score": 95
+          },
+          "ateneo-01509": {
+            "position": 9,
+            "score": 94.5
+          },
+          "ateneo-01701": {
+            "position": 10,
+            "score": 93.5
+          },
+          "ateneo-01501": {
+            "position": 11,
+            "score": 93.5
+          },
+          "ateneo-08301": {
+            "position": 12,
+            "score": 92.5
+          },
+          "ateneo-06501": {
+            "position": 13,
+            "score": 92
+          },
+          "ateneo-08201": {
+            "position": 14,
+            "score": 92
+          },
+          "ateneo-00102": {
+            "position": 15,
+            "score": 91
+          },
+          "ateneo-03001": {
+            "position": 16,
+            "score": 90.5
+          },
+          "ateneo-07801": {
+            "position": 17,
+            "score": 89.5
+          },
+          "ateneo-06301": {
+            "position": 18,
+            "score": 89.5
+          },
+          "ateneo-04302": {
+            "position": 19,
+            "score": 88.5
+          },
+          "ateneo-07201": {
+            "position": 20,
+            "score": 88
+          },
+          "ateneo-04801": {
+            "position": 21,
+            "score": 88
+          },
+          "ateneo-01001": {
+            "position": 22,
+            "score": 87
+          },
+          "ateneo-07101": {
+            "position": 23,
+            "score": 86.5
+          },
+          "ateneo-00201": {
+            "position": 24,
+            "score": 86
+          },
+          "ateneo-01202": {
+            "position": 25,
+            "score": 85.5
+          },
+          "ateneo-05801": {
+            "position": 26,
+            "score": 85
+          },
+          "ateneo-07202": {
+            "position": 27,
+            "score": 85
+          },
+          "ateneo-09201": {
+            "position": 28,
+            "score": 85
+          },
+          "ateneo-04101": {
+            "position": 29,
+            "score": 84
+          },
+          "ateneo-03601": {
+            "position": 30,
+            "score": 84
+          },
+          "ateneo-05001": {
+            "position": 31,
+            "score": 81.5
+          },
+          "ateneo-06302": {
+            "position": 32,
+            "score": 79.5
+          },
+          "ateneo-00101": {
+            "position": 33,
+            "score": 78
+          },
+          "ateneo-05401": {
+            "position": 34,
+            "score": 77
+          }
+        }
+      },
+      "Scientifico": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_tutte_LM.pdf",
+        "records": {
+          "ateneo-03701": {
+            "position": 1,
+            "score": 109.5
+          },
+          "ateneo-02801": {
+            "position": 1,
+            "score": 109.5
+          },
+          "ateneo-01501": {
+            "position": 3,
+            "score": 100
+          },
+          "ateneo-01509": {
+            "position": 4,
+            "score": 93
+          },
+          "ateneo-05401": {
+            "position": 5,
+            "score": 92.5
+          },
+          "ateneo-03201": {
+            "position": 6,
+            "score": 92
+          },
+          "ateneo-00101": {
+            "position": 7,
+            "score": 91.5
+          },
+          "ateneo-08701": {
+            "position": 8,
+            "score": 89.5
+          },
+          "ateneo-01801": {
+            "position": 9,
+            "score": 89.5
+          },
+          "ateneo-01001": {
+            "position": 10,
+            "score": 88.5
+          },
+          "ateneo-05201": {
+            "position": 11,
+            "score": 88.5
+          },
+          "ateneo-07801": {
+            "position": 12,
+            "score": 88.5
+          },
+          "ateneo-05801": {
+            "position": 13,
+            "score": 88
+          },
+          "ateneo-02201": {
+            "position": 14,
+            "score": 88
+          },
+          "ateneo-03801": {
+            "position": 15,
+            "score": 87.5
+          },
+          "ateneo-08301": {
+            "position": 16,
+            "score": 85.5
+          },
+          "ateneo-06301": {
+            "position": 17,
+            "score": 85
+          },
+          "ateneo-08201": {
+            "position": 18,
+            "score": 85
+          },
+          "ateneo-02301": {
+            "position": 19,
+            "score": 85
+          },
+          "ateneo-00201": {
+            "position": 20,
+            "score": 85
+          },
+          "ateneo-04801": {
+            "position": 21,
+            "score": 84.5
+          },
+          "ateneo-03401": {
+            "position": 22,
+            "score": 84
+          },
+          "ateneo-03601": {
+            "position": 23,
+            "score": 84
+          },
+          "ateneo-05802": {
+            "position": 24,
+            "score": 83.5
+          },
+          "ateneo-01202": {
+            "position": 25,
+            "score": 83.5
+          },
+          "ateneo-07201": {
+            "position": 26,
+            "score": 83
+          },
+          "ateneo-04302": {
+            "position": 27,
+            "score": 83
+          },
+          "ateneo-06501": {
+            "position": 28,
+            "score": 81
+          },
+          "ateneo-06601": {
+            "position": 29,
+            "score": 80.5
+          },
+          "ateneo-05807": {
+            "position": 30,
+            "score": 79
+          },
+          "ateneo-04201": {
+            "position": 31,
+            "score": 78.5
+          },
+          "ateneo-07501": {
+            "position": 32,
+            "score": 77
+          },
+          "ateneo-05601": {
+            "position": 33,
+            "score": 76.5
+          },
+          "ateneo-04101": {
+            "position": 34,
+            "score": 76.5
+          },
+          "ateneo-09201": {
+            "position": 35,
+            "score": 76
+          },
+          "ateneo-05001": {
+            "position": 36,
+            "score": 75.5
+          },
+          "ateneo-06306": {
+            "position": 37,
+            "score": 75
+          }
+        }
+      }
+    },
+    "single": {
+      "Giuridico": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_LMG-01.pdf",
+        "records": {
+          "ateneo-04101": {
+            "position": 1,
+            "score": 103
+          },
+          "ateneo-00201": {
+            "position": 2,
+            "score": 101
+          },
+          "ateneo-02201": {
+            "position": 3,
+            "score": 100
+          },
+          "ateneo-05401": {
+            "position": 4,
+            "score": 99
+          },
+          "ateneo-01202": {
+            "position": 5,
+            "score": 97
+          },
+          "ateneo-03601": {
+            "position": 6,
+            "score": 96.5
+          },
+          "ateneo-03701": {
+            "position": 7,
+            "score": 94.5
+          },
+          "ateneo-07101": {
+            "position": 8,
+            "score": 94.5
+          },
+          "ateneo-01601": {
+            "position": 9,
+            "score": 94
+          },
+          "ateneo-02801": {
+            "position": 10,
+            "score": 93.5
+          },
+          "ateneo-04801": {
+            "position": 10,
+            "score": 93.5
+          },
+          "ateneo-01001": {
+            "position": 12,
+            "score": 93
+          },
+          "ateneo-03201": {
+            "position": 12,
+            "score": 93
+          },
+          "ateneo-04301": {
+            "position": 14,
+            "score": 92.5
+          },
+          "ateneo-01501": {
+            "position": 15,
+            "score": 92
+          },
+          "ateneo-01509": {
+            "position": 15,
+            "score": 92
+          },
+          "ateneo-04302": {
+            "position": 17,
+            "score": 89
+          },
+          "ateneo-03801": {
+            "position": 17,
+            "score": 89
+          },
+          "ateneo-05807": {
+            "position": 17,
+            "score": 89
+          },
+          "ateneo-00101": {
+            "position": 20,
+            "score": 88
+          },
+          "ateneo-01701": {
+            "position": 20,
+            "score": 88
+          },
+          "ateneo-01801": {
+            "position": 20,
+            "score": 88
+          },
+          "ateneo-03001": {
+            "position": 23,
+            "score": 87.5
+          },
+          "ateneo-05802": {
+            "position": 24,
+            "score": 85.5
+          },
+          "ateneo-03401": {
+            "position": 25,
+            "score": 84
+          },
+          "ateneo-09001": {
+            "position": 25,
+            "score": 84
+          },
+          "ateneo-06001": {
+            "position": 25,
+            "score": 84
+          },
+          "ateneo-02301": {
+            "position": 28,
+            "score": 83.5
+          },
+          "ateneo-06302": {
+            "position": 29,
+            "score": 83
+          },
+          "ateneo-08201": {
+            "position": 29,
+            "score": 83
+          },
+          "ateneo-05801": {
+            "position": 29,
+            "score": 83
+          },
+          "ateneo-05201": {
+            "position": 32,
+            "score": 82
+          },
+          "ateneo-09201": {
+            "position": 32,
+            "score": 82
+          },
+          "ateneo-05601": {
+            "position": 32,
+            "score": 82
+          },
+          "ateneo-06301": {
+            "position": 35,
+            "score": 81.5
+          },
+          "ateneo-05001": {
+            "position": 35,
+            "score": 81.5
+          },
+          "ateneo-07201": {
+            "position": 37,
+            "score": 79
+          },
+          "ateneo-07501": {
+            "position": 37,
+            "score": 79
+          },
+          "ateneo-06701": {
+            "position": 37,
+            "score": 79
+          },
+          "ateneo-07801": {
+            "position": 40,
+            "score": 78.5
+          },
+          "ateneo-06306": {
+            "position": 41,
+            "score": 78
+          },
+          "ateneo-08701": {
+            "position": 41,
+            "score": 78
+          },
+          "ateneo-08001": {
+            "position": 41,
+            "score": 78
+          },
+          "ateneo-06501": {
+            "position": 44,
+            "score": 77.5
+          },
+          "ateneo-07001": {
+            "position": 45,
+            "score": 77
+          },
+          "ateneo-06201": {
+            "position": 45,
+            "score": 77
+          },
+          "ateneo-07901": {
+            "position": 47,
+            "score": 76.5
+          },
+          "ateneo-08301": {
+            "position": 48,
+            "score": 75.5
+          }
+        }
+      },
+      "Medico-Sanitario e Farmaceutico": {
+        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_LM-13_FARM_CTF.pdf",
+        "records": {
+          "ateneo-05802": {
+            "position": 1,
+            "score": 102
+          },
+          "ateneo-00101": {
+            "position": 2,
+            "score": 100
+          },
+          "ateneo-03201": {
+            "position": 3,
+            "score": 98
+          },
+          "ateneo-03701": {
+            "position": 4,
+            "score": 96.5
+          },
+          "ateneo-03601": {
+            "position": 5,
+            "score": 96
+          },
+          "ateneo-01701": {
+            "position": 6,
+            "score": 94
+          },
+          "ateneo-01801": {
+            "position": 7,
+            "score": 92
+          },
+          "ateneo-06901": {
+            "position": 8,
+            "score": 91.5
+          },
+          "ateneo-04101": {
+            "position": 9,
+            "score": 91
+          },
+          "ateneo-02801": {
+            "position": 10,
+            "score": 90
+          },
+          "ateneo-01501": {
+            "position": 11,
+            "score": 86
+          },
+          "ateneo-09201": {
+            "position": 12,
+            "score": 85.5
+          },
+          "ateneo-03801": {
+            "position": 13,
+            "score": 84.5
+          },
+          "ateneo-06301": {
+            "position": 13,
+            "score": 84.5
+          },
+          "ateneo-05201": {
+            "position": 13,
+            "score": 84.5
+          },
+          "ateneo-00201": {
+            "position": 16,
+            "score": 84
+          },
+          "ateneo-04302": {
+            "position": 17,
+            "score": 83
+          },
+          "ateneo-05001": {
+            "position": 17,
+            "score": 83
+          },
+          "ateneo-05801": {
+            "position": 19,
+            "score": 82
+          },
+          "ateneo-05401": {
+            "position": 20,
+            "score": 81.5
+          },
+          "ateneo-03401": {
+            "position": 21,
+            "score": 81
+          },
+          "ateneo-08301": {
+            "position": 22,
+            "score": 80.5
+          },
+          "ateneo-08201": {
+            "position": 23,
+            "score": 79.5
+          },
+          "ateneo-01001": {
+            "position": 24,
+            "score": 79
+          },
+          "ateneo-04801": {
+            "position": 25,
+            "score": 78
+          },
+          "ateneo-07201": {
+            "position": 26,
+            "score": 75
+          },
+          "ateneo-07601": {
+            "position": 27,
+            "score": 72.5
+          },
+          "ateneo-07801": {
+            "position": 27,
+            "score": 72.5
+          },
+          "ateneo-08701": {
+            "position": 27,
+            "score": 72.5
+          },
+          "ateneo-06306": {
+            "position": 30,
+            "score": 72
+          },
+          "ateneo-06501": {
+            "position": 30,
+            "score": 72
+          },
+          "ateneo-09001": {
+            "position": 30,
+            "score": 72
+          },
+          "ateneo-07901": {
+            "position": 33,
+            "score": 69
+          }
+        }
+      }
+    }
+  }
+}
