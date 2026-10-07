@@ -4,13 +4,27 @@
     {
       "name": "next-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 3000
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 3000,
+      "env": {
+        "NODE_USE_SYSTEM_CA": "1"
+      }
     },
     {
       "name": "legacy",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "http-server", "legacy", "-p", "8000", "-c-1", "--silent"],
+      "runtimeArgs": [
+        "--yes",
+        "http-server",
+        "legacy",
+        "-p",
+        "8000",
+        "-c-1",
+        "--silent"
+      ],
       "port": 8000
     }
   ]

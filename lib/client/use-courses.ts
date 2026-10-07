@@ -9,44 +9,52 @@ export interface CourseOption {
   classCode: string;
   level: string;
   group: string;
+  area: string;
   city: string;
   access: string;
   delivery: string;
 }
 
-const cache = new Map<string, Promise<CourseOption[]>>();
+export interface UniversityCoursesPayload {
+  courses: CourseOption[];
+  tuition: { payers: number | null; allStudents: number | null };
+  academicYear: string;
+}
 
-export function fetchUniversityCourses(universityId: string): Promise<CourseOption[]> {
-  if (!universityId) return Promise.resolve([]);
+const EMPTY: UniversityCoursesPayload = { courses: [], tuition: { payers: null, allStudents: null }, academicYear: '' };
+const cache = new Map<string, Promise<UniversityCoursesPayload>>();
+
+export function fetchUniversityCourses(universityId: string): Promise<UniversityCoursesPayload> {
+  if (!universityId) return Promise.resolve(EMPTY);
   let request = cache.get(universityId);
   if (!request) {
     request = fetch(`/api/universities/${encodeURIComponent(universityId)}/courses`)
-      .then((response) => (response.ok ? response.json() : { courses: [] }))
-      .then((payload) => (Array.isArray(payload.courses) ? payload.courses : []))
+      .then((response) => (response.ok ? response.json() : EMPTY))
+      .then((payload) => ({ ...EMPTY, ...payload, courses: Array.isArray(payload.courses) ? payload.courses : [] }))
       .catch(() => {
         cache.delete(universityId);
-        return [];
+        return EMPTY;
       });
     cache.set(universityId, request);
   }
   return request;
 }
 
-/** Corsi reali dell'ateneo, ordinati per nome. */
-export function useUniversityCourses(universityId: string): { courses: CourseOption[]; loading: boolean } {
-  const [state, setState] = useState<{ id: string; courses: CourseOption[] }>({ id: '', courses: [] });
+/** Corsi reali dell'ateneo (ordinati per nome) e contribuzione media. */
+export function useUniversityCourses(universityId: string): UniversityCoursesPayload & { loading: boolean } {
+  const [state, setState] = useState<{ id: string; payload: UniversityCoursesPayload }>({ id: '', payload: EMPTY });
   useEffect(() => {
     let active = true;
     if (!universityId) return;
-    fetchUniversityCourses(universityId).then((courses) => {
-      if (active) setState({ id: universityId, courses });
+    fetchUniversityCourses(universityId).then((payload) => {
+      if (active) setState({ id: universityId, payload });
     });
     return () => {
       active = false;
     };
   }, [universityId]);
   const ready = state.id === universityId;
-  return { courses: ready ? state.courses : [], loading: Boolean(universityId) && !ready };
+  return { ...(ready ? state.payload : EMPTY), loading: Boolean(universityId) && !ready };
 }
 
 /**

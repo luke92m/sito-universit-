@@ -6585,3 +6585,12 @@ main {
   display: inline-block;
   margin-bottom: 14px;
 }
+
+.rich-paragraph {
+  display: block;
+  margin: 0 0 8px;
+}
+
+.comparison-value .rich-paragraph {
+  margin: 0 0 8px;
+}

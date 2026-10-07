@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 // Elenco leggero degli atenei per selettori e intestazioni (il dataset corsi resta sul server).
 const universitySummaries = UNIVERSITIES.slice()
   .sort((a, b) => a.name.localeCompare(b.name, 'it'))
-  .map(({ id, name, shortName, city, region }) => ({ id, name, shortName, city, region }));
+  .map(({ id, name, shortName, city, region, isPublic, category }) => ({ id, name, shortName, city, region, isPublic, category }));
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

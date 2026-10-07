@@ -1,0 +1,794 @@
+[
+  {
+    "id": "ateneo-06603",
+    "name": "Gran Sasso Science Institute - Scuola di dottorato internazionale dell'Aquila",
+    "shortName": "L'Aquila GSSI",
+    "city": "L'Aquila",
+    "region": "Abruzzo",
+    "officialUrl": "https://www.gssi.it/"
+  },
+  {
+    "id": "ateneo-01510",
+    "name": "Humanitas University",
+    "shortName": "Rozzano (MI) Humanitas University",
+    "city": "Pieve Emanuele",
+    "region": "Lombardia",
+    "officialUrl": "https://www.hunimed.eu/"
+  },
+  {
+    "id": "ateneo-01802",
+    "name": "Istituto universitario di studi superiori di Pavia",
+    "shortName": "Pavia IUSS",
+    "city": "Pavia",
+    "region": "Lombardia",
+    "officialUrl": "https://www.iusspavia.it/"
+  },
+  {
+    "id": "ateneo-08601",
+    "name": "Libera Università della Sicilia Centrale \"KORE\" di Enna",
+    "shortName": "Enna KORE",
+    "city": "Enna Bassa",
+    "region": "Sicilia",
+    "officialUrl": "https://unikore.it/"
+  },
+  {
+    "id": "ateneo-02101",
+    "name": "Libera Università di Bolzano",
+    "shortName": "Bolzano",
+    "city": "Bolzano",
+    "region": "Trentino-Alto Adige/Südtirol",
+    "officialUrl": "https://www.unibz.it/"
+  },
+  {
+    "id": "ateneo-01505",
+    "name": "Libera Università di Lingue e Comunicazione (IULM)",
+    "shortName": "Milano IULM",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.iulm.it/"
+  },
+  {
+    "id": "ateneo-05803",
+    "name": "Libera Università Maria SS.Assunta - (LUMSA) di Roma",
+    "shortName": "Roma LUMSA",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.lumsa.it/"
+  },
+  {
+    "id": "ateneo-07203",
+    "name": "Libera Università Mediterranea \"Giuseppe Degennaro\"",
+    "shortName": "Casamassima – LUM G. Degennaro",
+    "city": "Casamassima",
+    "region": "Puglia",
+    "officialUrl": "https://www.lum.it/"
+  },
+  {
+    "id": "ateneo-01508",
+    "name": "Libera Università, Vita-Salute San Raffaele di Milano",
+    "shortName": "Milano San Raffaele",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unisr.it/"
+  },
+  {
+    "id": "ateneo-05817",
+    "name": "Link Campus University di Roma",
+    "shortName": "Roma Link Campus",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unilink.it/"
+  },
+  {
+    "id": "ateneo-05805",
+    "name": "Luiss - Libera Università internazionale degli studi sociali Guido Carli di Roma",
+    "shortName": "Roma Luiss",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.luiss.it/"
+  },
+  {
+    "id": "ateneo-07202",
+    "name": "Politecnico di Bari",
+    "shortName": "Bari Politecnico",
+    "city": "Bari",
+    "region": "Puglia",
+    "officialUrl": "https://www.poliba.it/"
+  },
+  {
+    "id": "ateneo-01502",
+    "name": "Politecnico di Milano",
+    "shortName": "Milano Politecnico",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.polimi.it/"
+  },
+  {
+    "id": "ateneo-00102",
+    "name": "Politecnico di Torino",
+    "shortName": "Torino Politecnico",
+    "city": "Torino",
+    "region": "Piemonte",
+    "officialUrl": "https://www.polito.it/"
+  },
+  {
+    "id": "ateneo-05818",
+    "name": "Saint Camillus International University of Health",
+    "shortName": "Roma Saint Camillus",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unicamillus.org/"
+  },
+  {
+    "id": "ateneo-04601",
+    "name": "Scuola IMT Alti Studi di Lucca",
+    "shortName": "Lucca IMT",
+    "city": "Lucca",
+    "region": "Toscana",
+    "officialUrl": "https://www.imtlucca.it/"
+  },
+  {
+    "id": "ateneo-03202",
+    "name": "Scuola internazionale superiore di studi avanzati di Trieste",
+    "shortName": "Trieste SISSA",
+    "city": "Trieste",
+    "region": "Friuli-Venezia Giulia",
+    "officialUrl": "https://www.sissa.it/"
+  },
+  {
+    "id": "ateneo-05002",
+    "name": "Scuola normale superiore di Pisa",
+    "shortName": "Pisa Normale",
+    "city": "Pisa",
+    "region": "Toscana",
+    "officialUrl": "https://www.sns.it/"
+  },
+  {
+    "id": "ateneo-05003",
+    "name": "Scuola superiore di studi universitari e perfezionamento \"S. Anna\" di Pisa",
+    "shortName": "Pisa S.Anna",
+    "city": "Pisa",
+    "region": "Toscana",
+    "officialUrl": "https://www.santannapisa.it/"
+  },
+  {
+    "id": "ateneo-06308",
+    "name": "Scuola Superiore Meridionale di Napoli",
+    "shortName": "Napoli Meridionale",
+    "city": "Napoli",
+    "region": "Campania",
+    "officialUrl": "https://www.ssmeridionale.it/"
+  },
+  {
+    "id": "ateneo-05814",
+    "name": "Universitas telematica Mercatorum di Roma",
+    "shortName": "Roma  Mercatorum - telematica",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unimercatorum.it/"
+  },
+  {
+    "id": "ateneo-01201",
+    "name": "Università \"Carlo Cattaneo\" (LIUC)",
+    "shortName": "Castellanza LIUC",
+    "city": "Castellanza",
+    "region": "Lombardia",
+    "officialUrl": "https://www.liuc.it/"
+  },
+  {
+    "id": "ateneo-02701",
+    "name": "Università Ca' Foscari Venezia",
+    "shortName": "Ca' Foscari Venezia",
+    "city": "Venezia",
+    "region": "Veneto",
+    "officialUrl": "https://www.unive.it/"
+  },
+  {
+    "id": "ateneo-05808",
+    "name": "Università Campus Bio-Medico di Roma",
+    "shortName": "Roma Biomedico",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unicampus.it/"
+  },
+  {
+    "id": "ateneo-01504",
+    "name": "Università Cattolica del \"Sacro Cuore\"",
+    "shortName": "Milano Cattolica",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unicatt.it/"
+  },
+  {
+    "id": "ateneo-01503",
+    "name": "Università commerciale Luigi Bocconi di Milano",
+    "shortName": "Milano Bocconi",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unibocconi.it/"
+  },
+  {
+    "id": "ateneo-04101",
+    "name": "Università degli studi \"Carlo Bo\" di Urbino",
+    "shortName": "Urbino",
+    "city": "Urbino",
+    "region": "Marche",
+    "officialUrl": "https://www.uniurb.it/"
+  },
+  {
+    "id": "ateneo-07001",
+    "name": "Università degli studi del Molise",
+    "shortName": "Molise",
+    "city": "Campobasso",
+    "region": "Molise",
+    "officialUrl": "https://www.unimol.it/"
+  },
+  {
+    "id": "ateneo-00201",
+    "name": "Università degli studi del Piemonte orientale \"Amedeo Avogadro\"",
+    "shortName": "Piemonte Orientale",
+    "city": "Vercelli",
+    "region": "Piemonte",
+    "officialUrl": "https://www.uniupo.it/"
+  },
+  {
+    "id": "ateneo-06201",
+    "name": "Università degli Studi del Sannio",
+    "shortName": "Sannio",
+    "city": "Benevento",
+    "region": "Campania",
+    "officialUrl": "https://www.unisannio.it/"
+  },
+  {
+    "id": "ateneo-01202",
+    "name": "Università degli studi dell' Insubria",
+    "shortName": "Insubria",
+    "city": "Varese",
+    "region": "Lombardia",
+    "officialUrl": "https://www.uninsubria.it/"
+  },
+  {
+    "id": "ateneo-07601",
+    "name": "Università degli studi della Basilicata",
+    "shortName": "Basilicata",
+    "city": "Potenza",
+    "region": "Basilicata",
+    "officialUrl": "https://portale.unibas.it/"
+  },
+  {
+    "id": "ateneo-06306",
+    "name": "Università degli studi della Campania \"Luigi Vanvitelli\"",
+    "shortName": "Napoli Vanvitelli",
+    "city": "Caserta",
+    "region": "Campania",
+    "officialUrl": "https://www.unicampania.it/"
+  },
+  {
+    "id": "ateneo-05601",
+    "name": "Università degli Studi della Tuscia",
+    "shortName": "Tuscia",
+    "city": "Viterbo",
+    "region": "Lazio",
+    "officialUrl": "https://www.unitus.it/"
+  },
+  {
+    "id": "ateneo-07201",
+    "name": "Università degli studi di Bari",
+    "shortName": "Bari",
+    "city": "Bari",
+    "region": "Puglia",
+    "officialUrl": "https://www.uniba.it/"
+  },
+  {
+    "id": "ateneo-01601",
+    "name": "Università degli studi di Bergamo",
+    "shortName": "Bergamo",
+    "city": "Bergamo",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unibg.it/"
+  },
+  {
+    "id": "ateneo-03701",
+    "name": "Università degli studi di Bologna",
+    "shortName": "Bologna",
+    "city": "Bologna",
+    "region": "Emilia-Romagna",
+    "officialUrl": "https://www.unibo.it/"
+  },
+  {
+    "id": "ateneo-01701",
+    "name": "Università degli studi di Brescia",
+    "shortName": "Brescia",
+    "city": "Brescia",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unibs.it/"
+  },
+  {
+    "id": "ateneo-09201",
+    "name": "Università degli studi di Cagliari",
+    "shortName": "Cagliari",
+    "city": "Cagliari",
+    "region": "Sardegna",
+    "officialUrl": "https://www.unica.it/"
+  },
+  {
+    "id": "ateneo-04302",
+    "name": "Università degli studi di Camerino",
+    "shortName": "Camerino",
+    "city": "Camerino",
+    "region": "Marche",
+    "officialUrl": "https://www.unicam.it/"
+  },
+  {
+    "id": "ateneo-06001",
+    "name": "Università degli Studi di Cassino e del Lazio Meridionale",
+    "shortName": "Cassino",
+    "city": "Cassino",
+    "region": "Lazio",
+    "officialUrl": "https://www.unicas.it/"
+  },
+  {
+    "id": "ateneo-08701",
+    "name": "Università degli studi di Catania",
+    "shortName": "Catania",
+    "city": "Catania",
+    "region": "Sicilia",
+    "officialUrl": "https://www.unict.it/"
+  },
+  {
+    "id": "ateneo-07901",
+    "name": "Università degli studi di Catanzaro - Magna Grecia",
+    "shortName": "Catanzaro",
+    "city": "Catanzaro",
+    "region": "Calabria",
+    "officialUrl": "https://web.unicz.it/"
+  },
+  {
+    "id": "ateneo-03801",
+    "name": "Università degli studi di Ferrara",
+    "shortName": "Ferrara",
+    "city": "Ferrara",
+    "region": "Emilia-Romagna",
+    "officialUrl": "https://www.unife.it/"
+  },
+  {
+    "id": "ateneo-04801",
+    "name": "Università degli studi di Firenze",
+    "shortName": "Firenze",
+    "city": "Firenze",
+    "region": "Toscana",
+    "officialUrl": "https://www.unifi.it/"
+  },
+  {
+    "id": "ateneo-07101",
+    "name": "Università degli studi di Foggia",
+    "shortName": "Foggia",
+    "city": "Foggia",
+    "region": "Puglia",
+    "officialUrl": "https://www.unifg.it/"
+  },
+  {
+    "id": "ateneo-01001",
+    "name": "Università degli studi di Genova",
+    "shortName": "Genova",
+    "city": "Genova",
+    "region": "Liguria",
+    "officialUrl": "https://unige.it/"
+  },
+  {
+    "id": "ateneo-06601",
+    "name": "Università degli studi di L'Aquila",
+    "shortName": "L'Aquila",
+    "city": "L'Aquila",
+    "region": "Abruzzo",
+    "officialUrl": "https://www.univaq.it/"
+  },
+  {
+    "id": "ateneo-04301",
+    "name": "Università degli studi di Macerata",
+    "shortName": "Macerata",
+    "city": "Macerata",
+    "region": "Marche",
+    "officialUrl": "https://www.unimc.it/"
+  },
+  {
+    "id": "ateneo-08301",
+    "name": "Università degli studi di Messina",
+    "shortName": "Messina",
+    "city": "Messina",
+    "region": "Sicilia",
+    "officialUrl": "https://www.unime.it/"
+  },
+  {
+    "id": "ateneo-01501",
+    "name": "Università degli studi di Milano",
+    "shortName": "Milano",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unimi.it/"
+  },
+  {
+    "id": "ateneo-01509",
+    "name": "Università degli studi di Milano-Bicocca",
+    "shortName": "Milano Bicocca",
+    "city": "Milano",
+    "region": "Lombardia",
+    "officialUrl": "https://www.unimib.it/"
+  },
+  {
+    "id": "ateneo-03601",
+    "name": "Università degli studi di Modena e Reggio Emilia",
+    "shortName": "Modena e Reggio Emilia",
+    "city": "Modena",
+    "region": "Emilia-Romagna",
+    "officialUrl": "https://www.unimore.it/"
+  },
+  {
+    "id": "ateneo-06302",
+    "name": "Università degli studi di Napoli - Parthenope",
+    "shortName": "Napoli Parthenope",
+    "city": "Napoli",
+    "region": "Campania",
+    "officialUrl": "https://www.uniparthenope.it/"
+  },
+  {
+    "id": "ateneo-06301",
+    "name": "Università degli studi di Napoli Federico II",
+    "shortName": "Napoli Federico II",
+    "city": "Napoli",
+    "region": "Campania",
+    "officialUrl": "https://www.unina.it/"
+  },
+  {
+    "id": "ateneo-02801",
+    "name": "Università degli studi di Padova",
+    "shortName": "Padova",
+    "city": "Padova",
+    "region": "Veneto",
+    "officialUrl": "https://www.unipd.it/"
+  },
+  {
+    "id": "ateneo-08201",
+    "name": "Università degli studi di Palermo",
+    "shortName": "Palermo",
+    "city": "Palermo",
+    "region": "Sicilia",
+    "officialUrl": "https://www.unipa.it/"
+  },
+  {
+    "id": "ateneo-03401",
+    "name": "Università degli studi di Parma",
+    "shortName": "Parma",
+    "city": "Parma",
+    "region": "Emilia-Romagna",
+    "officialUrl": "https://www.unipr.it/"
+  },
+  {
+    "id": "ateneo-01801",
+    "name": "Università degli studi di Pavia",
+    "shortName": "Pavia",
+    "city": "Pavia",
+    "region": "Lombardia",
+    "officialUrl": "https://portale.unipv.it/"
+  },
+  {
+    "id": "ateneo-05401",
+    "name": "Università degli studi di Perugia",
+    "shortName": "Perugia",
+    "city": "Perugia",
+    "region": "Umbria",
+    "officialUrl": "https://www.unipg.it/"
+  },
+  {
+    "id": "ateneo-05806",
+    "name": "Università degli studi di Roma \"Foro Italico\"",
+    "shortName": "Roma Foro Italico",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.uniroma4.it/"
+  },
+  {
+    "id": "ateneo-05801",
+    "name": "Università degli studi di Roma La Sapienza",
+    "shortName": "Roma La Sapienza",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.uniroma1.it/"
+  },
+  {
+    "id": "ateneo-05802",
+    "name": "Università degli studi di Roma Tor Vergata",
+    "shortName": "Roma Tor Vergata",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://web.uniroma2.it/"
+  },
+  {
+    "id": "ateneo-06501",
+    "name": "Università degli studi di Salerno",
+    "shortName": "Salerno",
+    "city": "Fisciano - Salerno",
+    "region": "Campania",
+    "officialUrl": "https://www.unisa.it/"
+  },
+  {
+    "id": "ateneo-09001",
+    "name": "Università degli studi di Sassari",
+    "shortName": "Sassari",
+    "city": "Sassari",
+    "region": "Sardegna",
+    "officialUrl": "https://www.uniss.it/"
+  },
+  {
+    "id": "ateneo-05201",
+    "name": "Università degli studi di Siena",
+    "shortName": "Siena",
+    "city": "Siena",
+    "region": "Toscana",
+    "officialUrl": "https://www.unisi.it/"
+  },
+  {
+    "id": "ateneo-06701",
+    "name": "Università degli studi di Teramo",
+    "shortName": "Teramo",
+    "city": "Teramo",
+    "region": "Abruzzo",
+    "officialUrl": "https://www.unite.it/"
+  },
+  {
+    "id": "ateneo-00101",
+    "name": "Università degli studi di Torino",
+    "shortName": "Torino",
+    "city": "Torino",
+    "region": "Piemonte",
+    "officialUrl": "https://www.unito.it/"
+  },
+  {
+    "id": "ateneo-02201",
+    "name": "Università degli studi di Trento",
+    "shortName": "Trento",
+    "city": "Trento",
+    "region": "Trentino-Alto Adige/Südtirol",
+    "officialUrl": "https://www.unitn.it/"
+  },
+  {
+    "id": "ateneo-03201",
+    "name": "Università degli studi di Trieste",
+    "shortName": "Trieste",
+    "city": "Trieste",
+    "region": "Friuli-Venezia Giulia",
+    "officialUrl": "https://www.units.it/"
+  },
+  {
+    "id": "ateneo-03001",
+    "name": "Università degli studi di Udine",
+    "shortName": "Udine",
+    "city": "Udine",
+    "region": "Friuli-Venezia Giulia",
+    "officialUrl": "https://www.uniud.it/"
+  },
+  {
+    "id": "ateneo-02301",
+    "name": "Università degli studi di Verona",
+    "shortName": "Verona",
+    "city": "Verona",
+    "region": "Veneto",
+    "officialUrl": "https://www.univr.it/"
+  },
+  {
+    "id": "ateneo-06901",
+    "name": "Università degli studi Gabriele D'Annunzio di Chieti e Pescara",
+    "shortName": "Chieti e Pescara",
+    "city": "Chieti Scalo",
+    "region": "Abruzzo",
+    "officialUrl": "https://www.unich.it/"
+  },
+  {
+    "id": "ateneo-05809",
+    "name": "Università degli Studi Internazionali di Roma – UNINT",
+    "shortName": "Roma UNINT",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unint.eu/"
+  },
+  {
+    "id": "ateneo-06303",
+    "name": "Università degli studi L'Orientale di Napoli",
+    "shortName": "Napoli L'Orientale",
+    "city": "Napoli",
+    "region": "Campania",
+    "officialUrl": "https://www.unior.it/"
+  },
+  {
+    "id": "ateneo-08001",
+    "name": "Università degli studi Mediterranea di Reggio Calabria",
+    "shortName": "Reggio Calabria",
+    "city": "Reggio Calabria",
+    "region": "Calabria",
+    "officialUrl": "https://www.unirc.it/"
+  },
+  {
+    "id": "ateneo-05807",
+    "name": "Università degli studi Roma Tre",
+    "shortName": "Roma Tre",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.uniroma3.it/"
+  },
+  {
+    "id": "ateneo-06304",
+    "name": "Università degli studi Suor Orsola Benincasa di Napoli",
+    "shortName": "Napoli Benincasa",
+    "city": "Napoli",
+    "region": "Campania",
+    "officialUrl": "https://www.unisob.na.it/"
+  },
+  {
+    "id": "ateneo-07501",
+    "name": "Università del Salento",
+    "shortName": "Salento",
+    "city": "Lecce",
+    "region": "Puglia",
+    "officialUrl": "https://www.unisalento.it/"
+  },
+  {
+    "id": "ateneo-07801",
+    "name": "Università della Calabria",
+    "shortName": "Calabria",
+    "city": "Arcavacata Di Rende",
+    "region": "Calabria",
+    "officialUrl": "https://www.unical.it/"
+  },
+  {
+    "id": "ateneo-00701",
+    "name": "Università della Valle d'Aosta",
+    "shortName": "Aosta",
+    "city": "Aosta",
+    "region": "Valle d'Aosta",
+    "officialUrl": "https://www.univda.it/"
+  },
+  {
+    "id": "ateneo-05001",
+    "name": "Università di Pisa",
+    "shortName": "Pisa",
+    "city": "Pisa",
+    "region": "Toscana",
+    "officialUrl": "https://www.unipi.it/"
+  },
+  {
+    "id": "ateneo-00401",
+    "name": "Università di Scienze Gastronomiche",
+    "shortName": "Bra Scienze Gastronomiche",
+    "city": "Bra - Fraz. Pollenzo",
+    "region": "Piemonte",
+    "officialUrl": "https://www.unisg.it/"
+  },
+  {
+    "id": "ateneo-05812",
+    "name": "Università Europea di Roma",
+    "shortName": "Roma Europea",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.universitaeuropeadiroma.it/"
+  },
+  {
+    "id": "ateneo-02702",
+    "name": "Università Iuav di Venezia",
+    "shortName": "Venezia Iuav",
+    "city": "Venezia",
+    "region": "Veneto",
+    "officialUrl": "https://www.iuav.it/"
+  },
+  {
+    "id": "ateneo-08003",
+    "name": "Università per stranieri \"Dante Alighieri\" di Reggio Calabria",
+    "shortName": "Reggio Calabria - Dante Alighieri",
+    "city": "Reggio Calabria",
+    "region": "Calabria",
+    "officialUrl": "https://www.unistrada.it/"
+  },
+  {
+    "id": "ateneo-05403",
+    "name": "Università per stranieri di Perugia",
+    "shortName": "Perugia Stranieri",
+    "city": "Perugia",
+    "region": "Umbria",
+    "officialUrl": "https://www.unistrapg.it/"
+  },
+  {
+    "id": "ateneo-05202",
+    "name": "Università per stranieri di Siena",
+    "shortName": "Siena Stranieri",
+    "city": "Siena",
+    "region": "Toscana",
+    "officialUrl": "https://www.unistrasi.it/"
+  },
+  {
+    "id": "ateneo-04201",
+    "name": "Università Politecnica delle Marche - Ancona",
+    "shortName": "Marche",
+    "city": "Ancona",
+    "region": "Marche",
+    "officialUrl": "https://www.univpm.it/"
+  },
+  {
+    "id": "ateneo-01301",
+    "name": "Università telematica \"e-Campus\" di Novedrate (CO)",
+    "shortName": "Novedrate e-Campus - telematica",
+    "city": "Novedrate",
+    "region": "Lombardia",
+    "officialUrl": "https://www.uniecampus.it/"
+  },
+  {
+    "id": "ateneo-06202",
+    "name": "Università telematica \"Giustino Fortunato\" di Benevento",
+    "shortName": "Benevento Giustino Fortunato - telematica",
+    "city": "Benevento",
+    "region": "Campania",
+    "officialUrl": "https://www.unifortunato.eu/"
+  },
+  {
+    "id": "ateneo-04804",
+    "name": "Università telematica \"Italian University line\" di Firenze",
+    "shortName": "Firenze IUL - telematica",
+    "city": "Firenze",
+    "region": "Toscana",
+    "officialUrl": "https://www.iuline.it/"
+  },
+  {
+    "id": "ateneo-06307",
+    "name": "Università telematica \"Pegaso\" di Napoli",
+    "shortName": "Napoli Pegaso - telematica",
+    "city": "Napoli",
+    "region": "Campania",
+    "officialUrl": "https://www.unipegaso.it/"
+  },
+  {
+    "id": "ateneo-05816",
+    "name": "Università telematica \"San Raffaele\" di Roma - già \"UNITEL\"",
+    "shortName": "Roma San Raffaele - telematica",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.uniroma5.it/"
+  },
+  {
+    "id": "ateneo-05810",
+    "name": "Università telematica Guglielmo Marconi di Roma",
+    "shortName": "Roma Marconi - telematica",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unimarconi.it/"
+  },
+  {
+    "id": "ateneo-05813",
+    "name": "Università telematica internazionale UNINETTUNO di Roma",
+    "shortName": "Roma UNINETTUNO - telematica",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.uninettunouniversity.net/"
+  },
+  {
+    "id": "ateneo-05815",
+    "name": "Università telematica Niccolò Cusano di Roma",
+    "shortName": "Roma UNICUSANO - telematica",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unicusano.it/"
+  },
+  {
+    "id": "ateneo-06902",
+    "name": "Università telematica non statale \"Leonardo da Vinci\" di Torrevecchia Teatina (CH)",
+    "shortName": "Torrevecchia Teatina Leonardo da Vinci - telematica",
+    "city": "Torrevecchia Teatina",
+    "region": "Abruzzo",
+    "officialUrl": "https://www.unidav.it/"
+  },
+  {
+    "id": "ateneo-05811",
+    "name": "Università telematica Unitelma Sapienza di Roma",
+    "shortName": "Roma UNITELMA - telematica",
+    "city": "Roma",
+    "region": "Lazio",
+    "officialUrl": "https://www.unitelmasapienza.it/"
+  }
+]

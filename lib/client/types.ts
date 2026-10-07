@@ -63,6 +63,8 @@ export interface UniversitySummary {
   shortName: string;
   city: string;
   region: string;
+  isPublic: boolean;
+  category: string;
 }
 
 export function journeyOf(user: SiteUser | null): Journey | null {
