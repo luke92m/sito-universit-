@@ -1,0 +1,4 @@
+legacy/
+lib/data/
+tests/parity/fixtures/
+.next/
