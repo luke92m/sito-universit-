@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import type { FinderApiResult } from '@/app/api/finder/route';
+import { explainResult } from '@/lib/domain/finder-explain';
+import { bureaucracyHref, scholarshipHref } from '@/lib/flow/journey-params';
 
 const SCORE_ROWS = [
   { key: 'course', label: 'Compatibilità del corso' },
@@ -28,10 +30,6 @@ export function courseLink(item: FinderApiResult): string {
 
 export function scholarshipLink(item: FinderApiResult): string {
   return `/api/scholarship-link?${new URLSearchParams({ universityId: item.university.id }).toString()}`;
-}
-
-function scholarshipInternalLink(item: FinderApiResult): string {
-  return `/area-studente/borse-di-studio?${new URLSearchParams({ ateneo: item.university.id, corso: item.course.name }).toString()}`;
 }
 
 function rankingSourceText(item: FinderApiResult): string {
@@ -145,7 +143,16 @@ function CalculationDetails({ item }: { item: FinderApiResult }) {
   );
 }
 
-export function UniversityResultCard({ item, index }: { item: FinderApiResult; index: number }) {
+interface CardProps {
+  item: FinderApiResult;
+  index: number;
+  /** Selezione per il comparatore (massimo due risultati). */
+  picked: boolean;
+  pickDisabled: boolean;
+  onTogglePick: () => void;
+}
+
+export function UniversityResultCard({ item, index, picked, pickDisabled, onTogglePick }: CardProps) {
   const costCity = item.cost.online ? 'corso a distanza' : `${formatCurrency(item.cost.cityCost.monthly)}/mese stimati`;
   const commutePrecision = item.geography.commute?.precision === 'region' ? ' · stima basata sul centro regionale' : '';
   const geographyDetail =
@@ -204,20 +211,14 @@ export function UniversityResultCard({ item, index }: { item: FinderApiResult; i
           </article>
         </div>
 
-        <ul className="university-match-reasons">
-          <li>
-            Corso: <strong>{item.courseMatch.score}%</strong> · {item.courseMatch.label.toLowerCase()}.
-          </li>
-          <li>
-            Ranking ufficiale: <strong>{item.ranking.score.toFixed(1)}%</strong>.
-          </li>
-          <li>
-            Sostenibilità: <strong>{item.cost.score.toFixed(1)}%</strong>.
-          </li>
-          <li>
-            Borse e sostegni: <strong>{item.support.score.toFixed(1)}%</strong>.
-          </li>
-        </ul>
+        <div className="university-match-why">
+          <strong>Perché te la proponiamo</strong>
+          <ul>
+            {explainResult(item).map((reason) => (
+              <li key={reason.key}>{reason.text}</li>
+            ))}
+          </ul>
+        </div>
 
         {item.cost.needsAid ? (
           <div className="university-aid-warning">
@@ -238,12 +239,16 @@ export function UniversityResultCard({ item, index }: { item: FinderApiResult; i
           <a className="button button-primary" href={courseLink(item)} target="_blank" rel="noreferrer">
             Apri il corso ufficiale
           </a>
-          <a className="button button-secondary" href={scholarshipLink(item)} target="_blank" rel="noreferrer">
-            Borse ufficiali
-          </a>
-          <Link className="text-button" href={scholarshipInternalLink(item)}>
-            Verifica la borsa con il tuo profilo
+          <Link className="button button-secondary" href={bureaucracyHref(item.university.id, item.course.id)}>
+            Come iscriversi
           </Link>
+          <Link className="text-button" href={scholarshipHref(item.university.id, item.course.name)}>
+            Verifica la borsa
+          </Link>
+          <label className={`university-compare-toggle${picked ? ' is-picked' : ''}`}>
+            <input type="checkbox" checked={picked} disabled={pickDisabled && !picked} onChange={onTogglePick} />
+            <span>Confronta</span>
+          </label>
         </div>
       </div>
     </article>

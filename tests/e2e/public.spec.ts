@@ -4,7 +4,8 @@ import { expect, test } from '@playwright/test';
 
 test('home e navigazione principale', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('spiegata');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('fa per te');
+  await expect(page.getByText('nessun ateneo paga per comparire', { exact: true })).toBeVisible();
   await expect(page.getByText('99 istituti universitari')).toBeVisible();
   await page.getByRole('navigation', { name: 'Navigazione principale' }).getByRole('link', { name: 'atenei' }).click();
   await expect(page).toHaveURL(/\/atenei$/);
@@ -60,6 +61,47 @@ test('trova il mio corso → trova la mia università', async ({ page }) => {
 
   await expect(finder.getByRole('heading', { name: 'Le università più adatte al tuo profilo.' })).toBeVisible();
   await expect(finder.locator('.university-match-card')).not.toHaveCount(0);
+});
+
+// Link completo ai risultati, come lo crea chi sceglie di includere fascia ISEE e città.
+const FULL_LINK =
+  '/trova-corso?mode=university&corso=course:economia-aziendale&livello=bachelor&regione=Lombardia' +
+  '&citta=Pavia&pendolare=yes&mobilita=neighbors&isee=24000-26000&lingua=italian';
+
+test('percorso completo senza account: risultati → confronto → iscrizione', async ({ page }) => {
+  await page.goto(FULL_LINK);
+  const cards = page.locator('.university-match-card');
+  await expect(cards.first()).toBeVisible({ timeout: 20_000 });
+  await expect(cards.first().locator('.university-match-why li')).not.toHaveCount(0);
+  // L'indirizzo dei risultati non conserva i dati personali.
+  await expect(page).not.toHaveURL(/isee=|citta=/);
+
+  await cards.nth(0).getByText('Confronta', { exact: true }).click();
+  await cards.nth(2).getByText('Confronta', { exact: true }).click();
+  await page.getByRole('link', { name: 'Confronta le 2 scelte' }).click();
+
+  await expect(page).toHaveURL(/\/comparison\?mode=courses&a=.+&b=.+/);
+  await expect(page.getByRole('heading', { name: 'Confronto tra corsi' })).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('.neutrality-note')).toBeVisible();
+
+  await page.locator('.comparison-next-step a').first().click();
+  await expect(page).toHaveURL(/\/burocrazia\?ateneo=.+&corso=.+/);
+  await expect(page.locator('.access-gate')).toHaveCount(0);
+  await expect(page.locator('.bureaucracy-selector-card select')).not.toHaveValue('', { timeout: 20_000 });
+  await page.getByRole('button', { name: 'Crea la checklist' }).click();
+  await expect(page.locator('.bureaucracy-result')).toBeVisible();
+
+  await page.getByRole('link', { name: /Verifica le borse di studio/ }).click();
+  await expect(page).toHaveURL(/\/borse\?ateneo=/);
+  await expect(page.locator('.student-area-locked')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Verifica la possibilità' })).toBeVisible();
+});
+
+test('link condiviso senza dati personali: si risponde solo alle domande mancanti', async ({ page }) => {
+  await page.goto(FULL_LINK.replace('&citta=Pavia', '').replace('&isee=24000-26000', ''));
+  const finder = page.locator('#universityFinderPanel');
+  await expect(finder.getByText('Domanda 3 di 7')).toBeVisible({ timeout: 20_000 });
+  await expect(finder.locator('.university-inline-fields select')).toHaveValue('Lombardia');
 });
 
 test('comparison tra due atenei', async ({ page }) => {

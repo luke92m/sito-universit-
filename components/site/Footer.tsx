@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useToday } from '@/lib/client/use-today';
-import { SITE_CONFIG } from '@/lib/site-config';
+import { NEUTRALITY_TEXT, SITE_CONFIG } from '@/lib/site-config';
 
 export function Footer() {
   const today = useToday();
@@ -17,8 +17,7 @@ export function Footer() {
           <span>{SITE_CONFIG.name}</span>
         </Link>
         <p>
-          Un punto di partenza semplice per scegliere l’università. Nessun ateneo paga per comparire nei risultati.{' '}
-          <Link href="/privacy">Privacy</Link>
+          {NEUTRALITY_TEXT} <Link href="/burocrazia">Come iscriversi</Link> · <Link href="/privacy">Privacy</Link>
         </p>
         <span className="footer-status">{today ? `Oggi ${today}` : ''}</span>
       </div>

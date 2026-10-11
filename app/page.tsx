@@ -2,12 +2,19 @@ import Link from 'next/link';
 import { ProfileCtaButton } from '@/components/home/ProfileCtaButton';
 import { Icon } from '@/components/site/Icons';
 import { UNIVERSITIES } from '@/lib/data';
+import { FLOW_STEPS } from '@/components/flow/FlowSteps';
 
-const JOURNEY = [
-  ['01', 'Scopri', 'Trova i corsi più vicini ai tuoi interessi'],
-  ['02', 'Scegli', 'Le università adatte al tuo profilo'],
-  ['03', 'Confronta', 'Ranking, costi e borse fianco a fianco'],
-  ['04', 'Organizzati', 'Immatricolazione e scadenze ufficiali']
+const STEP_COPY = [
+  'Sei domande sui tuoi interessi, senza account',
+  'Gli atenei adatti a te, con il perché di ogni risultato',
+  'Ranking, costi e borse fianco a fianco, con le fonti',
+  'Accesso, documenti e bandi ufficiali'
+];
+
+const PRINCIPLES = [
+  ['Neutrale', 'Nessun ateneo paga per comparire nei risultati o per la sua posizione.'],
+  ['Con le fonti', 'Ogni numero ha accanto da dove viene: MUR, QS, CENSIS, ISTAT, bandi regionali.'],
+  ['Senza account', 'Puoi fare tutto il percorso senza registrarti. L’account serve solo per salvare.']
 ];
 
 export default function HomePage() {
@@ -16,42 +23,42 @@ export default function HomePage() {
       <section className="hero" aria-labelledby="heroTitle">
         <div className="hero-grid">
           <div className="hero-copy">
-            <span className="hero-kicker">orientamento · studio · opportunità</span>
+            <span className="hero-kicker">scegliere l’università · costi reali · borse di studio</span>
             <h1 id="heroTitle">
-              L’università,
+              Scopri quale università
               <br />
-              spiegata <em>semplice.</em>
+              <em>fa per te.</em>
             </h1>
-            <p className="hero-subtitle">Dalla matricola alla laurea: qui trovi le risposte.</p>
+            <p className="hero-subtitle">E quanto ti costa davvero, borsa compresa.</p>
 
             <div className="hero-actions">
-              <Link className="button button-primary" href="/atenei">
-                Esplora gli atenei
+              <Link className="button button-primary" href="/trova-corso">
+                Inizia: trova la tua università
                 <Icon name="arrow" />
               </Link>
-              <Link className="button button-secondary" href="/trova-corso">
-                Trova il mio corso
+              <Link className="button button-secondary" href="/comparison">
+                Confronta due atenei
               </Link>
               <ProfileCtaButton />
             </div>
 
             <div className="hero-proof" aria-label="Caratteristiche principali">
               <span className="proof-chip">{UNIVERSITIES.length} istituti universitari</span>
-              <span className="proof-chip">questionario di orientamento</span>
-              <span className="proof-chip">comparatore personalizzato</span>
+              <span className="proof-chip">nessun ateneo paga per comparire</span>
+              <span className="proof-chip">nessun account obbligatorio</span>
             </div>
           </div>
 
-          <aside className="journey-card" aria-label="Esempio di percorso universitario">
-            <p className="journey-label">Il tuo percorso, in ordine</p>
+          <aside className="journey-card" aria-label="Il percorso di scelta">
+            <p className="journey-label">Il percorso, in quattro passi</p>
             <ol className="journey-list">
-              {JOURNEY.map(([number, title, copy]) => (
-                <li className="journey-item" key={number}>
-                  <span className="journey-number">{number}</span>
-                  <span className="journey-copy">
-                    <strong>{title}</strong>
-                    <span>{copy}</span>
-                  </span>
+              {FLOW_STEPS.map((step, index) => (
+                <li className="journey-item" key={step.label}>
+                  <span className="journey-number">{String(index + 1).padStart(2, '0')}</span>
+                  <Link className="journey-copy" href={step.href}>
+                    <strong>{step.label}</strong>
+                    <span>{STEP_COPY[index]}</span>
+                  </Link>
                   <span className="journey-status" aria-hidden="true" />
                 </li>
               ))}
@@ -60,21 +67,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-strip" aria-label="Contenuti del sito">
+      <section className="home-strip" aria-label="Come funziona il sito">
         <div className="strip-grid">
-          <div className="strip-item">
-            <strong>Scopri</strong>
-            <span>quali corsi sono più vicini ai tuoi interessi.</span>
-          </div>
-          <div className="strip-item">
-            <strong>Capisci</strong>
-            <span>procedure e opportunità senza perderti.</span>
-          </div>
-          <div className="strip-item">
-            <strong>Affronta</strong>
-            <span>ogni passaggio con informazioni ordinate.</span>
-          </div>
+          {PRINCIPLES.map(([title, copy]) => (
+            <div className="strip-item" key={title}>
+              <strong>{title}</strong>
+              <span>{copy}</span>
+            </div>
+          ))}
         </div>
+      </section>
+
+      <section className="home-catalog-link" aria-label="Catalogo">
+        <p>
+          Vuoi solo curiosare? <Link href="/atenei">Esplora tutti i {UNIVERSITIES.length} atenei</Link> con schede e
+          ranking ufficiali.
+        </p>
       </section>
 
       <section className="about-section" id="chi-siamo" aria-labelledby="aboutTitle">

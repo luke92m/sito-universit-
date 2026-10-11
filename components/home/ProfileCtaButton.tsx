@@ -9,11 +9,11 @@ export function ProfileCtaButton() {
       className="button button-secondary"
       type="button"
       onClick={() => {
-        if (user) showToast('Il tuo profilo è già attivo: aprilo dal menu in alto a destra.');
+        if (user) showToast('Il tuo profilo è già attivo: i risultati vengono salvati nel tuo account.');
         else openAuth('register');
       }}
     >
-      Crea il tuo profilo
+      Salva i risultati (facoltativo)
     </button>
   );
 }

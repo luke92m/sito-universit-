@@ -1,17 +1,47 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import type { FinderApiResponse } from '@/app/api/finder/route';
+import { NeutralityNote } from '@/components/site/NeutralityNote';
 import { useSite } from '@/components/site/SiteProvider';
 import type { CoursePreferences } from '@/lib/client/types';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { COURSES, getCourseProfile } from '@/lib/domain/course-catalog';
 import { getIseeRange, normalizedIseeValue } from '@/lib/domain/isee';
+import {
+  comparisonHref,
+  finderSearchParams,
+  firstMissingAnswer,
+  type FinderAnswerKey,
+  type FinderLinkState
+} from '@/lib/flow/journey-params';
 import { UniversityResultCard } from './UniversityResultCard';
 
 const STEPS = ['course', 'degree', 'residence', 'commute', 'relocation', 'isee', 'language'] as const;
 type Step = (typeof STEPS)[number];
+
+// Ordine delle risposte come nelle domande: serve a riprendere un link dalla prima risposta mancante.
+const ANSWER_ORDER: FinderAnswerKey[] = [
+  'courseChoice',
+  'degree',
+  'residenceRegion',
+  'residenceCity',
+  'commute',
+  'relocation',
+  'iseeRange',
+  'language'
+];
+const STEP_OF_ANSWER: Record<FinderAnswerKey, number> = {
+  courseChoice: 0,
+  degree: 1,
+  residenceRegion: 2,
+  residenceCity: 2,
+  commute: 3,
+  relocation: 4,
+  iseeRange: 5,
+  language: 6
+};
 
 const STEP_TITLES: Record<Step, string> = {
   course: 'Partiamo dal corso o dalla macroarea',
@@ -84,16 +114,17 @@ interface Props {
   startCourseSlug: string;
   currentCourseResult: CoursePreferences | null;
   onBackToCourse: () => void;
+  /** Risposte lette da un link condiviso (dati personali assenti, salvo scelta di chi l'ha creato). */
+  linkState: FinderLinkState | null;
 }
 
-export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackToCourse }: Props) {
-  const { guidance, updateGuidance, coursePreferences } = useSite();
-  const [step, setStep] = useState(0);
+export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackToCourse, linkState }: Props) {
+  const { guidance, updateGuidance, coursePreferences, showToast } = useSite();
   // Risposte iniziali dai dati già noti (porting di profileDefaults()): il genitore rimonta
   // il componente a ogni nuovo avvio, quindi il calcolo avviene una sola volta.
   const [answers, setAnswers] = useState<Answers>(() => {
     const savedSlug = coursePreferences?.recommendations?.find((item) => getCourseProfile(item.slug))?.slug || '';
-    return {
+    const fromProfile = {
       courseChoice: startCourseSlug
         ? `course:${startCourseSlug}`
         : guidance.lastCourseChoice || (savedSlug ? `course:${savedSlug}` : ''),
@@ -105,12 +136,21 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
       iseeRange: normalizedIseeValue(guidance.iseeRange || ''),
       language: guidance.languagePreference || ''
     };
+    // Le risposte del link prevalgono; quelle mancanti (es. ISEE) restano quelle già note su questo dispositivo.
+    const linked = Object.fromEntries(Object.entries(linkState?.answers || {}).filter(([, value]) => value));
+    return { ...fromProfile, ...linked };
   });
+  // Da un link completo si va direttamente ai risultati; altrimenti dalla prima risposta mancante.
+  const [linkStart] = useState(() => (linkState ? firstMissingAnswer(answers, ANSWER_ORDER) : null));
+  const [step, setStep] = useState(() => (linkStart != null && linkStart > 0 ? STEP_OF_ANSWER[ANSWER_ORDER[linkStart]] : 0));
   const [residenceEditing, setResidenceEditing] = useState(() => !(answers.residenceRegion && answers.residenceCity));
   const [iseeEditing, setIseeEditing] = useState(() => !answers.iseeRange);
   const [message, setMessage] = useState('');
-  const [includeTelematic, setIncludeTelematic] = useState(false);
-  const [includeDistance, setIncludeDistance] = useState(false);
+  const [includeTelematic, setIncludeTelematic] = useState(Boolean(linkState?.includeTelematic));
+  const [includeDistance, setIncludeDistance] = useState(Boolean(linkState?.includeDistance));
+  const [picked, setPicked] = useState<string[]>([]);
+  const [shareSensitive, setShareSensitive] = useState(false);
+  const [shareFallback, setShareFallback] = useState('');
   const [response, setResponse] = useState<FinderApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const panelRef = useRef<HTMLElement>(null);
@@ -162,6 +202,9 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
         return;
       }
       setResponse(payload as FinderApiResponse);
+      setPicked([]);
+      // L'indirizzo descrive i risultati (senza dati personali): ricaricando la pagina si ritrovano.
+      window.history.replaceState(null, '', `/trova-corso?${finderSearchParams({ answers, ...options }).toString()}`);
       if (scroll) window.setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
     } catch {
       setMessage('Non è stato possibile calcolare i risultati. Controlla la connessione e riprova.');
@@ -169,6 +212,44 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
       setLoading(false);
     }
   }
+
+  // Link completo: risultati subito, dopo l'idratazione. Le risposte altrui non vengono salvate.
+  const loadResultsRef = useRef(loadResults);
+  useEffect(() => {
+    loadResultsRef.current = loadResults;
+  });
+  useEffect(() => {
+    if (linkStart !== -1) return;
+    const timer = window.setTimeout(() =>
+      loadResultsRef.current(
+        { includeTelematic: Boolean(linkState?.includeTelematic), includeDistance: Boolean(linkState?.includeDistance) },
+        true
+      )
+    );
+    return () => window.clearTimeout(timer);
+  }, [linkStart, linkState]);
+
+  const shareUrl = () =>
+    `${window.location.origin}/trova-corso?${finderSearchParams(
+      { answers, includeTelematic, includeDistance },
+      { includeSensitive: shareSensitive }
+    ).toString()}`;
+
+  const copyLink = async () => {
+    const url = shareUrl();
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareFallback('');
+      showToast('Link copiato: chi lo apre vede gli stessi risultati.');
+    } catch {
+      setShareFallback(url);
+    }
+  };
+
+  const togglePick = (courseId: string) =>
+    setPicked((current) =>
+      current.includes(courseId) ? current.filter((id) => id !== courseId) : [...current, courseId].slice(-2)
+    );
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -627,7 +708,14 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
             {visible.length ? (
               <>
                 {visible.map((item, index) => (
-                  <UniversityResultCard key={`${item.university.id}-${item.course.id}`} item={item} index={index} />
+                  <UniversityResultCard
+                    key={`${item.university.id}-${item.course.id}`}
+                    item={item}
+                    index={index}
+                    picked={picked.includes(item.course.id)}
+                    pickDisabled={picked.length >= 2}
+                    onTogglePick={() => togglePick(item.course.id)}
+                  />
                 ))}
                 {results.length > 5 ? (
                   <details className="university-extended-ranking">
@@ -669,13 +757,62 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
               </div>
             )}
           </div>
+          {visible.length >= 2 ? (
+            <div className="university-compare-bar" aria-live="polite">
+              <div>
+                <span className="eyebrow">Prossimo passo</span>
+                <strong>
+                  {picked.length === 2
+                    ? 'Confronta le due università scelte'
+                    : `Spunta “Confronta” su due risultati (${picked.length}/2)`}
+                </strong>
+              </div>
+              {picked.length === 2 ? (
+                <Link className="button button-primary" href={comparisonHref(picked[0], picked[1])}>
+                  Confronta le 2 scelte
+                </Link>
+              ) : (
+                <Link className="button button-secondary" href={comparisonHref(visible[0].course.id, visible[1].course.id)}>
+                  Confronta le prime due
+                </Link>
+              )}
+            </div>
+          ) : null}
+
+          <div className="university-share">
+            <div>
+              <strong>Condividi questi risultati</strong>
+              <label className="university-share-option">
+                <input
+                  type="checkbox"
+                  checked={shareSensitive}
+                  onChange={(event) => {
+                    setShareSensitive(event.target.checked);
+                    setShareFallback('');
+                  }}
+                />
+                <span>Includi fascia ISEE e città, per risultati identici</span>
+              </label>
+              <small>
+                {shareSensitive
+                  ? 'Chi riceve il link vedrà la tua fascia ISEE e la tua città.'
+                  : 'Senza questi dati, chi apre il link risponde solo alle domande mancanti.'}
+              </small>
+              {shareFallback ? (
+                <input className="university-share-fallback" readOnly value={shareFallback} aria-label="Link ai risultati" />
+              ) : null}
+            </div>
+            <button className="button button-secondary" type="button" onClick={copyLink}>
+              Copia il link
+            </button>
+          </div>
+
+          <NeutralityNote />
+
           <div className="university-result-footer">
             <button className="button button-primary" type="button" onClick={restart}>
               Modifica le risposte
             </button>
-            <Link className="button button-secondary" href="/comparison">
-              Apri il comparatore
-            </Link>
           </div>
         </section>
       ) : null}

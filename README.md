@@ -1,6 +1,8 @@
 # NOME SITO — orientamento universitario (v9, Next.js + Supabase)
 
-Sito di orientamento universitario: catalogo di 99 atenei, test “Trova il mio corso” e “Trova la mia università”, comparatore, preparazione ai test, burocrazia e area studente (borse, scadenze, community, libri usati).
+Sito per la **scelta** dell’università: «Scopri quale università fa per te e quanto ti costa davvero, borsa compresa». Un solo percorso, senza account: “Trova il mio corso” → “Trova la mia università” → comparatore → burocrazia, con verifica della borsa e catalogo di 99 atenei. Nessun ateneo paga per comparire e ogni numero ha la sua fonte; l’account serve solo per salvare.
+
+Preparazione ai test, community, libri usati, accompagnamento e scadenze automatiche sono spenti in `lib/features.ts` (codice e tabelle restano).
 
 La v9 è la migrazione della demo v8 (HTML/JS statico con dati nel `localStorage`) a **Next.js + TypeScript + Supabase**. Le funzioni e la grafica sono le stesse della v8; cambiano le fondamenta:
 
