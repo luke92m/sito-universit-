@@ -22,12 +22,14 @@ export default function PrivacyPage() {
         <p>
           Email e password (gestite dal servizio di autenticazione: la password non è mai visibile al sito), situazione di
           studio, ateneo, corso e anno indicati nel profilo, preferenze di orientamento che scegli di salvare (per esempio
-          fascia ISEE e comune di residenza), messaggi pubblicati nella community e annunci di libri usati.
+          fascia ISEE e comune di residenza) e borse salvate. Messaggi della community e annunci di libri usati pubblicati quando
+          queste funzioni erano attive restano conservati, visibili solo agli utenti registrati, finché non ne chiedi la
+          cancellazione: oggi le due funzioni sono sospese.
         </p>
 
         <h2>Perché li usiamo</h2>
         <p>
-          Per personalizzare gli strumenti del sito (orientamento, scadenze, borse, community e libri usati). I dati
+          Per personalizzare gli strumenti del sito (orientamento, comparatore, borse e scadenze). I dati
           economici sono facoltativi e usati solo per stime orientative: non vengono condivisi con atenei o terzi.
         </p>
 

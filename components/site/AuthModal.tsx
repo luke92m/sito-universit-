@@ -359,7 +359,7 @@ function AuthDialog({ view: authModal }: { view: AuthView }) {
               <section className="journey-form-panel">
                 <div className="journey-form-heading">
                   <strong>Il tuo percorso universitario</strong>
-                  <small>Questi dati rendono utili scadenze, community e libri usati.</small>
+                  <small>Questi dati personalizzano borse di studio e scadenze.</small>
                 </div>
 
                 <fieldset className="compact-radio-fieldset">

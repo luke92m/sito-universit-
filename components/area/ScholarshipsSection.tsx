@@ -10,6 +10,7 @@ import { STUDENT_SERVICES as data } from '@/lib/data/student-services';
 import { findRange, normalizedIseeValue } from '@/lib/domain/isee';
 import { VERDICT_COPY, residenceProfile, scholarshipVerdict, type ScholarshipVerdict } from '@/lib/domain/scholarships';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
+import { isEnabled } from '@/lib/features';
 import { formatDate } from '@/lib/site-config';
 
 export interface SavedScholarship {
@@ -106,7 +107,11 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
       return;
     }
     refresh();
-    showToast('Opportunità salvata. La scadenza verrà cercata automaticamente.');
+    showToast(
+      isEnabled('scadenzeScraping')
+        ? 'Opportunità salvata. La scadenza verrà cercata automaticamente.'
+        : 'Opportunità salvata. Controlla la scadenza nel bando ufficiale.'
+    );
   };
 
   const remove = async (id: string) => {
@@ -301,7 +306,7 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
             <span className="eyebrow">Salvate</span>
             <h2>Le tue opportunità</h2>
           </div>
-          <small>Usate anche nelle scadenze</small>
+          {isEnabled('scadenzeScraping') ? <small>Usate anche nelle scadenze</small> : null}
         </div>
         {saved.length ? (
           <div className="saved-opportunity-list">
@@ -311,7 +316,11 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
               .map((item) => (
                 <article className="saved-opportunity" key={item.id}>
                   <div>
-                    <span>{item.deadline ? formatDate(item.deadline) : 'Scadenza cercata automaticamente'}</span>
+                    <span>{item.deadline
+                        ? formatDate(item.deadline)
+                        : isEnabled('scadenzeScraping')
+                          ? 'Scadenza cercata automaticamente'
+                          : 'Scadenza da verificare nel bando'}</span>
                     <strong>{getUniversity(item.university_id)?.name || item.university_name || 'Ateneo'}</strong>
                     <small>{item.status_label || 'Verifica orientativa salvata'}</small>
                   </div>

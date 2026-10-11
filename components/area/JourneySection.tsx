@@ -49,11 +49,11 @@ export function JourneySection({ user }: { user: SiteUser }) {
           <>
             <p>
               Hai indicato che vuoi iscriverti all’università. Per te il menu principale mostra anche{' '}
-              <strong>Preparazione</strong> e <strong>Burocrazia</strong>.
+              <strong>Burocrazia</strong>.
             </p>
             <div className="journey-quick-links">
-              <Link className="button button-primary" href="/preparazione">
-                Apri Preparazione
+              <Link className="button button-primary" href="/trova-corso">
+                Trova la tua università
               </Link>
               <Link className="button button-secondary" href="/burocrazia">
                 Apri Burocrazia
@@ -66,12 +66,8 @@ export function JourneySection({ user }: { user: SiteUser }) {
         <span className="eyebrow">Dati e privacy</span>
         <h2>Che cosa viene salvato?</h2>
         <p>
-          Profilo, percorso, preferenze, borse salvate, messaggi e annunci sono conservati nel database del sito e associati
-          al tuo account. Solo tu puoi vedere e modificare i tuoi dati personali; messaggi e annunci sono visibili agli altri
-          utenti registrati.
-        </p>
-        <p>
-          Le scadenze non vengono salvate: sono cercate online sulle fonti ufficiali al momento della sincronizzazione.{' '}
+          Profilo, percorso, preferenze e borse salvate sono conservati nel database del sito e associati al tuo account.
+          Solo tu puoi vedere e modificare i tuoi dati personali.{' '}
           <Link href="/privacy">Leggi l’informativa privacy</Link>.
         </p>
       </section>

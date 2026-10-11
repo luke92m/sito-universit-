@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
+import { isEnabled } from '@/lib/features';
 import { findDeadlines } from '@/lib/scraping/deadlines';
 import { getDirectoryUniversity } from '@/lib/scraping/shared';
 
@@ -6,6 +7,10 @@ export const maxDuration = 20;
 
 // Scadenze rilevate automaticamente dalle fonti ufficiali (cache CDN di 6 ore).
 export async function GET(request: NextRequest) {
+  // Rilevamento automatico spento (lib/features.ts): sarà sostituito da un calendario curato a mano.
+  if (!isEnabled('scadenzeScraping')) {
+    return NextResponse.json({ error: 'Funzione non attiva.' }, { status: 404, headers: { 'cache-control': 'no-store' } });
+  }
   const params = request.nextUrl.searchParams;
   const university = getDirectoryUniversity((params.get('universityId') || '').trim());
   if (!university) {

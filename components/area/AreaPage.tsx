@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { LoadingGate } from '@/components/tools/AccessGate';
 import { useSite } from '@/components/site/SiteProvider';
+import { isActiveSection } from '@/lib/area-sections';
 import type { SiteUser } from '@/lib/client/types';
 import { AreaLocked, AreaShell, type SectionKey } from './AreaShell';
 import { BooksSection } from './BooksSection';
@@ -59,6 +60,8 @@ export function AreaPage({ section }: { section: SectionKey }) {
   if (loading) return <LoadingGate />;
   if (!user) return <AreaLocked reason="login" />;
   if (!isStudentToolUser) return <AreaLocked reason="profile" />;
+  // La pagina reindirizza già le sezioni spente: qui si evita comunque di montarle.
+  if (!isActiveSection(section)) return null;
 
   return (
     <AreaShell section={section}>
