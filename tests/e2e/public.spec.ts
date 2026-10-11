@@ -94,7 +94,7 @@ test('percorso completo senza account: risultati → confronto → iscrizione', 
   await page.getByRole('link', { name: /Verifica le borse di studio/ }).click();
   await expect(page).toHaveURL(/\/borse\?ateneo=/);
   await expect(page.locator('.student-area-locked')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Verifica la possibilità' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Calcola borsa e costo reale' })).toBeVisible();
 });
 
 test('link condiviso senza dati personali: si risponde solo alle domande mancanti', async ({ page }) => {
@@ -146,4 +146,27 @@ test('i vecchi URL .html reindirizzano', async ({ page }) => {
   await expect(page).toHaveURL(/\/atenei$/);
   await page.goto('/area-studente.html?sezione=scadenze');
   await expect(page).toHaveURL(/\/area-studente\/scadenze/);
+});
+
+test('borsa e costo reale con i dati ufficiali ER.GO e UniBo', async ({ page }) => {
+  await page.goto('/borse?ateneo=ateneo-03701');
+  const form = page.locator('form.service-form');
+  await form.getByPlaceholder('Es. 18450').fill('15000');
+  await form.locator('select').filter({ hasText: 'Emilia-Romagna' }).selectOption('Emilia-Romagna');
+  await form.getByPlaceholder('Es. Roma').fill('Imola');
+  await form.getByRole('button', { name: 'Calcola borsa e costo reale' }).click();
+
+  const result = page.locator('.real-cost');
+  await expect(result).toBeVisible({ timeout: 20_000 });
+  // Imola è nella Tabella 1 ER.GO per Bologna: borsa da studente in sede, tasse esonerate.
+  await expect(result.locator('.real-cost-condition')).toContainText('Tabella 1');
+  await expect(result.locator('.real-cost-grant')).toContainText('2.890');
+
+  // Da Roma, con casa in affitto: fuori sede.
+  await form.getByPlaceholder('Es. Roma').fill('Roma');
+  await form.locator('select').filter({ hasText: 'Emilia-Romagna' }).selectOption('Lazio');
+  await form.getByRole('button', { name: 'Calcola borsa e costo reale' }).click();
+  await expect(result.locator('.real-cost-grant')).toContainText('7.171');
+  await expect(result.locator('.real-cost-line', { hasText: 'Camera singola' })).toBeVisible();
+  await expect(result.locator('.real-cost-line a').first()).toHaveAttribute('href', /^https:\/\//);
 });
