@@ -24,8 +24,9 @@ export default function BorsePage() {
               nazionali: tutto in un numero, con la fonte accanto a ogni voce. Non serve un account.
             </p>
             <p className="verified-coverage">
-              <strong>Dati verificati sui documenti ufficiali 2026/27:</strong> Università di Bologna e borse ER.GO
-              (Emilia-Romagna). Gli altri atenei e gli altri enti regionali li stiamo aggiungendo uno alla volta.
+              <strong>Borse verificate sui bandi ufficiali 2026/27:</strong> Emilia-Romagna (ER.GO), Lazio (DiSCo),
+              Piemonte (EDISU), Toscana (DSU), Campania (ADISURC), Università di Padova e Milano-Bicocca.{' '}
+              <strong>Tasse per ISEE:</strong> Bologna e Padova. Gli altri atenei li stiamo aggiungendo uno alla volta.
             </p>
           </div>
         </section>
