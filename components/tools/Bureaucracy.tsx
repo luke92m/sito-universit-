@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useRef, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
@@ -10,7 +11,8 @@ import { useUniversityCourses, type CourseOption, type UniversityCoursesPayload 
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { generalCoursesSorted } from '@/lib/domain/course-catalog';
 import { useToday } from '@/lib/client/use-today';
-import { AccessGate, LoadingGate } from './AccessGate';
+import { isCourseId, scholarshipHref } from '@/lib/flow/journey-params';
+import { NeutralityNote } from '@/components/site/NeutralityNote';
 
 interface SelectedCourse {
   name: string;
@@ -98,7 +100,7 @@ function BureaucracyResult({
     course: course.name,
     classCode: course.classCode || ''
   }).toString()}`;
-  const scholarshipUrl = `/area-studente/borse-di-studio?${new URLSearchParams({ ateneo: university.id, corso: course.name }).toString()}`;
+  const scholarshipUrl = scholarshipHref(university.id, course.name);
   const averageTuition = payload.tuition.payers || payload.tuition.allStudents;
   const delivery = course.delivery && course.delivery !== 'da verificare' ? course.delivery : 'Modalità da verificare';
 
@@ -193,7 +195,11 @@ function BureaucracyResult({
 }
 
 export function Bureaucracy() {
-  const { user, loading, getUniversity } = useSite();
+  const { user, getUniversity } = useSite();
+  // Ateneo e corso arrivano dal comparatore o dal finder (?ateneo=&corso=): nessun account necessario.
+  const params = useSearchParams();
+  const paramUniversity = getUniversity(params.get('ateneo'))?.id || '';
+  const paramCourse = params.get('corso');
   const [chosenUniversity, setUniversityId] = useState<string | null>(null);
   const [chosenCourse, setCourseValue] = useState<string | null>(null);
   const [message, setMessage] = useState('');
@@ -205,31 +211,19 @@ export function Bureaucracy() {
   const today = useToday();
   const resultRef = useRef<HTMLDivElement>(null);
   const journey = journeyOf(user);
-  // Ateneo e corso del profilo come proposta iniziale, finché l'utente non sceglie altro.
-  const universityId = chosenUniversity ?? (journey?.universityId || '');
+  // Proposta iniziale dal link o dal profilo, finché l'utente non sceglie altro.
+  const universityId = chosenUniversity ?? (paramUniversity || journey?.universityId || '');
   const payload = useUniversityCourses(universityId);
   const profileCourse =
     journey?.courseName && universityId === journey.universityId
       ? payload.courses.find((course) => course.name === journey.courseName)
       : null;
-  const courseValue = chosenCourse ?? (profileCourse ? `actual::${profileCourse.id}` : '');
-
-  if (loading) return <LoadingGate />;
-  if (!user || user.profile.situation !== 'enrolling') {
-    const copy =
-      'Nel profilo seleziona “Mi voglio iscrivere all’università” per vedere Preparazione e Burocrazia nel menu principale.';
-    return (
-      <AccessGate
-        reason={user ? 'profile' : 'login'}
-        eyebrow="Percorso personale"
-        loginTitle="Accedi per costruire la tua checklist di immatricolazione."
-        profileTitle="Burocrazia è visibile a chi sta scegliendo l’università."
-        loginCopy={copy}
-        profileCopy={copy}
-        secondary={{ href: '/atenei', label: 'Esplora gli atenei' }}
-      />
-    );
-  }
+  const linkCourse =
+    isCourseId(paramCourse) && universityId === paramUniversity
+      ? payload.courses.find((course) => course.id === paramCourse)
+      : null;
+  const initialCourse = linkCourse || profileCourse;
+  const courseValue = chosenCourse ?? (initialCourse ? `actual::${initialCourse.id}` : '');
 
   const generalCourses = generalCoursesSorted();
   const resolveCourse = (university: UniversitySummary): SelectedCourse | null => {
@@ -265,7 +259,8 @@ export function Bureaucracy() {
       return;
     }
     setMessage('');
-    await saveContext(user.id, 'bureaucracy', { universityId: university.id, courseName: course.name });
+    // Con un account la ricerca viene ricordata (usata dalle scadenze); senza account non si salva nulla.
+    if (user) await saveContext(user.id, 'bureaucracy', { universityId: university.id, courseName: course.name });
     setResult({ university, course, payload });
     window.setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
   };
@@ -351,6 +346,7 @@ export function Bureaucracy() {
       <div ref={resultRef}>
         {result ? <BureaucracyResult university={result.university} course={result.course} payload={result.payload} /> : null}
       </div>
+      <NeutralityNote />
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { NeutralityNote } from '@/components/site/NeutralityNote';
 import { RichText } from '@/components/site/RichText';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
@@ -9,6 +10,7 @@ import type { UniversitySummary } from '@/lib/client/types';
 import { useUniversityCourses, type CourseOption } from '@/lib/client/use-courses';
 import type { ComparisonResult, ComparisonValue } from '@/lib/domain/comparison';
 import { matchCourse } from '@/lib/domain/course-catalog';
+import { bureaucracyHref, comparisonHref } from '@/lib/flow/journey-params';
 
 type Mode = 'universities' | 'courses';
 
@@ -22,8 +24,19 @@ interface Props {
     courseRightUniversityId: string;
     courseLeftId: string;
     courseRightId: string;
+    courseLeftSlug: string;
+    courseRightSlug: string;
   };
   initialMode: Mode;
+  /** Due corsi arrivati dal finder: il confronto parte subito. */
+  autoCompare?: boolean;
+}
+
+/** Ateneo e corso confrontati, per il passo successivo (burocrazia). */
+interface ComparedSide {
+  universityId: string;
+  courseId: string;
+  title: string;
 }
 
 const LEVEL_LABELS: Record<string, string> = {
@@ -113,16 +126,23 @@ function ValueBlock({ value }: { value: ComparisonValue }) {
   );
 }
 
-export function ComparisonTool({ universities, universitiesWithCourses, defaults, initialMode }: Props) {
+export function ComparisonTool({
+  universities,
+  universitiesWithCourses,
+  defaults,
+  initialMode,
+  autoCompare = false
+}: Props) {
   const { coursePreferences, forgetCoursePreferences, showToast } = useSite();
   const [mode, setMode] = useState<Mode>(initialMode);
   const [leftId, setLeftId] = useState(defaults.leftId);
   const [rightId, setRightId] = useState(defaults.rightId);
   const [courseUniversityA, setCourseUniversityA] = useState(defaults.courseLeftUniversityId);
   const [courseUniversityB, setCourseUniversityB] = useState(defaults.courseRightUniversityId);
-  const [courseA, setCourseA] = useState({ id: defaults.courseLeftId, slug: 'economia-aziendale' });
-  const [courseB, setCourseB] = useState({ id: defaults.courseRightId, slug: 'economia-aziendale' });
+  const [courseA, setCourseA] = useState({ id: defaults.courseLeftId, slug: defaults.courseLeftSlug });
+  const [courseB, setCourseB] = useState({ id: defaults.courseRightId, slug: defaults.courseRightSlug });
   const [result, setResult] = useState<ComparisonResult | null>(null);
+  const [compared, setCompared] = useState<ComparedSide[]>([]);
   const [busy, setBusy] = useState(false);
   const resultRef = useRef<HTMLElement>(null);
 
@@ -134,7 +154,7 @@ export function ComparisonTool({ universities, universitiesWithCourses, defaults
     window.history.replaceState({}, '', url);
   };
 
-  async function compare(payload: Record<string, unknown>) {
+  async function compare(payload: Record<string, unknown>, sides: Omit<ComparedSide, 'title'>[]) {
     setBusy(true);
     try {
       const response = await fetch('/api/comparison', {
@@ -147,7 +167,13 @@ export function ComparisonTool({ universities, universitiesWithCourses, defaults
         showToast(data.error || 'Confronto non disponibile.');
         return;
       }
-      setResult(data as ComparisonResult);
+      const next = data as ComparisonResult;
+      setResult(next);
+      setCompared(sides.map((side, index) => ({ ...side, title: index ? next.rightTitle : next.leftTitle })));
+      // Il confronto tra corsi resta nell'indirizzo: si può ricaricare o condividere.
+      if (payload.mode === 'courses') {
+        window.history.replaceState({}, '', comparisonHref(String(payload.leftCourseId), String(payload.rightCourseId)));
+      }
       window.setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
     } catch {
       showToast('Confronto non disponibile: controlla la connessione.');
@@ -163,25 +189,45 @@ export function ComparisonTool({ universities, universitiesWithCourses, defaults
       showToast('Scegli due università diverse.');
       return;
     }
-    compare({ mode: 'universities', leftId, rightId });
+    compare({ mode: 'universities', leftId, rightId }, [
+      { universityId: leftId, courseId: '' },
+      { universityId: rightId, courseId: '' }
+    ]);
   };
 
-  const submitCourses = (event: FormEvent) => {
-    event.preventDefault();
+  const submitCourses = (event?: FormEvent) => {
+    event?.preventDefault();
     if (!courseUniversityA || !courseUniversityB || !courseA.id || !courseB.id) return;
     if (courseUniversityA === courseUniversityB && courseA.id === courseB.id) {
       showToast('Scegli due corsi diversi.');
       return;
     }
-    compare({
-      mode: 'courses',
-      leftId: courseUniversityA,
-      leftCourseId: courseA.id,
-      rightId: courseUniversityB,
-      rightCourseId: courseB.id,
-      vector: coursePreferences?.vector || null
-    });
+    compare(
+      {
+        mode: 'courses',
+        leftId: courseUniversityA,
+        leftCourseId: courseA.id,
+        rightId: courseUniversityB,
+        rightCourseId: courseB.id,
+        vector: coursePreferences?.vector || null
+      },
+      [
+        { universityId: courseUniversityA, courseId: courseA.id },
+        { universityId: courseUniversityB, courseId: courseB.id }
+      ]
+    );
   };
+
+  // Arrivo dal finder con due corsi scelti: confronto immediato, dopo l'idratazione.
+  const submitRef = useRef(submitCourses);
+  useEffect(() => {
+    submitRef.current = submitCourses;
+  });
+  useEffect(() => {
+    if (!autoCompare) return;
+    const timer = window.setTimeout(() => submitRef.current());
+    return () => window.clearTimeout(timer);
+  }, [autoCompare]);
 
   const top = coursePreferences?.recommendations?.[0];
 
@@ -361,9 +407,29 @@ export function ComparisonTool({ universities, universitiesWithCourses, defaults
                 </div>
               ))}
             </div>
+            <div className="comparison-next-step">
+              <div>
+                <span className="eyebrow">Prossimo passo</span>
+                <strong>Come ci si iscrive?</strong>
+                <p>Requisiti di accesso, documenti e collegamenti ufficiali per l’immatricolazione.</p>
+              </div>
+              <div className="inline-actions">
+                {compared.map((side, index) => (
+                  <Link
+                    key={`${side.universityId}-${index}`}
+                    className={`button ${index ? 'button-secondary' : 'button-primary'}`}
+                    href={bureaucracyHref(side.universityId, side.courseId)}
+                  >
+                    {String.fromCharCode(65 + index)} · {side.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </>
         ) : null}
       </section>
+
+      <NeutralityNote />
 
       <div className="comparison-data-note">
         <strong>Come leggere questo prototipo.</strong>

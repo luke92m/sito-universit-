@@ -6594,3 +6594,211 @@ main {
 .comparison-value .rich-paragraph {
   margin: 0 0 8px;
 }
+
+/* --- Percorso di scelta (fase 2) ------------------------------------------------------------ */
+
+.flow-steps {
+  margin: 0 0 22px;
+}
+
+.flow-steps ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 8px;
+}
+
+.flow-step a,
+.flow-step button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: var(--surface);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.flow-step a:hover,
+.flow-step button:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+}
+
+.flow-step-number {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--ink-soft);
+  background: var(--surface-soft);
+  font-size: 11px;
+  place-items: center;
+}
+
+.flow-step.is-done .flow-step-number {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.flow-step.is-current a,
+.flow-step.is-current button {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+}
+
+.flow-step.is-current .flow-step-number {
+  color: #fff;
+  background: var(--primary);
+}
+
+.neutrality-note {
+  width: min(calc(100% - 40px), var(--max-width));
+  margin: 22px auto;
+  padding: 12px 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink-soft);
+  background: var(--surface-soft);
+  font-size: 12px;
+}
+
+.student-tool-shell .neutrality-note,
+.university-finder-result .neutrality-note {
+  width: 100%;
+}
+
+.university-match-why {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 15px;
+  background: var(--surface-tint);
+}
+
+.university-match-why strong {
+  font-size: 12px;
+}
+
+.university-match-why ul {
+  display: grid;
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.5;
+  gap: 3px;
+}
+
+.university-compare-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.university-compare-toggle.is-picked {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+}
+
+.university-compare-bar,
+.university-share,
+.comparison-next-step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  gap: 12px;
+}
+
+.university-compare-bar {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.university-compare-bar > div,
+.university-share > div,
+.comparison-next-step > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.university-share small,
+.comparison-next-step p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.university-share-option {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 6px;
+}
+
+.university-share-fallback {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.comparison-next-step {
+  margin-top: 24px;
+}
+
+a.journey-copy {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.journey-copy:hover strong {
+  color: var(--primary-dark);
+}
+
+.home-catalog-link {
+  width: min(calc(100% - 40px), var(--max-width));
+  margin: 26px auto 0;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.home-catalog-link a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+@media print {
+  .flow-steps,
+  .comparison-next-step,
+  .university-compare-bar,
+  .university-share {
+    display: none;
+  }
+}

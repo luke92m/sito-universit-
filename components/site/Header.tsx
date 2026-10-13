@@ -37,7 +37,6 @@ export function Header() {
     };
   }, []);
 
-  const showEnrollingTools = user?.profile.situation === 'enrolling';
   const localPart = user ? user.email.split('@')[0] || 'profilo' : '';
   const label = user ? (localPart.length > 15 ? `${localPart.slice(0, 14)}…` : localPart) : 'profilo';
 
@@ -85,7 +84,7 @@ export function Header() {
         </button>
 
         <nav className={`primary-nav${mobileOpen ? ' is-open' : ''}`} id="primaryNav" aria-label="Navigazione principale">
-          {visibleNavItems().filter((item) => !item.enrollingOnly || showEnrollingTools).map((item) => {
+          {visibleNavItems().map((item) => {
             const active = pathname === item.href;
             return (
               <Link
