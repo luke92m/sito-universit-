@@ -35,6 +35,7 @@ Tasse (2026/27):
 - **Università di Bologna**: formula completa. Corsi a importo maggiorato inseriti per triennali e ciclo unico; per le magistrali c'è solo il massimo base, con un avviso.
 - **Università di Padova**: no-tax area fino a 30.000 €, due gruppi di corsi (A umanistico fino a 2.790 €, B scientifico fino a 2.990 €), tassa regionale da 146 € a 192 € secondo l'ISEE. Il bando dà solo gli estremi delle fasce: tra gli estremi il sito stima un andamento lineare e lo dichiara. Il gruppo è dedotto dalla macroarea del corso.
 - **Università di Torino**: per le matricole e gli studenti con i crediti minimi niente contributo fino a 26.000 €, poi due formule lineari dell'art. 3.1 (1.025 € a 40.000 €, 2.785 € a 85.000 €); oltre 85.000 € o senza ISEE 2.840 €. Prima rata fissa di 156 €. Le quote in più di alcuni corsi (Business & Management, MICA, Conservazione e restauro) sono solo nella nota.
+- **Politecnico di Torino**: regolamento per chi si immatricola dal 2025/26 (e per le magistrali). No-tax area fino a 30.000 €, poi una formula quadratica dell'Appendice (circa 600 € a 30.000 €, 3.600 € a 100.000 €), con il termine quadratico nel campo `square`. Stesso massimo per tutti i corsi. Prima rata di 161 € con 5 € di assicurazione. La riduzione richiede anche ISPE fino a 210.000 € (non controllato dal calcolo, indicato nella nota).
 - **Sapienza**: due gruppi contributivi per Facoltà (I fino a 2.821 €, II fino a 2.924 €). Esonero fino a 24.000 €, poi le riduzioni del D.M. 1014/2021 (art. 44) fino a 28.041,10 € e infine le curve di ateneo: retta fino a 40.000 €, parabola fino a 60.000 €, esponenziale fino a 100.000 € (campi `square` ed `exp` delle fasce). Parametri dal documento «Criteri per il calcolo degli importi in base al valore ISEE», che ridà gli importi ordinari 2026/27. Il gruppo è dedotto dalla macroarea del corso.
 
 ## Fonti
@@ -49,6 +50,7 @@ Tasse (2026/27):
 - Bando ADISURC 2026/27: <https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027>
 - Bando diritto allo studio Milano-Bicocca 2026/27: <https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf>
 - UniTo, Regolamento tasse e contributi 2026/27 (D.R. 6194/2026): <https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf>
+- PoliTo, Regolamento contribuzione 2026/27 per immatricolati dal 2025/26 e lauree magistrali: <https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf>
 - Sapienza, Regolamento studenti 2026/27, artt. 38-44, e criteri di calcolo per ISEE: <https://www.uniroma1.it/it/content/isee-il-diritto-allo-studio-universitario-e-meriti-di-studio>, <https://www.uniroma1.it/sites/default/files/field_file_allegati/calcolo_importi_isee.pdf>
 - UniBo, sistema di calcolo della contribuzione e tabella degli importi massimi 2026/27: <https://www.unibo.it/it/studiare/iscrizioni-tasse-e-altre-procedure/lauree-e-lauree-magistrali/tasse-e-contributi>
 - Affitti e spese (stime dichiarate): Immobiliare.it Insights 2026, ISTAT 2024 (già usati dal comparatore)

@@ -179,6 +179,25 @@ describe('tasse Università di Torino 2026/27', () => {
   });
 });
 
+describe('tasse Politecnico di Torino 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-00102')!;
+
+  it('no-tax area fino a 30.000 € e formula quadratica dell’Appendice', () => {
+    expect(contributionFor(rule, 30000, 3600)).toBe(0);
+    expect(contributionFor(rule, 30000.01, 3600)).toBe(600.04);
+    expect(contributionFor(rule, 40000, 3600)).toBe(904.34);
+    expect(contributionFor(rule, 50000, 3600)).toBe(1250.06);
+    expect(contributionFor(rule, 70000, 3600)).toBe(2065.8);
+  });
+
+  it('massimo di 3.600 € da 100.000 € e senza ISEE, prima rata di 161 €', () => {
+    expect(contributionFor(rule, 100000, 3600)).toBe(3600);
+    expect(contributionFor(rule, 120000, 3600)).toBe(3600);
+    expect(contributionFor(rule, null, 3600)).toBe(3600);
+    expect(fixedFeesRange(rule, none).max).toBe(161);
+  });
+});
+
 describe('tasse Sapienza 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-05801')!;
   const courses = getCourses('ateneo-05801');

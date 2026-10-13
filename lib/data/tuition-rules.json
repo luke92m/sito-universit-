@@ -617,6 +617,68 @@
         }
       },
       "simulator": "https://www.uniroma1.it/it/pagina/calcolatore-dei-contributi-di-iscrizione"
+    },
+    "ateneo-00102": {
+      "name": "Politecnico di Torino",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole e iscritti entro la durata normale del corso + 1 anno con i crediti minimi (al primo anno non servono crediti), a tempo pieno. Per la riduzione serve anche ISPE fino a 210.000 €.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 5,
+        "total": 161
+      },
+      "fixedFeesNote": "Prima rata di 161 € (tassa regionale 140 €, bollo 16 €, assicurazione 5 €), dovuta anche con l’esonero.",
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 100000,
+          "from": 0,
+          "rate": 0.01593,
+          "base": -64.28571,
+          "square": 2.0714e-7
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3600
+        }
+      ],
+      "bandsSource": {
+        "label": "PoliTo, Regolamento contribuzione 2026/27 (immatricolati dal 2025/26 e lauree magistrali), Appendice",
+        "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3600,
+        "ciclo-unico": 3600,
+        "magistrale": 3600
+      },
+      "maxExceptions": [],
+      "maxNote": "Stesso massimo per tutti i corsi: 3.600 € con ISEE oltre 100.000 €, senza richiesta di riduzione o con ISPE oltre 210.000 €. A tempo parziale il contributo è ridotto del 40%.",
+      "maxSource": {
+        "label": "PoliTo, Regolamento contribuzione 2026/27, artt. 2, 4 e 5",
+        "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
+      },
+      "payments": {
+        "steps": [
+          "161 € all’immatricolazione",
+          "Seconda rata (50% del contributo) entro il 4 dicembre 2026",
+          "Terza rata (50%) entro il 16 aprile 2027"
+        ],
+        "note": "La riduzione va chiesta entro il 27 novembre 2026 (anche all’immatricolazione, con il consenso a leggere l’ISEE dall’INPS); chi chiede la borsa EDISU non deve farlo. Dopo, si paga il massimo.",
+        "source": {
+          "label": "PoliTo, Regolamento contribuzione 2026/27, artt. 5 e 8",
+          "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
+        }
+      },
+      "simulator": "https://www.polito.it/didattica/servizi-e-vita-al-politecnico/diritto-allo-studio-e-contribuzione-studentesca/contribuzione-studentesca"
     }
   }
 }
