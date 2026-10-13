@@ -5,11 +5,25 @@ import { normalize } from './text';
 
 export type DegreeLevel = 'triennale' | 'ciclo-unico' | 'magistrale';
 
+/** Fascia ISEE: importo = base + rate × (ISEE − from), fino a iseeMax (null = senza limite). */
 interface Band {
   iseeMax: number | null;
   from: number;
   rate: number;
   base: number;
+}
+
+/** Gruppo di corsi con importi propri (es. UniPD: umanistico e scientifico). */
+interface CourseGroup {
+  id: string;
+  label: string;
+  /** Macroaree del dataset (campo `group` del corso) che appartengono al gruppo. */
+  groups: string[];
+  /** Corsi assegnati al gruppo per nome, qualunque sia la macroarea. */
+  nameIncludes?: string[];
+  default?: boolean;
+  bands: Band[];
+  max: number;
 }
 
 export interface TuitionRule {
@@ -19,15 +33,22 @@ export interface TuitionRule {
   appliesTo: string;
   fixedFees: { regionalTax: number; stampDuty: number; insurance: number; total: number };
   fixedFeesNote: string;
+  /** Tassa regionale che varia con l'ISEE (sostituisce fixedFees.regionalTax nel calcolo). */
+  regionalTaxBands?: Band[];
   bands: Band[];
   bandsSource: Source;
+  /** Il bando indica solo gli estremi delle fasce: tra gli estremi l'andamento lineare è una stima. */
+  bandsNote?: string;
   maxByLevel: Record<DegreeLevel, number>;
   maxExceptions: { name: string; level: DegreeLevel; amount: number }[];
+  courseGroups?: CourseGroup[];
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };
   simulator: string;
 }
+
+type CourseLike = { name: string; classCode: string; level?: string; group?: string };
 
 const RULES = (tuitionJson as unknown as { universities: Record<string, TuitionRule> }).universities;
 
@@ -46,11 +67,22 @@ export function degreeLevel(course: { classCode: string; level?: string }): Degr
   return course.level === 'magistrale' ? 'magistrale' : 'triennale';
 }
 
-/** Massimo del contributo per il corso: eccezione per nome se elencata, altrimenti massimo del livello. */
-export function maxContribution(
-  rule: TuitionRule,
-  course: { name: string; classCode: string; level?: string }
-): number {
+/** Gruppo di corsi dell'ateneo a cui appartiene il corso (o quello predefinito). */
+export function courseGroup(rule: TuitionRule, course: CourseLike | null): CourseGroup | null {
+  const groups = rule.courseGroups;
+  if (!groups?.length) return null;
+  const name = normalize(course?.name);
+  const found =
+    course &&
+    (groups.find((group) => group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
+      groups.find((group) => group.groups.includes(course.group || '')));
+  return found || groups.find((group) => group.default) || groups[0];
+}
+
+/** Massimo del contributo per il corso: gruppo di corsi, eccezione per nome o massimo del livello. */
+export function maxContribution(rule: TuitionRule, course: CourseLike): number {
+  const group = courseGroup(rule, course);
+  if (group) return group.max;
   const level = degreeLevel(course);
   const name = normalize(course.name);
   const exception = rule.maxExceptions.find(
@@ -62,19 +94,48 @@ export function maxContribution(
 
 const cents = (value: number) => Math.round(value * 100) / 100;
 
+function bandValue(bands: Band[], isee: number): number {
+  const band = bands.find((item) => item.iseeMax == null || isee <= item.iseeMax)!;
+  return band.base + band.rate * Math.max(0, isee - band.from);
+}
+
 /** Contributo annuo (esclusa la quota fissa) per un valore ISEE; senza ISEE si paga il massimo. */
-export function contributionFor(rule: TuitionRule, isee: number | null, max: number): number {
+export function contributionFor(
+  rule: TuitionRule,
+  isee: number | null,
+  max: number,
+  bands = rule.bands
+): number {
   if (isee == null) return max;
-  const band = rule.bands.find((item) => item.iseeMax == null || isee <= item.iseeMax)!;
-  return cents(Math.min(max, band.base + band.rate * Math.max(0, isee - band.from)));
+  return cents(Math.min(max, bandValue(bands, isee)));
 }
 
 /** Contributo per un intervallo ISEE (la formula cresce con l'ISEE: bastano gli estremi). */
 export function contributionRange(
   rule: TuitionRule,
   isee: { min: number | null; max: number | null },
-  max: number
+  max: number,
+  bands = rule.bands
 ) {
   if (isee.min == null || isee.max == null) return { min: max, max };
-  return { min: contributionFor(rule, isee.min, max), max: contributionFor(rule, isee.max, max) };
+  return {
+    min: contributionFor(rule, isee.min, max, bands),
+    max: contributionFor(rule, isee.max, max, bands)
+  };
+}
+
+/** Quota fissa (tassa regionale, bollo, assicurazione) per un intervallo ISEE. */
+export function fixedFeesRange(rule: TuitionRule, isee: { min: number | null; max: number | null }) {
+  const other = rule.fixedFees.stampDuty + rule.fixedFees.insurance;
+  const tax = (value: number | null) =>
+    rule.regionalTaxBands && value != null
+      ? cents(bandValue(rule.regionalTaxBands, value))
+      : rule.fixedFees.regionalTax;
+  const taxMin = tax(isee.min);
+  const taxMax = tax(isee.max);
+  return {
+    min: cents(taxMin + other),
+    max: cents(taxMax + other),
+    regionalTax: { min: taxMin, max: taxMax }
+  };
 }

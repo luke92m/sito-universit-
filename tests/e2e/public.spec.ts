@@ -158,8 +158,8 @@ test('borsa e costo reale con i dati ufficiali ER.GO e UniBo', async ({ page }) 
 
   const result = page.locator('.real-cost');
   await expect(result).toBeVisible({ timeout: 20_000 });
-  // Imola è nella Tabella 1 ER.GO per Bologna: borsa da studente in sede, tasse esonerate.
-  await expect(result.locator('.real-cost-condition')).toContainText('Tabella 1');
+  // Imola è nella Tabella 1 ER.GO per Bologna (comuni in sede): borsa da studente in sede, tasse esonerate.
+  await expect(result.locator('.real-cost-condition')).toContainText('considera “in sede”');
   await expect(result.locator('.real-cost-grant')).toContainText('2.890');
 
   // Da Roma, con casa in affitto: fuori sede.
@@ -169,4 +169,18 @@ test('borsa e costo reale con i dati ufficiali ER.GO e UniBo', async ({ page }) 
   await expect(result.locator('.real-cost-grant')).toContainText('7.171');
   await expect(result.locator('.real-cost-line', { hasText: 'Camera singola' })).toBeVisible();
   await expect(result.locator('.real-cost-line a').first()).toHaveAttribute('href', /^https:\/\//);
+});
+
+test('borsa DiSCo per Sapienza: pendolare da Fiano Romano, con i pasti gratuiti', async ({ page }) => {
+  await page.goto('/borse?ateneo=ateneo-05801');
+  const form = page.locator('form.service-form');
+  await form.getByPlaceholder('Es. 18450').fill('12000');
+  await form.locator('select').filter({ hasText: 'Emilia-Romagna' }).selectOption('Lazio');
+  await form.getByPlaceholder('Es. Roma').fill('Fiano Romano');
+  await form.getByRole('button', { name: 'Calcola borsa e costo reale' }).click();
+  const result = page.locator('.real-cost');
+  await expect(result).toBeVisible({ timeout: 20_000 });
+  await expect(result.locator('.real-cost-condition .is-active')).toHaveText('Pendolare');
+  await expect(result.locator('.real-cost-grant')).toContainText('4.129');
+  await expect(result.locator('.real-cost-line', { hasText: 'Servizi gratuiti' })).toContainText('600');
 });

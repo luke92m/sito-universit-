@@ -1,9 +1,22 @@
 import { describe, expect, it } from 'vitest';
 import { getCourses, getUniversityById } from '@/lib/data';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
-import { DSU_ENTITIES, conditionFromMunicipality, dsuEntityFor, scholarshipFor } from '@/lib/domain/dsu';
+import {
+  DSU_ENTITIES,
+  amountAt,
+  conditionFromMunicipality,
+  dsuEntityFor,
+  scholarshipFor
+} from '@/lib/domain/dsu';
 import { realCost } from '@/lib/domain/real-cost';
-import { contributionFor, degreeLevel, maxContribution, tuitionRuleFor } from '@/lib/domain/tuition';
+import {
+  contributionFor,
+  courseGroup,
+  degreeLevel,
+  fixedFeesRange,
+  maxContribution,
+  tuitionRuleFor
+} from '@/lib/domain/tuition';
 
 // Valori attesi copiati a mano dai documenti ufficiali 2026/27 (bando ER.GO e sistema di calcolo UniBo).
 const BOLOGNA = 'ateneo-03701';
@@ -17,12 +30,134 @@ describe('dati DSU: struttura e fonti', () => {
       expect(STUDENT_SERVICES.regions).toContain(entity.region);
       expect(entity.verifiedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       for (const id of entity.universityIds) expect(getUniversityById(id)?.region).toBe(entity.region);
-      const sources = [entity.thresholds.source, entity.amounts.source, entity.conditions.source, entity.portal];
+      const sources = [
+        entity.thresholds.source,
+        entity.amounts.source,
+        entity.conditions.source,
+        entity.portal
+      ];
       for (const source of sources) expect(source.url).toMatch(/^https:\/\//);
       const bands = entity.amounts.bands;
       expect(bands.at(-1)!.iseeMax).toBe(entity.thresholds.isee);
-      for (const band of bands) expect(band.fuoriSede).toBeGreaterThan(band.pendolare);
+      // L'importo non cresce mai al crescere dell'ISEE (la Toscana dà meno denaro ai fuori sede, ma l'alloggio).
+      for (const condition of ['fuoriSede', 'pendolare', 'inSede'] as const) {
+        let previous = Infinity;
+        for (let isee = 0; isee <= entity.thresholds.isee; isee += 250) {
+          const value = amountAt(entity, isee, condition);
+          expect(value).toBeGreaterThan(0);
+          expect(value).toBeLessThanOrEqual(previous);
+          previous = value;
+        }
+      }
     }
+  });
+
+  it('elenchi dei comuni: sedi e fonti valide', () => {
+    for (const entity of DSU_ENTITIES) {
+      for (const [seat, table] of Object.entries(entity.municipalities)) {
+        expect(table.inSede.length + table.pendolari.length).toBeGreaterThan(0);
+        expect(table.source.url).toMatch(/^https:\/\//);
+        expect(seat.length).toBeGreaterThan(2);
+      }
+    }
+  });
+});
+
+describe('altri enti 2026/27: valori controllati sui bandi', () => {
+  const entity = (universityId: string) => dsuEntityFor(universityId)!;
+  const check = (universityId: string, seat: string, city: string, rents = true) =>
+    conditionFromMunicipality(entity(universityId), seat, city, rents)?.condition;
+
+  it('DiSCo Lazio (Sapienza): +15% fino a 14.169,94 €, poi calo lineare fino alla metà', () => {
+    const disco = entity('ateneo-05801');
+    expect(disco.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(disco, 10000, 'fuoriSede')).toBe(7556.78);
+    expect(amountAt(disco, 18000, 'fuoriSede')).toBe(6571.11);
+    expect(amountAt(disco, 28339.88, 'fuoriSede')).toBe(3285.6);
+    expect(amountAt(disco, (18893.25 + 28339.88) / 2, 'fuoriSede')).toBeCloseTo(4928.36, 1);
+    expect(scholarshipFor(disco, exact(15000), none, 'inSede').inKind[0].value).toBe(600);
+  });
+
+  it('DiSCo Lazio: comuni pendolari per Roma, anche con il nome ufficiale', () => {
+    expect(check('ateneo-05801', 'Roma', 'Roma')).toBe('inSede');
+    expect(check('ateneo-05801', 'Roma', 'Fiano Romano')).toBe('pendolare');
+    expect(check('ateneo-05801', 'Roma', 'San Cesareo')).toBe('pendolare');
+    expect(check('ateneo-05801', 'Roma', 'Guidonia Montecelio')).toBe('pendolare');
+    expect(check('ateneo-05801', 'Roma', 'Latina')).toBe('fuoriSede');
+  });
+
+  it('EDISU Piemonte (Torino)', () => {
+    const edisu = entity('ateneo-00101');
+    expect(edisu.thresholds).toMatchObject({ isee: 26306.25, ispe: 57187.53 });
+    expect(amountAt(edisu, 20000, 'pendolare')).toBe(3202.57);
+    expect(amountAt(edisu, 12000, 'fuoriSede')).toBe(8096.78);
+    expect(scholarshipFor(edisu, exact(20000), exact(58000), 'pendolare').status).toBe('not-eligible');
+    expect(check('ateneo-00101', 'Torino', 'Torino')).toBe('inSede');
+  });
+
+  it('DSU Toscana (Firenze): poco denaro ai fuori sede, ma mensa e alloggio gratuiti', () => {
+    const dsut = entity('ateneo-04801');
+    expect(dsut.thresholds).toMatchObject({ isee: 27000, ispe: 60000 });
+    const fuori = scholarshipFor(dsut, exact(15000), none, 'fuoriSede');
+    expect(fuori.amountMax).toBe(2262);
+    expect(fuori.inKind.map((item) => item.value)).toEqual([1760, 3150]);
+    expect(check('ateneo-04801', 'Firenze', 'Scandicci')).toBe('inSede');
+    expect(check('ateneo-05001', 'Pisa', 'Cascina')).toBe('inSede');
+  });
+
+  it('Università di Padova: calo lineare oltre 17.537,50 €, ISPE fino a 43.125,94 €', () => {
+    const unipd = entity('ateneo-02801');
+    expect(amountAt(unipd, 12000, 'inSede')).toBe(3323);
+    expect(amountAt(unipd, 20000, 'fuoriSede')).toBeCloseTo(6164.17, 0);
+    expect(amountAt(unipd, 26306.25, 'pendolare')).toBe(2095.3);
+    expect(scholarshipFor(unipd, exact(15000), exact(45000), 'inSede').status).toBe('not-eligible');
+  });
+
+  it('ADISURC Campania (Federico II): valori intermedi della tabella del bando', () => {
+    const adisu = entity('ateneo-06301');
+    expect(adisu.thresholds).toMatchObject({ isee: 25500, ispe: 54000 });
+    expect(amountAt(adisu, 12000, 'inSede')).toBe(3323.68);
+    expect(amountAt(adisu, 19833.33, 'fuoriSede')).toBeCloseTo(6310.5, 1);
+    expect(amountAt(adisu, 22666.67, 'pendolare')).toBeCloseTo(2994.81, 1);
+    expect(amountAt(adisu, 25500, 'fuoriSede')).toBe(4589.28);
+    expect(check('ateneo-06301', 'Napoli', 'Portici')).toBe('inSede');
+  });
+
+  it('Milano-Bicocca: fasce regionali e voto minimo di maturità', () => {
+    const mib = entity('ateneo-01509');
+    expect(amountAt(mib, 15000, 'fuoriSede')).toBe(6343);
+    expect(scholarshipFor(mib, exact(27000), none, 'fuoriSede').status).toBe('not-eligible');
+    expect(mib.accessRequirement?.text).toContain('70/100');
+  });
+});
+
+describe('tasse Università di Padova 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-02801')!;
+  const courses = getCourses('ateneo-02801');
+  const ingegneria = courses.find((course) => course.name === 'Ingegneria Civile')!;
+  const economia = courses.find((course) => course.name === 'Economia')!;
+
+  it('gruppi di corsi e massimi', () => {
+    expect(courseGroup(rule, ingegneria)?.id).toBe('B');
+    expect(courseGroup(rule, economia)?.id).toBe('A');
+    expect(maxContribution(rule, ingegneria)).toBe(2990);
+    expect(maxContribution(rule, economia)).toBe(2790);
+  });
+
+  it('no-tax area fino a 30.000 € e fasce lineari tra gli estremi del bando', () => {
+    const bandsA = courseGroup(rule, economia)!.bands;
+    const bandsB = courseGroup(rule, ingegneria)!.bands;
+    expect(contributionFor(rule, 25000, 2790, bandsA)).toBe(0);
+    expect(contributionFor(rule, 40000, 2790, bandsA)).toBe(1205);
+    expect(contributionFor(rule, 40000, 2990, bandsB)).toBe(1367.5);
+    expect(contributionFor(rule, 50000, 2790, bandsA)).toBe(1850);
+    expect(contributionFor(rule, 80000, 2990, bandsB)).toBe(2990);
+  });
+
+  it('tassa regionale veneta che cresce con l’ISEE', () => {
+    expect(fixedFeesRange(rule, exact(10000)).regionalTax.min).toBeCloseTo(159.33, 1);
+    expect(fixedFeesRange(rule, exact(40000)).regionalTax.min).toBe(192);
+    expect(fixedFeesRange(rule, none).max).toBe(208);
   });
 });
 
@@ -118,16 +253,26 @@ describe('tasse Università di Bologna 2026/27', () => {
     expect(maxContribution(rule, named('Medicine And Surgery'))).toBe(3315);
     expect(maxContribution(rule, named('Medicina e Chirurgia'))).toBe(2244);
     expect(maxContribution(rule, named('Genomics'))).toBe(2805);
-    expect(maxContribution(rule, courses.find((course) => course.name.startsWith('Conservazione e Restauro'))!)).toBe(
-      5916
-    );
-    expect(maxContribution(rule, courses.find((course) => course.classCode === 'L-18')!)).toBe(2040);
+    expect(
+      maxContribution(
+        rule,
+        courses.find((course) => course.name.startsWith('Conservazione e Restauro'))!
+      )
+    ).toBe(5916);
+    expect(
+      maxContribution(
+        rule,
+        courses.find((course) => course.classCode === 'L-18')!
+      )
+    ).toBe(2040);
   });
 });
 
 describe('costo reale annuo', () => {
   const bologna = getUniversityById(BOLOGNA)!;
-  const economia = getCourses(BOLOGNA).find((course) => course.classCode === 'L-18' && course.city === 'Bologna')!;
+  const economia = getCourses(BOLOGNA).find(
+    (course) => course.classCode === 'L-18' && course.city === 'Bologna'
+  )!;
 
   it('fuori sede con ISEE basso: borsa, esonero e rimborso della tassa regionale', () => {
     const cost = realCost(bologna, economia, exact(15000), exact(20000), 'fuoriSede');
@@ -149,10 +294,21 @@ describe('costo reale annuo', () => {
   });
 
   it('ateneo senza dati verificati: media dichiarata come stima e dati mancanti elencati', () => {
-    const padova = getUniversityById('ateneo-02801')!;
-    const cost = realCost(padova, null, exact(15000), none, 'inSede');
+    const verona = getUniversityById('ateneo-02301')!;
+    const cost = realCost(verona, null, exact(15000), none, 'inSede');
     expect(cost.entity).toBeNull();
     expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
     expect(cost.missing.length).toBeGreaterThan(0);
+  });
+});
+
+describe('esonero dalle tasse per gli idonei, anche senza le regole dell’ateneo', () => {
+  it('Firenze, fuori sede con ISEE basso: tasse a zero, borsa e servizi gratuiti sottratti', () => {
+    const firenze = getUniversityById('ateneo-04801')!;
+    const cost = realCost(firenze, null, exact(15000), none, 'fuoriSede');
+    const line = (key: string) => cost.lines.find((item) => item.key === key);
+    expect(line('tasse')).toMatchObject({ min: 0, max: 0, estimated: false });
+    expect(line('borsa')?.max).toBe(2262);
+    expect(line('servizi')?.max).toBe(4910);
   });
 });

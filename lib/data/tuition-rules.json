@@ -132,6 +132,181 @@
         }
       },
       "simulator": "https://studenti.unibo.it/sol/simulatore/2026.htm"
+    },
+    "ateneo-02801": {
+      "name": "Università di Padova",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "appliesTo": "Matricole e iscritti regolari con la progressione minima di carriera (al primo anno non servono crediti), cittadini UE con famiglia in Italia.",
+      "fixedFees": {
+        "regionalTax": 192,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 208
+      },
+      "fixedFeesNote": "Prima rata: tassa regionale (da 146 € a 192 € secondo l’ISEE) e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 15748.78,
+          "from": 0,
+          "base": 146,
+          "rate": 0.001333
+        },
+        {
+          "iseeMax": 31497.56,
+          "from": 15748.79,
+          "base": 167,
+          "rate": 0.001587
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "base": 192,
+          "rate": 0
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 50000,
+          "from": 30000,
+          "base": 560,
+          "rate": 0.0645
+        },
+        {
+          "iseeMax": 70000,
+          "from": 50000,
+          "base": 1850,
+          "rate": 0.0445
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2790
+        }
+      ],
+      "bandsSource": {
+        "label": "UniPD, Bando contribuzione studentesca ed esoneri 2026/27, Tabella 3",
+        "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/1.Bando%20ContribuzioneEsoneri%202026-27.pdf"
+      },
+      "bandsNote": "Il bando indica solo gli estremi di ogni fascia: tra un estremo e l’altro il sito stima un andamento lineare.",
+      "maxByLevel": {
+        "triennale": 2790,
+        "ciclo-unico": 2990,
+        "magistrale": 2790
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "A (umanistico)",
+          "default": true,
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Educazione e Formazione",
+            "Arte e Design"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 50000,
+              "from": 30000,
+              "base": 560,
+              "rate": 0.0645
+            },
+            {
+              "iseeMax": 70000,
+              "from": 50000,
+              "base": 1850,
+              "rate": 0.0445
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2790
+            }
+          ],
+          "max": 2790
+        },
+        {
+          "id": "B",
+          "label": "B (scientifico)",
+          "groups": [
+            "Agrario-Forestale e Veterinario",
+            "Architettura e Ingegneria civile",
+            "Informatica e Tecnologie ICT",
+            "Ingegneria industriale e dell'informazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Psicologico",
+            "Scientifico",
+            "Scienze motorie e sportive"
+          ],
+          "nameIncludes": [
+            "Scienze della Formazione Primaria",
+            "Management dei servizi educativi"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 50000,
+              "from": 30000,
+              "base": 710,
+              "rate": 0.06575
+            },
+            {
+              "iseeMax": 70000,
+              "from": 50000,
+              "base": 2025,
+              "rate": 0.04575
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2990
+            }
+          ],
+          "max": 2990
+        }
+      ],
+      "maxNote": "Gruppo A (umanistico) fino a 2.790 €, gruppo B (scientifico) fino a 2.990 €. Il sito assegna il gruppo dalla macroarea del corso: verifica la Scuola di appartenenza.",
+      "maxSource": {
+        "label": "UniPD, Bando contribuzione studentesca ed esoneri 2026/27, Tabella 1",
+        "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/1.Bando%20ContribuzioneEsoneri%202026-27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (fino a 208 €) all’immatricolazione",
+          "Il contributo per ISEE è diviso tra seconda e terza rata"
+        ],
+        "note": "Per avere la riduzione serve la Richiesta di Agevolazioni in Uniweb con l’ISEE per il diritto allo studio.",
+        "source": {
+          "label": "UniPD, Contribuzione studentesca",
+          "url": "https://www.unipd.it/contribuzione-studentesca"
+        }
+      },
+      "simulator": "https://www.unipd.it/contribuzione-studentesca"
     }
   }
 }

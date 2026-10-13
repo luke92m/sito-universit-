@@ -1,7 +1,9 @@
 'use client';
 
 import type { RealCostResponse } from '@/app/api/real-cost/route';
+import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { CONDITION_LABELS, type StudentCondition } from '@/lib/domain/dsu';
+import { GRANT_KEYS } from '@/lib/domain/real-cost-keys';
 import { formatDate } from '@/lib/site-config';
 
 const euro = (value: number) =>
@@ -11,6 +13,9 @@ const euro = (value: number) =>
     maximumFractionDigits: 0,
     useGrouping: 'always'
   }).format(value);
+/** Soglie con i centesimi: arrotondarle cambierebbe chi rientra. */
+const limit = (value: number) =>
+  new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', useGrouping: 'always' }).format(value);
 const amount = (min: number, max: number) =>
   Math.round(min) === Math.round(max) ? euro(min) : `${euro(min)} – ${euro(max)}`;
 
@@ -19,11 +24,11 @@ const ORIGIN_COPY: Record<
   (seat: string, entity: string) => string
 > = {
   'tabella-1': (seat, entity) =>
-    `Il tuo comune è nella Tabella 1 di ${entity} per la sede di ${seat}: sei “in sede” anche se viaggi.`,
+    `Il tuo comune è tra quelli che ${entity} considera “in sede” per ${seat}, anche se ogni giorno viaggi.`,
   'tabella-2': (seat, entity) =>
-    `Il tuo comune è nella Tabella 2 di ${entity} per la sede di ${seat}: sei “pendolare”.`,
+    `Il tuo comune è tra quelli che ${entity} considera “pendolari” per ${seat}.`,
   'fuori-tabella': (seat, entity) =>
-    `Il tuo comune non è nelle tabelle di ${entity} per ${seat}: conta il tempo di viaggio con i mezzi pubblici e se prendi casa in affitto.`,
+    `Il tuo comune non è negli elenchi di ${entity} per ${seat}: contano il tempo di viaggio con i mezzi pubblici e se prendi casa in affitto.`,
   stima: () => 'Stima da città e regione di residenza: controlla la definizione nel bando.',
   scelta: () => 'Condizione scelta da te.'
 };
@@ -37,13 +42,17 @@ interface Props {
 /** "Quanto ti costa davvero": un numero, le voci con la fonte e la borsa spiegata. */
 export function RealCostResult({ result, onCondition, busy }: Props) {
   const { entity, scholarship, conditionInfo, total } = result;
-  const grant = result.lines.find((line) => line.key === 'borsa');
-  const costs = result.lines.filter((line) => line.key !== 'borsa');
+  const grants = result.lines.filter((line) => GRANT_KEYS.includes(line.key));
+  const costs = result.lines.filter((line) => !GRANT_KEYS.includes(line.key));
+  const national = STUDENT_SERVICES.nationalThresholds;
+  const belowNational = entity
+    ? entity.thresholds.isee < national.isee || entity.thresholds.ispe < national.ispe
+    : false;
 
   let grantTitle = '';
   let grantText = '';
   if (entity && scholarship) {
-    const limits = `ISEE fino a ${euro(entity.thresholds.isee)} e ISPE fino a ${euro(entity.thresholds.ispe)}`;
+    const limits = `ISEE fino a ${limit(entity.thresholds.isee)} e ISPE fino a ${limit(entity.thresholds.ispe)}`;
     if (scholarship.status === 'eligible') {
       grantTitle = `Puoi chiedere la borsa ${entity.shortName}: vale ${amount(scholarship.amountMin, scholarship.amountMax)} l’anno.`;
       grantText = `Importo per chi è ${CONDITION_LABELS[conditionInfo.condition].toLowerCase()}, con la tua fascia ISEE. Requisiti economici: ${limits}.`;
@@ -52,7 +61,7 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
       grantText = `${entity.shortName} chiede ${limits}. Inserisci ISEE e ISPE precisi per un risultato sicuro.`;
     } else if (scholarship.status === 'not-eligible') {
       grantTitle = `Con questi valori non puoi chiedere la borsa ${entity.shortName}.`;
-      grantText = `Servono ${limits}: soglie più basse dei limiti nazionali. Restano le riduzioni delle tasse per ISEE.`;
+      grantText = `Servono ${limits}${belowNational ? ', soglie più basse dei limiti nazionali' : ''}. Restano le riduzioni delle tasse per ISEE.`;
     } else {
       grantTitle = 'Senza ISEE non possiamo calcolare la borsa.';
       grantText = `${entity.shortName} chiede ${limits}. L’ISEE per il diritto allo studio si chiede gratis al CAF o sul sito INPS.`;
@@ -134,8 +143,8 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
             </div>
           </div>
         ))}
-        {grant ? (
-          <div className="real-cost-line is-grant" role="row">
+        {grants.map((grant) => (
+          <div className="real-cost-line is-grant" role="row" key={grant.key}>
             <div role="cell">
               <strong>{grant.label}</strong>
               <small>{grant.note}</small>
@@ -149,13 +158,21 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
               ) : null}
             </div>
           </div>
-        ) : null}
+        ))}
       </div>
 
       {entity && scholarship ? (
         <div className={`real-cost-grant scholarship-${scholarship.status}`}>
           <strong>{grantTitle}</strong>
           <p>{grantText}</p>
+          {entity.accessRequirement ? (
+            <p className="real-cost-requirement">
+              <strong>Attenzione:</strong> {entity.accessRequirement.text}{' '}
+              <a href={entity.accessRequirement.source.url} target="_blank" rel="noreferrer">
+                {entity.accessRequirement.source.label}
+              </a>
+            </p>
+          ) : null}
           {scholarship.status === 'eligible' || scholarship.status === 'uncertain' ? (
             <>
               <ul>
@@ -164,7 +181,7 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
                 ))}
                 {scholarship.increments.map((increment) => (
                   <li key={increment.label}>
-                    {increment.label}: {increment.conditional.toLowerCase()}
+                    {increment.label} ({increment.conditional})
                   </li>
                 ))}
               </ul>
@@ -183,9 +200,11 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
             </>
           ) : null}
           <p className="real-cost-deadline">
-            <strong>Domanda:</strong> per il {entity.academicYear} si poteva fare dal{' '}
-            {formatDate(entity.application.opens)} al {formatDate(entity.application.closes)} alle{' '}
-            {entity.application.closesTime}. {entity.application.note}{' '}
+            <strong>Domanda:</strong> per il {entity.academicYear} si poteva fare{' '}
+            {entity.application.opens ? `dal ${formatDate(entity.application.opens)} ` : ''}entro il{' '}
+            {formatDate(entity.application.closes)}
+            {entity.application.closesTime ? ` alle ${entity.application.closesTime}` : ''}.{' '}
+            {entity.application.note}{' '}
             <a href={entity.portal.url} target="_blank" rel="noreferrer">
               {entity.portal.label}
             </a>
