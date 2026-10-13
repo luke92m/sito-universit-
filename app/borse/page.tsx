@@ -6,7 +6,8 @@ import { ScholarshipCheck } from '@/components/tools/ScholarshipCheck';
 
 export const metadata: Metadata = {
   title: 'Borse di studio',
-  description: 'Verifica orientativa della borsa di studio per il diritto allo studio, con ISEE e residenza, senza account.'
+  description:
+    'Borsa di studio e costo reale del primo anno con il tuo ISEE: tasse, casa e borsa con le fonti ufficiali, senza account.'
 };
 
 export default function BorsePage() {
@@ -16,11 +17,15 @@ export default function BorsePage() {
         <FlowSteps current={2} />
         <section className="tool-hero tool-hero-compact">
           <div>
-            <span className="eyebrow">Diritto allo studio</span>
-            <h1>Con il mio ISEE prendo la borsa?</h1>
+            <span className="eyebrow">Borsa di studio e costo reale</span>
+            <h1>Con il mio ISEE prendo la borsa? E quanto mi costa davvero?</h1>
             <p>
-              Una verifica orientativa sulle soglie nazionali, con il collegamento al bando dell’ente della regione
-              dell’ateneo. Non serve un account.
+              Tasse con la formula ufficiale dell’ateneo, borsa con il bando dell’ente regionale, casa e spese con fonti
+              nazionali: tutto in un numero, con la fonte accanto a ogni voce. Non serve un account.
+            </p>
+            <p className="verified-coverage">
+              <strong>Dati verificati sui documenti ufficiali 2026/27:</strong> Università di Bologna e borse ER.GO
+              (Emilia-Romagna). Gli altri atenei e gli altri enti regionali li stiamo aggiungendo uno alla volta.
             </p>
           </div>
         </section>

@@ -1,0 +1,691 @@
+{
+  "version": 1,
+  "note": "Dati copiati dai bandi ufficiali degli enti per il diritto allo studio. Ogni valore riporta la fonte; aggiornare ogni anno quando esce il nuovo bando (di solito a giugno).",
+  "entities": [
+    {
+      "id": "er-go",
+      "name": "ER.GO – Azienda regionale per il diritto agli studi superiori",
+      "shortName": "ER.GO",
+      "region": "Emilia-Romagna",
+      "universityIds": [
+        "ateneo-03701",
+        "ateneo-03801",
+        "ateneo-03601",
+        "ateneo-03401"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 25000,
+        "ispe": 50000,
+        "source": {
+          "label": "ER.GO, Soglie economiche per l’accesso 2026/27",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/soglie-economiche-per-laccesso"
+        }
+      },
+      "amounts": {
+        "note": "Importi annui comprensivi della quota eventualmente convertita in servizio ristorativo.",
+        "bands": [
+          {
+            "iseeMax": 16666.67,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 18333.34,
+            "fuoriSede": 4661.22,
+            "pendolare": 2723.96,
+            "inSede": 1878.61
+          },
+          {
+            "iseeMax": 20818.46,
+            "fuoriSede": 3872.4,
+            "pendolare": 2262.98,
+            "inSede": 1560.69
+          },
+          {
+            "iseeMax": 25000,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 1",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+15% con ISEE fino a 12.500 €",
+          "iseeMax": 12500,
+          "percent": 15,
+          "conditional": "Pagato col saldo, solo se restano risorse dopo aver dato la borsa a tutti gli idonei.",
+          "source": {
+            "label": "Bando ER.GO 2026/27, Sezione II, art. 2",
+            "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+          }
+        },
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "Pagato col saldo, solo se restano risorse; non si somma al +15%.",
+          "source": {
+            "label": "Bando ER.GO 2026/27, Sezione II, art. 2",
+            "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+          }
+        }
+      ],
+      "regionalTax": 140,
+      "connectedBenefits": [
+        "Esonero totale dalle tasse universitarie (per le matricole, se raggiungono i crediti richiesti entro il 30/11/2027)",
+        "Rimborso della tassa regionale di 140 €",
+        "Se idoneo ma senza borsa per mancanza di fondi: contributo di 500 € per la mensa"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ER.GO 2026/27, Sezione II, artt. 1 e 8",
+        "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza a più di 90 minuti con i mezzi pubblici e casa in affitto vicino alla sede per almeno 10 mesi (o posto alloggio ER.GO).",
+        "pendolare": "Residenza tra 45 e 90 minuti con i mezzi pubblici, oppure in un comune della Tabella 2, oppure oltre 90 minuti ma con alloggio gratuito vicino alla sede.",
+        "inSede": "Residenza a meno di 45 minuti con i mezzi pubblici, oppure in un comune della Tabella 1, oppure senza casa vicino alla sede per almeno 10 mesi.",
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 5",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026",
+          "10% da marzo 2027, con i crediti richiesti al 28 febbraio 2027",
+          "40% (saldo) da giugno 2027, con i crediti richiesti al 10 agosto 2027"
+        ],
+        "note": "Dalle prime due rate si tolgono l’eventuale quota mensa e la retta dell’alloggio ER.GO.",
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 13",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-23",
+        "closes": "2026-08-24",
+        "closesTime": "16:00",
+        "note": "Domanda online ogni anno, anche per le matricole. Il bando 2027/28 uscirà presumibilmente a giugno 2027.",
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 4",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "housing": {
+        "places": {
+          "Bologna": 1842,
+          "Parma": 709,
+          "Modena": 546,
+          "Ferrara": 357,
+          "Forlì": 209,
+          "Reggio Emilia": 131,
+          "Cesena": 122,
+          "Rimini": 100,
+          "Ravenna": 55,
+          "Piacenza": 10
+        },
+        "placesSource": {
+          "label": "Regione Emilia-Romagna, comunicato del 24/06/2026",
+          "url": "https://notizie.regione.emilia-romagna.it/comunicati/2026/universita-diritto-allo-studio-pubblicato-il-bando-per-lassegnazione-di-borse-e-alloggi-per-lanno-accademico-2026-27-lassessore-paglia-ancora-incompiuta-la-revisione-della-normativa-a-livello-nazionale-e-sul-tema-risorse-anche-per-il-prossimo-anno-restano"
+        },
+        "monthlyFees": {
+          "Bologna": {
+            "min": 216,
+            "max": 322
+          }
+        },
+        "monthlyFeesNote": "Retta mensile con utenze comprese per chi è in graduatoria per reddito e merito; per gli idonei è detratta dalla borsa.",
+        "monthlyFeesSource": {
+          "label": "ER.GO, Tabelle rette e tariffe servizi residenziali 2026/27, Tabella 1",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/tabelle-rette-e-tariffe-servizi-residenziali/@@display-file/file/tabelle-rette-e-tariffe-servizi-residenziali.pdf"
+        }
+      },
+      "municipalities": {
+        "Bologna": {
+          "inSede": [
+            {
+              "comune": "Anzola dell’Emilia",
+              "prov": "BO"
+            },
+            {
+              "comune": "Argelato",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bentivoglio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bologna",
+              "prov": "BO"
+            },
+            {
+              "comune": "Budrio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Calderara di Reno",
+              "prov": "BO"
+            },
+            {
+              "comune": "Camposanto",
+              "prov": "MO"
+            },
+            {
+              "comune": "Casalecchio di Reno",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castel Bolognese",
+              "prov": "RA"
+            },
+            {
+              "comune": "Castel Maggiore",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castel San Pietro Terme",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castelfranco Emilia",
+              "prov": "MO"
+            },
+            {
+              "comune": "Castenaso",
+              "prov": "BO"
+            },
+            {
+              "comune": "Crespellano (ora Valsamoggia)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Crevalcore",
+              "prov": "BO"
+            },
+            {
+              "comune": "Faenza",
+              "prov": "RA"
+            },
+            {
+              "comune": "Ferrara",
+              "prov": "FE"
+            },
+            {
+              "comune": "Granarolo dell’Emilia",
+              "prov": "BO"
+            },
+            {
+              "comune": "Imola",
+              "prov": "BO"
+            },
+            {
+              "comune": "Marzabotto",
+              "prov": "BO"
+            },
+            {
+              "comune": "Minerbio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Modena",
+              "prov": "MO"
+            },
+            {
+              "comune": "Ozzano dell’Emilia",
+              "prov": "BO"
+            },
+            {
+              "comune": "Pianoro",
+              "prov": "BO"
+            },
+            {
+              "comune": "Poggio Renatico",
+              "prov": "FE"
+            },
+            {
+              "comune": "Rubiera",
+              "prov": "RE"
+            },
+            {
+              "comune": "Sala Bolognese",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Felice sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "San Giorgio di Piano",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Giovanni in Persiceto",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Lazzaro di Savena",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Pietro in Casale",
+              "prov": "BO"
+            },
+            {
+              "comune": "Sasso Marconi",
+              "prov": "BO"
+            },
+            {
+              "comune": "Solarolo",
+              "prov": "RA"
+            },
+            {
+              "comune": "Vado (frazione di Monzuno)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Zola Predosa",
+              "prov": "BO"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Albinea",
+              "prov": "RE"
+            },
+            {
+              "comune": "Bagnacavallo",
+              "prov": "RA"
+            },
+            {
+              "comune": "Bagnolo in Piano",
+              "prov": "RE"
+            },
+            {
+              "comune": "Baricella",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bastiglia",
+              "prov": "MO"
+            },
+            {
+              "comune": "Bazzano (ora Valsamoggia)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bertinoro",
+              "prov": "FC"
+            },
+            {
+              "comune": "Boara Pisani",
+              "prov": "PD"
+            },
+            {
+              "comune": "Borgo Tossignano",
+              "prov": "BO"
+            },
+            {
+              "comune": "Brisighella",
+              "prov": "RA"
+            },
+            {
+              "comune": "Campogalliano",
+              "prov": "MO"
+            },
+            {
+              "comune": "Canaro",
+              "prov": "RO"
+            },
+            {
+              "comune": "Carpi",
+              "prov": "MO"
+            },
+            {
+              "comune": "Casalfiumanese",
+              "prov": "BO"
+            },
+            {
+              "comune": "Casola Valsenio",
+              "prov": "RA"
+            },
+            {
+              "comune": "Castel del Rio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castel Guelfo di Bologna",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castello d’Argile",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castiglione dei Pepoli",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castrocaro T. e Terra del Sole",
+              "prov": "FC"
+            },
+            {
+              "comune": "Cavriago",
+              "prov": "RE"
+            },
+            {
+              "comune": "Cento",
+              "prov": "FE"
+            },
+            {
+              "comune": "Ceregnano",
+              "prov": "RO"
+            },
+            {
+              "comune": "Cesena",
+              "prov": "FC"
+            },
+            {
+              "comune": "Costa di Rovigo",
+              "prov": "RO"
+            },
+            {
+              "comune": "Cotignola",
+              "prov": "RA"
+            },
+            {
+              "comune": "Fidenza",
+              "prov": "PR"
+            },
+            {
+              "comune": "Finale Emilia",
+              "prov": "MO"
+            },
+            {
+              "comune": "Fiorano Modenese",
+              "prov": "MO"
+            },
+            {
+              "comune": "Fiorenzuola d’Arda",
+              "prov": "PC"
+            },
+            {
+              "comune": "Firenze",
+              "prov": "FI"
+            },
+            {
+              "comune": "Fontanelice",
+              "prov": "BO"
+            },
+            {
+              "comune": "Forlì",
+              "prov": "FC"
+            },
+            {
+              "comune": "Forlimpopoli",
+              "prov": "FC"
+            },
+            {
+              "comune": "Formigine",
+              "prov": "MO"
+            },
+            {
+              "comune": "Galliera",
+              "prov": "BO"
+            },
+            {
+              "comune": "Gambettola",
+              "prov": "FC"
+            },
+            {
+              "comune": "Gonzaga",
+              "prov": "MN"
+            },
+            {
+              "comune": "Grizzana Morandi",
+              "prov": "BO"
+            },
+            {
+              "comune": "Isola della Scala",
+              "prov": "VR"
+            },
+            {
+              "comune": "Loiano",
+              "prov": "BO"
+            },
+            {
+              "comune": "Lugo",
+              "prov": "RA"
+            },
+            {
+              "comune": "Malalbergo",
+              "prov": "BO"
+            },
+            {
+              "comune": "Magnacavallo",
+              "prov": "MN"
+            },
+            {
+              "comune": "Marano sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "Masi Torello",
+              "prov": "FE"
+            },
+            {
+              "comune": "Massa Lombarda",
+              "prov": "RA"
+            },
+            {
+              "comune": "Medicina",
+              "prov": "BO"
+            },
+            {
+              "comune": "Meldola",
+              "prov": "FC"
+            },
+            {
+              "comune": "Mirandola",
+              "prov": "MO"
+            },
+            {
+              "comune": "Molinella",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monghidoro",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monselice",
+              "prov": "PD"
+            },
+            {
+              "comune": "Monte San Pietro",
+              "prov": "BO"
+            },
+            {
+              "comune": "Montegrotto Terme",
+              "prov": "PD"
+            },
+            {
+              "comune": "Monterenzio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monteveglio (ora Valsamoggia)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monzuno",
+              "prov": "BO"
+            },
+            {
+              "comune": "Nogara",
+              "prov": "VR"
+            },
+            {
+              "comune": "Occhiobello",
+              "prov": "RO"
+            },
+            {
+              "comune": "Ostiglia",
+              "prov": "MN"
+            },
+            {
+              "comune": "Parma",
+              "prov": "PR"
+            },
+            {
+              "comune": "Pieve di Cento",
+              "prov": "BO"
+            },
+            {
+              "comune": "Poggio Rusco",
+              "prov": "MN"
+            },
+            {
+              "comune": "Polesella",
+              "prov": "RO"
+            },
+            {
+              "comune": "Porretta Terme",
+              "prov": "BO"
+            },
+            {
+              "comune": "Portomaggiore",
+              "prov": "FE"
+            },
+            {
+              "comune": "Prato",
+              "prov": "PO"
+            },
+            {
+              "comune": "Ravarino",
+              "prov": "MO"
+            },
+            {
+              "comune": "Ravenna",
+              "prov": "RA"
+            },
+            {
+              "comune": "Reggio Emilia",
+              "prov": "RE"
+            },
+            {
+              "comune": "Rimini",
+              "prov": "RN"
+            },
+            {
+              "comune": "Riolo Terme",
+              "prov": "RA"
+            },
+            {
+              "comune": "Rolo",
+              "prov": "RE"
+            },
+            {
+              "comune": "Rovigo",
+              "prov": "RO"
+            },
+            {
+              "comune": "Russi",
+              "prov": "RA"
+            },
+            {
+              "comune": "San Benedetto Val di Sambro",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Cesario sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "Sant’Agata Bolognese",
+              "prov": "BO"
+            },
+            {
+              "comune": "Santarcangelo di Romagna",
+              "prov": "RN"
+            },
+            {
+              "comune": "Sant’Ilario d’Enza",
+              "prov": "RE"
+            },
+            {
+              "comune": "Sassuolo",
+              "prov": "MO"
+            },
+            {
+              "comune": "Savignano sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "Savignano sul Rubicone",
+              "prov": "FC"
+            },
+            {
+              "comune": "Schivenoglia",
+              "prov": "MN"
+            },
+            {
+              "comune": "Sermide",
+              "prov": "MN"
+            },
+            {
+              "comune": "Sesto Fiorentino",
+              "prov": "FI"
+            },
+            {
+              "comune": "Soliera",
+              "prov": "MO"
+            },
+            {
+              "comune": "Spilamberto",
+              "prov": "MO"
+            },
+            {
+              "comune": "Vaiano",
+              "prov": "PO"
+            },
+            {
+              "comune": "Vernio",
+              "prov": "PO"
+            },
+            {
+              "comune": "Vergato",
+              "prov": "BO"
+            },
+            {
+              "comune": "Vigarano Mainarda",
+              "prov": "FE"
+            },
+            {
+              "comune": "Vignola",
+              "prov": "MO"
+            }
+          ],
+          "source": {
+            "label": "Bando ER.GO 2026/27, Tabelle comuni in sede e pendolari, sede di Bologna",
+            "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/tabelle-comuni-per-condizione-di-studenti-in-sede-e-pendolari-bologna-e-romagna.pdf/@@download/file"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "La Regione dichiara l’obiettivo di dare la borsa a tutti gli idonei, ma il dato finale non è ancora pubblicato.",
+      "portal": {
+        "label": "Bando ER.GO 2026/27",
+        "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando"
+      }
+    }
+  ]
+}

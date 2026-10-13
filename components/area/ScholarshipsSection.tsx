@@ -2,11 +2,15 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useRef, useState, type FormEvent } from 'react';
+import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
+import { RealCostResult } from '@/components/tools/RealCostResult';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
 import { useLoader } from '@/lib/client/use-loader';
+import { useUniversityCourses } from '@/lib/client/use-courses';
 import { STUDENT_SERVICES as data } from '@/lib/data/student-services';
+import type { ScholarshipStatus, StudentCondition } from '@/lib/domain/dsu';
 import { findRange, normalizedIseeValue } from '@/lib/domain/isee';
 import {
   VERDICT_COPY,
@@ -50,6 +54,22 @@ interface Verification {
   profile: string;
 }
 
+// Esito del bando dell'ente, salvato con la stessa scala del verdetto nazionale.
+const STATUS_TO_VERDICT: Record<ScholarshipStatus, ScholarshipVerdict> = {
+  eligible: 'possible',
+  uncertain: 'uncertain',
+  'not-eligible': 'unlikely',
+  unknown: 'unknown'
+};
+
+/** Numero scritto all'italiana ("18.450,50"): null se vuoto, NaN se non valido. */
+function parseAmount(value: string): number | null {
+  const clean = value.replace(/[€\s.]/g, '').replace(',', '.');
+  if (!clean) return null;
+  const number = Number(clean);
+  return Number.isFinite(number) && number >= 0 ? number : NaN;
+}
+
 const formatMoney = (value: number) => value.toLocaleString('it-IT', { minimumFractionDigits: 2 });
 
 /** Verifica orientativa della borsa: pubblica (/borse); con un account si possono anche salvare le opportunità. */
@@ -68,6 +88,16 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
   const [city, setCity] = useState(guidance.residenceCity || '');
   const [message, setMessage] = useState('');
   const [verification, setVerification] = useState<Verification | null>(null);
+  // Valori esatti e casa in affitto: servono solo a questo calcolo, non vengono salvati.
+  const [iseeExact, setIseeExact] = useState('');
+  const [ispeExact, setIspeExact] = useState('');
+  const [rentsNearSeat, setRentsNearSeat] = useState(true);
+  const [chosenCourse, setChosenCourse] = useState<string | null>(null);
+  const [cost, setCost] = useState<RealCostResponse | null>(null);
+  const [busy, setBusy] = useState(false);
+  const { courses } = useUniversityCourses(universityId);
+  // Corso arrivato dal link (?corso=<nome>) come proposta, finché l'utente non sceglie.
+  const courseId = chosenCourse ?? (courses.find((course) => course.name === params.get('corso'))?.id || '');
   const resultRef = useRef<HTMLElement>(null);
 
   const [saved, refresh] = useLoader(loadSavedScholarships, NO_SCHOLARSHIPS);
@@ -79,10 +109,21 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
       setMessage('Seleziona ateneo e regione di residenza.');
       return;
     }
+    const exactIsee = parseAmount(iseeExact);
+    const exactIspe = parseAmount(ispeExact);
+    if (Number.isNaN(exactIsee) || Number.isNaN(exactIspe)) {
+      setMessage('Scrivi ISEE e ISPE esatti solo con cifre, per esempio 18450.');
+      return;
+    }
     setMessage('');
     const iseeRange = findRange(data.iseeRanges, isee);
     const ispeRange = findRange(data.ispeRanges, ispe);
-    const verdict = scholarshipVerdict(iseeRange, ispeRange);
+    const calculated = await loadCost({ exactIsee, exactIspe });
+    // Con il bando dell'ente inserito vale il suo esito; altrimenti i limiti nazionali.
+    const verdict =
+      calculated?.entity && calculated.scholarship
+        ? STATUS_TO_VERDICT[calculated.scholarship.status]
+        : scholarshipVerdict(iseeRange, ispeRange);
     await updateGuidance({
       iseeRange: iseeRange?.value || '',
       residenceRegion: region,
@@ -99,6 +140,44 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
     window.setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
   };
 
+  async function loadCost(
+    { exactIsee, exactIspe }: { exactIsee: number | null; exactIspe: number | null },
+    condition?: StudentCondition
+  ): Promise<RealCostResponse | null> {
+    setBusy(true);
+    try {
+      const response = await fetch('/api/real-cost', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          universityId,
+          courseId,
+          isee: exactIsee != null ? { exact: exactIsee } : { range: isee },
+          ispe: exactIspe != null ? { exact: exactIspe } : { range: ispe },
+          residenceRegion: region,
+          residenceCity: city.trim(),
+          rentsNearSeat,
+          condition
+        })
+      });
+      const payload = response.ok ? ((await response.json()) as RealCostResponse) : null;
+      setCost(payload);
+      return payload;
+    } catch {
+      setCost(null);
+      return null;
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const validAmount = (value: string) => {
+    const number = parseAmount(value);
+    return number == null || Number.isNaN(number) ? null : number;
+  };
+  const changeCondition = (condition: StudentCondition) =>
+    loadCost({ exactIsee: validAmount(iseeExact), exactIspe: validAmount(ispeExact) }, condition);
+
   const saveOpportunity = async () => {
     if (!verification) return;
     if (!user) {
@@ -114,11 +193,17 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
     const { error } = await supabase.from('saved_scholarships').insert({
       university_id: university.id,
       university_name: university.name,
-      course_name: params.get('corso') || journeyOf(user)?.courseName || null,
+      course_name:
+        courses.find((course) => course.id === courseId)?.name ||
+        params.get('corso') ||
+        journeyOf(user)?.courseName ||
+        null,
       deadline: null,
       portal_url: regional.url,
       status: verification.verdict,
-      status_label: VERDICT_COPY[verification.verdict].title
+      status_label:
+        VERDICT_COPY[verification.verdict].title +
+        (cost?.entity ? ` (bando ${cost.entity.shortName} ${cost.entity.academicYear})` : '')
     });
     if (error) {
       showToast('Non è stato possibile salvare l’opportunità.');
@@ -193,9 +278,25 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
               <span>Ateneo di riferimento</span>
               <UniversityCombobox
                 value={universityId}
-                onChange={setUniversityId}
+                onChange={(id) => {
+                  setUniversityId(id);
+                  setChosenCourse('');
+                }}
                 ariaLabel="Ateneo di riferimento"
               />
+            </label>
+            <label className="field field-wide">
+              <span>
+                Corso <small>(facoltativo: alcuni corsi hanno tasse più alte)</small>
+              </span>
+              <select value={courseId} onChange={(event) => setChosenCourse(event.target.value)}>
+                <option value="">Corso non indicato (calcolo su una triennale)</option>
+                {courses.map((course) => (
+                  <option key={course.id} value={course.id}>
+                    {course.name} · {course.level} · {course.city}
+                  </option>
+                ))}
+              </select>
             </label>
             <label className="field">
               <span>Fascia ISEE universitario</span>
@@ -220,6 +321,30 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
               </select>
             </label>
             <label className="field">
+              <span>
+                ISEE esatto <small>(facoltativo, non viene salvato)</small>
+              </span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={iseeExact}
+                placeholder="Es. 18450"
+                onChange={(event) => setIseeExact(event.target.value)}
+              />
+            </label>
+            <label className="field">
+              <span>
+                ISPE esatto <small>(facoltativo, non viene salvato)</small>
+              </span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={ispeExact}
+                placeholder="Es. 32000"
+                onChange={(event) => setIspeExact(event.target.value)}
+              />
+            </label>
+            <label className="field">
               <span>Regione di residenza</span>
               <select value={region} onChange={(event) => setRegion(event.target.value)}>
                 <option value="">Seleziona</option>
@@ -239,6 +364,27 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
                 onChange={(event) => setCity(event.target.value)}
               />
             </label>
+            <fieldset className="field field-wide rent-question">
+              <legend>Durante l’anno prenderai casa in affitto vicino all’università?</legend>
+              <label>
+                <input
+                  type="radio"
+                  name="rentsNearSeat"
+                  checked={rentsNearSeat}
+                  onChange={() => setRentsNearSeat(true)}
+                />
+                Sì, per almeno 10 mesi
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="rentsNearSeat"
+                  checked={!rentsNearSeat}
+                  onChange={() => setRentsNearSeat(false)}
+                />
+                No, resto a casa e viaggio
+              </label>
+            </fieldset>
             <p className="service-form-note field-wide">
               Le fasce fino a €30.000 seguono le soglie nazionali minime della no-tax area e delle riduzioni
               per gli atenei statali; il limite DSU per la borsa {data.academicYear} è separato. Ogni ateneo e
@@ -249,8 +395,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
             <p className="form-message field-wide" role="alert" data-type={message ? 'error' : undefined}>
               {message}
             </p>
-            <button className="button button-primary field-wide" type="submit">
-              Verifica la possibilità
+            <button className="button button-primary field-wide" type="submit" disabled={busy}>
+              {busy ? 'Calcolo in corso…' : 'Calcola borsa e costo reale'}
             </button>
           </form>
         </section>
@@ -283,7 +429,26 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
         </section>
       )}
 
-      {verification && verifiedUniversity && regional && copy ? (
+      {verification && cost?.entity ? (
+        <section className="real-cost-section" ref={resultRef}>
+          <RealCostResult result={cost} onCondition={changeCondition} busy={busy} />
+          <div className="save-scholarship-row">
+            <button className="button button-primary" type="button" onClick={saveOpportunity}>
+              {user ? 'Salva questa opportunità' : 'Accedi per salvarla (facoltativo)'}
+            </button>
+            <a
+              className="button button-secondary"
+              href={cost.entity.portal.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il bando ufficiale
+            </a>
+          </div>
+        </section>
+      ) : null}
+
+      {verification && !cost?.entity && verifiedUniversity && regional && copy ? (
         <section className={`scholarship-result scholarship-${verification.verdict}`} ref={resultRef}>
           <div className="result-symbol">{copy.icon}</div>
           <div className="scholarship-result-body">
@@ -327,7 +492,9 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
             <p className="micro-note">
               Residenza comunicata: {verification.residenceCity || 'comune non indicato'},{' '}
               {verification.residenceRegion}. La classificazione in sede/pendolare/fuori sede è soltanto una
-              stima: il bando usa comuni, distanze e tempi di percorrenza propri.
+              stima: il bando usa comuni, distanze e tempi di percorrenza propri. Per questo ateneo non
+              abbiamo ancora inserito il bando regionale: il verdetto usa i limiti nazionali, che l’ente può
+              abbassare.
             </p>
           </div>
         </section>

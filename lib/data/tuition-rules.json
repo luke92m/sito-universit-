@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "note": "Regole ufficiali di contribuzione per fascia ISEE, copiate dai documenti degli atenei. Contributo = formula della fascia, fino al massimo del corso; senza ISEE si paga il massimo.",
+  "universities": {
+    "ateneo-03701": {
+      "name": "Università di Bologna",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "appliesTo": "Matricole e iscritti entro la durata normale del corso + 1 anno, con i crediti minimi (al primo anno non servono crediti).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 1.04,
+        "total": 157.04
+      },
+      "fixedFeesNote": "Pagati da tutti con la prima rata, anche con esonero totale.",
+      "bands": [
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 33000,
+          "from": 23000,
+          "rate": 0.09,
+          "base": 0
+        },
+        {
+          "iseeMax": 45000,
+          "from": 13000,
+          "rate": 0.045,
+          "base": 0
+        },
+        {
+          "iseeMax": 55000,
+          "from": 45000,
+          "rate": 0.0429,
+          "base": 1440
+        },
+        {
+          "iseeMax": 60000,
+          "from": 55000,
+          "rate": 0.19,
+          "base": 1869
+        },
+        {
+          "iseeMax": 70000,
+          "from": 13000,
+          "rate": 0.06,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 13000,
+          "rate": 0.07,
+          "base": 0
+        }
+      ],
+      "bandsSource": {
+        "label": "UniBo, Sistema di calcolo della contribuzione 2026/27",
+        "url": "https://www.unibo.it/it/allegati/sistema-di-calcolo-delle-tasse-a-a-2026-27/@@download/file/Sistema-di-calcolo-delle-tasse-anno-accademico-2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2040,
+        "ciclo-unico": 2244,
+        "magistrale": 2550
+      },
+      "maxExceptions": [
+        {
+          "name": "Mediazione linguistica interculturale",
+          "level": "triennale",
+          "amount": 2550
+        },
+        {
+          "name": "Traduzione ed interpretazione di trattativa",
+          "level": "triennale",
+          "amount": 2550
+        },
+        {
+          "name": "Comunicazione interlinguistica applicata",
+          "level": "triennale",
+          "amount": 2550
+        },
+        {
+          "name": "Genomics",
+          "level": "triennale",
+          "amount": 2805
+        },
+        {
+          "name": "Odontoiatria e protesi dentaria",
+          "level": "ciclo-unico",
+          "amount": 4080
+        },
+        {
+          "name": "Conservazione e restauro dei beni culturali",
+          "level": "ciclo-unico",
+          "amount": 5916
+        },
+        {
+          "name": "Medicine and Surgery",
+          "level": "ciclo-unico",
+          "amount": 3315
+        },
+        {
+          "name": "Pharmacy",
+          "level": "ciclo-unico",
+          "amount": 3060
+        },
+        {
+          "name": "Veterinary Medicine",
+          "level": "ciclo-unico",
+          "amount": 3315
+        }
+      ],
+      "maxNote": "Diversi corsi magistrali in inglese hanno un massimo più alto (da 2.805 € a 4.080 €): per le magistrali verifica la tabella ufficiale.",
+      "maxSource": {
+        "label": "UniBo, Tabella importi massimi 2026/27",
+        "url": "https://www.unibo.it/it/allegati/Tabellaimportimassimi2627.pdf/@@download/file/Tabella%20importi%20massimi%202026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "157,04 € entro il 24 settembre 2026",
+          "Seconda rata entro il 18 dicembre 2026",
+          "Terza rata entro il 15 marzo 2027"
+        ],
+        "note": "Serve l’ISEE per le prestazioni per il diritto allo studio universitario: senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UniBo, Tasse ed esenzioni: importi e scadenze",
+          "url": "https://www.unibo.it/it/studiare/iscrizioni-tasse-e-altre-procedure/lauree-e-lauree-magistrali/tasse-e-contributi"
+        }
+      },
+      "simulator": "https://studenti.unibo.it/sol/simulatore/2026.htm"
+    }
+  }
+}
