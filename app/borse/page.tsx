@@ -25,8 +25,8 @@ export default function BorsePage() {
             </p>
             <p className="verified-coverage">
               <strong>Borse verificate sui bandi ufficiali 2026/27:</strong> Emilia-Romagna (ER.GO), Lazio (DiSCo),
-              Piemonte (EDISU), Toscana (DSU), Campania (ADISURC), Università di Padova e Milano-Bicocca.{' '}
-              <strong>Tasse per ISEE:</strong> Bologna, Padova, Firenze, Pisa, Sapienza, Federico II, Torino, Politecnico di Torino e Milano-Bicocca. Gli altri atenei li stiamo aggiungendo uno alla volta.
+              Piemonte (EDISU), Toscana (DSU), Campania (ADISURC), Università di Padova, Milano-Bicocca, Statale e Politecnico di Milano.{' '}
+              <strong>Tasse per ISEE:</strong> Bologna, Padova, Firenze, Pisa, Sapienza, Federico II, Torino, Politecnico di Torino, Milano-Bicocca, Statale e Politecnico di Milano. Gli altri atenei li stiamo aggiungendo uno alla volta.
             </p>
           </div>
         </section>

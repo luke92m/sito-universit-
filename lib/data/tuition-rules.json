@@ -1871,6 +1871,338 @@
         }
       },
       "simulator": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
+    },
+    "ateneo-01501": {
+      "name": "Università degli Studi di Milano",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Studenti in corso o fuori corso da un anno, comprese le matricole (seconda rata = contributo onnicomprensivo).",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Prima rata di 146 € (bollo e 130 € di tassa regionale); con ISEE più alto la tassa regionale sale a 160 € o 190 € e la differenza si paga con la seconda rata.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53755.88,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 38000,
+          "from": 25000,
+          "rate": 0.03,
+          "base": 0
+        },
+        {
+          "iseeMax": 80000,
+          "from": 38000,
+          "rate": 0.067,
+          "base": 390
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3204
+        }
+      ],
+      "bandsSource": {
+        "label": "Statale di Milano, Regolamento tasse e contributi 2026/27, art. 3.2 (tabelle 1-3)",
+        "url": "https://www.unimi.it/sites/default/files/regolamenti/Regolamento%20tasse%20e%20contributi%202026_2027_signed.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 4101.12,
+        "ciclo-unico": 4101.12,
+        "magistrale": 4101.12
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "A",
+          "groups": [],
+          "names": [
+            "Economia europea",
+            "Management pubblico",
+            "Management pubblico e della sanità",
+            "Organizzazione e risorse umane",
+            "Scienze dell'amministrazione",
+            "Scienze internazionali e istituzioni europee",
+            "Scienze politiche",
+            "Amministrazioni e politiche pubbliche",
+            "Comunicazione politica e sociale",
+            "Economia e finanza internazionale",
+            "Istituzioni e sistemi di governo delle autonomie territoriali",
+            "Politica e istituzioni comparate",
+            "Relazioni internazionali",
+            "Scienze del lavoro",
+            "Scienze politiche e di governo",
+            "Scienze sociali",
+            "Storia del mondo contemporaneo",
+            "Scienze sociali per la ricerca e le istituzioni",
+            "Scienze dei servizi giuridici",
+            "Scienze dei servizi giuridici per consulenti d'impresa",
+            "Scienze dei servizi giuridici per operatori delle pubbliche amministrazioni",
+            "Scienze dei servizi giuridici per operatori finanziari, bancari e assicurativi",
+            "Scienze dei servizi giuridici per operatori giudiziari",
+            "Scienze dei servizi giuridici per operatori giuridico informatici",
+            "Scienze giuridiche",
+            "Giurisprudenza",
+            "Filosofia",
+            "Geografia, ambiente e territorio",
+            "Lettere",
+            "Scienze dei beni culturali",
+            "Scienze umane dell'ambiente, del territorio e del paesaggio",
+            "Storia",
+            "Archeologia",
+            "Archivistica e biblioteconomia",
+            "Culture e comunicazione dell'ambiente e del paesaggio",
+            "Cultura e linguaggi per la comunicazione",
+            "Filologia, letteratura e storia dell'antichità",
+            "Lettere moderne",
+            "Lettere moderne (letteratura, linguistica e filologia italiana e romanza)",
+            "Musicologia",
+            "Musicologia e beni musicali",
+            "Scienze dell'antichità: filologia, letteratura, storia",
+            "Scienze dello spettacolo e della comunicazione multimediale",
+            "Scienze e culture dell'ambiente e del paesaggio",
+            "Scienze filosofiche",
+            "Scienze storiche",
+            "Storia e critica dell'arte",
+            "Storia e documentazione storica",
+            "Filologia, Letterature e Storia dell'Antichità"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 38000,
+              "from": 25000,
+              "rate": 0.03,
+              "base": 0
+            },
+            {
+              "iseeMax": 80000,
+              "from": 38000,
+              "rate": 0.067,
+              "base": 390
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3204
+            }
+          ],
+          "max": 3204
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "default": true,
+          "groups": [],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 38000,
+              "from": 25000,
+              "rate": 0.0384,
+              "base": 0
+            },
+            {
+              "iseeMax": 80000,
+              "from": 38000,
+              "rate": 0.08576,
+              "base": 499.2
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4101.12
+            }
+          ],
+          "max": 4101.12
+        }
+      ],
+      "maxNote": "Area A (corsi di Scienze politiche, Giurisprudenza e Studi umanistici elencati nell’Allegato 1) fino a 3.204 €, area B (tutti gli altri) fino a 4.101,12 €, dovuti con ISEE oltre 80.000 € o senza ISEE. I corsi interamente a distanza aggiungono 500 € o 900 €; alcuni corsi internazionali hanno un contributo proprio.",
+      "maxSource": {
+        "label": "Statale di Milano, Regolamento tasse e contributi 2026/27, art. 3.2 (tabelle 1-3)",
+        "url": "https://www.unimi.it/sites/default/files/regolamenti/Regolamento%20tasse%20e%20contributi%202026_2027_signed.pdf"
+      },
+      "payments": {
+        "steps": [
+          "146 € (bollo e tassa regionale) all’immatricolazione",
+          "Seconda rata (contributo ed eventuale saldo della tassa regionale) entro il 2 febbraio 2027; da 700 € in su si può dividere in quattro rate"
+        ],
+        "note": "L’ISEE per il diritto allo studio universitario va richiesto entro il 10 ottobre 2026: all’iscrizione viene attribuito il massimo, ridotto poi in base all’ISEE.",
+        "source": {
+          "label": "Statale di Milano, Regolamento tasse e contributi 2026/27, artt. 3.1, 3.3 e 3.4",
+          "url": "https://www.unimi.it/sites/default/files/regolamenti/Regolamento%20tasse%20e%20contributi%202026_2027_signed.pdf"
+        }
+      },
+      "simulator": "https://www.unimi.it/sites/default/files/regolamenti/Regolamento%20tasse%20e%20contributi%202026_2027_signed.pdf"
+    },
+    "ateneo-01502": {
+      "name": "Politecnico di Milano",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole con un piano di studi da 46 a 74 CFU (il primo anno pieno), che pagano il 100% del contributo; con meno o più crediti si paga dal 50% al 130%.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 11.04,
+        "total": 217.04
+      },
+      "fixedFeesNote": "Con la prima rata: 130 € di tassa regionale (160 € o 190 € con ISEE più alto, a saldo), bollo 16 € e assicurazioni 11,04 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53775.86,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 22000,
+          "rate": 0.0770001,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 24000,
+          "rate": 0.1505004,
+          "base": 154
+        },
+        {
+          "iseeMax": 30000,
+          "from": 26000,
+          "rate": 0.1540002,
+          "base": 455
+        },
+        {
+          "iseeMax": 31000,
+          "from": 0,
+          "rate": 0,
+          "base": 1474
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1788
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 2109
+        },
+        {
+          "iseeMax": 63000,
+          "from": 0,
+          "rate": 0,
+          "base": 2436
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 2763
+        },
+        {
+          "iseeMax": 95000,
+          "from": 0,
+          "rate": 0,
+          "base": 3189
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3726
+        }
+      ],
+      "bandsSource": {
+        "label": "Politecnico di Milano, Regolamento contribuzione studentesca 2026/27, art. 5 e tabelle 1, 2 e 4.2",
+        "url": "https://www.normativa.polimi.it/fileadmin/user_upload/regolamenti/studenti/D.r._regolamento_contribuzione_studentesca_2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3726,
+        "ciclo-unico": 3726,
+        "magistrale": 3726
+      },
+      "maxExceptions": [],
+      "maxNote": "Contributo pieno di 3.726 € con ISEE oltre 95.000 € o senza ISEE, uguale per tutti i corsi in presenza; la laurea online aggiunge 1.500 €. Tra 22.000 e 30.000 € il regolamento arrotonda all’euro inferiore.",
+      "maxSource": {
+        "label": "Politecnico di Milano, Regolamento contribuzione studentesca 2026/27, artt. 3, 5 e 6",
+        "url": "https://www.normativa.polimi.it/fileadmin/user_upload/regolamenti/studenti/D.r._regolamento_contribuzione_studentesca_2026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’immatricolazione: tassa regionale, bollo, assicurazioni e anticipo del contributo (fino a 723 €)",
+          "Seconda rata: saldo del contributo, alle scadenze del calendario accademico"
+        ],
+        "note": "Per la riduzione serve un ISEE valido presentato nei termini dell’Ateneo; senza ISEE, o dopo il pagamento della seconda rata, si paga il contributo pieno.",
+        "source": {
+          "label": "Politecnico di Milano, Regolamento contribuzione studentesca 2026/27, artt. 4 e 6",
+          "url": "https://www.normativa.polimi.it/fileadmin/user_upload/regolamenti/studenti/D.r._regolamento_contribuzione_studentesca_2026-2027.pdf"
+        }
+      },
+      "simulator": "https://www.polimi.it/studenti/tasse-borse-e-agevolazioni"
     }
   }
 }

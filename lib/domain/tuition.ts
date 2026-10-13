@@ -25,6 +25,8 @@ interface CourseGroup {
   label: string;
   /** Macroaree del dataset (campo `group` del corso) che appartengono al gruppo. */
   groups: string[];
+  /** Corsi assegnati al gruppo per nome esatto (vince su tutto il resto). */
+  names?: string[];
   /** Corsi assegnati al gruppo per nome, qualunque sia la macroarea. */
   nameIncludes?: string[];
   default?: boolean;
@@ -82,7 +84,8 @@ export function courseGroup(rule: TuitionRule, course: CourseLike | null): Cours
   const name = normalize(course?.name);
   const found =
     course &&
-    (groups.find((group) => group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
+    (groups.find((group) => group.names?.some((item) => normalize(item) === name)) ||
+      groups.find((group) => group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
       groups.find((group) => group.groups.includes(course.group || '')));
   return found || groups.find((group) => group.default) || groups[0];
 }
