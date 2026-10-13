@@ -4,18 +4,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { journeyOf } from '@/lib/client/types';
-import { JOURNEY_PHASE_LABELS, SITE_CONFIG, SITUATION_LABELS, STUDENT_TOOLS, STUDENT_TOOL_SITUATIONS } from '@/lib/site-config';
+import {
+  JOURNEY_PHASE_LABELS,
+  SITE_CONFIG,
+  SITUATION_LABELS,
+  STUDENT_TOOL_SITUATIONS,
+  visibleNavItems,
+  visibleStudentTools
+} from '@/lib/site-config';
 import { Icon, type IconName } from './Icons';
 import { useSite } from './SiteProvider';
-
-const NAV_ITEMS = [
-  { href: '/atenei', label: 'atenei' },
-  { href: '/comparison', label: 'comparison' },
-  { href: '/trova-corso', label: 'trova il mio corso' },
-  { href: '/preparazione', label: 'preparazione', enrollingOnly: true },
-  { href: '/burocrazia', label: 'burocrazia', enrollingOnly: true },
-  { href: '/scuole-aziende', label: 'scuole e aziende' }
-];
 
 export function Header() {
   const pathname = usePathname();
@@ -87,7 +85,7 @@ export function Header() {
         </button>
 
         <nav className={`primary-nav${mobileOpen ? ' is-open' : ''}`} id="primaryNav" aria-label="Navigazione principale">
-          {NAV_ITEMS.filter((item) => !item.enrollingOnly || showEnrollingTools).map((item) => {
+          {visibleNavItems().filter((item) => !item.enrollingOnly || showEnrollingTools).map((item) => {
             const active = pathname === item.href;
             return (
               <Link
@@ -151,7 +149,7 @@ export function Header() {
                 <>
                   <p className="profile-section-label">Il tuo spazio</p>
                   <div className="profile-tools">
-                    {STUDENT_TOOLS.map((tool) => (
+                    {visibleStudentTools().map((tool) => (
                       <Link
                         key={tool.slug}
                         className="profile-tool"

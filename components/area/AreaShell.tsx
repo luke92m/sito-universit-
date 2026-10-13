@@ -3,20 +3,11 @@
 import Link from 'next/link';
 import { useEffect, type ReactNode } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
-import { SECTION_META, type SectionKey } from '@/lib/area-sections';
+import { SECTION_META, activeSections, type SectionKey } from '@/lib/area-sections';
 import { useToday } from '@/lib/client/use-today';
 import { SITE_CONFIG } from '@/lib/site-config';
 
 export type { SectionKey };
-
-const TABS: [SectionKey, string][] = [
-  ['dati-percorso', 'Dati del percorso'],
-  ['borse-di-studio', 'Borse di studio'],
-  ['scadenze', 'Scadenze'],
-  ['community', 'Community'],
-  ['accompagnamento', 'Accompagnamento'],
-  ['libri-usati', 'Libri usati']
-];
 
 export function AreaLocked({ reason }: { reason: 'login' | 'profile' }) {
   const { openAuth } = useSite();
@@ -62,14 +53,14 @@ export function AreaShell({ section, children }: { section: SectionKey; children
         </aside>
       </section>
       <nav className="student-area-tabs" aria-label="Sezioni del profilo">
-        {TABS.map(([key, label]) => (
+        {activeSections().map((key) => (
           <Link
             key={key}
             href={`/area-studente/${key}`}
             className={section === key ? 'is-active' : ''}
             aria-current={section === key ? 'page' : undefined}
           >
-            {label}
+            {SECTION_META[key].title}
           </Link>
         ))}
       </nav>

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { isEnabled } from '@/lib/features';
 
 export const metadata: Metadata = {
   title: 'Scuole e aziende',
@@ -12,6 +14,7 @@ const CARDS = [
 ];
 
 export default function SchoolsCompaniesPage() {
+  if (!isEnabled('scuoleAziende')) notFound();
   return (
     <main>
       <section className="coming-section">

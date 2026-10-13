@@ -5,9 +5,9 @@ import { UNIVERSITIES } from '@/lib/data';
 
 const JOURNEY = [
   ['01', 'Scopri', 'Trova i corsi più vicini ai tuoi interessi'],
-  ['02', 'Preparati', 'Test, metodo e primi passi'],
-  ['03', 'Organizzati', 'Scadenze, borse e materiali'],
-  ['04', 'Confrontati', 'Community e accompagnamento']
+  ['02', 'Scegli', 'Le università adatte al tuo profilo'],
+  ['03', 'Confronta', 'Ranking, costi e borse fianco a fianco'],
+  ['04', 'Organizzati', 'Immatricolazione e scadenze ufficiali']
 ];
 
 export default function HomePage() {

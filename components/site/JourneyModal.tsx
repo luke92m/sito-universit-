@@ -71,7 +71,7 @@ function JourneyDialog({ user }: { user: SiteUser }) {
         <div className="auth-heading">
           <span className="eyebrow">Profilo universitario</span>
           <h2 id="journeyModalTitle">Modifica i dati del percorso</h2>
-          <p>Queste informazioni sono salvate nel tuo profilo e personalizzano scadenze, community e libri usati.</p>
+          <p>Queste informazioni sono salvate nel tuo profilo e personalizzano borse di studio e scadenze.</p>
         </div>
         <form className="auth-form" onSubmit={handleSubmit} noValidate>
           <fieldset className="compact-radio-fieldset">

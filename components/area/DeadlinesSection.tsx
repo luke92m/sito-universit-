@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { CourseNameSelect } from '@/components/site/CourseNameSelect';
 import { useSite } from '@/components/site/SiteProvider';
@@ -7,6 +8,8 @@ import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { clearContext, loadContext, saveContext } from '@/lib/client/contexts';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
 import { useLoader } from '@/lib/client/use-loader';
+import { STUDENT_SERVICES } from '@/lib/data/student-services';
+import { isEnabled } from '@/lib/features';
 import { formatDate } from '@/lib/site-config';
 import { loadSavedScholarships, type SavedScholarship } from './ScholarshipsSection';
 
@@ -244,6 +247,50 @@ interface EventsResult {
 }
 
 export function DeadlinesSection({ user }: { user: SiteUser }) {
+  return isEnabled('scadenzeScraping') ? <DetectedDeadlines user={user} /> : <CuratedDeadlinesSoon user={user} />;
+}
+
+/**
+ * Rilevamento automatico spento: in attesa del calendario curato a mano si rimanda
+ * al bando dell'ente per il diritto allo studio della regione dell'ateneo.
+ */
+function CuratedDeadlinesSoon({ user }: { user: SiteUser }) {
+  const { getUniversity } = useSite();
+  const university = getUniversity(journeyOf(user)?.universityId || '');
+  const portal = university ? STUDENT_SERVICES.regionalPortals[university.region] : null;
+
+  return (
+    <>
+      <section className="service-card deadline-sync-card">
+        <span className="eyebrow">Calendario in preparazione</span>
+        <h2>Stiamo raccogliendo a mano le scadenze ufficiali.</h2>
+        <p>
+          Al posto del rilevamento automatico arriverà un calendario verificato dei bandi per il diritto allo studio e dei
+          test nazionali, con la fonte accanto a ogni data. Nel frattempo consulta direttamente il bando ufficiale.
+        </p>
+        <div className="inline-actions">
+          {portal ? (
+            <a className="button button-primary" href={portal.url} target="_blank" rel="noreferrer">
+              Apri il portale: {portal.name}
+            </a>
+          ) : null}
+          <a className="button button-secondary" href={STUDENT_SERVICES.sources.murScholarships} target="_blank" rel="noreferrer">
+            Diritto allo studio sul sito del MUR
+          </a>
+          <Link className="text-button" href="/area-studente/borse-di-studio">
+            Verifica la borsa
+          </Link>
+        </div>
+      </section>
+      <section className="source-disclaimer">
+        <strong>Il sito non inserisce date inventate.</strong>
+        <p>Ogni scadenza del calendario avrà accanto il collegamento al bando e la data dell’ultima verifica.</p>
+      </section>
+    </>
+  );
+}
+
+function DetectedDeadlines({ user }: { user: SiteUser }) {
   const { getUniversity, openJourneyEditor } = useSite();
   const journey = journeyOf(user);
   const journeyUniversity = journey?.universityId || '';

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { isEnabled } from '../../lib/features';
 
 // Flussi con account: richiedono Supabase configurato e un utente di test già confermato
 // con situazione "Sono studente universitario" (E2E_USER_EMAIL / E2E_USER_PASSWORD).
@@ -27,13 +28,16 @@ test.describe('account', () => {
     await journey.getByRole('button', { name: 'Salva il percorso' }).click();
     await expect(page.locator('.site-toast')).toHaveText('Dati del percorso aggiornati.');
 
-    await page.goto('/area-studente/community');
-    const text = `Messaggio di prova ${Date.now()}`;
-    await page.locator('#communityText').fill(text);
-    await page.getByRole('button', { name: 'Pubblica' }).click();
-    await expect(page.getByText(text)).toBeVisible();
-    await page.locator('.community-message', { hasText: text }).getByRole('button', { name: 'Elimina' }).click();
-    await expect(page.getByText(text)).toBeHidden();
+    // Community spenta in lib/features.ts: il passaggio torna attivo insieme alla funzione.
+    if (isEnabled('community')) {
+      await page.goto('/area-studente/community');
+      const text = `Messaggio di prova ${Date.now()}`;
+      await page.locator('#communityText').fill(text);
+      await page.getByRole('button', { name: 'Pubblica' }).click();
+      await expect(page.getByText(text)).toBeVisible();
+      await page.locator('.community-message', { hasText: text }).getByRole('button', { name: 'Elimina' }).click();
+      await expect(page.getByText(text)).toBeHidden();
+    }
 
     await page.locator('.profile-button').click();
     await page.getByRole('menuitem', { name: /Esci dal profilo/ }).click();

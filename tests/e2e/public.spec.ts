@@ -76,16 +76,32 @@ test('comparison tra corsi con scenario', async ({ page }) => {
   await expect(page.locator('.scenario-label')).toHaveText('Stesso corso · università diverse');
 });
 
-test('strumenti riservati senza accesso', async ({ page }) => {
+test('funzioni spente: fuori dal menu e dagli indirizzi', async ({ page, request }) => {
+  await page.goto('/');
+  const nav = page.getByRole('navigation', { name: 'Navigazione principale' });
+  await expect(nav.getByRole('link', { name: 'atenei' })).toBeVisible();
+  await expect(nav.getByRole('link', { name: 'preparazione' })).toHaveCount(0);
+  await expect(nav.getByRole('link', { name: 'scuole e aziende' })).toHaveCount(0);
+
   await page.goto('/preparazione');
-  await expect(page.locator('.access-gate')).toBeVisible();
+  await expect(page).toHaveURL(/\/burocrazia$/);
+  expect((await request.get('/scuole-aziende')).status()).toBe(404);
+  expect((await request.get('/api/deadlines?universityId=x')).status()).toBe(404);
+
+  // Le sezioni spente dell'area personale riportano alle borse, riservate agli utenti registrati.
   await page.goto('/area-studente/community');
+  await expect(page).toHaveURL(/\/area-studente\/borse-di-studio$/);
   await expect(page.locator('.student-area-locked')).toBeVisible();
+
+  const sitemap = await (await request.get('/sitemap.xml')).text();
+  expect(sitemap).toContain('/trova-corso');
+  expect(sitemap).not.toContain('/preparazione');
+  expect(sitemap).not.toContain('/scuole-aziende');
 });
 
 test('i vecchi URL .html reindirizzano', async ({ page }) => {
   await page.goto('/atenei.html');
   await expect(page).toHaveURL(/\/atenei$/);
-  await page.goto('/area-studente.html?sezione=community');
-  await expect(page).toHaveURL(/\/area-studente\/community/);
+  await page.goto('/area-studente.html?sezione=scadenze');
+  await expect(page).toHaveURL(/\/area-studente\/scadenze/);
 });

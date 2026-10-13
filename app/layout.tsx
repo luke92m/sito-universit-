@@ -11,7 +11,8 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: { default: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`, template: `%s — ${SITE_CONFIG.name}` },
-  description: 'Un sito semplice per orientarsi tra atenei, preparazione, scadenze e opportunità del mondo universitario.',
+  description:
+    'Scopri quale università fa per te e quanto ti costa davvero, borsa compresa: confronto neutrale tra 99 atenei, con le fonti di ogni dato.',
   icons: { icon: 'data:,' }
 };
 

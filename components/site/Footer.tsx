@@ -17,7 +17,8 @@ export function Footer() {
           <span>{SITE_CONFIG.name}</span>
         </Link>
         <p>
-          Un punto di partenza semplice per orientarsi nel mondo universitario. <Link href="/privacy">Privacy</Link>
+          Un punto di partenza semplice per scegliere l’università. Nessun ateneo paga per comparire nei risultati.{' '}
+          <Link href="/privacy">Privacy</Link>
         </p>
         <span className="footer-status">{today ? `Oggi ${today}` : ''}</span>
       </div>
