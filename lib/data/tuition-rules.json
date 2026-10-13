@@ -307,6 +307,316 @@
         }
       },
       "simulator": "https://www.unipd.it/contribuzione-studentesca"
+    },
+    "ateneo-00101": {
+      "name": "Università di Torino",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole a tempo pieno (al primo anno non servono crediti) e iscritti in corso con i crediti minimi, cittadini con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale 140 € e bollo 16 €) all’immatricolazione.",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0.060294118,
+          "base": -1386.764706
+        },
+        {
+          "iseeMax": 85000,
+          "from": 0,
+          "rate": 0.039111111,
+          "base": -539.4444444
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2840
+        }
+      ],
+      "bandsSource": {
+        "label": "UniTo, Regolamento tasse e contributi 2026/27 (D.R. 6194/2026), art. 3.1",
+        "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2840,
+        "ciclo-unico": 2840,
+        "magistrale": 2840
+      },
+      "maxExceptions": [],
+      "maxNote": "Senza ISEE o con ISEE oltre 85.000 € si pagano 2.840 €. Alcuni corsi chiedono una quota in più (art. 6.1): Business & Management e Business Administration da 400 € a 5.100 € secondo l’ISEE, Management dell’informazione e della comunicazione aziendale 2.710 €, Conservazione e restauro 4.000 €. Per Medicina, Odontoiatria e Veterinaria (semestre filtro) gli importi sono fissati a parte.",
+      "maxSource": {
+        "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 2, 4 e 6",
+        "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
+      },
+      "payments": {
+        "steps": [
+          "156 € all’immatricolazione",
+          "Seconda rata (fino a 450 €) entro il 30 novembre 2026",
+          "Terza rata entro il 31 marzo 2027",
+          "Quarta rata entro il 31 maggio 2027"
+        ],
+        "note": "Serve l’ISEE per il diritto allo studio universitario entro il 20 novembre 2026 (fino al 26 febbraio 2027 con 150 € di mora); senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 4 e 5",
+          "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
+        }
+      },
+      "simulator": "https://simulatore.tasse.unito.it/"
+    },
+    "ateneo-05801": {
+      "name": "Sapienza Università di Roma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole e iscritti con i crediti minimi (al primo anno non servono crediti), a tempo pieno, nei corsi senza contributo fisso.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale del Lazio (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0.014,
+          "base": -182
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0.035,
+          "base": -455
+        },
+        {
+          "iseeMax": 28041.1,
+          "from": 0,
+          "rate": 0.049,
+          "base": -637
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0.0128905,
+          "base": 375.55
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": -0.0573135,
+          "base": 1779.63,
+          "square": 8.7755e-7
+        },
+        {
+          "iseeMax": 100000,
+          "from": 0,
+          "rate": 0,
+          "base": -2801.85,
+          "exp": {
+            "scale": 8401.58,
+            "k": 40162.5
+          }
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2821
+        }
+      ],
+      "bandsSource": {
+        "label": "Sapienza, Regolamento studenti 2026/27, art. 44, e criteri di calcolo degli importi in base all’ISEE",
+        "url": "https://www.uniroma1.it/it/content/isee-il-diritto-allo-studio-universitario-e-meriti-di-studio"
+      },
+      "maxByLevel": {
+        "triennale": 2924,
+        "ciclo-unico": 2924,
+        "magistrale": 2924
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "I",
+          "label": "I",
+          "default": true,
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Arte e Design"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0.014,
+              "base": -182
+            },
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0.035,
+              "base": -455
+            },
+            {
+              "iseeMax": 28041.1,
+              "from": 0,
+              "rate": 0.049,
+              "base": -637
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0.0128905,
+              "base": 375.55
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": -0.0573135,
+              "base": 1779.63,
+              "square": 8.7755e-7
+            },
+            {
+              "iseeMax": 100000,
+              "from": 0,
+              "rate": 0,
+              "base": -2801.85,
+              "exp": {
+                "scale": 8401.58,
+                "k": 40162.5
+              }
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2821
+            }
+          ],
+          "max": 2821
+        },
+        {
+          "id": "II",
+          "label": "II",
+          "groups": [
+            "Agrario-Forestale e Veterinario",
+            "Architettura e Ingegneria civile",
+            "Educazione e Formazione",
+            "Informatica e Tecnologie ICT",
+            "Ingegneria industriale e dell'informazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Psicologico",
+            "Scientifico",
+            "Scienze motorie e sportive"
+          ],
+          "nameIncludes": [
+            "Design",
+            "Biomedica"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0.014,
+              "base": -182
+            },
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0.035,
+              "base": -455
+            },
+            {
+              "iseeMax": 28041.1,
+              "from": 0,
+              "rate": 0.049,
+              "base": -637
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0.0139815,
+              "base": 398.9
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": -0.0504725,
+              "base": 1687.98,
+              "square": 8.05675e-7
+            },
+            {
+              "iseeMax": 100000,
+              "from": 0,
+              "rate": 0,
+              "base": -1204.77,
+              "exp": {
+                "scale": 7536.49,
+                "k": 60166.7
+              }
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2924
+            }
+          ],
+          "max": 2924
+        }
+      ],
+      "maxNote": "Gruppo I (Economia, Giurisprudenza, Lettere e Filosofia, Scienze Politiche) fino a 2.821 €, gruppo II (Architettura, Ingegneria, Informatica, Medicina, Psicologia, Farmacia, Scienze) fino a 2.924 €. Il sito assegna il gruppo dalla macroarea del corso: verifica la Facoltà. I corsi a distanza o interateneo hanno un contributo fisso.",
+      "maxSource": {
+        "label": "Sapienza, Regolamento studenti 2026/27, art. 38 (importi ordinari)",
+        "url": "https://www.uniroma1.it/it/content/importi-ordinari-dei-contributi-di-iscrizione"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (30%) con tassa regionale e bollo entro il 5 novembre 2026, o entro la data del bando per i corsi a numero programmato",
+          "Seconda rata (35%) entro il 17 dicembre 2026",
+          "Terza rata (35%) entro il 25 marzo 2027"
+        ],
+        "note": "Serve l’ISEE per il diritto allo studio universitario entro il 17 dicembre 2026; dopo, fino al 30 giugno 2027, con una multa. Senza ISEE si paga l’importo ordinario.",
+        "source": {
+          "label": "Sapienza, Regolamento studenti 2026/27, artt. 41 e 42",
+          "url": "https://www.uniroma1.it/it/content/scadenze-pagare-i-contributi-di-iscrizione-ai-corsi-di-studio-e-conseguenze-caso-di-ritardo"
+        }
+      },
+      "simulator": "https://www.uniroma1.it/it/pagina/calcolatore-dei-contributi-di-iscrizione"
     }
   }
 }
