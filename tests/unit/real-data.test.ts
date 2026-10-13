@@ -15,6 +15,7 @@ import {
   degreeLevel,
   fixedFeesRange,
   maxContribution,
+  offSiteContribution,
   tuitionRuleFor
 } from '@/lib/domain/tuition';
 
@@ -279,6 +280,35 @@ describe('tasse Milano-Bicocca 2026/27', () => {
     const bicocca = getUniversityById('ateneo-01509')!;
     const cost = realCost(bicocca, named('Economia e Finanza'), exact(40000), exact(20000), 'inSede');
     expect(cost.total.max).toBe(Math.round(826.43 + 160 + 16));
+  });
+});
+
+describe('tasse Università di Pisa 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05001')!;
+
+  it('tabella dell’art. 1.2.2 per gli studenti regolari', () => {
+    expect(contributionFor(rule, 26000, 2900)).toBe(0);
+    expect(contributionFor(rule, 26001, 2900)).toBe(280);
+    expect(contributionFor(rule, 40000, 2900)).toBe(969);
+    expect(contributionFor(rule, 55000, 2900)).toBe(1883);
+    expect(contributionFor(rule, 98500, 2900)).toBe(2854);
+    expect(contributionFor(rule, 100000, 2900)).toBe(2900);
+    expect(contributionFor(rule, null, 2900)).toBe(2900);
+  });
+
+  it('riduzione del 15% di (2.900 € − contributo) per chi è fuori sede', () => {
+    expect(offSiteContribution(rule, 969)).toBe(679.35);
+    expect(offSiteContribution(rule, 0)).toBe(0);
+    expect(offSiteContribution(rule, 2900)).toBe(2900);
+  });
+
+  it('costo reale: riduzione certa fuori sede, possibile per i pendolari, assente in sede', () => {
+    const pisa = getUniversityById('ateneo-05001')!;
+    const tasse = (condition: 'fuoriSede' | 'pendolare' | 'inSede') =>
+      realCost(pisa, null, exact(40000), exact(20000), condition).lines.find((line) => line.key === 'tasse')!;
+    expect(tasse('fuoriSede')).toMatchObject({ min: 679.35, max: 679.35 });
+    expect(tasse('pendolare')).toMatchObject({ min: 679.35, max: 969 });
+    expect(tasse('inSede')).toMatchObject({ min: 969, max: 969 });
   });
 });
 

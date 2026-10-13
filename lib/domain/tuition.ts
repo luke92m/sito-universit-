@@ -48,6 +48,8 @@ export interface TuitionRule {
   maxByLevel: Record<DegreeLevel, number>;
   maxExceptions: { name: string; level: DegreeLevel; amount: number }[];
   courseGroups?: CourseGroup[];
+  /** Riduzione per chi vive lontano dalla sede (es. Pisa): (from − contributo) × rate. */
+  offSiteReduction?: { from: number; rate: number; note: string };
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };
@@ -116,6 +118,13 @@ export function contributionFor(
 ): number {
   if (isee == null) return max;
   return cents(Math.min(max, bandValue(bands, isee)));
+}
+
+/** Contributo dopo la riduzione per chi vive lontano dalla sede, se l'ateneo la prevede. */
+export function offSiteContribution(rule: TuitionRule, contribution: number): number {
+  const reduction = rule.offSiteReduction;
+  if (!reduction) return contribution;
+  return cents(Math.max(0, contribution - Math.max(0, reduction.from - contribution) * reduction.rate));
 }
 
 /** Contributo per un intervallo ISEE (la formula cresce con l'ISEE: bastano gli estremi). */
