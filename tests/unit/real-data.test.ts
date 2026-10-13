@@ -198,6 +198,31 @@ describe('tasse Politecnico di Torino 2026/27', () => {
   });
 });
 
+describe('tasse Università di Firenze 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-04801')!;
+
+  it('fasce dell’Allegato 1 per le matricole a tempo pieno', () => {
+    expect(contributionFor(rule, 24000, 2744)).toBe(0);
+    expect(contributionFor(rule, 24000.01, 2744)).toBe(350);
+    expect(contributionFor(rule, 30000, 2744)).toBe(535);
+    expect(contributionFor(rule, 35000, 2744)).toBe(720);
+    expect(contributionFor(rule, 46500, 2744)).toBe(1090.2);
+    expect(contributionFor(rule, 90000, 2744)).toBe(2685.2);
+  });
+
+  it('fascia massima oltre 90.000 € e senza ISEE', () => {
+    expect(contributionFor(rule, 95000, 2744)).toBe(2744);
+    expect(contributionFor(rule, null, 2744)).toBe(2744);
+  });
+
+  it('costo reale in sede uguale al totale annuo della tabella ufficiale', () => {
+    const firenze = getUniversityById('ateneo-04801')!;
+    const cost = realCost(firenze, null, exact(35000), exact(20000), 'inSede');
+    expect(cost.lines.map((item) => item.key)).toEqual(['tasse', 'quota-fissa']);
+    expect(cost.total.max).toBe(876);
+  });
+});
+
 describe('tasse Sapienza 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-05801')!;
   const courses = getCourses('ateneo-05801');
@@ -385,9 +410,9 @@ describe('costo reale annuo', () => {
 });
 
 describe('esonero dalle tasse per gli idonei, anche senza le regole dell’ateneo', () => {
-  it('Firenze, fuori sede con ISEE basso: tasse a zero, borsa e servizi gratuiti sottratti', () => {
-    const firenze = getUniversityById('ateneo-04801')!;
-    const cost = realCost(firenze, null, exact(15000), none, 'fuoriSede');
+  it('Siena, fuori sede con ISEE basso: tasse a zero, borsa e servizi gratuiti sottratti', () => {
+    const siena = getUniversityById('ateneo-05201')!;
+    const cost = realCost(siena, null, exact(15000), none, 'fuoriSede');
     const line = (key: string) => cost.lines.find((item) => item.key === key);
     expect(line('tasse')).toMatchObject({ min: 0, max: 0, estimated: false });
     expect(line('borsa')?.max).toBe(2262);
