@@ -1,0 +1,1876 @@
+{
+  "version": 1,
+  "note": "Regole ufficiali di contribuzione per fascia ISEE, copiate dai documenti degli atenei. Contributo = formula della fascia, fino al massimo del corso; senza ISEE si paga il massimo.",
+  "universities": {
+    "ateneo-03701": {
+      "name": "Università di Bologna",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "appliesTo": "Matricole e iscritti entro la durata normale del corso + 1 anno, con i crediti minimi (al primo anno non servono crediti).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 1.04,
+        "total": 157.04
+      },
+      "fixedFeesNote": "Pagati da tutti con la prima rata, anche con esonero totale.",
+      "bands": [
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 33000,
+          "from": 23000,
+          "rate": 0.09,
+          "base": 0
+        },
+        {
+          "iseeMax": 45000,
+          "from": 13000,
+          "rate": 0.045,
+          "base": 0
+        },
+        {
+          "iseeMax": 55000,
+          "from": 45000,
+          "rate": 0.0429,
+          "base": 1440
+        },
+        {
+          "iseeMax": 60000,
+          "from": 55000,
+          "rate": 0.19,
+          "base": 1869
+        },
+        {
+          "iseeMax": 70000,
+          "from": 13000,
+          "rate": 0.06,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 13000,
+          "rate": 0.07,
+          "base": 0
+        }
+      ],
+      "bandsSource": {
+        "label": "UniBo, Sistema di calcolo della contribuzione 2026/27",
+        "url": "https://www.unibo.it/it/allegati/sistema-di-calcolo-delle-tasse-a-a-2026-27/@@download/file/Sistema-di-calcolo-delle-tasse-anno-accademico-2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2040,
+        "ciclo-unico": 2244,
+        "magistrale": 2550
+      },
+      "maxExceptions": [
+        {
+          "name": "Mediazione linguistica interculturale",
+          "level": "triennale",
+          "amount": 2550
+        },
+        {
+          "name": "Traduzione ed interpretazione di trattativa",
+          "level": "triennale",
+          "amount": 2550
+        },
+        {
+          "name": "Comunicazione interlinguistica applicata",
+          "level": "triennale",
+          "amount": 2550
+        },
+        {
+          "name": "Genomics",
+          "level": "triennale",
+          "amount": 2805
+        },
+        {
+          "name": "Odontoiatria e protesi dentaria",
+          "level": "ciclo-unico",
+          "amount": 4080
+        },
+        {
+          "name": "Conservazione e restauro dei beni culturali",
+          "level": "ciclo-unico",
+          "amount": 5916
+        },
+        {
+          "name": "Medicine and Surgery",
+          "level": "ciclo-unico",
+          "amount": 3315
+        },
+        {
+          "name": "Pharmacy",
+          "level": "ciclo-unico",
+          "amount": 3060
+        },
+        {
+          "name": "Veterinary Medicine",
+          "level": "ciclo-unico",
+          "amount": 3315
+        }
+      ],
+      "maxNote": "Diversi corsi magistrali in inglese hanno un massimo più alto (da 2.805 € a 4.080 €): per le magistrali verifica la tabella ufficiale.",
+      "maxSource": {
+        "label": "UniBo, Tabella importi massimi 2026/27",
+        "url": "https://www.unibo.it/it/allegati/Tabellaimportimassimi2627.pdf/@@download/file/Tabella%20importi%20massimi%202026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "157,04 € entro il 24 settembre 2026",
+          "Seconda rata entro il 18 dicembre 2026",
+          "Terza rata entro il 15 marzo 2027"
+        ],
+        "note": "Serve l’ISEE per le prestazioni per il diritto allo studio universitario: senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UniBo, Tasse ed esenzioni: importi e scadenze",
+          "url": "https://www.unibo.it/it/studiare/iscrizioni-tasse-e-altre-procedure/lauree-e-lauree-magistrali/tasse-e-contributi"
+        }
+      },
+      "simulator": "https://studenti.unibo.it/sol/simulatore/2026.htm"
+    },
+    "ateneo-02801": {
+      "name": "Università di Padova",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "appliesTo": "Matricole e iscritti regolari con la progressione minima di carriera (al primo anno non servono crediti), cittadini UE con famiglia in Italia.",
+      "fixedFees": {
+        "regionalTax": 192,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 208
+      },
+      "fixedFeesNote": "Prima rata: tassa regionale (da 146 € a 192 € secondo l’ISEE) e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 15748.78,
+          "from": 0,
+          "base": 146,
+          "rate": 0.001333
+        },
+        {
+          "iseeMax": 31497.56,
+          "from": 15748.79,
+          "base": 167,
+          "rate": 0.001587
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "base": 192,
+          "rate": 0
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 50000,
+          "from": 30000,
+          "base": 560,
+          "rate": 0.0645
+        },
+        {
+          "iseeMax": 70000,
+          "from": 50000,
+          "base": 1850,
+          "rate": 0.0445
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2790
+        }
+      ],
+      "bandsSource": {
+        "label": "UniPD, Bando contribuzione studentesca ed esoneri 2026/27, Tabella 3",
+        "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/1.Bando%20ContribuzioneEsoneri%202026-27.pdf"
+      },
+      "bandsNote": "Il bando indica solo gli estremi di ogni fascia: tra un estremo e l’altro il sito stima un andamento lineare.",
+      "maxByLevel": {
+        "triennale": 2790,
+        "ciclo-unico": 2990,
+        "magistrale": 2790
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "A (umanistico)",
+          "default": true,
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Educazione e Formazione",
+            "Arte e Design"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 50000,
+              "from": 30000,
+              "base": 560,
+              "rate": 0.0645
+            },
+            {
+              "iseeMax": 70000,
+              "from": 50000,
+              "base": 1850,
+              "rate": 0.0445
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2790
+            }
+          ],
+          "max": 2790
+        },
+        {
+          "id": "B",
+          "label": "B (scientifico)",
+          "groups": [
+            "Agrario-Forestale e Veterinario",
+            "Architettura e Ingegneria civile",
+            "Informatica e Tecnologie ICT",
+            "Ingegneria industriale e dell'informazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Psicologico",
+            "Scientifico",
+            "Scienze motorie e sportive"
+          ],
+          "nameIncludes": [
+            "Scienze della Formazione Primaria",
+            "Management dei servizi educativi"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 50000,
+              "from": 30000,
+              "base": 710,
+              "rate": 0.06575
+            },
+            {
+              "iseeMax": 70000,
+              "from": 50000,
+              "base": 2025,
+              "rate": 0.04575
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2990
+            }
+          ],
+          "max": 2990
+        }
+      ],
+      "maxNote": "Gruppo A (umanistico) fino a 2.790 €, gruppo B (scientifico) fino a 2.990 €. Il sito assegna il gruppo dalla macroarea del corso: verifica la Scuola di appartenenza.",
+      "maxSource": {
+        "label": "UniPD, Bando contribuzione studentesca ed esoneri 2026/27, Tabella 1",
+        "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/1.Bando%20ContribuzioneEsoneri%202026-27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (fino a 208 €) all’immatricolazione",
+          "Il contributo per ISEE è diviso tra seconda e terza rata"
+        ],
+        "note": "Per avere la riduzione serve la Richiesta di Agevolazioni in Uniweb con l’ISEE per il diritto allo studio.",
+        "source": {
+          "label": "UniPD, Contribuzione studentesca",
+          "url": "https://www.unipd.it/contribuzione-studentesca"
+        }
+      },
+      "simulator": "https://www.unipd.it/contribuzione-studentesca"
+    },
+    "ateneo-00101": {
+      "name": "Università di Torino",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole a tempo pieno (al primo anno non servono crediti) e iscritti in corso con i crediti minimi, cittadini con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale 140 € e bollo 16 €) all’immatricolazione.",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0.060294118,
+          "base": -1386.764706
+        },
+        {
+          "iseeMax": 85000,
+          "from": 0,
+          "rate": 0.039111111,
+          "base": -539.4444444
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2840
+        }
+      ],
+      "bandsSource": {
+        "label": "UniTo, Regolamento tasse e contributi 2026/27 (D.R. 6194/2026), art. 3.1",
+        "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2840,
+        "ciclo-unico": 2840,
+        "magistrale": 2840
+      },
+      "maxExceptions": [],
+      "maxNote": "Senza ISEE o con ISEE oltre 85.000 € si pagano 2.840 €. Alcuni corsi chiedono una quota in più (art. 6.1): Business & Management e Business Administration da 400 € a 5.100 € secondo l’ISEE, Management dell’informazione e della comunicazione aziendale 2.710 €, Conservazione e restauro 4.000 €. Per Medicina, Odontoiatria e Veterinaria (semestre filtro) gli importi sono fissati a parte.",
+      "maxSource": {
+        "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 2, 4 e 6",
+        "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
+      },
+      "payments": {
+        "steps": [
+          "156 € all’immatricolazione",
+          "Seconda rata (fino a 450 €) entro il 30 novembre 2026",
+          "Terza rata entro il 31 marzo 2027",
+          "Quarta rata entro il 31 maggio 2027"
+        ],
+        "note": "Serve l’ISEE per il diritto allo studio universitario entro il 20 novembre 2026 (fino al 26 febbraio 2027 con 150 € di mora); senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 4 e 5",
+          "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
+        }
+      },
+      "simulator": "https://simulatore.tasse.unito.it/"
+    },
+    "ateneo-05801": {
+      "name": "Sapienza Università di Roma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole e iscritti con i crediti minimi (al primo anno non servono crediti), a tempo pieno, nei corsi senza contributo fisso.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale del Lazio (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0.014,
+          "base": -182
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0.035,
+          "base": -455
+        },
+        {
+          "iseeMax": 28041.1,
+          "from": 0,
+          "rate": 0.049,
+          "base": -637
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0.0128905,
+          "base": 375.55
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": -0.0573135,
+          "base": 1779.63,
+          "square": 8.7755e-7
+        },
+        {
+          "iseeMax": 100000,
+          "from": 0,
+          "rate": 0,
+          "base": -2801.85,
+          "exp": {
+            "scale": 8401.58,
+            "k": 40162.5
+          }
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2821
+        }
+      ],
+      "bandsSource": {
+        "label": "Sapienza, Regolamento studenti 2026/27, art. 44, e criteri di calcolo degli importi in base all’ISEE",
+        "url": "https://www.uniroma1.it/it/content/isee-il-diritto-allo-studio-universitario-e-meriti-di-studio"
+      },
+      "maxByLevel": {
+        "triennale": 2924,
+        "ciclo-unico": 2924,
+        "magistrale": 2924
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "I",
+          "label": "I",
+          "default": true,
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Arte e Design"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0.014,
+              "base": -182
+            },
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0.035,
+              "base": -455
+            },
+            {
+              "iseeMax": 28041.1,
+              "from": 0,
+              "rate": 0.049,
+              "base": -637
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0.0128905,
+              "base": 375.55
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": -0.0573135,
+              "base": 1779.63,
+              "square": 8.7755e-7
+            },
+            {
+              "iseeMax": 100000,
+              "from": 0,
+              "rate": 0,
+              "base": -2801.85,
+              "exp": {
+                "scale": 8401.58,
+                "k": 40162.5
+              }
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2821
+            }
+          ],
+          "max": 2821
+        },
+        {
+          "id": "II",
+          "label": "II",
+          "groups": [
+            "Agrario-Forestale e Veterinario",
+            "Architettura e Ingegneria civile",
+            "Educazione e Formazione",
+            "Informatica e Tecnologie ICT",
+            "Ingegneria industriale e dell'informazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Psicologico",
+            "Scientifico",
+            "Scienze motorie e sportive"
+          ],
+          "nameIncludes": [
+            "Design",
+            "Biomedica"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0.014,
+              "base": -182
+            },
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0.035,
+              "base": -455
+            },
+            {
+              "iseeMax": 28041.1,
+              "from": 0,
+              "rate": 0.049,
+              "base": -637
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0.0139815,
+              "base": 398.9
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": -0.0504725,
+              "base": 1687.98,
+              "square": 8.05675e-7
+            },
+            {
+              "iseeMax": 100000,
+              "from": 0,
+              "rate": 0,
+              "base": -1204.77,
+              "exp": {
+                "scale": 7536.49,
+                "k": 60166.7
+              }
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2924
+            }
+          ],
+          "max": 2924
+        }
+      ],
+      "maxNote": "Gruppo I (Economia, Giurisprudenza, Lettere e Filosofia, Scienze Politiche) fino a 2.821 €, gruppo II (Architettura, Ingegneria, Informatica, Medicina, Psicologia, Farmacia, Scienze) fino a 2.924 €. Il sito assegna il gruppo dalla macroarea del corso: verifica la Facoltà. I corsi a distanza o interateneo hanno un contributo fisso.",
+      "maxSource": {
+        "label": "Sapienza, Regolamento studenti 2026/27, art. 38 (importi ordinari)",
+        "url": "https://www.uniroma1.it/it/content/importi-ordinari-dei-contributi-di-iscrizione"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (30%) con tassa regionale e bollo entro il 5 novembre 2026, o entro la data del bando per i corsi a numero programmato",
+          "Seconda rata (35%) entro il 17 dicembre 2026",
+          "Terza rata (35%) entro il 25 marzo 2027"
+        ],
+        "note": "Serve l’ISEE per il diritto allo studio universitario entro il 17 dicembre 2026; dopo, fino al 30 giugno 2027, con una multa. Senza ISEE si paga l’importo ordinario.",
+        "source": {
+          "label": "Sapienza, Regolamento studenti 2026/27, artt. 41 e 42",
+          "url": "https://www.uniroma1.it/it/content/scadenze-pagare-i-contributi-di-iscrizione-ai-corsi-di-studio-e-conseguenze-caso-di-ritardo"
+        }
+      },
+      "simulator": "https://www.uniroma1.it/it/pagina/calcolatore-dei-contributi-di-iscrizione"
+    },
+    "ateneo-00102": {
+      "name": "Politecnico di Torino",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole e iscritti entro la durata normale del corso + 1 anno con i crediti minimi (al primo anno non servono crediti), a tempo pieno. Per la riduzione serve anche ISPE fino a 210.000 €.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 5,
+        "total": 161
+      },
+      "fixedFeesNote": "Prima rata di 161 € (tassa regionale 140 €, bollo 16 €, assicurazione 5 €), dovuta anche con l’esonero.",
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 100000,
+          "from": 0,
+          "rate": 0.01593,
+          "base": -64.28571,
+          "square": 2.0714e-7
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3600
+        }
+      ],
+      "bandsSource": {
+        "label": "PoliTo, Regolamento contribuzione 2026/27 (immatricolati dal 2025/26 e lauree magistrali), Appendice",
+        "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3600,
+        "ciclo-unico": 3600,
+        "magistrale": 3600
+      },
+      "maxExceptions": [],
+      "maxNote": "Stesso massimo per tutti i corsi: 3.600 € con ISEE oltre 100.000 €, senza richiesta di riduzione o con ISPE oltre 210.000 €. A tempo parziale il contributo è ridotto del 40%.",
+      "maxSource": {
+        "label": "PoliTo, Regolamento contribuzione 2026/27, artt. 2, 4 e 5",
+        "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
+      },
+      "payments": {
+        "steps": [
+          "161 € all’immatricolazione",
+          "Seconda rata (50% del contributo) entro il 4 dicembre 2026",
+          "Terza rata (50%) entro il 16 aprile 2027"
+        ],
+        "note": "La riduzione va chiesta entro il 27 novembre 2026 (anche all’immatricolazione, con il consenso a leggere l’ISEE dall’INPS); chi chiede la borsa EDISU non deve farlo. Dopo, si paga il massimo.",
+        "source": {
+          "label": "PoliTo, Regolamento contribuzione 2026/27, artt. 5 e 8",
+          "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
+        }
+      },
+      "simulator": "https://www.polito.it/didattica/servizi-e-vita-al-politecnico/diritto-allo-studio-e-contribuzione-studentesca/contribuzione-studentesca"
+    },
+    "ateneo-04801": {
+      "name": "Università di Firenze",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole a tempo pieno di triennali, magistrali e cicli unici (per gli anni successivi valgono le tabelle degli Allegati 2 e 3).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 350
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 380
+        },
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 420
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 460
+        },
+        {
+          "iseeMax": 29000,
+          "from": 0,
+          "rate": 0,
+          "base": 500
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 535
+        },
+        {
+          "iseeMax": 31000,
+          "from": 0,
+          "rate": 0,
+          "base": 594
+        },
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 625.5
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 657
+        },
+        {
+          "iseeMax": 34000,
+          "from": 0,
+          "rate": 0,
+          "base": 688.5
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 720
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 751.5
+        },
+        {
+          "iseeMax": 37000,
+          "from": 0,
+          "rate": 0,
+          "base": 783
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 814.5
+        },
+        {
+          "iseeMax": 39000,
+          "from": 0,
+          "rate": 0,
+          "base": 846
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 877.5
+        },
+        {
+          "iseeMax": 41000,
+          "from": 0,
+          "rate": 0,
+          "base": 929.2
+        },
+        {
+          "iseeMax": 42000,
+          "from": 0,
+          "rate": 0,
+          "base": 961.4
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 993.6
+        },
+        {
+          "iseeMax": 44000,
+          "from": 0,
+          "rate": 0,
+          "base": 1025.8
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1058
+        },
+        {
+          "iseeMax": 47000,
+          "from": 0,
+          "rate": 0,
+          "base": 1090.2
+        },
+        {
+          "iseeMax": 48000,
+          "from": 0,
+          "rate": 0,
+          "base": 1122.4
+        },
+        {
+          "iseeMax": 49000,
+          "from": 0,
+          "rate": 0,
+          "base": 1154.6
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1186.8
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 1245.5
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 1278.4
+        },
+        {
+          "iseeMax": 53000,
+          "from": 0,
+          "rate": 0,
+          "base": 1311.3
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 1344.2
+        },
+        {
+          "iseeMax": 56000,
+          "from": 0,
+          "rate": 0,
+          "base": 1377.1
+        },
+        {
+          "iseeMax": 57000,
+          "from": 0,
+          "rate": 0,
+          "base": 1410
+        },
+        {
+          "iseeMax": 58000,
+          "from": 0,
+          "rate": 0,
+          "base": 1442.9
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 1475.8
+        },
+        {
+          "iseeMax": 61000,
+          "from": 0,
+          "rate": 0,
+          "base": 1522.8
+        },
+        {
+          "iseeMax": 62000,
+          "from": 0,
+          "rate": 0,
+          "base": 1560.4
+        },
+        {
+          "iseeMax": 63000,
+          "from": 0,
+          "rate": 0,
+          "base": 1598
+        },
+        {
+          "iseeMax": 64000,
+          "from": 0,
+          "rate": 0,
+          "base": 1635.6
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 1673.2
+        },
+        {
+          "iseeMax": 66000,
+          "from": 0,
+          "rate": 0,
+          "base": 1710.8
+        },
+        {
+          "iseeMax": 67000,
+          "from": 0,
+          "rate": 0,
+          "base": 1748.4
+        },
+        {
+          "iseeMax": 68000,
+          "from": 0,
+          "rate": 0,
+          "base": 1790.7
+        },
+        {
+          "iseeMax": 69000,
+          "from": 0,
+          "rate": 0,
+          "base": 1833
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0,
+          "base": 1875.3
+        },
+        {
+          "iseeMax": 71000,
+          "from": 0,
+          "rate": 0,
+          "base": 1958.4
+        },
+        {
+          "iseeMax": 72000,
+          "from": 0,
+          "rate": 0,
+          "base": 2001.6
+        },
+        {
+          "iseeMax": 73000,
+          "from": 0,
+          "rate": 0,
+          "base": 2049.6
+        },
+        {
+          "iseeMax": 74000,
+          "from": 0,
+          "rate": 0,
+          "base": 2097.6
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 2145.6
+        },
+        {
+          "iseeMax": 76000,
+          "from": 0,
+          "rate": 0,
+          "base": 2239.3
+        },
+        {
+          "iseeMax": 78000,
+          "from": 0,
+          "rate": 0,
+          "base": 2293.2
+        },
+        {
+          "iseeMax": 79000,
+          "from": 0,
+          "rate": 0,
+          "base": 2347.1
+        },
+        {
+          "iseeMax": 81000,
+          "from": 0,
+          "rate": 0,
+          "base": 2401
+        },
+        {
+          "iseeMax": 83000,
+          "from": 0,
+          "rate": 0,
+          "base": 2454.9
+        },
+        {
+          "iseeMax": 85000,
+          "from": 0,
+          "rate": 0,
+          "base": 2508.8
+        },
+        {
+          "iseeMax": 86000,
+          "from": 0,
+          "rate": 0,
+          "base": 2567.6
+        },
+        {
+          "iseeMax": 88000,
+          "from": 0,
+          "rate": 0,
+          "base": 2626.4
+        },
+        {
+          "iseeMax": 90000,
+          "from": 0,
+          "rate": 0,
+          "base": 2685.2
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2744
+        }
+      ],
+      "bandsSource": {
+        "label": "UniFI, Manifesto degli Studi 2026/27, Allegato 1 (immatricolazione a tempo pieno)",
+        "url": "https://www.unifi.it/sites/default/files/2026-06/manifesto_studi_26_27.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2744,
+        "ciclo-unico": 2744,
+        "magistrale": 2744
+      },
+      "maxExceptions": [],
+      "maxNote": "Stesso massimo per tutti i corsi: 2.744 € con ISEE oltre 90.000 € o senza ISEE. Gli importi sono a fasce di 1.000-2.000 € di ISEE, senza formula.",
+      "maxSource": {
+        "label": "UniFI, Manifesto degli Studi 2026/27, Allegato 1 (immatricolazione a tempo pieno)",
+        "url": "https://www.unifi.it/sites/default/files/2026-06/manifesto_studi_26_27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo, tassa regionale e 60% del contributo) entro il 6 novembre 2026",
+          "Seconda rata (40% del contributo) entro il 28 maggio 2027"
+        ],
+        "note": "Serve l’ISEE per il diritto allo studio universitario e l’autorizzazione all’Ateneo a leggerlo dall’INPS entro il 22 gennaio 2027; senza ISEE si paga la fascia massima. Se l’ISEE non è ancora pronto si può pagare una prima rata provvisoria di 550,20 €.",
+        "source": {
+          "label": "UniFI, Manifesto degli Studi 2026/27, calendario e § 13-14",
+          "url": "https://www.unifi.it/sites/default/files/2026-06/manifesto_studi_26_27.pdf"
+        }
+      },
+      "simulator": "https://www.unifi.it/it/studia-con-noi/accesso-e-iscrizioni/tasse-e-contributi-universitari/come-si-determina-la-fascia-contributiva"
+    },
+    "ateneo-06301": {
+      "name": "Università di Napoli Federico II",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole alla prima iscrizione a una triennale, a un ciclo unico o a una magistrale («contributo agevolato»). Le formule per fascia sono quelle del calcolatore ufficiale dell’Ateneo; la guida riporta gli stessi estremi (1.011,50 € sopra i 30.000 €, massimo 2.384 €).",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale da 130 € a 173 € secondo l’ISEE e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 34000,
+          "from": 30000,
+          "rate": 0.104125,
+          "base": 1011.5,
+          "square": 0.000002625
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0.07,
+          "base": -910
+        },
+        {
+          "iseeMax": 40000,
+          "from": 35000,
+          "rate": 0.05,
+          "base": 1540
+        },
+        {
+          "iseeMax": 45000,
+          "from": 40000,
+          "rate": 0.02,
+          "base": 1790
+        },
+        {
+          "iseeMax": 65000,
+          "from": 45000,
+          "rate": 0.015,
+          "base": 1890
+        },
+        {
+          "iseeMax": 79999.99,
+          "from": 65000,
+          "rate": 0.0129,
+          "base": 2190
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2384
+        }
+      ],
+      "bandsSource": {
+        "label": "Federico II, Calcolatore tasse ufficiale 2026/27 (formule del contributo agevolato)",
+        "url": "http://calcolatrice.unina.it"
+      },
+      "maxByLevel": {
+        "triennale": 2384,
+        "ciclo-unico": 2384,
+        "magistrale": 2384
+      },
+      "maxExceptions": [],
+      "maxNote": "Stesso massimo per tutti i corsi: 2.384 € oltre 80.000 € o senza ISEE. Con 100 e lode alla maturità (o 110 e lode alla triennale entro ottobre, per la magistrale) il contributo del primo anno si dimezza.",
+      "maxSource": {
+        "label": "Federico II, Guida all’iscrizione 2026/27 (10/7/2026), § 1 e 3",
+        "url": "https://www.unina.it/documents/d/guest/guida_studente_rapida_26-27_10-7-2026"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (60% del contributo, tassa regionale e bollo) entro il 2 novembre 2026",
+          "Seconda rata (20%) entro il 1° marzo 2027",
+          "Terza rata (20%) entro il 30 aprile 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio universitario viene letto dall’INPS all’iscrizione su Segrepass: va richiesto in tempo (entro il 2 novembre 2026). Senza ISEE si paga il massimo.",
+        "source": {
+          "label": "Federico II, Guida all’iscrizione 2026/27, § 2 e 3",
+          "url": "https://www.unina.it/documents/d/guest/guida_studente_rapida_26-27_10-7-2026"
+        }
+      },
+      "simulator": "http://calcolatrice.unina.it"
+    },
+    "ateneo-01509": {
+      "name": "Università di Milano-Bicocca",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole alla prima iscrizione in Bicocca, che il regolamento considera tutte «meritevoli» (contributo ridotto del 13%).",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Prima rata di 146 € (bollo e 130 € di tassa regionale); con ISEE più alto la tassa regionale sale a 160 € o 190 € e la differenza si paga con la seconda rata.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53775.86,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30500,
+          "from": 30000,
+          "rate": 0.9297342,
+          "base": 0,
+          "square": 0.00006198228
+        },
+        {
+          "iseeMax": 76000,
+          "from": 0,
+          "rate": 0,
+          "base": 0,
+          "square": 5.16519e-7
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2983.23
+        }
+      ],
+      "bandsSource": {
+        "label": "Milano-Bicocca, Regolamento in materia di contribuzione universitaria 2026/27, art. 4",
+        "url": "https://www.unimib.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20contribuzione%20universitaria%202026_2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3580.05,
+        "ciclo-unico": 3580.05,
+        "magistrale": 3580.05
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "A",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Psicologico"
+          ],
+          "nameIncludes": [
+            "Sociologia",
+            "Analisi dei processi sociali",
+            "Scienze dell'organizzazione",
+            "Servizio sociale",
+            "Programmazione e gestione delle politiche",
+            "Sicurezza, devianza",
+            "Scienze psicosociali della comunicazione",
+            "Comunicazione e psicologia",
+            "Management e design dei servizi",
+            "Interpretariato e traduzione in lingua dei segni",
+            "Statistic",
+            "Turismo"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30500,
+              "from": 30000,
+              "rate": 0.9297342,
+              "base": 0,
+              "square": 0.00006198228
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 0,
+              "square": 5.16519e-7
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2983.23
+            }
+          ],
+          "max": 2983.23
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "default": true,
+          "groups": [
+            "Educazione e Formazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Scientifico",
+            "Informatica e Tecnologie ICT",
+            "Politico-Sociale e Comunicazione"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30500,
+              "from": 30000,
+              "rate": 1.115775,
+              "base": 0,
+              "square": 0.000074385
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 0,
+              "square": 6.19875e-7
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3580.05
+            }
+          ],
+          "max": 3580.05
+        }
+      ],
+      "maxNote": "Area A fino a 2.983,23 €, area B fino a 3.580,05 € (importi per le matricole), dovuti con ISEE da 76.000 € o senza ISEE. Con 100/100 alla maturità (o almeno 110 alla laurea, per le magistrali) il contributo scende di altri 200 €. Le lauree abilitanti aggiungono 180 € all’ultimo anno.",
+      "maxSource": {
+        "label": "Milano-Bicocca, Regolamento in materia di contribuzione universitaria 2026/27, art. 4",
+        "url": "https://www.unimib.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20contribuzione%20universitaria%202026_2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "146 € (bollo e tassa regionale) entro il 30 settembre 2026, o entro la data del bando per i corsi a numero programmato",
+          "Seconda rata (eventuale saldo della tassa regionale e 30% del contributo, o tutto se fino a 400 €) entro il 15 gennaio 2027",
+          "Terza rata (70% del contributo) entro il 14 maggio 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio universitario va presentato entro il 13 novembre 2026; senza ISEE si paga il massimo.",
+        "source": {
+          "label": "Milano-Bicocca, Guida alla contribuzione studentesca 2026/27 (agosto 2026)",
+          "url": "https://www.unimib.it/sites/default/files/2026-08/01_Guida%20CONTRIBUZIONE%2026_27.pdf"
+        }
+      },
+      "simulator": "https://www.unimib.it/servizi/segreterie/immatricolazione/tasse"
+    },
+    "ateneo-05001": {
+      "name": "Università di Pisa",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Studenti regolari a tempo pieno, comprese le matricole (colonna «studente regolare» della tabella).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con l’iscrizione: tassa regionale (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 280
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 328
+        },
+        {
+          "iseeMax": 29000,
+          "from": 0,
+          "rate": 0,
+          "base": 376
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 424
+        },
+        {
+          "iseeMax": 31000,
+          "from": 0,
+          "rate": 0,
+          "base": 471
+        },
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 516
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 567
+        },
+        {
+          "iseeMax": 34000,
+          "from": 0,
+          "rate": 0,
+          "base": 619
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 674
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 730
+        },
+        {
+          "iseeMax": 37000,
+          "from": 0,
+          "rate": 0,
+          "base": 788
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 847
+        },
+        {
+          "iseeMax": 39000,
+          "from": 0,
+          "rate": 0,
+          "base": 907
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 969
+        },
+        {
+          "iseeMax": 41000,
+          "from": 0,
+          "rate": 0,
+          "base": 1031
+        },
+        {
+          "iseeMax": 42000,
+          "from": 0,
+          "rate": 0,
+          "base": 1095
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 1159
+        },
+        {
+          "iseeMax": 44000,
+          "from": 0,
+          "rate": 0,
+          "base": 1223
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1288
+        },
+        {
+          "iseeMax": 46000,
+          "from": 0,
+          "rate": 0,
+          "base": 1352
+        },
+        {
+          "iseeMax": 47000,
+          "from": 0,
+          "rate": 0,
+          "base": 1417
+        },
+        {
+          "iseeMax": 48000,
+          "from": 0,
+          "rate": 0,
+          "base": 1481
+        },
+        {
+          "iseeMax": 49000,
+          "from": 0,
+          "rate": 0,
+          "base": 1544
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1606
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 1668
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 1728
+        },
+        {
+          "iseeMax": 53000,
+          "from": 0,
+          "rate": 0,
+          "base": 1787
+        },
+        {
+          "iseeMax": 54000,
+          "from": 0,
+          "rate": 0,
+          "base": 1845
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 1883
+        },
+        {
+          "iseeMax": 56000,
+          "from": 0,
+          "rate": 0,
+          "base": 1920
+        },
+        {
+          "iseeMax": 57000,
+          "from": 0,
+          "rate": 0,
+          "base": 1958
+        },
+        {
+          "iseeMax": 58000,
+          "from": 0,
+          "rate": 0,
+          "base": 1995
+        },
+        {
+          "iseeMax": 59000,
+          "from": 0,
+          "rate": 0,
+          "base": 2032
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 2070
+        },
+        {
+          "iseeMax": 61000,
+          "from": 0,
+          "rate": 0,
+          "base": 2107
+        },
+        {
+          "iseeMax": 62000,
+          "from": 0,
+          "rate": 0,
+          "base": 2145
+        },
+        {
+          "iseeMax": 63000,
+          "from": 0,
+          "rate": 0,
+          "base": 2182
+        },
+        {
+          "iseeMax": 64000,
+          "from": 0,
+          "rate": 0,
+          "base": 2219
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 2257
+        },
+        {
+          "iseeMax": 66000,
+          "from": 0,
+          "rate": 0,
+          "base": 2294
+        },
+        {
+          "iseeMax": 67000,
+          "from": 0,
+          "rate": 0,
+          "base": 2331
+        },
+        {
+          "iseeMax": 68000,
+          "from": 0,
+          "rate": 0,
+          "base": 2369
+        },
+        {
+          "iseeMax": 69000,
+          "from": 0,
+          "rate": 0,
+          "base": 2406
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0,
+          "base": 2444
+        },
+        {
+          "iseeMax": 71000,
+          "from": 0,
+          "rate": 0,
+          "base": 2481
+        },
+        {
+          "iseeMax": 72000,
+          "from": 0,
+          "rate": 0,
+          "base": 2518
+        },
+        {
+          "iseeMax": 73000,
+          "from": 0,
+          "rate": 0,
+          "base": 2556
+        },
+        {
+          "iseeMax": 74000,
+          "from": 0,
+          "rate": 0,
+          "base": 2593
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 2630
+        },
+        {
+          "iseeMax": 76000,
+          "from": 0,
+          "rate": 0,
+          "base": 2649
+        },
+        {
+          "iseeMax": 77000,
+          "from": 0,
+          "rate": 0,
+          "base": 2667
+        },
+        {
+          "iseeMax": 78000,
+          "from": 0,
+          "rate": 0,
+          "base": 2683
+        },
+        {
+          "iseeMax": 79000,
+          "from": 0,
+          "rate": 0,
+          "base": 2699
+        },
+        {
+          "iseeMax": 80000,
+          "from": 0,
+          "rate": 0,
+          "base": 2713
+        },
+        {
+          "iseeMax": 81000,
+          "from": 0,
+          "rate": 0,
+          "base": 2726
+        },
+        {
+          "iseeMax": 82000,
+          "from": 0,
+          "rate": 0,
+          "base": 2739
+        },
+        {
+          "iseeMax": 83000,
+          "from": 0,
+          "rate": 0,
+          "base": 2750
+        },
+        {
+          "iseeMax": 84000,
+          "from": 0,
+          "rate": 0,
+          "base": 2761
+        },
+        {
+          "iseeMax": 85000,
+          "from": 0,
+          "rate": 0,
+          "base": 2771
+        },
+        {
+          "iseeMax": 86000,
+          "from": 0,
+          "rate": 0,
+          "base": 2780
+        },
+        {
+          "iseeMax": 87000,
+          "from": 0,
+          "rate": 0,
+          "base": 2789
+        },
+        {
+          "iseeMax": 88000,
+          "from": 0,
+          "rate": 0,
+          "base": 2797
+        },
+        {
+          "iseeMax": 89000,
+          "from": 0,
+          "rate": 0,
+          "base": 2804
+        },
+        {
+          "iseeMax": 90000,
+          "from": 0,
+          "rate": 0,
+          "base": 2811
+        },
+        {
+          "iseeMax": 91000,
+          "from": 0,
+          "rate": 0,
+          "base": 2818
+        },
+        {
+          "iseeMax": 92000,
+          "from": 0,
+          "rate": 0,
+          "base": 2824
+        },
+        {
+          "iseeMax": 93000,
+          "from": 0,
+          "rate": 0,
+          "base": 2829
+        },
+        {
+          "iseeMax": 94000,
+          "from": 0,
+          "rate": 0,
+          "base": 2834
+        },
+        {
+          "iseeMax": 95000,
+          "from": 0,
+          "rate": 0,
+          "base": 2839
+        },
+        {
+          "iseeMax": 96000,
+          "from": 0,
+          "rate": 0,
+          "base": 2843
+        },
+        {
+          "iseeMax": 97000,
+          "from": 0,
+          "rate": 0,
+          "base": 2847
+        },
+        {
+          "iseeMax": 98000,
+          "from": 0,
+          "rate": 0,
+          "base": 2851
+        },
+        {
+          "iseeMax": 99000,
+          "from": 0,
+          "rate": 0,
+          "base": 2854
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2900
+        }
+      ],
+      "bandsSource": {
+        "label": "UniPi, Regolamento contribuzione studentesca 2026/27 (delibera CdA 205/2026), art. 1.2.2",
+        "url": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2900,
+        "ciclo-unico": 2900,
+        "magistrale": 2900
+      },
+      "maxExceptions": [],
+      "offSiteReduction": {
+        "from": 2900,
+        "rate": 0.15,
+        "note": "Chi abita a più di un’ora di mezzi pubblici dalla sede ha d’ufficio una riduzione del 15% di (2.900 € − contributo): per i pendolari dipende dai tempi di viaggio."
+      },
+      "maxNote": "Stesso massimo per tutti i corsi: 2.900 € con ISEE oltre 99.000 € o senza ISEE. Con almeno 95/100 alla maturità (o 108/110 alla triennale, per le magistrali) il contributo scende di altri 150 €.",
+      "maxSource": {
+        "label": "UniPi, Regolamento contribuzione studentesca 2026/27, artt. 1.1, 1.2.3 e 2.1",
+        "url": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
+      },
+      "payments": {
+        "steps": [
+          "156 € (tassa regionale e bollo) entro il 30 settembre 2026",
+          "Seconda rata (30% del contributo) entro il 18 dicembre 2026",
+          "Terza rata (25%) entro il 1° marzo 2027",
+          "Quarta rata (25%) entro il 15 aprile 2027",
+          "Quinta rata (20%) entro il 31 maggio 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio universitario va chiesto entro il 2 novembre 2026 (dopo, con una mora di 75 € o 100 €); senza ISEE si paga il massimo. Fino a 275 € il contributo si paga in un’unica rata a dicembre.",
+        "source": {
+          "label": "UniPi, Regolamento contribuzione studentesca 2026/27, art. 2.2",
+          "url": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
+        }
+      },
+      "simulator": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
+    }
+  }
+}

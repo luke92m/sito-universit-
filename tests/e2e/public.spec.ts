@@ -4,7 +4,8 @@ import { expect, test } from '@playwright/test';
 
 test('home e navigazione principale', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('spiegata');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('fa per te');
+  await expect(page.getByText('nessun ateneo paga per comparire', { exact: true })).toBeVisible();
   await expect(page.getByText('99 istituti universitari')).toBeVisible();
   await page.getByRole('navigation', { name: 'Navigazione principale' }).getByRole('link', { name: 'atenei' }).click();
   await expect(page).toHaveURL(/\/atenei$/);
@@ -62,6 +63,47 @@ test('trova il mio corso → trova la mia università', async ({ page }) => {
   await expect(finder.locator('.university-match-card')).not.toHaveCount(0);
 });
 
+// Link completo ai risultati, come lo crea chi sceglie di includere fascia ISEE e città.
+const FULL_LINK =
+  '/trova-corso?mode=university&corso=course:economia-aziendale&livello=bachelor&regione=Lombardia' +
+  '&citta=Pavia&pendolare=yes&mobilita=neighbors&isee=24000-26000&lingua=italian';
+
+test('percorso completo senza account: risultati → confronto → iscrizione', async ({ page }) => {
+  await page.goto(FULL_LINK);
+  const cards = page.locator('.university-match-card');
+  await expect(cards.first()).toBeVisible({ timeout: 20_000 });
+  await expect(cards.first().locator('.university-match-why li')).not.toHaveCount(0);
+  // L'indirizzo dei risultati non conserva i dati personali.
+  await expect(page).not.toHaveURL(/isee=|citta=/);
+
+  await cards.nth(0).getByText('Confronta', { exact: true }).click();
+  await cards.nth(2).getByText('Confronta', { exact: true }).click();
+  await page.getByRole('link', { name: 'Confronta le 2 scelte' }).click();
+
+  await expect(page).toHaveURL(/\/comparison\?mode=courses&a=.+&b=.+/);
+  await expect(page.getByRole('heading', { name: 'Confronto tra corsi' })).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('.neutrality-note')).toBeVisible();
+
+  await page.locator('.comparison-next-step a').first().click();
+  await expect(page).toHaveURL(/\/burocrazia\?ateneo=.+&corso=.+/);
+  await expect(page.locator('.access-gate')).toHaveCount(0);
+  await expect(page.locator('.bureaucracy-selector-card select')).not.toHaveValue('', { timeout: 20_000 });
+  await page.getByRole('button', { name: 'Crea la checklist' }).click();
+  await expect(page.locator('.bureaucracy-result')).toBeVisible();
+
+  await page.getByRole('link', { name: /Verifica le borse di studio/ }).click();
+  await expect(page).toHaveURL(/\/borse\?ateneo=/);
+  await expect(page.locator('.student-area-locked')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Calcola borsa e costo reale' })).toBeVisible();
+});
+
+test('link condiviso senza dati personali: si risponde solo alle domande mancanti', async ({ page }) => {
+  await page.goto(FULL_LINK.replace('&citta=Pavia', '').replace('&isee=24000-26000', ''));
+  const finder = page.locator('#universityFinderPanel');
+  await expect(finder.getByText('Domanda 3 di 7')).toBeVisible({ timeout: 20_000 });
+  await expect(finder.locator('.university-inline-fields select')).toHaveValue('Lombardia');
+});
+
 test('comparison tra due atenei', async ({ page }) => {
   await page.goto('/comparison');
   await page.getByRole('button', { name: 'Confronta gli atenei' }).click();
@@ -104,4 +146,41 @@ test('i vecchi URL .html reindirizzano', async ({ page }) => {
   await expect(page).toHaveURL(/\/atenei$/);
   await page.goto('/area-studente.html?sezione=scadenze');
   await expect(page).toHaveURL(/\/area-studente\/scadenze/);
+});
+
+test('borsa e costo reale con i dati ufficiali ER.GO e UniBo', async ({ page }) => {
+  await page.goto('/borse?ateneo=ateneo-03701');
+  const form = page.locator('form.service-form');
+  await form.getByPlaceholder('Es. 18450').fill('15000');
+  await form.locator('select').filter({ hasText: 'Emilia-Romagna' }).selectOption('Emilia-Romagna');
+  await form.getByPlaceholder('Es. Roma').fill('Imola');
+  await form.getByRole('button', { name: 'Calcola borsa e costo reale' }).click();
+
+  const result = page.locator('.real-cost');
+  await expect(result).toBeVisible({ timeout: 20_000 });
+  // Imola è nella Tabella 1 ER.GO per Bologna (comuni in sede): borsa da studente in sede, tasse esonerate.
+  await expect(result.locator('.real-cost-condition')).toContainText('considera “in sede”');
+  await expect(result.locator('.real-cost-grant')).toContainText('2.890');
+
+  // Da Roma, con casa in affitto: fuori sede.
+  await form.getByPlaceholder('Es. Roma').fill('Roma');
+  await form.locator('select').filter({ hasText: 'Emilia-Romagna' }).selectOption('Lazio');
+  await form.getByRole('button', { name: 'Calcola borsa e costo reale' }).click();
+  await expect(result.locator('.real-cost-grant')).toContainText('7.171');
+  await expect(result.locator('.real-cost-line', { hasText: 'Camera singola' })).toBeVisible();
+  await expect(result.locator('.real-cost-line a').first()).toHaveAttribute('href', /^https:\/\//);
+});
+
+test('borsa DiSCo per Sapienza: pendolare da Fiano Romano, con i pasti gratuiti', async ({ page }) => {
+  await page.goto('/borse?ateneo=ateneo-05801');
+  const form = page.locator('form.service-form');
+  await form.getByPlaceholder('Es. 18450').fill('12000');
+  await form.locator('select').filter({ hasText: 'Emilia-Romagna' }).selectOption('Lazio');
+  await form.getByPlaceholder('Es. Roma').fill('Fiano Romano');
+  await form.getByRole('button', { name: 'Calcola borsa e costo reale' }).click();
+  const result = page.locator('.real-cost');
+  await expect(result).toBeVisible({ timeout: 20_000 });
+  await expect(result.locator('.real-cost-condition .is-active')).toHaveText('Pendolare');
+  await expect(result.locator('.real-cost-grant')).toContainText('4.129');
+  await expect(result.locator('.real-cost-line', { hasText: 'Servizi gratuiti' })).toContainText('600');
 });

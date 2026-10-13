@@ -3,7 +3,9 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
+import { FlowSteps } from '@/components/flow/FlowSteps';
 import type { CoursePreferences } from '@/lib/client/types';
+import { finderStateFromParams, type FinderLinkState } from '@/lib/flow/journey-params';
 import { CourseFinder } from './CourseFinder';
 import { UniversityFinder } from './UniversityFinder';
 
@@ -13,15 +15,26 @@ export function FinderPage() {
   const { coursePreferences } = useSite();
   const [mode, setMode] = useState<Mode>('course');
   const [courseResult, setCourseResult] = useState<CoursePreferences | null>(null);
-  const [universityStart, setUniversityStart] = useState({ slug: '', token: 0 });
+  const [universityStart, setUniversityStart] = useState<{ slug: string; token: number; link: FinderLinkState | null }>({
+    slug: '',
+    token: 0,
+    link: null
+  });
   const universityRef = useRef<HTMLDivElement>(null);
   const courseRef = useRef<HTMLDivElement>(null);
 
-  const switchMode = (next: Mode, options: { courseSlug?: string; instant?: boolean } = {}) => {
+  const switchMode = (
+    next: Mode,
+    options: { courseSlug?: string; instant?: boolean; link?: FinderLinkState | null } = {}
+  ) => {
     setMode(next);
     const behavior: ScrollBehavior = options.instant ? 'auto' : 'smooth';
     if (next === 'university') {
-      setUniversityStart((current) => ({ slug: options.courseSlug || '', token: current.token + 1 }));
+      setUniversityStart((current) => ({
+        slug: options.courseSlug || '',
+        token: current.token + 1,
+        link: options.link || null
+      }));
       window.setTimeout(() => universityRef.current?.scrollIntoView({ behavior, block: 'start' }), 0);
       try {
         history.replaceState(null, '', '#trova-universita');
@@ -38,14 +51,15 @@ export function FinderPage() {
     }
   };
 
-  // Accesso diretto al secondo test: /trova-corso#trova-universita oppure ?mode=university.
-  // L'URL è uno stato esterno al componente: lo si legge dopo l'idratazione.
+  // Accesso diretto al secondo test: /trova-corso#trova-universita oppure ?mode=university,
+  // anche con le risposte di un link condiviso. L'URL è uno stato esterno: lo si legge dopo l'idratazione.
   const switchModeRef = useRef(switchMode);
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (location.hash !== '#trova-universita' && params.get('mode') !== 'university') return;
-    const frame = window.requestAnimationFrame(() => switchModeRef.current('university', { instant: true }));
-    return () => window.cancelAnimationFrame(frame);
+    const link = finderStateFromParams(params);
+    const timer = window.setTimeout(() => switchModeRef.current('university', { instant: true, link }));
+    return () => window.clearTimeout(timer);
   }, []);
 
   const top = coursePreferences?.recommendations?.[0];
@@ -53,6 +67,10 @@ export function FinderPage() {
   return (
     <>
       <section className="page-hero compact finder-page-hero" aria-labelledby="finderTitle">
+        <FlowSteps
+          current={mode === 'course' ? 0 : 1}
+          actions={{ 0: () => switchMode('course'), 1: () => switchMode('university') }}
+        />
         <span className="eyebrow">Orientamento personale</span>
         <h1 id="finderTitle">
           Trova un corso
@@ -117,6 +135,7 @@ export function FinderPage() {
             startCourseSlug={universityStart.slug}
             currentCourseResult={courseResult}
             onBackToCourse={() => switchMode('course')}
+            linkState={universityStart.link}
           />
         ) : null}
       </div>

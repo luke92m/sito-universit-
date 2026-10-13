@@ -1,19 +1,9 @@
 import { NextResponse } from 'next/server';
+import { readFinderAnswers } from '@/lib/flow/journey-params';
 import { shortLabel } from '@/lib/domain/official-rankings';
-import { rankCandidates, targetFromChoice, type FinderAnswers, type FinderResult } from '@/lib/domain/university-finder';
+import { rankCandidates, targetFromChoice, type FinderResult } from '@/lib/domain/university-finder';
 
 // "Trova la mia università": il punteggio richiede l'intero dataset corsi e gira sul server.
-
-const ANSWER_KEYS: (keyof FinderAnswers)[] = [
-  'courseChoice',
-  'degree',
-  'residenceRegion',
-  'residenceCity',
-  'commute',
-  'relocation',
-  'iseeRange',
-  'language'
-];
 
 export interface FinderApiResult extends FinderResult {
   rankingText: string;
@@ -26,22 +16,9 @@ export interface FinderApiResponse {
   telematicOnly: boolean;
 }
 
-function readAnswers(body: unknown): FinderAnswers | null {
-  if (!body || typeof body !== 'object') return null;
-  const source = (body as { answers?: Record<string, unknown> }).answers;
-  if (!source || typeof source !== 'object') return null;
-  const answers = {} as FinderAnswers;
-  for (const key of ANSWER_KEYS) {
-    const value = source[key];
-    if (typeof value !== 'string' || value.length > 120) return null;
-    answers[key] = value.trim();
-  }
-  return answers;
-}
-
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
-  const answers = readAnswers(body);
+  const answers = readFinderAnswers((body as { answers?: unknown } | null)?.answers);
   if (!answers) return NextResponse.json({ error: 'Risposte non valide.' }, { status: 400 });
 
   const target = targetFromChoice(answers.courseChoice);

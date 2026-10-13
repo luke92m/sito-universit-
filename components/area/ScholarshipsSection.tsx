@@ -2,13 +2,22 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useRef, useState, type FormEvent } from 'react';
+import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
+import { RealCostResult } from '@/components/tools/RealCostResult';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
 import { useLoader } from '@/lib/client/use-loader';
+import { useUniversityCourses } from '@/lib/client/use-courses';
 import { STUDENT_SERVICES as data } from '@/lib/data/student-services';
+import type { ScholarshipStatus, StudentCondition } from '@/lib/domain/dsu';
 import { findRange, normalizedIseeValue } from '@/lib/domain/isee';
-import { VERDICT_COPY, residenceProfile, scholarshipVerdict, type ScholarshipVerdict } from '@/lib/domain/scholarships';
+import {
+  VERDICT_COPY,
+  residenceProfile,
+  scholarshipVerdict,
+  type ScholarshipVerdict
+} from '@/lib/domain/scholarships';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 import { isEnabled } from '@/lib/features';
 import { formatDate } from '@/lib/site-config';
@@ -28,7 +37,10 @@ export interface SavedScholarship {
 export async function loadSavedScholarships(): Promise<SavedScholarship[]> {
   const supabase = getSupabaseBrowserClient();
   if (!supabase) return [];
-  const { data: rows } = await supabase.from('saved_scholarships').select('*').order('saved_at', { ascending: true });
+  const { data: rows } = await supabase
+    .from('saved_scholarships')
+    .select('*')
+    .order('saved_at', { ascending: true });
   return (rows as SavedScholarship[]) || [];
 }
 
@@ -42,20 +54,50 @@ interface Verification {
   profile: string;
 }
 
+// Esito del bando dell'ente, salvato con la stessa scala del verdetto nazionale.
+const STATUS_TO_VERDICT: Record<ScholarshipStatus, ScholarshipVerdict> = {
+  eligible: 'possible',
+  uncertain: 'uncertain',
+  'not-eligible': 'unlikely',
+  unknown: 'unknown'
+};
+
+/** Numero scritto all'italiana ("18.450,50"): null se vuoto, NaN se non valido. */
+function parseAmount(value: string): number | null {
+  const clean = value.replace(/[€\s.]/g, '').replace(',', '.');
+  if (!clean) return null;
+  const number = Number(clean);
+  return Number.isFinite(number) && number >= 0 ? number : NaN;
+}
+
 const formatMoney = (value: number) => value.toLocaleString('it-IT', { minimumFractionDigits: 2 });
 
-export function ScholarshipsSection({ user }: { user: SiteUser }) {
-  const { getUniversity, universities, guidance, updateGuidance, showToast } = useSite();
+/** Verifica orientativa della borsa: pubblica (/borse); con un account si possono anche salvare le opportunità. */
+export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
+  const { getUniversity, universities, guidance, updateGuidance, showToast, openAuth } = useSite();
   const params = useSearchParams();
-  const defaultUniversityId = params.get('ateneo') || journeyOf(user)?.universityId || universities[0]?.id || '';
+  const defaultUniversityId =
+    params.get('ateneo') || journeyOf(user)?.universityId || universities[0]?.id || '';
   const [share, setShare] = useState(true);
   const [universityId, setUniversityId] = useState(defaultUniversityId);
-  const [isee, setIsee] = useState(normalizedIseeValue(guidance.iseeRange || '') || data.iseeRanges[0]?.value || '');
+  const [isee, setIsee] = useState(
+    normalizedIseeValue(guidance.iseeRange || '') || data.iseeRanges[0]?.value || ''
+  );
   const [ispe, setIspe] = useState(data.ispeRanges[0]?.value || '');
   const [region, setRegion] = useState(guidance.residenceRegion || '');
   const [city, setCity] = useState(guidance.residenceCity || '');
   const [message, setMessage] = useState('');
   const [verification, setVerification] = useState<Verification | null>(null);
+  // Valori esatti e casa in affitto: servono solo a questo calcolo, non vengono salvati.
+  const [iseeExact, setIseeExact] = useState('');
+  const [ispeExact, setIspeExact] = useState('');
+  const [rentsNearSeat, setRentsNearSeat] = useState(true);
+  const [chosenCourse, setChosenCourse] = useState<string | null>(null);
+  const [cost, setCost] = useState<RealCostResponse | null>(null);
+  const [busy, setBusy] = useState(false);
+  const { courses } = useUniversityCourses(universityId);
+  // Corso arrivato dal link (?corso=<nome>) come proposta, finché l'utente non sceglie.
+  const courseId = chosenCourse ?? (courses.find((course) => course.name === params.get('corso'))?.id || '');
   const resultRef = useRef<HTMLElement>(null);
 
   const [saved, refresh] = useLoader(loadSavedScholarships, NO_SCHOLARSHIPS);
@@ -67,10 +109,21 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
       setMessage('Seleziona ateneo e regione di residenza.');
       return;
     }
+    const exactIsee = parseAmount(iseeExact);
+    const exactIspe = parseAmount(ispeExact);
+    if (Number.isNaN(exactIsee) || Number.isNaN(exactIspe)) {
+      setMessage('Scrivi ISEE e ISPE esatti solo con cifre, per esempio 18450.');
+      return;
+    }
     setMessage('');
     const iseeRange = findRange(data.iseeRanges, isee);
     const ispeRange = findRange(data.ispeRanges, ispe);
-    const verdict = scholarshipVerdict(iseeRange, ispeRange);
+    const calculated = await loadCost({ exactIsee, exactIspe });
+    // Con il bando dell'ente inserito vale il suo esito; altrimenti i limiti nazionali.
+    const verdict =
+      calculated?.entity && calculated.scholarship
+        ? STATUS_TO_VERDICT[calculated.scholarship.status]
+        : scholarshipVerdict(iseeRange, ispeRange);
     await updateGuidance({
       iseeRange: iseeRange?.value || '',
       residenceRegion: region,
@@ -87,20 +140,70 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
     window.setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
   };
 
+  async function loadCost(
+    { exactIsee, exactIspe }: { exactIsee: number | null; exactIspe: number | null },
+    condition?: StudentCondition
+  ): Promise<RealCostResponse | null> {
+    setBusy(true);
+    try {
+      const response = await fetch('/api/real-cost', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          universityId,
+          courseId,
+          isee: exactIsee != null ? { exact: exactIsee } : { range: isee },
+          ispe: exactIspe != null ? { exact: exactIspe } : { range: ispe },
+          residenceRegion: region,
+          residenceCity: city.trim(),
+          rentsNearSeat,
+          condition
+        })
+      });
+      const payload = response.ok ? ((await response.json()) as RealCostResponse) : null;
+      setCost(payload);
+      return payload;
+    } catch {
+      setCost(null);
+      return null;
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const validAmount = (value: string) => {
+    const number = parseAmount(value);
+    return number == null || Number.isNaN(number) ? null : number;
+  };
+  const changeCondition = (condition: StudentCondition) =>
+    loadCost({ exactIsee: validAmount(iseeExact), exactIspe: validAmount(ispeExact) }, condition);
+
   const saveOpportunity = async () => {
     if (!verification) return;
+    if (!user) {
+      openAuth('register');
+      return;
+    }
     const university = getUniversity(verification.universityId);
     const supabase = getSupabaseBrowserClient();
     if (!university || !supabase) return;
-    const regional = data.regionalPortals?.[university.region] || { url: data.sources?.murScholarships || '#' };
+    const regional = data.regionalPortals?.[university.region] || {
+      url: data.sources?.murScholarships || '#'
+    };
     const { error } = await supabase.from('saved_scholarships').insert({
       university_id: university.id,
       university_name: university.name,
-      course_name: params.get('corso') || journeyOf(user)?.courseName || null,
+      course_name:
+        courses.find((course) => course.id === courseId)?.name ||
+        params.get('corso') ||
+        journeyOf(user)?.courseName ||
+        null,
       deadline: null,
       portal_url: regional.url,
       status: verification.verdict,
-      status_label: VERDICT_COPY[verification.verdict].title
+      status_label:
+        VERDICT_COPY[verification.verdict].title +
+        (cost?.entity ? ` (bando ${cost.entity.shortName} ${cost.entity.academicYear})` : '')
     });
     if (error) {
       showToast('Non è stato possibile salvare l’opportunità.');
@@ -137,8 +240,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
           <span className="eyebrow">Scelta dei dati</span>
           <h2>Decidi tu quanto condividere</h2>
           <p>
-            I dati economici sono facoltativi e servono solo per una stima orientativa. Puoi rifiutare: in quel caso il sito
-            non calcolerà una possibile idoneità.
+            I dati economici sono facoltativi e servono solo per una stima orientativa. Puoi rifiutare: in
+            quel caso il sito non calcolerà una possibile idoneità.
           </p>
         </div>
         <div className="privacy-choice-list">
@@ -173,7 +276,27 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
           <form className="service-form" onSubmit={submit} noValidate>
             <label className="field field-wide">
               <span>Ateneo di riferimento</span>
-              <UniversityCombobox value={universityId} onChange={setUniversityId} ariaLabel="Ateneo di riferimento" />
+              <UniversityCombobox
+                value={universityId}
+                onChange={(id) => {
+                  setUniversityId(id);
+                  setChosenCourse('');
+                }}
+                ariaLabel="Ateneo di riferimento"
+              />
+            </label>
+            <label className="field field-wide">
+              <span>
+                Corso <small>(facoltativo: alcuni corsi hanno tasse più alte)</small>
+              </span>
+              <select value={courseId} onChange={(event) => setChosenCourse(event.target.value)}>
+                <option value="">Corso non indicato (calcolo su una triennale)</option>
+                {courses.map((course) => (
+                  <option key={course.id} value={course.id}>
+                    {course.name} · {course.level} · {course.city}
+                  </option>
+                ))}
+              </select>
             </label>
             <label className="field">
               <span>Fascia ISEE universitario</span>
@@ -198,6 +321,30 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
               </select>
             </label>
             <label className="field">
+              <span>
+                ISEE esatto <small>(facoltativo, non viene salvato)</small>
+              </span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={iseeExact}
+                placeholder="Es. 18450"
+                onChange={(event) => setIseeExact(event.target.value)}
+              />
+            </label>
+            <label className="field">
+              <span>
+                ISPE esatto <small>(facoltativo, non viene salvato)</small>
+              </span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={ispeExact}
+                placeholder="Es. 32000"
+                onChange={(event) => setIspeExact(event.target.value)}
+              />
+            </label>
+            <label className="field">
               <span>Regione di residenza</span>
               <select value={region} onChange={(event) => setRegion(event.target.value)}>
                 <option value="">Seleziona</option>
@@ -210,19 +357,46 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
             </label>
             <label className="field">
               <span>Comune di residenza</span>
-              <input type="text" value={city} placeholder="Es. Roma" onChange={(event) => setCity(event.target.value)} />
+              <input
+                type="text"
+                value={city}
+                placeholder="Es. Roma"
+                onChange={(event) => setCity(event.target.value)}
+              />
             </label>
+            <fieldset className="field field-wide rent-question">
+              <legend>Durante l’anno prenderai casa in affitto vicino all’università?</legend>
+              <label>
+                <input
+                  type="radio"
+                  name="rentsNearSeat"
+                  checked={rentsNearSeat}
+                  onChange={() => setRentsNearSeat(true)}
+                />
+                Sì, per almeno 10 mesi
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="rentsNearSeat"
+                  checked={!rentsNearSeat}
+                  onChange={() => setRentsNearSeat(false)}
+                />
+                No, resto a casa e viaggio
+              </label>
+            </fieldset>
             <p className="service-form-note field-wide">
-              Le fasce fino a €30.000 seguono le soglie nazionali minime della no-tax area e delle riduzioni per gli atenei
-              statali; il limite DSU per la borsa {data.academicYear} è separato. Ogni ateneo e ogni bando possono adottare
-              soglie più favorevoli o criteri ulteriori. ISEE e residenza vengono ricordati nel tuo profilo per gli strumenti
-              di orientamento.
+              Le fasce fino a €30.000 seguono le soglie nazionali minime della no-tax area e delle riduzioni
+              per gli atenei statali; il limite DSU per la borsa {data.academicYear} è separato. Ogni ateneo e
+              ogni bando possono adottare soglie più favorevoli o criteri ulteriori. ISEE e residenza vengono
+              ricordati per gli strumenti di orientamento: nel tuo profilo se hai un account, altrimenti solo
+              su questo dispositivo.
             </p>
             <p className="form-message field-wide" role="alert" data-type={message ? 'error' : undefined}>
               {message}
             </p>
-            <button className="button button-primary field-wide" type="submit">
-              Verifica la possibilità
+            <button className="button button-primary field-wide" type="submit" disabled={busy}>
+              {busy ? 'Calcolo in corso…' : 'Calcola borsa e costo reale'}
             </button>
           </form>
         </section>
@@ -231,11 +405,16 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
           <span className="eyebrow">Nessuna verifica automatica</span>
           <h2>Puoi cercare comunque una borsa di studio.</h2>
           <p>
-            Non salveremo né useremo ISEE, ISPE o residenza. Apri il portale nazionale MUR o il sito dell’ateneo e consulta il
-            bando ufficiale.
+            Non salveremo né useremo ISEE, ISPE o residenza. Apri il portale nazionale MUR o il sito
+            dell’ateneo e consulta il bando ufficiale.
           </p>
           <div className="inline-actions">
-            <a className="button button-primary" href={data.sources?.murScholarships || '#'} target="_blank" rel="noreferrer">
+            <a
+              className="button button-primary"
+              href={data.sources?.murScholarships || '#'}
+              target="_blank"
+              rel="noreferrer"
+            >
               Apri il diritto allo studio MUR
             </a>
             <a
@@ -250,7 +429,26 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
         </section>
       )}
 
-      {verification && verifiedUniversity && regional && copy ? (
+      {verification && cost?.entity ? (
+        <section className="real-cost-section" ref={resultRef}>
+          <RealCostResult result={cost} onCondition={changeCondition} busy={busy} />
+          <div className="save-scholarship-row">
+            <button className="button button-primary" type="button" onClick={saveOpportunity}>
+              {user ? 'Salva questa opportunità' : 'Accedi per salvarla (facoltativo)'}
+            </button>
+            <a
+              className="button button-secondary"
+              href={cost.entity.portal.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il bando ufficiale
+            </a>
+          </div>
+        </section>
+      ) : null}
+
+      {verification && !cost?.entity && verifiedUniversity && regional && copy ? (
         <section className={`scholarship-result scholarship-${verification.verdict}`} ref={resultRef}>
           <div className="result-symbol">{copy.icon}</div>
           <div className="scholarship-result-body">
@@ -277,7 +475,7 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
             </div>
             <div className="save-scholarship-row">
               <button className="button button-primary" type="button" onClick={saveOpportunity}>
-                Salva questa opportunità
+                {user ? 'Salva questa opportunità' : 'Accedi per salvarla (facoltativo)'}
               </button>
               <a className="button button-secondary" href={regional.url} target="_blank" rel="noreferrer">
                 Portale borsa ufficiale
@@ -292,59 +490,68 @@ export function ScholarshipsSection({ user }: { user: SiteUser }) {
               </a>
             </div>
             <p className="micro-note">
-              Residenza comunicata: {verification.residenceCity || 'comune non indicato'}, {verification.residenceRegion}. La
-              classificazione in sede/pendolare/fuori sede è soltanto una stima: il bando usa comuni, distanze e tempi di
-              percorrenza propri.
+              Residenza comunicata: {verification.residenceCity || 'comune non indicato'},{' '}
+              {verification.residenceRegion}. La classificazione in sede/pendolare/fuori sede è soltanto una
+              stima: il bando usa comuni, distanze e tempi di percorrenza propri. Per questo ateneo non
+              abbiamo ancora inserito il bando regionale: il verdetto usa i limiti nazionali, che l’ente può
+              abbassare.
             </p>
           </div>
         </section>
       ) : null}
 
-      <section className="service-card">
-        <div className="service-card-heading">
-          <div>
-            <span className="eyebrow">Salvate</span>
-            <h2>Le tue opportunità</h2>
+      {user ? (
+        <section className="service-card">
+          <div className="service-card-heading">
+            <div>
+              <span className="eyebrow">Salvate</span>
+              <h2>Le tue opportunità</h2>
+            </div>
+            {isEnabled('scadenzeScraping') ? <small>Usate anche nelle scadenze</small> : null}
           </div>
-          {isEnabled('scadenzeScraping') ? <small>Usate anche nelle scadenze</small> : null}
-        </div>
-        {saved.length ? (
-          <div className="saved-opportunity-list">
-            {saved
-              .slice()
-              .sort((a, b) => String(a.deadline || '9999').localeCompare(String(b.deadline || '9999')))
-              .map((item) => (
-                <article className="saved-opportunity" key={item.id}>
-                  <div>
-                    <span>{item.deadline
-                        ? formatDate(item.deadline)
-                        : isEnabled('scadenzeScraping')
-                          ? 'Scadenza cercata automaticamente'
-                          : 'Scadenza da verificare nel bando'}</span>
-                    <strong>{getUniversity(item.university_id)?.name || item.university_name || 'Ateneo'}</strong>
-                    <small>{item.status_label || 'Verifica orientativa salvata'}</small>
-                  </div>
-                  <div className="saved-opportunity-actions">
-                    <a href={item.portal_url || '#'} target="_blank" rel="noreferrer">
-                      Apri portale
-                    </a>
-                    <button type="button" onClick={() => remove(item.id)}>
-                      Elimina
-                    </button>
-                  </div>
-                </article>
-              ))}
-          </div>
-        ) : (
-          <p className="empty-state">Non hai ancora salvato opportunità.</p>
-        )}
-      </section>
+          {saved.length ? (
+            <div className="saved-opportunity-list">
+              {saved
+                .slice()
+                .sort((a, b) => String(a.deadline || '9999').localeCompare(String(b.deadline || '9999')))
+                .map((item) => (
+                  <article className="saved-opportunity" key={item.id}>
+                    <div>
+                      <span>
+                        {item.deadline
+                          ? formatDate(item.deadline)
+                          : isEnabled('scadenzeScraping')
+                            ? 'Scadenza cercata automaticamente'
+                            : 'Scadenza da verificare nel bando'}
+                      </span>
+                      <strong>
+                        {getUniversity(item.university_id)?.name || item.university_name || 'Ateneo'}
+                      </strong>
+                      <small>{item.status_label || 'Verifica orientativa salvata'}</small>
+                    </div>
+                    <div className="saved-opportunity-actions">
+                      <a href={item.portal_url || '#'} target="_blank" rel="noreferrer">
+                        Apri portale
+                      </a>
+                      <button type="button" onClick={() => remove(item.id)}>
+                        Elimina
+                      </button>
+                    </div>
+                  </article>
+                ))}
+            </div>
+          ) : (
+            <p className="empty-state">Non hai ancora salvato opportunità.</p>
+          )}
+        </section>
+      ) : null}
 
       <section className="source-disclaimer">
         <strong>Verifica orientativa, non domanda ufficiale.</strong>
         <p>
-          Per il {data.academicYear || '2026/2027'} il limite massimo nazionale è ISEE €{formatMoney(data.nationalThresholds.isee)} e
-          ISPE €{formatMoney(data.nationalThresholds.ispe)}. La concessione dipende dal bando competente.
+          Per il {data.academicYear || '2026/2027'} il limite massimo nazionale è ISEE €
+          {formatMoney(data.nationalThresholds.isee)} e ISPE €{formatMoney(data.nationalThresholds.ispe)}. La
+          concessione dipende dal bando competente.
         </p>
         <a href={data.sources?.murIseeDecree || '#'} target="_blank" rel="noreferrer">
           Apri il decreto MUR

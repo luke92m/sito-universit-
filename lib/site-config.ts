@@ -3,9 +3,13 @@ import { isVisible, type FeatureKey } from './features';
 // Configurazione del brand (porting di js/config.js): il nome definitivo è ancora da decidere.
 export const SITE_CONFIG = {
   name: 'NOME SITO',
-  tagline: 'L’università, spiegata semplice.',
+  tagline: 'Scopri quale università fa per te e quanto ti costa davvero, borsa compresa.',
   note: 'nome da decidere'
 };
+
+/** Regola fissa del sito: va scritta dove compaiono risultati e confronti. */
+export const NEUTRALITY_TEXT =
+  'Nessun ateneo paga per comparire o per la sua posizione. Ogni numero ha accanto la sua fonte e non serve un account.';
 
 export const SITUATION_LABELS: Record<string, string> = {
   university: 'Sono studente universitario o mi sto per immatricolare',
@@ -23,17 +27,16 @@ export const STUDENT_TOOL_SITUATIONS = new Set(['university', 'enrolling']);
 interface NavItem {
   href: string;
   label: string;
-  /** Visibile solo a chi ha indicato "Mi voglio iscrivere all’università". */
-  enrollingOnly?: boolean;
   feature?: FeatureKey;
 }
 
+// Menu corto, centrato sulla scelta. La burocrazia è l'ultimo passo del percorso ed è nel footer.
 const NAV_ITEMS: NavItem[] = [
+  { href: '/trova-corso', label: 'trova la tua università' },
+  { href: '/comparison', label: 'comparatore' },
+  { href: '/borse', label: 'borse di studio' },
   { href: '/atenei', label: 'atenei' },
-  { href: '/comparison', label: 'comparison' },
-  { href: '/trova-corso', label: 'trova il mio corso' },
-  { href: '/preparazione', label: 'preparazione', enrollingOnly: true, feature: 'preparazione' },
-  { href: '/burocrazia', label: 'burocrazia', enrollingOnly: true },
+  { href: '/preparazione', label: 'preparazione', feature: 'preparazione' },
   { href: '/scuole-aziende', label: 'scuole e aziende', feature: 'scuoleAziende' }
 ];
 
@@ -70,6 +73,7 @@ const PUBLIC_ROUTES: PublicRoute[] = [
   { path: '/', changeFrequency: 'weekly', priority: 1 },
   { path: '/trova-corso', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/comparison', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/borse', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/atenei', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/burocrazia', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/preparazione', changeFrequency: 'monthly', priority: 0.5, feature: 'preparazione' },

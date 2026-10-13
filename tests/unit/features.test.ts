@@ -13,7 +13,8 @@ describe('funzioni spente', () => {
 
   it('navigazione principale', () => {
     const hrefs = visibleNavItems().map((item) => item.href);
-    expect(hrefs).toEqual(['/atenei', '/comparison', '/trova-corso', '/burocrazia']);
+    // Menu del percorso di scelta: la burocrazia è l'ultimo passo del percorso e sta nel footer.
+    expect(hrefs).toEqual(['/trova-corso', '/comparison', '/borse', '/atenei']);
     expect(visibleNavItems().every((item) => !item.feature || isEnabled(item.feature))).toBe(true);
   });
 

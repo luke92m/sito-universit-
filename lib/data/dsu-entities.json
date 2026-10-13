@@ -1,0 +1,1897 @@
+{
+  "version": 1,
+  "note": "Dati copiati dai bandi ufficiali degli enti per il diritto allo studio. Ogni valore riporta la fonte; aggiornare ogni anno quando esce il nuovo bando (di solito a giugno).",
+  "entities": [
+    {
+      "id": "er-go",
+      "name": "ER.GO – Azienda regionale per il diritto agli studi superiori",
+      "shortName": "ER.GO",
+      "region": "Emilia-Romagna",
+      "universityIds": [
+        "ateneo-03701",
+        "ateneo-03801",
+        "ateneo-03601",
+        "ateneo-03401"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 25000,
+        "ispe": 50000,
+        "source": {
+          "label": "ER.GO, Soglie economiche per l’accesso 2026/27",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/soglie-economiche-per-laccesso"
+        }
+      },
+      "amounts": {
+        "note": "Importi annui comprensivi della quota eventualmente convertita in servizio ristorativo.",
+        "bands": [
+          {
+            "iseeMax": 16666.67,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 18333.34,
+            "fuoriSede": 4661.22,
+            "pendolare": 2723.96,
+            "inSede": 1878.61
+          },
+          {
+            "iseeMax": 20818.46,
+            "fuoriSede": 3872.4,
+            "pendolare": 2262.98,
+            "inSede": 1560.69
+          },
+          {
+            "iseeMax": 25000,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 1",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+15% con ISEE fino a 12.500 €",
+          "iseeMax": 12500,
+          "percent": 15,
+          "conditional": "pagato col saldo, solo se restano risorse dopo aver dato la borsa a tutti gli idonei",
+          "source": {
+            "label": "Bando ER.GO 2026/27, Sezione II, art. 2",
+            "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+          }
+        },
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "pagato col saldo, solo se restano risorse; non si somma al +15%",
+          "source": {
+            "label": "Bando ER.GO 2026/27, Sezione II, art. 2",
+            "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero totale dalle tasse universitarie (per le matricole, se raggiungono i crediti richiesti entro il 30/11/2027)",
+        "Rimborso della tassa regionale di 140 €",
+        "Se idoneo ma senza borsa per mancanza di fondi: contributo di 500 € per la mensa"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ER.GO 2026/27, Sezione II, artt. 1 e 8",
+        "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza a più di 90 minuti con i mezzi pubblici e casa in affitto vicino alla sede per almeno 10 mesi (o posto alloggio ER.GO).",
+        "pendolare": "Residenza tra 45 e 90 minuti con i mezzi pubblici, oppure in un comune della Tabella 2, oppure oltre 90 minuti ma con alloggio gratuito vicino alla sede.",
+        "inSede": "Residenza a meno di 45 minuti con i mezzi pubblici, oppure in un comune della Tabella 1, oppure senza casa vicino alla sede per almeno 10 mesi.",
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 5",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026",
+          "10% da marzo 2027, con i crediti richiesti al 28 febbraio 2027",
+          "40% (saldo) da giugno 2027, con i crediti richiesti al 10 agosto 2027"
+        ],
+        "note": "Dalle prime due rate si tolgono l’eventuale quota mensa e la retta dell’alloggio ER.GO.",
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 13",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-23",
+        "closes": "2026-08-24",
+        "closesTime": "16:00",
+        "note": "Domanda online ogni anno, anche per le matricole. Il bando 2027/28 uscirà presumibilmente a giugno 2027.",
+        "source": {
+          "label": "Bando ER.GO 2026/27, Sezione II, art. 4",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/sezione-ii-borse-di-studio/@@display-file/file/sezione-ii-borse-di-studio.pdf"
+        }
+      },
+      "housing": {
+        "places": {
+          "Bologna": 1842,
+          "Parma": 709,
+          "Modena": 546,
+          "Ferrara": 357,
+          "Forlì": 209,
+          "Reggio Emilia": 131,
+          "Cesena": 122,
+          "Rimini": 100,
+          "Ravenna": 55,
+          "Piacenza": 10
+        },
+        "placesSource": {
+          "label": "Regione Emilia-Romagna, comunicato del 24/06/2026",
+          "url": "https://notizie.regione.emilia-romagna.it/comunicati/2026/universita-diritto-allo-studio-pubblicato-il-bando-per-lassegnazione-di-borse-e-alloggi-per-lanno-accademico-2026-27-lassessore-paglia-ancora-incompiuta-la-revisione-della-normativa-a-livello-nazionale-e-sul-tema-risorse-anche-per-il-prossimo-anno-restano"
+        },
+        "monthlyFees": {
+          "Bologna": {
+            "min": 216,
+            "max": 322
+          }
+        },
+        "monthlyFeesNote": "Retta mensile con utenze comprese per chi è in graduatoria per reddito e merito; per gli idonei è detratta dalla borsa.",
+        "monthlyFeesSource": {
+          "label": "ER.GO, Tabelle rette e tariffe servizi residenziali 2026/27, Tabella 1",
+          "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/tabelle-rette-e-tariffe-servizi-residenziali/@@display-file/file/tabelle-rette-e-tariffe-servizi-residenziali.pdf"
+        }
+      },
+      "municipalities": {
+        "Bologna": {
+          "inSede": [
+            {
+              "comune": "Anzola dell’Emilia",
+              "prov": "BO"
+            },
+            {
+              "comune": "Argelato",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bentivoglio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bologna",
+              "prov": "BO"
+            },
+            {
+              "comune": "Budrio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Calderara di Reno",
+              "prov": "BO"
+            },
+            {
+              "comune": "Camposanto",
+              "prov": "MO"
+            },
+            {
+              "comune": "Casalecchio di Reno",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castel Bolognese",
+              "prov": "RA"
+            },
+            {
+              "comune": "Castel Maggiore",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castel San Pietro Terme",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castelfranco Emilia",
+              "prov": "MO"
+            },
+            {
+              "comune": "Castenaso",
+              "prov": "BO"
+            },
+            {
+              "comune": "Crespellano (ora Valsamoggia)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Crevalcore",
+              "prov": "BO"
+            },
+            {
+              "comune": "Faenza",
+              "prov": "RA"
+            },
+            {
+              "comune": "Ferrara",
+              "prov": "FE"
+            },
+            {
+              "comune": "Granarolo dell’Emilia",
+              "prov": "BO"
+            },
+            {
+              "comune": "Imola",
+              "prov": "BO"
+            },
+            {
+              "comune": "Marzabotto",
+              "prov": "BO"
+            },
+            {
+              "comune": "Minerbio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Modena",
+              "prov": "MO"
+            },
+            {
+              "comune": "Ozzano dell’Emilia",
+              "prov": "BO"
+            },
+            {
+              "comune": "Pianoro",
+              "prov": "BO"
+            },
+            {
+              "comune": "Poggio Renatico",
+              "prov": "FE"
+            },
+            {
+              "comune": "Rubiera",
+              "prov": "RE"
+            },
+            {
+              "comune": "Sala Bolognese",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Felice sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "San Giorgio di Piano",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Giovanni in Persiceto",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Lazzaro di Savena",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Pietro in Casale",
+              "prov": "BO"
+            },
+            {
+              "comune": "Sasso Marconi",
+              "prov": "BO"
+            },
+            {
+              "comune": "Solarolo",
+              "prov": "RA"
+            },
+            {
+              "comune": "Vado (frazione di Monzuno)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Zola Predosa",
+              "prov": "BO"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Albinea",
+              "prov": "RE"
+            },
+            {
+              "comune": "Bagnacavallo",
+              "prov": "RA"
+            },
+            {
+              "comune": "Bagnolo in Piano",
+              "prov": "RE"
+            },
+            {
+              "comune": "Baricella",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bastiglia",
+              "prov": "MO"
+            },
+            {
+              "comune": "Bazzano (ora Valsamoggia)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Bertinoro",
+              "prov": "FC"
+            },
+            {
+              "comune": "Boara Pisani",
+              "prov": "PD"
+            },
+            {
+              "comune": "Borgo Tossignano",
+              "prov": "BO"
+            },
+            {
+              "comune": "Brisighella",
+              "prov": "RA"
+            },
+            {
+              "comune": "Campogalliano",
+              "prov": "MO"
+            },
+            {
+              "comune": "Canaro",
+              "prov": "RO"
+            },
+            {
+              "comune": "Carpi",
+              "prov": "MO"
+            },
+            {
+              "comune": "Casalfiumanese",
+              "prov": "BO"
+            },
+            {
+              "comune": "Casola Valsenio",
+              "prov": "RA"
+            },
+            {
+              "comune": "Castel del Rio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castel Guelfo di Bologna",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castello d’Argile",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castiglione dei Pepoli",
+              "prov": "BO"
+            },
+            {
+              "comune": "Castrocaro T. e Terra del Sole",
+              "prov": "FC"
+            },
+            {
+              "comune": "Cavriago",
+              "prov": "RE"
+            },
+            {
+              "comune": "Cento",
+              "prov": "FE"
+            },
+            {
+              "comune": "Ceregnano",
+              "prov": "RO"
+            },
+            {
+              "comune": "Cesena",
+              "prov": "FC"
+            },
+            {
+              "comune": "Costa di Rovigo",
+              "prov": "RO"
+            },
+            {
+              "comune": "Cotignola",
+              "prov": "RA"
+            },
+            {
+              "comune": "Fidenza",
+              "prov": "PR"
+            },
+            {
+              "comune": "Finale Emilia",
+              "prov": "MO"
+            },
+            {
+              "comune": "Fiorano Modenese",
+              "prov": "MO"
+            },
+            {
+              "comune": "Fiorenzuola d’Arda",
+              "prov": "PC"
+            },
+            {
+              "comune": "Firenze",
+              "prov": "FI"
+            },
+            {
+              "comune": "Fontanelice",
+              "prov": "BO"
+            },
+            {
+              "comune": "Forlì",
+              "prov": "FC"
+            },
+            {
+              "comune": "Forlimpopoli",
+              "prov": "FC"
+            },
+            {
+              "comune": "Formigine",
+              "prov": "MO"
+            },
+            {
+              "comune": "Galliera",
+              "prov": "BO"
+            },
+            {
+              "comune": "Gambettola",
+              "prov": "FC"
+            },
+            {
+              "comune": "Gonzaga",
+              "prov": "MN"
+            },
+            {
+              "comune": "Grizzana Morandi",
+              "prov": "BO"
+            },
+            {
+              "comune": "Isola della Scala",
+              "prov": "VR"
+            },
+            {
+              "comune": "Loiano",
+              "prov": "BO"
+            },
+            {
+              "comune": "Lugo",
+              "prov": "RA"
+            },
+            {
+              "comune": "Malalbergo",
+              "prov": "BO"
+            },
+            {
+              "comune": "Magnacavallo",
+              "prov": "MN"
+            },
+            {
+              "comune": "Marano sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "Masi Torello",
+              "prov": "FE"
+            },
+            {
+              "comune": "Massa Lombarda",
+              "prov": "RA"
+            },
+            {
+              "comune": "Medicina",
+              "prov": "BO"
+            },
+            {
+              "comune": "Meldola",
+              "prov": "FC"
+            },
+            {
+              "comune": "Mirandola",
+              "prov": "MO"
+            },
+            {
+              "comune": "Molinella",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monghidoro",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monselice",
+              "prov": "PD"
+            },
+            {
+              "comune": "Monte San Pietro",
+              "prov": "BO"
+            },
+            {
+              "comune": "Montegrotto Terme",
+              "prov": "PD"
+            },
+            {
+              "comune": "Monterenzio",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monteveglio (ora Valsamoggia)",
+              "prov": "BO"
+            },
+            {
+              "comune": "Monzuno",
+              "prov": "BO"
+            },
+            {
+              "comune": "Nogara",
+              "prov": "VR"
+            },
+            {
+              "comune": "Occhiobello",
+              "prov": "RO"
+            },
+            {
+              "comune": "Ostiglia",
+              "prov": "MN"
+            },
+            {
+              "comune": "Parma",
+              "prov": "PR"
+            },
+            {
+              "comune": "Pieve di Cento",
+              "prov": "BO"
+            },
+            {
+              "comune": "Poggio Rusco",
+              "prov": "MN"
+            },
+            {
+              "comune": "Polesella",
+              "prov": "RO"
+            },
+            {
+              "comune": "Porretta Terme",
+              "prov": "BO"
+            },
+            {
+              "comune": "Portomaggiore",
+              "prov": "FE"
+            },
+            {
+              "comune": "Prato",
+              "prov": "PO"
+            },
+            {
+              "comune": "Ravarino",
+              "prov": "MO"
+            },
+            {
+              "comune": "Ravenna",
+              "prov": "RA"
+            },
+            {
+              "comune": "Reggio Emilia",
+              "prov": "RE"
+            },
+            {
+              "comune": "Rimini",
+              "prov": "RN"
+            },
+            {
+              "comune": "Riolo Terme",
+              "prov": "RA"
+            },
+            {
+              "comune": "Rolo",
+              "prov": "RE"
+            },
+            {
+              "comune": "Rovigo",
+              "prov": "RO"
+            },
+            {
+              "comune": "Russi",
+              "prov": "RA"
+            },
+            {
+              "comune": "San Benedetto Val di Sambro",
+              "prov": "BO"
+            },
+            {
+              "comune": "San Cesario sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "Sant’Agata Bolognese",
+              "prov": "BO"
+            },
+            {
+              "comune": "Santarcangelo di Romagna",
+              "prov": "RN"
+            },
+            {
+              "comune": "Sant’Ilario d’Enza",
+              "prov": "RE"
+            },
+            {
+              "comune": "Sassuolo",
+              "prov": "MO"
+            },
+            {
+              "comune": "Savignano sul Panaro",
+              "prov": "MO"
+            },
+            {
+              "comune": "Savignano sul Rubicone",
+              "prov": "FC"
+            },
+            {
+              "comune": "Schivenoglia",
+              "prov": "MN"
+            },
+            {
+              "comune": "Sermide",
+              "prov": "MN"
+            },
+            {
+              "comune": "Sesto Fiorentino",
+              "prov": "FI"
+            },
+            {
+              "comune": "Soliera",
+              "prov": "MO"
+            },
+            {
+              "comune": "Spilamberto",
+              "prov": "MO"
+            },
+            {
+              "comune": "Vaiano",
+              "prov": "PO"
+            },
+            {
+              "comune": "Vernio",
+              "prov": "PO"
+            },
+            {
+              "comune": "Vergato",
+              "prov": "BO"
+            },
+            {
+              "comune": "Vigarano Mainarda",
+              "prov": "FE"
+            },
+            {
+              "comune": "Vignola",
+              "prov": "MO"
+            }
+          ],
+          "source": {
+            "label": "Bando ER.GO 2026/27, Tabelle comuni in sede e pendolari, sede di Bologna",
+            "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/tabelle-comuni-per-condizione-di-studenti-in-sede-e-pendolari-bologna-e-romagna.pdf/@@download/file"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "La Regione dichiara l’obiettivo di dare la borsa a tutti gli idonei, ma il dato finale non è ancora pubblicato.",
+      "portal": {
+        "label": "Bando ER.GO 2026/27",
+        "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando"
+      }
+    },
+    {
+      "id": "disco-lazio",
+      "name": "DiSCo Lazio – Ente regionale per il diritto allo studio e la promozione della conoscenza",
+      "shortName": "DiSCo Lazio",
+      "region": "Lazio",
+      "universityIds": [
+        "ateneo-05801",
+        "ateneo-05802",
+        "ateneo-05807",
+        "ateneo-05806",
+        "ateneo-06001",
+        "ateneo-05601"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 12",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro; in più 2 pasti gratuiti al giorno (valore 600 €). Fino a 14.169,94 € di ISEE comprende la maggiorazione del 15%.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 7556.78,
+            "pendolare": 4129.32,
+            "inSede": 2633.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 6571.11,
+            "pendolare": 3590.71,
+            "inSede": 2290.16
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 6571.11,
+            "pendolare": 3590.71,
+            "inSede": 2290.16,
+            "endAt": {
+              "fuoriSede": 3285.6,
+              "pendolare": 1795.36,
+              "inSede": 1145.08
+            }
+          }
+        ],
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 8 e Tabella 6",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "2 pasti gratuiti al giorno",
+              "value": 600
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "2 pasti gratuiti al giorno",
+              "value": 600
+            }
+          ],
+          "inSede": [
+            {
+              "label": "2 pasti gratuiti al giorno",
+              "value": 600
+            }
+          ]
+        },
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 8",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "sull’importo base",
+          "source": {
+            "label": "Bando DiSCo Lazio 2026/27, art. 8",
+            "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+          }
+        },
+        {
+          "label": "+20% con iscrizione a due corsi",
+          "percent": 20,
+          "conditional": "se si mantengono i crediti in entrambi",
+          "source": {
+            "label": "Bando DiSCo Lazio 2026/27, art. 8",
+            "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso d’ufficio della tassa regionale per i vincitori",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando DiSCo Lazio 2026/27, artt. 22.2 e 23",
+        "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza a più di 50 km dalla sede e casa in affitto nel comune del corso per almeno 10 mesi (1/10/2026 – 30/9/2027).",
+        "pendolare": "Per Roma e Cassino: residenza in un comune dell’Allegato B; altrove: entro 50 km. È pendolare anche chi abita a più di 50 km ma non prende casa in affitto.",
+        "inSede": "Residenza nel comune sede del corso.",
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 2",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 27 dicembre 2026",
+          "50% (saldo) da ottobre 2027, con i crediti richiesti entro il 10 agosto 2027"
+        ],
+        "note": "Dalla borsa si toglie l’eventuale costo del posto alloggio DiSCo.",
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 41.7",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-07-22",
+        "closesTime": "12:00",
+        "note": "Domanda online dall’area riservata DiSCo con SPID o CIE, anche in attesa dei test di ammissione.",
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 2 e Allegato L",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
+      "housing": {
+        "monthlyFees": {
+          "Roma": {
+            "min": 200,
+            "max": 298
+          }
+        },
+        "monthlyFeesNote": "Costo mensile del posto nelle residenze DiSCo di Roma, tolto dalla borsa.",
+        "monthlyFeesSource": {
+          "label": "Bando DiSCo Lazio 2026/27, Allegato I",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/06/ALLEGATO_I_26-27.pdf"
+        }
+      },
+      "municipalities": {
+        "Roma": {
+          "inSede": [
+            {
+              "comune": "Roma"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Albano Laziale"
+            },
+            {
+              "comune": "Anguillara",
+              "aliases": [
+                "Anguillara Sabazia"
+              ]
+            },
+            {
+              "comune": "Ardea"
+            },
+            {
+              "comune": "Ariccia"
+            },
+            {
+              "comune": "Bracciano"
+            },
+            {
+              "comune": "Campagnano",
+              "aliases": [
+                "Campagnano di Roma"
+              ]
+            },
+            {
+              "comune": "Capena"
+            },
+            {
+              "comune": "Casape"
+            },
+            {
+              "comune": "Castel Gandolfo"
+            },
+            {
+              "comune": "Castel Madama"
+            },
+            {
+              "comune": "Castel S. Pietro",
+              "aliases": [
+                "Castel San Pietro Romano"
+              ]
+            },
+            {
+              "comune": "Castelnuovo di Porto"
+            },
+            {
+              "comune": "Cerveteri"
+            },
+            {
+              "comune": "Ciampino"
+            },
+            {
+              "comune": "Colonna"
+            },
+            {
+              "comune": "Fara Sabina"
+            },
+            {
+              "comune": "Fiano",
+              "aliases": [
+                "Fiano Romano"
+              ]
+            },
+            {
+              "comune": "Fiumicino"
+            },
+            {
+              "comune": "Fonte Nuova",
+              "aliases": [
+                "Fontenuova"
+              ]
+            },
+            {
+              "comune": "Formello"
+            },
+            {
+              "comune": "Frascati"
+            },
+            {
+              "comune": "Gallicano",
+              "aliases": [
+                "Gallicano nel Lazio"
+              ]
+            },
+            {
+              "comune": "Genzano",
+              "aliases": [
+                "Genzano di Roma"
+              ]
+            },
+            {
+              "comune": "Grottaferrata"
+            },
+            {
+              "comune": "Guidonia",
+              "aliases": [
+                "Guidonia Montecelio"
+              ]
+            },
+            {
+              "comune": "Ladispoli"
+            },
+            {
+              "comune": "Lanuvio"
+            },
+            {
+              "comune": "Lariano"
+            },
+            {
+              "comune": "Marcellina"
+            },
+            {
+              "comune": "Marino"
+            },
+            {
+              "comune": "Mentana"
+            },
+            {
+              "comune": "Monte Porzio Catone"
+            },
+            {
+              "comune": "Montecompatri",
+              "aliases": [
+                "Monte Compatri"
+              ]
+            },
+            {
+              "comune": "Montelibretti"
+            },
+            {
+              "comune": "Monterotondo"
+            },
+            {
+              "comune": "Morlupo"
+            },
+            {
+              "comune": "Nemi"
+            },
+            {
+              "comune": "Palestrina"
+            },
+            {
+              "comune": "Poli"
+            },
+            {
+              "comune": "Pomezia"
+            },
+            {
+              "comune": "Riano"
+            },
+            {
+              "comune": "Rocca di Papa"
+            },
+            {
+              "comune": "Rocca Priora"
+            },
+            {
+              "comune": "S. Angelo Romano",
+              "aliases": [
+                "Sant'Angelo Romano"
+              ]
+            },
+            {
+              "comune": "S. Cesareo",
+              "aliases": [
+                "San Cesareo"
+              ]
+            },
+            {
+              "comune": "S. Gregorio da Sassola",
+              "aliases": [
+                "San Gregorio da Sassola"
+              ]
+            },
+            {
+              "comune": "Sacrofano"
+            },
+            {
+              "comune": "Tivoli"
+            },
+            {
+              "comune": "Trevignano",
+              "aliases": [
+                "Trevignano Romano"
+              ]
+            },
+            {
+              "comune": "Velletri"
+            },
+            {
+              "comune": "Zagarolo"
+            }
+          ],
+          "source": {
+            "label": "Bando DiSCo Lazio 2026/27, Allegato B (comuni pendolari per Roma)",
+            "url": "https://laziodisco.it/wp-content/uploads/2026/06/ALLEGATO_B_26-27.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Bando DiSCo Lazio 2026/27",
+        "url": "https://laziodisco.it/bando-diritto-allo-studio-2026-2027/"
+      }
+    },
+    {
+      "id": "edisu-piemonte",
+      "name": "EDISU Piemonte – Ente regionale per il diritto allo studio universitario",
+      "shortName": "EDISU Piemonte",
+      "region": "Piemonte",
+      "universityIds": [
+        "ateneo-00101",
+        "ateneo-00102",
+        "ateneo-00201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 26306.25,
+        "ispe": 57187.53,
+        "source": {
+          "label": "Bando EDISU Piemonte 2026/27, art. 6",
+          "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro, già al netto di 150 € per la mensa (per i vincitori il pasto completo costa 3 €). Fino a 13.153,12 € di ISEE comprende la maggiorazione del 15%.",
+        "bands": [
+          {
+            "iseeMax": 13153.12,
+            "fuoriSede": 8096.78,
+            "pendolare": 4669.32,
+            "inSede": 3173.68
+          },
+          {
+            "iseeMax": 17537.5,
+            "fuoriSede": 7021.11,
+            "pendolare": 4040.71,
+            "inSede": 2740.16
+          },
+          {
+            "iseeMax": 23626,
+            "fuoriSede": 5586.89,
+            "pendolare": 3202.57,
+            "inSede": 2162.13
+          },
+          {
+            "iseeMax": 26306.25,
+            "fuoriSede": 3800,
+            "pendolare": 1945.36,
+            "inSede": 1295.08
+          }
+        ],
+        "source": {
+          "label": "Bando EDISU Piemonte 2026/27, art. 5",
+          "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "Importi più alti per le studentesse dei corsi S.T.E.M. (fuori sede fino a 8.455,33 €)",
+          "conditional": "tabelle dedicate nel bando",
+          "source": {
+            "label": "Bando EDISU Piemonte 2026/27, art. 5",
+            "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+          }
+        },
+        {
+          "label": "+20% con iscrizione a due corsi",
+          "percent": 20,
+          "conditional": "con i crediti richiesti per entrambi",
+          "source": {
+            "label": "Bando EDISU Piemonte 2026/27, art. 13",
+            "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso della tassa regionale di 140 €",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo",
+        "Pasto completo a 3 € nelle mense EDISU"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando EDISU Piemonte 2026/27, artt. 5 e 13",
+        "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non raggiungibile con i mezzi pubblici entro 60 minuti e dichiarazione di alloggio a titolo oneroso (o posto in residenza EDISU).",
+        "pendolare": "Residenza in un altro comune raggiungibile entro 60 minuti; è pendolare anche chi è più lontano ma non paga un alloggio.",
+        "inSede": "Residenza nel comune sede del corso.",
+        "source": {
+          "label": "Bando EDISU Piemonte 2026/27, art. 4",
+          "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% da fine dicembre 2026",
+          "50% da fine giugno 2027 con almeno 20 crediti entro il 31 maggio 2027, altrimenti con 20 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Senza i crediti richiesti si può mantenere la sola prima rata alle condizioni del bando.",
+        "source": {
+          "label": "Bando EDISU Piemonte 2026/27, art. 13",
+          "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-22",
+        "closes": "2026-09-04",
+        "closesTime": "12:00",
+        "note": "Domanda online sul sito EDISU con SPID o CIE.",
+        "source": {
+          "label": "EDISU Piemonte, Scadenziario 2026/27",
+          "url": "https://www.edisu.piemonte.it/sites/default/files/schede-informative-borse-e-contributi-documenti/bando-20262027/Scadenziario_2026_27.pdf"
+        }
+      },
+      "municipalities": {
+        "Torino": {
+          "inSede": [
+            {
+              "comune": "Torino"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando EDISU Piemonte 2026/27, art. 4",
+            "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+          }
+        },
+        "Novara": {
+          "inSede": [
+            {
+              "comune": "Novara"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando EDISU Piemonte 2026/27, art. 4",
+            "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+          }
+        },
+        "Vercelli": {
+          "inSede": [
+            {
+              "comune": "Vercelli"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando EDISU Piemonte 2026/27, art. 4",
+            "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+          }
+        },
+        "Alessandria": {
+          "inSede": [
+            {
+              "comune": "Alessandria"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando EDISU Piemonte 2026/27, art. 4",
+            "url": "https://www.edisu.piemonte.it/sites/default/files/documentazione/bandi-di-concorso/Bando_borsa_di_studio_servizio_abitativo_premio_di_laurea_contributo_studenti_con_disabilit%C3%A0_dal_46_p.c._iscritti_al_collocamento_mirato_a.a._2026-27_0.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "EDISU Piemonte, borsa di studio 2026/27",
+        "url": "https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/borsa-di-studio"
+      }
+    },
+    {
+      "id": "dsu-toscana",
+      "name": "DSU Toscana – Azienda regionale per il diritto allo studio universitario",
+      "shortName": "DSU Toscana",
+      "region": "Toscana",
+      "universityIds": [
+        "ateneo-04801",
+        "ateneo-05001",
+        "ateneo-05201",
+        "ateneo-05202"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 27000,
+        "ispe": 60000,
+        "source": {
+          "label": "Bando DSU Toscana 2026/27, art. 7",
+          "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro: per i fuori sede è più bassa perché la borsa comprende mensa e posto alloggio gratuiti.",
+        "bands": [
+          {
+            "iseeMax": 13500,
+            "fuoriSede": 3338,
+            "pendolare": 3880,
+            "inSede": 2385
+          },
+          {
+            "iseeMax": 18000,
+            "fuoriSede": 2262,
+            "pendolare": 3251,
+            "inSede": 1951
+          },
+          {
+            "iseeMax": 27000,
+            "fuoriSede": 1060,
+            "pendolare": 2413,
+            "inSede": 1690
+          }
+        ],
+        "source": {
+          "label": "Bando DSU Toscana 2026/27, art. 19, Tabella B1",
+          "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "2 pasti gratuiti al giorno",
+              "value": 1760
+            },
+            {
+              "label": "Posto alloggio gratuito (o contributo affitto se mancano posti), se vinci anche l’alloggio",
+              "value": 3150
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "1 pasto gratuito al giorno",
+              "value": 940
+            }
+          ],
+          "inSede": [
+            {
+              "label": "1 pasto gratuito al giorno",
+              "value": 940
+            }
+          ]
+        },
+        "source": {
+          "label": "Bando DSU Toscana 2026/27, artt. 19.1.8 e 20.11",
+          "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+        }
+      },
+      "increments": [
+        {
+          "label": "Importi più alti per le studentesse dei corsi S.T.E.M. (fuori sede fino a 3.696 € in denaro)",
+          "conditional": "Tabella B2 del bando",
+          "source": {
+            "label": "Bando DSU Toscana 2026/27, art. 19.1.2",
+            "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+          }
+        },
+        {
+          "label": "+20% con iscrizione a due corsi",
+          "percent": 20,
+          "conditional": "con i requisiti di merito per entrambi",
+          "source": {
+            "label": "Bando DSU Toscana 2026/27, art. 19.1.5",
+            "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero dalla tassa regionale",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo",
+        "Mensa gratuita"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando DSU Toscana 2026/27, artt. 1 e 19.2",
+        "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune a più di un’ora dalla sede con i mezzi pubblici.",
+        "pendolare": "Né in sede né fuori sede (entro un’ora). Chi è tra 60 e 90 minuti può chiedere di essere pendolare.",
+        "inSede": "Residenza nel comune del corso o nei comuni dell’area indicati dal bando (es. Scandicci e Sesto Fiorentino per Firenze, Cascina per Pisa).",
+        "source": {
+          "label": "Bando DSU Toscana 2026/27, art. 2.2",
+          "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro dicembre 2026 (20% già entro il 10 novembre se vincitore nella graduatoria approvata entro il 4 novembre)",
+          "50% con i crediti richiesti entro il 10 agosto 2027 (pagato il 30 giugno 2027 se raggiunti entro il 31 maggio)"
+        ],
+        "note": "Mensa e alloggio si usano da subito; la quota in denaro segue le rate.",
+        "source": {
+          "label": "Bando DSU Toscana 2026/27, art. 21",
+          "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+        }
+      },
+      "application": {
+        "opens": "2026-07-20",
+        "closes": "2026-09-07",
+        "closesTime": "13:00",
+        "note": "Domanda online; l’ISEE va sottoscritto entro la scadenza.",
+        "source": {
+          "label": "DSU Toscana, borsa di studio 2026/27",
+          "url": "https://www.dsu.toscana.it/borsa-di-studio"
+        }
+      },
+      "municipalities": {
+        "Firenze": {
+          "inSede": [
+            {
+              "comune": "Firenze"
+            },
+            {
+              "comune": "Bagno a Ripoli"
+            },
+            {
+              "comune": "Calenzano"
+            },
+            {
+              "comune": "Campi Bisenzio"
+            },
+            {
+              "comune": "Fiesole"
+            },
+            {
+              "comune": "Lastra a Signa"
+            },
+            {
+              "comune": "Pontassieve"
+            },
+            {
+              "comune": "Rignano sull'Arno"
+            },
+            {
+              "comune": "Scandicci"
+            },
+            {
+              "comune": "Sesto Fiorentino"
+            },
+            {
+              "comune": "Signa"
+            },
+            {
+              "comune": "Vaglia"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando DSU Toscana 2026/27, art. 2.2",
+            "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+          }
+        },
+        "Pisa": {
+          "inSede": [
+            {
+              "comune": "Pisa"
+            },
+            {
+              "comune": "Calci"
+            },
+            {
+              "comune": "Cascina"
+            },
+            {
+              "comune": "San Giuliano Terme"
+            },
+            {
+              "comune": "Vecchiano"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando DSU Toscana 2026/27, art. 2.2",
+            "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+          }
+        },
+        "Siena": {
+          "inSede": [
+            {
+              "comune": "Siena"
+            },
+            {
+              "comune": "Monteriggioni"
+            },
+            {
+              "comune": "Monteroni d'Arbia"
+            },
+            {
+              "comune": "Sovicille"
+            },
+            {
+              "comune": "Castelnuovo Berardenga"
+            },
+            {
+              "comune": "Asciano"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando DSU Toscana 2026/27, art. 2.2",
+            "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "DSU Toscana, borsa di studio 2026/27",
+        "url": "https://www.dsu.toscana.it/borsa-di-studio"
+      }
+    },
+    {
+      "id": "unipd-borse",
+      "name": "Università di Padova – Borse di studio regionali per il diritto allo studio",
+      "shortName": "UniPD",
+      "region": "Veneto",
+      "universityIds": [
+        "ateneo-02801"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 26306.25,
+        "ispe": 43125.94,
+        "source": {
+          "label": "UniPD, Bando borse di studio regionali 2026/27, requisiti economici",
+          "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/Bando%20Borse%20Studio%202026-27.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo complessivo: comprende il pasto giornaliero gratuito (trattenuta di 760 € fuori sede, 540 € pendolari, 250 € in sede) e, per chi sta nelle residenze ESU, 1.600 € di alloggio.",
+        "bands": [
+          {
+            "iseeMax": 13153.11,
+            "fuoriSede": 8246,
+            "pendolare": 4819,
+            "inSede": 3323
+          },
+          {
+            "iseeMax": 17537.5,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26306.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.5,
+              "pendolare": 2095.3,
+              "inSede": 1445
+            }
+          }
+        ],
+        "source": {
+          "label": "UniPD, Bando borse di studio regionali 2026/27, importi della borsa",
+          "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/Bando%20Borse%20Studio%202026-27.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non si somma alla maggiorazione del 15% per ISEE fino a 13.153,11 €",
+          "source": {
+            "label": "UniPD, Bando borse di studio regionali 2026/27, importi della borsa",
+            "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/Bando%20Borse%20Studio%202026-27.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero totale dalle tasse per gli idonei del primo anno con 20 crediti entro il 10/08/2027, con restituzione della tassa regionale",
+        "Pasto giornaliero gratuito nelle mense ESU"
+      ],
+      "connectedBenefitsSource": {
+        "label": "UniPD, Bando contribuzione studentesca ed esoneri 2026/27, art. 6.A",
+        "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/1.Bando%20ContribuzioneEsoneri%202026-27.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza oltre 80 km e/o 80 minuti con i mezzi pubblici e alloggio a pagamento vicino alla sede per almeno 10 mesi.",
+        "pendolare": "Residenza tra 40 e 80 km e/o tra 40 e 80 minuti; è pendolare anche chi è più lontano senza alloggio a pagamento.",
+        "inSede": "Residenza entro 40 km e/o 40 minuti dalla sede con i mezzi pubblici.",
+        "source": {
+          "label": "UniPD, Bando borse di studio regionali 2026/27, status di studente",
+          "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/Bando%20Borse%20Studio%202026-27.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata entro dicembre 2026",
+          "Seconda rata con almeno 20 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Le trattenute per mensa e alloggio sono divise tra le due rate.",
+        "source": {
+          "label": "UniPD, Bando borse di studio regionali 2026/27, erogazione",
+          "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/Bando%20Borse%20Studio%202026-27.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "note": "Entro la scadenza bisogna compilare la Richiesta di Agevolazioni in Uniweb e chiedere l’ISEE per il diritto allo studio.",
+        "source": {
+          "label": "UniPD, Bando borse di studio regionali 2026/27, scadenze",
+          "url": "https://wwwassets.unipd.it/sites/default/files/2026-07/Bando%20Borse%20Studio%202026-27.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "UniPD, Borse di studio regionali",
+        "url": "https://www.unipd.it/borse-studio-regionali"
+      }
+    },
+    {
+      "id": "adisurc",
+      "name": "ADISURC – Azienda per il diritto allo studio universitario della Regione Campania",
+      "shortName": "ADISURC",
+      "region": "Campania",
+      "universityIds": [
+        "ateneo-06301",
+        "ateneo-06302",
+        "ateneo-06303",
+        "ateneo-06306",
+        "ateneo-06501",
+        "ateneo-06201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 25500,
+        "ispe": 54000,
+        "source": {
+          "label": "Bando ADISURC Campania 2026/27, art. 4.1",
+          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo complessivo; chi è in sede ha in più un pasto giornaliero gratuito. Fino a 12.750 € di ISEE comprende la maggiorazione del 15%.",
+        "bands": [
+          {
+            "iseeMax": 12750,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 17000,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 25500,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 4589.28,
+              "pendolare": 2396.85,
+              "inSede": 1461.62
+            }
+          }
+        ],
+        "source": {
+          "label": "Bando ADISURC Campania 2026/27, art. 6",
+          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15%",
+          "source": {
+            "label": "Bando ADISURC Campania 2026/27, art. 6.2",
+            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso d’ufficio della tassa regionale",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ADISURC Campania 2026/27, art. 9",
+        "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Corso ad almeno 30 km dal comune di residenza (o residenza a Ischia, Capri, Procida) e casa in affitto con contratto registrato per almeno 10 mesi.",
+        "pendolare": "Residenza in un comune non confinante con quello del corso, senza i requisiti del fuori sede.",
+        "inSede": "Residenza nel comune del corso o in un comune confinante (per Napoli: Portici, Pozzuoli, Casoria, Marano…).",
+        "source": {
+          "label": "Bando ADISURC Campania 2026/27, art. 7",
+          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026",
+          "50% dopo la verifica di 20 crediti entro il 10 agosto 2027 (borsa dimezzata se raggiunti entro il 30 novembre 2027)"
+        ],
+        "note": "Dalla borsa si tolgono gli eventuali servizi di mensa e alloggio.",
+        "source": {
+          "label": "Bando ADISURC Campania 2026/27, art. 9",
+          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-10",
+        "closesTime": "12:00",
+        "note": "Domanda online sul sito ADISURC con SPID o CIE.",
+        "source": {
+          "label": "ADISURC, Approvazione bando di concorso 2026/2027",
+          "url": "https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027"
+        }
+      },
+      "municipalities": {
+        "Napoli": {
+          "inSede": [
+            {
+              "comune": "Napoli"
+            },
+            {
+              "comune": "Arzano"
+            },
+            {
+              "comune": "Casandrino"
+            },
+            {
+              "comune": "Casavatore"
+            },
+            {
+              "comune": "Casoria"
+            },
+            {
+              "comune": "Cercola"
+            },
+            {
+              "comune": "Marano di Napoli"
+            },
+            {
+              "comune": "Melito di Napoli"
+            },
+            {
+              "comune": "Mugnano di Napoli"
+            },
+            {
+              "comune": "Portici"
+            },
+            {
+              "comune": "Pozzuoli"
+            },
+            {
+              "comune": "Quarto"
+            },
+            {
+              "comune": "San Giorgio a Cremano"
+            },
+            {
+              "comune": "San Sebastiano al Vesuvio"
+            },
+            {
+              "comune": "Volla"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando ADISURC Campania 2026/27, art. 7.2",
+            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          }
+        },
+        "Fisciano": {
+          "inSede": [
+            {
+              "comune": "Fisciano"
+            },
+            {
+              "comune": "Baronissi"
+            },
+            {
+              "comune": "Calvanico"
+            },
+            {
+              "comune": "Castiglione del Genovesi"
+            },
+            {
+              "comune": "Mercato San Severino"
+            },
+            {
+              "comune": "Montoro"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando ADISURC Campania 2026/27, art. 7.2",
+            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ADISURC, borse di studio",
+        "url": "https://www.adisurcampania.it/borse-e-contributi/borse-di-studio"
+      }
+    },
+    {
+      "id": "unimib-dsu",
+      "name": "Università di Milano-Bicocca – Borse di studio per il diritto allo studio",
+      "shortName": "Milano-Bicocca",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01509"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-12",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 4",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro, che comprende già il rimborso della tassa regionale; in più la mensa gratuita (valore 829 €).",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 7419,
+            "pendolare": 3991,
+            "inSede": 2601
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 6343,
+            "pendolare": 3362,
+            "inSede": 2162
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5028,
+            "pendolare": 2470,
+            "inSede": 1314
+          }
+        ],
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 5.3",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Mensa gratuita",
+              "value": 829
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "Mensa gratuita",
+              "value": 829
+            }
+          ],
+          "inSede": [
+            {
+              "label": "Mensa gratuita",
+              "value": 829
+            }
+          ]
+        },
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 5.3",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "già indicato nelle tabelle del bando",
+          "source": {
+            "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 5.3",
+            "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+          }
+        }
+      ],
+      "accessRequirement": {
+        "text": "Per il primo anno di laurea triennale o a ciclo unico serve un voto di maturità di almeno 70/100 (66/100 con disabilità o invalidità almeno del 66%).",
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 3.2.1",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "connectedBenefits": [
+        "Mensa gratuita",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento d’Ateneo"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punti 5 e 9",
+        "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Oltre 90 minuti con i mezzi pubblici e alloggio a pagamento vicino alla sede per almeno 10 mesi.",
+        "pendolare": "Tra 60 e 90 minuti con i mezzi pubblici.",
+        "inSede": "Residenza nel comune del corso o nei dintorni, fino a 60 minuti con i mezzi pubblici.",
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 5.2",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026",
+          "50% dopo la verifica dei crediti minimi entro il 10 agosto 2027"
+        ],
+        "note": "A chi ha un posto alloggio dell’Ateneo si trattengono 1.536 € dalla prima rata.",
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, punto 9.2",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-07",
+        "closes": "2026-09-30",
+        "note": "Domanda online; l’ISEE va chiesto entro la scadenza.",
+        "source": {
+          "label": "Milano-Bicocca, Bando diritto allo studio 2026/27, scadenze",
+          "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Milano-Bicocca, Bando diritto allo studio 2026/27",
+        "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
+      }
+    }
+  ]
+}
