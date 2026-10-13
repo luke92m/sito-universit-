@@ -327,6 +327,55 @@ describe('tasse Università di Pisa 2026/27', () => {
   });
 });
 
+describe('tasse Statale di Milano 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01501')!;
+  const courses = getCourses('ateneo-01501');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+  const areaA = courseGroup(rule, named('Giurisprudenza'))!;
+  const areaB = courseGroup(rule, named('Scienze Sociali per la Globalizzazione'))!;
+  const pay = (isee: number | null, group = areaA) => contributionFor(rule, isee, group.max, group.bands);
+
+  it('area A per nome esatto dall’Allegato 1, area B per tutti gli altri corsi', () => {
+    expect(areaA.id).toBe('A');
+    expect(areaB.id).toBe('B');
+    expect(courseGroup(rule, named("Filologia, Letterature e Storia dell'Antichità"))?.id).toBe('A');
+    expect(courseGroup(rule, named('Lingue e Letterature Straniere'))?.id).toBe('B');
+    expect(courseGroup(rule, null)?.id).toBe('B');
+  });
+
+  it('no-tax area fino a 30.000 €, poi 3% e 6,7%; area B × 1,28', () => {
+    expect(pay(30000)).toBe(0);
+    expect(pay(30000.01)).toBe(150);
+    expect(pay(38000)).toBe(390);
+    expect(pay(50000)).toBe(1194);
+    expect(pay(90000)).toBe(3204);
+    expect(pay(50000, areaB)).toBe(1528.32);
+    expect(pay(null, areaB)).toBe(4101.12);
+    expect(fixedFeesRange(rule, exact(40000)).regionalTax.min).toBe(160);
+    expect(fixedFeesRange(rule, none).max).toBe(206);
+  });
+});
+
+describe('tasse Politecnico di Milano 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01502')!;
+
+  it('esonero fino a 22.000 €, formule della tabella 4.2 fino a 30.000 €', () => {
+    expect(contributionFor(rule, 22000, 3726)).toBe(0);
+    expect(contributionFor(rule, 23000, 3726)).toBe(77);
+    expect(contributionFor(rule, 25000, 3726)).toBe(304.5);
+    expect(contributionFor(rule, 30000, 3726)).toBe(1071);
+  });
+
+  it('fasce di reddito delle tabelle 1 e 2, contributo pieno oltre 95.000 €', () => {
+    expect(contributionFor(rule, 30500, 3726)).toBe(1474);
+    expect(contributionFor(rule, 45000, 3726)).toBe(2109);
+    expect(contributionFor(rule, 95000, 3726)).toBe(3189);
+    expect(contributionFor(rule, 100000, 3726)).toBe(3726);
+    expect(contributionFor(rule, null, 3726)).toBe(3726);
+    expect(fixedFeesRange(rule, none).max).toBe(217.04);
+  });
+});
+
 describe('tasse Sapienza 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-05801')!;
   const courses = getCourses('ateneo-05801');
