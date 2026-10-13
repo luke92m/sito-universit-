@@ -130,6 +130,21 @@ describe('altri enti 2026/27: valori controllati sui bandi', () => {
     expect(scholarshipFor(mib, exact(27000), none, 'fuoriSede').status).toBe('not-eligible');
     expect(mib.accessRequirement?.text).toContain('70/100');
   });
+
+  it('Statale e Politecnico di Milano: stessi importi regionali, senza voto minimo di maturità', () => {
+    for (const id of ['ateneo-01501', 'ateneo-01502']) {
+      const lombardia = entity(id);
+      expect(lombardia.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+      expect(amountAt(lombardia, 10000, 'inSede')).toBe(2601);
+      expect(amountAt(lombardia, 15000, 'pendolare')).toBe(3362);
+      expect(amountAt(lombardia, 20000, 'fuoriSede')).toBe(5028);
+      expect(scholarshipFor(lombardia, exact(15000), none, 'inSede').inKind[0].value).toBe(829);
+      expect(scholarshipFor(lombardia, exact(20000), exact(60000), 'inSede').status).toBe('not-eligible');
+      expect(lombardia.accessRequirement).toBeUndefined();
+    }
+    expect(entity('ateneo-01501').shortName).toBe('Statale di Milano');
+    expect(entity('ateneo-01502').shortName).toBe('Politecnico di Milano');
+  });
 });
 
 describe('tasse Università di Padova 2026/27', () => {

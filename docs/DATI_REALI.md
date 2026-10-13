@@ -25,11 +25,13 @@ Borse (bandi 2026/27):
 | Università di Padova (borse regionali) | Padova | 26.306,25 / 43.125,94 | — (40/80 km o minuti) |
 | ADISURC (Campania) | Federico II, Parthenope, L'Orientale, Vanvitelli, Salerno, Sannio | 25.500 / 54.000 | in sede per Napoli e Fisciano |
 | Milano-Bicocca (Lombardia) | Milano-Bicocca | 26.887,93 / 58.452,06 | — (60/90 minuti) |
+| Statale di Milano (Lombardia) | Università degli Studi di Milano | 26.887,93 / 58.452,06 | — (60/90 minuti) |
+| Politecnico di Milano (Lombardia) | Politecnico di Milano | 26.887,93 / 58.452,06 | — (60/90 minuti) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
 - **Servizi gratuiti** (`inKind`): DSU Toscana (mensa e posto alloggio o contributo affitto di 3.150 €), DiSCo (2 pasti al giorno, 600 €), Bicocca (mensa, 829 €). Nel costo reale sono una voce a parte, sottratta come la borsa.
-- **Lombardia**: ogni ateneo ha il suo bando e il Politecnico, alla pubblicazione, rimandava gli importi a una delibera regionale successiva. Per ora c'è solo Bicocca, che chiede anche **almeno 70/100 alla maturità** per il primo anno.
+- **Lombardia**: ogni ateneo ha il suo bando e il Politecnico, alla pubblicazione, rimandava gli importi a una delibera regionale successiva. Gli importi sono quelli della delibera regionale n. XII/6298 del 15 giugno 2026, uguali nei tre atenei: il Politecnico li ha pubblicati con l'integrazione al bando del 1° luglio 2026. Solo Bicocca chiede anche **almeno 70/100 alla maturità** per il primo anno. Al Politecnico il fuori sede nelle residenze dell'Ateneo riceve meno denaro più il posto letto: il sito usa l'importo per chi affitta altrove, e lo dice nella nota.
 
 Tasse (2026/27):
 - **Università di Bologna**: formula completa. Corsi a importo maggiorato inseriti per triennali e ciclo unico; per le magistrali c'è solo il massimo base, con un avviso.
@@ -53,6 +55,8 @@ Tasse (2026/27):
 - UniPD, bando borse regionali e bando contribuzione ed esoneri 2026/27: <https://www.unipd.it/borse-studio-regionali>, <https://www.unipd.it/contribuzione-studentesca>
 - Bando ADISURC 2026/27: <https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027>
 - Bando diritto allo studio Milano-Bicocca 2026/27: <https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf>
+- Statale di Milano, Bando borse regionali 2026/27: <https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf>
+- Politecnico di Milano, Bando DSU 2026/27 e integrazione con gli importi: <https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf>, <https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf>
 - UniTo, Regolamento tasse e contributi 2026/27 (D.R. 6194/2026): <https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf>
 - PoliTo, Regolamento contribuzione 2026/27 per immatricolati dal 2025/26 e lauree magistrali: <https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf>
 - UniFI, Manifesto degli Studi 2026/27 (§ 13 e Allegato 1): <https://www.unifi.it/sites/default/files/2026-06/manifesto_studi_26_27.pdf>
