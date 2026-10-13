@@ -245,6 +245,43 @@ describe('tasse Federico II 2026/27', () => {
   });
 });
 
+describe('tasse Milano-Bicocca 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01509')!;
+  const courses = getCourses('ateneo-01509');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+  const areaA = courseGroup(rule, named('Economia e Finanza'))!;
+  const areaB = courseGroup(rule, named('Fisica'))!;
+  const pay = (isee: number | null, group = areaA) => contributionFor(rule, isee, group.max, group.bands);
+
+  it('aree di contribuzione dell’Appendice 1, anche quando la macroarea non basta', () => {
+    expect(areaA.id).toBe('A');
+    expect(areaB.id).toBe('B');
+    expect(courseGroup(rule, named('Servizio Sociale'))?.id).toBe('A');
+    expect(courseGroup(rule, named('Biostatistica'))?.id).toBe('A');
+    expect(courseGroup(rule, named('Comunicazione Interculturale'))?.id).toBe('B');
+    expect(courseGroup(rule, named('Scienze della Formazione Primaria'))?.id).toBe('B');
+  });
+
+  it('formula (ISEE/1000)² × k × 0,87 per le matricole, fino al massimo da 76.000 €', () => {
+    expect(pay(30000)).toBe(0);
+    expect(pay(30500)).toBe(480.36);
+    expect(pay(40000)).toBe(826.43);
+    expect(pay(60000)).toBe(1859.47);
+    expect(pay(40000, areaB)).toBe(991.8);
+    expect(pay(76000)).toBe(2983.23);
+    expect(pay(null, areaB)).toBe(3580.05);
+  });
+
+  it('tassa regionale lombarda per ISEE e costo reale in sede', () => {
+    expect(fixedFeesRange(rule, exact(20000)).regionalTax.min).toBe(130);
+    expect(fixedFeesRange(rule, exact(40000)).regionalTax.min).toBe(160);
+    expect(fixedFeesRange(rule, none).max).toBe(206);
+    const bicocca = getUniversityById('ateneo-01509')!;
+    const cost = realCost(bicocca, named('Economia e Finanza'), exact(40000), exact(20000), 'inSede');
+    expect(cost.total.max).toBe(Math.round(826.43 + 160 + 16));
+  });
+});
+
 describe('tasse Sapienza 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-05801')!;
   const courses = getCourses('ateneo-05801');

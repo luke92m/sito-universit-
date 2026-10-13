@@ -1187,6 +1187,190 @@
         }
       },
       "simulator": "http://calcolatrice.unina.it"
+    },
+    "ateneo-01509": {
+      "name": "Università di Milano-Bicocca",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole alla prima iscrizione in Bicocca, che il regolamento considera tutte «meritevoli» (contributo ridotto del 13%).",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Prima rata di 146 € (bollo e 130 € di tassa regionale); con ISEE più alto la tassa regionale sale a 160 € o 190 € e la differenza si paga con la seconda rata.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53775.86,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30500,
+          "from": 30000,
+          "rate": 0.9297342,
+          "base": 0,
+          "square": 0.00006198228
+        },
+        {
+          "iseeMax": 76000,
+          "from": 0,
+          "rate": 0,
+          "base": 0,
+          "square": 5.16519e-7
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2983.23
+        }
+      ],
+      "bandsSource": {
+        "label": "Milano-Bicocca, Regolamento in materia di contribuzione universitaria 2026/27, art. 4",
+        "url": "https://www.unimib.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20contribuzione%20universitaria%202026_2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3580.05,
+        "ciclo-unico": 3580.05,
+        "magistrale": 3580.05
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "A",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Psicologico"
+          ],
+          "nameIncludes": [
+            "Sociologia",
+            "Analisi dei processi sociali",
+            "Scienze dell'organizzazione",
+            "Servizio sociale",
+            "Programmazione e gestione delle politiche",
+            "Sicurezza, devianza",
+            "Scienze psicosociali della comunicazione",
+            "Comunicazione e psicologia",
+            "Management e design dei servizi",
+            "Interpretariato e traduzione in lingua dei segni",
+            "Statistic",
+            "Turismo"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30500,
+              "from": 30000,
+              "rate": 0.9297342,
+              "base": 0,
+              "square": 0.00006198228
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 0,
+              "square": 5.16519e-7
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2983.23
+            }
+          ],
+          "max": 2983.23
+        },
+        {
+          "id": "B",
+          "label": "B",
+          "default": true,
+          "groups": [
+            "Educazione e Formazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Scientifico",
+            "Informatica e Tecnologie ICT",
+            "Politico-Sociale e Comunicazione"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30500,
+              "from": 30000,
+              "rate": 1.115775,
+              "base": 0,
+              "square": 0.000074385
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 0,
+              "square": 6.19875e-7
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3580.05
+            }
+          ],
+          "max": 3580.05
+        }
+      ],
+      "maxNote": "Area A fino a 2.983,23 €, area B fino a 3.580,05 € (importi per le matricole), dovuti con ISEE da 76.000 € o senza ISEE. Con 100/100 alla maturità (o almeno 110 alla laurea, per le magistrali) il contributo scende di altri 200 €. Le lauree abilitanti aggiungono 180 € all’ultimo anno.",
+      "maxSource": {
+        "label": "Milano-Bicocca, Regolamento in materia di contribuzione universitaria 2026/27, art. 4",
+        "url": "https://www.unimib.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20contribuzione%20universitaria%202026_2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "146 € (bollo e tassa regionale) entro il 30 settembre 2026, o entro la data del bando per i corsi a numero programmato",
+          "Seconda rata (eventuale saldo della tassa regionale e 30% del contributo, o tutto se fino a 400 €) entro il 15 gennaio 2027",
+          "Terza rata (70% del contributo) entro il 14 maggio 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio universitario va presentato entro il 13 novembre 2026; senza ISEE si paga il massimo.",
+        "source": {
+          "label": "Milano-Bicocca, Guida alla contribuzione studentesca 2026/27 (agosto 2026)",
+          "url": "https://www.unimib.it/sites/default/files/2026-08/01_Guida%20CONTRIBUZIONE%2026_27.pdf"
+        }
+      },
+      "simulator": "https://www.unimib.it/servizi/segreterie/immatricolazione/tasse"
     }
   }
 }
