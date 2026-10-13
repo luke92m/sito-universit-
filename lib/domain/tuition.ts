@@ -5,12 +5,18 @@ import { normalize } from './text';
 
 export type DegreeLevel = 'triennale' | 'ciclo-unico' | 'magistrale';
 
-/** Fascia ISEE: importo = base + rate × (ISEE − from), fino a iseeMax (null = senza limite). */
+/**
+ * Fascia ISEE: importo = base + rate × (ISEE − from), fino a iseeMax (null = senza limite).
+ * Alcuni atenei usano curve: `square` aggiunge square × (ISEE − from)², `exp` aggiunge
+ * scale × e^(−k / ISEE) (es. Sapienza, intervalli medio e asintotico).
+ */
 interface Band {
   iseeMax: number | null;
   from: number;
   rate: number;
   base: number;
+  square?: number;
+  exp?: { scale: number; k: number };
 }
 
 /** Gruppo di corsi con importi propri (es. UniPD: umanistico e scientifico). */
@@ -96,7 +102,9 @@ const cents = (value: number) => Math.round(value * 100) / 100;
 
 function bandValue(bands: Band[], isee: number): number {
   const band = bands.find((item) => item.iseeMax == null || isee <= item.iseeMax)!;
-  return band.base + band.rate * Math.max(0, isee - band.from);
+  const delta = Math.max(0, isee - band.from);
+  const curve = band.exp && isee > 0 ? band.exp.scale * Math.exp(-band.exp.k / isee) : 0;
+  return band.base + band.rate * delta + (band.square ?? 0) * delta * delta + curve;
 }
 
 /** Contributo annuo (esclusa la quota fissa) per un valore ISEE; senza ISEE si paga il massimo. */

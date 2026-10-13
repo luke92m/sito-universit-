@@ -161,6 +161,69 @@ describe('tasse Università di Padova 2026/27', () => {
   });
 });
 
+describe('tasse Università di Torino 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-00101')!;
+
+  it('formule dell’art. 3.1 per le matricole a tempo pieno', () => {
+    expect(contributionFor(rule, 26000, 2840)).toBe(0);
+    expect(contributionFor(rule, 30000, 2840)).toBe(422.06);
+    expect(contributionFor(rule, 40000, 2840)).toBe(1025);
+    expect(contributionFor(rule, 60000, 2840)).toBe(1807.22);
+    expect(contributionFor(rule, 85000, 2840)).toBe(2785);
+  });
+
+  it('massimo di 2.840 € oltre 85.000 € e senza ISEE, prima rata di 156 €', () => {
+    expect(contributionFor(rule, 90000, 2840)).toBe(2840);
+    expect(contributionFor(rule, null, 2840)).toBe(2840);
+    expect(fixedFeesRange(rule, none).max).toBe(156);
+  });
+});
+
+describe('tasse Sapienza 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05801')!;
+  const courses = getCourses('ateneo-05801');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+  const groupI = courseGroup(rule, named('Giurisprudenza'))!;
+  const groupII = courseGroup(rule, named('Ingegneria Civile'))!;
+  const pay = (isee: number | null, group = groupI) => contributionFor(rule, isee, group.max, group.bands);
+
+  it('gruppi contributivi e importi ordinari dell’art. 38', () => {
+    expect(groupI.id).toBe('I');
+    expect(groupII.id).toBe('II');
+    expect(courseGroup(rule, named('Design'))?.id).toBe('II');
+    expect(courseGroup(rule, named("Storia dell'Arte"))?.id).toBe('I');
+    expect(maxContribution(rule, named('Giurisprudenza'))).toBe(2821);
+    expect(maxContribution(rule, named('Ingegneria Civile'))).toBe(2924);
+  });
+
+  it('esonero fino a 24.000 € e riduzioni del D.M. 1014/2021 fino a 28.041,10 €', () => {
+    expect(pay(24000)).toBe(0);
+    expect(pay(25000)).toBe(168);
+    expect(pay(27000)).toBe(490);
+    expect(pay(28041.1)).toBe(737.01);
+  });
+
+  it('curve di ateneo: retta, parabola ed esponenziale fino all’importo ordinario', () => {
+    expect(pay(35000)).toBe(826.72);
+    expect(pay(40000)).toBe(891.17);
+    expect(pay(50000)).toBe(1107.83);
+    expect(pay(60000)).toBe(1500);
+    expect(pay(80000)).toBe(2283.63);
+    expect(pay(120000)).toBe(2821);
+    expect(pay(null)).toBe(2821);
+    expect(pay(28041.2, groupII)).toBe(790.96);
+    expect(pay(60000, groupII)).toBe(1560.06);
+    expect(pay(100000, groupII)).toBe(2924);
+  });
+
+  it('costo reale a Roma in sede con ISEE oltre la soglia DiSCo', () => {
+    const sapienza = getUniversityById('ateneo-05801')!;
+    const cost = realCost(sapienza, named('Giurisprudenza'), exact(35000), exact(20000), 'inSede');
+    expect(cost.lines.map((item) => item.key)).toEqual(['tasse', 'quota-fissa']);
+    expect(cost.total.max).toBe(Math.round(826.72 + 156));
+  });
+});
+
 describe('borsa ER.GO 2026/27', () => {
   it('soglie più basse di quelle nazionali', () => {
     expect(ergo.thresholds).toMatchObject({ isee: 25000, ispe: 50000 });
