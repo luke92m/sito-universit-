@@ -17,6 +17,7 @@ import {
   degreeLevel,
   fixedFeesRange,
   maxContribution,
+  offSiteContribution,
   tuitionRuleFor,
   type TuitionRule
 } from './tuition';
@@ -78,7 +79,8 @@ function tuitionLines(
   university: University,
   course: Course | null,
   isee: EconomicRange,
-  scholarship: ScholarshipEstimate | null
+  scholarship: ScholarshipEstimate | null,
+  condition: StudentCondition
 ): CostLine[] {
   if (!rule) {
     // Chi è idoneo alla borsa non paga le tasse: lo prevede la legge nazionale, anche senza le regole dell'ateneo.
@@ -118,7 +120,15 @@ function tuitionLines(
   }
   const group = courseGroup(rule, course);
   const max = course ? maxContribution(rule, course) : group ? group.max : rule.maxByLevel.triennale;
-  const range = contributionRange(rule, isee, max, group?.bands);
+  const base = contributionRange(rule, isee, max, group?.bands);
+  // Riduzione fuori sede: certa per chi è fuori sede, possibile per i pendolari (dipende dai tempi di viaggio).
+  const offSite = rule.offSiteReduction && condition !== 'inSede' ? rule.offSiteReduction : null;
+  const range = offSite
+    ? {
+        min: offSiteContribution(rule, base.min),
+        max: condition === 'fuoriSede' ? offSiteContribution(rule, base.max) : base.max
+      }
+    : base;
   const fixed = fixedFeesRange(rule, isee);
   const exempt = scholarship?.status === 'eligible';
   const maybeExempt = scholarship?.status === 'uncertain';
@@ -133,7 +143,7 @@ function tuitionLines(
       max: exempt ? 0 : range.max,
       note: exempt
         ? 'Esonero totale: spetta a chi è idoneo alla borsa.'
-        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${rule.bandsNote ? ` ${rule.bandsNote}` : ''}`,
+        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}`,
       source: rule.bandsSource,
       estimated: Boolean(rule.bandsNote) && !exempt
     },
@@ -163,7 +173,7 @@ export function realCost(
   const scholarship = entity ? scholarshipFor(entity, isee, ispe, condition) : null;
   const rule = tuitionRuleFor(university.id);
   const missing: string[] = [];
-  const lines = tuitionLines(rule, university, course, isee, scholarship);
+  const lines = tuitionLines(rule, university, course, isee, scholarship, condition);
   if (!rule) missing.push('Tasse per fascia ISEE di questo ateneo');
 
   if (condition === 'fuoriSede') {
