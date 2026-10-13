@@ -223,6 +223,28 @@ describe('tasse Università di Firenze 2026/27', () => {
   });
 });
 
+describe('tasse Federico II 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06301')!;
+
+  it('contributo agevolato delle matricole, come nel calcolatore ufficiale', () => {
+    expect(contributionFor(rule, 30000, 2384)).toBe(0);
+    expect(contributionFor(rule, 30000.01, 2384)).toBe(1011.5);
+    expect(contributionFor(rule, 32000, 2384)).toBe(1230.25);
+    expect(contributionFor(rule, 34000, 2384)).toBe(1470);
+    expect(contributionFor(rule, 37000, 2384)).toBe(1640);
+    expect(contributionFor(rule, 50000, 2384)).toBe(1965);
+    expect(contributionFor(rule, 70000, 2384)).toBe(2254.5);
+  });
+
+  it('massimo di 2.384 € da 80.000 € e senza ISEE, tassa regionale campana per ISEE', () => {
+    expect(contributionFor(rule, 80000, 2384)).toBe(2384);
+    expect(contributionFor(rule, null, 2384)).toBe(2384);
+    expect(fixedFeesRange(rule, exact(20000)).regionalTax.min).toBe(130);
+    expect(fixedFeesRange(rule, exact(40000)).regionalTax.min).toBe(151);
+    expect(fixedFeesRange(rule, none).max).toBe(189);
+  });
+});
+
 describe('tasse Sapienza 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-05801')!;
   const courses = getCourses('ateneo-05801');

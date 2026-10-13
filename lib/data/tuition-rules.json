@@ -1075,6 +1075,118 @@
         }
       },
       "simulator": "https://www.unifi.it/it/studia-con-noi/accesso-e-iscrizioni/tasse-e-contributi-universitari/come-si-determina-la-fascia-contributiva"
+    },
+    "ateneo-06301": {
+      "name": "Università di Napoli Federico II",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "appliesTo": "Matricole alla prima iscrizione a una triennale, a un ciclo unico o a una magistrale («contributo agevolato»). Le formule per fascia sono quelle del calcolatore ufficiale dell’Ateneo; la guida riporta gli stessi estremi (1.011,50 € sopra i 30.000 €, massimo 2.384 €).",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale da 130 € a 173 € secondo l’ISEE e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 34000,
+          "from": 30000,
+          "rate": 0.104125,
+          "base": 1011.5,
+          "square": 0.000002625
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0.07,
+          "base": -910
+        },
+        {
+          "iseeMax": 40000,
+          "from": 35000,
+          "rate": 0.05,
+          "base": 1540
+        },
+        {
+          "iseeMax": 45000,
+          "from": 40000,
+          "rate": 0.02,
+          "base": 1790
+        },
+        {
+          "iseeMax": 65000,
+          "from": 45000,
+          "rate": 0.015,
+          "base": 1890
+        },
+        {
+          "iseeMax": 79999.99,
+          "from": 65000,
+          "rate": 0.0129,
+          "base": 2190
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2384
+        }
+      ],
+      "bandsSource": {
+        "label": "Federico II, Calcolatore tasse ufficiale 2026/27 (formule del contributo agevolato)",
+        "url": "http://calcolatrice.unina.it"
+      },
+      "maxByLevel": {
+        "triennale": 2384,
+        "ciclo-unico": 2384,
+        "magistrale": 2384
+      },
+      "maxExceptions": [],
+      "maxNote": "Stesso massimo per tutti i corsi: 2.384 € oltre 80.000 € o senza ISEE. Con 100 e lode alla maturità (o 110 e lode alla triennale entro ottobre, per la magistrale) il contributo del primo anno si dimezza.",
+      "maxSource": {
+        "label": "Federico II, Guida all’iscrizione 2026/27 (10/7/2026), § 1 e 3",
+        "url": "https://www.unina.it/documents/d/guest/guida_studente_rapida_26-27_10-7-2026"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (60% del contributo, tassa regionale e bollo) entro il 2 novembre 2026",
+          "Seconda rata (20%) entro il 1° marzo 2027",
+          "Terza rata (20%) entro il 30 aprile 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio universitario viene letto dall’INPS all’iscrizione su Segrepass: va richiesto in tempo (entro il 2 novembre 2026). Senza ISEE si paga il massimo.",
+        "source": {
+          "label": "Federico II, Guida all’iscrizione 2026/27, § 2 e 3",
+          "url": "https://www.unina.it/documents/d/guest/guida_studente_rapida_26-27_10-7-2026"
+        }
+      },
+      "simulator": "http://calcolatrice.unina.it"
     }
   }
 }
