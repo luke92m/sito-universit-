@@ -45,7 +45,8 @@ function verdict(results: RealCostResponse[]): string {
 export function ComparisonRealCost({ sides }: { sides: Side[] }) {
   const { guidance, updateGuidance } = useSite();
   const [isee, setIsee] = useState(() => normalizedIseeValue(guidance.iseeRange) || 'unknown');
-  const [condition, setCondition] = useState<StudentCondition>('fuoriSede');
+  // null: condizione dedotta per ogni ateneo da residenza, preferenze e tabelle dei comuni dell'ente.
+  const [condition, setCondition] = useState<StudentCondition | null>(null);
   const [results, setResults] = useState<RealCostResponse[] | null>(null);
   const [failed, setFailed] = useState(false);
   const key = sides.map((side) => `${side.universityId}|${side.courseId}`).join('/');
@@ -61,7 +62,10 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
           courseId: side.courseId,
           isee: { range: isee },
           ispe: { range: 'unknown' },
-          condition
+          residenceRegion: guidance.residenceRegion || '',
+          residenceCity: guidance.residenceCity || '',
+          commutes: guidance.commutePreference === 'yes',
+          condition: condition || undefined
         })
       }).then((response) => (response.ok ? (response.json() as Promise<RealCostResponse>) : Promise.reject()));
     Promise.all(sides.map(load))
@@ -76,7 +80,7 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
     };
     // `key` riassume i lati: l'array cambia identità a ogni render del genitore.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key, isee, condition]);
+  }, [key, isee, condition, guidance.residenceRegion, guidance.residenceCity, guidance.commutePreference]);
 
   const changeIsee = (value: string) => {
     setIsee(value);
@@ -102,6 +106,15 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
           </select>
         </label>
         <div className="real-cost-condition-options" role="group" aria-label="Condizione dello studente">
+          <button
+            type="button"
+            className={condition === null ? 'is-active' : ''}
+            aria-pressed={condition === null}
+            onClick={() => setCondition(null)}
+            title="Dedotta per ogni ateneo dalla tua residenza e dalle tabelle dei comuni dell’ente regionale"
+          >
+            Automatica
+          </button>
           {(Object.keys(CONDITION_LABELS) as StudentCondition[]).map((item) => (
             <button
               key={item}
@@ -137,6 +150,10 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
                   <p className="comparison-real-cost-name">
                     {result.university.name}
                     {result.course ? <small>{result.course.name}</small> : null}
+                    <small>
+                      {result.conditionLabel}
+                      {condition === null && !guidance.residenceCity ? ' (indica la tua residenza nel questionario per una stima migliore)' : ''}
+                    </small>
                   </p>
                   <strong className="comparison-real-cost-total">{amount(result.total.min, result.total.max)}</strong>
                   <small className="comparison-real-cost-scope">

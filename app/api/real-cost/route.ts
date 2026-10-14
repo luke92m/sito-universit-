@@ -64,7 +64,12 @@ export async function POST(request: Request) {
 
   const residenceCity = typeof body.residenceCity === 'string' ? body.residenceCity.trim().slice(0, 80) : '';
   const residenceRegion = typeof body.residenceRegion === 'string' ? body.residenceRegion : '';
-  const rentsNearSeat = body.rentsNearSeat !== false;
+  // Casa vicino alla sede: risposta esplicita (/borse) oppure dedotta (comparatore): chi è disposto a fare il
+  // pendolare non prende casa per un ateneo della sua regione.
+  const rentsNearSeat =
+    typeof body.rentsNearSeat === 'boolean'
+      ? body.rentsNearSeat
+      : !(body.commutes === true && residenceRegion === university.region);
   const seat = course?.city || university.city;
 
   // Condizione: tabelle dell'ente se disponibili, altrimenti stima da città e regione di residenza.

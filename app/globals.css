@@ -7350,3 +7350,48 @@ a.journey-copy:hover strong {
   color: var(--primary-dark);
   font-weight: 700;
 }
+
+/* --- Home: copertura dei dati ------------------------------------------------------------------ */
+
+.home-coverage-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-coverage-card ul {
+  display: grid;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+  gap: 16px;
+}
+
+.home-coverage-card li {
+  display: grid;
+  padding-left: 14px;
+  border-left: 3px solid var(--success);
+  gap: 4px;
+}
+
+.home-coverage-card li:last-child {
+  border-left-color: var(--warning);
+}
+
+.home-coverage-card strong {
+  font-size: 16px;
+}
+
+.home-coverage-card span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .home-coverage-card {
+    padding: 20px;
+  }
+}
