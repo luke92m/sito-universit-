@@ -124,6 +124,13 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
             {results.map((result, index) => {
               const tuition = result.lines.find((line) => line.key === 'tasse');
               const verifiedTuition = tuition ? !tuition.estimated : false;
+              const grantMax = result.lines
+                .filter((line) => GRANT_KEYS.includes(line.key))
+                .reduce((total, line) => total + line.max, 0);
+              const costMin = result.lines
+                .filter((line) => !GRANT_KEYS.includes(line.key))
+                .reduce((total, line) => total + line.min, 0);
+              const surplus = Math.round(grantMax - costMin);
               return (
                 <article className="comparison-real-cost-card" key={`${result.university.id}-${index}`}>
                   <span className="choice-letter">{String.fromCharCode(65 + index)}</span>
@@ -132,6 +139,12 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
                     {result.course ? <small>{result.course.name}</small> : null}
                   </p>
                   <strong className="comparison-real-cost-total">{amount(result.total.min, result.total.max)}</strong>
+                  <small className="comparison-real-cost-scope">
+                    {surplus > 0 ? `La borsa copre tutto e avanzano fino a ${euro(surplus)}. ` : ''}
+                    {result.condition === 'fuoriSede'
+                      ? 'Tasse, affitto e spese di vita.'
+                      : 'Solo tasse: trasporti e spese personali non sono stimati.'}
+                  </small>
                   <ul>
                     {result.lines.map((line) => (
                       <li key={line.key} className={GRANT_KEYS.includes(line.key) ? 'is-grant' : ''}>

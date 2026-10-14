@@ -7221,3 +7221,60 @@ a.journey-copy:hover strong {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Costo reale nei risultati del finder ---------------------------------------------------- */
+
+.university-match-metrics .university-real-cost-metric {
+  grid-column: 1 / -1;
+  min-height: 0;
+  border-color: var(--primary-soft);
+  background: var(--surface);
+}
+
+.university-real-cost-metric strong {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.university-real-cost-metric strong small {
+  font-family: var(--sans);
+  font-size: 11px;
+}
+
+.university-real-cost-metric > small {
+  font-size: 11px;
+}
+
+.university-match-metrics .university-real-cost-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3px;
+  gap: 6px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.university-real-cost-tags span {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.university-real-cost-tags .is-verified {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.university-real-cost-tags .is-pending {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+.comparison-real-cost-scope {
+  color: var(--ink-soft);
+  font-size: 12px;
+}

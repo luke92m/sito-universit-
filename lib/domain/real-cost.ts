@@ -256,3 +256,31 @@ export function realCost(
     missing
   };
 }
+
+/** Versione corta del costo reale, per le liste di risultati: totale ed etichette di copertura. */
+export interface RealCostSummary {
+  total: { min: number; max: number };
+  condition: StudentCondition;
+  /** Tasse calcolate con le regole per ISEE dell'ateneo (non la media nazionale). */
+  tuitionVerified: boolean;
+  scholarship: { entity: string; status: ScholarshipEstimate['status'] } | null;
+  /** Parte della borsa che avanza dopo i costi calcolati (0 se non avanza nulla). */
+  surplus: { min: number; max: number };
+}
+
+export function summarizeRealCost(cost: RealCost): RealCostSummary {
+  const tuition = cost.lines.find((line) => line.key === 'tasse');
+  const sum = (grant: boolean, key: 'min' | 'max') =>
+    cost.lines.filter((line) => GRANT_KEYS.includes(line.key) === grant).reduce((total, line) => total + line[key], 0);
+  return {
+    surplus: {
+      min: Math.max(0, Math.round(sum(true, 'min') - sum(false, 'max'))),
+      max: Math.max(0, Math.round(sum(true, 'max') - sum(false, 'min')))
+    },
+    total: cost.total,
+    condition: cost.condition,
+    tuitionVerified: Boolean(tuition && !tuition.estimated),
+    scholarship:
+      cost.entity && cost.scholarship ? { entity: cost.entity.shortName, status: cost.scholarship.status } : null
+  };
+}

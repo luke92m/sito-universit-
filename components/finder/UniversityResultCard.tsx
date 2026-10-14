@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import type { FinderApiResult } from '@/app/api/finder/route';
+import { CONDITION_LABELS } from '@/lib/domain/dsu';
 import { explainResult } from '@/lib/domain/finder-explain';
 import { bureaucracyHref, scholarshipHref } from '@/lib/flow/journey-params';
 
@@ -16,7 +17,12 @@ const SCORE_ROWS = [
 
 function formatCurrency(value: number, maximumFractionDigits = 0): string {
   if (!Number.isFinite(Number(value))) return 'dato non disponibile';
-  return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits }).format(value);
+  return new Intl.NumberFormat('it-IT', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits,
+    useGrouping: 'always'
+  }).format(value);
 }
 
 export function courseLink(item: FinderApiResult): string {
@@ -30,6 +36,46 @@ export function courseLink(item: FinderApiResult): string {
 
 export function scholarshipLink(item: FinderApiResult): string {
   return `/api/scholarship-link?${new URLSearchParams({ universityId: item.university.id }).toString()}`;
+}
+
+const SCHOLARSHIP_SHORT: Record<string, string> = {
+  eligible: 'borsa sottratta',
+  uncertain: 'borsa possibile, vicino alla soglia',
+  'not-eligible': 'borsa non spettante con questo ISEE',
+  unknown: 'borsa da calcolare: serve l’ISEE'
+};
+
+function RealCostMetric({ item }: { item: FinderApiResult }) {
+  const cost = item.realCost;
+  const total =
+    Math.round(cost.total.min) === Math.round(cost.total.max)
+      ? formatCurrency(cost.total.min)
+      : `${formatCurrency(cost.total.min)} – ${formatCurrency(cost.total.max)}`;
+  return (
+    <article className="university-real-cost-metric">
+      <span>Quanto ti costa davvero</span>
+      <strong>
+        {total} <small>il primo anno</small>
+      </strong>
+      <small>
+        {CONDITION_LABELS[cost.condition]} ·{' '}
+        {cost.scholarship
+          ? `${SCHOLARSHIP_SHORT[cost.scholarship.status]} (${cost.scholarship.entity})`
+          : 'bando della borsa non ancora nel sito: borsa non sottratta'}
+        {cost.surplus.max > 0
+          ? ` · la borsa copre tutto e avanzano fino a ${formatCurrency(cost.surplus.max)}`
+          : ''}
+        {cost.condition === 'fuoriSede'
+          ? ' · tasse, affitto e spese di vita'
+          : ' · solo tasse: trasporti e spese personali esclusi'}
+      </small>
+      <span className="university-real-cost-tags">
+        <span className={cost.tuitionVerified ? 'is-verified' : 'is-pending'}>
+          {cost.tuitionVerified ? 'tasse per ISEE verificate' : 'tasse: media nazionale'}
+        </span>
+      </span>
+    </article>
+  );
 }
 
 function rankingSourceText(item: FinderApiResult): string {
@@ -197,13 +243,17 @@ export function UniversityResultCard({ item, index, picked, pickDisabled, onTogg
             <strong>{item.geography.label}</strong>
             <small>{geographyDetail}</small>
           </article>
-          <article>
-            <span>Costo orientativo</span>
-            <strong>
-              {costCity} · retta media {formatCurrency(item.cost.tuition)}/anno
-            </strong>
-            <small>Totale annuo stimato {formatCurrency(item.cost.annual)}; non è un preventivo personale</small>
-          </article>
+          {item.realCost ? (
+            <RealCostMetric item={item} />
+          ) : (
+            <article>
+              <span>Costo orientativo</span>
+              <strong>
+                {costCity} · retta media {formatCurrency(item.cost.tuition)}/anno
+              </strong>
+              <small>Totale annuo stimato {formatCurrency(item.cost.annual)}; non è un preventivo personale</small>
+            </article>
+          )}
           <article>
             <span>Lingua</span>
             <strong>{item.language.label}</strong>
@@ -220,7 +270,7 @@ export function UniversityResultCard({ item, index, picked, pickDisabled, onTogg
           </ul>
         </div>
 
-        {item.cost.needsAid ? (
+        {item.cost.needsAid && item.realCost?.scholarship?.status !== 'eligible' ? (
           <div className="university-aid-warning">
             <strong>Questa opzione può restare valida, ma il costo è impegnativo per la fascia ISEE indicata.</strong>
             <p>
@@ -243,7 +293,7 @@ export function UniversityResultCard({ item, index, picked, pickDisabled, onTogg
             Come iscriversi
           </Link>
           <Link className="text-button" href={scholarshipHref(item.university.id, item.course.name)}>
-            Verifica la borsa
+            Dettaglio costo e borsa
           </Link>
           <label className={`university-compare-toggle${picked ? ' is-picked' : ''}`}>
             <input type="checkbox" checked={picked} disabled={pickDisabled && !picked} onChange={onTogglePick} />
