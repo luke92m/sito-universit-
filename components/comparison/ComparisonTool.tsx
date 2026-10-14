@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { ComparisonRealCost } from '@/components/comparison/ComparisonRealCost';
 import { NeutralityNote } from '@/components/site/NeutralityNote';
 import { RichText } from '@/components/site/RichText';
 import { useSite } from '@/components/site/SiteProvider';
@@ -380,6 +381,7 @@ export function ComparisonTool({
                 Stampa / salva PDF
               </button>
             </div>
+            <ComparisonRealCost sides={compared} />
             <div className="comparison-table" role="table" aria-label={result.title}>
               <div className="comparison-row comparison-table-head" role="row">
                 <div role="columnheader">Criterio</div>

@@ -7052,3 +7052,172 @@ a.journey-copy:hover strong {
   background: var(--success-soft);
   font-size: 13px;
 }
+
+/* --- Costo reale nel comparatore ------------------------------------------------------------ */
+
+.comparison-real-cost {
+  margin: 0 0 22px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.comparison-real-cost h3 {
+  margin: 6px 0 14px;
+  font-family: var(--display);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 500;
+}
+
+.comparison-real-cost-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-tint);
+  gap: 12px;
+}
+
+.comparison-real-cost-controls label {
+  display: grid;
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 420px;
+  font-size: 13px;
+  font-weight: 700;
+  gap: 4px;
+}
+
+.comparison-real-cost-controls select {
+  width: 100%;
+  min-width: 0;
+}
+
+.comparison-real-cost-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.comparison-real-cost-card {
+  display: grid;
+  align-content: start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  gap: 8px;
+}
+
+.comparison-real-cost-card .choice-letter {
+  margin-bottom: 0;
+}
+
+.comparison-real-cost-name {
+  display: grid;
+  margin: 0;
+  font-weight: 700;
+  gap: 2px;
+}
+
+.comparison-real-cost-name small {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.comparison-real-cost-total {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.comparison-real-cost-card ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.comparison-real-cost-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  gap: 10px;
+}
+
+.comparison-real-cost-card li span:last-child {
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.comparison-real-cost-card li em {
+  color: var(--warning);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.comparison-real-cost-card li.is-grant span:last-child {
+  color: var(--success);
+}
+
+.comparison-real-cost-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4px 0 0;
+  gap: 6px;
+}
+
+.comparison-real-cost-tags span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.comparison-real-cost-tags .is-verified {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.comparison-real-cost-tags .is-pending {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+.comparison-real-cost-card a {
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.comparison-real-cost-verdict,
+.comparison-real-cost-loading,
+.comparison-real-cost-error {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.comparison-real-cost-verdict strong {
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .comparison-real-cost {
+    padding: 16px;
+  }
+
+  .comparison-real-cost-grid {
+    grid-template-columns: 1fr;
+  }
+}
