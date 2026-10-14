@@ -46,6 +46,7 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
   const [department, setDepartment] = useState(defaultDepartment);
   const [institution, setInstitution] = useState<'all' | InstitutionType>('all');
   const [search, setSearch] = useState('');
+  const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [panelOpen, setPanelOpen] = useState(false);
   const [openProfile, setOpenProfile] = useState<string | null>(null);
   const [departmentData, setDepartmentData] = useState<{ group: string; rankings: Record<string, DepartmentEntry> } | null>(
@@ -100,6 +101,7 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
   const results = useMemo(() => {
     let list = entries.slice();
     if (institution !== 'all') list = list.filter((entry) => entry.institutionType === institution);
+    if (verifiedOnly) list = list.filter((entry) => entry.coverage.tuition);
     if (mode === 'region') list = list.filter((entry) => entry.region === region);
     if (mode === 'department') list = list.filter((entry) => entry.groups.includes(department));
 
@@ -122,13 +124,14 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
       return list.sort((a, b) => byRanking(departmentRanking(a)?.ranking, departmentRanking(b)?.ranking) || alphaSort(a, b));
     }
     return list.sort(alphaSort);
-  }, [entries, institution, mode, region, department, search, departmentRanking]);
+  }, [entries, institution, verifiedOnly, mode, region, department, search, departmentRanking]);
 
   const resetFilters = () => {
     setMode('alphabetical');
     setRegion(regions[0] || '');
     setDepartment(defaultDepartment);
     setInstitution('all');
+    setVerifiedOnly(false);
     setSearch('');
     setPanelOpen(false);
   };
@@ -140,7 +143,7 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
     else setPanelOpen(false);
   };
 
-  const typeCopy = TYPE_LABELS[institution] || TYPE_LABELS.all;
+  const typeCopy = `${TYPE_LABELS[institution] || TYPE_LABELS.all}${verifiedOnly ? ' con costi verificati' : ''}`;
   const trimmedSearch = search.trim();
   const suffix = trimmedSearch ? ` · ricerca “${trimmedSearch}”` : '';
   const noun = results.length === 1 ? 'ateneo' : 'atenei';
@@ -290,9 +293,15 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
         </span>
       </div>
 
-      <p className="catalog-meta" aria-live="polite">
-        {description}
-      </p>
+      <div className="catalog-meta-row">
+        <p className="catalog-meta" aria-live="polite">
+          {description}
+        </p>
+        <label className="verified-only-toggle">
+          <input type="checkbox" checked={verifiedOnly} onChange={(event) => setVerifiedOnly(event.target.checked)} />
+          <span>Solo atenei con tasse per ISEE verificate</span>
+        </label>
+      </div>
       <div className="university-list">
         {!departmentReady ? <p className="catalog-meta">Caricamento dei ranking per area…</p> : null}
         {departmentReady && results.length
@@ -323,6 +332,12 @@ export function AteneiCatalog({ entries, departments }: { entries: CatalogEntry[
                       <span className={`type-badge type-${categoryClass(entry.category)}`}>
                         {displayCategory(entry.category)}
                       </span>
+                      {entry.coverage.tuition ? (
+                        <span className="coverage-badge is-verified">tasse per ISEE verificate</span>
+                      ) : null}
+                      {entry.coverage.scholarship ? (
+                        <span className="coverage-badge is-verified">borsa {entry.coverage.scholarship}</span>
+                      ) : null}
                     </div>
                     <h2>{entry.name}</h2>
                     <p className="university-location">

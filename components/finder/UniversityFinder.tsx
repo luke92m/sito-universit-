@@ -149,6 +149,7 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
   const [includeTelematic, setIncludeTelematic] = useState(Boolean(linkState?.includeTelematic));
   const [includeDistance, setIncludeDistance] = useState(Boolean(linkState?.includeDistance));
   const [picked, setPicked] = useState<string[]>([]);
+  const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [shareSensitive, setShareSensitive] = useState(false);
   const [shareFallback, setShareFallback] = useState('');
   const [response, setResponse] = useState<FinderApiResponse | null>(null);
@@ -537,7 +538,8 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
     );
   }
 
-  const results = response?.results || [];
+  const allResults = response?.results || [];
+  const results = verifiedOnly ? allResults.filter((item) => item.coverage?.tuition) : allResults;
   const visible = results.slice(0, 5);
   const target = response?.target;
   const courseLabel = target ? (target.type === 'course' ? `corso ${target.label}` : `area ${target.label}`) : '';
@@ -701,6 +703,28 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
                   </small>
                 </span>
               </label>
+              <label className="university-telematic-toggle" htmlFor="verifiedOnlyResults">
+                <input
+                  id="verifiedOnlyResults"
+                  type="checkbox"
+                  checked={verifiedOnly}
+                  onChange={(event) => {
+                    setVerifiedOnly(event.target.checked);
+                    setPicked([]);
+                  }}
+                />
+                <span className="university-toggle-control" aria-hidden="true">
+                  <span />
+                </span>
+                <span className="university-toggle-copy">
+                  <strong>Solo atenei con costi verificati</strong>
+                  <small>
+                    {verifiedOnly
+                      ? 'Attivato. Restano gli atenei con le tasse per ISEE prese dal regolamento ufficiale.'
+                      : 'Disattivato: per gli altri atenei le tasse sono la media nazionale, dichiarata come stima.'}
+                  </small>
+                </span>
+              </label>
             </div>
           </div>
 
@@ -745,12 +769,16 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
               <div className="university-no-results">
                 <span className="eyebrow">Nessuna corrispondenza sufficiente</span>
                 <h3>
-                  {response.telematicOnly
+                  {verifiedOnly && allResults.length
+                    ? 'Nessuno di questi atenei ha ancora i costi verificati.'
+                    : response.telematicOnly
                     ? 'Le opzioni disponibili sono telematiche.'
                     : 'Le preferenze geografiche sono troppo restrittive per il corso scelto.'}
                 </h3>
                 <p>
-                  {response.telematicOnly
+                  {verifiedOnly && allResults.length
+                    ? 'Disattiva il filtro qui sopra per vedere tutti i risultati, con le tasse medie dichiarate.'
+                    : response.telematicOnly
                     ? 'Attiva l’opzione qui sopra per includerle nella classifica.'
                     : 'Torna indietro e prova a consentire il trasferimento in regioni confinanti o in tutta Italia.'}
                 </p>

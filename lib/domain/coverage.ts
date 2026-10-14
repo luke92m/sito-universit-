@@ -35,14 +35,29 @@ export const universitiesWithTuition = (): University[] =>
 export const universitiesWithScholarship = (): University[] =>
   UNIVERSITIES.filter((university) => coverageOf(university.id).scholarship).sort(byName);
 
-/** Enti regionali con il bando nel sito, con l'anno accademico e la data di verifica. */
+/** Enti regionali con il bando nel sito, con l'anno accademico, la data di verifica e il bando. */
 export const scholarshipEntities = () =>
-  DSU_ENTITIES.map(({ id, name, shortName, region, academicYear, verifiedAt, universityIds }) => ({
+  DSU_ENTITIES.map(({ id, name, shortName, region, academicYear, verifiedAt, universityIds, amounts }) => ({
     id,
     name,
     shortName,
     region,
     academicYear,
     verifiedAt,
-    universities: universityIds.length
+    universities: universityIds.length,
+    source: amounts.source
   }));
+
+/** Regolamenti delle tasse nel sito, uno per ateneo, in ordine alfabetico. */
+export const tuitionSources = () =>
+  universitiesWithTuition().map((university) => {
+    const rule = tuitionRuleFor(university.id)!;
+    return {
+      universityId: university.id,
+      university: university.name,
+      academicYear: rule.academicYear,
+      verifiedAt: rule.verifiedAt,
+      source: rule.bandsSource,
+      estimatedBetweenBands: Boolean(rule.bandsNote)
+    };
+  });

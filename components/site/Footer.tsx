@@ -17,7 +17,8 @@ export function Footer() {
           <span>{SITE_CONFIG.name}</span>
         </Link>
         <p>
-          {NEUTRALITY_TEXT} <Link href="/burocrazia">Come iscriversi</Link> · <Link href="/privacy">Privacy</Link>
+          {NEUTRALITY_TEXT} <Link href="/burocrazia">Come iscriversi</Link> · <Link href="/metodo">Come calcoliamo i costi</Link> ·{' '}
+          <Link href="/privacy">Privacy</Link>
         </p>
         <span className="footer-status">{today ? `Oggi ${today}` : ''}</span>
       </div>

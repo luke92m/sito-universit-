@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { readFinderAnswers } from '@/lib/flow/journey-params';
+import { coverageOf, type Coverage } from '@/lib/domain/coverage';
 import type { StudentCondition } from '@/lib/domain/dsu';
 import { getIseeRange } from '@/lib/domain/isee';
 import { shortLabel } from '@/lib/domain/official-rankings';
@@ -17,6 +18,8 @@ export interface FinderApiResult extends FinderResult {
   rankingText: string;
   /** Costo del primo anno con ISEE e borsa, come in /borse. Non entra nel punteggio. */
   realCost: RealCostSummary;
+  /** Dati verificati dell'ateneo (tasse per ISEE, bando della borsa). */
+  coverage: Coverage;
 }
 
 /** Condizione per la borsa dedotta dalla geografia del risultato. */
@@ -64,6 +67,7 @@ export async function POST(request: Request) {
     results: filtered.slice(0, 30).map((item) => ({
       ...item,
       rankingText: shortLabel(item.ranking),
+      coverage: coverageOf(item.university.id),
       realCost: summarizeRealCost(
         realCost(item.university, item.course, isee, ispe, CONDITION_BY_MODE[item.geography.mode])
       )

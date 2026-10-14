@@ -1,6 +1,7 @@
 // Dati per la pagina Atenei (porting della parte non visuale di legacy/js/atenei.js).
 // Calcolati sul server e inviati al client in forma compatta.
 import { DATASET, UNIVERSITIES, getCourses, getGroupStats, getMetrics, getUniversityById } from '../data';
+import { coverageOf, type Coverage } from './coverage';
 import type { University } from '../types';
 import { forGroup, general, type RankingResult } from './official-rankings';
 import { profile, type UniversityProfile } from './university-profiles';
@@ -18,6 +19,8 @@ export interface RankingSummary {
 }
 
 export interface CatalogEntry {
+  /** Tasse per ISEE e bando della borsa verificati nel sito. */
+  coverage: Coverage;
   id: string;
   name: string;
   shortName: string;
@@ -77,7 +80,8 @@ export function catalogEntries(): CatalogEntry[] {
     category: university.category,
     institutionType: institutionType(university),
     groups: DATASET.groups.filter((group) => Boolean(getGroupStats(university.id, group))),
-    ranking: summarize(general(university))
+    ranking: summarize(general(university)),
+    coverage: coverageOf(university.id)
   }));
 }
 

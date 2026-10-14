@@ -7278,3 +7278,75 @@ a.journey-copy:hover strong {
   color: var(--ink-soft);
   font-size: 12px;
 }
+
+/* --- Copertura dei dati verificati nel catalogo ---------------------------------------------- */
+
+.coverage-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 21px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 820;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.coverage-badge.is-verified {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.catalog-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.verified-only-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 13px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.verified-only-toggle input {
+  accent-color: var(--success);
+}
+
+.catalog-meta-row {
+  margin-bottom: 18px;
+}
+
+.catalog-meta-row .catalog-meta {
+  margin: 0;
+}
+
+/* --- Pagina metodo e fonti ------------------------------------------------------------------- */
+
+.method-sources {
+  display: grid;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.55;
+  gap: 8px;
+}
+
+.method-sources small {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.method-page a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
