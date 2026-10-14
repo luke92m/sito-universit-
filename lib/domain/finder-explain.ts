@@ -9,6 +9,8 @@ export interface Reason {
 
 type ExplainInput = Pick<FinderResult, 'courseMatch' | 'course' | 'university' | 'geography' | 'ranking' | 'cost' | 'target'> & {
   rankingText?: string;
+  /** Costo reale con ISEE e borsa: quando c'è, la scheda lo mostra e la stima media non si ripete. */
+  realCost?: unknown;
 };
 
 const euro = (value: number) =>
@@ -52,7 +54,7 @@ function rankingReason(item: ExplainInput): string {
 }
 
 function costReason(item: ExplainInput): string | null {
-  if (item.cost.online || !Number.isFinite(item.cost.annual) || item.cost.annual <= 0) return null;
+  if (item.realCost || item.cost.online || !Number.isFinite(item.cost.annual) || item.cost.annual <= 0) return null;
   const base = `Costo stimato: circa ${euro(item.cost.annual)} l’anno tra retta media e vita in città.`;
   return item.cost.needsAid ? `${base} Per la tua fascia ISEE è impegnativo: verifica la borsa.` : base;
 }

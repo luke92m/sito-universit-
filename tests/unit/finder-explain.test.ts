@@ -32,6 +32,12 @@ describe('perché te la proponiamo', () => {
     expect(explainResult(home).find((reason) => reason.key === 'geography')?.text).toBe('La sede è nella tua città.');
   });
 
+  it('con il costo reale nella scheda non ripete la stima media', () => {
+    const [first] = results('economia-pavia');
+    expect(explainResult(first).some((reason) => reason.key === 'cost')).toBe(true);
+    expect(explainResult({ ...first, realCost: {} }).some((reason) => reason.key === 'cost')).toBe(false);
+  });
+
   it('per una macroarea cita l’area scelta', () => {
     const [first] = results('gruppo-economico');
     expect(explainResult(first)[0].text).toContain('area Economico');
