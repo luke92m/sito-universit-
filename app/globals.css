@@ -7395,3 +7395,100 @@ a.journey-copy:hover strong {
     padding: 20px;
   }
 }
+
+/* --- Calendario della scelta (burocrazia) ---------------------------------------------------- */
+
+.choice-calendar {
+  margin: 22px 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.choice-calendar h3 {
+  margin: 6px 0 14px;
+  font-family: var(--display);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 500;
+}
+
+.choice-calendar ol {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 12px;
+}
+
+.choice-calendar-item {
+  display: grid;
+  grid-template-columns: minmax(140px, 190px) minmax(0, 1fr);
+  padding: 14px;
+  border-left: 3px solid var(--warning);
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+  gap: 16px;
+}
+
+.choice-calendar-item.is-regola,
+.choice-calendar-item.is-confermata {
+  border-left-color: var(--success);
+}
+
+.choice-calendar-when {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+
+.choice-calendar-when span {
+  color: var(--primary-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.choice-calendar-when strong {
+  font-size: 14px;
+}
+
+.choice-calendar-what {
+  display: grid;
+  gap: 4px;
+}
+
+.choice-calendar-what p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.choice-calendar-what .choice-calendar-previous {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.choice-calendar-what small,
+.choice-calendar-what a {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.choice-calendar-what a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .choice-calendar {
+    padding: 16px;
+  }
+
+  .choice-calendar-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

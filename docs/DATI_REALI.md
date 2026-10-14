@@ -80,3 +80,17 @@ Tasse (2026/27):
 5. `npm test` controlla struttura, fonti e coerenza delle soglie.
 
 Per leggere i PDF dei bandi si può usare qualunque estrattore di testo (per esempio `pdftotext`, o la libreria `pdfjs-dist`); le tabelle a più colonne vanno ricontrollate a mano.
+
+## Calendario della scelta (`lib/data/choice-calendar.json`)
+
+Scadenze mostrate in `/burocrazia` per l'ateneo scelto (`lib/domain/choice-calendar.ts`, API `/api/choice-calendar`).
+
+- **Domanda di borsa**: non si scrive qui, si ricava dal campo `application` del bando in `dsu-entities.json`.
+  Finché il bando dell'anno successivo non esce, il sito dice "data non ancora pubblicata" e mostra le date
+  dell'anno precedente come riferimento.
+- **Test d'ingresso** (per ateneo) e **regole nazionali** (es. validità dell'ISEE): solo fatti letti sulla fonte
+  ufficiale, con `source` e `verifiedAt`. `date` resta `null` finché la data non è pubblicata (`status`
+  `non-pubblicata`); diventa una data solo con `status: "confermata"`. Mai stimare una data.
+- Situazione al 14/10/2026: calendario TOLC 2027 del CISIA, sessioni TOL 2027/28 del Politecnico di Milano e date
+  dei TOLC del Politecnico di Torino (che dal 2027/28 entra nel CISIA) non ancora pubblicati. Da ricontrollare tra
+  metà novembre e gennaio.

@@ -95,6 +95,8 @@ test('percorso completo senza account: risultati → confronto → iscrizione', 
   await expect(page.locator('.bureaucracy-selector-card select')).not.toHaveValue('', { timeout: 20_000 });
   await page.getByRole('button', { name: 'Crea la checklist' }).click();
   await expect(page.locator('.bureaucracy-result')).toBeVisible();
+  // Calendario della scelta: almeno la regola dell'ISEE, con la fonte.
+  await expect(page.locator('.choice-calendar')).toContainText('ISEE per le prestazioni universitarie', { timeout: 20_000 });
 
   await page.getByRole('link', { name: /Verifica le borse di studio/ }).click();
   await expect(page).toHaveURL(/\/borse\?ateneo=/);

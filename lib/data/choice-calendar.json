@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "note": "Calendario della scelta curato a mano: solo fatti letti sulle fonti ufficiali, con data di verifica. Le date non ancora pubblicate restano null: mai stimarle. Le domande di borsa si ricavano da dsu-entities.json (campo application).",
+  "national": [
+    {
+      "id": "isee-universita",
+      "kind": "isee",
+      "title": "ISEE per le prestazioni universitarie",
+      "text": "La DSU per l’ISEE vale fino al 31 dicembre dell’anno in cui la presenti: per le borse e le tasse del 2027/28 serve una DSU presentata nel 2027, con i moduli per l’università. Si chiede gratis al CAF o sul sito INPS.",
+      "date": null,
+      "status": "regola",
+      "source": {
+        "label": "INPS, ISEE e DSU: nuove regole dal 3 aprile 2025",
+        "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2025.04.isee-e-dsu-nuove-regole-dal-3-aprile-2025.html"
+      },
+      "verifiedAt": "2026-10-14"
+    }
+  ],
+  "universities": {
+    "ateneo-00102": [
+      {
+        "id": "polito-tolc-2027",
+        "kind": "test",
+        "title": "Test di ammissione 2027/28: TOLC del CISIA",
+        "text": "Dal 2027/28 il Politecnico di Torino entra nel consorzio CISIA e usa i TOLC per i candidati italiani (CeNT-S per quelli internazionali) al posto del TIL: si potranno sostenere anche nelle altre sedi del consorzio. Le date non sono ancora pubblicate.",
+        "date": null,
+        "status": "non-pubblicata",
+        "source": {
+          "label": "Politecnico di Torino, Poliflash del 23 luglio 2026",
+          "url": "https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/test-d-ingresso-20262027-il-politecnico-sempre-piu"
+        },
+        "verifiedAt": "2026-10-14"
+      }
+    ],
+    "ateneo-01502": [
+      {
+        "id": "polimi-tol-2027",
+        "kind": "test",
+        "title": "TOL di Ingegneria per il 2027/28",
+        "text": "Il TOL anticipato per chi si diploma nel 2027 (ingresso 2027/28, soglia 75/100) si è già svolto. Le sessioni ordinarie per il 2027/28 non sono ancora pubblicate.",
+        "date": null,
+        "status": "non-pubblicata",
+        "previous": { "label": "TOL anticipato", "opens": "2026-03-11", "closes": "2026-07-16" },
+        "source": {
+          "label": "Politecnico di Milano, Early TOL: test dates",
+          "url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/when-to-register-for-the-tol/early-tol-test-dates"
+        },
+        "verifiedAt": "2026-10-14"
+      }
+    ]
+  }
+}
