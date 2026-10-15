@@ -29,6 +29,8 @@ interface CourseGroup {
   names?: string[];
   /** Corsi assegnati al gruppo per nome, qualunque sia la macroarea. */
   nameIncludes?: string[];
+  /** Livelli di corso del gruppo (es. Roma Tre: tabella propria per le lauree magistrali). */
+  levels?: DegreeLevel[];
   default?: boolean;
   bands: Band[];
   max: number;
@@ -86,6 +88,7 @@ export function courseGroup(rule: TuitionRule, course: CourseLike | null): Cours
     course &&
     (groups.find((group) => group.names?.some((item) => normalize(item) === name)) ||
       groups.find((group) => group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
+      groups.find((group) => group.levels?.includes(degreeLevel(course))) ||
       groups.find((group) => group.groups.includes(course.group || '')));
   return found || groups.find((group) => group.default) || groups[0];
 }

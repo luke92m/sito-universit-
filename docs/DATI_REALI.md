@@ -11,7 +11,7 @@ Il calcolo «quanto ti costa davvero» (`/borse`, API `/api/real-cost`) usa **so
 
 La logica è in `lib/domain/dsu.ts`, `lib/domain/tuition.ts` e `lib/domain/real-cost.ts`. I test in `tests/unit/real-data.test.ts` contengono valori controllati a mano sui documenti: se cambiano i dati, vanno aggiornati anche i test.
 
-## Copertura (verificata il 12-13/10/2026)
+## Copertura (verificata il 12-15/10/2026)
 
 
 Borse (bandi 2026/27):
@@ -45,6 +45,7 @@ Tasse (2026/27):
 - **Statale di Milano**: seconda rata dell'art. 3.2 per gli studenti in corso, matricole comprese: no-tax area fino a 30.000 €, poi 3% di (ISEE − 25.000) fino a 38.000 € e 390 € + 6,7% di (ISEE − 38.000) fino a 80.000 €. Area A fino a 3.204 €, area B × 1,28 fino a 4.101,12 €. L'area A è un elenco chiuso di corsi (Allegato 1): il sito la assegna per **nome esatto** (campo `names` dei gruppi), perché alcuni nomi dell'area A sono contenuti in nomi di corsi dell'area B. Tassa regionale da 130 € a 190 €.
 - **Politecnico di Milano**: per le matricole esonero fino a 22.000 €, poi le tre formule della tabella 4.2 fino a 30.000 € (circa 1.071 €), poi le otto fasce delle tabelle 1 e 2 fino al contributo pieno di 3.726 € oltre 95.000 €. Vale per un piano da 46 a 74 CFU (100%). Le date delle rate sono nel calendario accademico, non nel regolamento.
 - **Sapienza**: due gruppi contributivi per Facoltà (I fino a 2.821 €, II fino a 2.924 €). Esonero fino a 24.000 €, poi le riduzioni del D.M. 1014/2021 (art. 44) fino a 28.041,10 € e infine le curve di ateneo: retta fino a 40.000 €, parabola fino a 60.000 €, esponenziale fino a 100.000 € (campi `square` ed `exp` delle fasce). Parametri dal documento «Criteri per il calcolo degli importi in base al valore ISEE», che ridà gli importi ordinari 2026/27. Il gruppo è dedotto dalla macroarea del corso.
+- **Roma Tre**: Regolamento tasse vigente (D.R. 70/2026, dal 2025/26; le fasce 76-88 oltre 88.000 € valgono dal 2026/27). Allegato A a fasce da 500/1.000 €: per le matricole (Tabella A, nessun credito richiesto) esonero totale fino a 23.000 € (art. 21.9), colonna «art. 22 punto 4» fino a 30.000 €, poi «inquadramento in fascia». Il contributo è il totale delle rate meno 156 € (bollo e tassa regionale). Due tabelle: triennali e ciclo unico (fino a 2.060 €) e magistrali (fino a 2.090 €), scelte per **livello** del corso (campo `levels` dei gruppi). Estratte con uno script; corretti a mano la fascia 88 (senza limite superiore) e la fascia 75 delle magistrali (refuso «88. .000» nel PDF). Il corso a distanza di Scienze dell'educazione ha importi propri, non inseriti.
 
 ## Fonti
 

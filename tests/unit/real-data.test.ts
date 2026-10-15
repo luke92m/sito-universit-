@@ -572,3 +572,29 @@ describe('esonero dalle tasse per gli idonei, anche senza le regole dell’atene
     expect(line('servizi')?.max).toBe(4910);
   });
 });
+
+describe('tasse Roma Tre 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05807')!;
+  const triennale = { name: 'Economia', classCode: 'L-18' };
+  const magistrale = { name: 'Economia', classCode: 'LM-77' };
+
+  it('Allegato A, matricole: esonero fino a 23.000 €, art. 22.4 fino a 30.000 €, poi fasce da 1.000 €', () => {
+    const bands = courseGroup(rule, triennale)!.bands;
+    expect(contributionFor(rule, 23000, 2060, bands)).toBe(0);
+    expect(contributionFor(rule, 23500, 2060, bands)).toBe(140); // 296 − 156
+    expect(contributionFor(rule, 24500, 2060, bands)).toBe(385); // 522 + 19 − 156
+    expect(contributionFor(rule, 30500, 2060, bands)).toBe(740); // 522 + 374 − 156
+    expect(contributionFor(rule, 87500, 2060, bands)).toBe(1813); // fascia 75: 522 + 550 + 550 + 347 − 156
+    expect(contributionFor(rule, 150000, 2060, bands)).toBe(2060); // fascia 88
+    expect(contributionFor(rule, null, 2060, bands)).toBe(2060);
+  });
+
+  it('lauree magistrali: tabella propria, massimo 2.090 €', () => {
+    const group = courseGroup(rule, magistrale)!;
+    expect(group.id).toBe('magistrali');
+    expect(maxContribution(rule, magistrale)).toBe(2090);
+    expect(contributionFor(rule, 26500, 2090, group.bands)).toBe(682.5); // 522 + 316,50 − 156
+    expect(contributionFor(rule, 30500, 2090, group.bands)).toBe(770);
+    expect(courseGroup(rule, triennale)!.id).toBe('triennali');
+  });
+});
