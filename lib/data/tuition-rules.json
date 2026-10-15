@@ -12679,6 +12679,408 @@
         }
       },
       "simulator": "https://portale.unipv.it/it/didattica/corsi-di-laurea/contribuzione-universitaria/futuri-studenti"
+    },
+    "ateneo-02301": {
+      "name": "Università di Verona",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti, a tempo pieno, che presentano la Domanda Unica Benefici con l’ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 192,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 208
+      },
+      "fixedFeesNote": "Prima rata: bollo 16 €, acconto della tassa regionale (192 €, poi ricalcolata secondo l’ISEE con le regole della Regione Veneto) e acconto di 150 € del contributo.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 15748.78,
+          "from": 0,
+          "base": 146,
+          "rate": 0.001333
+        },
+        {
+          "iseeMax": 31497.56,
+          "from": 15748.79,
+          "base": 167,
+          "rate": 0.001587
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "base": 192,
+          "rate": 0
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000.01,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000.01,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 55000,
+          "from": 30000.01,
+          "rate": 0.038,
+          "base": 1071.01
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2021
+        }
+      ],
+      "bandsSource": {
+        "label": "UniVR, Regolamento contribuzione 2026/27 (D.R. 4737/2026 e modifiche), artt. 5-7 e 21",
+        "url": "https://cdn.docs.univr.it/documenti/Documento/allegati/allegati762096.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2021,
+        "ciclo-unico": 2021,
+        "magistrale": 2021
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "a1",
+          "label": "Gruppo A1 (Odontoiatria)",
+          "groups": [],
+          "names": [
+            "Odontoiatria e Protesi Dentaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.08564,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3212
+            }
+          ],
+          "max": 3212
+        },
+        {
+          "id": "b-servizio-sociale",
+          "label": "Gruppo B (Servizio Sociale magistrale)",
+          "groups": [],
+          "names": [
+            "Servizio Sociale in Ambiti Complessi"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.02568,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1713
+            }
+          ],
+          "max": 1713
+        },
+        {
+          "id": "c-servizio-sociale",
+          "label": "Gruppo C (Servizio Sociale triennale)",
+          "groups": [],
+          "names": [
+            "Scienze del Servizio Sociale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.01324,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1402
+            }
+          ],
+          "max": 1402
+        },
+        {
+          "id": "a3",
+          "label": "Gruppo A3 (lauree delle professioni sanitarie)",
+          "groups": [],
+          "classCodes": [
+            "L/SNT1",
+            "L/SNT2",
+            "L/SNT3",
+            "L/SNT4"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.02568,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1713
+            }
+          ],
+          "max": 1713
+        },
+        {
+          "id": "b",
+          "label": "Gruppo B (magistrali e ciclo unico di economia, giurisprudenza e scienze umanistiche)",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Arte e Design",
+            "Educazione e Formazione",
+            "Psicologico"
+          ],
+          "levels": [
+            "magistrale",
+            "ciclo-unico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.02568,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1713
+            }
+          ],
+          "max": 1713
+        },
+        {
+          "id": "c",
+          "label": "Gruppo C (lauree di economia, giurisprudenza e scienze umanistiche)",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Arte e Design",
+            "Educazione e Formazione",
+            "Psicologico"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.01324,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1402
+            }
+          ],
+          "max": 1402
+        },
+        {
+          "id": "a2",
+          "label": "Gruppo A2 (medicina, professioni sanitarie magistrali, scienze, ingegneria, scienze motorie)",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000.01,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 55000,
+              "from": 30000.01,
+              "rate": 0.038,
+              "base": 1071.01
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2021
+            }
+          ],
+          "max": 2021
+        }
+      ],
+      "maxNote": "Esonero fino a 27.000 €; poi il 7% dell’ISEE oltre 13.000 € ridotto del 25% (fino a 28.000 €) o del 10% (fino a 30.000 €); da 30.000 € a 55.000 € crescita lineare da 1.071,01 € al massimo del gruppo (art. 21); oltre 55.000 € o senza Domanda Unica Benefici: 3.212 € Odontoiatria (A1), 2.021 € area medica magistrale, scienze, ingegneria e scienze motorie (A2), 1.713 € lauree delle professioni sanitarie (A3) e magistrali di economia, giurisprudenza e scienze umanistiche (B), 1.402 € lauree di queste aree (C). Non sono nel calcolo la riduzione «supermerito» (230 €) e gli incentivi per i laureati in corso.",
+      "maxSource": {
+        "label": "UniVR, Regolamento contribuzione 2026/27, art. 7",
+        "url": "https://cdn.docs.univr.it/documenti/Documento/allegati/allegati762096.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo, acconto della tassa regionale e 150 € di contributo) entro il 15 ottobre 2026",
+          "Seconda rata (metà del resto) entro il 31 gennaio 2027",
+          "Terza rata entro il 31 marzo 2027"
+        ],
+        "note": "Per avere la riduzione serve la Domanda Unica Benefici con l’ISEE universitario entro il 16 novembre 2026 alle 13.",
+        "source": {
+          "label": "UniVR, Regolamento contribuzione 2026/27, artt. 15, 20 e 23",
+          "url": "https://cdn.docs.univr.it/documenti/Documento/allegati/allegati762096.pdf"
+        }
+      },
+      "simulator": "https://www.univr.it/benefici"
     }
   }
 }

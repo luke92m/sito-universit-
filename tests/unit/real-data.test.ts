@@ -554,8 +554,8 @@ describe('costo reale annuo', () => {
   });
 
   it('ateneo senza dati verificati: media dichiarata come stima e dati mancanti elencati', () => {
-    const verona = getUniversityById('ateneo-02301')!;
-    const cost = realCost(verona, null, exact(15000), none, 'inSede');
+    const strapg = getUniversityById('ateneo-05403')!;
+    const cost = realCost(strapg, null, exact(15000), none, 'inSede');
     expect(cost.entity).toBeNull();
     expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
     expect(cost.missing.length).toBeGreaterThan(0);
@@ -1115,5 +1115,33 @@ describe('Pavia 2026/27: tasse UniPV e borse EDiSU', () => {
     expect(check('Pavia', 'Cernusco sul Naviglio')).toBe('pendolare');
     expect(check('Cremona', 'Castelvetro Piacentino')).toBe('inSede');
     expect(check('Pavia', 'Bergamo')).toBe('fuoriSede');
+  });
+});
+
+describe('Verona 2026/27: tasse UniVR e borse regionali venete', () => {
+  const rule = tuitionRuleFor('ateneo-02301')!;
+  const group = (name: string, classCode: string, macro: string) => courseGroup(rule, { name, classCode, group: macro })!;
+  const eco = group('Economia Aziendale', 'L-18', 'Economico');
+  const ecoMag = group('Economia e Legislazione d\'Impresa', 'LM-77', 'Economico');
+  const odo = group('Odontoiatria e Protesi Dentaria', 'LM-46', 'Medico-Sanitario e Farmaceutico');
+  const inf = group('Informatica', 'L-31', 'Informatica e Tecnologie ICT');
+  const san = group('Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)', 'L/SNT1', 'Medico-Sanitario e Farmaceutico');
+
+  it('gruppi A1, A2, A3, B e C', () => {
+    expect([odo.id, inf.id, san.id, ecoMag.id, eco.id]).toEqual(['a1', 'a2', 'a3', 'b', 'c']);
+  });
+
+  it('esonero fino a 27.000 €, 7% ridotto fino a 30.000 € (esempio del regolamento), poi lineare fino a 55.000 €', () => {
+    expect(contributionFor(rule, 27000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 27000.01, eco.max, eco.bands)).toBe(735);
+    expect(contributionFor(rule, 30000, eco.max, eco.bands)).toBe(1071);
+    expect(contributionFor(rule, 55000, inf.max, inf.bands)).toBe(2021);
+    expect(contributionFor(rule, null, odo.max, odo.bands)).toBe(3212);
+  });
+
+  it('borse con gli importi regionali veneti, come a Padova', () => {
+    const dsu = dsuEntityFor('ateneo-02301')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26306.25, ispe: 43125.94 });
+    expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(8246);
   });
 });

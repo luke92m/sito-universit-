@@ -3930,6 +3930,112 @@
         "label": "EDiSU Pavia, bando borse di studio 2026/27",
         "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
       }
+    },
+    {
+      "id": "univr-borse",
+      "name": "Università di Verona – Borse per il diritto allo studio (con ESU Verona)",
+      "shortName": "Università di Verona",
+      "region": "Veneto",
+      "universityIds": [
+        "ateneo-02301"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26306.25,
+        "ispe": 43125.94,
+        "source": {
+          "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 7",
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo complessivo: comprende il pasto giornaliero (trattenuta di 760 € fuori sede, 540 € pendolari, 250 € in sede) e, per chi sta nelle residenze ESU, 1.600 € di alloggio. Oltre 17.537,50 € di ISEE cala in modo lineare fino alla metà.",
+        "bands": [
+          {
+            "iseeMax": 13153.11,
+            "fuoriSede": 8246,
+            "pendolare": 4819,
+            "inSede": 3323
+          },
+          {
+            "iseeMax": 17537.5,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26306.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.5,
+              "pendolare": 2095.3,
+              "inSede": 1445
+            }
+          }
+        ],
+        "source": {
+          "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 6",
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% per ISEE basso",
+          "source": {
+            "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 6 bis",
+            "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Un pasto al giorno nelle mense ESU compreso nella borsa",
+        "Esonero dalla tassa regionale e dai contributi universitari per i beneficiari"
+      ],
+      "connectedBenefitsSource": {
+        "label": "UniVR, Bando borse per il diritto allo studio 2026/27, artt. 6 e 9",
+        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza oltre 80 km o 80 minuti dalla sede e alloggio a pagamento vicino alla sede per almeno 10 mesi (richiesta entro il 15 ottobre 2026).",
+        "pendolare": "Residenza tra 40 e 80 km o tra 40 e 80 minuti; è pendolare anche chi è più lontano senza alloggio a pagamento.",
+        "inSede": "Residenza nel comune o nell’area entro 40 km dalla sede.",
+        "source": {
+          "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 5",
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata entro il 31 dicembre 2026",
+          "Seconda rata con 20 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Con i 20 crediti raggiunti solo entro il 30 novembre 2027 si tiene la prima rata e si ha l’esonero da tassa regionale e metà dei contributi.",
+        "source": {
+          "label": "UniVR, Bando borse per il diritto allo studio 2026/27, artt. 9 e 13",
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "closesTime": "13:00",
+        "note": "Domanda Unica Benefici online con l’ISEE universitario; lo status di fuori sede si chiede entro il 15 ottobre 2026.",
+        "source": {
+          "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 4",
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "UniVR, Bando borse per il diritto allo studio 2026/27",
+        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+      }
     }
   ]
 }
