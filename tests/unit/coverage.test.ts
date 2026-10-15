@@ -4,15 +4,15 @@ import { coverageOf, isFullyCovered, universitiesWithScholarship, universitiesWi
 import { realCost, summarizeRealCost } from '@/lib/domain/real-cost';
 
 const BOLOGNA = 'ateneo-03701';
-const BARI = 'ateneo-07201';
+const PALERMO = 'ateneo-08201';
 const range = (min: number, max: number) => ({ min, max });
 const none = { min: null, max: null };
 
 describe('copertura dei dati verificati', () => {
-  it('Bologna ha tasse per ISEE e bando ER.GO, Bari nessuno dei due', () => {
+  it('Bologna ha tasse per ISEE e bando ER.GO, Palermo nessuno dei due', () => {
     expect(coverageOf(BOLOGNA)).toEqual({ tuition: true, scholarship: 'ER.GO' });
     expect(isFullyCovered(BOLOGNA)).toBe(true);
-    expect(coverageOf(BARI)).toEqual({ tuition: false, scholarship: null });
+    expect(coverageOf(PALERMO)).toEqual({ tuition: false, scholarship: null });
   });
 
   it('gli elenchi coincidono con i dati e sono in ordine alfabetico', () => {
@@ -27,7 +27,7 @@ describe('copertura dei dati verificati', () => {
 
 describe('riassunto del costo reale (finder)', () => {
   const bologna = getUniversityById(BOLOGNA)!;
-  const bari = getUniversityById(BARI)!;
+  const palermo = getUniversityById(PALERMO)!;
 
   it('ha lo stesso totale del calcolo completo usato da /borse', () => {
     for (const condition of ['fuoriSede', 'pendolare', 'inSede'] as const) {
@@ -45,7 +45,7 @@ describe('riassunto del costo reale (finder)', () => {
   });
 
   it('ateneo non coperto: tasse medie dichiarate e nessuna borsa', () => {
-    const summary = summarizeRealCost(realCost(bari, null, range(13000.01, 16000), none, 'fuoriSede'));
+    const summary = summarizeRealCost(realCost(palermo, null, range(13000.01, 16000), none, 'fuoriSede'));
     expect(summary.tuitionVerified).toBe(false);
     expect(summary.scholarship).toBeNull();
     expect(summary.surplus).toEqual({ min: 0, max: 0 });
