@@ -1187,3 +1187,37 @@ describe('borse Opera Universitaria di Trento 2026/27', () => {
     expect(check('Trento', 'Verona')).toBe('fuoriSede');
   });
 });
+
+describe('Friuli Venezia Giulia 2026/27: tasse di Trieste e Udine, borse ARDiS', () => {
+  it('Trieste: esonero fino a 30.000 €, poi 400 € + 5,56% fino a 2.900 €', () => {
+    const rule = tuitionRuleFor('ateneo-03201')!;
+    expect(contributionFor(rule, 30000, 2900)).toBe(0);
+    expect(contributionFor(rule, 40000, 2900)).toBe(956);
+    expect(contributionFor(rule, 75000, 2900)).toBe(2900);
+    expect(contributionFor(rule, null, 2900)).toBe(2900);
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(136);
+  });
+
+  it('Udine: esonero fino a 30.000 €, poi gli importi della Tabella 1', () => {
+    const rule = tuitionRuleFor('ateneo-03001')!;
+    expect(contributionFor(rule, 30000, 1900)).toBe(0);
+    expect(contributionFor(rule, 30500, 1900)).toBe(800);
+    expect(contributionFor(rule, 45500, 1900)).toBe(1400);
+    expect(contributionFor(rule, 52000, 1900)).toBe(1625);
+    expect(contributionFor(rule, 70000, 1900)).toBe(1900);
+  });
+
+  it('ARDiS: soglie nazionali, elenchi dei comuni per sede', () => {
+    const ardis = dsuEntityFor('ateneo-03001')!;
+    expect(dsuEntityFor('ateneo-03201')!.id).toBe('ardis-fvg');
+    expect(ardis.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(ardis, 16000, 'fuoriSede')).toBe(7171.11);
+    const check = (seat: string, city: string) => conditionFromMunicipality(ardis, seat, city, true)?.condition;
+    expect(check('Udine', 'Tavagnacco')).toBe('inSede');
+    expect(check('Udine', 'Cervignano')).toBe('pendolare');
+    expect(check('Trieste', 'Duino Aurisina')).toBe('inSede');
+    expect(check('Pordenone', 'Valvasone Arzene')).toBe('pendolare');
+    expect(check('Gemona Del Friuli', 'Venzone')).toBe('inSede');
+    expect(check('Trieste', 'Udine')).toBe('fuoriSede');
+  });
+});

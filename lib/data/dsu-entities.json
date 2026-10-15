@@ -4656,6 +4656,910 @@
         "label": "Opera Universitaria, Bando borse di studio, posto alloggio, esonero tasse 2026/27",
         "url": "https://www.operauni.tn.it/it/bandiborse/bando-borse-di-studio-posto-alloggio-esonero-tasse-a-a-2026-2027/"
       }
+    },
+    {
+      "id": "ardis-fvg",
+      "name": "ARDiS – Agenzia regionale per il diritto agli studi superiori del Friuli Venezia Giulia",
+      "shortName": "ARDiS",
+      "region": "Friuli-Venezia Giulia",
+      "universityIds": [
+        "ateneo-03201",
+        "ateneo-03001"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "ARDiS, Bando unico 2026/27, art. 4.3",
+          "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi lordi: +15% fino a 14.169,94 € di ISEE, oltre 18.893,25 € calano fino alla metà. A chi ha un posto alloggio ARDiS si trattiene la tariffa dell’alloggio (da 2.000 € a 3.520 € l’anno).",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.56,
+              "pendolare": 2095.36,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "ARDiS, Bando unico 2026/27, art. 17",
+          "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15%",
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, art. 17",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a più corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, art. 17",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero dalle tasse universitarie",
+        "Esonero dalla tassa regionale per il diritto allo studio"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ARDiS, Bando unico 2026/27, artt. 18-19",
+        "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato per la sede e alloggio a pagamento vicino alla sede per almeno 10 mesi (dichiarazione online nei termini dell’art. 16.3).",
+        "pendolare": "Comuni «pendolari» dell’Allegato 1; anche i fuori sede che non prendono alloggio a pagamento.",
+        "inSede": "Comuni «in sede» dell’Allegato 1 per la sede del corso.",
+        "source": {
+          "label": "ARDiS, Bando unico 2026/27, art. 16 e Allegato 1",
+          "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026",
+          "50% da giugno 2027, con almeno 20 crediti registrati entro il 10 agosto 2027"
+        ],
+        "note": "Senza i crediti richiesti entro il 30 novembre 2027 la borsa è revocata. L’IBAN va inserito entro il 10 novembre 2026.",
+        "source": {
+          "label": "ARDiS, Bando unico 2026/27, art. 23.1",
+          "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-15",
+        "closes": "2026-09-17",
+        "closesTime": "13:00",
+        "note": "Domanda online sui servizi ARDiS con SPID, CIE o eIDAS; per l’alloggio le scadenze erano più vicine.",
+        "source": {
+          "label": "ARDiS, Bando unico 2026/27, art. 15",
+          "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+        }
+      },
+      "municipalities": {
+        "Trieste": {
+          "inSede": [
+            {
+              "comune": "Trieste"
+            },
+            {
+              "comune": "Muggia"
+            },
+            {
+              "comune": "San Dorligo della Valle"
+            },
+            {
+              "comune": "Monrupino"
+            },
+            {
+              "comune": "Sgonico"
+            },
+            {
+              "comune": "Duino-Aurisina",
+              "aliases": [
+                "Duino Aurisina"
+              ]
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Monfalcone"
+            },
+            {
+              "comune": "Staranzano"
+            },
+            {
+              "comune": "Ronchi dei Legionari"
+            },
+            {
+              "comune": "Doberdò del Lago"
+            },
+            {
+              "comune": "Gradisca d’Isonzo"
+            },
+            {
+              "comune": "Sagrado"
+            },
+            {
+              "comune": "Fogliano Redipuglia"
+            },
+            {
+              "comune": "San Pier d’Isonzo"
+            },
+            {
+              "comune": "Turriaco"
+            },
+            {
+              "comune": "Cervignano del Friuli",
+              "aliases": [
+                "Cervignano"
+              ]
+            },
+            {
+              "comune": "San Canzian d’Isonzo"
+            },
+            {
+              "comune": "Capodistria"
+            },
+            {
+              "comune": "Erpelle-Cosina"
+            },
+            {
+              "comune": "Divaccia"
+            },
+            {
+              "comune": "Isola"
+            },
+            {
+              "comune": "Pirano"
+            },
+            {
+              "comune": "Postumia"
+            },
+            {
+              "comune": "San Pietro del Carso"
+            },
+            {
+              "comune": "Sezana"
+            },
+            {
+              "comune": "Vipacco"
+            }
+          ],
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, Allegato 1",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        },
+        "Udine": {
+          "inSede": [
+            {
+              "comune": "Campoformido"
+            },
+            {
+              "comune": "Martignacco"
+            },
+            {
+              "comune": "Pagnacco"
+            },
+            {
+              "comune": "Pasian di Prato"
+            },
+            {
+              "comune": "Pavia di Udine"
+            },
+            {
+              "comune": "Povoletto"
+            },
+            {
+              "comune": "Pozzuolo del Friuli"
+            },
+            {
+              "comune": "Pradamano"
+            },
+            {
+              "comune": "Reana del Rojale"
+            },
+            {
+              "comune": "Remanzacco"
+            },
+            {
+              "comune": "Tavagnacco"
+            },
+            {
+              "comune": "Udine"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aiello del Friuli",
+              "aliases": [
+                "Aiello"
+              ]
+            },
+            {
+              "comune": "Artegna"
+            },
+            {
+              "comune": "Attimis"
+            },
+            {
+              "comune": "Bagnaria Arsa"
+            },
+            {
+              "comune": "Basiliano"
+            },
+            {
+              "comune": "Bertiolo"
+            },
+            {
+              "comune": "Bicinicco"
+            },
+            {
+              "comune": "Buia"
+            },
+            {
+              "comune": "Buttrio"
+            },
+            {
+              "comune": "Capriva del Friuli"
+            },
+            {
+              "comune": "Casarsa della Delizia"
+            },
+            {
+              "comune": "Cassacco"
+            },
+            {
+              "comune": "Castions di Strada"
+            },
+            {
+              "comune": "Cervignano del Friuli",
+              "aliases": [
+                "Cervignano"
+              ]
+            },
+            {
+              "comune": "Chiopris-Viscone",
+              "aliases": [
+                "Chiopris Viscone"
+              ]
+            },
+            {
+              "comune": "Cividale del Friuli"
+            },
+            {
+              "comune": "Codroipo"
+            },
+            {
+              "comune": "Colloredo di Monte Albano"
+            },
+            {
+              "comune": "Cormons"
+            },
+            {
+              "comune": "Coseano"
+            },
+            {
+              "comune": "Dignano"
+            },
+            {
+              "comune": "Faedis"
+            },
+            {
+              "comune": "Fagagna"
+            },
+            {
+              "comune": "Flaibano"
+            },
+            {
+              "comune": "Gemona del Friuli"
+            },
+            {
+              "comune": "Gonars"
+            },
+            {
+              "comune": "Gorizia"
+            },
+            {
+              "comune": "Lestizza"
+            },
+            {
+              "comune": "Magnano in Riviera"
+            },
+            {
+              "comune": "Majano"
+            },
+            {
+              "comune": "Manzano"
+            },
+            {
+              "comune": "Mereto di Tomba"
+            },
+            {
+              "comune": "Moimacco"
+            },
+            {
+              "comune": "Mortegliano"
+            },
+            {
+              "comune": "Moruzzo"
+            },
+            {
+              "comune": "Mossa"
+            },
+            {
+              "comune": "Nimis"
+            },
+            {
+              "comune": "Osoppo"
+            },
+            {
+              "comune": "Palmanova"
+            },
+            {
+              "comune": "Porpetto"
+            },
+            {
+              "comune": "Premariacco"
+            },
+            {
+              "comune": "Rive d’Arcano"
+            },
+            {
+              "comune": "San Daniele del Friuli"
+            },
+            {
+              "comune": "San Giorgio di Nogaro"
+            },
+            {
+              "comune": "San Giovanni al Natisone"
+            },
+            {
+              "comune": "Santa Maria la Longa"
+            },
+            {
+              "comune": "San Vito al Torre"
+            },
+            {
+              "comune": "San Vito di Fagagna"
+            },
+            {
+              "comune": "Sedegliano"
+            },
+            {
+              "comune": "Talmassons"
+            },
+            {
+              "comune": "Tarcento"
+            },
+            {
+              "comune": "Torreano"
+            },
+            {
+              "comune": "Torviscosa"
+            },
+            {
+              "comune": "Treppo Grande"
+            },
+            {
+              "comune": "Tricesimo"
+            },
+            {
+              "comune": "Trivignano Udinese"
+            },
+            {
+              "comune": "Visco"
+            }
+          ],
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, Allegato 1",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        },
+        "Gorizia": {
+          "inSede": [
+            {
+              "comune": "Farra d’Isonzo"
+            },
+            {
+              "comune": "Gorizia"
+            },
+            {
+              "comune": "Mossa"
+            },
+            {
+              "comune": "San Floriano del Collio"
+            },
+            {
+              "comune": "Savogna d’Isonzo"
+            },
+            {
+              "comune": "Nova Gorica"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Buttrio"
+            },
+            {
+              "comune": "Capriva del Friuli"
+            },
+            {
+              "comune": "Cormons"
+            },
+            {
+              "comune": "Doberdò del Lago"
+            },
+            {
+              "comune": "Duino-Aurisina",
+              "aliases": [
+                "Duino Aurisina"
+              ]
+            },
+            {
+              "comune": "Fogliano Redipuglia"
+            },
+            {
+              "comune": "Gradisca d’Isonzo"
+            },
+            {
+              "comune": "Manzano"
+            },
+            {
+              "comune": "Mariano del Friuli"
+            },
+            {
+              "comune": "Medea"
+            },
+            {
+              "comune": "Monfalcone"
+            },
+            {
+              "comune": "Moraro"
+            },
+            {
+              "comune": "Romans d’Isonzo"
+            },
+            {
+              "comune": "Ronchi dei Legionari"
+            },
+            {
+              "comune": "Sagrado"
+            },
+            {
+              "comune": "San Canzian d’Isonzo"
+            },
+            {
+              "comune": "San Giovanni al Natisone"
+            },
+            {
+              "comune": "San Lorenzo Isontino"
+            },
+            {
+              "comune": "San Pier d’Isonzo"
+            },
+            {
+              "comune": "Staranzano"
+            },
+            {
+              "comune": "Turriaco"
+            },
+            {
+              "comune": "Udine"
+            },
+            {
+              "comune": "Villesse"
+            }
+          ],
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, Allegato 1",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        },
+        "Pordenone": {
+          "inSede": [
+            {
+              "comune": "Azzano Decimo"
+            },
+            {
+              "comune": "Cordenons"
+            },
+            {
+              "comune": "Fiume Veneto"
+            },
+            {
+              "comune": "Fontanafredda"
+            },
+            {
+              "comune": "Pasiano di Pordenone"
+            },
+            {
+              "comune": "Porcia"
+            },
+            {
+              "comune": "Pordenone"
+            },
+            {
+              "comune": "Prata di Pordenone"
+            },
+            {
+              "comune": "Roveredo in Piano"
+            },
+            {
+              "comune": "San Quirino"
+            },
+            {
+              "comune": "Zoppola"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Arba"
+            },
+            {
+              "comune": "Arzene (ora Valvasone Arzene)"
+            },
+            {
+              "comune": "Aviano"
+            },
+            {
+              "comune": "Brugnera"
+            },
+            {
+              "comune": "Budoia"
+            },
+            {
+              "comune": "Caneva"
+            },
+            {
+              "comune": "Casarsa della Delizia"
+            },
+            {
+              "comune": "Chions"
+            },
+            {
+              "comune": "Codroipo"
+            },
+            {
+              "comune": "Conegliano"
+            },
+            {
+              "comune": "Cordovado"
+            },
+            {
+              "comune": "Godega di Sant’Urbano"
+            },
+            {
+              "comune": "Maniago"
+            },
+            {
+              "comune": "Montereale Valcellina"
+            },
+            {
+              "comune": "Orsago"
+            },
+            {
+              "comune": "Polcenigo"
+            },
+            {
+              "comune": "Pravisdomini"
+            },
+            {
+              "comune": "Sacile"
+            },
+            {
+              "comune": "San Giorgio della Richinvelda"
+            },
+            {
+              "comune": "San Martino al Tagliamento"
+            },
+            {
+              "comune": "San Vito al Tagliamento"
+            },
+            {
+              "comune": "Sequals"
+            },
+            {
+              "comune": "Sesto al Reghena"
+            },
+            {
+              "comune": "Spilimbergo"
+            },
+            {
+              "comune": "Susegana"
+            },
+            {
+              "comune": "Vajont"
+            },
+            {
+              "comune": "Valvasone (ora Valvasone Arzene)"
+            },
+            {
+              "comune": "Vivaro"
+            }
+          ],
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, Allegato 1",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        },
+        "Gemona del Friuli": {
+          "inSede": [
+            {
+              "comune": "Artegna"
+            },
+            {
+              "comune": "Bordano"
+            },
+            {
+              "comune": "Buia"
+            },
+            {
+              "comune": "Gemona del Friuli"
+            },
+            {
+              "comune": "Magnano in Riviera"
+            },
+            {
+              "comune": "Montenars"
+            },
+            {
+              "comune": "Osoppo"
+            },
+            {
+              "comune": "Trasaghis"
+            },
+            {
+              "comune": "Venzone"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Amaro"
+            },
+            {
+              "comune": "Attimis"
+            },
+            {
+              "comune": "Cassacco"
+            },
+            {
+              "comune": "Cavazzo Carnico"
+            },
+            {
+              "comune": "Chiusaforte"
+            },
+            {
+              "comune": "Colloredo di Monte Albano"
+            },
+            {
+              "comune": "Coseano"
+            },
+            {
+              "comune": "Dignano"
+            },
+            {
+              "comune": "Faedis"
+            },
+            {
+              "comune": "Fagagna"
+            },
+            {
+              "comune": "Forgaria nel Friuli"
+            },
+            {
+              "comune": "Lusevera"
+            },
+            {
+              "comune": "Moggio Udinese"
+            },
+            {
+              "comune": "Nimis"
+            },
+            {
+              "comune": "Ragogna"
+            },
+            {
+              "comune": "Reana del Rojale"
+            },
+            {
+              "comune": "Resia"
+            },
+            {
+              "comune": "Resiutta"
+            },
+            {
+              "comune": "Rive d’Arcano"
+            },
+            {
+              "comune": "San Daniele del Friuli"
+            },
+            {
+              "comune": "San Vito di Fagagna"
+            },
+            {
+              "comune": "Tarcento"
+            },
+            {
+              "comune": "Tavagnacco"
+            },
+            {
+              "comune": "Tolmezzo"
+            },
+            {
+              "comune": "Treppo Grande"
+            },
+            {
+              "comune": "Tricesimo"
+            },
+            {
+              "comune": "Udine"
+            },
+            {
+              "comune": "Verzegnis"
+            }
+          ],
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, Allegato 1",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        },
+        "Portogruaro": {
+          "inSede": [
+            {
+              "comune": "Portogruaro"
+            },
+            {
+              "comune": "Cinto Caomaggiore",
+              "aliases": [
+                "Cinto Cao Maggiore"
+              ]
+            },
+            {
+              "comune": "Gruaro"
+            },
+            {
+              "comune": "Teglio Veneto"
+            },
+            {
+              "comune": "Pramaggiore"
+            },
+            {
+              "comune": "Annone Veneto"
+            },
+            {
+              "comune": "Fossalta di Portogruaro"
+            },
+            {
+              "comune": "San Michele al Tagliamento"
+            },
+            {
+              "comune": "San Stino di Livenza"
+            },
+            {
+              "comune": "Concordia Sagittaria"
+            },
+            {
+              "comune": "Caorle"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Eraclea"
+            },
+            {
+              "comune": "Torre di Mosto"
+            },
+            {
+              "comune": "Ceggia"
+            },
+            {
+              "comune": "Salgareda"
+            },
+            {
+              "comune": "Ponte di Piave"
+            },
+            {
+              "comune": "Cessalto"
+            },
+            {
+              "comune": "Chiarano"
+            },
+            {
+              "comune": "Oderzo"
+            },
+            {
+              "comune": "Motta di Livenza"
+            },
+            {
+              "comune": "Mansuè"
+            },
+            {
+              "comune": "Ormelle"
+            },
+            {
+              "comune": "Meduna di Livenza"
+            },
+            {
+              "comune": "Pravisdomini"
+            },
+            {
+              "comune": "Chions"
+            },
+            {
+              "comune": "Sesto al Reghena"
+            },
+            {
+              "comune": "Cordovado"
+            },
+            {
+              "comune": "Morsano al Tagliamento"
+            },
+            {
+              "comune": "Varmo"
+            },
+            {
+              "comune": "Latisana"
+            },
+            {
+              "comune": "Lignano Sabbiadoro",
+              "aliases": [
+                "Lignano"
+              ]
+            },
+            {
+              "comune": "Palazzolo dello Stella"
+            },
+            {
+              "comune": "Precenicco"
+            },
+            {
+              "comune": "Teor (ora Rivignano Teor)"
+            }
+          ],
+          "source": {
+            "label": "ARDiS, Bando unico 2026/27, Allegato 1",
+            "url": "https://www.ardis.fvg.it/upload/schede/1782378523.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ARDiS, Bando unico 2026/27",
+        "url": "https://www.ardis.fvg.it/contenuti.php?id=11366&tipo=&view=news"
+      }
     }
   ]
 }

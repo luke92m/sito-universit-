@@ -13355,6 +13355,294 @@
         }
       },
       "simulator": "https://www.unive.it/pag/50580/"
+    },
+    "ateneo-03201": {
+      "name": "Università di Trieste",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti (Tabella A), con ISEE per l’Università.",
+      "fixedFees": {
+        "regionalTax": 160,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 176
+      },
+      "fixedFeesNote": "Bollo 16 € e tassa regionale per il diritto allo studio (120 € fino a 28.339,88 € di ISEE, 140 € fino a 56.679,76 €, poi 160 €, anche senza ISEE).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 28339.88,
+          "from": 0,
+          "rate": 0,
+          "base": 120
+        },
+        {
+          "iseeMax": 56679.76,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 75000,
+          "from": 30000,
+          "rate": 0.0556,
+          "base": 400
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2900
+        }
+      ],
+      "bandsSource": {
+        "label": "UniTS, Avviso tasse corsi di laurea 2026/27, art. 1.3 (Tabella A)",
+        "url": "https://repo.units.it/docs/units_CdL_tasse-avvisoTasse_it.2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2900,
+        "ciclo-unico": 2900,
+        "magistrale": 2900
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 30.000 €; poi 400 € + 5,56% dell’ISEE oltre 30.000 € fino a 75.000 € (al massimo 2.900 €); oltre o senza ISEE 2.900 €. Il totale è arrotondato ai 5 €. Chi non ha i crediti o è fuori corso segue la Tabella B (da 200 € a 3.195 €).",
+      "maxSource": {
+        "label": "UniTS, Avviso tasse 2026/27, Tabelle A e B",
+        "url": "https://repo.units.it/docs/units_CdL_tasse-avvisoTasse_it.2026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 250 € (bollo, 120 € di tassa regionale, 114 € di contributo) entro il 2 ottobre 2026",
+          "Seconda rata (saldo della prima, della tassa regionale e 50% del contributo) entro il 31 marzo 2027",
+          "Terza rata (il resto) entro il 28 maggio 2027"
+        ],
+        "note": "L’ISEE per l’Università 2026 va ottenuto entro il 31 dicembre 2026 per chi si iscrive entro quella data. Le matricole delle magistrali hanno scadenze legate alle finestre di verifica dei requisiti.",
+        "source": {
+          "label": "UniTS, Avviso tasse 2026/27, artt. 2-3",
+          "url": "https://repo.units.it/docs/units_CdL_tasse-avvisoTasse_it.2026-2027.pdf"
+        }
+      },
+      "simulator": "https://repo.units.it/docs/units_CdL_tasse-avvisoTasse_it.2026-2027.pdf"
+    },
+    "ateneo-03001": {
+      "name": "Università di Udine",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso (fino al primo anno fuori corso) con i crediti richiesti, che chiedono la riduzione tramite il portale ARDiS con l’ISEE 2026.",
+      "fixedFees": {
+        "regionalTax": 160,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 176
+      },
+      "fixedFeesNote": "Bollo 16 € e tassa regionale per il diritto allo studio (120 € fino a 28.339,88 € di ISEE, 140 € fino a 56.679,76 €, poi 160 €, anche senza domanda di riduzione).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 28339.88,
+          "from": 0,
+          "rate": 0,
+          "base": 120
+        },
+        {
+          "iseeMax": 56679.76,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 31000,
+          "from": 0,
+          "rate": 0,
+          "base": 800
+        },
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 810
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 820
+        },
+        {
+          "iseeMax": 34000,
+          "from": 0,
+          "rate": 0,
+          "base": 830
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 840
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 1050
+        },
+        {
+          "iseeMax": 37000,
+          "from": 0,
+          "rate": 0,
+          "base": 1060
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 1070
+        },
+        {
+          "iseeMax": 39000,
+          "from": 0,
+          "rate": 0,
+          "base": 1080
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1090
+        },
+        {
+          "iseeMax": 41000,
+          "from": 0,
+          "rate": 0,
+          "base": 1350
+        },
+        {
+          "iseeMax": 42000,
+          "from": 0,
+          "rate": 0,
+          "base": 1360
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 1370
+        },
+        {
+          "iseeMax": 44000,
+          "from": 0,
+          "rate": 0,
+          "base": 1380
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1390
+        },
+        {
+          "iseeMax": 46000,
+          "from": 0,
+          "rate": 0,
+          "base": 1400
+        },
+        {
+          "iseeMax": 47000,
+          "from": 0,
+          "rate": 0,
+          "base": 1410
+        },
+        {
+          "iseeMax": 48000,
+          "from": 0,
+          "rate": 0,
+          "base": 1420
+        },
+        {
+          "iseeMax": 49000,
+          "from": 0,
+          "rate": 0,
+          "base": 1430
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1440
+        },
+        {
+          "iseeMax": 53000,
+          "from": 0,
+          "rate": 0,
+          "base": 1625
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 1650
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1900
+        }
+      ],
+      "bandsSource": {
+        "label": "UniUD, Avviso aggiuntivo al Manifesto degli studi 2026/27, art. 4 e Tabella 1",
+        "url": "https://www.uniud.it/it/didattica/area-servizi-studenti/servizi-studenti/diritto-allo-studio/tasse_merito/tasse-riduzioni-esoneri/allegati/avviso_aggiuntivo_2026-27/@@download/file/avviso_aggiuntivo_2026-27_IS-pub26.11.15.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1900,
+        "ciclo-unico": 1900,
+        "magistrale": 1900
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 30.000 €; poi importi fissi per fasce di 1.000 € (Tabella 1): da 800 € (fino a 31.000 €) a 1.090 € (fino a 40.000 €), da 1.350 € a 1.440 € fino a 50.000 €, 1.625 € fino a 53.000 €, 1.650 € fino a 60.000 €; oltre o senza domanda di riduzione 1.900 €. Non sono nel calcolo la riduzione fino a 300 € per chi ha 100/100 alla maturità e le regole per i fuori corso (fino a 2.000 €).",
+      "maxSource": {
+        "label": "UniUD, Avviso aggiuntivo 2026/27, Tabella 1",
+        "url": "https://www.uniud.it/it/didattica/area-servizi-studenti/servizi-studenti/diritto-allo-studio/tasse_merito/tasse-riduzioni-esoneri/allegati/avviso_aggiuntivo_2026-27/@@download/file/avviso_aggiuntivo_2026-27_IS-pub26.11.15.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo, tassa regionale e 630 € di contributo se dovuto) entro il 5 ottobre 2026",
+          "Seconda rata entro il 31 marzo 2027",
+          "Terza rata entro il 31 maggio 2027"
+        ],
+        "note": "La domanda di riduzione si fa sul portale ARDiS indicando il protocollo dell’ISEE 2026; in ritardo si accetta fino al 15 gennaio 2027.",
+        "source": {
+          "label": "UniUD, Avviso aggiuntivo 2026/27, artt. 3-4",
+          "url": "https://www.uniud.it/it/didattica/area-servizi-studenti/servizi-studenti/diritto-allo-studio/tasse_merito/tasse-riduzioni-esoneri/allegati/avviso_aggiuntivo_2026-27/@@download/file/avviso_aggiuntivo_2026-27_IS-pub26.11.15.pdf"
+        }
+      },
+      "simulator": "https://www.uniud.it/it/didattica/area-servizi-studenti/servizi-studenti/diritto-allo-studio/tasse_merito/tasse-riduzioni-esoneri/allegati/avviso_aggiuntivo_2026-27/@@download/file/avviso_aggiuntivo_2026-27_IS-pub26.11.15.pdf"
     }
   }
 }
