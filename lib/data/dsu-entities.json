@@ -4036,6 +4036,121 @@
         "label": "UniVR, Bando borse per il diritto allo studio 2026/27",
         "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
       }
+    },
+    {
+      "id": "unive-borse",
+      "name": "Università Ca’ Foscari – Borse di studio regionali (con ESU Venezia)",
+      "shortName": "Ca’ Foscari",
+      "region": "Veneto",
+      "universityIds": [
+        "ateneo-02701"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26306.25,
+        "ispe": 43125.94,
+        "source": {
+          "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 7",
+          "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo complessivo: comprende il pasto giornaliero (trattenuta di 760 € fuori sede, 540 € pendolari, 250 € in sede, versata a ESU Venezia) e, per chi sta nelle residenze ESU, 1.600 € di alloggio. Oltre 17.537,50 € di ISEE cala in modo lineare fino alla metà.",
+        "bands": [
+          {
+            "iseeMax": 13153.11,
+            "fuoriSede": 8246,
+            "pendolare": 4819,
+            "inSede": 3323
+          },
+          {
+            "iseeMax": 17537.5,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26306.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.5,
+              "pendolare": 2095.3,
+              "inSede": 1445
+            }
+          }
+        ],
+        "source": {
+          "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 6",
+          "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% per ISEE basso",
+          "source": {
+            "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 6",
+            "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 6",
+            "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Un pasto al giorno nelle mense ESU compreso nella borsa",
+        "Esonero da tasse e contributi universitari per idonei e beneficiari (rimborso della prima rata entro il 30 luglio 2027)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 6",
+        "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza oltre 80 km o 80 minuti dalla sede e alloggio a pagamento vicino alla sede per almeno 10 mesi.",
+        "pendolare": "Residenza tra 40 e 80 km dalla sede.",
+        "inSede": "Residenza entro 40 km dalla sede (o corsi prevalentemente online).",
+        "source": {
+          "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 5",
+          "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima metà entro il 31 dicembre 2026 (26 febbraio 2027 per le magistrali)",
+          "Seconda metà entro il 30 settembre 2027, con 20 crediti al 10 agosto 2027"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 la borsa è revocata. La borsa arriva sulla CartaConto Ca’ Foscari, da attivare entro il 16 novembre 2026.",
+        "source": {
+          "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, artt. 10-11",
+          "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "closesTime": "12:30",
+        "note": "Richiesta agevolazioni online sul sito di Ca’ Foscari; le matricole delle magistrali possono iscriversi fino al 18 dicembre 2026.",
+        "source": {
+          "label": "Ca’ Foscari, Bando borse di studio regionali 2026/27, art. 4",
+          "url": "https://www.unive.it/pag/fileadmin/user_upload/ateneo/diritto-allo-studio/borse-studio/2026_27/Bando_Borse_di_studio_2026-2027_ITA.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Ca’ Foscari, Borse per il diritto allo studio",
+        "url": "https://www.unive.it/pag/8551/"
+      }
     }
   ]
 }

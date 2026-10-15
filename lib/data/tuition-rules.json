@@ -13081,6 +13081,280 @@
         }
       },
       "simulator": "https://www.univr.it/benefici"
+    },
+    "ateneo-02701": {
+      "name": "Università Ca’ Foscari Venezia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti regolari a tempo pieno che completano la richiesta agevolazioni con l’ISEE per il diritto allo studio entro il 30 settembre 2026.",
+      "fixedFees": {
+        "regionalTax": 192,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 208
+      },
+      "fixedFeesNote": "Tassa regionale per il diritto allo studio di 192 € (importo indicato dall’ateneo per tutte le fasce) e bollo di 16 € per le matricole.",
+      "bands": [
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 25500,
+          "from": 25000,
+          "rate": 0.03533333,
+          "base": 420.33333333
+        },
+        {
+          "iseeMax": 26000,
+          "from": 25500,
+          "rate": 0.01603206,
+          "base": 437.98396794
+        },
+        {
+          "iseeMax": 28000,
+          "from": 26000,
+          "rate": 0.02451226,
+          "base": 667.97548774
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.03201601,
+          "base": 955.96798399
+        },
+        {
+          "iseeMax": 33999.99,
+          "from": 30001,
+          "rate": 0.04101036,
+          "base": 1197
+        },
+        {
+          "iseeMax": 39999.99,
+          "from": 34000,
+          "rate": 0.04500008,
+          "base": 1361
+        },
+        {
+          "iseeMax": 49999.99,
+          "from": 40000,
+          "rate": 0.01650002,
+          "base": 1631
+        },
+        {
+          "iseeMax": 59999.99,
+          "from": 50000,
+          "rate": 0.01160001,
+          "base": 1796
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 1913
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2177
+        }
+      ],
+      "bandsSource": {
+        "label": "Ca’ Foscari, Tasse e contributi 2026/27 (pagine per fascia ISEE) e simulatore ufficiale",
+        "url": "https://www.unive.it/pag/50463/"
+      },
+      "maxByLevel": {
+        "triennale": 2177,
+        "ciclo-unico": 2428,
+        "magistrale": 2428
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "triennali",
+          "label": "Lauree triennali",
+          "groups": [],
+          "levels": [
+            "triennale"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25500,
+              "from": 25000,
+              "rate": 0.03533333,
+              "base": 420.33333333
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25500,
+              "rate": 0.01603206,
+              "base": 437.98396794
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.02451226,
+              "base": 667.97548774
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.03201601,
+              "base": 955.96798399
+            },
+            {
+              "iseeMax": 33999.99,
+              "from": 30001,
+              "rate": 0.04101036,
+              "base": 1197
+            },
+            {
+              "iseeMax": 39999.99,
+              "from": 34000,
+              "rate": 0.04500008,
+              "base": 1361
+            },
+            {
+              "iseeMax": 49999.99,
+              "from": 40000,
+              "rate": 0.01650002,
+              "base": 1631
+            },
+            {
+              "iseeMax": 59999.99,
+              "from": 50000,
+              "rate": 0.01160001,
+              "base": 1796
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 1913
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2177
+            }
+          ],
+          "max": 2177
+        },
+        {
+          "id": "magistrali",
+          "label": "Lauree magistrali",
+          "groups": [],
+          "levels": [
+            "magistrale",
+            "ciclo-unico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25500,
+              "from": 25000,
+              "rate": 0.03533333,
+              "base": 420.33333333
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25500,
+              "rate": 0.01603206,
+              "base": 437.98396794
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.02451226,
+              "base": 667.97548774
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.03201601,
+              "base": 955.96798399
+            },
+            {
+              "iseeMax": 33999.99,
+              "from": 30001,
+              "rate": 0.04651174,
+              "base": 1341
+            },
+            {
+              "iseeMax": 39999.99,
+              "from": 34000,
+              "rate": 0.05250009,
+              "base": 1527
+            },
+            {
+              "iseeMax": 49999.99,
+              "from": 40000,
+              "rate": 0.02040002,
+              "base": 1842
+            },
+            {
+              "iseeMax": 59999.99,
+              "from": 50000,
+              "rate": 0.01170001,
+              "base": 2046
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2164
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2428
+            }
+          ],
+          "max": 2428
+        }
+      ],
+      "excludedCourses": {
+        "nameIncludes": [
+          "Digital Management",
+          "Hospitality Innovation"
+        ],
+        "note": "Corso con contribuzione propria (8.726 € o 6.915 € l’anno sopra 30.000 € di ISEE), non ancora inserita: usiamo la media nazionale."
+      },
+      "maxNote": "Esonero fino a 25.000 €; tra 25.000 e 30.000 € da 420 € a 1.020 € in quattro tratti lineari; da 30.001 € a 60.000 € interpolazione tra i valori della tabella (triennali 1.197 → 1.912 €, magistrali 1.341 → 2.163 €); oltre 60.000 € o senza richiesta agevolazioni 2.177 € (triennali) o 2.428 € (magistrali). Formule lette dal simulatore ufficiale 2026/27. Non sono nel calcolo la riduzione per merito (315 € con voto di maturità da 98/100) e le maggiorazioni per chi è fuori corso o in ritardo.",
+      "maxSource": {
+        "label": "Ca’ Foscari, simulatore tasse 2026/27 (calcolo_2026-0.js)",
+        "url": "https://www.unive.it/pag/50580/"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 500 € (comprende la tassa regionale) più il bollo entro il 30 settembre 2026",
+          "Seconda rata (fino a 800 €) entro il 9 dicembre 2026",
+          "Terza rata (il resto, ricalcolato ad aprile) entro il 17 maggio 2027"
+        ],
+        "note": "Con ISEE fino a 25.000 € e procedura completata nei termini si pagano solo tassa regionale e bollo. Il calcolo con l’ISEE si fa a novembre se la richiesta agevolazioni arriva entro il 30 settembre 2026, altrimenti ad aprile con 50 € di mora.",
+        "source": {
+          "label": "Ca’ Foscari, Tasse e contributi 2026/27, rate e scadenze",
+          "url": "https://www.unive.it/pag/50463/"
+        }
+      },
+      "simulator": "https://www.unive.it/pag/50580/"
     }
   }
 }

@@ -14,6 +14,7 @@ import {
   courseGroup,
   degreeLevel,
   fixedFeesRange,
+  isExcludedCourse,
   maxContribution,
   offSiteContribution,
   tuitionRuleFor
@@ -1143,5 +1144,25 @@ describe('Verona 2026/27: tasse UniVR e borse regionali venete', () => {
     const dsu = dsuEntityFor('ateneo-02301')!;
     expect(dsu.thresholds).toMatchObject({ isee: 26306.25, ispe: 43125.94 });
     expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(8246);
+  });
+});
+
+describe('Ca’ Foscari 2026/27: tasse dal simulatore ufficiale e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-02701')!;
+  const tri = courseGroup(rule, { name: 'Economia e Commercio', classCode: 'L-18' })!;
+  const mag = courseGroup(rule, { name: 'Economia e Finanza', classCode: 'LM-16' })!;
+
+  it('esonero fino a 25.000 €, poi i tratti del simulatore (420-1.020 € fino a 30.000 €)', () => {
+    expect(contributionFor(rule, 25000, tri.max, tri.bands)).toBe(0);
+    expect(contributionFor(rule, 25500, tri.max, tri.bands)).toBe(438);
+    expect(contributionFor(rule, 30000, tri.max, tri.bands)).toBe(1020);
+    expect(Math.round(contributionFor(rule, 45000, tri.max, tri.bands))).toBe(1714);
+    expect(Math.round(contributionFor(rule, 45000, mag.max, mag.bands))).toBe(1944);
+    expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(2428);
+    expect(isExcludedCourse(rule, { name: 'Digital Management', classCode: 'L-18' })).toBe(true);
+  });
+
+  it('borse con gli importi regionali veneti', () => {
+    expect(dsuEntityFor('ateneo-02701')!.thresholds.isee).toBe(26306.25);
   });
 });
