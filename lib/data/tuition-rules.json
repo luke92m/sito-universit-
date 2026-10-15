@@ -3914,6 +3914,105 @@
         }
       },
       "simulator": "https://delphi.uniroma2.it/totem/jsp/simulazioneTasse/sceltaFacolta.jsp"
+    },
+    "ateneo-06501": {
+      "name": "Università di Salerno",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno (al primo anno conta solo l’ISEE: nessun requisito di merito), cittadini con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale campana da 130 € a 173 € secondo l’ISEE e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 33600,
+          "from": 0,
+          "rate": 0,
+          "base": 1303
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1450
+        },
+        {
+          "iseeMax": 50400,
+          "from": 0,
+          "rate": 0,
+          "base": 1508
+        },
+        {
+          "iseeMax": 58800,
+          "from": 0,
+          "rate": 0,
+          "base": 1573
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1631
+        }
+      ],
+      "bandsSource": {
+        "label": "Unisa, Regolamento contribuzione studentesca 2026/27, §§ 1.4, 1.6 e 3.3",
+        "url": "https://web.unisa.it/uploads/rescue/251/791/regolamento-in-materia-di-contribuzione-studentesca-a.a.-2026-27.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1767,
+        "ciclo-unico": 1767,
+        "magistrale": 1767
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 30.000 € di ISEE (per le matricole conta solo l’ISEE); oltre, cinque fasce da 1.303 € a 1.631 € (totale della tabella § 3.3 meno 16 € di bollo). Senza ISEE 1.767 €. Stessi importi per tutti i corsi.",
+      "maxSource": {
+        "label": "Unisa, Regolamento contribuzione studentesca 2026/27, § 3.3",
+        "url": "https://web.unisa.it/uploads/rescue/251/791/regolamento-in-materia-di-contribuzione-studentesca-a.a.-2026-27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata e tassa regionale entro il 16 ottobre 2026 (corsi ad accesso libero) o entro i termini del bando",
+          "Seconda rata entro il 21 dicembre 2026",
+          "Terza rata (130 €) entro il 31 marzo 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio va chiesto prima di immatricolarsi: l’Ateneo lo legge dall’INPS. Chi è in no tax area o idoneo alla borsa non paga la seconda e la terza rata.",
+        "source": {
+          "label": "Unisa, Regolamento contribuzione studentesca 2026/27, §§ 2.2-2.5",
+          "url": "https://web.unisa.it/uploads/rescue/251/791/regolamento-in-materia-di-contribuzione-studentesca-a.a.-2026-27.pdf"
+        }
+      },
+      "simulator": "https://web.unisa.it/didattica/calcolo-tasse"
     }
   }
 }

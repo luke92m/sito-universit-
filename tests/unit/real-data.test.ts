@@ -642,3 +642,21 @@ describe('tasse Tor Vergata 2026/27', () => {
     expect(realCost(tv, named('Giurisprudenza'), exact(40000), none, 'inSede').tuitionRule).toBe(true);
   });
 });
+
+describe('tasse Università di Salerno 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06501')!;
+
+  it('no tax area fino a 30.000 €, poi le fasce del § 3.3 (totale meno 16 € di bollo)', () => {
+    expect(contributionFor(rule, 30000, 1767)).toBe(0);
+    expect(contributionFor(rule, 30000.01, 1767)).toBe(1303); // fascia VI: 1.319 − 16
+    expect(contributionFor(rule, 45000, 1767)).toBe(1508); // fascia VIII: 1.524 − 16
+    expect(contributionFor(rule, 70000, 1767)).toBe(1631); // fascia X: 1.647 − 16
+    expect(contributionFor(rule, null, 1767)).toBe(1767); // senza ISEE: 1.783 − 16
+  });
+
+  it('tassa regionale campana per ISEE', () => {
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(146);
+    expect(fixedFeesRange(rule, exact(40000)).min).toBe(167);
+    expect(fixedFeesRange(rule, exact(60000)).min).toBe(189);
+  });
+});
