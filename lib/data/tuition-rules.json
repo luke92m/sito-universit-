@@ -4013,6 +4013,379 @@
         }
       },
       "simulator": "https://web.unisa.it/didattica/calcolo-tasse"
+    },
+    "ateneo-06306": {
+      "name": "Università della Campania Luigi Vanvitelli",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno, cittadini con ISEE per il diritto allo studio universitario. Fino a 30.000 € vale la MAC 1 (al primo anno conta solo l’ISEE); oltre, la MAC 2, dove le matricole sono considerate «senza merito».",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Prima rata entro il 30 ottobre 2026: tassa regionale campana da 130 € a 173 € secondo l’ISEE e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 22000,
+          "rate": 0.014,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 22000,
+          "rate": 0.035,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 22000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 22000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 32500,
+          "from": 0,
+          "rate": 0,
+          "base": 1866
+        },
+        {
+          "iseeMax": 35500,
+          "from": 0,
+          "rate": 0,
+          "base": 2007
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 2136
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 2268
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 2381
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2513
+        }
+      ],
+      "bandsSource": {
+        "label": "Vanvitelli, Manifesto delle Tasse 2026/27 (D.R. 424/2026), MAC 1.2-1.3 e tabelle MAC 2",
+        "url": "https://www.unicampania.it/RPP/RGCSS/Modulistica/Manifesto_Tasse_26_27_OK.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2513,
+        "ciclo-unico": 2513,
+        "magistrale": 2513
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "scientifica-1",
+          "label": "area scientifica 1 (Medicina, Architettura, Psicologia)",
+          "groups": [
+            "Medico-Sanitario e Farmaceutico",
+            "Psicologico"
+          ],
+          "nameIncludes": [
+            "Architettura",
+            "Design"
+          ],
+          "bands": [
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 24000,
+              "from": 22000,
+              "rate": 0.014,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 22000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 22000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 22000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 32500,
+              "from": 0,
+              "rate": 0,
+              "base": 2017
+            },
+            {
+              "iseeMax": 35500,
+              "from": 0,
+              "rate": 0,
+              "base": 2170
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 2310
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2452
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2575
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2718
+            }
+          ],
+          "max": 2718
+        },
+        {
+          "id": "umanistica",
+          "label": "area umanistica (Giurisprudenza, Lettere, Scienze politiche)",
+          "groups": [
+            "Giuridico",
+            "Letterario-Umanistico",
+            "Politico-Sociale e Comunicazione",
+            "Educazione e Formazione"
+          ],
+          "nameIncludes": [
+            "Conservazione dei Beni Culturali",
+            "Archeologia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 24000,
+              "from": 22000,
+              "rate": 0.014,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 22000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 22000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 22000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 32500,
+              "from": 0,
+              "rate": 0,
+              "base": 1786
+            },
+            {
+              "iseeMax": 35500,
+              "from": 0,
+              "rate": 0,
+              "base": 1921
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 2044
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2170
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2278
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2406
+            }
+          ],
+          "max": 2406
+        },
+        {
+          "id": "scientifica-2",
+          "label": "area scientifica 2 (Economia, Ingegneria, Scienze)",
+          "groups": [],
+          "names": [
+            "Farmacia"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 24000,
+              "from": 22000,
+              "rate": 0.014,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 22000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 22000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 22000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 32500,
+              "from": 0,
+              "rate": 0,
+              "base": 1866
+            },
+            {
+              "iseeMax": 35500,
+              "from": 0,
+              "rate": 0,
+              "base": 2007
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 2136
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2268
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2381
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2513
+            }
+          ],
+          "max": 2513
+        }
+      ],
+      "maxNote": "Fino a 22.000 € esonero; tra 22.000 e 30.000 € il 7% dell’ISEE oltre 22.000 € con le riduzioni del D.M. 1014/2021 (80%, 50%, 25%, 10%), al massimo 504 €. Oltre 30.000 € le fasce 8-13 della MAC 2 per area del dipartimento: fino a 2.718 € (Medicina, Architettura, Psicologia), 2.513 € (Economia, Ingegneria, Scienze) o 2.406 € (Giurisprudenza, Lettere, Scienze politiche), che si pagano anche senza ISEE. L’area è dedotta dalla macroarea e dal nome del corso.",
+      "maxSource": {
+        "label": "Vanvitelli, Manifesto delle Tasse 2026/27, tabelle MAC 2 (iscritti entro la durata legale + 1)",
+        "url": "https://www.unicampania.it/RPP/RGCSS/Modulistica/Manifesto_Tasse_26_27_OK.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo e tassa regionale) entro il 30 ottobre 2026",
+          "Contributo in sei rate: 30 novembre e 15 dicembre 2026, 26 febbraio, 31 marzo, 31 maggio e 30 giugno 2027",
+          "Su richiesta (dal 1° agosto al 31 ottobre 2026) in tre rate, senza i 5 € in più per rata"
+        ],
+        "note": "L’Ateneo legge l’ISEE dall’INPS se rilasciato dal 1° giugno al 16 dicembre 2026 (o dal 15 gennaio al 28 febbraio 2027); senza ISEE si paga la fascia 13.",
+        "source": {
+          "label": "Vanvitelli, D.R. 424/2026 (artt. 1-2) e Manifesto delle Tasse 2026/27",
+          "url": "https://www.unicampania.it/RPP/RGCSS/Modulistica/DR_Manifesto_Tasse_26_27.pdf"
+        }
+      },
+      "simulator": "https://www.unicampania.it/index.php/studenti/procedure-amministrative/tasse-e-scadenze"
     }
   }
 }

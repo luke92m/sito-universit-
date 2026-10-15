@@ -660,3 +660,32 @@ describe('tasse Università di Salerno 2026/27', () => {
     expect(fixedFeesRange(rule, exact(60000)).min).toBe(189);
   });
 });
+
+describe('tasse Vanvitelli 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06306')!;
+  const courses = getCourses('ateneo-06306');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+
+  it('MAC 1: esonero fino a 22.000 €, poi 7% oltre 22.000 € con le riduzioni del D.M. 1014/2021', () => {
+    const { bands, max } = courseGroup(rule, named('Matematica'))!;
+    expect(contributionFor(rule, 22000, max, bands)).toBe(0);
+    expect(contributionFor(rule, 23000, max, bands)).toBe(14); // 1.000 × 7% × 20%
+    expect(contributionFor(rule, 25000, max, bands)).toBe(105); // 3.000 × 7% × 50%
+    expect(contributionFor(rule, 30000, max, bands)).toBe(504); // 8.000 × 7% × 90%
+  });
+
+  it('MAC 2, matricole «senza merito»: fasce 8-13 per area del dipartimento (totale meno 16 € di bollo)', () => {
+    const area = (name: string) => courseGroup(rule, named(name))!;
+    expect(area('Medicina e Chirurgia').id).toBe('scientifica-1');
+    expect(area('Design per la Moda').id).toBe('scientifica-1');
+    expect(area('Farmacia').id).toBe('scientifica-2');
+    expect(area('Archeologia e Storia dell\'Arte').id).toBe('umanistica');
+    const medicina = area('Medicina e Chirurgia');
+    expect(contributionFor(rule, 31000, medicina.max, medicina.bands)).toBe(2017); // fascia 8: 2.033 − 16
+    expect(contributionFor(rule, 80000, medicina.max, medicina.bands)).toBe(2718); // fascia 13
+    const economia = area('Matematica');
+    expect(contributionFor(rule, 40000, economia.max, economia.bands)).toBe(2136); // fascia 10: 2.152 − 16
+    const giurisprudenza = courseGroup(rule, { name: 'Giurisprudenza', classCode: 'LMG/01', group: 'Giuridico' })!;
+    expect(contributionFor(rule, null, giurisprudenza.max, giurisprudenza.bands)).toBe(2406);
+  });
+});
