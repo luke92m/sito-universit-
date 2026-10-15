@@ -6958,6 +6958,720 @@
         }
       },
       "simulator": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
+    },
+    "ateneo-03801": {
+      "name": "Università di Ferrara",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno: al primo anno si paga solo in base all’ISEE (2026, per il diritto allo studio universitario).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale 140 € e bollo 16 €), uguale per tutti.",
+      "bands": [
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 27000,
+          "rate": 0.025,
+          "base": 350
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.0325,
+          "base": 487.5
+        },
+        {
+          "iseeMax": 45000,
+          "from": 30000,
+          "rate": 0.04,
+          "base": 680
+        },
+        {
+          "iseeMax": 60000,
+          "from": 45000,
+          "rate": 0.0445,
+          "base": 1424
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2092
+        }
+      ],
+      "bandsSource": {
+        "label": "Bando Unife 2026/27, sezione 3 «Costo d’iscrizione» (matricola)",
+        "url": "https://www.unife.it/it/iscriviti/tasse/tasse/bando/bando-unife-2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2092,
+        "ciclo-unico": 2092,
+        "magistrale": 2092
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 27.000 € di ISEE; poi (ISEE − 13.000) × 0,025 fino a 28.000 €, × 0,0325 fino a 30.000 €, × 0,04 fino a 45.000 €, × 0,0445 fino a 60.000 €. Oltre 60.000 € o senza ISEE 2.092 €. Importi arrotondati all’euro.",
+      "maxSource": {
+        "label": "Bando Unife 2026/27, sezione 3",
+        "url": "https://www.unife.it/it/iscriviti/tasse/tasse/bando/bando-unife-2026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € entro il 2 novembre 2026 (corsi ad accesso libero)",
+          "Seconda rata (1/3 del contributo) entro il 2 novembre 2026",
+          "Terza rata entro il 15 febbraio 2027",
+          "Quarta rata entro il 17 maggio 2027"
+        ],
+        "note": "La riduzione per ISEE si chiede dal 14 luglio al 2 novembre 2026 (fino al 15 dicembre con 100 € in più). Per i corsi a numero programmato le prime scadenze sono nel bando di ammissione.",
+        "source": {
+          "label": "Bando Unife 2026/27, «Scadenze»",
+          "url": "https://www.unife.it/it/iscriviti/tasse/tasse/bando/bando-unife-2026-2027.pdf"
+        }
+      },
+      "simulator": "https://sos.unife.it/app/sim_tax26.php"
+    },
+    "ateneo-03601": {
+      "name": "Università di Modena e Reggio Emilia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con merito (categoria A-B), con domanda di riduzione presentata secondo il Bando benefici. Per le matricole 2026/27 valgono le aliquote «dalla coorte 2025/26».",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 3.67,
+        "total": 159.67
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale 140 €, bollo 16 € e assicurazioni 3,67 € (per le professioni sanitarie, Medicina e Odontoiatria fino a 14,83 € in più di polizze).",
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 45000,
+          "from": 30000,
+          "rate": 0.08779999999999999,
+          "base": 0
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0.0294,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1815.33
+        }
+      ],
+      "bandsSource": {
+        "label": "Unimore, Allegato 1 «Aliquote contribuzione universitaria 2026/27» (Tabella 1)",
+        "url": "https://www.unimore.it/sites/default/files/2026-06/Allegato%201%20Aliquote%20contribuzione%20universitaria%2026_27.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1815.33,
+        "ciclo-unico": 1972.33,
+        "magistrale": 2130.33
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "digital-marketing",
+          "label": "Digital Marketing",
+          "groups": [],
+          "names": [
+            "Digital Marketing"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.2409,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.08039999999999999,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4871.33
+            }
+          ],
+          "max": 4871.33
+        },
+        {
+          "id": "dce-triennali",
+          "label": "triennali del Dipartimento di Comunicazione ed Economia",
+          "groups": [],
+          "nameIncludes": [
+            "Marketing e Organizzazione d'Impresa",
+            "Scienze della Comunicazione",
+            "Analisi dei Dati per l'Impresa"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.0953,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0319,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1965.33
+            }
+          ],
+          "max": 1965.33
+        },
+        {
+          "id": "igiene-dentale",
+          "label": "Igiene dentale",
+          "groups": [],
+          "nameIncludes": [
+            "Igiene Dentale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.11289999999999999,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0378,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2315.33
+            }
+          ],
+          "max": 2315.33
+        },
+        {
+          "id": "triennali-miste",
+          "label": "triennali in modalità mista",
+          "groups": [],
+          "names": [
+            "Digital Education",
+            "Scienze Giuridiche dell'Impresa e della Pubblica Amministrazione"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.10779999999999999,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0361,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2215.33
+            }
+          ],
+          "max": 2215.33
+        },
+        {
+          "id": "psicologia",
+          "label": "Scienze e tecniche psicologiche",
+          "groups": [],
+          "names": [
+            "Scienze e Tecniche Psicologiche"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1103,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0369,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2265.33
+            }
+          ],
+          "max": 2265.33
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e chirurgia",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1007,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0337,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2072.33
+            }
+          ],
+          "max": 2072.33,
+          "levels": [
+            "ciclo-unico"
+          ]
+        },
+        {
+          "id": "odontoiatria",
+          "label": "Odontoiatria e protesi dentaria",
+          "groups": [],
+          "nameIncludes": [
+            "Odontoiatria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.16210000000000002,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0541,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3297.33
+            }
+          ],
+          "max": 3297.33,
+          "levels": [
+            "ciclo-unico"
+          ]
+        },
+        {
+          "id": "magistrali-dce",
+          "label": "magistrali del Dipartimento di Comunicazione ed Economia",
+          "groups": [],
+          "names": [
+            "Management e Comunicazione d'Impresa",
+            "Pubblicita', Comunicazione Digitale e Creativita' d'Impresa"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1082,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0362,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2222.33
+            }
+          ],
+          "max": 2222.33,
+          "levels": [
+            "magistrale"
+          ]
+        },
+        {
+          "id": "magistrali-miste",
+          "label": "magistrali in modalità mista (EDUNEXT)",
+          "groups": [],
+          "names": [
+            "Media Education per le Discipline Letterarie e l'Editoria",
+            "Teorie e Metodologie del Digital Learning",
+            "Relazioni di Lavoro",
+            "Economia e Diritto per la Sostenibilità delle Organizzazioni",
+            "Salute e Sport",
+            "Didattica e Comunicazione delle Scienze",
+            "Energy Engineering"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1207,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0404,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2472.33
+            }
+          ],
+          "max": 2472.33,
+          "levels": [
+            "magistrale"
+          ]
+        },
+        {
+          "id": "advanced-automotive",
+          "label": "Advanced Automotive Engineering",
+          "groups": [],
+          "names": [
+            "Advanced Automotive Engineering"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1261,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.042199999999999994,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2580.33
+            }
+          ],
+          "max": 2580.33,
+          "levels": [
+            "magistrale"
+          ]
+        },
+        {
+          "id": "ingegneria-veicolo",
+          "label": "Ingegneria del veicolo",
+          "groups": [],
+          "names": [
+            "Ingegneria del Veicolo"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.11460000000000001,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0383,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2350.33
+            }
+          ],
+          "max": 2350.33,
+          "levels": [
+            "magistrale"
+          ]
+        },
+        {
+          "id": "magistrali-umanistiche",
+          "label": "magistrali di area umanistica",
+          "groups": [],
+          "names": [
+            "Analisi, Consulenza e Gestione Finanziaria",
+            "Direzione e Consulenza di Impresa",
+            "Economia, Politiche Pubbliche e Sostenibilità",
+            "International Management",
+            "Analisi dei Dati per l'Economia e il Management",
+            "Scienze Pedagogiche",
+            "Antropologia e Storia del Mondo Contemporaneo",
+            "Lingue, Culture, Comunicazione"
+          ],
+          "nameIncludes": [
+            "Languages For Communication"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1007,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0337,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2072.33
+            }
+          ],
+          "max": 2072.33,
+          "levels": [
+            "magistrale"
+          ]
+        },
+        {
+          "id": "ciclo-unico",
+          "label": "magistrali a ciclo unico",
+          "groups": [],
+          "levels": [
+            "ciclo-unico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.09570000000000001,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.032,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1972.33
+            }
+          ],
+          "max": 1972.33
+        },
+        {
+          "id": "magistrali-scientifiche",
+          "label": "magistrali di area scientifica",
+          "groups": [],
+          "levels": [
+            "magistrale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.1036,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0347,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2130.33
+            }
+          ],
+          "max": 2130.33
+        },
+        {
+          "id": "triennali",
+          "label": "lauree triennali",
+          "groups": [],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 45000,
+              "from": 30000,
+              "rate": 0.08779999999999999,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0.0294,
+              "base": 0
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1815.33
+            }
+          ],
+          "max": 1815.33,
+          "default": true
+        }
+      ],
+      "maxNote": "No tax area fino a 30.000 € di ISEE; tra 30.000 e 45.000 € aliquota × (ISEE − 30.000), tra 45.000 e 60.000 € seconda aliquota × ISEE (franchigie dell’Allegato 1); oltre 60.000 € o senza domanda di riduzione si paga l’importo massimo del corso (meno le voci fisse già contate a parte): 1.815,33 € per la maggior parte delle triennali, fino a 4.871,33 € per Digital Marketing. Nell’Allegato 1 la riga 11 riporta «Medicina e Chirurgia» ma aliquote e massimo sono quelli di Odontoiatria.",
+      "maxSource": {
+        "label": "Unimore, Estratto delibera CdA 14 maggio 2026, punto 5 (importi massimi)",
+        "url": "https://www.unimore.it/sites/default/files/2026-06/ESTRATTO%20delibera%20tasse%202026%202027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (voci fisse, 159,67 €) entro il 30 ottobre 2026 (corsi ad accesso libero)",
+          "Seconda rata entro il 13 novembre 2026",
+          "Terza rata entro il 1° marzo 2027",
+          "Quarta rata entro il 30 aprile 2027"
+        ],
+        "note": "La riduzione per ISEE va chiesta online con il Bando benefici per il diritto allo studio; senza domanda si paga il massimo. Per i corsi a numero programmato la prima scadenza è nel bando di ammissione.",
+        "source": {
+          "label": "Unimore, Estratto delibera CdA 14 maggio 2026, punto 4",
+          "url": "https://www.unimore.it/sites/default/files/2026-06/ESTRATTO%20delibera%20tasse%202026%202027.pdf"
+        }
+      },
+      "simulator": "https://www.unimore.it/it/servizi/tasse-e-benefici"
     }
   }
 }

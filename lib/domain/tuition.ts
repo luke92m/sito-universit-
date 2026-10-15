@@ -100,11 +100,15 @@ export function courseGroup(rule: TuitionRule, course: CourseLike | null): Cours
   const groups = rule.courseGroups;
   if (!groups?.length) return null;
   const name = normalize(course?.name);
+  const level = course ? degreeLevel(course) : null;
+  // Con `levels` il gruppo vale solo per quei livelli, anche quando il corso è indicato per nome
+  // (es. Unimore: «Ingegneria del Veicolo» triennale e magistrale hanno aliquote diverse).
+  const levelOk = (group: CourseGroup) => !group.levels || (level != null && group.levels.includes(level));
   const found =
     course &&
-    (groups.find((group) => group.names?.some((item) => normalize(item) === name)) ||
-      groups.find((group) => group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
-      groups.find((group) => group.levels?.includes(degreeLevel(course))) ||
+    (groups.find((group) => levelOk(group) && group.names?.some((item) => normalize(item) === name)) ||
+      groups.find((group) => levelOk(group) && group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
+      groups.find((group) => !group.names && !group.nameIncludes && group.levels?.includes(level!)) ||
       groups.find((group) => group.groups.includes(course.group || '')));
   return found || groups.find((group) => group.default) || groups[0];
 }

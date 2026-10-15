@@ -738,3 +738,40 @@ describe('tasse Università di Parma 2026/27', () => {
     expect(contributionFor(rule, 40000, um.max, um.bands)).toBe(1090);
   });
 });
+
+describe('tasse Università di Ferrara 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-03801')!;
+
+  it('matricole: esonero fino a 27.000 €, poi (ISEE − 13.000) × coefficiente, 2.092 € oltre 60.000 €', () => {
+    expect(contributionFor(rule, 27000, 2092)).toBe(0);
+    expect(contributionFor(rule, 27500, 2092)).toBe(362.5); // 14.500 × 0,025
+    expect(contributionFor(rule, 29000, 2092)).toBe(520); // 16.000 × 0,0325
+    expect(contributionFor(rule, 40000, 2092)).toBe(1080); // 27.000 × 0,04
+    expect(contributionFor(rule, 60000, 2092)).toBe(2091.5); // 47.000 × 0,0445
+    expect(contributionFor(rule, null, 2092)).toBe(2092);
+  });
+});
+
+describe('tasse Università di Modena e Reggio Emilia 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-03601')!;
+  const courses = getCourses('ateneo-03601');
+  const group = (name: string, level: string) =>
+    courseGroup(rule, courses.find((course) => course.name === name && degreeLevel(course) === level)!)!;
+
+  it('Allegato 1: no tax area fino a 30.000 €, poi aliquote con franchigia 30.000 € e 0 €', () => {
+    const triennali = group('Ingegneria del Veicolo', 'triennale');
+    expect(triennali.id).toBe('triennali');
+    expect(contributionFor(rule, 30000, triennali.max, triennali.bands)).toBe(0);
+    expect(contributionFor(rule, 40000, triennali.max, triennali.bands)).toBe(878); // 8,78% × 10.000
+    expect(contributionFor(rule, 50000, triennali.max, triennali.bands)).toBe(1470); // 2,94% × 50.000
+    expect(contributionFor(rule, null, triennali.max, triennali.bands)).toBe(1815.33); // 1.975 − 159,67 di voci fisse
+  });
+
+  it('stesso nome, livelli diversi: Ingegneria del Veicolo magistrale ha aliquote proprie', () => {
+    const lm = group('Ingegneria del Veicolo', 'magistrale');
+    expect(lm.id).toBe('ingegneria-veicolo');
+    expect(contributionFor(rule, 40000, lm.max, lm.bands)).toBe(1146);
+    expect(group('Medicina e Chirurgia', 'ciclo-unico').max).toBe(2072.33);
+    expect(group('Odontoiatria e Protesi Dentaria', 'ciclo-unico').max).toBe(3297.33);
+  });
+});
