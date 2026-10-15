@@ -8802,6 +8802,243 @@
         }
       },
       "simulator": "https://www.unict.it/sites/default/files/documenti_sito/dr_manifesto_degli_studi_26-27_con_allegato_signed.pdf"
+    },
+    "ateneo-01001": {
+      "name": "Università di Genova",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno (gruppo contributivo 1: al primo anno conta solo l’ISEE-U), con ISEE-U autocertificato all’Università.",
+      "fixedFees": {
+        "regionalTax": 160,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 176
+      },
+      "fixedFeesNote": "Prima rata: bollo 16 € e tassa regionale ligure da 120 € a 160 € secondo l’ISEE (chi chiede la borsa ALiSEO paga solo il bollo).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 15093.53,
+          "from": 0,
+          "rate": 0,
+          "base": 120
+        },
+        {
+          "iseeMax": 30187.06,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 24000,
+          "rate": 0.07,
+          "base": 0
+        },
+        {
+          "iseeMax": 65000,
+          "from": 30000,
+          "rate": 0.056428571428571425,
+          "base": 940
+        },
+        {
+          "iseeMax": 100000,
+          "from": 65000,
+          "rate": 0.011,
+          "base": 2915
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3300
+        }
+      ],
+      "bandsSource": {
+        "label": "UniGe, Regolamento contribuzione dal 2026/27 (art. 6) e tabella «Rate e calcolo» 2026/27",
+        "url": "https://unige.it/tasse-e-benefici/rate-calcolo"
+      },
+      "maxByLevel": {
+        "triennale": 3300,
+        "ciclo-unico": 3300,
+        "magistrale": 3300
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "classe-1",
+          "label": "classe contributiva 1 (area umanistico-sociale)",
+          "groups": [],
+          "classCodes": [
+            "L-1",
+            "L-10",
+            "L-11",
+            "L-12",
+            "L-14",
+            "L-15",
+            "L-16",
+            "L-18",
+            "L-19",
+            "L-20",
+            "L-24",
+            "L-3",
+            "L-33",
+            "L-36",
+            "L-37",
+            "L-39",
+            "L-40",
+            "L-42",
+            "L-5",
+            "L-6",
+            "DS/1",
+            "LM-1",
+            "LM-2",
+            "LM-5",
+            "LM-14",
+            "LM-15",
+            "LM-16",
+            "LM-19",
+            "LM-36",
+            "LM-37",
+            "LM-38",
+            "LM-39",
+            "LM-43",
+            "LM-45",
+            "LM-49",
+            "LM-50",
+            "LM-51",
+            "LM-52",
+            "LM-55",
+            "LM-56",
+            "LM-57",
+            "LM-59",
+            "LM-62",
+            "LM-63",
+            "LM-64",
+            "LM-65",
+            "LM-76",
+            "LM-77",
+            "LM-78",
+            "LM-80",
+            "LM-81",
+            "LM-84",
+            "LM-85",
+            "LM-87",
+            "LM-88",
+            "LM-89",
+            "LM-90",
+            "LM-92",
+            "LM-93",
+            "LM-94",
+            "DS/S",
+            "LM-85 bis",
+            "LMG/01"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 24000,
+              "rate": 0.07,
+              "base": 0
+            },
+            {
+              "iseeMax": 65000,
+              "from": 30000,
+              "rate": 0.04857142857142857,
+              "base": 940
+            },
+            {
+              "iseeMax": 100000,
+              "from": 65000,
+              "rate": 0.011,
+              "base": 2640
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3025
+            }
+          ],
+          "max": 3025
+        },
+        {
+          "id": "classe-2",
+          "label": "classe contributiva 2 (aree medica, sanitaria e scientifico-tecnologica)",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 24000,
+              "rate": 0.07,
+              "base": 0
+            },
+            {
+              "iseeMax": 65000,
+              "from": 30000,
+              "rate": 0.054142857142857145,
+              "base": 1020
+            },
+            {
+              "iseeMax": 100000,
+              "from": 65000,
+              "rate": 0.011,
+              "base": 2915
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3300
+            }
+          ],
+          "max": 3300
+        }
+      ],
+      "maxNote": "Esonero fino a 24.000 € di ISEE-U; tra 24.000 e 30.000 € il contributo è contenuto entro il 7% dell’ISEE oltre 24.000 € (art. 6.3.c), più basso della retta in tabella; poi lineare da 940 € a 2.640 € (classe 1) o da 1.020 € a 2.915 € (classe 2) fino a 65.000 €, e fino a 3.025 € o 3.300 € a 100.000 €, anche senza ISEE. La classe segue l’area ministeriale della classe di laurea (Tabella dei raggruppamenti).",
+      "maxSource": {
+        "label": "UniGe, tabella del contributo 2026/27 (pagina «Rate e calcolo»)",
+        "url": "https://unige.it/tasse-e-benefici/rate-calcolo"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo e tassa regionale minima, 136 €) entro il 5 ottobre 2026 per triennali e ciclo unico",
+          "Seconda rata (metà del contributo) entro il 10 dicembre 2026",
+          "Terza rata (saldo) entro il 23 giugno 2027"
+        ],
+        "note": "L’ISEE-U va autocertificato online all’Università entro le scadenze; senza, si paga il massimo.",
+        "source": {
+          "label": "UniGe, pagina «Rate e calcolo» 2026/27",
+          "url": "https://unige.it/tasse-e-benefici/rate-calcolo"
+        }
+      },
+      "simulator": "https://servizionline.unige.it/web-esterni2/it/#/simulatoretasse"
     }
   }
 }

@@ -853,3 +853,29 @@ describe('Catania 2026/27: tasse Unict e borse ERSU', () => {
     expect(amountAt(ersu, 24000, 'fuoriSede')).toBe(3585.56);
   });
 });
+
+describe('tasse Università di Genova 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01001')!;
+  const one = courseGroup(rule, { name: 'Economia Aziendale', classCode: 'L-18' })!;
+  const two = courseGroup(rule, { name: 'Ingegneria Meccanica', classCode: 'L-9' })!;
+
+  it('classe contributiva dalla classe di laurea (area ministeriale), anche con spazi nel codice', () => {
+    expect(one.id).toBe('classe-1');
+    expect(two.id).toBe('classe-2');
+    expect(courseGroup(rule, { name: 'Scienze della Formazione Primaria', classCode: 'LM-85 bis' })!.id).toBe('classe-1');
+  });
+
+  it('esonero fino a 24.000 €, 7% oltre 24.000 € fino a 30.000 €, poi le rette della tabella', () => {
+    expect(contributionFor(rule, 24000, one.max, one.bands)).toBe(0);
+    expect(contributionFor(rule, 28000, one.max, one.bands)).toBe(280);
+    expect(contributionFor(rule, 30000.01, two.max, two.bands)).toBe(1020);
+    expect(contributionFor(rule, 65000, one.max, one.bands)).toBe(2640);
+    expect(contributionFor(rule, 100000, two.max, two.bands)).toBe(3300);
+    expect(contributionFor(rule, null, one.max, one.bands)).toBe(3025);
+  });
+
+  it('tassa regionale ligure 120/140/160 €', () => {
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(136);
+    expect(fixedFeesRange(rule, exact(40000)).min).toBe(176);
+  });
+});

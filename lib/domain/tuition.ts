@@ -31,6 +31,8 @@ interface CourseGroup {
   nameIncludes?: string[];
   /** Livelli di corso del gruppo (es. Roma Tre: tabella propria per le lauree magistrali). */
   levels?: DegreeLevel[];
+  /** Classi di laurea del gruppo (es. Genova: classe contributiva per area ministeriale, L-18, LM-77…). */
+  classCodes?: string[];
   default?: boolean;
   bands: Band[];
   max: number;
@@ -95,6 +97,9 @@ export function isExcludedCourse(rule: TuitionRule, course: CourseLike | null): 
   );
 }
 
+/** Classe di laurea confrontabile: maiuscole, senza spazi ("LM-85 bis" → "LM-85BIS"). */
+const classKey = (code: string | null | undefined) => (code || '').toUpperCase().replace(/\s+/g, '');
+
 /** Gruppo di corsi dell'ateneo a cui appartiene il corso (o quello predefinito). */
 export function courseGroup(rule: TuitionRule, course: CourseLike | null): CourseGroup | null {
   const groups = rule.courseGroups;
@@ -104,10 +109,12 @@ export function courseGroup(rule: TuitionRule, course: CourseLike | null): Cours
   // Con `levels` il gruppo vale solo per quei livelli, anche quando il corso è indicato per nome
   // (es. Unimore: «Ingegneria del Veicolo» triennale e magistrale hanno aliquote diverse).
   const levelOk = (group: CourseGroup) => !group.levels || (level != null && group.levels.includes(level));
+  const classCode = classKey(course?.classCode);
   const found =
     course &&
     (groups.find((group) => levelOk(group) && group.names?.some((item) => normalize(item) === name)) ||
       groups.find((group) => levelOk(group) && group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
+      groups.find((group) => group.classCodes?.some((code) => classKey(code) === classCode)) ||
       groups.find((group) => !group.names && !group.nameIncludes && group.levels?.includes(level!)) ||
       groups.find((group) => group.groups.includes(course.group || '')));
   return found || groups.find((group) => group.default) || groups[0];
