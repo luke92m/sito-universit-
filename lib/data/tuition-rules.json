@@ -9475,6 +9475,223 @@
         }
       },
       "simulator": "https://www.unior.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20Contribuzione%20Studentesca%20a.a.%202026-2027%20%283%29.pdf"
+    },
+    "ateneo-06001": {
+      "name": "Università di Cassino e del Lazio Meridionale",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti (Tabella I), con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale per il diritto allo studio del Lazio (140 €) e bollo di 16 €.",
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 23000,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 154
+        },
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 420
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 455
+        },
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 735
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 788
+        },
+        {
+          "iseeMax": 29000,
+          "from": 0,
+          "rate": 0,
+          "base": 1008
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 1071
+        },
+        {
+          "iseeMax": 31000,
+          "from": 0,
+          "rate": 0,
+          "base": 1142
+        },
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 1214
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 1285
+        },
+        {
+          "iseeMax": 34000,
+          "from": 0,
+          "rate": 0,
+          "base": 1357
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 1428
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 1500
+        },
+        {
+          "iseeMax": 37000,
+          "from": 0,
+          "rate": 0,
+          "base": 1571
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 1643
+        },
+        {
+          "iseeMax": 39000,
+          "from": 0,
+          "rate": 0,
+          "base": 1714
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1786
+        },
+        {
+          "iseeMax": 41000,
+          "from": 0,
+          "rate": 0,
+          "base": 1857
+        },
+        {
+          "iseeMax": 42000,
+          "from": 0,
+          "rate": 0,
+          "base": 1928
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 2000
+        },
+        {
+          "iseeMax": 44000,
+          "from": 0,
+          "rate": 0,
+          "base": 2071
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 2143
+        },
+        {
+          "iseeMax": 46000,
+          "from": 0,
+          "rate": 0,
+          "base": 2214
+        },
+        {
+          "iseeMax": 47000,
+          "from": 0,
+          "rate": 0,
+          "base": 2286
+        },
+        {
+          "iseeMax": 48000,
+          "from": 0,
+          "rate": 0,
+          "base": 2357
+        },
+        {
+          "iseeMax": 49000,
+          "from": 0,
+          "rate": 0,
+          "base": 2429
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2500
+        }
+      ],
+      "bandsSource": {
+        "label": "UniCas, Regolamento tasse e contributi 2026/27 (D.R. 482/2026), Tabella I",
+        "url": "https://www.unicas.it/media/pesjjo4e/regolamento-tasse-e-contributi-2026-2027-dr-n-482-del-02072026.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2500,
+        "ciclo-unico": 2500,
+        "magistrale": 2500
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 22.000 €, poi importi fissi per fasce di 1.000 € di ISEE (Tabella I, per chi è in corso con i crediti richiesti e per le matricole): 140 € fino a 23.000 €, 1.071 € fino a 30.000 €, poi circa 71 € in più ogni 1.000 € fino a 2.500 € oltre 49.000 € (anche senza ISEE o con ISEE difforme). Riduzioni per merito e maggiorazioni per chi non ha i crediti (Tabelle II-IV) non sono nel calcolo.",
+      "maxSource": {
+        "label": "UniCas, Regolamento tasse e contributi 2026/27, art. 4 e Tabella I",
+        "url": "https://www.unicas.it/media/pesjjo4e/regolamento-tasse-e-contributi-2026-2027-dr-n-482-del-02072026.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (50% del contributo, tassa regionale e bollo) entro il 15 ottobre 2026",
+          "Seconda rata (30%) entro il 31 marzo 2027",
+          "Terza rata (20%) entro il 31 maggio 2027"
+        ],
+        "note": "Ci si può immatricolare ai corsi ad accesso libero fino al 31 marzo 2027, con la mora sulla prima rata.",
+        "source": {
+          "label": "UniCas, Regolamento tasse e contributi 2026/27, art. 3",
+          "url": "https://www.unicas.it/media/pesjjo4e/regolamento-tasse-e-contributi-2026-2027-dr-n-482-del-02072026.pdf"
+        }
+      },
+      "simulator": "https://www.unicas.it/media/pesjjo4e/regolamento-tasse-e-contributi-2026-2027-dr-n-482-del-02072026.pdf"
     }
   }
 }

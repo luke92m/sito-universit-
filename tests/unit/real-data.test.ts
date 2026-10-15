@@ -937,3 +937,17 @@ describe('tasse L’Orientale 2026/27', () => {
     expect(contributionFor(rule, null, 1300)).toBe(1300);
   });
 });
+
+describe('tasse Università di Cassino 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06001')!;
+
+  it('esonero fino a 22.000 €, importi della Tabella I per fasce di 1.000 €, massimo 2.500 €', () => {
+    expect(contributionFor(rule, 22000, 2500)).toBe(0);
+    expect(contributionFor(rule, 22000.01, 2500)).toBe(140);
+    expect(contributionFor(rule, 29500, 2500)).toBe(1071);
+    expect(contributionFor(rule, 40000, 2500)).toBe(1786);
+    expect(contributionFor(rule, 60000, 2500)).toBe(2500);
+    expect(contributionFor(rule, null, 2500)).toBe(2500);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+});
