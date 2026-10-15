@@ -951,3 +951,19 @@ describe('tasse Università di Cassino 2026/27', () => {
     expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
   });
 });
+
+describe('tasse Università del Sannio 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06201')!;
+  const tri = courseGroup(rule, { name: 'Economia Aziendale', classCode: 'L-18' })!;
+  const mag = courseGroup(rule, { name: 'Ingegneria Informatica', classCode: 'LM-32' })!;
+
+  it('no tax area fino a 30.000 €, poi fasce di 5.000 €; magistrali 50 € in più', () => {
+    expect(tri.id).toBe('triennali');
+    expect(mag.id).toBe('magistrali');
+    expect(contributionFor(rule, 30000, tri.max, tri.bands)).toBe(0);
+    expect(contributionFor(rule, 32000, tri.max, tri.bands)).toBe(1400);
+    expect(contributionFor(rule, 32000, mag.max, mag.bands)).toBe(1450);
+    expect(contributionFor(rule, 70000, tri.max, tri.bands)).toBe(1750);
+    expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(1800);
+  });
+});

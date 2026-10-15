@@ -9692,6 +9692,257 @@
         }
       },
       "simulator": "https://www.unicas.it/media/pesjjo4e/regolamento-tasse-e-contributi-2026-2027-dr-n-482-del-02072026.pdf"
+    },
+    "ateneo-06201": {
+      "name": "Università del Sannio",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti fino al primo anno fuori corso con i crediti richiesti, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale campana da 130 € a 173 € secondo l’ISEE e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 1400
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1450
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1500
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1550
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 1600
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 1650
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 1700
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1750
+        }
+      ],
+      "bandsSource": {
+        "label": "Unisannio, Tasse di iscrizione 2026/27 (tabella del contributo ordinario) e simulatore ufficiale",
+        "url": "https://www.unisannio.it/it/studente/studente-iscritto/tasse-di-iscrizione"
+      },
+      "maxByLevel": {
+        "triennale": 1750,
+        "ciclo-unico": 1800,
+        "magistrale": 1800
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "triennali",
+          "label": "Lauree triennali",
+          "groups": [],
+          "levels": [
+            "triennale"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 35000,
+              "from": 0,
+              "rate": 0,
+              "base": 1400
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1450
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1500
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1550
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 1600
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 1650
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 1700
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1750
+            }
+          ],
+          "max": 1750
+        },
+        {
+          "id": "magistrali",
+          "label": "Lauree magistrali e a ciclo unico",
+          "groups": [],
+          "levels": [
+            "magistrale",
+            "ciclo-unico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 35000,
+              "from": 0,
+              "rate": 0,
+              "base": 1450
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1500
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1550
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1600
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 1650
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 1700
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 1750
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1800
+            }
+          ],
+          "max": 1800
+        }
+      ],
+      "maxNote": "No tax area fino a 30.000 €. Oltre, importi fissi per fasce di 5.000 € di ISEE: per le triennali da 1.400 € (fino a 35.000 €) a 1.750 € (oltre 65.000 € o senza ISEE), per magistrali e ciclo unico 50 € in più (fino a 1.800 €). Dal secondo anno fuori corso si paga di più. Le misure premiali (200 € o 1.000 € per chi ha un buon voto e abita lontano) dipendono da bandi e non sono nel calcolo.",
+      "maxSource": {
+        "label": "Unisannio, Tasse di iscrizione 2026/27",
+        "url": "https://www.unisannio.it/it/studente/studente-iscritto/tasse-di-iscrizione"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale, bollo e 30% del contributo) entro il 10 ottobre 2026",
+          "Seconda rata (30%) entro il 20 dicembre 2026",
+          "Terza rata (40%) entro il 30 aprile 2027"
+        ],
+        "note": "Per le lauree magistrali biennali la prima e la seconda rata slittano al 31 dicembre 2026 o al 31 marzo 2027, secondo quando si consegue la laurea di accesso.",
+        "source": {
+          "label": "Unisannio, Tasse di iscrizione 2026/27",
+          "url": "https://www.unisannio.it/it/studente/studente-iscritto/tasse-di-iscrizione"
+        }
+      },
+      "simulator": "https://www.unisannio.it/public/simulatore/simulatore.html"
     }
   }
 }
