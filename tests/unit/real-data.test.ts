@@ -689,3 +689,28 @@ describe('tasse Vanvitelli 2026/27', () => {
     expect(contributionFor(rule, null, giurisprudenza.max, giurisprudenza.bands)).toBe(2406);
   });
 });
+
+describe('tasse Università di Siena 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05201')!;
+  const courses = getCourses('ateneo-05201');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+
+  it('Tab. A, gruppo 1: esonero fino a 22.000 €, poi fasce per tipologia di corso', () => {
+    const us = courseGroup(rule, named('Matematica'))!; // L-35 equiparata all'umanistico-sociale
+    const ts = courseGroup(rule, named('Ingegneria Gestionale'))!;
+    const ue = courseGroup(rule, named('Medicina e Chirurgia'))!;
+    expect([us.id, ts.id, ue.id]).toEqual(['umanistico-sociale', 'tecnico-scientifica', 'sanitaria-ue']);
+    expect(contributionFor(rule, 22000, us.max, us.bands)).toBe(0);
+    expect(contributionFor(rule, 22400, us.max, us.bands)).toBe(122); // 2E
+    expect(contributionFor(rule, 24300, ts.max, ts.bands)).toBe(380); // 2J
+    expect(contributionFor(rule, 40500, ue.max, ue.bands)).toBe(1800); // 4A
+    expect(contributionFor(rule, 99500, ts.max, ts.bands)).toBe(2455); // 9K
+    expect(contributionFor(rule, null, ue.max, ue.bands)).toBe(2690); // 9X: senza ISEE
+  });
+
+  it('Dentistry ha una tabella propria non inserita: media dichiarata', () => {
+    const siena = getUniversityById('ateneo-05201')!;
+    const cost = realCost(siena, named('Dentistry And Dental Prosthodontics'), exact(40000), none, 'inSede');
+    expect(cost.tuitionRule).toBe(false);
+  });
+});
