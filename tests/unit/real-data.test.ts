@@ -775,3 +775,29 @@ describe('tasse Università di Modena e Reggio Emilia 2026/27', () => {
     expect(group('Odontoiatria e Protesi Dentaria', 'ciclo-unico').max).toBe(3297.33);
   });
 });
+
+describe('tasse Università di Bari 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07201')!;
+
+  it('no tax area fino a 26.000 €, tetto del D.M. 1014 fino a 30.000 €, poi le formule della tabella 4.1.2', () => {
+    expect(contributionFor(rule, 26000, 2950)).toBe(0);
+    expect(contributionFor(rule, 27000, 2950)).toBe(637); // 14.000 × 7% × 65%
+    expect(contributionFor(rule, 29000, 2950)).toBe(952); // 16.000 × 7% × 85%
+    expect(contributionFor(rule, 40000, 2950)).toBe(1659.74); // (40.000 + 38.941,82)/25.000 × 525,62
+    expect(contributionFor(rule, 75000, 2950)).toBe(2256.22); // 2.012,44 + 25.000/50.000 × 487,56
+    expect(contributionFor(rule, null, 2950)).toBe(2950);
+  });
+
+  it('tassa regionale pugliese per ISEE', () => {
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(162);
+    expect(fixedFeesRange(rule, exact(60000)).min).toBe(211);
+  });
+
+  it('ADISU Puglia: +15% fino a 13.000 €, −20% oltre 17.333,33 €', () => {
+    const adisu = dsuEntityFor('ateneo-07201')!;
+    expect(adisu.shortName).toBe('ADISU Puglia');
+    expect(amountAt(adisu, 12000, 'fuoriSede')).toBe(8247.8);
+    expect(amountAt(adisu, 15000, 'pendolare')).toBe(4191);
+    expect(amountAt(adisu, 20000, 'inSede')).toBe(2312.8);
+  });
+});

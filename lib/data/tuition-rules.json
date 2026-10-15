@@ -7672,6 +7672,106 @@
         }
       },
       "simulator": "https://www.unimore.it/it/servizi/tasse-e-benefici"
+    },
+    "ateneo-07201": {
+      "name": "Università di Bari Aldo Moro",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno (al primo anno conta solo l’ISEE), cittadini con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 195,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 211
+      },
+      "fixedFeesNote": "Con la prima rata: bollo 16 € e tassa regionale pugliese da 146 € a 195 € secondo l’ISEE (esonero con 100/100 alla maturità).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 146
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 170
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 195
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 26000,
+          "rate": 0.0455,
+          "base": 591.5
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.0595,
+          "base": 892.5
+        },
+        {
+          "iseeMax": 50000,
+          "from": 30000,
+          "rate": 0.021025,
+          "base": 1449.49
+        },
+        {
+          "iseeMax": 100000,
+          "from": 50000,
+          "rate": 0.009751,
+          "base": 2012.44
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2950
+        }
+      ],
+      "bandsSource": {
+        "label": "Uniba, Regolamento contribuzione studentesca 2026/27, artt. 4.1.1, 4.1.2 e 4.5",
+        "url": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
+      },
+      "maxByLevel": {
+        "triennale": 2950,
+        "ciclo-unico": 2950,
+        "magistrale": 2950
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 26.000 €. Tra 26.000 e 30.000 € il contributo è ricondotto al tetto (ISEE − 13.000) × 7% × 65% (fino a 28.000 €) o × 85% (art. 4.5). Oltre, le formule della tabella 4.1.2: (ISEE + 38.941,82)/25.000 × 525,62 fino a 50.000 €, 2.012,44 + (ISEE − 50.000)/50.000 × 487,56 fino a 100.000 €, poi 2.950 € (anche senza ISEE). I salti tra le fasce sono nel regolamento. Non sono nel calcolo la riduzione per il voto di maturità (fino a 446,65 €, da 70/100) e le quote in più di Scienze e tecniche psicologiche (+70 €) e Conservazione e restauro (+1.000 €).",
+      "maxSource": {
+        "label": "Uniba, Regolamento contribuzione studentesca 2026/27, art. 4.1",
+        "url": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo e tassa regionale) con l’immatricolazione, entro il 30 novembre 2026",
+          "Seconda rata entro il 26 febbraio 2027",
+          "Terza rata entro il 30 aprile 2027",
+          "Quarta rata entro il 30 luglio 2027"
+        ],
+        "note": "Le immatricolazioni ai corsi ad accesso libero sono aperte dal 3 agosto al 30 novembre 2026. Chi chiede la borsa ADISU paga con la prima rata solo bollo e tassa regionale.",
+        "source": {
+          "label": "Uniba, Regolamento contribuzione studentesca 2026/27, artt. 3.0-3.1",
+          "url": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
+        }
+      },
+      "simulator": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
     }
   }
 }

@@ -2147,6 +2147,123 @@
         "label": "Politecnico di Milano, Bando DSU 2026/27",
         "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf"
       }
+    },
+    {
+      "id": "adisu-puglia",
+      "name": "ADISU Puglia – Agenzia per il diritto allo studio universitario",
+      "shortName": "ADISU Puglia",
+      "region": "Puglia",
+      "universityIds": [
+        "ateneo-07201",
+        "ateneo-07202",
+        "ateneo-07203",
+        "ateneo-07101",
+        "ateneo-07501"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26000,
+        "ispe": 56000,
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 9",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "amounts": {
+        "note": "Importo base aumentato del 15% fino a 13.000 € di ISEE e ridotto del 20% oltre 17.333,33 €. Se ADISU può darti un pasto al giorno, 900 € sono trattenuti per la mensa; a chi ha un posto alloggio ADISU si trattengono 2.208 €.",
+        "bands": [
+          {
+            "iseeMax": 13000,
+            "fuoriSede": 8247.8,
+            "pendolare": 4819.65,
+            "inSede": 3324.65
+          },
+          {
+            "iseeMax": 17333.33,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2891
+          },
+          {
+            "iseeMax": 26000,
+            "fuoriSede": 5737.6,
+            "pendolare": 3352.8,
+            "inSede": 2312.8
+          }
+        ],
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 17, commi 1-4",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "comprende la maggiorazione del 15%, non si somma",
+          "source": {
+            "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 17, comma 4",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        },
+        {
+          "label": "+25% per gli studenti con disabilità pari o superiore al 66%",
+          "percent": 25,
+          "conditional": "con attestazione di invalidità",
+          "source": {
+            "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 17, comma 4",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso della tassa regionale (dopo i crediti minimi del primo anno)",
+        "Esonero o rimborso delle tasse universitarie, secondo il regolamento del tuo ateneo",
+        "Posto alloggio nelle residenze ADISU per i fuori sede, se disponibile"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 23, comma 3, e art. 8",
+        "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune ad almeno 60 minuti di mezzi pubblici dalla sede del corso e alloggio a titolo oneroso vicino alla sede per almeno 10 mesi (o posto in residenza ADISU).",
+        "pendolare": "Né in sede né fuori sede: per esempio residenza entro 60 minuti di mezzi pubblici (comuni dell’Allegato A del bando).",
+        "inSede": "Residenza nello stesso comune della sede del corso.",
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 2, lettera B, e art. 8",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026",
+          "50% dopo i crediti minimi raggiunti entro il 10 agosto 2027 (borsa dimezzata se raggiunti entro il 30 novembre 2027)"
+        ],
+        "note": "Le prime due rate richiedono la «Conferma iscrizione matricole» sul portale studenti; le magistrali sono pagate in due rate da 50%.",
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 28, comma 1",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "application": {
+        "opens": "2026-07-14",
+        "closes": "2026-08-13",
+        "closesTime": "12:00",
+        "note": "Domanda online sul portale studenti ADISU Puglia; per dottorati e specializzazioni dal 1° al 30 ottobre 2026.",
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, scadenzario",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito. Per le matricole la graduatoria segue l’ISEE.",
+      "portal": {
+        "label": "ADISU Puglia, borse di studio",
+        "url": "https://adisupuglia.it/pagina106703_borse-di-studio.html/"
+      }
     }
   ]
 }
