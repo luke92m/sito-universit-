@@ -9133,6 +9133,124 @@
         }
       },
       "simulator": "https://www.poliba.it/it/didattica/tasse"
+    },
+    "ateneo-07101": {
+      "name": "Università di Foggia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole (al primo anno conta solo l’ISEE) e studenti in corso con i crediti richiesti, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 195,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 211
+      },
+      "fixedFeesNote": "All’immatricolazione 162 € (tassa ADISU 146 € e bollo 16 €, art. 4 dell’Appendice); l’integrazione della tassa ADISU secondo l’ISEE (fino a 170 o 195 €, regole della Regione Puglia) arriva con la prima rata del contributo.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 146
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 170
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 195
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 22000,
+          "rate": 0.014,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 22000,
+          "rate": 0.035,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 22000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 22000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 40000,
+          "from": 30000,
+          "rate": 0.01,
+          "base": 1190
+        },
+        {
+          "iseeMax": 50000,
+          "from": 40000,
+          "rate": 0.0125,
+          "base": 1290
+        },
+        {
+          "iseeMax": 70000,
+          "from": 50000,
+          "rate": 0.015,
+          "base": 1415
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1715
+        }
+      ],
+      "bandsSource": {
+        "label": "UniFG, Appendice 1 al Regolamento contribuzione studentesca 2026, art. 2 (immatricolazione)",
+        "url": "https://www.unifg.it/sites/default/files/normative/2026-07/regolamento-tasse-contributi-2026-appendice.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1715,
+        "ciclo-unico": 1715,
+        "magistrale": 1715
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 22.000 €, poi il 20%, 50%, 75% e 90% del 7% dell’ISEE oltre 22.000 € fino a 30.000 €; poi 1.190 € + 1% oltre 30.000 €, 1.290 € + 1,25% oltre 40.000 €, 1.415 € + 1,5% oltre 50.000 €; oltre 70.000 € o senza ISEE 1.715 €. Gli iscritti agli anni successivi senza i requisiti di merito pagano il 20% in più (fino a 1.990 €). Non sono nel calcolo il massimo di Scienze Biologiche e Clinical and experimental biology (1.915 € per le matricole) e l’importo aggiuntivo di Scienze Pedagogiche e della Progettazione.",
+      "maxSource": {
+        "label": "UniFG, Appendice 1 al Regolamento contribuzione studentesca 2026, artt. 2-4",
+        "url": "https://www.unifg.it/sites/default/files/normative/2026-07/regolamento-tasse-contributi-2026-appendice.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Tassa di immatricolazione (ADISU 146 € e bollo) all’immatricolazione",
+          "Prima rata del contributo, con l’integrazione ADISU, entro il 31 gennaio 2027",
+          "Seconda rata entro il 31 marzo 2027",
+          "Terza rata entro il 31 maggio 2027"
+        ],
+        "note": "Immatricolarsi dopo il 30 novembre costa 50 € in più (fino al 31 dicembre) o 80 € (fino al 30 aprile).",
+        "source": {
+          "label": "UniFG, Regolamento contribuzione studentesca 2026, artt. 2-3",
+          "url": "https://www.unifg.it/sites/default/files/normative/2026-07/regolamento-tasse-contributi-2026.pdf"
+        }
+      },
+      "simulator": "https://www.unifg.it/it/servizi-e-opportunita/segreterie-online/tasse-e-contributi"
     }
   }
 }

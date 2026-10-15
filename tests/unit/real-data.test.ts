@@ -897,3 +897,16 @@ describe('tasse Politecnico di Bari 2026/27', () => {
     expect(fixedFeesRange(rule, exact(60000)).min).toBe(211);
   });
 });
+
+describe('tasse Università di Foggia 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07101')!;
+
+  it('esonero fino a 22.000 €, quote del 7% fino a 30.000 €, poi 1.190 € + aliquote', () => {
+    expect(contributionFor(rule, 22000, 1715)).toBe(0);
+    expect(contributionFor(rule, 25000, 1715)).toBe(105); // 50% del 7% di 3.000
+    expect(contributionFor(rule, 30000, 1715)).toBe(504); // 90% del 7% di 8.000
+    expect(contributionFor(rule, 45000, 1715)).toBe(1352.5);
+    expect(contributionFor(rule, 80000, 1715)).toBe(1715);
+    expect(contributionFor(rule, null, 1715)).toBe(1715);
+  });
+});
