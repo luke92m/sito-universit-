@@ -1054,3 +1054,31 @@ describe('Brescia 2026/27: tasse UniBS e borse DSU', () => {
     expect(amountAt(dsu, 20000, 'pendolare')).toBe(2470);
   });
 });
+
+describe('Insubria 2026/27: tasse e borse DSU', () => {
+  const rule = tuitionRuleFor('ateneo-01202')!;
+  const area = (name: string, classCode: string) => courseGroup(rule, { name, classCode })!;
+  const med = area('Medicina e Chirurgia', 'LM-41');
+  const inf = area('Informatica', 'L-31');
+  const eco = area('Giurisprudenza', 'LMG/01');
+
+  it('aree A, B e C dell’elenco del regolamento', () => {
+    expect([med.id, inf.id, eco.id]).toEqual(['area-a', 'area-b', 'area-c']);
+    expect(area('Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)', 'L/SNT2').id).toBe('area-b');
+  });
+
+  it('no tax area fino a 28.000 €, 48% fino a 30.000 €, poi 15% e 6% fino al massimo dell’area', () => {
+    expect(contributionFor(rule, 28000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 29000, eco.max, eco.bands)).toBe(480);
+    expect(contributionFor(rule, 34000, eco.max, eco.bands)).toBe(1560);
+    expect(contributionFor(rule, 40000, med.max, med.bands)).toBe(2280);
+    expect(contributionFor(rule, 70000, inf.max, inf.bands)).toBe(3660);
+    expect(contributionFor(rule, null, med.max, med.bands)).toBe(3840);
+  });
+
+  it('borse con gli importi regionali lombardi', () => {
+    const dsu = dsuEntityFor('ateneo-01202')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(7419);
+  });
+});

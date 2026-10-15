@@ -2938,6 +2938,150 @@
         "label": "UniBS, Bando servizi DSU 2026/27",
         "url": "https://www.unibs.it/sites/default/files/2026-07/Bando%20servizi%20DSU%2026-27%20prot..pdf"
       }
+    },
+    {
+      "id": "uninsubria-dsu",
+      "name": "Università dell’Insubria – Diritto allo studio universitario",
+      "shortName": "Università dell’Insubria",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01202"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 4",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro (importo netto); in più un pasto al giorno gratuito (829 €). La prima fascia comprende la maggiorazione del 15%.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 7419,
+            "pendolare": 3991,
+            "inSede": 2601
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 6343,
+            "pendolare": 3362,
+            "inSede": 2162
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5028,
+            "pendolare": 2470,
+            "inSede": 1314
+          }
+        ],
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 5.3",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "inSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ]
+        },
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 5.3",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (calcolato sull’importo di seconda o terza fascia)",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% della prima fascia",
+          "source": {
+            "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 5.3.2",
+            "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a più corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito",
+          "source": {
+            "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 5.3.2",
+            "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+          }
+        }
+      ],
+      "accessRequirement": {
+        "text": "Al primo anno di triennale o ciclo unico serve un voto di maturità di almeno 70/100; per confermare la borsa servono 35 crediti entro il 10 agosto 2027 (20 per le magistrali).",
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), artt. 3.2-3.3",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "connectedBenefits": [
+        "Mensa gratuita (un pasto al giorno)",
+        "Esonero dalla tassa regionale e dal contributo universitario per i beneficiari"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), artt. 5.3 e 6",
+        "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Oltre 90 minuti con i mezzi pubblici e alloggio a pagamento vicino alla sede per almeno 10 mesi (ottobre 2026 - luglio 2027).",
+        "pendolare": "Da 60 a 90 minuti con i mezzi pubblici.",
+        "inSede": "Comune della sede o dintorni, fino a 60 minuti con i mezzi pubblici.",
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 5.3.1",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026",
+          "50% dopo aver raggiunto i crediti richiesti entro il 10 agosto 2027"
+        ],
+        "note": "Per le lauree magistrali la prima rata arriva entro il 31 maggio 2027.",
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 9.2.1",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-24",
+        "closes": "2026-09-30",
+        "closesTime": "15:00",
+        "note": "Domanda online sui Servizi Web Diritto allo studio dell’ateneo; l’alloggio si chiedeva entro il 24 agosto 2026.",
+        "source": {
+          "label": "Uninsubria, Bando benefici DSU 2026/27 (D.R. 1025/2026), art. 10",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Uninsubria, Bando benefici DSU 2026/27",
+        "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
+      }
     }
   ]
 }

@@ -11105,6 +11105,253 @@
         }
       },
       "simulator": "https://app.unibs.it/unibs_tax_sim/"
+    },
+    "ateneo-01202": {
+      "name": "Università dell’Insubria",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Studenti regolari (iscritti da meno della durata legale + 2 anni), matricole comprese, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Tassa d’iscrizione di 146 € entro il 30 settembre 2026 (tassa regionale di 130 € e bollo 16 €); la tassa regionale si conguaglia poi a 160 € o 190 € secondo l’ISEE (fasce legate alla soglia della borsa regionale).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53775.86,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.48,
+          "base": 0
+        },
+        {
+          "iseeMax": 34000,
+          "from": 30000,
+          "rate": 0.15,
+          "base": 960
+        },
+        {
+          "iseeMax": 66000,
+          "from": 34000,
+          "rate": 0.06,
+          "base": 1560
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3480
+        }
+      ],
+      "bandsSource": {
+        "label": "Uninsubria, Regolamento contribuzione 2026/27, art. 2 (studenti regolari) e Aree dei corsi di laurea",
+        "url": "https://www.uninsubria.it/sites/default/files/2026-06/Regolamento_Contribuzione__2026_2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3480,
+        "ciclo-unico": 3480,
+        "magistrale": 3480
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "area-a",
+          "label": "Area A (medicina, odontoiatria, chimica, fisica, biotecnologie, scienze motorie)",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia",
+            "Odontoiatria e Protesi Dentaria",
+            "Chimica",
+            "Chimica e Chimica Industriale",
+            "Fisica",
+            "Scienze dell'Ambiente e della Natura",
+            "Biotecnologie",
+            "Scienze Ambientali",
+            "Biotechnology For The Bio-Based And Health Industry",
+            "Biomedical Sciences",
+            "Biologia e Sostenibilità",
+            "Scienze Motorie",
+            "Scienze delle Attività Motorie Preventive ed Adattate",
+            "Farmacia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.48,
+              "base": 0
+            },
+            {
+              "iseeMax": 38000,
+              "from": 30000,
+              "rate": 0.15,
+              "base": 960
+            },
+            {
+              "iseeMax": 66000,
+              "from": 38000,
+              "rate": 0.06,
+              "base": 2160
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3840
+            }
+          ],
+          "max": 3840
+        },
+        {
+          "id": "area-b",
+          "label": "Area B (professioni sanitarie, lingue, matematica, informatica, biologia, ingegneria)",
+          "groups": [],
+          "classCodes": [
+            "L/SNT1",
+            "L/SNT2",
+            "L/SNT3",
+            "L/SNT4"
+          ],
+          "names": [
+            "Scienze della Mediazione Interlinguistica e Interculturale",
+            "Lingue Moderne per la Comunicazione e la Cooperazione Internazionale",
+            "Matematica",
+            "Informatica",
+            "Scienze Biologiche",
+            "Ingegneria per la Sicurezza del Lavoro e dell'Ambiente",
+            "Ingegneria Ambientale e per la Sostenibilita' degli Ambienti di Lavoro"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.48,
+              "base": 0
+            },
+            {
+              "iseeMax": 36000,
+              "from": 30000,
+              "rate": 0.15,
+              "base": 960
+            },
+            {
+              "iseeMax": 66000,
+              "from": 36000,
+              "rate": 0.06,
+              "base": 1860
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3660
+            }
+          ],
+          "max": 3660
+        },
+        {
+          "id": "area-c",
+          "label": "Area C (economia, giurisprudenza, turismo, comunicazione, storia)",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.48,
+              "base": 0
+            },
+            {
+              "iseeMax": 34000,
+              "from": 30000,
+              "rate": 0.15,
+              "base": 960
+            },
+            {
+              "iseeMax": 66000,
+              "from": 34000,
+              "rate": 0.06,
+              "base": 1560
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3480
+            }
+          ],
+          "max": 3480
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Linguaggi e Competenze per la Formazione"
+        ],
+        "note": "Corso non presente nell’elenco delle aree del regolamento 2026/27: usiamo la media nazionale."
+      },
+      "maxNote": "No tax area fino a 28.000 €; tra 28.000 e 30.000 € il 48% dell’ISEE oltre 28.000 €; poi 960 € + 15% dell’ISEE oltre 30.000 € fino al punto di svolta dell’area (38.000 € area A, 36.000 € area B, 34.000 € area C), poi + 6% fino a 66.000 €; oltre o senza ISEE 3.840 € (A), 3.660 € (B) o 3.480 € (C). Chi è iscritto da almeno la durata legale + 2 anni paga il 50% in più.",
+      "maxSource": {
+        "label": "Uninsubria, Regolamento contribuzione 2026/27, art. 2",
+        "url": "https://www.uninsubria.it/sites/default/files/2026-06/Regolamento_Contribuzione__2026_2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Tassa d’iscrizione (146 €) entro il 30 settembre 2026",
+          "Acconto del 30% del contributo entro il 21 dicembre 2026",
+          "Saldo del 70% entro il 31 maggio 2027"
+        ],
+        "note": "Se il contributo è fino a 400 € si paga in un’unica rata. La DSU per l’ISEE universitario va presentata entro il 16 ottobre 2026.",
+        "source": {
+          "label": "Uninsubria, Regolamento contribuzione 2026/27, artt. 2 e 4",
+          "url": "https://www.uninsubria.it/sites/default/files/2026-06/Regolamento_Contribuzione__2026_2027.pdf"
+        }
+      },
+      "simulator": "https://www.uninsubria.it/sites/default/files/2026-06/Regolamento_Contribuzione__2026_2027.pdf"
     }
   }
 }
