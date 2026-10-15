@@ -10326,6 +10326,785 @@
         }
       },
       "simulator": "https://www.unibg.it/sites/default/files/media/documents/2026-08-31/Guida%20alla%20contribuzione%20studentesca%20a.a.%202026-2027.pdf"
+    },
+    "ateneo-01701": {
+      "name": "Università di Brescia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti (art. 4, comma 1), con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Prima rata all’iscrizione: bollo 16 € e tassa regionale lombarda (130 € fino alla soglia della borsa, 26.887,93 €; 160 € fino al doppio; poi 190 €, anche senza ISEE).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53775.86,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 29000,
+          "from": 0,
+          "rate": 0,
+          "base": 500
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 800
+        },
+        {
+          "iseeMax": 37000,
+          "from": 20000,
+          "rate": 0.065,
+          "base": 270
+        },
+        {
+          "iseeMax": 50000,
+          "from": 20000,
+          "rate": 0.014,
+          "base": 1310
+        },
+        {
+          "iseeMax": 70000,
+          "from": 20000,
+          "rate": 0.02,
+          "base": 1200
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2200
+        }
+      ],
+      "bandsSource": {
+        "label": "UniBS, Regolamento tasse 2026/27, art. 4 e allegato (funzioni lineari per area)",
+        "url": "https://www.unibs.it/sites/default/files/2026-05/Regolamento%20tasse%202026_27_def.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2200,
+        "ciclo-unico": 2620,
+        "magistrale": 2820
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "infermieristica",
+          "label": "Infermieristica (riduzione del 25%)",
+          "groups": [],
+          "names": [
+            "Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)",
+            "Infermieristica"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 375
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 600
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.01425,
+              "base": 561
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.01575,
+              "base": 684
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.018,
+              "base": 660
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1560
+            }
+          ],
+          "max": 1560
+        },
+        {
+          "id": "professioni-sanitarie",
+          "label": "Triennali delle professioni sanitarie",
+          "groups": [],
+          "classCodes": [
+            "L/SNT1",
+            "L/SNT2",
+            "L/SNT3",
+            "L/SNT4"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.019,
+              "base": 748
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.021,
+              "base": 912
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.024,
+              "base": 880
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2080
+            }
+          ],
+          "max": 2080
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e Chirurgia",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.08,
+              "base": 210
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.0195,
+              "base": 1414
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.027,
+              "base": 1234
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2584
+            }
+          ],
+          "max": 2584
+        },
+        {
+          "id": "odontoiatria",
+          "label": "Odontoiatria e Protesi Dentaria",
+          "groups": [],
+          "names": [
+            "Odontoiatria e Protesi Dentaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.0975,
+              "base": 30
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.024,
+              "base": 1500
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.031,
+              "base": 1390
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2940
+            }
+          ],
+          "max": 2940
+        },
+        {
+          "id": "edile-architettura",
+          "label": "Ingegneria Edile-Architettura",
+          "groups": [],
+          "names": [
+            "Ingegneria Edile-Architettura"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.082,
+              "base": 165
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.023,
+              "base": 1365
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.025,
+              "base": 1365
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2615
+            }
+          ],
+          "max": 2615
+        },
+        {
+          "id": "giurisprudenza",
+          "label": "Giurisprudenza (ciclo unico)",
+          "groups": [],
+          "names": [
+            "Giurisprudenza"
+          ],
+          "levels": [
+            "ciclo-unico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.078,
+              "base": 190
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.025,
+              "base": 1270
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.027,
+              "base": 1270
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2620
+            }
+          ],
+          "max": 2620
+        },
+        {
+          "id": "scientifica-triennali",
+          "label": "Triennali dell’area scientifica (medicina)",
+          "groups": [],
+          "names": [
+            "Biotecnologie",
+            "Scienze Motorie"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.0795,
+              "base": 180
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.0185,
+              "base": 1367
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.022,
+              "base": 1354
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2454
+            }
+          ],
+          "max": 2454
+        },
+        {
+          "id": "scientifica-magistrali",
+          "label": "Magistrali dell’area scientifica (medicina) e Farmacia",
+          "groups": [],
+          "names": [
+            "Biotecnologie Mediche",
+            "Scienza del Movimento per la Salute ed il Benessere",
+            "Scienze e Tecniche delle Attività Motorie Preventive e Adattate",
+            "Scienze Infermieristiche e Ostetriche",
+            "Farmacia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.087,
+              "base": 220
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.024,
+              "base": 1480
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.031,
+              "base": 1490
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3040
+            }
+          ],
+          "max": 3040
+        },
+        {
+          "id": "economia-giurisprudenza-triennali",
+          "label": "Triennali di economia e giurisprudenza",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Politico-Sociale e Comunicazione"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.065,
+              "base": 270
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.014,
+              "base": 1310
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.02,
+              "base": 1200
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2200
+            }
+          ],
+          "max": 2200
+        },
+        {
+          "id": "economia-giurisprudenza-magistrali",
+          "label": "Magistrali di economia e giurisprudenza",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Politico-Sociale e Comunicazione",
+            "Informatica e Tecnologie ICT"
+          ],
+          "levels": [
+            "magistrale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.085,
+              "base": 200
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.029,
+              "base": 1319
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.03,
+              "base": 1320
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2820
+            }
+          ],
+          "max": 2820
+        },
+        {
+          "id": "ingegneria-triennali",
+          "label": "Triennali di ingegneria e agraria",
+          "groups": [
+            "Ingegneria industriale e dell'informazione",
+            "Architettura e Ingegneria civile",
+            "Agrario-Forestale e Veterinario"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.074,
+              "base": 200
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.023,
+              "base": 1255
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.021,
+              "base": 1370
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2420
+            }
+          ],
+          "max": 2420
+        },
+        {
+          "id": "ingegneria-magistrali",
+          "label": "Magistrali di ingegneria e agraria",
+          "groups": [
+            "Ingegneria industriale e dell'informazione",
+            "Architettura e Ingegneria civile",
+            "Agrario-Forestale e Veterinario"
+          ],
+          "levels": [
+            "magistrale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 29000,
+              "from": 0,
+              "rate": 0,
+              "base": 500
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 800
+            },
+            {
+              "iseeMax": 37000,
+              "from": 20000,
+              "rate": 0.1,
+              "base": 95
+            },
+            {
+              "iseeMax": 50000,
+              "from": 20000,
+              "rate": 0.03,
+              "base": 1440
+            },
+            {
+              "iseeMax": 70000,
+              "from": 20000,
+              "rate": 0.03,
+              "base": 1450
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2950
+            }
+          ],
+          "max": 2950
+        }
+      ],
+      "maxNote": "No tax area fino a 28.000 €; 500 € fino a 29.000 € e 800 € fino a 30.000 €; poi le funzioni lineari dell’allegato, diverse per area e livello (ad esempio economia triennale (ISEE − 20.000) × 6,5% + 270 € fino a 37.000 €), fino al massimo raggiunto a 70.000 € (da 2.080 € per le professioni sanitarie a 3.040 € per le magistrali di area medica; anche senza ISEE). Infermieristica ha il 25% di riduzione. Il massimo per corso e le riduzioni sono verificati con il simulatore ufficiale dell’ateneo. Fuori corso e chi non ha i crediti pagano di più.",
+      "maxSource": {
+        "label": "UniBS, Regolamento tasse 2026/27, artt. 4-5 e allegato; simulatore tasse UniBS",
+        "url": "https://www.unibs.it/sites/default/files/2026-05/Regolamento%20tasse%202026_27_def.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale e bollo) con l’immatricolazione",
+          "Seconda rata (50% del contributo) entro il 15 gennaio 2027",
+          "Terza rata (50%) entro il 31 maggio 2027"
+        ],
+        "note": "Seconda e terza rata si possono dividere ancora in tre parti (minimo 200 € ciascuna). La DSU per l’ISEE universitario va presentata entro il 15 novembre 2026.",
+        "source": {
+          "label": "UniBS, Regolamento tasse 2026/27, art. 3",
+          "url": "https://www.unibs.it/sites/default/files/2026-05/Regolamento%20tasse%202026_27_def.pdf"
+        }
+      },
+      "simulator": "https://app.unibs.it/unibs_tax_sim/"
     }
   }
 }

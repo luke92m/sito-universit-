@@ -1020,3 +1020,37 @@ describe('Bergamo 2026/27: tasse UniBG e borse DSU', () => {
     expect(dsu.accessRequirement?.text).toContain('70/100');
   });
 });
+
+describe('Brescia 2026/27: tasse UniBS e borse DSU', () => {
+  const rule = tuitionRuleFor('ateneo-01701')!;
+  const group = (name: string, classCode: string, macro: string) => courseGroup(rule, { name, classCode, group: macro })!;
+  const ingTri = group('Ingegneria Informatica', 'L-8', 'Ingegneria industriale e dell\'informazione');
+  const ingMag = group('Ingegneria Informatica', 'LM-32', 'Ingegneria industriale e dell\'informazione');
+  const eco = group('Economia e Gestione Aziendale', 'L-18', 'Economico');
+  const inf = group('Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)', 'L/SNT1', 'Medico-Sanitario e Farmaceutico');
+  const med = group('Medicina e Chirurgia', 'LM-41', 'Medico-Sanitario e Farmaceutico');
+
+  it('tabelle per area e livello: macroarea più livello, nomi e classi delle professioni sanitarie', () => {
+    expect([ingTri.id, ingMag.id, eco.id, inf.id, med.id]).toEqual([
+      'ingegneria-triennali', 'ingegneria-magistrali', 'economia-giurisprudenza-triennali', 'infermieristica', 'medicina'
+    ]);
+    expect(group('Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)', 'L/SNT2', 'Medico-Sanitario e Farmaceutico').id).toBe('professioni-sanitarie');
+  });
+
+  it('valori uguali al simulatore ufficiale (somma di seconda e terza rata)', () => {
+    expect(contributionFor(rule, 28000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 28500, eco.max, eco.bands)).toBe(500);
+    expect(contributionFor(rule, 29500, eco.max, eco.bands)).toBe(800);
+    expect(contributionFor(rule, 45000, eco.max, eco.bands)).toBe(1660);
+    expect(contributionFor(rule, 60000, ingTri.max, ingTri.bands)).toBe(2210);
+    expect(contributionFor(rule, 40000, med.max, med.bands)).toBe(1804);
+    expect(contributionFor(rule, null, ingMag.max, ingMag.bands)).toBe(2950);
+    expect(contributionFor(rule, null, inf.max, inf.bands)).toBe(1560);
+  });
+
+  it('borse con gli importi regionali lombardi e voto minimo di maturità', () => {
+    const dsu = dsuEntityFor('ateneo-01701')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(dsu, 20000, 'pendolare')).toBe(2470);
+  });
+});

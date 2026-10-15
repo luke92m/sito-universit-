@@ -108,6 +108,8 @@ export function courseGroup(rule: TuitionRule, course: CourseLike | null): Cours
   const level = course ? degreeLevel(course) : null;
   // Con `levels` il gruppo vale solo per quei livelli, anche quando il corso è indicato per nome
   // (es. Unimore: «Ingegneria del Veicolo» triennale e magistrale hanno aliquote diverse).
+  // Con `levels` e `groups` insieme il gruppo vale per quelle macroaree solo a quel livello
+  // (es. Brescia: tabelle diverse per le triennali e le magistrali di ingegneria).
   const levelOk = (group: CourseGroup) => !group.levels || (level != null && group.levels.includes(level));
   const classCode = classKey(course?.classCode);
   const found =
@@ -115,8 +117,10 @@ export function courseGroup(rule: TuitionRule, course: CourseLike | null): Cours
     (groups.find((group) => levelOk(group) && group.names?.some((item) => normalize(item) === name)) ||
       groups.find((group) => levelOk(group) && group.nameIncludes?.some((part) => name.includes(normalize(part)))) ||
       groups.find((group) => group.classCodes?.some((code) => classKey(code) === classCode)) ||
-      groups.find((group) => !group.names && !group.nameIncludes && group.levels?.includes(level!)) ||
-      groups.find((group) => group.groups.includes(course.group || '')));
+      groups.find(
+        (group) => !group.names && !group.nameIncludes && !group.groups.length && group.levels?.includes(level!)
+      ) ||
+      groups.find((group) => levelOk(group) && group.groups.includes(course.group || '')));
   return found || groups.find((group) => group.default) || groups[0];
 }
 
