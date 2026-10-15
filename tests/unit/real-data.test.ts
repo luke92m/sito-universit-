@@ -1166,3 +1166,24 @@ describe('Ca’ Foscari 2026/27: tasse dal simulatore ufficiale e borse regional
     expect(dsuEntityFor('ateneo-02701')!.thresholds.isee).toBe(26306.25);
   });
 });
+
+describe('borse Opera Universitaria di Trento 2026/27', () => {
+  const opera = dsuEntityFor('ateneo-02201')!;
+  const check = (seat: string, city: string, rents = true) => conditionFromMunicipality(opera, seat, city, rents)?.condition;
+
+  it('soglie 26.000 € / 52.000 €, +15% fino a 13.000 €, poi calo fino alla metà', () => {
+    expect(opera.thresholds).toMatchObject({ isee: 26000, ispe: 52000 });
+    expect(amountAt(opera, 12000, 'fuoriSede')).toBe(8246.79);
+    expect(amountAt(opera, 15000, 'pendolare')).toBe(4190.72);
+    expect(amountAt(opera, 26000, 'inSede')).toBe(1445.08);
+  });
+
+  it('Tabelle 3 e 4: comuni di Trento e Rovereto, anche in provincia di Bolzano', () => {
+    expect(check('Trento', 'Lavis')).toBe('inSede');
+    expect(check('Trento', 'Rovereto')).toBe('pendolare');
+    expect(check('Trento', 'Termeno sulla Strada del Vino')).toBe('pendolare');
+    expect(check('Rovereto', 'Mori')).toBe('inSede');
+    expect(check('Rovereto', 'Trento')).toBe('pendolare');
+    expect(check('Trento', 'Verona')).toBe('fuoriSede');
+  });
+});

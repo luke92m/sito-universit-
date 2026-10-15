@@ -4151,6 +4151,511 @@
         "label": "Ca’ Foscari, Borse per il diritto allo studio",
         "url": "https://www.unive.it/pag/8551/"
       }
+    },
+    {
+      "id": "opera-trento",
+      "name": "Opera Universitaria di Trento",
+      "shortName": "Opera Universitaria",
+      "region": "Trentino-Alto Adige/Südtirol",
+      "universityIds": [
+        "ateneo-02201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26000,
+        "ispe": 52000,
+        "source": {
+          "label": "Opera Universitaria, Bando borse di studio 2026/27, punto 3.1",
+          "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi della Giunta provinciale (delibera 909/2026), +15% fino a 13.000 € di ISEE; oltre 17.333,33 € (due terzi della soglia) calano fino alla metà.",
+        "bands": [
+          {
+            "iseeMax": 13000,
+            "fuoriSede": 8246.79,
+            "pendolare": 4819.33,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 17333.33,
+            "fuoriSede": 7171.12,
+            "pendolare": 4190.72,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26000,
+            "fuoriSede": 7171.12,
+            "pendolare": 4190.72,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.56,
+              "pendolare": 2095.36,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "Opera Universitaria, Bando borse di studio 2026/27, punti 4.1-4.1.3",
+          "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15%",
+          "source": {
+            "label": "Opera Universitaria, Bando borse di studio 2026/27, punto 4.1",
+            "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito su entrambi i corsi",
+          "source": {
+            "label": "Opera Universitaria, Bando borse di studio 2026/27, punto 4.1",
+            "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero dalla tassa provinciale per il diritto allo studio",
+        "Esonero totale dalle tasse universitarie"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Opera Universitaria, Bando borse di studio 2026/27, punti 2 e 5",
+        "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato nelle Tabelle 3-4 e alloggio a pagamento vicino alla sede per almeno 10 mesi (contratto da caricare dall’8 settembre al 15 ottobre 2026).",
+        "pendolare": "Comuni «pendolari» delle Tabelle 3-4; anche chi viene da un comune fuori sede senza alloggio a pagamento.",
+        "inSede": "Comuni «in sede» delle Tabelle 3-4 (Trento e Lavis per Trento; per Rovereto i comuni vicini).",
+        "source": {
+          "label": "Opera Universitaria, Bando borse di studio 2026/27, punto 4.1.3 e Tabelle 3-4",
+          "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro dicembre 2026",
+          "50% dopo aver raggiunto i crediti delle Tabelle 1-2 entro il 10 agosto o il 30 settembre 2027"
+        ],
+        "note": "Per le lauree magistrali il primo 50% arriva a dicembre 2026 (febbraio 2027 per chi si iscrive dopo il 31 ottobre).",
+        "source": {
+          "label": "Opera Universitaria, Bando borse di studio 2026/27, punto 4.2",
+          "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-13",
+        "closes": "2026-09-07",
+        "note": "Domanda online sul sito di Opera Universitaria; chi chiede anche il posto alloggio doveva farla entro il 19 agosto 2026.",
+        "source": {
+          "label": "Opera Universitaria, Bando borse di studio 2026/27, punto 10.2",
+          "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+        }
+      },
+      "municipalities": {
+        "Trento": {
+          "inSede": [
+            {
+              "comune": "Trento",
+              "prov": "TN"
+            },
+            {
+              "comune": "Lavis",
+              "prov": "TN"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Ala",
+              "prov": "TN"
+            },
+            {
+              "comune": "Albiano",
+              "prov": "TN"
+            },
+            {
+              "comune": "Aldeno",
+              "prov": "TN"
+            },
+            {
+              "comune": "Altopiano della Vigolana",
+              "prov": "TN"
+            },
+            {
+              "comune": "Avio",
+              "prov": "TN"
+            },
+            {
+              "comune": "Baselga di Pinè",
+              "prov": "TN"
+            },
+            {
+              "comune": "Bedollo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Besenello",
+              "prov": "TN"
+            },
+            {
+              "comune": "Calceranica al Lago",
+              "prov": "TN"
+            },
+            {
+              "comune": "Caldonazzo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Calliano",
+              "prov": "TN"
+            },
+            {
+              "comune": "Cavedine",
+              "prov": "TN"
+            },
+            {
+              "comune": "Cembra Lisignago",
+              "prov": "TN"
+            },
+            {
+              "comune": "Cimone",
+              "prov": "TN"
+            },
+            {
+              "comune": "Civezzano",
+              "prov": "TN"
+            },
+            {
+              "comune": "Denno",
+              "prov": "TN"
+            },
+            {
+              "comune": "Drena",
+              "prov": "TN"
+            },
+            {
+              "comune": "Dro",
+              "prov": "TN"
+            },
+            {
+              "comune": "Fornace",
+              "prov": "TN"
+            },
+            {
+              "comune": "Frassilongo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Garniga Terme",
+              "prov": "TN"
+            },
+            {
+              "comune": "Giovo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Isera",
+              "prov": "TN"
+            },
+            {
+              "comune": "Levico Terme",
+              "prov": "TN"
+            },
+            {
+              "comune": "Lona-Lases",
+              "prov": "TN"
+            },
+            {
+              "comune": "Madruzzo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Mezzocorona",
+              "prov": "TN"
+            },
+            {
+              "comune": "Mezzolombardo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Mori",
+              "prov": "TN"
+            },
+            {
+              "comune": "Nogaredo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Nomi",
+              "prov": "TN"
+            },
+            {
+              "comune": "Pergine Valsugana",
+              "prov": "TN"
+            },
+            {
+              "comune": "Pomarolo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Roverè della Luna",
+              "prov": "TN"
+            },
+            {
+              "comune": "Rovereto",
+              "prov": "TN"
+            },
+            {
+              "comune": "San Michele all’Adige",
+              "prov": "TN"
+            },
+            {
+              "comune": "Sant’Orsola Terme",
+              "prov": "TN"
+            },
+            {
+              "comune": "Tenna",
+              "prov": "TN"
+            },
+            {
+              "comune": "Terre d’Adige",
+              "prov": "TN"
+            },
+            {
+              "comune": "Ton",
+              "prov": "TN"
+            },
+            {
+              "comune": "Vallelaghi",
+              "prov": "TN"
+            },
+            {
+              "comune": "Villa Lagarina",
+              "prov": "TN"
+            },
+            {
+              "comune": "Volano",
+              "prov": "TN"
+            },
+            {
+              "comune": "Bolzano",
+              "prov": "BZ"
+            },
+            {
+              "comune": "Bronzolo",
+              "prov": "BZ"
+            },
+            {
+              "comune": "Cortaccia",
+              "prov": "BZ",
+              "aliases": [
+                "Cortaccia sulla Strada del Vino"
+              ]
+            },
+            {
+              "comune": "Egna",
+              "prov": "BZ"
+            },
+            {
+              "comune": "Laives",
+              "prov": "BZ"
+            },
+            {
+              "comune": "Magrè",
+              "prov": "BZ",
+              "aliases": [
+                "Magrè sulla Strada del Vino"
+              ]
+            },
+            {
+              "comune": "Ora",
+              "prov": "BZ"
+            },
+            {
+              "comune": "Salorno",
+              "prov": "BZ",
+              "aliases": [
+                "Salorno sulla Strada del Vino"
+              ]
+            },
+            {
+              "comune": "Termeno",
+              "prov": "BZ",
+              "aliases": [
+                "Termeno sulla Strada del Vino"
+              ]
+            }
+          ],
+          "source": {
+            "label": "Opera Universitaria, Bando borse di studio 2026/27, Appendice, Tabelle 3 e 4",
+            "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+          }
+        },
+        "Rovereto": {
+          "inSede": [
+            {
+              "comune": "Isera",
+              "prov": "TN"
+            },
+            {
+              "comune": "Mori",
+              "prov": "TN"
+            },
+            {
+              "comune": "Nogaredo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Nomi",
+              "prov": "TN"
+            },
+            {
+              "comune": "Pomarolo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Rovereto",
+              "prov": "TN"
+            },
+            {
+              "comune": "Villa Lagarina",
+              "prov": "TN"
+            },
+            {
+              "comune": "Volano",
+              "prov": "TN"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Ala",
+              "prov": "TN"
+            },
+            {
+              "comune": "Aldeno",
+              "prov": "TN"
+            },
+            {
+              "comune": "Arco",
+              "prov": "TN"
+            },
+            {
+              "comune": "Avio",
+              "prov": "TN"
+            },
+            {
+              "comune": "Besenello",
+              "prov": "TN"
+            },
+            {
+              "comune": "Brentonico",
+              "prov": "TN"
+            },
+            {
+              "comune": "Calceranica al Lago",
+              "prov": "TN"
+            },
+            {
+              "comune": "Caldonazzo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Calliano",
+              "prov": "TN"
+            },
+            {
+              "comune": "Cimone",
+              "prov": "TN"
+            },
+            {
+              "comune": "Civezzano",
+              "prov": "TN"
+            },
+            {
+              "comune": "Folgaria",
+              "prov": "TN"
+            },
+            {
+              "comune": "Lavis",
+              "prov": "TN"
+            },
+            {
+              "comune": "Mezzocorona",
+              "prov": "TN"
+            },
+            {
+              "comune": "Mezzolombardo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Nago-Torbole",
+              "prov": "TN"
+            },
+            {
+              "comune": "Pergine Valsugana",
+              "prov": "TN"
+            },
+            {
+              "comune": "Riva del Garda",
+              "prov": "TN"
+            },
+            {
+              "comune": "Ronzo-Chienis",
+              "prov": "TN"
+            },
+            {
+              "comune": "San Michele all’Adige",
+              "prov": "TN"
+            },
+            {
+              "comune": "Terragnolo",
+              "prov": "TN"
+            },
+            {
+              "comune": "Terre d’Adige",
+              "prov": "TN"
+            },
+            {
+              "comune": "Trambileno",
+              "prov": "TN"
+            },
+            {
+              "comune": "Trento",
+              "prov": "TN"
+            },
+            {
+              "comune": "Vallarsa",
+              "prov": "TN"
+            },
+            {
+              "comune": "Vallelaghi",
+              "prov": "TN"
+            },
+            {
+              "comune": "Sant’Ambrogio di Valpolicella",
+              "prov": "VR"
+            }
+          ],
+          "source": {
+            "label": "Opera Universitaria, Bando borse di studio 2026/27, Appendice, Tabelle 3 e 4",
+            "url": "https://www.operauni.tn.it/wp-content/uploads/Bando-2026-2027-2.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Opera Universitaria, Bando borse di studio, posto alloggio, esonero tasse 2026/27",
+        "url": "https://www.operauni.tn.it/it/bandiborse/bando-borse-di-studio-posto-alloggio-esonero-tasse-a-a-2026-2027/"
+      }
     }
   ]
 }
