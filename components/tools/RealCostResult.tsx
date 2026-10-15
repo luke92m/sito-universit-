@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { CONDITION_LABELS, type StudentCondition } from '@/lib/domain/dsu';
@@ -211,6 +212,11 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
           </p>
         </div>
       ) : null}
+
+      <p className="real-cost-disclaimer">
+        Stima orientativa, non un preventivo: importi e requisiti li stabilisce il bando ufficiale.{' '}
+        <Link href="/metodo">Come calcoliamo i costi</Link>
+      </p>
 
       {result.missing.length ? (
         <div className="real-cost-missing">

@@ -195,7 +195,9 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
             <strong>{verdict(results)}</strong>{' '}
             {isee === 'unknown'
               ? 'Senza ISEE si paga il massimo delle tasse e la borsa non si può calcolare: scegli la tua fascia.'
-              : 'ISPE non indicato: la borsa è calcolata solo sull’ISEE. Nel dettaglio puoi inserire entrambi.'}
+              
+              : 'ISPE non indicato: la borsa è calcolata solo sull’ISEE. Nel dettaglio puoi inserire entrambi.'}{' '}
+            Stime orientative, non preventivi: fa fede il bando. <Link href="/metodo">Come calcoliamo i costi</Link>
           </p>
         </>
       ) : (

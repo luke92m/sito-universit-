@@ -137,10 +137,12 @@ test('funzioni spente: fuori dal menu e dagli indirizzi', async ({ page, request
   expect((await request.get('/scuole-aziende')).status()).toBe(404);
   expect((await request.get('/api/deadlines?universityId=x')).status()).toBe(404);
 
-  // Le sezioni spente dell'area personale riportano alle borse, riservate agli utenti registrati.
-  await page.goto('/area-studente/community');
-  await expect(page).toHaveURL(/\/area-studente\/borse-di-studio$/);
-  await expect(page.locator('.student-area-locked')).toBeVisible();
+  // Account spenti per la demo: niente profilo nell'header, area personale e accesso portano alle borse pubbliche.
+  await expect(page.locator('.profile-button')).toHaveCount(0);
+  for (const path of ['/area-studente/community', '/area-studente', '/reimposta-password']) {
+    await page.goto(path);
+    await expect(page).toHaveURL(/\/borse$/);
+  }
 
   const sitemap = await (await request.get('/sitemap.xml')).text();
   expect(sitemap).toContain('/trova-corso');
@@ -152,7 +154,7 @@ test('i vecchi URL .html reindirizzano', async ({ page }) => {
   await page.goto('/atenei.html');
   await expect(page).toHaveURL(/\/atenei$/);
   await page.goto('/area-studente.html?sezione=scadenze');
-  await expect(page).toHaveURL(/\/area-studente\/scadenze/);
+  await expect(page).toHaveURL(/\/borse(\?|$)/);
 });
 
 test('borsa e costo reale con i dati ufficiali ER.GO e UniBo', async ({ page }) => {

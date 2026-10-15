@@ -7492,3 +7492,15 @@ a.journey-copy:hover strong {
     gap: 8px;
   }
 }
+
+.real-cost-disclaimer {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.real-cost-disclaimer a,
+.comparison-real-cost-verdict a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}

@@ -389,8 +389,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
               Le fasce fino a €30.000 seguono le soglie nazionali minime della no-tax area e delle riduzioni
               per gli atenei statali; il limite DSU per la borsa {data.academicYear} è separato. Ogni ateneo e
               ogni bando possono adottare soglie più favorevoli o criteri ulteriori. ISEE e residenza vengono
-              ricordati per gli strumenti di orientamento: nel tuo profilo se hai un account, altrimenti solo
-              su questo dispositivo.
+              ricordati per gli strumenti di orientamento
+              {isEnabled('account') ? ': nel tuo profilo se hai un account, altrimenti solo' : ' solo'} su questo dispositivo.
             </p>
             <p className="form-message field-wide" role="alert" data-type={message ? 'error' : undefined}>
               {message}
@@ -433,9 +433,11 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
         <section className="real-cost-section" ref={resultRef}>
           <RealCostResult result={cost} onCondition={changeCondition} busy={busy} />
           <div className="save-scholarship-row">
-            <button className="button button-primary" type="button" onClick={saveOpportunity}>
-              {user ? 'Salva questa opportunità' : 'Accedi per salvarla (facoltativo)'}
-            </button>
+            {isEnabled('account') ? (
+              <button className="button button-primary" type="button" onClick={saveOpportunity}>
+                {user ? 'Salva questa opportunità' : 'Accedi per salvarla (facoltativo)'}
+              </button>
+            ) : null}
             <a
               className="button button-secondary"
               href={cost.entity.portal.url}

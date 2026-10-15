@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ProfileCtaButton } from '@/components/home/ProfileCtaButton';
 import { Icon } from '@/components/site/Icons';
 import { UNIVERSITIES } from '@/lib/data';
+import { isEnabled } from '@/lib/features';
 import { FLOW_STEPS } from '@/components/flow/FlowSteps';
 import { scholarshipEntities, universitiesWithScholarship, universitiesWithTuition } from '@/lib/domain/coverage';
 
@@ -15,7 +16,12 @@ const STEP_COPY = [
 const PRINCIPLES = [
   ['Neutrale', 'Nessun ateneo paga per comparire nei risultati o per la sua posizione.'],
   ['Con le fonti', 'Ogni numero ha accanto da dove viene: MUR, QS, CENSIS, ISTAT, bandi regionali.'],
-  ['Senza account', 'Puoi fare tutto il percorso senza registrarti. L’account serve solo per salvare.']
+  [
+    'Senza account',
+    isEnabled('account')
+      ? 'Puoi fare tutto il percorso senza registrarti. L’account serve solo per salvare.'
+      : 'Puoi fare tutto il percorso senza registrarti: le tue scelte restano solo nel tuo browser.'
+  ]
 ];
 
 export default function HomePage() {
@@ -43,7 +49,7 @@ export default function HomePage() {
               <Link className="button button-secondary" href="/comparison">
                 Confronta due atenei
               </Link>
-              <ProfileCtaButton />
+              {isEnabled('account') ? <ProfileCtaButton /> : null}
             </div>
 
             <div className="hero-proof" aria-label="Caratteristiche principali">

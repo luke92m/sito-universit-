@@ -6,6 +6,7 @@ import type { FinderApiResponse } from '@/app/api/finder/route';
 import { NeutralityNote } from '@/components/site/NeutralityNote';
 import { useSite } from '@/components/site/SiteProvider';
 import type { CoursePreferences } from '@/lib/client/types';
+import { isEnabled } from '@/lib/features';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { COURSES, getCourseProfile } from '@/lib/domain/course-catalog';
 import { getIseeRange, normalizedIseeValue } from '@/lib/domain/isee';
@@ -514,8 +515,10 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
           </select>
         </label>
         <p className="service-form-note">
-          Puoi scegliere “Non conosco ancora il mio ISEE”. Con un profilo attivo il dato è salvato nel tuo account,
-          altrimenti resta su questo dispositivo.
+          Puoi scegliere “Non conosco ancora il mio ISEE”.{' '}
+          {isEnabled('account')
+            ? 'Con un profilo attivo il dato è salvato nel tuo account, altrimenti resta su questo dispositivo.'
+            : 'Il dato resta solo su questo dispositivo.'}
         </p>
       </fieldset>
     );

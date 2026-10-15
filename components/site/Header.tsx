@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { journeyOf } from '@/lib/client/types';
+import { isEnabled } from '@/lib/features';
 import {
   JOURNEY_PHASE_LABELS,
   SITE_CONFIG,
@@ -100,6 +101,7 @@ export function Header() {
           })}
         </nav>
 
+        {isEnabled('account') ? (
         <div className="profile-wrap" ref={wrapRef}>
           <button
             className={`profile-button${user ? ' is-logged-in' : ''}`}
@@ -189,6 +191,7 @@ export function Header() {
             </div>
           ) : null}
         </div>
+        ) : null}
       </div>
     </header>
   );

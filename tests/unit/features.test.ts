@@ -4,11 +4,17 @@ import sitemap from '@/app/sitemap';
 import { SECTION_META, activeSections, isActiveSection } from '@/lib/area-sections';
 import { FEATURES, isEnabled } from '@/lib/features';
 import { visibleNavItems, visibleStudentTools } from '@/lib/site-config';
+import { isSupabaseConfigured } from '@/lib/supabase/config';
 
 // Le funzioni spente non devono comparire in navigazione, menu profilo, schede dell'area e sitemap.
 describe('funzioni spente', () => {
   it('la configurazione attuale spegne le funzioni fuori dalla fase di scelta', () => {
     expect(Object.values(FEATURES).every((value) => value === false)).toBe(true);
+  });
+
+  it('account spenti: Supabase non viene usato anche se le chiavi ci sono', () => {
+    expect(isEnabled('account')).toBe(false);
+    expect(isSupabaseConfigured).toBe(false);
   });
 
   it('navigazione principale', () => {
