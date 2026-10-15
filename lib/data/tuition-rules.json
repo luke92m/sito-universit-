@@ -11352,6 +11352,1333 @@
         }
       },
       "simulator": "https://www.uninsubria.it/sites/default/files/2026-06/Regolamento_Contribuzione__2026_2027.pdf"
+    },
+    "ateneo-01801": {
+      "name": "Università di Pavia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti iscritti entro la durata normale + 1 anno (colonna «in corso» dell’Allegato 2), con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Prima rata di 146 € (130 € di tassa regionale e bollo 16 €); il saldo della tassa regionale (160 € oltre 28.339,88 € di ISEE, 190 € oltre 56.679,76 € o senza ISEE) arriva con la seconda rata.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 28339.88,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 56679.76,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 88
+        },
+        {
+          "iseeMax": 34000,
+          "from": 0,
+          "rate": 0,
+          "base": 177
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 265
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 354
+        },
+        {
+          "iseeMax": 37000,
+          "from": 0,
+          "rate": 0,
+          "base": 442
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 530
+        },
+        {
+          "iseeMax": 39000,
+          "from": 0,
+          "rate": 0,
+          "base": 619
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 707
+        },
+        {
+          "iseeMax": 41000,
+          "from": 0,
+          "rate": 0,
+          "base": 796
+        },
+        {
+          "iseeMax": 42000,
+          "from": 0,
+          "rate": 0,
+          "base": 884
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 972
+        },
+        {
+          "iseeMax": 44000,
+          "from": 0,
+          "rate": 0,
+          "base": 1061
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1149
+        },
+        {
+          "iseeMax": 46000,
+          "from": 0,
+          "rate": 0,
+          "base": 1238
+        },
+        {
+          "iseeMax": 47000,
+          "from": 0,
+          "rate": 0,
+          "base": 1326
+        },
+        {
+          "iseeMax": 48000,
+          "from": 0,
+          "rate": 0,
+          "base": 1414
+        },
+        {
+          "iseeMax": 49000,
+          "from": 0,
+          "rate": 0,
+          "base": 1503
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1591
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 1680
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 1768
+        },
+        {
+          "iseeMax": 53000,
+          "from": 0,
+          "rate": 0,
+          "base": 1856
+        },
+        {
+          "iseeMax": 54000,
+          "from": 0,
+          "rate": 0,
+          "base": 1945
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 2033
+        },
+        {
+          "iseeMax": 56000,
+          "from": 0,
+          "rate": 0,
+          "base": 2122
+        },
+        {
+          "iseeMax": 57000,
+          "from": 0,
+          "rate": 0,
+          "base": 2210
+        },
+        {
+          "iseeMax": 58000,
+          "from": 0,
+          "rate": 0,
+          "base": 2298
+        },
+        {
+          "iseeMax": 59000,
+          "from": 0,
+          "rate": 0,
+          "base": 2387
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 2475
+        },
+        {
+          "iseeMax": 61000,
+          "from": 0,
+          "rate": 0,
+          "base": 2564
+        },
+        {
+          "iseeMax": 62000,
+          "from": 0,
+          "rate": 0,
+          "base": 2652
+        },
+        {
+          "iseeMax": 63000,
+          "from": 0,
+          "rate": 0,
+          "base": 2740
+        },
+        {
+          "iseeMax": 64000,
+          "from": 0,
+          "rate": 0,
+          "base": 2829
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 2917
+        },
+        {
+          "iseeMax": 66000,
+          "from": 0,
+          "rate": 0,
+          "base": 3006
+        },
+        {
+          "iseeMax": 67000,
+          "from": 0,
+          "rate": 0,
+          "base": 3094
+        },
+        {
+          "iseeMax": 68000,
+          "from": 0,
+          "rate": 0,
+          "base": 3182
+        },
+        {
+          "iseeMax": 69000,
+          "from": 0,
+          "rate": 0,
+          "base": 3271
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0,
+          "base": 3359
+        },
+        {
+          "iseeMax": 71000,
+          "from": 0,
+          "rate": 0,
+          "base": 3448
+        },
+        {
+          "iseeMax": 72000,
+          "from": 0,
+          "rate": 0,
+          "base": 3536
+        },
+        {
+          "iseeMax": 73000,
+          "from": 0,
+          "rate": 0,
+          "base": 3624
+        },
+        {
+          "iseeMax": 74000,
+          "from": 0,
+          "rate": 0,
+          "base": 3713
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 3801
+        },
+        {
+          "iseeMax": 76000,
+          "from": 0,
+          "rate": 0,
+          "base": 3890
+        },
+        {
+          "iseeMax": 77000,
+          "from": 0,
+          "rate": 0,
+          "base": 3978
+        },
+        {
+          "iseeMax": 78000,
+          "from": 0,
+          "rate": 0,
+          "base": 4066
+        },
+        {
+          "iseeMax": 79000,
+          "from": 0,
+          "rate": 0,
+          "base": 4155
+        },
+        {
+          "iseeMax": 80000,
+          "from": 0,
+          "rate": 0,
+          "base": 4243
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 4332
+        }
+      ],
+      "bandsSource": {
+        "label": "UniPV, Avviso sulla contribuzione 2026/27, par. 2.1 e Allegati 1-2",
+        "url": "https://portale.unipv.it/sites/default/files/2026-05/Avviso%20sulla%20contribuzione%20universitaria%20a.a.%202026-27.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 4332,
+        "ciclo-unico": 4332,
+        "magistrale": 4332
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "area-1",
+          "label": "Area 1 (giurisprudenza, economia, scienze politiche, studi umanistici, musicologia)",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Politico-Sociale e Comunicazione",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Arte e Design"
+          ],
+          "bands": [
+            {
+              "iseeMax": 32000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 74
+            },
+            {
+              "iseeMax": 34000,
+              "from": 0,
+              "rate": 0,
+              "base": 148
+            },
+            {
+              "iseeMax": 35000,
+              "from": 0,
+              "rate": 0,
+              "base": 223
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 297
+            },
+            {
+              "iseeMax": 37000,
+              "from": 0,
+              "rate": 0,
+              "base": 371
+            },
+            {
+              "iseeMax": 38000,
+              "from": 0,
+              "rate": 0,
+              "base": 445
+            },
+            {
+              "iseeMax": 39000,
+              "from": 0,
+              "rate": 0,
+              "base": 519
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 594
+            },
+            {
+              "iseeMax": 41000,
+              "from": 0,
+              "rate": 0,
+              "base": 668
+            },
+            {
+              "iseeMax": 42000,
+              "from": 0,
+              "rate": 0,
+              "base": 742
+            },
+            {
+              "iseeMax": 43000,
+              "from": 0,
+              "rate": 0,
+              "base": 816
+            },
+            {
+              "iseeMax": 44000,
+              "from": 0,
+              "rate": 0,
+              "base": 890
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 965
+            },
+            {
+              "iseeMax": 46000,
+              "from": 0,
+              "rate": 0,
+              "base": 1039
+            },
+            {
+              "iseeMax": 47000,
+              "from": 0,
+              "rate": 0,
+              "base": 1113
+            },
+            {
+              "iseeMax": 48000,
+              "from": 0,
+              "rate": 0,
+              "base": 1187
+            },
+            {
+              "iseeMax": 49000,
+              "from": 0,
+              "rate": 0,
+              "base": 1261
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1336
+            },
+            {
+              "iseeMax": 51000,
+              "from": 0,
+              "rate": 0,
+              "base": 1410
+            },
+            {
+              "iseeMax": 52000,
+              "from": 0,
+              "rate": 0,
+              "base": 1484
+            },
+            {
+              "iseeMax": 53000,
+              "from": 0,
+              "rate": 0,
+              "base": 1558
+            },
+            {
+              "iseeMax": 54000,
+              "from": 0,
+              "rate": 0,
+              "base": 1632
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 1707
+            },
+            {
+              "iseeMax": 56000,
+              "from": 0,
+              "rate": 0,
+              "base": 1781
+            },
+            {
+              "iseeMax": 57000,
+              "from": 0,
+              "rate": 0,
+              "base": 1855
+            },
+            {
+              "iseeMax": 58000,
+              "from": 0,
+              "rate": 0,
+              "base": 1929
+            },
+            {
+              "iseeMax": 59000,
+              "from": 0,
+              "rate": 0,
+              "base": 2003
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2078
+            },
+            {
+              "iseeMax": 61000,
+              "from": 0,
+              "rate": 0,
+              "base": 2152
+            },
+            {
+              "iseeMax": 62000,
+              "from": 0,
+              "rate": 0,
+              "base": 2226
+            },
+            {
+              "iseeMax": 63000,
+              "from": 0,
+              "rate": 0,
+              "base": 2300
+            },
+            {
+              "iseeMax": 64000,
+              "from": 0,
+              "rate": 0,
+              "base": 2374
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2449
+            },
+            {
+              "iseeMax": 66000,
+              "from": 0,
+              "rate": 0,
+              "base": 2523
+            },
+            {
+              "iseeMax": 67000,
+              "from": 0,
+              "rate": 0,
+              "base": 2597
+            },
+            {
+              "iseeMax": 68000,
+              "from": 0,
+              "rate": 0,
+              "base": 2671
+            },
+            {
+              "iseeMax": 69000,
+              "from": 0,
+              "rate": 0,
+              "base": 2745
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 2820
+            },
+            {
+              "iseeMax": 71000,
+              "from": 0,
+              "rate": 0,
+              "base": 2894
+            },
+            {
+              "iseeMax": 72000,
+              "from": 0,
+              "rate": 0,
+              "base": 2968
+            },
+            {
+              "iseeMax": 73000,
+              "from": 0,
+              "rate": 0,
+              "base": 3042
+            },
+            {
+              "iseeMax": 74000,
+              "from": 0,
+              "rate": 0,
+              "base": 3116
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 3191
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 3265
+            },
+            {
+              "iseeMax": 77000,
+              "from": 0,
+              "rate": 0,
+              "base": 3339
+            },
+            {
+              "iseeMax": 78000,
+              "from": 0,
+              "rate": 0,
+              "base": 3413
+            },
+            {
+              "iseeMax": 79000,
+              "from": 0,
+              "rate": 0,
+              "base": 3487
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 3562
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3636
+            }
+          ],
+          "max": 3636
+        },
+        {
+          "id": "area-3",
+          "label": "Area 3 (medicina e chirurgia)",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia",
+            "Medicine And Surgery",
+            "Odontoiatria e Protesi Dentaria",
+            "Scienze Motorie"
+          ],
+          "bands": [
+            {
+              "iseeMax": 32000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 99
+            },
+            {
+              "iseeMax": 34000,
+              "from": 0,
+              "rate": 0,
+              "base": 198
+            },
+            {
+              "iseeMax": 35000,
+              "from": 0,
+              "rate": 0,
+              "base": 297
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 396
+            },
+            {
+              "iseeMax": 37000,
+              "from": 0,
+              "rate": 0,
+              "base": 495
+            },
+            {
+              "iseeMax": 38000,
+              "from": 0,
+              "rate": 0,
+              "base": 594
+            },
+            {
+              "iseeMax": 39000,
+              "from": 0,
+              "rate": 0,
+              "base": 693
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 792
+            },
+            {
+              "iseeMax": 41000,
+              "from": 0,
+              "rate": 0,
+              "base": 891
+            },
+            {
+              "iseeMax": 42000,
+              "from": 0,
+              "rate": 0,
+              "base": 990
+            },
+            {
+              "iseeMax": 43000,
+              "from": 0,
+              "rate": 0,
+              "base": 1089
+            },
+            {
+              "iseeMax": 44000,
+              "from": 0,
+              "rate": 0,
+              "base": 1188
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1287
+            },
+            {
+              "iseeMax": 46000,
+              "from": 0,
+              "rate": 0,
+              "base": 1386
+            },
+            {
+              "iseeMax": 47000,
+              "from": 0,
+              "rate": 0,
+              "base": 1485
+            },
+            {
+              "iseeMax": 48000,
+              "from": 0,
+              "rate": 0,
+              "base": 1584
+            },
+            {
+              "iseeMax": 49000,
+              "from": 0,
+              "rate": 0,
+              "base": 1683
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1782
+            },
+            {
+              "iseeMax": 51000,
+              "from": 0,
+              "rate": 0,
+              "base": 1881
+            },
+            {
+              "iseeMax": 52000,
+              "from": 0,
+              "rate": 0,
+              "base": 1980
+            },
+            {
+              "iseeMax": 53000,
+              "from": 0,
+              "rate": 0,
+              "base": 2079
+            },
+            {
+              "iseeMax": 54000,
+              "from": 0,
+              "rate": 0,
+              "base": 2178
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2277
+            },
+            {
+              "iseeMax": 56000,
+              "from": 0,
+              "rate": 0,
+              "base": 2376
+            },
+            {
+              "iseeMax": 57000,
+              "from": 0,
+              "rate": 0,
+              "base": 2475
+            },
+            {
+              "iseeMax": 58000,
+              "from": 0,
+              "rate": 0,
+              "base": 2574
+            },
+            {
+              "iseeMax": 59000,
+              "from": 0,
+              "rate": 0,
+              "base": 2673
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2772
+            },
+            {
+              "iseeMax": 61000,
+              "from": 0,
+              "rate": 0,
+              "base": 2871
+            },
+            {
+              "iseeMax": 62000,
+              "from": 0,
+              "rate": 0,
+              "base": 2970
+            },
+            {
+              "iseeMax": 63000,
+              "from": 0,
+              "rate": 0,
+              "base": 3069
+            },
+            {
+              "iseeMax": 64000,
+              "from": 0,
+              "rate": 0,
+              "base": 3168
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 3267
+            },
+            {
+              "iseeMax": 66000,
+              "from": 0,
+              "rate": 0,
+              "base": 3366
+            },
+            {
+              "iseeMax": 67000,
+              "from": 0,
+              "rate": 0,
+              "base": 3465
+            },
+            {
+              "iseeMax": 68000,
+              "from": 0,
+              "rate": 0,
+              "base": 3564
+            },
+            {
+              "iseeMax": 69000,
+              "from": 0,
+              "rate": 0,
+              "base": 3663
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 3762
+            },
+            {
+              "iseeMax": 71000,
+              "from": 0,
+              "rate": 0,
+              "base": 3861
+            },
+            {
+              "iseeMax": 72000,
+              "from": 0,
+              "rate": 0,
+              "base": 3960
+            },
+            {
+              "iseeMax": 73000,
+              "from": 0,
+              "rate": 0,
+              "base": 4059
+            },
+            {
+              "iseeMax": 74000,
+              "from": 0,
+              "rate": 0,
+              "base": 4158
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 4257
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 4356
+            },
+            {
+              "iseeMax": 77000,
+              "from": 0,
+              "rate": 0,
+              "base": 4455
+            },
+            {
+              "iseeMax": 78000,
+              "from": 0,
+              "rate": 0,
+              "base": 4554
+            },
+            {
+              "iseeMax": 79000,
+              "from": 0,
+              "rate": 0,
+              "base": 4653
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 4752
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4851
+            }
+          ],
+          "max": 4851
+        },
+        {
+          "id": "area-2",
+          "label": "Area 2 (scienze, ingegneria, farmacia, psicologia, professioni sanitarie)",
+          "groups": [],
+          "names": [
+            "Conservazione e Restauro dei Beni Culturali (Abilitante Ai Sensi del D.Lgs N.42/2004)",
+            "Medical And Pharmaceutical Biotechnologies",
+            "Scienze e Tecniche delle Attività Motorie Preventive e Adattate",
+            "Scienze e Tecniche dello Sport"
+          ],
+          "classCodes": [
+            "L/SNT1",
+            "L/SNT2",
+            "L/SNT3",
+            "L/SNT4",
+            "LM/SNT1",
+            "LM/SNT2",
+            "LM/SNT3",
+            "LM/SNT4"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 32000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 88
+            },
+            {
+              "iseeMax": 34000,
+              "from": 0,
+              "rate": 0,
+              "base": 177
+            },
+            {
+              "iseeMax": 35000,
+              "from": 0,
+              "rate": 0,
+              "base": 265
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 354
+            },
+            {
+              "iseeMax": 37000,
+              "from": 0,
+              "rate": 0,
+              "base": 442
+            },
+            {
+              "iseeMax": 38000,
+              "from": 0,
+              "rate": 0,
+              "base": 530
+            },
+            {
+              "iseeMax": 39000,
+              "from": 0,
+              "rate": 0,
+              "base": 619
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 707
+            },
+            {
+              "iseeMax": 41000,
+              "from": 0,
+              "rate": 0,
+              "base": 796
+            },
+            {
+              "iseeMax": 42000,
+              "from": 0,
+              "rate": 0,
+              "base": 884
+            },
+            {
+              "iseeMax": 43000,
+              "from": 0,
+              "rate": 0,
+              "base": 972
+            },
+            {
+              "iseeMax": 44000,
+              "from": 0,
+              "rate": 0,
+              "base": 1061
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1149
+            },
+            {
+              "iseeMax": 46000,
+              "from": 0,
+              "rate": 0,
+              "base": 1238
+            },
+            {
+              "iseeMax": 47000,
+              "from": 0,
+              "rate": 0,
+              "base": 1326
+            },
+            {
+              "iseeMax": 48000,
+              "from": 0,
+              "rate": 0,
+              "base": 1414
+            },
+            {
+              "iseeMax": 49000,
+              "from": 0,
+              "rate": 0,
+              "base": 1503
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1591
+            },
+            {
+              "iseeMax": 51000,
+              "from": 0,
+              "rate": 0,
+              "base": 1680
+            },
+            {
+              "iseeMax": 52000,
+              "from": 0,
+              "rate": 0,
+              "base": 1768
+            },
+            {
+              "iseeMax": 53000,
+              "from": 0,
+              "rate": 0,
+              "base": 1856
+            },
+            {
+              "iseeMax": 54000,
+              "from": 0,
+              "rate": 0,
+              "base": 1945
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2033
+            },
+            {
+              "iseeMax": 56000,
+              "from": 0,
+              "rate": 0,
+              "base": 2122
+            },
+            {
+              "iseeMax": 57000,
+              "from": 0,
+              "rate": 0,
+              "base": 2210
+            },
+            {
+              "iseeMax": 58000,
+              "from": 0,
+              "rate": 0,
+              "base": 2298
+            },
+            {
+              "iseeMax": 59000,
+              "from": 0,
+              "rate": 0,
+              "base": 2387
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2475
+            },
+            {
+              "iseeMax": 61000,
+              "from": 0,
+              "rate": 0,
+              "base": 2564
+            },
+            {
+              "iseeMax": 62000,
+              "from": 0,
+              "rate": 0,
+              "base": 2652
+            },
+            {
+              "iseeMax": 63000,
+              "from": 0,
+              "rate": 0,
+              "base": 2740
+            },
+            {
+              "iseeMax": 64000,
+              "from": 0,
+              "rate": 0,
+              "base": 2829
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2917
+            },
+            {
+              "iseeMax": 66000,
+              "from": 0,
+              "rate": 0,
+              "base": 3006
+            },
+            {
+              "iseeMax": 67000,
+              "from": 0,
+              "rate": 0,
+              "base": 3094
+            },
+            {
+              "iseeMax": 68000,
+              "from": 0,
+              "rate": 0,
+              "base": 3182
+            },
+            {
+              "iseeMax": 69000,
+              "from": 0,
+              "rate": 0,
+              "base": 3271
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 3359
+            },
+            {
+              "iseeMax": 71000,
+              "from": 0,
+              "rate": 0,
+              "base": 3448
+            },
+            {
+              "iseeMax": 72000,
+              "from": 0,
+              "rate": 0,
+              "base": 3536
+            },
+            {
+              "iseeMax": 73000,
+              "from": 0,
+              "rate": 0,
+              "base": 3624
+            },
+            {
+              "iseeMax": 74000,
+              "from": 0,
+              "rate": 0,
+              "base": 3713
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 3801
+            },
+            {
+              "iseeMax": 76000,
+              "from": 0,
+              "rate": 0,
+              "base": 3890
+            },
+            {
+              "iseeMax": 77000,
+              "from": 0,
+              "rate": 0,
+              "base": 3978
+            },
+            {
+              "iseeMax": 78000,
+              "from": 0,
+              "rate": 0,
+              "base": 4066
+            },
+            {
+              "iseeMax": 79000,
+              "from": 0,
+              "rate": 0,
+              "base": 4155
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 4243
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4332
+            }
+          ],
+          "max": 4332
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Lifelong Well-Being And Healthy Aging",
+          "Agri-Food Sustainability"
+        ],
+        "note": "L’Allegato 1 assegna le aree per dipartimento: per questo corso non possiamo stabilire l’area con certezza e usiamo la media nazionale."
+      },
+      "maxNote": "Esonero fino a 32.000 €; poi importi fissi per fasce di 1.000 € di ISEE (Allegato 2, colonna «in corso»), da 74 € (area 1), 88 € (area 2) o 99 € (area 3) fino al massimo oltre 80.000 € o senza ISEE: 3636 € area 1, 4332 € area 2, 4851 € area 3. Le aree seguono il dipartimento del corso (Allegato 1). Fuori corso dal secondo anno pagano di più.",
+      "maxSource": {
+        "label": "UniPV, Avviso sulla contribuzione 2026/27, Allegato 2",
+        "url": "https://portale.unipv.it/sites/default/files/2026-05/Avviso%20sulla%20contribuzione%20universitaria%20a.a.%202026-27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (146 €: tassa regionale 130 € e bollo) con l’immatricolazione",
+          "Seconda rata (40% del contributo e saldo della tassa regionale) entro il 10 dicembre 2026",
+          "Terza rata (30%) entro il 4 febbraio 2027",
+          "Quarta rata (30%) entro il 15 aprile 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio va autorizzato nella propria area riservata entro il 22 ottobre 2026, altrimenti si paga il massimo.",
+        "source": {
+          "label": "UniPV, Avviso sulla contribuzione 2026/27, par. 2.2 e capitolo sulle scadenze",
+          "url": "https://portale.unipv.it/sites/default/files/2026-05/Avviso%20sulla%20contribuzione%20universitaria%20a.a.%202026-27.pdf"
+        }
+      },
+      "simulator": "https://portale.unipv.it/it/didattica/corsi-di-laurea/contribuzione-universitaria/futuri-studenti"
     }
   }
 }

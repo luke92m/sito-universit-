@@ -3082,6 +3082,854 @@
         "label": "Uninsubria, Bando benefici DSU 2026/27",
         "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
       }
+    },
+    {
+      "id": "edisu-pavia",
+      "name": "EDiSU Pavia – Ente per il diritto allo studio universitario",
+      "shortName": "EDiSU Pavia",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01801"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 4.2",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro; in più un pasto al giorno gratuito (829 €). Il fuori sede nei collegi EDiSU riceve meno denaro (4.479 €, 3.403 € o 2.088 €) più il posto letto. La prima fascia comprende la maggiorazione del 15%.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 7419,
+            "pendolare": 3991,
+            "inSede": 2601
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 6343,
+            "pendolare": 3362,
+            "inSede": 2162
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5028,
+            "pendolare": 2470,
+            "inSede": 1314
+          }
+        ],
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 6",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "inSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ]
+        },
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 6",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (calcolato sull’importo di seconda o terza fascia)",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% della prima fascia",
+          "source": {
+            "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 6, maggiorazioni D.M. 1320/2021",
+            "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+          }
+        }
+      ],
+      "accessRequirement": {
+        "text": "Al primo anno di triennale o ciclo unico serve un voto di maturità di almeno 70/100; i crediti da raggiungere entro il 10 agosto 2027 sono nell’Allegato B del bando.",
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 4.1.2",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "connectedBenefits": [
+        "Mensa gratuita (un pasto al giorno) dal 1° gennaio al 31 dicembre 2027",
+        "Esonero dal contributo onnicomprensivo universitario"
+      ],
+      "connectedBenefitsSource": {
+        "label": "EDiSU Pavia, Bando borse di studio 2026/27, artt. 4.1.2 e 6",
+        "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Comune non in sede né pendolare (o estero) e alloggio a pagamento in un comune in sede per almeno 10 mesi, con contratto presentato a EDiSU.",
+        "pendolare": "Comuni dell’Allegato D (da 60 a 90 minuti dalla sede); anche i fuori sede senza contratto d’affitto.",
+        "inSede": "Comuni dell’Allegato C (sede del corso o fino a 60 minuti).",
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 6 e Allegati C-D",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata (almeno metà della borsa) entro il 31 dicembre 2026, soprattutto in servizi (mensa ed eventuale posto letto)",
+          "Seconda rata in denaro da maggio 2027, con i crediti dell’Allegato B entro il 10 agosto 2027"
+        ],
+        "note": "Con i crediti raggiunti solo entro il 30 novembre 2027 si ha metà della borsa.",
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, artt. 4.1.2 e 11",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-15",
+        "closesTime": "15:00",
+        "note": "Domanda online sui servizi EDiSU, da confermare entro la scadenza.",
+        "source": {
+          "label": "EDiSU Pavia, Bando borse di studio 2026/27, art. 5",
+          "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+        }
+      },
+      "municipalities": {
+        "Pavia": {
+          "inSede": [
+            {
+              "comune": "Albaredo Arnaboldi"
+            },
+            {
+              "comune": "Albuzzano"
+            },
+            {
+              "comune": "Belgioioso"
+            },
+            {
+              "comune": "Bereguardo"
+            },
+            {
+              "comune": "Borgarello"
+            },
+            {
+              "comune": "Bornasco"
+            },
+            {
+              "comune": "Bressana Bottarone"
+            },
+            {
+              "comune": "Campospinoso"
+            },
+            {
+              "comune": "Carbonara"
+            },
+            {
+              "comune": "Casarile"
+            },
+            {
+              "comune": "Cava Manara"
+            },
+            {
+              "comune": "Ceranova"
+            },
+            {
+              "comune": "Certosa"
+            },
+            {
+              "comune": "Copiano"
+            },
+            {
+              "comune": "Cura Carpignano"
+            },
+            {
+              "comune": "Filighera"
+            },
+            {
+              "comune": "Giussago"
+            },
+            {
+              "comune": "Lardirago"
+            },
+            {
+              "comune": "Linarolo"
+            },
+            {
+              "comune": "Locate di Triulzi"
+            },
+            {
+              "comune": "Marcignago"
+            },
+            {
+              "comune": "Mezzanino"
+            },
+            {
+              "comune": "Pavia"
+            },
+            {
+              "comune": "Rea Po"
+            },
+            {
+              "comune": "Roncaro"
+            },
+            {
+              "comune": "San Genesio ed Uniti"
+            },
+            {
+              "comune": "San Martino Siccomario"
+            },
+            {
+              "comune": "Sant’Alessio con Vialone"
+            },
+            {
+              "comune": "Siziano"
+            },
+            {
+              "comune": "Sommo"
+            },
+            {
+              "comune": "Torre D’Isola"
+            },
+            {
+              "comune": "Torre De’ Negri"
+            },
+            {
+              "comune": "Travaco’ Siccomario"
+            },
+            {
+              "comune": "Trivolzio"
+            },
+            {
+              "comune": "Valle Salimbene"
+            },
+            {
+              "comune": "Vellezzo Bellini"
+            },
+            {
+              "comune": "Verrua Po"
+            },
+            {
+              "comune": "Villanterio"
+            },
+            {
+              "comune": "Vistarino"
+            },
+            {
+              "comune": "Voghera"
+            },
+            {
+              "comune": "Zeccone"
+            },
+            {
+              "comune": "Zinasco"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alagna"
+            },
+            {
+              "comune": "Arena Po"
+            },
+            {
+              "comune": "Assago"
+            },
+            {
+              "comune": "Barbianello"
+            },
+            {
+              "comune": "Bastida Pancarana"
+            },
+            {
+              "comune": "Battuda"
+            },
+            {
+              "comune": "Besate"
+            },
+            {
+              "comune": "Binasco"
+            },
+            {
+              "comune": "Borgo San Siro"
+            },
+            {
+              "comune": "Broni"
+            },
+            {
+              "comune": "Bubbiano"
+            },
+            {
+              "comune": "Buccinasco"
+            },
+            {
+              "comune": "Lungavilla"
+            },
+            {
+              "comune": "Calvignasco"
+            },
+            {
+              "comune": "Casanova Lonati"
+            },
+            {
+              "comune": "Casatisma"
+            },
+            {
+              "comune": "Casorate Primo"
+            },
+            {
+              "comune": "Cassina De’ Pecchi"
+            },
+            {
+              "comune": "Casteggio"
+            },
+            {
+              "comune": "Castelletto di Branduzzo"
+            },
+            {
+              "comune": "Castel San Giovanni"
+            },
+            {
+              "comune": "Cernusco sul Naviglio",
+              "aliases": [
+                "CERNUSCO S/ NAVIGLIO"
+              ]
+            },
+            {
+              "comune": "Cerro al Lambro"
+            },
+            {
+              "comune": "Cervesina"
+            },
+            {
+              "comune": "Chignolo Po"
+            },
+            {
+              "comune": "Cologno Monzese"
+            },
+            {
+              "comune": "Cornegliano Laudense"
+            },
+            {
+              "comune": "Corsico"
+            },
+            {
+              "comune": "Corteolona"
+            },
+            {
+              "comune": "Dorno"
+            },
+            {
+              "comune": "Ferrera Erbognone"
+            },
+            {
+              "comune": "Gambolo’"
+            },
+            {
+              "comune": "Garlasco"
+            },
+            {
+              "comune": "Genzone"
+            },
+            {
+              "comune": "Graffignana"
+            },
+            {
+              "comune": "Gropello Cairoli"
+            },
+            {
+              "comune": "Inverno e Monteleone"
+            },
+            {
+              "comune": "Lacchiarella"
+            },
+            {
+              "comune": "Landriano"
+            },
+            {
+              "comune": "Lomello"
+            },
+            {
+              "comune": "Magherno"
+            },
+            {
+              "comune": "Marzano"
+            },
+            {
+              "comune": "Mediglia"
+            },
+            {
+              "comune": "Melegnano"
+            },
+            {
+              "comune": "Mezzana Rabattone"
+            },
+            {
+              "comune": "Milano"
+            },
+            {
+              "comune": "Tavazzano C/villavesco"
+            },
+            {
+              "comune": "Montebello della Battaglia"
+            },
+            {
+              "comune": "Montescano"
+            },
+            {
+              "comune": "Monza"
+            },
+            {
+              "comune": "Mortara"
+            },
+            {
+              "comune": "Motta Visconti"
+            },
+            {
+              "comune": "Nicorvo"
+            },
+            {
+              "comune": "Noviglio"
+            },
+            {
+              "comune": "Opera"
+            },
+            {
+              "comune": "Pieve Fissiraga"
+            },
+            {
+              "comune": "Ospedaletto Lodigiano"
+            },
+            {
+              "comune": "Pancarana"
+            },
+            {
+              "comune": "Pantigliate"
+            },
+            {
+              "comune": "Peschiera Borromeo"
+            },
+            {
+              "comune": "Pieve Emanuele"
+            },
+            {
+              "comune": "Pieve Albignola"
+            },
+            {
+              "comune": "Pieve Porto Morone"
+            },
+            {
+              "comune": "Pinarolo Po"
+            },
+            {
+              "comune": "Pizzale"
+            },
+            {
+              "comune": "Pontecurone"
+            },
+            {
+              "comune": "Redavalle"
+            },
+            {
+              "comune": "Robecco Pavese"
+            },
+            {
+              "comune": "Rozzano"
+            },
+            {
+              "comune": "San Cipriano Po"
+            },
+            {
+              "comune": "San Colombano al Lambro"
+            },
+            {
+              "comune": "San Donato Milanese"
+            },
+            {
+              "comune": "San Giuliano Milanese"
+            },
+            {
+              "comune": "Sannazzaro De’ Burgondi"
+            },
+            {
+              "comune": "Santa Cristina e Bissone"
+            },
+            {
+              "comune": "Santa Giuletta"
+            },
+            {
+              "comune": "Sant’Angelo Lodigiano"
+            },
+            {
+              "comune": "San Zenone al Po"
+            },
+            {
+              "comune": "Scaldasole"
+            },
+            {
+              "comune": "Secugnago"
+            },
+            {
+              "comune": "Segrate"
+            },
+            {
+              "comune": "Sesto San Giovanni"
+            },
+            {
+              "comune": "Sordio"
+            },
+            {
+              "comune": "Spessa Po"
+            },
+            {
+              "comune": "Stradella"
+            },
+            {
+              "comune": "Torrazza Coste"
+            },
+            {
+              "comune": "Torre D’Arese"
+            },
+            {
+              "comune": "Torrevecchia Pia"
+            },
+            {
+              "comune": "Torricella Verzate"
+            },
+            {
+              "comune": "Tortona"
+            },
+            {
+              "comune": "Tromello"
+            },
+            {
+              "comune": "Trovo"
+            },
+            {
+              "comune": "Vidigulfo"
+            },
+            {
+              "comune": "Vigevano"
+            },
+            {
+              "comune": "Vignate"
+            },
+            {
+              "comune": "Villanova D’Ardenghi"
+            },
+            {
+              "comune": "Vimodrone"
+            },
+            {
+              "comune": "Zerbo"
+            },
+            {
+              "comune": "Zerbolo’"
+            },
+            {
+              "comune": "Zibido San Giacomo"
+            }
+          ],
+          "source": {
+            "label": "EDiSU Pavia, bando borse 2026/27, Allegati C (comuni in sede) e D (comuni pendolari)",
+            "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/Allegato-C_COMUNI-IN-SEDE_-bando-borsa-di-studio-2026_2027.pdf"
+          }
+        },
+        "Cremona": {
+          "inSede": [
+            {
+              "comune": "Acquanegra Cremonese"
+            },
+            {
+              "comune": "Annicco"
+            },
+            {
+              "comune": "Bonemerse"
+            },
+            {
+              "comune": "Castelverde"
+            },
+            {
+              "comune": "Caorso",
+              "prov": "PC"
+            },
+            {
+              "comune": "Cappella Cantone"
+            },
+            {
+              "comune": "Cappella de Picenardi"
+            },
+            {
+              "comune": "Casalbuttano ed Uniti"
+            },
+            {
+              "comune": "Castelvetro Piacentino",
+              "prov": "PC",
+              "aliases": [
+                "CASTELVETROPIACENTINO"
+              ]
+            },
+            {
+              "comune": "Cella Dati"
+            },
+            {
+              "comune": "Cicognolo"
+            },
+            {
+              "comune": "Cingia de Botti"
+            },
+            {
+              "comune": "Corte de Cortesi"
+            },
+            {
+              "comune": "Corte de Frati"
+            },
+            {
+              "comune": "Cremona"
+            },
+            {
+              "comune": "Crotta D’Adda"
+            },
+            {
+              "comune": "Drizzona"
+            },
+            {
+              "comune": "Gadesco Pieve Delmona"
+            },
+            {
+              "comune": "Gerre de Caprioli"
+            },
+            {
+              "comune": "Grontardo"
+            },
+            {
+              "comune": "Grumello Cremonese ed Uniti"
+            },
+            {
+              "comune": "Malagnino"
+            },
+            {
+              "comune": "Olmeneta"
+            },
+            {
+              "comune": "Paderno Ponchielli"
+            },
+            {
+              "comune": "Persico Dosimo"
+            },
+            {
+              "comune": "Pescarolo ed Uniti"
+            },
+            {
+              "comune": "Piadena"
+            },
+            {
+              "comune": "Pieve D’Olmi"
+            },
+            {
+              "comune": "Pizzighettone"
+            },
+            {
+              "comune": "Pontevico"
+            },
+            {
+              "comune": "Pozzaglio ed Uniti"
+            },
+            {
+              "comune": "Robecco D’Oglio"
+            },
+            {
+              "comune": "San Daniele Po"
+            },
+            {
+              "comune": "Scandolara Ripa D’Oglio"
+            },
+            {
+              "comune": "Sesto Cremonese ed Uniti"
+            },
+            {
+              "comune": "Sospiro"
+            },
+            {
+              "comune": "Spinadesco"
+            },
+            {
+              "comune": "Stagno Lombardo"
+            },
+            {
+              "comune": "Vescovato"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alfianello"
+            },
+            {
+              "comune": "Azzanello"
+            },
+            {
+              "comune": "Bassano Bresciano"
+            },
+            {
+              "comune": "Besenzone"
+            },
+            {
+              "comune": "Bordolano"
+            },
+            {
+              "comune": "Brescia"
+            },
+            {
+              "comune": "Busseto"
+            },
+            {
+              "comune": "Ca D’Andrea"
+            },
+            {
+              "comune": "Calvatone"
+            },
+            {
+              "comune": "Casteldidone"
+            },
+            {
+              "comune": "Castelvisconti"
+            },
+            {
+              "comune": "Castelleone"
+            },
+            {
+              "comune": "Cortemaggiore",
+              "prov": "PC"
+            },
+            {
+              "comune": "Crema"
+            },
+            {
+              "comune": "Cumignano sul Naviglio"
+            },
+            {
+              "comune": "Derovere"
+            },
+            {
+              "comune": "Fiesco"
+            },
+            {
+              "comune": "Formigara"
+            },
+            {
+              "comune": "Gabbioneta Binanuova"
+            },
+            {
+              "comune": "Gussola"
+            },
+            {
+              "comune": "Isola Dovarese"
+            },
+            {
+              "comune": "Madignano"
+            },
+            {
+              "comune": "Manerbio"
+            },
+            {
+              "comune": "Monticelli D’Ongina"
+            },
+            {
+              "comune": "Motta Baluffi"
+            },
+            {
+              "comune": "Ostiano"
+            },
+            {
+              "comune": "Pessina Cremonese"
+            },
+            {
+              "comune": "Pieve San Giacomo"
+            },
+            {
+              "comune": "Rivarolo del Re ed Uniti"
+            },
+            {
+              "comune": "Salvirola"
+            },
+            {
+              "comune": "San Bassano"
+            },
+            {
+              "comune": "San Giovanni in Croce"
+            },
+            {
+              "comune": "San Martino del Lago"
+            },
+            {
+              "comune": "San Pietro in Cerro"
+            },
+            {
+              "comune": "Scandolara Ravara"
+            },
+            {
+              "comune": "Solarolo Rainerio"
+            },
+            {
+              "comune": "Soresina"
+            },
+            {
+              "comune": "Spineda"
+            },
+            {
+              "comune": "Tornata"
+            },
+            {
+              "comune": "Torre de Picenardi"
+            },
+            {
+              "comune": "Torricella del Pizzo"
+            },
+            {
+              "comune": "Trigolo"
+            },
+            {
+              "comune": "Verolanuova"
+            },
+            {
+              "comune": "Verolavecchia"
+            },
+            {
+              "comune": "Villanova D’Arda"
+            },
+            {
+              "comune": "Volongo"
+            },
+            {
+              "comune": "Voltido"
+            }
+          ],
+          "source": {
+            "label": "EDiSU Pavia, bando borse 2026/27, Allegati C (comuni in sede) e D (comuni pendolari)",
+            "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/Allegato-C_COMUNI-IN-SEDE_-bando-borsa-di-studio-2026_2027.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "EDiSU Pavia, bando borse di studio 2026/27",
+        "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
+      }
     }
   ]
 }

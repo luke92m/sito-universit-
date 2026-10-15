@@ -1082,3 +1082,38 @@ describe('Insubria 2026/27: tasse e borse DSU', () => {
     expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(7419);
   });
 });
+
+describe('Pavia 2026/27: tasse UniPV e borse EDiSU', () => {
+  const rule = tuitionRuleFor('ateneo-01801')!;
+  const area = (name: string, classCode: string, group: string) => courseGroup(rule, { name, classCode, group })!;
+  const eco = area('Economia', 'L-33', 'Economico');
+  const ing = area('Ingegneria Industriale', 'L-9', 'Ingegneria industriale e dell\'informazione');
+  const med = area('Medicina e Chirurgia', 'LM-41', 'Medico-Sanitario e Farmaceutico');
+
+  it('aree dell’Allegato 1: macroarea, nome e classi delle professioni sanitarie', () => {
+    expect([eco.id, ing.id, med.id]).toEqual(['area-1', 'area-2', 'area-3']);
+    expect(area('Conservazione e Restauro dei Beni Culturali (Abilitante Ai Sensi del D.Lgs N.42/2004)', 'LMR/02', 'Letterario-Umanistico').id).toBe('area-2');
+    expect(area('Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)', 'L/SNT2', 'Medico-Sanitario e Farmaceutico').id).toBe('area-2');
+  });
+
+  it('esonero fino a 32.000 €, poi gli importi dell’Allegato 2 per fasce di 1.000 €', () => {
+    expect(contributionFor(rule, 32000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 32500, eco.max, eco.bands)).toBe(74);
+    expect(contributionFor(rule, 45500, ing.max, ing.bands)).toBe(1238);
+    expect(contributionFor(rule, 60000, med.max, med.bands)).toBe(2772);
+    expect(contributionFor(rule, null, med.max, med.bands)).toBe(4851);
+    expect(contributionFor(rule, 90000, eco.max, eco.bands)).toBe(3636);
+  });
+
+  it('borse EDiSU con gli elenchi dei comuni di Pavia e Cremona', () => {
+    const edisu = dsuEntityFor('ateneo-01801')!;
+    const check = (seat: string, city: string) => conditionFromMunicipality(edisu, seat, city, true)?.condition;
+    expect(edisu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(edisu, 15000, 'inSede')).toBe(2162);
+    expect(check('Pavia', 'Voghera')).toBe('inSede');
+    expect(check('Pavia', 'Binasco')).toBe('pendolare');
+    expect(check('Pavia', 'Cernusco sul Naviglio')).toBe('pendolare');
+    expect(check('Cremona', 'Castelvetro Piacentino')).toBe('inSede');
+    expect(check('Pavia', 'Bergamo')).toBe('fuoriSede');
+  });
+});
