@@ -136,7 +136,7 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
           <div className="comparison-real-cost-grid">
             {results.map((result, index) => {
               const tuition = result.lines.find((line) => line.key === 'tasse');
-              const verifiedTuition = tuition ? !tuition.estimated : false;
+              const verifiedTuition = result.tuitionRule || Boolean(tuition && !tuition.estimated);
               const grantMax = result.lines
                 .filter((line) => GRANT_KEYS.includes(line.key))
                 .reduce((total, line) => total + line.max, 0);

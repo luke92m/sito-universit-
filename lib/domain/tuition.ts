@@ -54,6 +54,11 @@ export interface TuitionRule {
   courseGroups?: CourseGroup[];
   /** Riduzione per chi vive lontano dalla sede (es. Pisa): (from − contributo) × rate. */
   offSiteReduction?: { from: number; rate: number; note: string };
+  /**
+   * Corsi con importi propri non ancora inseriti (es. Tor Vergata: classi di contribuzione superiori): per
+   * questi il calcolo non usa le fasce dell'ateneo ma la media nazionale, e lo dichiara.
+   */
+  excludedCourses?: { names?: string[]; nameIncludes?: string[]; note: string };
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };
@@ -77,6 +82,17 @@ export function degreeLevel(course: { classCode: string; level?: string }): Degr
   if (/^L[-/]/i.test(code)) return 'triennale';
   if (/^LM/i.test(code)) return 'magistrale';
   return course.level === 'magistrale' ? 'magistrale' : 'triennale';
+}
+
+/** Vero se il corso ha importi propri non ancora inseriti nella regola dell'ateneo. */
+export function isExcludedCourse(rule: TuitionRule, course: CourseLike | null): boolean {
+  const excluded = rule.excludedCourses;
+  if (!excluded || !course) return false;
+  const name = normalize(course.name);
+  return Boolean(
+    excluded.names?.some((item) => normalize(item) === name) ||
+      excluded.nameIncludes?.some((part) => name.includes(normalize(part)))
+  );
 }
 
 /** Gruppo di corsi dell'ateneo a cui appartiene il corso (o quello predefinito). */

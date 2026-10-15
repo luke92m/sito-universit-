@@ -3691,6 +3691,229 @@
         }
       },
       "simulator": "https://portalestudente.uniroma3.it/tasse/tasse/"
+    },
+    "ateneo-05802": {
+      "name": "Università di Roma Tor Vergata",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno («tassazione ordinaria»: al primo anno conta solo l’ISEE), cittadini con ISEE per le prestazioni universitarie.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale del Lazio 140 € e bollo 16 €) all’immatricolazione.",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 26000,
+          "rate": 0.0245,
+          "base": 321
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.0275,
+          "base": 417
+        },
+        {
+          "iseeMax": 60000,
+          "from": 30000,
+          "rate": 0.0197,
+          "base": 1055
+        },
+        {
+          "iseeMax": 80000,
+          "from": 60000,
+          "rate": 0.0198,
+          "base": 1654
+        },
+        {
+          "iseeMax": 90000,
+          "from": 80000,
+          "rate": 0.0202,
+          "base": 2068
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2270
+        }
+      ],
+      "bandsSource": {
+        "label": "Tor Vergata, Guida dello Studente 2026/27 (cap. 7) e simulatore tasse ufficiale",
+        "url": "https://web.uniroma2.it/allegato/60365/contenuto/guida-dello-studente-aa-2026-2027"
+      },
+      "maxByLevel": {
+        "triennale": 2270,
+        "ciclo-unico": 2270,
+        "magistrale": 2270
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "classe-2",
+          "label": "classe di contribuzione 2",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia",
+            "Scienze della Nutrizione Umana"
+          ],
+          "nameIncludes": [
+            "Professioni Sanitarie",
+            "Scienze Infermieristiche",
+            "Scienze Riabilitative"
+          ],
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.028,
+              "base": 364
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.0315,
+              "base": 472
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.0886,
+              "base": 1224
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.02005,
+              "base": 2110
+            },
+            {
+              "iseeMax": 90000,
+              "from": 60000,
+              "rate": 0.019,
+              "base": 2530
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3100
+            }
+          ],
+          "max": 3100
+        },
+        {
+          "id": "classe-1",
+          "label": "classe di contribuzione 1",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0245,
+              "base": 321
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.0275,
+              "base": 417
+            },
+            {
+              "iseeMax": 60000,
+              "from": 30000,
+              "rate": 0.0197,
+              "base": 1055
+            },
+            {
+              "iseeMax": 80000,
+              "from": 60000,
+              "rate": 0.0198,
+              "base": 1654
+            },
+            {
+              "iseeMax": 90000,
+              "from": 80000,
+              "rate": 0.0202,
+              "base": 2068
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2270
+            }
+          ],
+          "max": 2270
+        }
+      ],
+      "excludedCourses": {
+        "nameIncludes": [
+          "Turismo Enogastronomico",
+          "Psicologia Generale, dello Sviluppo",
+          "Engineering Sciences",
+          "Mechatronics Engineering",
+          "Lingua e Cultura Italiana a Stranieri",
+          "Biotechnology - Biotecnologie",
+          "Physical Activity And Health Promotion",
+          "Odontoiatria",
+          "Art History in Rome",
+          "Finance And Banking",
+          "Pharmacy",
+          "Tourism Strategy",
+          "Business Administration",
+          "European Economy And Business Law",
+          "Conservazione e Restauro",
+          "Medicine And Surgery",
+          "Medicina Veterinaria",
+          "Global Governance"
+        ],
+        "names": [
+          "Economics - Economia"
+        ],
+        "note": "a Tor Vergata ha una classe di contribuzione più alta (da 3.100 € a 9.000 € di massimo), non ancora inserita"
+      },
+      "maxNote": "Classe 1 (quasi tutti i corsi, compresa Giurisprudenza): esonero fino a 26.000 €, sconto del 60% tra 26.000 e 28.000 € e del 55% tra 28.000 e 30.000 €, massimo 2.270 € oltre 90.000 € o senza ISEE. Classe 2 (Medicina e chirurgia, Nutrizione umana, magistrali sanitarie): massimo 3.100 €. La guida dà solo gli estremi («proporzionale all’ISEE»): gli importi tra gli estremi sono ricostruiti dal simulatore ufficiale (scarto massimo 2 €). I corsi delle classi 3-7 (in inglese, Odontoiatria, Veterinaria…) non sono ancora inseriti; per i corsi a distanza di Lettere c’è il 20% in meno.",
+      "maxSource": {
+        "label": "Tor Vergata, simulatore tasse 2026/27",
+        "url": "https://delphi.uniroma2.it/totem/jsp/simulazioneTasse/sceltaFacolta.jsp"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € con l’immatricolazione (o entro il 6 novembre 2026)",
+          "Seconda rata: 50% entro il 31 marzo 2027",
+          "Seconda rata: 50% entro il 31 maggio 2027 (in un’unica soluzione entro il 31 marzo se è sotto i 300 €)"
+        ],
+        "note": "L’ISEE per l’università va chiesto entro il 15 dicembre 2026 e autorizzato in Delphi; senza ISEE si paga il massimo.",
+        "source": {
+          "label": "Tor Vergata, Guida dello Studente 2026/27, par. 7.2 e 7.4",
+          "url": "https://web.uniroma2.it/allegato/60365/contenuto/guida-dello-studente-aa-2026-2027"
+        }
+      },
+      "simulator": "https://delphi.uniroma2.it/totem/jsp/simulazioneTasse/sceltaFacolta.jsp"
     }
   }
 }

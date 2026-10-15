@@ -598,3 +598,47 @@ describe('tasse Roma Tre 2026/27', () => {
     expect(courseGroup(rule, triennale)!.id).toBe('triennali');
   });
 });
+
+describe('tasse Tor Vergata 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05802')!;
+  const tv = getUniversityById('ateneo-05802')!;
+  const named = (name: string) => getCourses('ateneo-05802').find((course) => course.name === name)!;
+  // Seconda + terza rata dal simulatore ufficiale (matricole 2026/27, tassazione ordinaria), ottobre 2026.
+  const CLASS_1: [number, number][] = [
+    [26000, 0], [26001, 321], [27000, 346], [28000, 370], [28001, 417], [29000, 445], [30000, 472],
+    [30001, 1055], [35000, 1153], [40000, 1252], [50000, 1449], [52000, 1488], [59999, 1646], [60001, 1654],
+    [70000, 1852], [79999, 2050], [80001, 2068], [85000, 2168], [89999, 2268], [90000, 2270], [95000, 2270]
+  ];
+  const CLASS_2: [number, number][] = [
+    [26001, 364], [27000, 392], [28001, 472], [30000, 535], [30001, 1224], [35000, 1667], [40000, 2110],
+    [45000, 2210], [52000, 2351], [59999, 2511], [60001, 2530], [70000, 2720], [80001, 2910], [89999, 3100]
+  ];
+
+  it('classe 1 (Giurisprudenza, Economia…): il modello coincide con il simulatore entro 2 €', () => {
+    const group = courseGroup(rule, { name: 'Giurisprudenza', classCode: 'LMG/01' })!;
+    expect(group.id).toBe('classe-1');
+    for (const [isee, expected] of CLASS_1) {
+      expect(Math.abs(contributionFor(rule, isee, group.max, group.bands) - expected)).toBeLessThanOrEqual(2);
+    }
+    expect(contributionFor(rule, null, group.max, group.bands)).toBe(2270);
+  });
+
+  it('classe 2 (Medicina e chirurgia, magistrali sanitarie): massimo 3.100 €', () => {
+    const group = courseGroup(rule, { name: 'Medicina e Chirurgia', classCode: 'LM-41' })!;
+    expect(group.id).toBe('classe-2');
+    expect(courseGroup(rule, { name: 'Scienze Riabilitative delle Professioni Sanitarie', classCode: 'LM/SNT2' })!.id).toBe(
+      'classe-2'
+    );
+    for (const [isee, expected] of CLASS_2) {
+      expect(Math.abs(contributionFor(rule, isee, group.max, group.bands) - expected)).toBeLessThanOrEqual(2);
+    }
+  });
+
+  it('corsi delle classi superiori non inseriti: media dichiarata e dato mancante', () => {
+    const cost = realCost(tv, named('Medicina Veterinaria'), exact(40000), none, 'inSede');
+    expect(cost.tuitionRule).toBe(false);
+    expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
+    expect(cost.missing.join(' ')).toContain('classe di contribuzione');
+    expect(realCost(tv, named('Giurisprudenza'), exact(40000), none, 'inSede').tuitionRule).toBe(true);
+  });
+});
