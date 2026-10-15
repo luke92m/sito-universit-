@@ -981,3 +981,15 @@ describe('tasse Università della Tuscia 2026/27', () => {
     expect(contributionFor(rule, null, 2394)).toBe(2394);
   });
 });
+
+describe('borse ALiSEO 2026/27 (Genova)', () => {
+  const aliseo = dsuEntityFor('ateneo-01001')!;
+
+  it('soglie 28.339 € / 61.608 €, Tabella 8 con +15% fino a 14.169,50 €', () => {
+    expect(aliseo.id).toBe('aliseo');
+    expect(aliseo.thresholds).toMatchObject({ isee: 28339, ispe: 61608 });
+    expect(amountAt(aliseo, 10000, 'fuoriSede')).toBe(8247.8);
+    expect(amountAt(aliseo, 16000, 'pendolare')).toBe(4191);
+    expect(amountAt(aliseo, 25000, 'inSede')).toBe(1446);
+  });
+});

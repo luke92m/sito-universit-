@@ -2537,6 +2537,128 @@
         "label": "ERSU Catania, bando borse di studio 2026/27",
         "url": "https://www.ersucatania.it/category/bando-borsa-di-studio-a-a-2026-2027/"
       }
+    },
+    {
+      "id": "aliseo",
+      "name": "ALiSEO – Agenzia ligure per gli studenti e l’orientamento",
+      "shortName": "ALiSEO",
+      "region": "Liguria",
+      "universityIds": [
+        "ateneo-01001"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 28339,
+        "ispe": 61608,
+        "source": {
+          "label": "Bando ALiSEO 2026/27, art. 11, Tab. 6",
+          "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi lordi della Tabella 8, con la maggiorazione del 15% fino a 14.169,50 € di ISEE. Ai pendolari si trattengono 1.165 € per la mensa, ai fuori sede anche 2.600 € per l’alloggio ALiSEO; chi è in sede riceve tutto in denaro più un pasto gratuito al giorno.",
+        "bands": [
+          {
+            "iseeMax": 14169.5,
+            "fuoriSede": 8247.8,
+            "pendolare": 4819.65,
+            "inSede": 3324.65
+          },
+          {
+            "iseeMax": 18893,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2891
+          },
+          {
+            "iseeMax": 28339,
+            "fuoriSede": 5307,
+            "pendolare": 2724,
+            "inSede": 1446
+          }
+        ],
+        "source": {
+          "label": "Bando ALiSEO 2026/27, art. 17.1, Tab. 8",
+          "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% per ISEE basso (si applica il 20%)",
+          "source": {
+            "label": "Bando ALiSEO 2026/27, art. 17.1",
+            "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+          }
+        },
+        {
+          "label": "+25% per gli studenti con disabilità",
+          "percent": 25,
+          "conditional": "invalidità riconosciuta secondo l’art. 13 del bando",
+          "source": {
+            "label": "Bando ALiSEO 2026/27, artt. 12 e 17.1",
+            "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a più corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "richiesta online dal 1 al 15 ottobre 2026",
+          "source": {
+            "label": "Bando ALiSEO 2026/27, art. 12",
+            "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero dalla tassa regionale per il diritto allo studio",
+        "Esonero dai contributi universitari",
+        "Un pasto gratuito al giorno nelle mense ALiSEO e il secondo a tariffa ridotta",
+        "Posto alloggio gratuito per i fuori sede idonei (o contributo affitto se mancano posti)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ALiSEO 2026/27, artt. 1 e 17.2",
+        "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune lontano dalla sede (Tabella A del bando) e alloggio nelle residenze ALiSEO o, se mancano posti, con contratto d’affitto registrato.",
+        "pendolare": "Residenza in un comune diverso dalla sede; anche chi vive in un comune della Tabella A ma non chiede l’alloggio ALiSEO.",
+        "inSede": "Residenza nel comune sede del corso.",
+        "source": {
+          "label": "Bando ALiSEO 2026/27, art. 4 e Tabella A",
+          "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Tutta la quota in denaro con 20 crediti registrati entro il 10 agosto 2027",
+          "Metà della quota con 20 crediti entro il 30 novembre 2027"
+        ],
+        "note": "Al primo anno la quota in denaro arriva solo dopo i 20 crediti; mensa e alloggio partono subito dopo le graduatorie definitive. Senza 20 crediti entro il 30 novembre 2027 si restituisce il valore dei servizi usati.",
+        "source": {
+          "label": "Bando ALiSEO 2026/27, artt. 8 e 24.2",
+          "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-15",
+        "closes": "2026-07-31",
+        "closesTime": "12:00",
+        "note": "Domanda online sul sito ALiSEO con SPID o CIE; serve l’ISEE universitario 2026.",
+        "source": {
+          "label": "Bando ALiSEO 2026/27, art. 7, Tab. 1",
+          "url": "https://www.aliseo.liguria.it/wp-content/uploads/2026/10/bando-attribuzione-dei-benefici-a.a.-2026_2027.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ALiSEO, borsa di studio universitaria 2026/27",
+        "url": "https://www.aliseo.liguria.it/benefici-economici-universitari/borsa-di-studio-universitaria/bando-2026-2027-istruzioni-per-luso/"
+      }
     }
   ]
 }
