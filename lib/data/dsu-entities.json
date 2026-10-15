@@ -2401,6 +2401,142 @@
         "label": "ERSU Palermo, borse di studio",
         "url": "https://www.ersupalermo.it/category/borse-di-studio/"
       }
+    },
+    {
+      "id": "ersu-catania",
+      "name": "ERSU Catania – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Catania",
+      "region": "Sicilia",
+      "universityIds": [
+        "ateneo-08701"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 25000,
+        "ispe": 60000,
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, Tab. 6",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo base +15% fino a 12.500 € di ISEE, poi ridotto a scalini del 10% per ogni quindicesimo della soglia, fino alla metà oltre 23.333 €. Comprende 1.700 € per l’alloggio (solo fuori sede con contratto d’affitto o senza posto letto) e i pasti, trattenuti come servizio.",
+        "bands": [
+          {
+            "iseeMax": 12500,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 16666.67,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 18333.33,
+            "fuoriSede": 6454,
+            "pendolare": 3771.64,
+            "inSede": 2601.14
+          },
+          {
+            "iseeMax": 19999.99,
+            "fuoriSede": 5736.89,
+            "pendolare": 3352.57,
+            "inSede": 2312.13
+          },
+          {
+            "iseeMax": 21666.66,
+            "fuoriSede": 5019.78,
+            "pendolare": 2933.5,
+            "inSede": 2023.11
+          },
+          {
+            "iseeMax": 23333.32,
+            "fuoriSede": 4302.67,
+            "pendolare": 2514.43,
+            "inSede": 1734.1
+          },
+          {
+            "iseeMax": 25000,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, art. 21 e Tab. 9",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con gli altri incrementi (si applica il più alto)",
+          "source": {
+            "label": "Bando ERSU Catania 2026/27, art. 21",
+            "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+          }
+        },
+        {
+          "label": "+40% per gli studenti con disabilità (L. 104/92 o invalidità dal 66%)",
+          "percent": 40,
+          "conditional": "non cumulabile con gli altri incrementi",
+          "source": {
+            "label": "Bando ERSU Catania 2026/27, art. 21",
+            "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso d’ufficio della tassa regionale per il diritto allo studio",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo",
+        "Pasti nelle mense ERSU compresi nella borsa"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ERSU Catania 2026/27, artt. 21 e 26",
+        "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza lontana dalla sede e alloggio in residenza ERSU o in affitto con contratto registrato per almeno 10 mesi (dichiarazione di locazione).",
+        "pendolare": "Residenza in un comune da cui si raggiunge ogni giorno la sede (Tab. 11 del bando); finché non presenti il contratto d’affitto sei considerato pendolare.",
+        "inSede": "Residenza nel comune della sede o nell’area circostante (Tab. 11 del bando).",
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, artt. 22-23",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026, come pendolare o in sede",
+          "50% con almeno 15 crediti al 10 agosto 2027 e 20 al 30 novembre 2027, come fuori sede se hai presentato il contratto"
+        ],
+        "note": "La quota da fuori sede arriva con il saldo, dopo la dichiarazione di locazione o l’accettazione del posto letto.",
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, art. 24",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-24",
+        "closes": "2026-08-10",
+        "closesTime": "14:00",
+        "note": "Domanda online sul portale studenti ERSU Catania.",
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, promemoria",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Catania, bando borse di studio 2026/27",
+        "url": "https://www.ersucatania.it/category/bando-borsa-di-studio-a-a-2026-2027/"
+      }
     }
   ]
 }

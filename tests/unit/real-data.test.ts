@@ -833,3 +833,23 @@ describe('Palermo 2026/27: tasse Unipa e borse ERSU', () => {
     expect(amountAt(ersu, 22000, 'fuoriSede')).toBe(3585.56); // metà
   });
 });
+
+describe('Catania 2026/27: tasse Unict e borse ERSU', () => {
+  const rule = tuitionRuleFor('ateneo-08701')!;
+
+  it('Tabella 2.A: 7% oltre 22.000 €, poi 560 € + 4,6% e 1.650 € + 2,347%, massimo 2.150 €', () => {
+    expect(contributionFor(rule, 22000, 2150)).toBe(0);
+    expect(contributionFor(rule, 26000, 2150)).toBe(280);
+    expect(contributionFor(rule, 40000, 2150)).toBe(1020);
+    expect(contributionFor(rule, 60000, 2150)).toBe(1797.93); // 1.650 + 0,02347 × 6.303
+    expect(contributionFor(rule, 80000, 2150)).toBe(2150);
+  });
+
+  it('ERSU Catania: soglia 25.000 €, +15% fino a 12.500 €, metà oltre 23.333 €', () => {
+    const ersu = dsuEntityFor('ateneo-08701')!;
+    expect(ersu.thresholds).toMatchObject({ isee: 25000, ispe: 60000 });
+    expect(amountAt(ersu, 12000, 'pendolare')).toBe(4819.32);
+    expect(amountAt(ersu, 17000, 'pendolare')).toBe(3771.64); // −10%: 3.171,64 € + 600 € di pasti in Tab. 9.2
+    expect(amountAt(ersu, 24000, 'fuoriSede')).toBe(3585.56);
+  });
+});

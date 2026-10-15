@@ -8728,6 +8728,80 @@
         }
       },
       "simulator": "https://www.unipa.it/servizi/segreterie/.content/documenti/regolamenti_calendari/2026/contrib-stu-2026_27.pdf"
+    },
+    "ateneo-08701": {
+      "name": "Università di Catania",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole (al primo anno conta solo l’ISEE 2026 per il diritto allo studio) e studenti regolari con i crediti minimi: Tabella 2.A.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Quota fissa di 156 € (tassa regionale 140 € e bollo 16 €), uguale per tutti.",
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 22000,
+          "rate": 0.07,
+          "base": 0
+        },
+        {
+          "iseeMax": 53697,
+          "from": 30000,
+          "rate": 0.046,
+          "base": 560
+        },
+        {
+          "iseeMax": 75000,
+          "from": 53697,
+          "rate": 0.02347,
+          "base": 1650
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2150
+        }
+      ],
+      "bandsSource": {
+        "label": "Unict, Manifesto degli studi 2026/27, par. 6.2 e Tabella 2.A",
+        "url": "https://www.unict.it/sites/default/files/documenti_sito/dr_manifesto_degli_studi_26-27_con_allegato_signed.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2150,
+        "ciclo-unico": 2150,
+        "magistrale": 2150
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 22.000 € di ISEE; poi 7% oltre 22.000 € fino a 30.000 €, 560 € + 4,6% oltre 30.000 € fino a 53.697 €, 1.650 € + 2,347% oltre 53.697 € fino a 75.000 €; oltre 75.000 € o senza ISEE 2.150 €. Stessi importi per tutti i corsi; agli studenti irregolari si aggiungono 200 €.",
+      "maxSource": {
+        "label": "Unict, Manifesto degli studi 2026/27, Tabella 2",
+        "url": "https://www.unict.it/sites/default/files/documenti_sito/dr_manifesto_degli_studi_26-27_con_allegato_signed.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Quota fissa (156 €) all’immatricolazione, alle scadenze del bando del corso",
+          "Prima parte del contributo entro il 16 dicembre 2026 (tutto, se fino a 200 €)",
+          "Seconda parte entro il 31 marzo 2027",
+          "Terza parte (20%) entro il 31 maggio 2027, solo oltre 800 €"
+        ],
+        "note": "Serve l’ISEE 2026 per il diritto allo studio; senza, si paga il massimo. Riduzione del 10% per più studenti dello stesso nucleo (bonus famiglia), non nel calcolo.",
+        "source": {
+          "label": "Unict, Manifesto degli studi 2026/27, par. 7.1 e Tabella 3",
+          "url": "https://www.unict.it/sites/default/files/documenti_sito/dr_manifesto_degli_studi_26-27_con_allegato_signed.pdf"
+        }
+      },
+      "simulator": "https://www.unict.it/sites/default/files/documenti_sito/dr_manifesto_degli_studi_26-27_con_allegato_signed.pdf"
     }
   }
 }
