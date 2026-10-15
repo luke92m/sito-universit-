@@ -10054,6 +10054,278 @@
         }
       },
       "simulator": "https://www.unitus.it/studenti/tasse-e-contributi/"
+    },
+    "ateneo-01601": {
+      "name": "Università di Bergamo",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "All’iscrizione: tassa regionale lombarda (130 € fino a 26.887,93 €, 160 € fino a 53.775,86 €, poi 190 €; senza ISEE 190 €) e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26887.93,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53775.86,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 26000,
+          "rate": 0.085,
+          "base": 0
+        },
+        {
+          "iseeMax": 33000,
+          "from": 28000,
+          "rate": 0.028,
+          "base": 543.2
+        },
+        {
+          "iseeMax": 46000,
+          "from": 33000,
+          "rate": 0.04,
+          "base": 683.2
+        },
+        {
+          "iseeMax": 58000,
+          "from": 46000,
+          "rate": 0.048,
+          "base": 1203.2
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0,
+          "base": 1783
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1883
+        }
+      ],
+      "bandsSource": {
+        "label": "UniBG, Guida alla contribuzione studentesca 2026/27, Tabelle 1-5",
+        "url": "https://www.unibg.it/sites/default/files/media/documents/2026-08-31/Guida%20alla%20contribuzione%20studentesca%20a.a.%202026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1883,
+        "ciclo-unico": 1883,
+        "magistrale": 1883
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "area-1",
+          "label": "Area 1 (economia, giurisprudenza, lettere, lingue, educazione)",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 26000,
+              "rate": 0.085,
+              "base": 0
+            },
+            {
+              "iseeMax": 33000,
+              "from": 28000,
+              "rate": 0.028,
+              "base": 543.2
+            },
+            {
+              "iseeMax": 46000,
+              "from": 33000,
+              "rate": 0.04,
+              "base": 683.2
+            },
+            {
+              "iseeMax": 58000,
+              "from": 46000,
+              "rate": 0.048,
+              "base": 1203.2
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 1783
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1883
+            }
+          ],
+          "max": 1883
+        },
+        {
+          "id": "area-2",
+          "label": "Area 2 (psicologia triennale, formazione primaria)",
+          "groups": [],
+          "names": [
+            "Scienze Psicologiche",
+            "Scienze della Formazione Primaria",
+            "Scienze e tecniche psicologiche delle relazioni interpersonali e delle organizzazioni sociali",
+            "Progettazione di contesti di vita accessibili ed inclusivi"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 26000,
+              "rate": 0.085,
+              "base": 50
+            },
+            {
+              "iseeMax": 33000,
+              "from": 28000,
+              "rate": 0.028,
+              "base": 593.2
+            },
+            {
+              "iseeMax": 46000,
+              "from": 33000,
+              "rate": 0.04,
+              "base": 753.2
+            },
+            {
+              "iseeMax": 58000,
+              "from": 46000,
+              "rate": 0.048,
+              "base": 1293.2
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 1883
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1983
+            }
+          ],
+          "max": 1983
+        },
+        {
+          "id": "area-3",
+          "label": "Area 3 (ingegneria, scienze motorie, psicologia clinica)",
+          "groups": [
+            "Ingegneria industriale e dell'informazione",
+            "Architettura e Ingegneria civile",
+            "Scienze motorie e sportive"
+          ],
+          "names": [
+            "Psicologia Clinica",
+            "Psicologia della salute nei contesti sociali, organizzativi e di comunità"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 26000,
+              "rate": 0.085,
+              "base": 100
+            },
+            {
+              "iseeMax": 33000,
+              "from": 28000,
+              "rate": 0.028,
+              "base": 643.2
+            },
+            {
+              "iseeMax": 46000,
+              "from": 33000,
+              "rate": 0.04,
+              "base": 823.2
+            },
+            {
+              "iseeMax": 58000,
+              "from": 46000,
+              "rate": 0.048,
+              "base": 1373.2
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 1983
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2083
+            }
+          ],
+          "max": 2083
+        }
+      ],
+      "maxNote": "No tax area fino a 28.000 €. Tra 28.000 e 30.000 € l’8,5% dell’ISEE oltre 26.000 €; oltre 30.000 € a scaglioni: 1,94% fino a 28.000 €, 2,8% fino a 33.000 €, 4% fino a 46.000 €, 4,8% fino a 58.000 €; poi importi fissi (fascia G fino a 70.000 €, fascia H oltre o senza ISEE: 1.883 € area 1, 1.983 € area 2, 2.083 € area 3). Le aree 2 e 3 aggiungono da 50 a 170 € secondo la fascia. Chi non ha i crediti o è fuori corso paga di più.",
+      "maxSource": {
+        "label": "UniBG, Guida alla contribuzione studentesca 2026/27, Tabelle 2-5",
+        "url": "https://www.unibg.it/sites/default/files/media/documents/2026-08-31/Guida%20alla%20contribuzione%20studentesca%20a.a.%202026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Tassa regionale e bollo con l’immatricolazione (corsi ad accesso libero entro il 2 ottobre 2026)",
+          "Prima rata del contributo (400 €, o tutto se fino a 430 €) entro il 15 febbraio 2027",
+          "Seconda rata (il resto) entro il 17 maggio 2027"
+        ],
+        "note": "L’ISEE universitario va richiesto entro il 15 dicembre 2026. Immatricolazione tardiva ai corsi ad accesso libero fino al 13 novembre 2026 con 95 € di sanzione. La guida scrive «17 maggio 2025» in un punto: è un refuso, altrove 2027.",
+        "source": {
+          "label": "UniBG, Guida alla contribuzione studentesca 2026/27, Scadenze",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-08-31/Guida%20alla%20contribuzione%20studentesca%20a.a.%202026-2027.pdf"
+        }
+      },
+      "simulator": "https://www.unibg.it/sites/default/files/media/documents/2026-08-31/Guida%20alla%20contribuzione%20studentesca%20a.a.%202026-2027.pdf"
     }
   }
 }

@@ -2659,6 +2659,141 @@
         "label": "ALiSEO, borsa di studio universitaria 2026/27",
         "url": "https://www.aliseo.liguria.it/benefici-economici-universitari/borsa-di-studio-universitaria/bando-2026-2027-istruzioni-per-luso/"
       }
+    },
+    {
+      "id": "unibg-dsu",
+      "name": "Università di Bergamo – Diritto allo studio universitario",
+      "shortName": "Università di Bergamo",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01601"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), par. 3.2",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro, che comprende già il rimborso della tassa regionale; in più un pasto al giorno gratuito (829 €). Il fuori sede nelle residenze riceve meno denaro (4.620 €, 3.544 € o 2.229 €) più il posto letto.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 7419,
+            "pendolare": 3991,
+            "inSede": 2601
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 6343,
+            "pendolare": 3362,
+            "inSede": 2162
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5028,
+            "pendolare": 2470,
+            "inSede": 1314
+          }
+        ],
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), parr. 4.1 e 4.3.1",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "inSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ]
+        },
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), par. 4.3.1",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi della Scuola di Ingegneria",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% della prima fascia",
+          "source": {
+            "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), par. 4.4.1",
+            "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+          }
+        }
+      ],
+      "accessRequirement": {
+        "text": "Al primo anno di triennale o ciclo unico serve un voto di maturità di almeno 70/100; per confermare la borsa servono 35 crediti entro il 10 agosto 2027 (20 per le magistrali).",
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), par. 3.1.1",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "connectedBenefits": [
+        "Mensa gratuita (un pasto al giorno)",
+        "Rimborso della tassa regionale compreso nella borsa",
+        "Esonero dal contributo onnicomprensivo per i vincitori"
+      ],
+      "connectedBenefitsSource": {
+        "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), parr. 2 e 4.3",
+        "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Oltre 90 minuti con i mezzi pubblici (calcolo con «Muoversi in Lombardia») e alloggio a pagamento o in residenza per almeno 10 mesi.",
+        "pendolare": "Da 60 a 90 minuti con i mezzi pubblici.",
+        "inSede": "Fino a 60 minuti con i mezzi pubblici dal comune di residenza (per le sedi di Bergamo si aggiungono 15 minuti dalla stazione).",
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), par. 4.2",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Metà della borsa lorda, meno mensa e alloggio dell’anno, entro il 31 dicembre 2026",
+          "Il saldo dal luglio 2027, con 35 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Con i crediti raggiunti solo entro il 30 novembre 2027 si ha metà della borsa.",
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), par. 8.1",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-10-05",
+        "closesTime": "12:00",
+        "note": "Domanda online sullo Sportello Internet Studenti; per chi chiede anche l’alloggio la scadenza era il 3 settembre 2026.",
+        "source": {
+          "label": "UniBG, Bando DSU 2026/27 (versione del 27/7/2026), scadenze e par. 3.4",
+          "url": "https://www.unibg.it/sites/default/files/media/documents/2026-07-27/All.%20A%29%20Bando%20DSU%20A.A.%202026-2.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "UniBG, Bando borse di studio e residenze 2026/27",
+        "url": "https://www.unibg.it/bandi/bando-borse-studio-e-residenze-universitarie-aa-20262027-scholarships-and-accommodation"
+      }
     }
   ]
 }

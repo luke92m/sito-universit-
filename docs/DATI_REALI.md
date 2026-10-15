@@ -31,6 +31,7 @@ Borse (bandi 2026/27):
 | ERSU Palermo | Università di Palermo | 23.000 / 52.500 | — (Tab. 8.1 e 8.2 non ancora inserite) |
 | ERSU Catania | Università di Catania | 25.000 / 60.000 | — (Tab. 11 non ancora inserita) |
 | ALiSEO | Università di Genova | 28.339 / 61.608 | — (Tabella A dei comuni fuori sede non inserita) |
+| Università di Bergamo (DSU) | Università di Bergamo | 26.887,93 / 58.452,06 | — (tempi di percorrenza, non elenchi) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -68,6 +69,7 @@ Tasse (2026/27):
 - **Cassino**: Regolamento tasse e contributi 2026/27 (D.R. 482/2026), artt. 2-4 e Tabella I (in corso con i crediti e matricole): esonero fino a 22.000 €, poi importi fissi per fasce di 1.000 € di ISEE fino a 2.500 € oltre 49.000 € o senza ISEE. Tassa regionale Lazio 140 €, bollo 16 €. Il PDF è una scansione con OCR: gli importi sono stati riletti uno per uno.
 - **Sannio**: pagina «Tasse di iscrizione» 2026/27 e simulatore ufficiale (assets/simulator.js, regole scritte nel codice): no tax area fino a 30.000 € (matricole e studenti in corso con i crediti), poi importi fissi per fasce di 5.000 € di ISEE: triennali 1.400-1.750 €, magistrali e ciclo unico 1.450-1.800 € (oltre 65.000 € o senza ISEE). Tassa regionale campana 130/151/173 €. Le misure premiali dipendono da bandi: fuori dal calcolo. Il regolamento in PDF non è pubblicato sulla pagina.
 - **Tuscia**: Disciplina tasse e contributi 2026/27 (Allegato A, CdA 18/6/2026), par. 5, 7.2-7.4: no tax area fino a 26.000 €, poi interpolazione lineare tra i punti della Tabella 3 (curva «con requisiti», che vale per le matricole) fino a 2.394 € da 120.000 € o senza ISEE. I test usano gli esempi del documento. Cinque rate uguali. Non nel calcolo: bonus per voto di maturità (100/175 €), maggiorazioni, Conservazione e restauro.
+- **Bergamo**: Guida alla contribuzione 2026/27 (versione del 31/8/2026), Tabelle 1-5: no tax area fino a 28.000 €, 8,5% dell'ISEE oltre 26.000 € fino a 30.000 €, poi scaglioni 1,94/2,8/4/4,8% fino a 58.000 €, poi importi fissi (fasce G e H). Tre aree didattiche (campo `courseGroups`): area 2 per nome, area 3 per macroarea (Scuola di Ingegneria, scienze motorie) e per nome (Psicologia Clinica), con maggiorazioni per fascia. Tassa regionale lombarda 130/160/190 €. I test usano gli esempi della guida. Borse: bando DSU UniBG 2026/27 con gli importi regionali lombardi (uguali alla Statale), voto minimo 70/100 e 35 crediti al primo anno.
 
 ## Fonti
 

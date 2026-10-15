@@ -993,3 +993,30 @@ describe('borse ALiSEO 2026/27 (Genova)', () => {
     expect(amountAt(aliseo, 25000, 'inSede')).toBe(1446);
   });
 });
+
+describe('Bergamo 2026/27: tasse UniBG e borse DSU', () => {
+  const rule = tuitionRuleFor('ateneo-01601')!;
+  const lettere = courseGroup(rule, { name: 'Lettere', classCode: 'L-10', group: 'Letterario' })!;
+  const ing = courseGroup(rule, { name: 'Ingegneria Informatica', classCode: 'L-8', group: 'Ingegneria industriale e dell\'informazione' })!;
+  const psi = courseGroup(rule, { name: 'Scienze Psicologiche', classCode: 'L-24', group: 'Psicologico' })!;
+
+  it('aree didattiche: 1 predefinita, 2 per nome, 3 per macroarea', () => {
+    expect([lettere.id, psi.id, ing.id]).toEqual(['area-1', 'area-2', 'area-3']);
+  });
+
+  it('no tax area fino a 28.000 €, 8,5% oltre 26.000 € fino a 30.000 €, poi scaglioni (esempi della guida)', () => {
+    expect(contributionFor(rule, 28000, lettere.max, lettere.bands)).toBe(0);
+    expect(contributionFor(rule, 29000, lettere.max, lettere.bands)).toBe(255);
+    expect(contributionFor(rule, 32500, lettere.max, lettere.bands)).toBe(669.2);
+    expect(contributionFor(rule, 40500, ing.max, ing.bands)).toBe(1123.2);
+    expect(contributionFor(rule, 65000, psi.max, psi.bands)).toBe(1883);
+    expect(contributionFor(rule, null, ing.max, ing.bands)).toBe(2083);
+  });
+
+  it('borse con gli importi regionali lombardi e voto minimo di maturità', () => {
+    const dsu = dsuEntityFor('ateneo-01601')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(dsu, 15000, 'fuoriSede')).toBe(6343);
+    expect(dsu.accessRequirement?.text).toContain('70/100');
+  });
+});
