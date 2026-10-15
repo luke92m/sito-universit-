@@ -879,3 +879,21 @@ describe('tasse Università di Genova 2026/27', () => {
     expect(fixedFeesRange(rule, exact(40000)).min).toBe(176);
   });
 });
+
+describe('tasse Politecnico di Bari 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07202')!;
+
+  it('no tax area fino a 26.000 €, minimo 101 €, poi la formula dell’Appendice', () => {
+    expect(contributionFor(rule, 26000, 2257.6)).toBe(0);
+    expect(contributionFor(rule, 26500, 2257.6)).toBe(101);
+    expect(contributionFor(rule, 29000, 2257.6)).toBe(420); // 14% × 3.000
+    expect(contributionFor(rule, 60000, 2257.6)).toBe(1409.56); // 1,017 × 693 / 30.000 × 60.000
+    expect(contributionFor(rule, 90000, 2257.6)).toBe(2257.6);
+    expect(contributionFor(rule, null, 2257.6)).toBe(2257.6);
+  });
+
+  it('tassa regionale ADISU Puglia 146/170/195 €', () => {
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(162);
+    expect(fixedFeesRange(rule, exact(60000)).min).toBe(211);
+  });
+});

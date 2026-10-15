@@ -9039,6 +9039,100 @@
         }
       },
       "simulator": "https://servizionline.unige.it/web-esterni2/it/#/simulatoretasse"
+    },
+    "ateneo-07202": {
+      "name": "Politecnico di Bari",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti (al primo anno conta solo l’ISEE), con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 195,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 211
+      },
+      "fixedFeesNote": "Prima rata: bollo 16 € e quota base della tassa regionale ADISU Puglia; il saldo della tassa (146, 170 o 195 € secondo l’ISEE, D.G.R. Puglia 848/2026) arriva con la seconda rata.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 146
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 170
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 195
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26721.43,
+          "from": 0,
+          "rate": 0,
+          "base": 101
+        },
+        {
+          "iseeMax": 29881,
+          "from": 26000,
+          "rate": 0.14,
+          "base": 0
+        },
+        {
+          "iseeMax": 89999.99,
+          "from": 0,
+          "rate": 0.0234927,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2257.6
+        }
+      ],
+      "bandsSource": {
+        "label": "Politecnico di Bari, Regolamento tasse 2026/27, art. 1, art. 4 e Appendice (formula)",
+        "url": "https://www.poliba.it/sites/default/files/Tasse/Regolamento_contribuzione_studentesca_Politecnico_di_Bari_26_27_.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2257.6,
+        "ciclo-unico": 2257.6,
+        "magistrale": 2257.6
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 26.000 €. Poi la formula dell’Appendice: 14% × (ISEE − 26.000) fino a 29.881 €, (1 + 0,017) × 693 / 30.000 × ISEE fino a 90.000 €, poi il massimo. Il contributo minimo fuori dalla no tax area è 101 € (art. 4). L’art. 1 fissa il massimo (oltre 90.000 €, senza ISEE o con ISEE ordinario) a 2.257,60 €; la formula darebbe 2.256,72 €: usiamo l’importo dell’art. 1. Chi è fuori corso o senza i crediti richiesti paga la formula +6% e +200 € (fino a 3.000 €), non nel calcolo.",
+      "maxSource": {
+        "label": "Politecnico di Bari, Regolamento tasse 2026/27, art. 1",
+        "url": "https://www.poliba.it/sites/default/files/Tasse/Regolamento_contribuzione_studentesca_Politecnico_di_Bari_26_27_.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo e quota base della tassa ADISU) con l’immatricolazione",
+          "Seconda rata (20% del contributo e saldo della tassa ADISU) entro il 28 febbraio 2027",
+          "Terza rata (40%) entro il 31 maggio 2027",
+          "Quarta rata (40%) entro il 31 luglio 2027"
+        ],
+        "note": "Le rate da almeno 200 € si possono dividere a metà dal portale Esse3 (seconda metà 30 giorni dopo). L’ISEE per il diritto allo studio va presentato all’INPS entro il 31 dicembre 2026: il Politecnico lo acquisisce da solo.",
+        "source": {
+          "label": "Politecnico di Bari, Regolamento tasse 2026/27, artt. 1-2",
+          "url": "https://www.poliba.it/sites/default/files/Tasse/Regolamento_contribuzione_studentesca_Politecnico_di_Bari_26_27_.pdf"
+        }
+      },
+      "simulator": "https://www.poliba.it/it/didattica/tasse"
     }
   }
 }
