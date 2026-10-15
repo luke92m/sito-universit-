@@ -967,3 +967,17 @@ describe('tasse Università del Sannio 2026/27', () => {
     expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(1800);
   });
 });
+
+describe('tasse Università della Tuscia 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05601')!;
+
+  it('no tax area fino a 26.000 €, poi interpolazione lineare della Tabella 3 (esempi del par. 7.4)', () => {
+    expect(contributionFor(rule, 26000, 2394)).toBe(0);
+    expect(contributionFor(rule, 27000, 2394)).toBe(267.75);
+    expect(contributionFor(rule, 30000, 2394)).toBe(1071);
+    expect(contributionFor(rule, 37000, 2394)).toBe(1530);
+    expect(contributionFor(rule, 55000, 2394)).toBe(2135);
+    expect(contributionFor(rule, 150000, 2394)).toBe(2394);
+    expect(contributionFor(rule, null, 2394)).toBe(2394);
+  });
+});
