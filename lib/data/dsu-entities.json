@@ -2264,6 +2264,143 @@
         "label": "ADISU Puglia, borse di studio",
         "url": "https://adisupuglia.it/pagina106703_borse-di-studio.html/"
       }
+    },
+    {
+      "id": "ersu-palermo",
+      "name": "ERSU Palermo – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Palermo",
+      "region": "Sicilia",
+      "universityIds": [
+        "ateneo-08201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 23000,
+        "ispe": 52500,
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, art. 8",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo base +15% sotto 11.500 € di ISEE, poi ridotto a scalini del 10% per ogni quindicesimo della soglia, fino alla metà oltre 21.466,67 €. Comprende 1.700 € per l’alloggio (solo fuori sede con contratto d’affitto) e la quota mensa (1.200 € fuori sede, 600 € gli altri), trattenuta dove il servizio è attivo.",
+        "bands": [
+          {
+            "iseeMax": 11499.99,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 15333.33,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 16866.67,
+            "fuoriSede": 6454,
+            "pendolare": 3771.64,
+            "inSede": 2601.14
+          },
+          {
+            "iseeMax": 18400,
+            "fuoriSede": 5736.89,
+            "pendolare": 3352.57,
+            "inSede": 2312.13
+          },
+          {
+            "iseeMax": 19933.33,
+            "fuoriSede": 5019.78,
+            "pendolare": 2933.5,
+            "inSede": 2023.11
+          },
+          {
+            "iseeMax": 21466.67,
+            "fuoriSede": 4302.67,
+            "pendolare": 2514.43,
+            "inSede": 1734.1
+          },
+          {
+            "iseeMax": 23000,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, art. 21 e Tab. 7",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con gli altri incrementi (si applica il più alto)",
+          "source": {
+            "label": "Bando ERSU Palermo 2026/27, art. 21",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        {
+          "label": "+40% per gli studenti con disabilità (L. 104/92 o invalidità dal 66%)",
+          "percent": 40,
+          "conditional": "non cumulabile con gli altri incrementi",
+          "source": {
+            "label": "Bando ERSU Palermo 2026/27, art. 21",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso della tassa regionale per il diritto allo studio",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo",
+        "Pasti gratuiti nelle mense ERSU (fino a due al giorno per i fuori sede)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ERSU Palermo 2026/27, artt. 21 e 26",
+        "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza lontana dalla sede del corso e alloggio in residenza ERSU o in affitto con contratto registrato per almeno 10 mesi (dichiarazione di locazione dal 2 novembre 2026 all’8 gennaio 2027).",
+        "pendolare": "Residenza in un comune da cui si può raggiungere ogni giorno la sede (Tab. 8.2 del bando); finché non presenti il contratto d’affitto sei considerato pendolare.",
+        "inSede": "Residenza nel comune della sede o nell’area circostante (Tab. 8.1 del bando); anche chi segue corsi online.",
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, artt. 22-23",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026 (dopo l’iscrizione)",
+          "50% con almeno 15 crediti al 10 agosto 2027 e 20 al 30 novembre 2027 (saldo entro il 30 giugno 2027 o dopo i crediti)"
+        ],
+        "note": "Chi non è in sede riceve le prime rate come pendolare finché non presenta il contratto d’affitto.",
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, art. 24",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-05",
+        "closes": "2026-07-22",
+        "closesTime": "14:00",
+        "note": "Domanda online sul portale studenti ERSU Palermo.",
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, scadenzario",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Palermo, borse di studio",
+        "url": "https://www.ersupalermo.it/category/borse-di-studio/"
+      }
     }
   ]
 }

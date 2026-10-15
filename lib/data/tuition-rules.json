@@ -7772,6 +7772,962 @@
         }
       },
       "simulator": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
+    },
+    "ateneo-08201": {
+      "name": "Università di Palermo",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole a tempo pieno (al primo anno conta solo l’ISEE), cittadini con ISEE per il diritto allo studio universitario. Corsi in presenza: per quelli a distanza c’è una maggiorazione da 100 € a 400 € (non nel calcolo).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Tassa regionale (140 €) e bollo (16 €): è tutto quello che paga chi è nella no tax area.",
+      "bands": [
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 25488.37,
+          "from": 25000,
+          "rate": 0.25,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 25488.37,
+          "rate": 0.035,
+          "base": 122.09
+        },
+        {
+          "iseeMax": 28000,
+          "from": 26000,
+          "rate": 0.0525,
+          "base": 210
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.063,
+          "base": 378
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 1447
+        },
+        {
+          "iseeMax": 36500,
+          "from": 0,
+          "rate": 0,
+          "base": 1540
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1633
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1725
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1844
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 2027
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 2123
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 2221
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 2388
+        },
+        {
+          "iseeMax": 80000,
+          "from": 0,
+          "rate": 0,
+          "base": 2711
+        },
+        {
+          "iseeMax": 90000,
+          "from": 0,
+          "rate": 0,
+          "base": 2813
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2914
+        }
+      ],
+      "bandsSource": {
+        "label": "Unipa, Tabella della contribuzione studentesca 2026/27 (delibera CdA del 2 luglio 2026)",
+        "url": "https://www.unipa.it/servizi/segreterie/.content/documenti/regolamenti_calendari/2026/contrib-stu-2026_27.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2914,
+        "ciclo-unico": 2914,
+        "magistrale": 2914
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "medica",
+          "label": "area medico-veterinaria (Medicina, Odontoiatria, Veterinaria)",
+          "groups": [],
+          "nameIncludes": [
+            "Medicina e Chirurgia",
+            "Medicine and Surgery",
+            "Odontoiatria",
+            "Medicina Veterinaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25428.57,
+              "from": 25000,
+              "rate": 0.28,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25428.57,
+              "rate": 0.035,
+              "base": 120
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1618
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 1722
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1829
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1937
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2071
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2281
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2390
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2504
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2694
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 3067
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 3182
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3298
+            }
+          ],
+          "max": 3298
+        },
+        {
+          "id": "professioni-sanitarie",
+          "label": "professioni sanitarie",
+          "groups": [],
+          "nameIncludes": [
+            "Professione Sanitaria",
+            "Professioni Sanitarie",
+            "Scienze Infermieristiche",
+            "Scienze Riabilitative"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25396.23,
+              "from": 25000,
+              "rate": 0.3,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25396.23,
+              "rate": 0.035,
+              "base": 118.87
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1698
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 1807
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1917
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 2028
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2167
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2381
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2496
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2613
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2808
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 3192
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 3312
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3431
+            }
+          ],
+          "max": 3431
+        },
+        {
+          "id": "restauro",
+          "label": "Conservazione e restauro dei beni culturali",
+          "groups": [],
+          "nameIncludes": [
+            "Conservazione e Restauro"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25344.26,
+              "from": 25000,
+              "rate": 0.34,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25344.26,
+              "rate": 0.035,
+              "base": 117.05
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1950
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 2075
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 2202
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 2329
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2490
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2738
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2870
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 3004
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 3232
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 3674
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 3812
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3948
+            }
+          ],
+          "max": 3948
+        },
+        {
+          "id": "formazione-psicologia",
+          "label": "Scienze della formazione primaria e Psicologia",
+          "groups": [
+            "Psicologico"
+          ],
+          "nameIncludes": [
+            "Scienze della Formazione Primaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25411.76,
+              "from": 25000,
+              "rate": 0.29,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25411.76,
+              "rate": 0.035,
+              "base": 119.41
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1665
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 1774
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1884
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1994
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2134
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2348
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2462
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2580
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2775
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 3157
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 3277
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3397
+            }
+          ],
+          "max": 3397
+        },
+        {
+          "id": "scientifica-per-nome",
+          "label": "area scientifica (corsi di Architettura e Agraria con nomi di altre aree)",
+          "groups": [],
+          "nameIncludes": [
+            "Design",
+            "Disegno Industriale",
+            "Scienze Gastronomiche",
+            "Enogastronomia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25488.37,
+              "from": 25000,
+              "rate": 0.25,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25488.37,
+              "rate": 0.035,
+              "base": 122.09
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1447
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 1540
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1633
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1725
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1844
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2027
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2123
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2221
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2388
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 2711
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 2813
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2914
+            }
+          ],
+          "max": 2914
+        },
+        {
+          "id": "umanistica",
+          "label": "area umanistica",
+          "groups": [
+            "Giuridico",
+            "Politico-Sociale e Comunicazione",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Educazione e Formazione",
+            "Economico",
+            "Arte e Design",
+            "Scienze motorie e sportive"
+          ],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25538.46,
+              "from": 25000,
+              "rate": 0.23,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25538.46,
+              "rate": 0.035,
+              "base": 123.85
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1323
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 1405
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1490
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1574
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1683
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 1848
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 1936
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2024
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2176
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 2471
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 2562
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2655
+            }
+          ],
+          "max": 2655,
+          "nameIncludes": [
+            "Attività Motorie"
+          ]
+        },
+        {
+          "id": "scientifica",
+          "label": "area scientifica",
+          "groups": [],
+          "bands": [
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 25488.37,
+              "from": 25000,
+              "rate": 0.25,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 25488.37,
+              "rate": 0.035,
+              "base": 122.09
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.0525,
+              "base": 210
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.063,
+              "base": 378
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 1447
+            },
+            {
+              "iseeMax": 36500,
+              "from": 0,
+              "rate": 0,
+              "base": 1540
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1633
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1725
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1844
+            },
+            {
+              "iseeMax": 55000,
+              "from": 0,
+              "rate": 0,
+              "base": 2027
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2123
+            },
+            {
+              "iseeMax": 65000,
+              "from": 0,
+              "rate": 0,
+              "base": 2221
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2388
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 2711
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 2813
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2914
+            }
+          ],
+          "max": 2914,
+          "default": true
+        }
+      ],
+      "maxNote": "No tax area fino a 25.000 € di ISEE. Tra 25.000 e 30.000 € si paga una percentuale dell’ISEE oltre 25.000 € (23% umanistica, 25% scientifica, 28% medica, 30% professioni sanitarie, 29% formazione primaria e psicologia, 34% restauro), ma mai più del tetto del D.M. 1014/2021, che in quasi tutta la fascia è più basso. Oltre 30.000 € le classi 16-27 della tabella; oltre 90.000 € o senza ISEE da 2.655 € (umanistica) a 3.948 € (restauro). L’area è dedotta dalla macroarea e dal nome del corso (art. 3 del regolamento).",
+      "maxSource": {
+        "label": "Unipa, Regolamento in materia di contribuzione studentesca (D.R. 2581/2024), artt. 3-4",
+        "url": "https://www.unipa.it/servizi/scuoledispecializzazione/.content/documenti/regolamento_tasse/2024_2025/regolamento-tasse-2024_2025.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Tassa regionale, bollo e prima rata (40% del contributo) all’iscrizione",
+          "Seconda rata (30%) entro il 29 dicembre 2026",
+          "Terza rata (30%) entro il 28 febbraio 2027"
+        ],
+        "note": "Per gli iscritti agli anni successivi la prima rata scade il 30 settembre 2026; per le matricole vale la data dell’immatricolazione.",
+        "source": {
+          "label": "Unipa, Tabella della contribuzione studentesca 2026/27",
+          "url": "https://www.unipa.it/servizi/segreterie/.content/documenti/regolamenti_calendari/2026/contrib-stu-2026_27.pdf"
+        }
+      },
+      "simulator": "https://www.unipa.it/servizi/segreterie/.content/documenti/regolamenti_calendari/2026/contrib-stu-2026_27.pdf"
     }
   }
 }

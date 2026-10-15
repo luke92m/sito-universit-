@@ -801,3 +801,35 @@ describe('tasse Università di Bari 2026/27', () => {
     expect(amountAt(adisu, 20000, 'inSede')).toBe(2312.8);
   });
 });
+
+describe('Palermo 2026/27: tasse Unipa e borse ERSU', () => {
+  const rule = tuitionRuleFor('ateneo-08201')!;
+  const courses = getCourses('ateneo-08201');
+  const group = (name: string) => courseGroup(rule, courses.find((course) => course.name === name)!)!;
+
+  it('no tax area fino a 25.000 €, poi il minore tra regola di ateneo e tetto del D.M. 1014', () => {
+    const um = group('Economia e Finanza');
+    expect(um.id).toBe('umanistica');
+    expect(contributionFor(rule, 25000, um.max, um.bands)).toBe(0);
+    expect(contributionFor(rule, 25400, um.max, um.bands)).toBe(92); // 23% × 400 < 7% × 3.400 × 50%
+    expect(contributionFor(rule, 27000, um.max, um.bands)).toBe(262.5); // tetto D.M.: 7% × 5.000 × 75%
+    expect(contributionFor(rule, 31000, um.max, um.bands)).toBe(1323); // classe 16
+    expect(contributionFor(rule, null, um.max, um.bands)).toBe(2655); // classe 27
+  });
+
+  it('aree dell’art. 3: Medicina, professioni sanitarie, scienze motorie, gastronomia', () => {
+    expect(group('Medicina e Chirurgia')).toMatchObject({ id: 'medica', max: 3298 });
+    expect(group('Scienze delle Attività Motorie e Sportive').id).toBe('umanistica');
+    expect(group('Scienze Gastronomiche').id).toBe('scientifica-per-nome');
+    expect(group('Statistica per l\'Analisi dei Dati').id).toBe('scientifica');
+  });
+
+  it('ERSU Palermo: soglia 23.000 €, +15% sotto 11.500 €, riduzioni a scalini fino alla metà', () => {
+    const ersu = dsuEntityFor('ateneo-08201')!;
+    expect(ersu.thresholds).toMatchObject({ isee: 23000, ispe: 52500 });
+    expect(amountAt(ersu, 10000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(ersu, 14000, 'pendolare')).toBe(4190.71);
+    expect(amountAt(ersu, 17000, 'inSede')).toBe(2312.13); // −20%
+    expect(amountAt(ersu, 22000, 'fuoriSede')).toBe(3585.56); // metà
+  });
+});

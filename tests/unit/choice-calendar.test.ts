@@ -29,6 +29,6 @@ describe('calendario della scelta per ateneo', () => {
   });
 
   it('ateneo senza dati curati né bando: solo la regola dell’ISEE', () => {
-    expect(choiceCalendar('ateneo-08201').map((item) => item.kind)).toEqual(['isee']);
+    expect(choiceCalendar('ateneo-06307').map((item) => item.kind)).toEqual(['isee']);
   });
 });
