@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRef, useState, type FormEvent } from 'react';
 import { useSite } from '@/components/site/SiteProvider';
 import type { CoursePreferences } from '@/lib/client/types';
+import { isEnabled } from '@/lib/features';
 import { QUESTIONS, rankCourses, vectorFromAnswers, type RankedCourse } from '@/lib/domain/course-catalog';
 
 type Answers = Record<string, string | string[]>;
@@ -232,8 +233,9 @@ export function CourseFinder({ onResult, onFindUniversity }: Props) {
               <span className="eyebrow">Personalizza i confronti</span>
               <h3>Ricorda queste preferenze?</h3>
               <p>
-                Se accetti, il comparatore mostrerà quanto ogni corso è vicino ai tuoi interessi. Con un profilo attivo le
-                preferenze sono salvate nel tuo account, altrimenti restano nel browser di questo dispositivo.
+                Se accetti, il comparatore mostrerà quanto ogni corso è vicino ai tuoi interessi. {isEnabled('account')
+                  ? 'Con un profilo attivo le preferenze sono salvate nel tuo account, altrimenti restano nel browser di questo dispositivo.'
+                  : 'Le preferenze restano solo nel browser di questo dispositivo.'}
               </p>
             </div>
             <div className="remember-actions">

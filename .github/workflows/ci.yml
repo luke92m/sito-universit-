@@ -19,3 +19,26 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+
+  # Percorso pubblico nel browser (finder, comparatore, borse, metodo) sulla build di produzione.
+  # I test con account (auth.spec.ts) restano locali: servono Supabase e un utente di test.
+  e2e:
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_CHANNEL: chromium
+      E2E_BASE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Avvio del sito
+        run: |
+          npm run start &
+          for i in $(seq 1 60); do curl -sf http://localhost:3000 > /dev/null && exit 0; sleep 1; done
+          exit 1
+      - run: npx playwright test tests/e2e/public.spec.ts

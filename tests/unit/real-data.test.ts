@@ -130,6 +130,21 @@ describe('altri enti 2026/27: valori controllati sui bandi', () => {
     expect(scholarshipFor(mib, exact(27000), none, 'fuoriSede').status).toBe('not-eligible');
     expect(mib.accessRequirement?.text).toContain('70/100');
   });
+
+  it('Statale e Politecnico di Milano: stessi importi regionali, senza voto minimo di maturità', () => {
+    for (const id of ['ateneo-01501', 'ateneo-01502']) {
+      const lombardia = entity(id);
+      expect(lombardia.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+      expect(amountAt(lombardia, 10000, 'inSede')).toBe(2601);
+      expect(amountAt(lombardia, 15000, 'pendolare')).toBe(3362);
+      expect(amountAt(lombardia, 20000, 'fuoriSede')).toBe(5028);
+      expect(scholarshipFor(lombardia, exact(15000), none, 'inSede').inKind[0].value).toBe(829);
+      expect(scholarshipFor(lombardia, exact(20000), exact(60000), 'inSede').status).toBe('not-eligible');
+      expect(lombardia.accessRequirement).toBeUndefined();
+    }
+    expect(entity('ateneo-01501').shortName).toBe('Statale di Milano');
+    expect(entity('ateneo-01502').shortName).toBe('Politecnico di Milano');
+  });
 });
 
 describe('tasse Università di Padova 2026/27', () => {
@@ -309,6 +324,55 @@ describe('tasse Università di Pisa 2026/27', () => {
     expect(tasse('fuoriSede')).toMatchObject({ min: 679.35, max: 679.35 });
     expect(tasse('pendolare')).toMatchObject({ min: 679.35, max: 969 });
     expect(tasse('inSede')).toMatchObject({ min: 969, max: 969 });
+  });
+});
+
+describe('tasse Statale di Milano 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01501')!;
+  const courses = getCourses('ateneo-01501');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+  const areaA = courseGroup(rule, named('Giurisprudenza'))!;
+  const areaB = courseGroup(rule, named('Scienze Sociali per la Globalizzazione'))!;
+  const pay = (isee: number | null, group = areaA) => contributionFor(rule, isee, group.max, group.bands);
+
+  it('area A per nome esatto dall’Allegato 1, area B per tutti gli altri corsi', () => {
+    expect(areaA.id).toBe('A');
+    expect(areaB.id).toBe('B');
+    expect(courseGroup(rule, named("Filologia, Letterature e Storia dell'Antichità"))?.id).toBe('A');
+    expect(courseGroup(rule, named('Lingue e Letterature Straniere'))?.id).toBe('B');
+    expect(courseGroup(rule, null)?.id).toBe('B');
+  });
+
+  it('no-tax area fino a 30.000 €, poi 3% e 6,7%; area B × 1,28', () => {
+    expect(pay(30000)).toBe(0);
+    expect(pay(30000.01)).toBe(150);
+    expect(pay(38000)).toBe(390);
+    expect(pay(50000)).toBe(1194);
+    expect(pay(90000)).toBe(3204);
+    expect(pay(50000, areaB)).toBe(1528.32);
+    expect(pay(null, areaB)).toBe(4101.12);
+    expect(fixedFeesRange(rule, exact(40000)).regionalTax.min).toBe(160);
+    expect(fixedFeesRange(rule, none).max).toBe(206);
+  });
+});
+
+describe('tasse Politecnico di Milano 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01502')!;
+
+  it('esonero fino a 22.000 €, formule della tabella 4.2 fino a 30.000 €', () => {
+    expect(contributionFor(rule, 22000, 3726)).toBe(0);
+    expect(contributionFor(rule, 23000, 3726)).toBe(77);
+    expect(contributionFor(rule, 25000, 3726)).toBe(304.5);
+    expect(contributionFor(rule, 30000, 3726)).toBe(1071);
+  });
+
+  it('fasce di reddito delle tabelle 1 e 2, contributo pieno oltre 95.000 €', () => {
+    expect(contributionFor(rule, 30500, 3726)).toBe(1474);
+    expect(contributionFor(rule, 45000, 3726)).toBe(2109);
+    expect(contributionFor(rule, 95000, 3726)).toBe(3189);
+    expect(contributionFor(rule, 100000, 3726)).toBe(3726);
+    expect(contributionFor(rule, null, 3726)).toBe(3726);
+    expect(fixedFeesRange(rule, none).max).toBe(217.04);
   });
 });
 
@@ -506,5 +570,312 @@ describe('esonero dalle tasse per gli idonei, anche senza le regole dell’atene
     expect(line('tasse')).toMatchObject({ min: 0, max: 0, estimated: false });
     expect(line('borsa')?.max).toBe(2262);
     expect(line('servizi')?.max).toBe(4910);
+  });
+});
+
+describe('tasse Roma Tre 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05807')!;
+  const triennale = { name: 'Economia', classCode: 'L-18' };
+  const magistrale = { name: 'Economia', classCode: 'LM-77' };
+
+  it('Allegato A, matricole: esonero fino a 23.000 €, art. 22.4 fino a 30.000 €, poi fasce da 1.000 €', () => {
+    const bands = courseGroup(rule, triennale)!.bands;
+    expect(contributionFor(rule, 23000, 2060, bands)).toBe(0);
+    expect(contributionFor(rule, 23500, 2060, bands)).toBe(140); // 296 − 156
+    expect(contributionFor(rule, 24500, 2060, bands)).toBe(385); // 522 + 19 − 156
+    expect(contributionFor(rule, 30500, 2060, bands)).toBe(740); // 522 + 374 − 156
+    expect(contributionFor(rule, 87500, 2060, bands)).toBe(1813); // fascia 75: 522 + 550 + 550 + 347 − 156
+    expect(contributionFor(rule, 150000, 2060, bands)).toBe(2060); // fascia 88
+    expect(contributionFor(rule, null, 2060, bands)).toBe(2060);
+  });
+
+  it('lauree magistrali: tabella propria, massimo 2.090 €', () => {
+    const group = courseGroup(rule, magistrale)!;
+    expect(group.id).toBe('magistrali');
+    expect(maxContribution(rule, magistrale)).toBe(2090);
+    expect(contributionFor(rule, 26500, 2090, group.bands)).toBe(682.5); // 522 + 316,50 − 156
+    expect(contributionFor(rule, 30500, 2090, group.bands)).toBe(770);
+    expect(courseGroup(rule, triennale)!.id).toBe('triennali');
+  });
+});
+
+describe('tasse Tor Vergata 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05802')!;
+  const tv = getUniversityById('ateneo-05802')!;
+  const named = (name: string) => getCourses('ateneo-05802').find((course) => course.name === name)!;
+  // Seconda + terza rata dal simulatore ufficiale (matricole 2026/27, tassazione ordinaria), ottobre 2026.
+  const CLASS_1: [number, number][] = [
+    [26000, 0], [26001, 321], [27000, 346], [28000, 370], [28001, 417], [29000, 445], [30000, 472],
+    [30001, 1055], [35000, 1153], [40000, 1252], [50000, 1449], [52000, 1488], [59999, 1646], [60001, 1654],
+    [70000, 1852], [79999, 2050], [80001, 2068], [85000, 2168], [89999, 2268], [90000, 2270], [95000, 2270]
+  ];
+  const CLASS_2: [number, number][] = [
+    [26001, 364], [27000, 392], [28001, 472], [30000, 535], [30001, 1224], [35000, 1667], [40000, 2110],
+    [45000, 2210], [52000, 2351], [59999, 2511], [60001, 2530], [70000, 2720], [80001, 2910], [89999, 3100]
+  ];
+
+  it('classe 1 (Giurisprudenza, Economia…): il modello coincide con il simulatore entro 2 €', () => {
+    const group = courseGroup(rule, { name: 'Giurisprudenza', classCode: 'LMG/01' })!;
+    expect(group.id).toBe('classe-1');
+    for (const [isee, expected] of CLASS_1) {
+      expect(Math.abs(contributionFor(rule, isee, group.max, group.bands) - expected)).toBeLessThanOrEqual(2);
+    }
+    expect(contributionFor(rule, null, group.max, group.bands)).toBe(2270);
+  });
+
+  it('classe 2 (Medicina e chirurgia, magistrali sanitarie): massimo 3.100 €', () => {
+    const group = courseGroup(rule, { name: 'Medicina e Chirurgia', classCode: 'LM-41' })!;
+    expect(group.id).toBe('classe-2');
+    expect(courseGroup(rule, { name: 'Scienze Riabilitative delle Professioni Sanitarie', classCode: 'LM/SNT2' })!.id).toBe(
+      'classe-2'
+    );
+    for (const [isee, expected] of CLASS_2) {
+      expect(Math.abs(contributionFor(rule, isee, group.max, group.bands) - expected)).toBeLessThanOrEqual(2);
+    }
+  });
+
+  it('corsi delle classi superiori non inseriti: media dichiarata e dato mancante', () => {
+    const cost = realCost(tv, named('Medicina Veterinaria'), exact(40000), none, 'inSede');
+    expect(cost.tuitionRule).toBe(false);
+    expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
+    expect(cost.missing.join(' ')).toContain('classe di contribuzione');
+    expect(realCost(tv, named('Giurisprudenza'), exact(40000), none, 'inSede').tuitionRule).toBe(true);
+  });
+});
+
+describe('tasse Università di Salerno 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06501')!;
+
+  it('no tax area fino a 30.000 €, poi le fasce del § 3.3 (totale meno 16 € di bollo)', () => {
+    expect(contributionFor(rule, 30000, 1767)).toBe(0);
+    expect(contributionFor(rule, 30000.01, 1767)).toBe(1303); // fascia VI: 1.319 − 16
+    expect(contributionFor(rule, 45000, 1767)).toBe(1508); // fascia VIII: 1.524 − 16
+    expect(contributionFor(rule, 70000, 1767)).toBe(1631); // fascia X: 1.647 − 16
+    expect(contributionFor(rule, null, 1767)).toBe(1767); // senza ISEE: 1.783 − 16
+  });
+
+  it('tassa regionale campana per ISEE', () => {
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(146);
+    expect(fixedFeesRange(rule, exact(40000)).min).toBe(167);
+    expect(fixedFeesRange(rule, exact(60000)).min).toBe(189);
+  });
+});
+
+describe('tasse Vanvitelli 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06306')!;
+  const courses = getCourses('ateneo-06306');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+
+  it('MAC 1: esonero fino a 22.000 €, poi 7% oltre 22.000 € con le riduzioni del D.M. 1014/2021', () => {
+    const { bands, max } = courseGroup(rule, named('Matematica'))!;
+    expect(contributionFor(rule, 22000, max, bands)).toBe(0);
+    expect(contributionFor(rule, 23000, max, bands)).toBe(14); // 1.000 × 7% × 20%
+    expect(contributionFor(rule, 25000, max, bands)).toBe(105); // 3.000 × 7% × 50%
+    expect(contributionFor(rule, 30000, max, bands)).toBe(504); // 8.000 × 7% × 90%
+  });
+
+  it('MAC 2, matricole «senza merito»: fasce 8-13 per area del dipartimento (totale meno 16 € di bollo)', () => {
+    const area = (name: string) => courseGroup(rule, named(name))!;
+    expect(area('Medicina e Chirurgia').id).toBe('scientifica-1');
+    expect(area('Design per la Moda').id).toBe('scientifica-1');
+    expect(area('Farmacia').id).toBe('scientifica-2');
+    expect(area('Archeologia e Storia dell\'Arte').id).toBe('umanistica');
+    const medicina = area('Medicina e Chirurgia');
+    expect(contributionFor(rule, 31000, medicina.max, medicina.bands)).toBe(2017); // fascia 8: 2.033 − 16
+    expect(contributionFor(rule, 80000, medicina.max, medicina.bands)).toBe(2718); // fascia 13
+    const economia = area('Matematica');
+    expect(contributionFor(rule, 40000, economia.max, economia.bands)).toBe(2136); // fascia 10: 2.152 − 16
+    const giurisprudenza = courseGroup(rule, { name: 'Giurisprudenza', classCode: 'LMG/01', group: 'Giuridico' })!;
+    expect(contributionFor(rule, null, giurisprudenza.max, giurisprudenza.bands)).toBe(2406);
+  });
+});
+
+describe('tasse Università di Siena 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05201')!;
+  const courses = getCourses('ateneo-05201');
+  const named = (name: string) => courses.find((course) => course.name === name)!;
+
+  it('Tab. A, gruppo 1: esonero fino a 22.000 €, poi fasce per tipologia di corso', () => {
+    const us = courseGroup(rule, named('Matematica'))!; // L-35 equiparata all'umanistico-sociale
+    const ts = courseGroup(rule, named('Ingegneria Gestionale'))!;
+    const ue = courseGroup(rule, named('Medicina e Chirurgia'))!;
+    expect([us.id, ts.id, ue.id]).toEqual(['umanistico-sociale', 'tecnico-scientifica', 'sanitaria-ue']);
+    expect(contributionFor(rule, 22000, us.max, us.bands)).toBe(0);
+    expect(contributionFor(rule, 22400, us.max, us.bands)).toBe(122); // 2E
+    expect(contributionFor(rule, 24300, ts.max, ts.bands)).toBe(380); // 2J
+    expect(contributionFor(rule, 40500, ue.max, ue.bands)).toBe(1800); // 4A
+    expect(contributionFor(rule, 99500, ts.max, ts.bands)).toBe(2455); // 9K
+    expect(contributionFor(rule, null, ue.max, ue.bands)).toBe(2690); // 9X: senza ISEE
+  });
+
+  it('Dentistry ha una tabella propria non inserita: media dichiarata', () => {
+    const siena = getUniversityById('ateneo-05201')!;
+    const cost = realCost(siena, named('Dentistry And Dental Prosthodontics'), exact(40000), none, 'inSede');
+    expect(cost.tuitionRule).toBe(false);
+  });
+});
+
+describe('tasse Università di Parma 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-03401')!;
+  const courses = getCourses('ateneo-03401');
+  const group = (name: string) => courseGroup(rule, courses.find((course) => course.name === name)!)!;
+
+  it('formula lineare tra minimo e massimo per area (Allegato 3), esonero fino a 27.000 €', () => {
+    const st = group('Ingegneria Gestionale');
+    expect(st.id).toBe('scientifico-tecnologica');
+    expect(contributionFor(rule, 27000, st.max, st.bands)).toBe(0);
+    expect(contributionFor(rule, 28500, st.max, st.bands)).toBe(285); // 570 × 1.500/3.000
+    expect(contributionFor(rule, 35000, st.max, st.bands)).toBe(890); // 570 + (1.210 − 570) / 2
+    expect(contributionFor(rule, 70000, st.max, st.bands)).toBeCloseTo(2070, 0);
+    expect(contributionFor(rule, null, st.max, st.bands)).toBe(2070);
+  });
+
+  it('aree: Medicina 2.190 €, Odontoiatria 2.725 €, umanistico-sociale 1.950 €', () => {
+    expect(group('Medicina e Chirurgia')).toMatchObject({ id: 'medicina', max: 2190 });
+    expect(group('Odontoiatria e Protesi Dentaria')).toMatchObject({ id: 'odontoiatria', max: 2725 });
+    expect(group('Servizio Sociale')).toMatchObject({ id: 'umanistico-sociale', max: 1950 });
+    const um = group('Giurisprudenza');
+    expect(contributionFor(rule, 40000, um.max, um.bands)).toBe(1090);
+  });
+});
+
+describe('tasse Università di Ferrara 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-03801')!;
+
+  it('matricole: esonero fino a 27.000 €, poi (ISEE − 13.000) × coefficiente, 2.092 € oltre 60.000 €', () => {
+    expect(contributionFor(rule, 27000, 2092)).toBe(0);
+    expect(contributionFor(rule, 27500, 2092)).toBe(362.5); // 14.500 × 0,025
+    expect(contributionFor(rule, 29000, 2092)).toBe(520); // 16.000 × 0,0325
+    expect(contributionFor(rule, 40000, 2092)).toBe(1080); // 27.000 × 0,04
+    expect(contributionFor(rule, 60000, 2092)).toBe(2091.5); // 47.000 × 0,0445
+    expect(contributionFor(rule, null, 2092)).toBe(2092);
+  });
+});
+
+describe('tasse Università di Modena e Reggio Emilia 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-03601')!;
+  const courses = getCourses('ateneo-03601');
+  const group = (name: string, level: string) =>
+    courseGroup(rule, courses.find((course) => course.name === name && degreeLevel(course) === level)!)!;
+
+  it('Allegato 1: no tax area fino a 30.000 €, poi aliquote con franchigia 30.000 € e 0 €', () => {
+    const triennali = group('Ingegneria del Veicolo', 'triennale');
+    expect(triennali.id).toBe('triennali');
+    expect(contributionFor(rule, 30000, triennali.max, triennali.bands)).toBe(0);
+    expect(contributionFor(rule, 40000, triennali.max, triennali.bands)).toBe(878); // 8,78% × 10.000
+    expect(contributionFor(rule, 50000, triennali.max, triennali.bands)).toBe(1470); // 2,94% × 50.000
+    expect(contributionFor(rule, null, triennali.max, triennali.bands)).toBe(1815.33); // 1.975 − 159,67 di voci fisse
+  });
+
+  it('stesso nome, livelli diversi: Ingegneria del Veicolo magistrale ha aliquote proprie', () => {
+    const lm = group('Ingegneria del Veicolo', 'magistrale');
+    expect(lm.id).toBe('ingegneria-veicolo');
+    expect(contributionFor(rule, 40000, lm.max, lm.bands)).toBe(1146);
+    expect(group('Medicina e Chirurgia', 'ciclo-unico').max).toBe(2072.33);
+    expect(group('Odontoiatria e Protesi Dentaria', 'ciclo-unico').max).toBe(3297.33);
+  });
+});
+
+describe('tasse Università di Bari 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07201')!;
+
+  it('no tax area fino a 26.000 €, tetto del D.M. 1014 fino a 30.000 €, poi le formule della tabella 4.1.2', () => {
+    expect(contributionFor(rule, 26000, 2950)).toBe(0);
+    expect(contributionFor(rule, 27000, 2950)).toBe(637); // 14.000 × 7% × 65%
+    expect(contributionFor(rule, 29000, 2950)).toBe(952); // 16.000 × 7% × 85%
+    expect(contributionFor(rule, 40000, 2950)).toBe(1659.74); // (40.000 + 38.941,82)/25.000 × 525,62
+    expect(contributionFor(rule, 75000, 2950)).toBe(2256.22); // 2.012,44 + 25.000/50.000 × 487,56
+    expect(contributionFor(rule, null, 2950)).toBe(2950);
+  });
+
+  it('tassa regionale pugliese per ISEE', () => {
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(162);
+    expect(fixedFeesRange(rule, exact(60000)).min).toBe(211);
+  });
+
+  it('ADISU Puglia: +15% fino a 13.000 €, −20% oltre 17.333,33 €', () => {
+    const adisu = dsuEntityFor('ateneo-07201')!;
+    expect(adisu.shortName).toBe('ADISU Puglia');
+    expect(amountAt(adisu, 12000, 'fuoriSede')).toBe(8247.8);
+    expect(amountAt(adisu, 15000, 'pendolare')).toBe(4191);
+    expect(amountAt(adisu, 20000, 'inSede')).toBe(2312.8);
+  });
+});
+
+describe('Palermo 2026/27: tasse Unipa e borse ERSU', () => {
+  const rule = tuitionRuleFor('ateneo-08201')!;
+  const courses = getCourses('ateneo-08201');
+  const group = (name: string) => courseGroup(rule, courses.find((course) => course.name === name)!)!;
+
+  it('no tax area fino a 25.000 €, poi il minore tra regola di ateneo e tetto del D.M. 1014', () => {
+    const um = group('Economia e Finanza');
+    expect(um.id).toBe('umanistica');
+    expect(contributionFor(rule, 25000, um.max, um.bands)).toBe(0);
+    expect(contributionFor(rule, 25400, um.max, um.bands)).toBe(92); // 23% × 400 < 7% × 3.400 × 50%
+    expect(contributionFor(rule, 27000, um.max, um.bands)).toBe(262.5); // tetto D.M.: 7% × 5.000 × 75%
+    expect(contributionFor(rule, 31000, um.max, um.bands)).toBe(1323); // classe 16
+    expect(contributionFor(rule, null, um.max, um.bands)).toBe(2655); // classe 27
+  });
+
+  it('aree dell’art. 3: Medicina, professioni sanitarie, scienze motorie, gastronomia', () => {
+    expect(group('Medicina e Chirurgia')).toMatchObject({ id: 'medica', max: 3298 });
+    expect(group('Scienze delle Attività Motorie e Sportive').id).toBe('umanistica');
+    expect(group('Scienze Gastronomiche').id).toBe('scientifica-per-nome');
+    expect(group('Statistica per l\'Analisi dei Dati').id).toBe('scientifica');
+  });
+
+  it('ERSU Palermo: soglia 23.000 €, +15% sotto 11.500 €, riduzioni a scalini fino alla metà', () => {
+    const ersu = dsuEntityFor('ateneo-08201')!;
+    expect(ersu.thresholds).toMatchObject({ isee: 23000, ispe: 52500 });
+    expect(amountAt(ersu, 10000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(ersu, 14000, 'pendolare')).toBe(4190.71);
+    expect(amountAt(ersu, 17000, 'inSede')).toBe(2312.13); // −20%
+    expect(amountAt(ersu, 22000, 'fuoriSede')).toBe(3585.56); // metà
+  });
+});
+
+describe('Catania 2026/27: tasse Unict e borse ERSU', () => {
+  const rule = tuitionRuleFor('ateneo-08701')!;
+
+  it('Tabella 2.A: 7% oltre 22.000 €, poi 560 € + 4,6% e 1.650 € + 2,347%, massimo 2.150 €', () => {
+    expect(contributionFor(rule, 22000, 2150)).toBe(0);
+    expect(contributionFor(rule, 26000, 2150)).toBe(280);
+    expect(contributionFor(rule, 40000, 2150)).toBe(1020);
+    expect(contributionFor(rule, 60000, 2150)).toBe(1797.93); // 1.650 + 0,02347 × 6.303
+    expect(contributionFor(rule, 80000, 2150)).toBe(2150);
+  });
+
+  it('ERSU Catania: soglia 25.000 €, +15% fino a 12.500 €, metà oltre 23.333 €', () => {
+    const ersu = dsuEntityFor('ateneo-08701')!;
+    expect(ersu.thresholds).toMatchObject({ isee: 25000, ispe: 60000 });
+    expect(amountAt(ersu, 12000, 'pendolare')).toBe(4819.32);
+    expect(amountAt(ersu, 17000, 'pendolare')).toBe(3771.64); // −10%: 3.171,64 € + 600 € di pasti in Tab. 9.2
+    expect(amountAt(ersu, 24000, 'fuoriSede')).toBe(3585.56);
+  });
+});
+
+describe('tasse Università di Genova 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-01001')!;
+  const one = courseGroup(rule, { name: 'Economia Aziendale', classCode: 'L-18' })!;
+  const two = courseGroup(rule, { name: 'Ingegneria Meccanica', classCode: 'L-9' })!;
+
+  it('classe contributiva dalla classe di laurea (area ministeriale), anche con spazi nel codice', () => {
+    expect(one.id).toBe('classe-1');
+    expect(two.id).toBe('classe-2');
+    expect(courseGroup(rule, { name: 'Scienze della Formazione Primaria', classCode: 'LM-85 bis' })!.id).toBe('classe-1');
+  });
+
+  it('esonero fino a 24.000 €, 7% oltre 24.000 € fino a 30.000 €, poi le rette della tabella', () => {
+    expect(contributionFor(rule, 24000, one.max, one.bands)).toBe(0);
+    expect(contributionFor(rule, 28000, one.max, one.bands)).toBe(280);
+    expect(contributionFor(rule, 30000.01, two.max, two.bands)).toBe(1020);
+    expect(contributionFor(rule, 65000, one.max, one.bands)).toBe(2640);
+    expect(contributionFor(rule, 100000, two.max, two.bands)).toBe(3300);
+    expect(contributionFor(rule, null, one.max, one.bands)).toBe(3025);
+  });
+
+  it('tassa regionale ligure 120/140/160 €', () => {
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(136);
+    expect(fixedFeesRange(rule, exact(40000)).min).toBe(176);
   });
 });

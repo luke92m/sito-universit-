@@ -18,6 +18,7 @@ import {
   fixedFeesRange,
   maxContribution,
   offSiteContribution,
+  isExcludedCourse,
   tuitionRuleFor,
   type TuitionRule
 } from './tuition';
@@ -47,6 +48,8 @@ export interface RealCost {
   entity: Omit<DsuEntity, 'municipalities'> | null;
   scholarship: ScholarshipEstimate | null;
   lines: CostLine[];
+  /** Tasse calcolate con le regole per ISEE dell'ateneo (anche se tra due estremi l'importo è stimato). */
+  tuitionRule: boolean;
   total: { min: number; max: number };
   /** Cosa non è ancora coperto da dati verificati. */
   missing: string[];
@@ -109,7 +112,7 @@ function tuitionLines(
         label: 'Tasse universitarie',
         min: average,
         max: average,
-        note: 'Media pagata dagli iscritti che pagano: non dipende dal tuo ISEE. Le regole per fascia di questo ateneo non sono ancora nel sito.',
+        note: 'Media pagata dagli iscritti che pagano: non dipende dal tuo ISEE. Le regole per fascia di questo ateneo (o di questo corso) non sono ancora nel sito.',
         source: {
           label: 'MUR, contribuzione e interventi 2025',
           url: 'https://dati-ustat.mur.gov.it/dataset/2025-contribuzione-e-interventi-atenei'
@@ -171,10 +174,14 @@ export function realCost(
   const seatCity = course?.city || university.city;
   const entity = dsuEntityFor(university.id);
   const scholarship = entity ? scholarshipFor(entity, isee, ispe, condition) : null;
-  const rule = tuitionRuleFor(university.id);
+  const universityRule = tuitionRuleFor(university.id);
+  // Corso con importi propri non ancora inseriti: si usa la media dichiarata, come per gli atenei non coperti.
+  const excluded = universityRule ? isExcludedCourse(universityRule, course) : false;
+  const rule = excluded ? null : universityRule;
   const missing: string[] = [];
   const lines = tuitionLines(rule, university, course, isee, scholarship, condition);
-  if (!rule) missing.push('Tasse per fascia ISEE di questo ateneo');
+  if (excluded) missing.push(`Tasse per fascia ISEE di questo corso: ${universityRule!.excludedCourses!.note}`);
+  else if (!rule) missing.push('Tasse per fascia ISEE di questo ateneo');
 
   if (condition === 'fuoriSede') {
     const rent = roomRent(seatCity, university.macroArea);
@@ -252,7 +259,36 @@ export function realCost(
     entity: entity ? withoutMunicipalities(entity) : null,
     scholarship,
     lines,
+    tuitionRule: Boolean(rule),
     total,
     missing
+  };
+}
+
+/** Versione corta del costo reale, per le liste di risultati: totale ed etichette di copertura. */
+export interface RealCostSummary {
+  total: { min: number; max: number };
+  condition: StudentCondition;
+  /** Tasse calcolate con le regole per ISEE dell'ateneo (non la media nazionale). */
+  tuitionVerified: boolean;
+  scholarship: { entity: string; status: ScholarshipEstimate['status'] } | null;
+  /** Parte della borsa che avanza dopo i costi calcolati (0 se non avanza nulla). */
+  surplus: { min: number; max: number };
+}
+
+export function summarizeRealCost(cost: RealCost): RealCostSummary {
+  const tuition = cost.lines.find((line) => line.key === 'tasse');
+  const sum = (grant: boolean, key: 'min' | 'max') =>
+    cost.lines.filter((line) => GRANT_KEYS.includes(line.key) === grant).reduce((total, line) => total + line[key], 0);
+  return {
+    surplus: {
+      min: Math.max(0, Math.round(sum(true, 'min') - sum(false, 'max'))),
+      max: Math.max(0, Math.round(sum(true, 'max') - sum(false, 'min')))
+    },
+    total: cost.total,
+    condition: cost.condition,
+    tuitionVerified: cost.tuitionRule || Boolean(tuition && !tuition.estimated),
+    scholarship:
+      cost.entity && cost.scholarship ? { entity: cost.entity.shortName, status: cost.scholarship.status } : null
   };
 }

@@ -4,7 +4,9 @@ import { isVisible, type FeatureKey } from './features';
 export const SITE_CONFIG = {
   name: 'NOME SITO',
   tagline: 'Scopri quale università fa per te e quanto ti costa davvero, borsa compresa.',
-  note: 'nome da decidere'
+  note: 'nome da decidere',
+  /** Indirizzo per segnalare errori nei dati: vuoto finché non viene deciso. */
+  contactEmail: ''
 };
 
 /** Regola fissa del sito: va scritta dove compaiono risultati e confronti. */
@@ -76,6 +78,7 @@ const PUBLIC_ROUTES: PublicRoute[] = [
   { path: '/borse', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/atenei', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/burocrazia', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/metodo', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/preparazione', changeFrequency: 'monthly', priority: 0.5, feature: 'preparazione' },
   { path: '/scuole-aziende', changeFrequency: 'yearly', priority: 0.3, feature: 'scuoleAziende' },
   { path: '/privacy', changeFrequency: 'yearly', priority: 0.2 }

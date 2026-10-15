@@ -13,6 +13,7 @@ import { generalCoursesSorted } from '@/lib/domain/course-catalog';
 import { useToday } from '@/lib/client/use-today';
 import { isCourseId, scholarshipHref } from '@/lib/flow/journey-params';
 import { NeutralityNote } from '@/components/site/NeutralityNote';
+import { ChoiceCalendar } from '@/components/tools/ChoiceCalendar';
 
 interface SelectedCourse {
   name: string;
@@ -145,6 +146,8 @@ function BureaucracyResult({
           </p>
         </article>
       </div>
+
+      <ChoiceCalendar universityId={university.id} />
 
       <div className="bureaucracy-columns">
         <article className="service-card checklist-card">

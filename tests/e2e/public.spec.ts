@@ -7,6 +7,8 @@ test('home e navigazione principale', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toContainText('fa per te');
   await expect(page.getByText('nessun ateneo paga per comparire', { exact: true })).toBeVisible();
   await expect(page.getByText('99 istituti universitari')).toBeVisible();
+  await expect(page.getByText(/\d+ atenei con costi verificati/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cosa trovi oggi.' })).toBeVisible();
   await page.getByRole('navigation', { name: 'Navigazione principale' }).getByRole('link', { name: 'atenei' }).click();
   await expect(page).toHaveURL(/\/atenei$/);
 });
@@ -73,6 +75,8 @@ test('percorso completo senza account: risultati → confronto → iscrizione', 
   const cards = page.locator('.university-match-card');
   await expect(cards.first()).toBeVisible({ timeout: 20_000 });
   await expect(cards.first().locator('.university-match-why li')).not.toHaveCount(0);
+  // Costo reale del primo anno con ISEE e borsa in ogni risultato.
+  await expect(cards.first().locator('.university-real-cost-metric')).toContainText('il primo anno');
   // L'indirizzo dei risultati non conserva i dati personali.
   await expect(page).not.toHaveURL(/isee=|citta=/);
 
@@ -82,6 +86,7 @@ test('percorso completo senza account: risultati → confronto → iscrizione', 
 
   await expect(page).toHaveURL(/\/comparison\?mode=courses&a=.+&b=.+/);
   await expect(page.getByRole('heading', { name: 'Confronto tra corsi' })).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('.comparison-real-cost-card')).toHaveCount(2, { timeout: 20_000 });
   await expect(page.locator('.neutrality-note')).toBeVisible();
 
   await page.locator('.comparison-next-step a').first().click();
@@ -90,6 +95,8 @@ test('percorso completo senza account: risultati → confronto → iscrizione', 
   await expect(page.locator('.bureaucracy-selector-card select')).not.toHaveValue('', { timeout: 20_000 });
   await page.getByRole('button', { name: 'Crea la checklist' }).click();
   await expect(page.locator('.bureaucracy-result')).toBeVisible();
+  // Calendario della scelta: almeno la regola dell'ISEE, con la fonte.
+  await expect(page.locator('.choice-calendar')).toContainText('ISEE per le prestazioni universitarie', { timeout: 20_000 });
 
   await page.getByRole('link', { name: /Verifica le borse di studio/ }).click();
   await expect(page).toHaveURL(/\/borse\?ateneo=/);
@@ -130,10 +137,12 @@ test('funzioni spente: fuori dal menu e dagli indirizzi', async ({ page, request
   expect((await request.get('/scuole-aziende')).status()).toBe(404);
   expect((await request.get('/api/deadlines?universityId=x')).status()).toBe(404);
 
-  // Le sezioni spente dell'area personale riportano alle borse, riservate agli utenti registrati.
-  await page.goto('/area-studente/community');
-  await expect(page).toHaveURL(/\/area-studente\/borse-di-studio$/);
-  await expect(page.locator('.student-area-locked')).toBeVisible();
+  // Account spenti per la demo: niente profilo nell'header, area personale e accesso portano alle borse pubbliche.
+  await expect(page.locator('.profile-button')).toHaveCount(0);
+  for (const path of ['/area-studente/community', '/area-studente', '/reimposta-password']) {
+    await page.goto(path);
+    await expect(page).toHaveURL(/\/borse$/);
+  }
 
   const sitemap = await (await request.get('/sitemap.xml')).text();
   expect(sitemap).toContain('/trova-corso');
@@ -145,7 +154,7 @@ test('i vecchi URL .html reindirizzano', async ({ page }) => {
   await page.goto('/atenei.html');
   await expect(page).toHaveURL(/\/atenei$/);
   await page.goto('/area-studente.html?sezione=scadenze');
-  await expect(page).toHaveURL(/\/area-studente\/scadenze/);
+  await expect(page).toHaveURL(/\/borse(\?|$)/);
 });
 
 test('borsa e costo reale con i dati ufficiali ER.GO e UniBo', async ({ page }) => {
@@ -183,4 +192,32 @@ test('borsa DiSCo per Sapienza: pendolare da Fiano Romano, con i pasti gratuiti'
   await expect(result.locator('.real-cost-condition .is-active')).toHaveText('Pendolare');
   await expect(result.locator('.real-cost-grant')).toContainText('4.129');
   await expect(result.locator('.real-cost-line', { hasText: 'Servizi gratuiti' })).toContainText('600');
+});
+
+test('costo reale nel comparatore: ISEE, condizione ed etichette di copertura', async ({ page }) => {
+  await page.goto('/comparison');
+  await page.getByRole('button', { name: 'Confronta gli atenei' }).click();
+  const block = page.locator('.comparison-real-cost');
+  await expect(block.locator('.comparison-real-cost-card')).toHaveCount(2, { timeout: 20_000 });
+  await block.locator('select').selectOption('13000-16000');
+  await block.getByRole('button', { name: 'Fuori sede' }).click();
+  // Bologna e Padova: tasse per ISEE e borsa verificate, borsa sottratta.
+  await expect(block.locator('.comparison-real-cost-card').first()).toContainText('Tasse per ISEE verificate');
+  await expect(block.locator('.comparison-real-cost-card').first()).toContainText('Borsa di studio ER.GO');
+  await expect(block.locator('.comparison-real-cost-verdict')).not.toBeEmpty();
+});
+
+test('copertura dei dati: filtro negli atenei e pagina del metodo', async ({ page }) => {
+  await page.goto('/atenei');
+  await page.getByText('Solo atenei con tasse per ISEE verificate').click();
+  const cards = page.locator('.university-card');
+  await expect(cards).not.toHaveCount(99);
+  const count = await cards.count();
+  expect(count).toBeGreaterThanOrEqual(11);
+  await expect(cards.first().locator('.coverage-badge').first()).toHaveText('tasse per ISEE verificate');
+
+  await page.goto('/metodo');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Come calcoliamo quanto ti costa davvero');
+  await expect(page.getByRole('heading', { name: new RegExp(`Tasse per fascia ISEE: ${count} atenei`) })).toBeVisible();
+  await expect(page.locator('.method-sources a').first()).toHaveAttribute('href', /^https:\/\//);
 });

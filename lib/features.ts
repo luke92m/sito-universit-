@@ -12,6 +12,11 @@ export const FEATURES = {
   libriUsati: false,
   /** Guida "prossimi passi" nell'area personale. */
   accompagnamento: false,
+  /**
+   * Account (accesso, profilo, area personale, salvataggi su Supabase). Spento per la demo: tutto il percorso
+   * funziona senza e le preferenze restano solo nel browser. Riaccendendolo tornano login e area personale.
+   */
+  account: false,
   /** Rilevamento automatico delle scadenze dalle pagine ufficiali (/api/deadlines). */
   scadenzeScraping: false
 } as const;

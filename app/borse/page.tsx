@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { FlowSteps } from '@/components/flow/FlowSteps';
 import { NeutralityNote } from '@/components/site/NeutralityNote';
 import { ScholarshipCheck } from '@/components/tools/ScholarshipCheck';
+import { scholarshipEntities, universitiesWithScholarship, universitiesWithTuition } from '@/lib/domain/coverage';
 
 export const metadata: Metadata = {
   title: 'Borse di studio',
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function BorsePage() {
+  const entities = scholarshipEntities();
   return (
     <main>
       <section className="student-tool-shell">
@@ -24,9 +27,14 @@ export default function BorsePage() {
               nazionali: tutto in un numero, con la fonte accanto a ogni voce. Non serve un account.
             </p>
             <p className="verified-coverage">
-              <strong>Borse verificate sui bandi ufficiali 2026/27:</strong> Emilia-Romagna (ER.GO), Lazio (DiSCo),
-              Piemonte (EDISU), Toscana (DSU), Campania (ADISURC), Università di Padova e Milano-Bicocca.{' '}
-              <strong>Tasse per ISEE:</strong> Bologna, Padova, Firenze, Pisa, Sapienza, Federico II, Torino, Politecnico di Torino e Milano-Bicocca. Gli altri atenei li stiamo aggiungendo uno alla volta.
+              <strong>Borse verificate sui bandi ufficiali {[...new Set(entities.map((entity) => entity.academicYear))].join(', ')}:</strong>{' '}
+              {entities.map((entity) => `${entity.shortName} (${entity.region})`).join(', ')}, per{' '}
+              {universitiesWithScholarship().length} atenei. <strong>Tasse per ISEE:</strong>{' '}
+              {universitiesWithTuition()
+                .map((university) => university.name)
+                .join(', ')}
+              . Gli altri atenei li stiamo aggiungendo uno alla volta: per loro il sito usa la media nazionale e lo
+              dichiara. <Link href="/metodo">Come calcoliamo i costi</Link>
             </p>
           </div>
         </section>

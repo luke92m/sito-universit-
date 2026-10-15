@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import { AuthModal } from '@/components/site/AuthModal';
 import { Footer } from '@/components/site/Footer';
 import { Header } from '@/components/site/Header';
@@ -6,6 +7,7 @@ import { JourneyModal } from '@/components/site/JourneyModal';
 import { SiteProvider } from '@/components/site/SiteProvider';
 import { Toast } from '@/components/site/Toast';
 import { UNIVERSITIES } from '@/lib/data';
+import { isEnabled } from '@/lib/features';
 import { SITE_CONFIG } from '@/lib/site-config';
 import './globals.css';
 
@@ -33,10 +35,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           {children}
           <Footer />
-          <AuthModal />
-          <JourneyModal />
+          {isEnabled('account') ? (
+            <>
+              <AuthModal />
+              <JourneyModal />
+            </>
+          ) : null}
           <Toast />
         </SiteProvider>
+        {/* Statistiche anonime senza cookie: attive solo se abilitate nel progetto Vercel. */}
+        <Analytics />
       </body>
     </html>
   );

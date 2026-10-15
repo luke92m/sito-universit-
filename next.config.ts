@@ -1,4 +1,8 @@
 import type { NextConfig } from 'next';
+import { isEnabled } from './lib/features';
+
+// Con gli account spenti (lib/features.ts) area personale e pagine di accesso portano alle borse, pubbliche.
+const ACCOUNT_PATHS = ['/area-studente', '/area-studente/:path*', '/auth/:path*', '/reimposta-password', '/accesso-non-riuscito'];
 
 // Vecchi URL statici della v8 → nuovi percorsi (i parametri di query vengono conservati).
 const LEGACY_PAGES = ['atenei', 'comparison', 'trova-corso', 'preparazione', 'burocrazia', 'scuole-aziende'];
@@ -19,7 +23,10 @@ const nextConfig: NextConfig = {
         destination: '/area-studente/:sezione',
         permanent: true
       },
-      { source: '/area-studente.html', destination: '/area-studente', permanent: true }
+      { source: '/area-studente.html', destination: '/area-studente', permanent: true },
+      ...(isEnabled('account')
+        ? []
+        : ACCOUNT_PATHS.map((source) => ({ source, destination: '/borse', permanent: false })))
     ];
   }
 };

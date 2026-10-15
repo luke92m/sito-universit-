@@ -1892,6 +1892,651 @@
         "label": "Milano-Bicocca, Bando diritto allo studio 2026/27",
         "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
       }
+    },
+    {
+      "id": "unimi-dsu",
+      "name": "Università degli Studi di Milano – Borse di studio regionali per il diritto allo studio",
+      "shortName": "Statale di Milano",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01501"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 5.2",
+          "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro, che comprende già il rimborso della tassa regionale; in più un pasto al giorno gratuito (829 €).",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 7419,
+            "pendolare": 3991,
+            "inSede": 2601
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 6343,
+            "pendolare": 3362,
+            "inSede": 2162
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5028,
+            "pendolare": 2470,
+            "inSede": 1314
+          }
+        ],
+        "source": {
+          "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 6.3",
+          "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "inSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ]
+        },
+        "source": {
+          "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 6.3",
+          "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (calcolato sull’importo di seconda o terza fascia)",
+          "percent": 20,
+          "conditional": "solo per le studentesse STEM, se ci sono fondi",
+          "source": {
+            "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 6.3",
+            "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (un pasto al giorno)",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento d’Ateneo"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 6.3",
+        "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Oltre 90 minuti con i mezzi pubblici e alloggio a pagamento vicino alla sede per almeno 10 mesi (contratto entro il 16 novembre 2026).",
+        "pendolare": "Da 61 a 90 minuti con i mezzi pubblici.",
+        "inSede": "Residenza nel comune del corso o nei dintorni, fino a 60 minuti con i mezzi pubblici.",
+        "source": {
+          "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 6.2",
+          "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026",
+          "50% entro il 31 ottobre 2027, con il requisito minimo di merito raggiunto entro il 10 agosto 2027"
+        ],
+        "note": "Chi raggiunge i crediti solo entro il 30 novembre 2027 conserva la borsa con le regole dell’art. 4.2.2.",
+        "source": {
+          "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 10.1",
+          "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-10",
+        "closes": "2026-09-30",
+        "closesTime": "23:59",
+        "note": "Domanda online su studente.unimi.it/dirittoallostudio; la DSU per l’ISEE va sottoscritta entro il 30 settembre 2026.",
+        "source": {
+          "label": "Università degli Studi di Milano, Bando borse regionali 2026/27, art. 3.1",
+          "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Università degli Studi di Milano, Bando borse regionali 2026/27",
+        "url": "https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf"
+      }
+    },
+    {
+      "id": "polimi-dsu",
+      "name": "Politecnico di Milano – Borse di studio per il diritto allo studio",
+      "shortName": "Politecnico di Milano",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01502"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-13",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "Politecnico di Milano, Integrazione al Bando DSU 2026/27, art. 1",
+          "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Quota in denaro; in più un pasto al giorno gratuito (829 €, trattenuti dalla borsa). Il fuori sede nelle residenze del Politecnico riceve meno denaro (4.620 €, 3.544 € o 2.229 €) più il posto letto.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 7419,
+            "pendolare": 3991,
+            "inSede": 2601
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 6343,
+            "pendolare": 3362,
+            "inSede": 2162
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5028,
+            "pendolare": 2470,
+            "inSede": 1314
+          }
+        ],
+        "source": {
+          "label": "Politecnico di Milano, Integrazione al Bando DSU 2026/27, art. 4 e 7",
+          "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ],
+          "inSede": [
+            {
+              "label": "Mensa gratuita (un pasto al giorno)",
+              "value": 829
+            }
+          ]
+        },
+        "source": {
+          "label": "Politecnico di Milano, Integrazione al Bando DSU 2026/27, art. 4 e 7",
+          "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (calcolato sull’importo di seconda o terza fascia)",
+          "percent": 20,
+          "conditional": "solo per le studentesse STEM, se ci sono fondi",
+          "source": {
+            "label": "Politecnico di Milano, Integrazione al Bando DSU 2026/27, art. 6",
+            "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (un pasto al giorno)",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento d’Ateneo"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Politecnico di Milano, Integrazione al Bando DSU 2026/27, art. 4 e 7",
+        "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Oltre 90 minuti con i mezzi pubblici e alloggio a pagamento vicino alla sede (da chiedere con il Modulo A).",
+        "pendolare": "Tra 60 e 90 minuti con i mezzi pubblici, oppure oltre 90 minuti senza alloggio a pagamento («pendolare 90+»).",
+        "inSede": "Residenza nel comune del corso o nei dintorni, fino a 60 minuti con i mezzi pubblici; anche il corso online.",
+        "source": {
+          "label": "Politecnico di Milano, Bando DSU 2026/27, art. 14",
+          "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro dicembre 2026",
+          "50% entro ottobre 2027, solo con i crediti richiesti entro il 10 agosto 2027"
+        ],
+        "note": "Le date sono quelle in cui il Politecnico elabora la rata, non quelle dell’accredito.",
+        "source": {
+          "label": "Politecnico di Milano, Bando DSU 2026/27, art. 18",
+          "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-08-05",
+        "closesTime": "12:00",
+        "note": "Domanda online sui Servizi Online del Politecnico; l’ISEE viene letto dall’INPS con la data di sottoscrizione della DSU.",
+        "source": {
+          "label": "Politecnico di Milano, Bando DSU 2026/27, art. 3 e scadenze",
+          "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Politecnico di Milano, Bando DSU 2026/27",
+        "url": "https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf"
+      }
+    },
+    {
+      "id": "adisu-puglia",
+      "name": "ADISU Puglia – Agenzia per il diritto allo studio universitario",
+      "shortName": "ADISU Puglia",
+      "region": "Puglia",
+      "universityIds": [
+        "ateneo-07201",
+        "ateneo-07202",
+        "ateneo-07203",
+        "ateneo-07101",
+        "ateneo-07501"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 26000,
+        "ispe": 56000,
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 9",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "amounts": {
+        "note": "Importo base aumentato del 15% fino a 13.000 € di ISEE e ridotto del 20% oltre 17.333,33 €. Se ADISU può darti un pasto al giorno, 900 € sono trattenuti per la mensa; a chi ha un posto alloggio ADISU si trattengono 2.208 €.",
+        "bands": [
+          {
+            "iseeMax": 13000,
+            "fuoriSede": 8247.8,
+            "pendolare": 4819.65,
+            "inSede": 3324.65
+          },
+          {
+            "iseeMax": 17333.33,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2891
+          },
+          {
+            "iseeMax": 26000,
+            "fuoriSede": 5737.6,
+            "pendolare": 3352.8,
+            "inSede": 2312.8
+          }
+        ],
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 17, commi 1-4",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "comprende la maggiorazione del 15%, non si somma",
+          "source": {
+            "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 17, comma 4",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        },
+        {
+          "label": "+25% per gli studenti con disabilità pari o superiore al 66%",
+          "percent": 25,
+          "conditional": "con attestazione di invalidità",
+          "source": {
+            "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 17, comma 4",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso della tassa regionale (dopo i crediti minimi del primo anno)",
+        "Esonero o rimborso delle tasse universitarie, secondo il regolamento del tuo ateneo",
+        "Posto alloggio nelle residenze ADISU per i fuori sede, se disponibile"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 23, comma 3, e art. 8",
+        "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune ad almeno 60 minuti di mezzi pubblici dalla sede del corso e alloggio a titolo oneroso vicino alla sede per almeno 10 mesi (o posto in residenza ADISU).",
+        "pendolare": "Né in sede né fuori sede: per esempio residenza entro 60 minuti di mezzi pubblici (comuni dell’Allegato A del bando).",
+        "inSede": "Residenza nello stesso comune della sede del corso.",
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 2, lettera B, e art. 8",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026",
+          "50% dopo i crediti minimi raggiunti entro il 10 agosto 2027 (borsa dimezzata se raggiunti entro il 30 novembre 2027)"
+        ],
+        "note": "Le prime due rate richiedono la «Conferma iscrizione matricole» sul portale studenti; le magistrali sono pagate in due rate da 50%.",
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, art. 28, comma 1",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "application": {
+        "opens": "2026-07-14",
+        "closes": "2026-08-13",
+        "closesTime": "12:00",
+        "note": "Domanda online sul portale studenti ADISU Puglia; per dottorati e specializzazioni dal 1° al 30 ottobre 2026.",
+        "source": {
+          "label": "Bando ADISU Puglia «Benefici e servizi» 2026/27, scadenzario",
+          "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito. Per le matricole la graduatoria segue l’ISEE.",
+      "portal": {
+        "label": "ADISU Puglia, borse di studio",
+        "url": "https://adisupuglia.it/pagina106703_borse-di-studio.html/"
+      }
+    },
+    {
+      "id": "ersu-palermo",
+      "name": "ERSU Palermo – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Palermo",
+      "region": "Sicilia",
+      "universityIds": [
+        "ateneo-08201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 23000,
+        "ispe": 52500,
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, art. 8",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo base +15% sotto 11.500 € di ISEE, poi ridotto a scalini del 10% per ogni quindicesimo della soglia, fino alla metà oltre 21.466,67 €. Comprende 1.700 € per l’alloggio (solo fuori sede con contratto d’affitto) e la quota mensa (1.200 € fuori sede, 600 € gli altri), trattenuta dove il servizio è attivo.",
+        "bands": [
+          {
+            "iseeMax": 11499.99,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 15333.33,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 16866.67,
+            "fuoriSede": 6454,
+            "pendolare": 3771.64,
+            "inSede": 2601.14
+          },
+          {
+            "iseeMax": 18400,
+            "fuoriSede": 5736.89,
+            "pendolare": 3352.57,
+            "inSede": 2312.13
+          },
+          {
+            "iseeMax": 19933.33,
+            "fuoriSede": 5019.78,
+            "pendolare": 2933.5,
+            "inSede": 2023.11
+          },
+          {
+            "iseeMax": 21466.67,
+            "fuoriSede": 4302.67,
+            "pendolare": 2514.43,
+            "inSede": 1734.1
+          },
+          {
+            "iseeMax": 23000,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, art. 21 e Tab. 7",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con gli altri incrementi (si applica il più alto)",
+          "source": {
+            "label": "Bando ERSU Palermo 2026/27, art. 21",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        {
+          "label": "+40% per gli studenti con disabilità (L. 104/92 o invalidità dal 66%)",
+          "percent": 40,
+          "conditional": "non cumulabile con gli altri incrementi",
+          "source": {
+            "label": "Bando ERSU Palermo 2026/27, art. 21",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso della tassa regionale per il diritto allo studio",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo",
+        "Pasti gratuiti nelle mense ERSU (fino a due al giorno per i fuori sede)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ERSU Palermo 2026/27, artt. 21 e 26",
+        "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza lontana dalla sede del corso e alloggio in residenza ERSU o in affitto con contratto registrato per almeno 10 mesi (dichiarazione di locazione dal 2 novembre 2026 all’8 gennaio 2027).",
+        "pendolare": "Residenza in un comune da cui si può raggiungere ogni giorno la sede (Tab. 8.2 del bando); finché non presenti il contratto d’affitto sei considerato pendolare.",
+        "inSede": "Residenza nel comune della sede o nell’area circostante (Tab. 8.1 del bando); anche chi segue corsi online.",
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, artt. 22-23",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026 (dopo l’iscrizione)",
+          "50% con almeno 15 crediti al 10 agosto 2027 e 20 al 30 novembre 2027 (saldo entro il 30 giugno 2027 o dopo i crediti)"
+        ],
+        "note": "Chi non è in sede riceve le prime rate come pendolare finché non presenta il contratto d’affitto.",
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, art. 24",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-05",
+        "closes": "2026-07-22",
+        "closesTime": "14:00",
+        "note": "Domanda online sul portale studenti ERSU Palermo.",
+        "source": {
+          "label": "Bando ERSU Palermo 2026/27, scadenzario",
+          "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Palermo, borse di studio",
+        "url": "https://www.ersupalermo.it/category/borse-di-studio/"
+      }
+    },
+    {
+      "id": "ersu-catania",
+      "name": "ERSU Catania – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Catania",
+      "region": "Sicilia",
+      "universityIds": [
+        "ateneo-08701"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "thresholds": {
+        "isee": 25000,
+        "ispe": 60000,
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, Tab. 6",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo base +15% fino a 12.500 € di ISEE, poi ridotto a scalini del 10% per ogni quindicesimo della soglia, fino alla metà oltre 23.333 €. Comprende 1.700 € per l’alloggio (solo fuori sede con contratto d’affitto o senza posto letto) e i pasti, trattenuti come servizio.",
+        "bands": [
+          {
+            "iseeMax": 12500,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 16666.67,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 18333.33,
+            "fuoriSede": 6454,
+            "pendolare": 3771.64,
+            "inSede": 2601.14
+          },
+          {
+            "iseeMax": 19999.99,
+            "fuoriSede": 5736.89,
+            "pendolare": 3352.57,
+            "inSede": 2312.13
+          },
+          {
+            "iseeMax": 21666.66,
+            "fuoriSede": 5019.78,
+            "pendolare": 2933.5,
+            "inSede": 2023.11
+          },
+          {
+            "iseeMax": 23333.32,
+            "fuoriSede": 4302.67,
+            "pendolare": 2514.43,
+            "inSede": 1734.1
+          },
+          {
+            "iseeMax": 25000,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, art. 21 e Tab. 9",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con gli altri incrementi (si applica il più alto)",
+          "source": {
+            "label": "Bando ERSU Catania 2026/27, art. 21",
+            "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+          }
+        },
+        {
+          "label": "+40% per gli studenti con disabilità (L. 104/92 o invalidità dal 66%)",
+          "percent": 40,
+          "conditional": "non cumulabile con gli altri incrementi",
+          "source": {
+            "label": "Bando ERSU Catania 2026/27, art. 21",
+            "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Rimborso d’ufficio della tassa regionale per il diritto allo studio",
+        "Esonero dalle tasse universitarie per gli idonei, secondo il regolamento del tuo ateneo",
+        "Pasti nelle mense ERSU compresi nella borsa"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ERSU Catania 2026/27, artt. 21 e 26",
+        "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza lontana dalla sede e alloggio in residenza ERSU o in affitto con contratto registrato per almeno 10 mesi (dichiarazione di locazione).",
+        "pendolare": "Residenza in un comune da cui si raggiunge ogni giorno la sede (Tab. 11 del bando); finché non presenti il contratto d’affitto sei considerato pendolare.",
+        "inSede": "Residenza nel comune della sede o nell’area circostante (Tab. 11 del bando).",
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, artt. 22-23",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026, come pendolare o in sede",
+          "50% con almeno 15 crediti al 10 agosto 2027 e 20 al 30 novembre 2027, come fuori sede se hai presentato il contratto"
+        ],
+        "note": "La quota da fuori sede arriva con il saldo, dopo la dichiarazione di locazione o l’accettazione del posto letto.",
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, art. 24",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-06-24",
+        "closes": "2026-08-10",
+        "closesTime": "14:00",
+        "note": "Domanda online sul portale studenti ERSU Catania.",
+        "source": {
+          "label": "Bando ERSU Catania 2026/27, promemoria",
+          "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Catania, bando borse di studio 2026/27",
+        "url": "https://www.ersucatania.it/category/bando-borsa-di-studio-a-a-2026-2027/"
+      }
     }
   ]
 }

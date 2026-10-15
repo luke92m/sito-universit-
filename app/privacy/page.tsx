@@ -1,12 +1,17 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { isEnabled } from '@/lib/features';
 
 export const metadata: Metadata = {
   title: 'Informativa privacy',
-  description: 'Come il sito tratta i dati personali degli utenti registrati.'
+  description: 'Come il sito tratta i dati: niente account, niente dati personali salvati sui nostri server.'
 };
 
-// Testo provvisorio: va completato e validato da un consulente privacy prima della pubblicazione.
+// Testo provvisorio: va completato (titolare e contatti) e validato da un consulente privacy prima della
+// pubblicazione definitiva. Descrive il sito con gli account spenti (lib/features.ts); se si riaccendono,
+// la sezione sugli account torna a valere e va ricontrollata.
 export default function PrivacyPage() {
+  const accounts = isEnabled('account');
   return (
     <main className="legal-page">
       <article>
@@ -14,39 +19,63 @@ export default function PrivacyPage() {
         <span className="eyebrow">Informativa privacy</span>
         <h1>Come trattiamo i tuoi dati</h1>
         <p className="page-lead">
-          Questa è una bozza provvisoria. Prima dell’apertura al pubblico deve essere completata con titolare del
-          trattamento, contatti e basi giuridiche definitive.
+          In breve: {accounts ? 'l’account è facoltativo e' : 'non ci sono account,'} il sito non chiede il tuo nome
+          né la tua email e non vende né condivide dati con atenei o terzi. Questa bozza va completata con il titolare
+          del trattamento e i contatti prima dell’apertura definitiva.
         </p>
 
-        <h2>Quali dati raccogliamo</h2>
+        <h2>Cosa resta nel tuo browser</h2>
         <p>
-          Email e password (gestite dal servizio di autenticazione: la password non è mai visibile al sito), situazione di
-          studio, ateneo, corso e anno indicati nel profilo, preferenze di orientamento che scegli di salvare (per esempio
-          fascia ISEE e comune di residenza) e borse salvate. Messaggi della community e annunci di libri usati pubblicati quando
-          queste funzioni erano attive restano conservati, visibili solo agli utenti registrati, finché non ne chiedi la
-          cancellazione: oggi le due funzioni sono sospese.
+          Le risposte ai questionari e le preferenze che scegli di ricordare (per esempio fascia ISEE, regione e comune
+          di residenza, corso cercato) vengono salvate solo nella memoria locale del tuo browser, su questo dispositivo,
+          per non doverle reinserire. Non arrivano a un nostro database. Puoi cancellarle svuotando i dati del sito dal
+          browser.
         </p>
 
-        <h2>Perché li usiamo</h2>
+        <h2>Cosa passa dal server, senza essere salvato</h2>
         <p>
-          Per personalizzare gli strumenti del sito (orientamento, comparatore, borse e scadenze). I dati
-          economici sono facoltativi e usati solo per stime orientative: non vengono condivisi con atenei o terzi.
+          Per calcolare risultati, costo reale e borsa, il browser invia al sito le risposte necessarie (per esempio
+          ateneo, fascia o valore ISEE e ISPE, comune di residenza). Servono solo per quel calcolo: non vengono salvate
+          né collegate a te. I link condivisibili dei risultati non contengono ISEE e comune, a meno che tu non scelga di
+          includerli.
         </p>
 
-        <h2>Dove sono conservati</h2>
+        <h2>Statistiche di visita</h2>
         <p>
-          In un database gestito da Supabase su server nell’Unione europea. Ogni utente può leggere e modificare soltanto i
-          propri dati; messaggi e annunci sono visibili agli altri utenti registrati, insieme al recapito che scegli di
-          indicare nell’annuncio.
+          Per capire quali pagine sono utili il sito può usare statistiche anonime e aggregate senza cookie (Vercel Web
+          Analytics): conteggi di pagine viste, paese e tipo di dispositivo, senza identificare chi visita. Il sito è
+          ospitato su Vercel, che come ogni servizio di hosting registra per motivi tecnici e di sicurezza dati come
+          l’indirizzo IP.
         </p>
 
-        <h2>Età minima</h2>
-        <p>Per registrarti devi avere almeno 14 anni, come previsto dalla normativa italiana sul consenso digitale.</p>
-
-        <h2>I tuoi diritti</h2>
+        <h2>Cookie</h2>
         <p>
-          Puoi chiedere accesso, rettifica o cancellazione del profilo e dei dati collegati. I contatti per l’esercizio dei
-          diritti saranno indicati nella versione definitiva di questa informativa.
+          {accounts
+            ? 'Il sito usa solo cookie tecnici per mantenere l’accesso a chi ha un account.'
+            : 'Il sito non usa cookie di profilazione né cookie di terze parti, e senza account non servono cookie di accesso.'}
+        </p>
+
+        {accounts ? (
+          <>
+            <h2>Se crei un account</h2>
+            <p>
+              Email e password (gestite dal servizio di autenticazione Supabase, su server nell’Unione europea),
+              situazione di studio, ateneo e corso, preferenze e borse che scegli di salvare. Per registrarti devi avere
+              almeno 14 anni. Puoi chiedere accesso, rettifica o cancellazione dei tuoi dati.
+            </p>
+          </>
+        ) : null}
+
+        <h2>Link a siti esterni</h2>
+        <p>
+          Accanto ai numeri trovi i link ai documenti ufficiali (atenei, enti per il diritto allo studio, MUR, INPS):
+          aprendoli passi ai loro siti, con le loro regole sulla privacy.
+        </p>
+
+        <h2>I tuoi diritti e i contatti</h2>
+        <p>
+          I contatti del titolare del trattamento saranno indicati nella versione definitiva di questa informativa. Per
+          sapere da dove vengono i numeri del sito, leggi <Link href="/metodo">come calcoliamo i costi</Link>.
         </p>
       </article>
     </main>

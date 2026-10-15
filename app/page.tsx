@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { ProfileCtaButton } from '@/components/home/ProfileCtaButton';
 import { Icon } from '@/components/site/Icons';
 import { UNIVERSITIES } from '@/lib/data';
+import { isEnabled } from '@/lib/features';
 import { FLOW_STEPS } from '@/components/flow/FlowSteps';
+import { scholarshipEntities, universitiesWithScholarship, universitiesWithTuition } from '@/lib/domain/coverage';
 
 const STEP_COPY = [
   'Sei domande sui tuoi interessi, senza account',
@@ -14,10 +16,18 @@ const STEP_COPY = [
 const PRINCIPLES = [
   ['Neutrale', 'Nessun ateneo paga per comparire nei risultati o per la sua posizione.'],
   ['Con le fonti', 'Ogni numero ha accanto da dove viene: MUR, QS, CENSIS, ISTAT, bandi regionali.'],
-  ['Senza account', 'Puoi fare tutto il percorso senza registrarti. L’account serve solo per salvare.']
+  [
+    'Senza account',
+    isEnabled('account')
+      ? 'Puoi fare tutto il percorso senza registrarti. L’account serve solo per salvare.'
+      : 'Puoi fare tutto il percorso senza registrarti: le tue scelte restano solo nel tuo browser.'
+  ]
 ];
 
 export default function HomePage() {
+  const tuition = universitiesWithTuition();
+  const entities = scholarshipEntities();
+  const scholarshipCount = universitiesWithScholarship().length;
   return (
     <main>
       <section className="hero" aria-labelledby="heroTitle">
@@ -39,11 +49,12 @@ export default function HomePage() {
               <Link className="button button-secondary" href="/comparison">
                 Confronta due atenei
               </Link>
-              <ProfileCtaButton />
+              {isEnabled('account') ? <ProfileCtaButton /> : null}
             </div>
 
             <div className="hero-proof" aria-label="Caratteristiche principali">
               <span className="proof-chip">{UNIVERSITIES.length} istituti universitari</span>
+              <span className="proof-chip">{tuition.length} atenei con costi verificati</span>
               <span className="proof-chip">nessun ateneo paga per comparire</span>
               <span className="proof-chip">nessun account obbligatorio</span>
             </div>
@@ -85,24 +96,37 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="about-section" id="chi-siamo" aria-labelledby="aboutTitle">
+      <section className="about-section" id="dati" aria-labelledby="coverageTitle">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">Il progetto</span>
-            <h2 id="aboutTitle">Chi siamo?</h2>
+            <span className="eyebrow">Dati verificati</span>
+            <h2 id="coverageTitle">Cosa trovi oggi.</h2>
           </div>
 
-          <div className="about-placeholder">
-            <span className="placeholder-label">Testo da definire</span>
-            <h3>Questo spazio è pronto per raccontare chi c’è dietro al progetto.</h3>
-            <p>
-              Qui potrai inserire in futuro la storia, la missione, i valori e il motivo per cui il sito aiuta studenti e
-              futuri studenti.
-            </p>
-            <div className="placeholder-lines" aria-hidden="true">
-              <span />
-              <span />
-              <span />
+          <div className="home-coverage-card">
+            <ul>
+              <li>
+                <strong>Tasse per ISEE di {tuition.length} atenei</strong>
+                <span>{tuition.map((university) => university.name).join(', ')}.</span>
+              </li>
+              <li>
+                <strong>
+                  Borse di {entities.length} bandi regionali per {scholarshipCount} atenei
+                </strong>
+                <span>{[...new Set(entities.map((entity) => entity.region))].join(', ')}.</span>
+              </li>
+              <li>
+                <strong>Per tutti gli altri atenei</strong>
+                <span>Tasse medie nazionali, sempre segnate come stima. Li aggiungiamo uno alla volta.</span>
+              </li>
+            </ul>
+            <div className="inline-actions">
+              <Link className="button button-secondary" href="/metodo">
+                Come calcoliamo i costi
+              </Link>
+              <Link className="text-button" href="/atenei">
+                Esplora gli atenei
+              </Link>
             </div>
           </div>
         </div>
