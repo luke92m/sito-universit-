@@ -714,3 +714,27 @@ describe('tasse Università di Siena 2026/27', () => {
     expect(cost.tuitionRule).toBe(false);
   });
 });
+
+describe('tasse Università di Parma 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-03401')!;
+  const courses = getCourses('ateneo-03401');
+  const group = (name: string) => courseGroup(rule, courses.find((course) => course.name === name)!)!;
+
+  it('formula lineare tra minimo e massimo per area (Allegato 3), esonero fino a 27.000 €', () => {
+    const st = group('Ingegneria Gestionale');
+    expect(st.id).toBe('scientifico-tecnologica');
+    expect(contributionFor(rule, 27000, st.max, st.bands)).toBe(0);
+    expect(contributionFor(rule, 28500, st.max, st.bands)).toBe(285); // 570 × 1.500/3.000
+    expect(contributionFor(rule, 35000, st.max, st.bands)).toBe(890); // 570 + (1.210 − 570) / 2
+    expect(contributionFor(rule, 70000, st.max, st.bands)).toBeCloseTo(2070, 0);
+    expect(contributionFor(rule, null, st.max, st.bands)).toBe(2070);
+  });
+
+  it('aree: Medicina 2.190 €, Odontoiatria 2.725 €, umanistico-sociale 1.950 €', () => {
+    expect(group('Medicina e Chirurgia')).toMatchObject({ id: 'medicina', max: 2190 });
+    expect(group('Odontoiatria e Protesi Dentaria')).toMatchObject({ id: 'odontoiatria', max: 2725 });
+    expect(group('Servizio Sociale')).toMatchObject({ id: 'umanistico-sociale', max: 1950 });
+    const um = group('Giurisprudenza');
+    expect(contributionFor(rule, 40000, um.max, um.bands)).toBe(1090);
+  });
+});

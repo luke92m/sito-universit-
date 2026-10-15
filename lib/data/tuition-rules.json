@@ -6588,6 +6588,376 @@
         }
       },
       "simulator": "https://www.unisi.it/sites/default/files/allegatiparagrafo/Regolamento_contribuzione_2026-2027.pdf"
+    },
+    "ateneo-03401": {
+      "name": "Università di Parma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti in corso con i crediti minimi («merito sì, entro durata + 1»: al primo anno conta solo l’ISEE), con ISEE comunicato a ER.GO entro il 4 novembre 2026.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale 140 € e bollo 16 €) all’immatricolazione.",
+      "bands": [
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 27000,
+          "base": 0,
+          "rate": 0.19
+        },
+        {
+          "iseeMax": 40000,
+          "from": 30000,
+          "base": 570,
+          "rate": 0.064
+        },
+        {
+          "iseeMax": 70000,
+          "from": 40000,
+          "base": 1210,
+          "rate": 0.028667
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2070
+        }
+      ],
+      "bandsSource": {
+        "label": "Università di Parma, Manifesto 2026/27, Allegato 3 «Tasse e contribuzione»",
+        "url": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2070,
+        "ciclo-unico": 2070,
+        "magistrale": 2070
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "odontoiatria",
+          "label": "Odontoiatria, Medicine and Surgery, Dental Hygiene",
+          "groups": [],
+          "nameIncludes": [
+            "Odontoiatria",
+            "Medicine and Surgery",
+            "Dental Hygiene"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 27000,
+              "base": 0,
+              "rate": 0.353667
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "base": 1061,
+              "rate": 0.0404
+            },
+            {
+              "iseeMax": 70000,
+              "from": 40000,
+              "base": 1465,
+              "rate": 0.042
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2725
+            }
+          ],
+          "max": 2725
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e chirurgia, Veterinaria, professioni sanitarie",
+          "groups": [],
+          "nameIncludes": [
+            "Medicina e Chirurgia",
+            "Medicina Veterinaria",
+            "Professione Sanitaria",
+            "Scienze Infermieristiche"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 27000,
+              "base": 0,
+              "rate": 0.23
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "base": 690,
+              "rate": 0.064
+            },
+            {
+              "iseeMax": 70000,
+              "from": 40000,
+              "base": 1330,
+              "rate": 0.028667
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2190
+            }
+          ],
+          "max": 2190
+        },
+        {
+          "id": "umanistico-sociale",
+          "label": "area umanistico-sociale",
+          "names": [
+            "Beni Artistici, Librari e dello Spettacolo",
+            "Civiltà e Lingue Straniere Moderne",
+            "Comunicazione e Media Contemporanei per le Industrie Creative",
+            "Economia e Management",
+            "Economia e Management delle Filiere Alimentari Sostenibili",
+            "Global Studies for Sustainable Local and International Development and Cooperation",
+            "Interprete di Lingua dei Segni Italiana e di Lingua dei segni Italiana Tattile",
+            "Lettere",
+            "Lingua e Cultura Italiana per stranieri – Telematico",
+            "Scienze dell’Educazione e dei Processi Formativi",
+            "Scienze Gastronomiche (L - GASTR)",
+            "Scienze Politiche e delle Relazioni Internazionali",
+            "Servizio Sociale",
+            "Sistema Alimentare: Sostenibilità, Management e Tecnologie - Food system: Management,",
+            "Studi Filosofici",
+            "Scienze e Tecniche Psicologiche per le Sfide Contomporanee - Psychological Sciences and Techniques",
+            "Amministrazione e Direzione Aziendale",
+            "Data Science for Management",
+            "Economia e Management dei Sistemi Alimentari Sostenibili",
+            "Economics and Management of Sustainable food Systems",
+            "Filosofia (interateneo - sede Amministrativa Parma)",
+            "F inancial M anagement per I mprese, M ercati e I ntermediari",
+            "Gestione dei sistemi Alimentari di Qualità e della Gastronomia",
+            "Giornalismo e Cultura Editoriale",
+            "Giornalismo, Cultura Editoriale e Comunicazione Multimediale",
+            "Giornalismo, Cultura Editoriale, Comunicazione Ambientale e Multimediale",
+            "Global Food Law: Sustainability Challenges and Innovation",
+            "Global Politics e Relazioni Internazionali",
+            "International Business and Development - Economia Internazionale e dello Sviluppo",
+            "Language Sciences and Cultural Studies for Special Needs",
+            "Lettere classiche e moderne",
+            "Progettazione e Coordinamento dei Servizi Educativi",
+            "Programmazione e Gestione dei Servizi Sociali",
+            "Psicobiologia e neuroscienze cognitive",
+            "Psicologia dell’intervento clinico e sociale",
+            "Relazioni Internazionali ed Europee",
+            "Storia e critica delle arti e dello spettacolo",
+            "Storia, Critica e Linguaggi delle Arti e dello Spettacolo",
+            "Trade e Consumer Marketing",
+            "Trade Marketing e Strategie Commerciali",
+            "Giurisprudenza",
+            "Conservazione dei beni culturali",
+            "Filosofia",
+            "Lettere",
+            "Lingue e letterature straniere",
+            "Lingue e letterature straniere moderne",
+            "Materie Letterarie",
+            "Pedagogia",
+            "Psicologia",
+            "Scienze dell’educazione"
+          ],
+          "nameIncludes": [
+            "International Business and Development",
+            "Psychobiology",
+            "Finanza e Risk Management"
+          ],
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Politico-Sociale e Comunicazione",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Educazione e Formazione",
+            "Psicologico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 27000,
+              "base": 0,
+              "rate": 0.15
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "base": 450,
+              "rate": 0.064
+            },
+            {
+              "iseeMax": 70000,
+              "from": 40000,
+              "base": 1090,
+              "rate": 0.028667
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1950
+            }
+          ],
+          "max": 1950
+        },
+        {
+          "id": "scientifico-tecnologica",
+          "label": "area scientifico-tecnologica",
+          "names": [
+            "Architettura Rigenerazione Sostenibilità",
+            "Biologia",
+            "Biotecnologie",
+            "Chimica",
+            "Costruzioni, Infrastrutture e Territorio",
+            "Design sostenibile per il sistema alimentare (interateneo - sede amministrativa Parma)",
+            "Fisica",
+            "Informatica",
+            "Ingegneria Civile e Ambientale",
+            "Ingegneria delle tecnologie informatiche",
+            "Ingegneria Gestionale",
+            "Ingegneria Informatica, Elettronica e delle Telecomunicazioni",
+            "Ingegneria Meccanica",
+            "Matematica",
+            "Qualità e Approvvigionamento di Materie Prime per l’Agroalimentare",
+            "Scienza dei Materiali",
+            "Scienze dell’Architettura",
+            "Scienze della Natura e dell’Ambiente",
+            "Scienze e Tecnologie Alimentari",
+            "Scienze Gastronomiche (L - 26 Scienze e Tecnologie alimentari)",
+            "Scienze Geologiche",
+            "Scienze Motorie, Sport e Salute",
+            "Scienze Zootecniche e Tecnologie delle Produzioni Animali",
+            "Tecnologie e Gestione dell’Impresa Casearia",
+            "Advanced Molecular Sciences for Health Products",
+            "Architettura",
+            "Architettura e Città Sostenibili",
+            "Biologia e Applicazioni Biomediche",
+            "Biologia Molecolare",
+            "Biotecnologie Genomiche, Molecolari e Industriali",
+            "Biotecnologie Mediche, Veterinarie e Farmaceutiche",
+            "Chimica",
+            "Chimica Industriale",
+            "Communication Engineering",
+            "Ecologia e Conservazione della Natura",
+            "Ecologia ed Etologia per la Conservazione della natura",
+            "Electronic Engineering for Intelligent Vehicles (interateneo - sede amministrativa Parma)",
+            "Engineering for the food industry",
+            "Environmental Engineering for Risk Mitigation",
+            "Fisica",
+            "Food Safety and Food Risk Management",
+            "Ingegneria Civile",
+            "Ingegneria Elettronica",
+            "Ingegneria Gestionale",
+            "Ingegneria Informatica",
+            "Ingegneria Meccanica",
+            "Ingegneria per l’Ambiente e il Territorio",
+            "Innovazione Organizzativa, Digitale e Amministrativa della P.A.",
+            "Matematica",
+            "Scienze Biomediche Translazionali",
+            "Scienze Biomolecolari, Genomiche e Cellulari",
+            "Scienze della Nutrizione Umana",
+            "Scienze e Tecniche delle Attività Motorie Preventive e Adattate",
+            "Scienze e Tecnologie Alimentari",
+            "Scienze e Tecnologie Geologiche",
+            "Scienze e Tecnologie per l’Ambiente e le Risorse",
+            "Scienze Informatiche",
+            "Scienze per la Conservazione e il Restauro",
+            "Produzioni Animali Innovative e Sostenibili",
+            "Scienze Geologiche Applicate alla Sostenibilità Ambientale",
+            "Functional and Sustainable Materials",
+            "Scienze, Tecniche e Management dello Sport e delle Organizzazioni Sportive",
+            "Chimica e Tecnologia Farmaceutiche",
+            "Farmacia"
+          ],
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 27000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 27000,
+              "base": 0,
+              "rate": 0.19
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "base": 570,
+              "rate": 0.064
+            },
+            {
+              "iseeMax": 70000,
+              "from": 40000,
+              "base": 1210,
+              "rate": 0.028667
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2070
+            }
+          ],
+          "max": 2070
+        }
+      ],
+      "maxNote": "Formula lineare tra contributo minimo e massimo per tre fasce di ISEE (27.000-30.000, 30.000-40.000, 40.000-70.000 €); esonero fino a 27.000 €. Oltre 70.000 € o senza ISEE: 2.725 € (Odontoiatria, Medicine and Surgery, Dental Hygiene), 2.190 € (Medicina, Veterinaria, professioni sanitarie), 2.070 € (scientifico-tecnologica), 1.950 € (umanistico-sociale). Riduzione di 250 € con 100/100 alla maturità (non nel calcolo). L’area segue gli elenchi del Manifesto.",
+      "maxSource": {
+        "label": "Università di Parma, Allegato 3, tabella del contributo personalizzato",
+        "url": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € con l’immatricolazione",
+          "Seconda rata (50% del contributo) entro il 18 novembre 2026",
+          "Terza rata (50% del contributo) entro il 30 aprile 2027"
+        ],
+        "note": "L’ISEE va comunicato sul sito di ER.GO entro le 17 del 4 novembre 2026; senza, si paga il contributo massimo.",
+        "source": {
+          "label": "Università di Parma, Allegato 3, «Scadenze e modalità pagamenti»",
+          "url": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
+        }
+      },
+      "simulator": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
     }
   }
 }
