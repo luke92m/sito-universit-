@@ -924,3 +924,16 @@ describe('tasse Università del Salento 2026/27', () => {
     expect(contributionFor(rule, null, 3000)).toBe(3000);
   });
 });
+
+describe('tasse L’Orientale 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06303')!;
+
+  it('esonero fino a 24.000 €, percentuali dell’ISEE oltre 13.000 €, poi 1.071 € + 1,15% fino a 1.300 €', () => {
+    expect(contributionFor(rule, 24000, 1300)).toBe(0);
+    expect(contributionFor(rule, 25000, 1300)).toBe(420);
+    expect(contributionFor(rule, 30000, 1300)).toBe(1071);
+    expect(contributionFor(rule, 40000, 1300)).toBe(1186);
+    expect(contributionFor(rule, 60000, 1300)).toBe(1300);
+    expect(contributionFor(rule, null, 1300)).toBe(1300);
+  });
+});

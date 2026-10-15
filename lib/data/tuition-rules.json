@@ -9381,6 +9381,100 @@
         }
       },
       "simulator": "https://sistemistudenti.unisalento.it/tasse/"
+    },
+    "ateneo-06303": {
+      "name": "Università di Napoli L’Orientale",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole (al primo anno conta solo l’ISEE) e studenti in corso con i crediti richiesti, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale campana da 130 € a 173 € secondo l’ISEE e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 13000,
+          "rate": 0.035,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 30000,
+          "rate": 0.0115,
+          "base": 1071
+        }
+      ],
+      "bandsSource": {
+        "label": "L’Orientale, Regolamento in materia di contribuzione studentesca 2026/27 (D.R. 602/2026), artt. 9, 11 e 12",
+        "url": "https://www.unior.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20Contribuzione%20Studentesca%20a.a.%202026-2027%20%283%29.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1300,
+        "ciclo-unico": 1300,
+        "magistrale": 1300
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 24.000 €; poi 3,5%, 5,25% e 6,3% dell’ISEE oltre 13.000 € per le fasce fino a 26.000, 28.000 e 30.000 €; oltre 30.000 € 1.071 € + 1,15% dell’ISEE oltre 30.000 €, fino a 1.300 € (anche senza ISEE). Chi dal secondo anno non ha i crediti richiesti o è fuori corso paga di più (fino a 1.900 €).",
+      "maxSource": {
+        "label": "L’Orientale, Regolamento contribuzione 2026/27, art. 11",
+        "url": "https://www.unior.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20Contribuzione%20Studentesca%20a.a.%202026-2027%20%283%29.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (200 €, con tassa regionale e bollo) entro l’11 novembre 2026",
+          "Seconda rata (un terzo del resto) entro l’8 marzo 2027",
+          "Terza rata entro il 12 aprile 2027",
+          "Quarta rata entro il 27 maggio 2027"
+        ],
+        "note": "Se il contributo è fino a 200 € si paga in un’unica rata. Si può anche pagare tutto in una volta con la prima rata.",
+        "source": {
+          "label": "L’Orientale, Regolamento contribuzione 2026/27, artt. 21-22",
+          "url": "https://www.unior.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20Contribuzione%20Studentesca%20a.a.%202026-2027%20%283%29.pdf"
+        }
+      },
+      "simulator": "https://www.unior.it/sites/default/files/2026-07/Regolamento%20in%20materia%20di%20Contribuzione%20Studentesca%20a.a.%202026-2027%20%283%29.pdf"
     }
   }
 }
