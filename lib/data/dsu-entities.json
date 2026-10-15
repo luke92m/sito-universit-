@@ -5560,6 +5560,516 @@
         "label": "ARDiS, Bando unico 2026/27",
         "url": "https://www.ardis.fvg.it/contenuti.php?id=11366&tipo=&view=news"
       }
+    },
+    {
+      "id": "adisu-umbria",
+      "name": "ADiSU Umbria – Agenzia per il diritto allo studio universitario",
+      "shortName": "ADiSU Umbria",
+      "region": "Umbria",
+      "universityIds": [
+        "ateneo-05401",
+        "ateneo-05403"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "ADiSU Umbria, Bando borse di studio 2026/27, art. 27",
+          "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali dell’Allegato 2 (Tabella A), comprensivi del valore della mensa (1.600 € con due pasti al giorno per i fuori sede, 800 € con un pasto per gli altri). Fasce a scalini, senza calo lineare. Il fuori sede con posto letto ADiSU riceve meno denaro più l’alloggio (1.800 €).",
+        "bands": [
+          {
+            "iseeMax": 14169.63,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3623.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 3190.16
+          },
+          {
+            "iseeMax": 23616.57,
+            "fuoriSede": 5499.78,
+            "pendolare": 3173.5,
+            "inSede": 2473.11
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 4385.56,
+            "pendolare": 2495.36,
+            "inSede": 1995.08
+          }
+        ],
+        "source": {
+          "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegato 2, Tabella A",
+          "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (Allegati 3-4)",
+          "percent": 20,
+          "conditional": "non cumulabile con la fascia di svantaggio: si applica l’importo più favorevole",
+          "source": {
+            "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegati 3-4",
+            "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (due pasti al giorno ai fuori sede, uno agli altri)",
+        "Posto letto gratuito per i fuori sede idonei sotto i 28 anni, se disponibile",
+        "Rimborso della tassa regionale (140 €) agli idonei",
+        "Esonero dalle tasse universitarie secondo il regolamento dell’ateneo"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ADiSU Umbria, Bando borse di studio 2026/27, artt. 5 e 7",
+        "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato nell’Allegato 1 per la sede (o famiglia all’estero) e alloggio a pagamento documentato, oppure posto letto ADiSU.",
+        "pendolare": "Comuni «pendolari» dell’Allegato 1 per la sede del corso.",
+        "inSede": "Comuni «in sede» dell’Allegato 1 per la sede del corso.",
+        "source": {
+          "label": "ADiSU Umbria, Bando borse di studio 2026/27, art. 3 e Allegato 1",
+          "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "25% della quota in denaro entro il 31 dicembre 2026",
+          "Saldo (75%) entro il 30 giugno 2027 con i crediti raggiunti entro il 30 aprile, oppure entro il 30 settembre 2027 con i crediti entro il 10 agosto"
+        ],
+        "note": "Chi raggiunge i crediti solo tra l’11 agosto e il 30 novembre 2027 resta idoneo ma non riceve il saldo.",
+        "source": {
+          "label": "ADiSU Umbria, Bando borse di studio 2026/27, art. 35, commi 7-8",
+          "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-02",
+        "closesTime": "12:00",
+        "note": "Istanza online sul portale ADiSU; c’era una seconda scadenza al 30 ottobre 2026 con mensa e alloggio solo se disponibili.",
+        "source": {
+          "label": "ADiSU Umbria, Bando borse di studio 2026/27, art. 13",
+          "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+        }
+      },
+      "municipalities": {
+        "Perugia": {
+          "inSede": [
+            {
+              "comune": "Corciano"
+            },
+            {
+              "comune": "Deruta"
+            },
+            {
+              "comune": "Magione"
+            },
+            {
+              "comune": "Perugia"
+            },
+            {
+              "comune": "Torgiano"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Assisi"
+            },
+            {
+              "comune": "Bastia",
+              "aliases": [
+                "Bastia Umbra"
+              ]
+            },
+            {
+              "comune": "Bettona"
+            },
+            {
+              "comune": "Castiglione del Lago",
+              "aliases": [
+                "Castiglion del Lago"
+              ]
+            },
+            {
+              "comune": "Foligno"
+            },
+            {
+              "comune": "Marsciano"
+            },
+            {
+              "comune": "Passignano sul Trasimeno"
+            },
+            {
+              "comune": "Spello"
+            },
+            {
+              "comune": "Trevi"
+            },
+            {
+              "comune": "Tuoro sul Trasimeno"
+            },
+            {
+              "comune": "Umbertide"
+            },
+            {
+              "comune": "Valfabbrica"
+            }
+          ],
+          "source": {
+            "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegato 1",
+            "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+          }
+        },
+        "Assisi": {
+          "inSede": [
+            {
+              "comune": "Assisi"
+            },
+            {
+              "comune": "Bastia",
+              "aliases": [
+                "Bastia Umbra"
+              ]
+            },
+            {
+              "comune": "Bettona"
+            },
+            {
+              "comune": "Bevagna"
+            },
+            {
+              "comune": "Cannara"
+            },
+            {
+              "comune": "Deruta"
+            },
+            {
+              "comune": "Foligno"
+            },
+            {
+              "comune": "Perugia"
+            },
+            {
+              "comune": "Spello"
+            },
+            {
+              "comune": "Torgiano"
+            },
+            {
+              "comune": "Trevi"
+            },
+            {
+              "comune": "Valfabbrica"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Campello sul Clitunno"
+            },
+            {
+              "comune": "Corciano"
+            },
+            {
+              "comune": "Gualdo Cattaneo"
+            },
+            {
+              "comune": "Gualdo Tadino"
+            },
+            {
+              "comune": "Magione"
+            },
+            {
+              "comune": "Montefalco"
+            },
+            {
+              "comune": "Spoleto"
+            },
+            {
+              "comune": "Valtopina"
+            }
+          ],
+          "source": {
+            "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegato 1",
+            "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+          }
+        },
+        "Terni": {
+          "inSede": [
+            {
+              "comune": "Acquasparta"
+            },
+            {
+              "comune": "Amelia"
+            },
+            {
+              "comune": "Arrone"
+            },
+            {
+              "comune": "Ferentillo"
+            },
+            {
+              "comune": "Montefranco"
+            },
+            {
+              "comune": "Narni"
+            },
+            {
+              "comune": "Orte",
+              "prov": "VT"
+            },
+            {
+              "comune": "San Gemini"
+            },
+            {
+              "comune": "Spoleto"
+            },
+            {
+              "comune": "Stroncone"
+            },
+            {
+              "comune": "Terni"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Avigliano Umbro"
+            },
+            {
+              "comune": "Calvi dell’Umbria"
+            },
+            {
+              "comune": "Cittaducale",
+              "prov": "RI"
+            },
+            {
+              "comune": "Colli sul Velino",
+              "prov": "RI"
+            },
+            {
+              "comune": "Contigliano",
+              "prov": "RI"
+            },
+            {
+              "comune": "Foligno"
+            },
+            {
+              "comune": "Fratta Todina"
+            },
+            {
+              "comune": "Greccio",
+              "prov": "RI"
+            },
+            {
+              "comune": "Labro",
+              "prov": "RI"
+            },
+            {
+              "comune": "Lugnano in Teverina"
+            },
+            {
+              "comune": "Marsciano"
+            },
+            {
+              "comune": "Massa Martana"
+            },
+            {
+              "comune": "Montecastello di Vibio"
+            },
+            {
+              "comune": "Montecastrilli"
+            },
+            {
+              "comune": "Otricoli"
+            },
+            {
+              "comune": "Rieti",
+              "prov": "RI"
+            },
+            {
+              "comune": "Scheggino"
+            },
+            {
+              "comune": "Spello"
+            },
+            {
+              "comune": "Trevi"
+            }
+          ],
+          "source": {
+            "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegato 1",
+            "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+          }
+        },
+        "Narni": {
+          "inSede": [
+            {
+              "comune": "Acquasparta"
+            },
+            {
+              "comune": "Amelia"
+            },
+            {
+              "comune": "Arrone"
+            },
+            {
+              "comune": "Ferentillo"
+            },
+            {
+              "comune": "Montefranco"
+            },
+            {
+              "comune": "Narni"
+            },
+            {
+              "comune": "Orte",
+              "prov": "VT"
+            },
+            {
+              "comune": "San Gemini"
+            },
+            {
+              "comune": "Spoleto"
+            },
+            {
+              "comune": "Stroncone"
+            },
+            {
+              "comune": "Terni"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Avigliano Umbro"
+            },
+            {
+              "comune": "Calvi dell’Umbria"
+            },
+            {
+              "comune": "Contigliano",
+              "prov": "RI"
+            },
+            {
+              "comune": "Greccio",
+              "prov": "RI"
+            },
+            {
+              "comune": "Lugnano in Teverina"
+            },
+            {
+              "comune": "Montecastrilli"
+            },
+            {
+              "comune": "Otricoli"
+            }
+          ],
+          "source": {
+            "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegato 1",
+            "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+          }
+        },
+        "Foligno": {
+          "inSede": [
+            {
+              "comune": "Bevagna"
+            },
+            {
+              "comune": "Cannara"
+            },
+            {
+              "comune": "Foligno"
+            },
+            {
+              "comune": "Montefalco"
+            },
+            {
+              "comune": "Spello"
+            },
+            {
+              "comune": "Spoleto"
+            },
+            {
+              "comune": "Trevi"
+            },
+            {
+              "comune": "Valtopina"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Assisi"
+            },
+            {
+              "comune": "Bastia",
+              "aliases": [
+                "Bastia Umbra"
+              ]
+            },
+            {
+              "comune": "Bettona"
+            },
+            {
+              "comune": "Campello sul Clitunno"
+            },
+            {
+              "comune": "Castel Ritaldi"
+            },
+            {
+              "comune": "Corciano"
+            },
+            {
+              "comune": "Deruta"
+            },
+            {
+              "comune": "Fossato di Vico"
+            },
+            {
+              "comune": "Giano dell’Umbria"
+            },
+            {
+              "comune": "Gualdo Cattaneo"
+            },
+            {
+              "comune": "Gualdo Tadino"
+            },
+            {
+              "comune": "Nocera Umbra"
+            },
+            {
+              "comune": "Perugia"
+            },
+            {
+              "comune": "Sellano"
+            },
+            {
+              "comune": "Terni"
+            },
+            {
+              "comune": "Torgiano"
+            }
+          ],
+          "source": {
+            "label": "ADiSU Umbria, Bando borse di studio 2026/27, Allegato 1",
+            "url": "https://www.adisu.umbria.it/sites/default/files/2026-07/Bando_borse_di_studio_Adisu_2026_2027_1.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ADiSU Umbria, Bando borse di studio 2026/27",
+        "url": "https://www.adisu.umbria.it/concorso-borsa-di-studio/bando/2026-2027/bando-di-concorso-lassegnazione-di-borse-di-studio-e-altri"
+      }
     }
   ]
 }

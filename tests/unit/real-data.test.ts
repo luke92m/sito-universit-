@@ -555,8 +555,8 @@ describe('costo reale annuo', () => {
   });
 
   it('ateneo senza dati verificati: media dichiarata come stima e dati mancanti elencati', () => {
-    const strapg = getUniversityById('ateneo-05403')!;
-    const cost = realCost(strapg, null, exact(15000), none, 'inSede');
+    const uer = getUniversityById('ateneo-05812')!;
+    const cost = realCost(uer, null, exact(15000), none, 'inSede');
     expect(cost.entity).toBeNull();
     expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
     expect(cost.missing.length).toBeGreaterThan(0);
@@ -1219,5 +1219,29 @@ describe('Friuli Venezia Giulia 2026/27: tasse di Trieste e Udine, borse ARDiS',
     expect(check('Pordenone', 'Valvasone Arzene')).toBe('pendolare');
     expect(check('Gemona Del Friuli', 'Venzone')).toBe('inSede');
     expect(check('Trieste', 'Udine')).toBe('fuoriSede');
+  });
+});
+
+describe('Umbria 2026/27: tasse UniPG e borse ADiSU', () => {
+  it('UniPG: no tax area fino a 22.000 €, low tax area a fasce, poi Allegato 2', () => {
+    const rule = tuitionRuleFor('ateneo-05401')!;
+    expect(contributionFor(rule, 22000, 1940)).toBe(0);
+    expect(contributionFor(rule, 25000, 1940)).toBe(385);
+    expect(contributionFor(rule, 32000, 1940)).toBe(1130);
+    expect(contributionFor(rule, 120000, 1940)).toBe(1940);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+
+  it('ADiSU: importi a scalini con la mensa, elenchi dei comuni per sede', () => {
+    const adisu = dsuEntityFor('ateneo-05401')!;
+    expect(dsuEntityFor('ateneo-05403')!.id).toBe('adisu-umbria');
+    expect(adisu.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(adisu, 20000, 'fuoriSede')).toBe(5499.78);
+    expect(amountAt(adisu, 25000, 'inSede')).toBe(1995.08);
+    const check = (seat: string, city: string) => conditionFromMunicipality(adisu, seat, city, true)?.condition;
+    expect(check('Perugia', 'Corciano')).toBe('inSede');
+    expect(check('Perugia', 'Bastia Umbra')).toBe('pendolare');
+    expect(check('Terni', 'Narni')).toBe('inSede');
+    expect(check('Perugia', 'Todi')).toBe('fuoriSede');
   });
 });

@@ -39,6 +39,7 @@ Borse (bandi 2026/27):
 | Ca’ Foscari (borse regionali) | Ca’ Foscari Venezia | 26.306,25 / 43.125,94 | — (distanze, non elenchi) |
 | Opera Universitaria | Università di Trento | 26.000 / 52.000 | Tabelle 3-4 (Trento, Rovereto) |
 | ARDiS | Trieste, Udine | 28.339,88 / 61.608,48 | Allegato 1 (6 sedi) |
+| ADiSU Umbria | Perugia, Stranieri di Perugia | 28.339,88 / 61.608,48 | Allegato 1 (5 sedi) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -86,6 +87,8 @@ Tasse (2026/27):
 - **Trieste**: Avviso tasse corsi di laurea 2026/27 (artt. 1-3, Tabelle A-B): esonero fino a 30.000 €, poi 400 € + 5,56% dell'ISEE oltre 30.000 € fino a 75.000 €, oltre o senza ISEE 2.900 € (il totale è arrotondato ai 5 €, non nel calcolo). Tassa regionale FVG 120/140/160 € (soglie nazionali).
 - **Udine**: Avviso aggiuntivo al Manifesto 2026/27, art. 4 e Tabella 1: esonero fino a 30.000 €, poi importi fissi per fasce di 1.000 € (800-1.090 € fino a 40.000 €, 1.350-1.440 € fino a 50.000 €, 1.625 € fino a 53.000 €, 1.650 € fino a 60.000 €), oltre o senza domanda 1.900 €. Tassa regionale 120/140/160 €.
 - **ARDiS (FVG)**: Bando unico 2026/27 (versione nella scheda del sito, artt. 4.3, 15-17, 23 e Allegato 1): soglie nazionali 28.339,88 € / 61.608,48 €, importi con +15% fino a 14.169,94 € e calo fino alla metà oltre 18.893,25 €. Elenchi dei comuni in sede e pendolari per Trieste, Udine, Gorizia, Pordenone, Gemona e Portogruaro, riletti a mano (il PDF spezza le lettere); comuni sloveni compresi per Trieste e Gorizia; alias per i nomi abbreviati (Cervignano, Aiello, Lignano) e «(ora …)» per i comuni fusi. La sede di Conegliano non è inserita (l'elenco non nomina il comune sede).
+- **Perugia**: Regolamento in materia di contribuzione studentesca (versione vigente, artt. 3, 12-13 e Allegati 1, 2, 4): no tax area fino a 22.000 € (confermata nell'avviso delle immatricolazioni 2026/27), low tax area a fasce di 2.000 € fino a 30.000 € (126/385/682/945 €), poi Allegato 2 per fasce fino a 1.940 € oltre 100.000 € o senza ISEE (importi al netto di tassa regionale e bollo, 156 €). Il regolamento non indica l'anno: vale finché l'ateneo non adotta nuovi importi (art. 3.4).
+- **ADiSU Umbria**: bando borse 2026/27, artt. 7, 13, 27, 35 e Allegati 1-2: soglie nazionali, importi a scalini (nessun calo lineare) che comprendono il valore della mensa (Allegato 2, Tabella A, come «totale figurativo»), per Università di Perugia e Stranieri di Perugia. Elenchi dei comuni in sede e pendolari per Perugia, Assisi, Terni, Narni e Foligno (tabella a colonne riletta a mano; «Bastia» = Bastia Umbra). Il test dell'ateneo «senza dati» ora usa l'Università Europea di Roma.
 
 ## Fonti
 

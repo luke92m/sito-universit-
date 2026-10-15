@@ -13643,6 +13643,152 @@
         }
       },
       "simulator": "https://www.uniud.it/it/didattica/area-servizi-studenti/servizi-studenti/diritto-allo-studio/tasse_merito/tasse-riduzioni-esoneri/allegati/avviso_aggiuntivo_2026-27/@@download/file/avviso_aggiuntivo_2026-27_IS-pub26.11.15.pdf"
+    },
+    "ateneo-05401": {
+      "name": "Università di Perugia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti regolari a tempo pieno, con ISEE «Università» presentato nei termini.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata: tassa regionale per il diritto allo studio (140 €) e bollo virtuale (16 €).",
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 126
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 385
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 682
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 945
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 1130
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1230
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1330
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1430
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 1540
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 1590
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 1640
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0,
+          "base": 1690
+        },
+        {
+          "iseeMax": 80000,
+          "from": 0,
+          "rate": 0,
+          "base": 1750
+        },
+        {
+          "iseeMax": 90000,
+          "from": 0,
+          "rate": 0,
+          "base": 1800
+        },
+        {
+          "iseeMax": 100000,
+          "from": 0,
+          "rate": 0,
+          "base": 1850
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1940
+        }
+      ],
+      "bandsSource": {
+        "label": "UniPG, Regolamento in materia di contribuzione studentesca, artt. 12-13 e Allegati 2 e 4",
+        "url": "https://www.unipg.it/files/statuto-regolamenti/regolamenti/reg-contribuzione-studentesca.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1940,
+        "ciclo-unico": 1940,
+        "magistrale": 1940
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 22.000 €; low tax area fino a 30.000 € con importi per fasce di 2.000 € (126, 385, 682 e 945 €, Allegato 4); poi fasce di 5.000 € (10.000 € da 70.000 €) da 1.130 € fino a 1.940 € oltre 100.000 € o senza ISEE (Allegato 2, contributo al netto di tassa regionale e bollo). Il regolamento vale finché l’ateneo non adotta nuovi importi (art. 3.4); la no tax area a 22.000 € è confermata nell’avviso delle immatricolazioni 2026/27.",
+      "maxSource": {
+        "label": "UniPG, Regolamento contribuzione studentesca, Allegato 2",
+        "url": "https://www.unipg.it/files/statuto-regolamenti/regolamenti/reg-contribuzione-studentesca.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale e bollo) dal 1 agosto al 20 ottobre",
+          "Seconda rata entro il 21 dicembre",
+          "Terza rata entro il 30 aprile",
+          "Quarta rata entro il 30 giugno"
+        ],
+        "note": "L’ISEE «Università» va presentato dal 1 agosto al 20 ottobre; in ritardo si paga una maggiorazione da 35 € a 200 €.",
+        "source": {
+          "label": "UniPG, Regolamento contribuzione studentesca, Allegato 1",
+          "url": "https://www.unipg.it/files/statuto-regolamenti/regolamenti/reg-contribuzione-studentesca.pdf"
+        }
+      },
+      "simulator": "https://www.unipg.it/news/vita-accademica?layout=scheda&idNews=4624"
     }
   }
 }
