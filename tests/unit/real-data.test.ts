@@ -910,3 +910,17 @@ describe('tasse Università di Foggia 2026/27', () => {
     expect(contributionFor(rule, null, 1715)).toBe(1715);
   });
 });
+
+describe('tasse Università del Salento 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07501')!;
+
+  it('quota reddito dell’Allegato A con le riduzioni d’ateneo, gradini da 40 € e tetto di 3.000 €', () => {
+    expect(contributionFor(rule, 25000, 3000)).toBe(0);
+    expect(contributionFor(rule, 27000, 3000)).toBe(661.11); // 75% di 14.000/27.000 × 1.700
+    expect(contributionFor(rule, 40000, 3000)).toBe(1615); // 95% di 1.700
+    expect(contributionFor(rule, 52000, 3000)).toBe(1780);
+    expect(contributionFor(rule, 70000, 3000)).toBe(2352); // (70.000 − 14.000) × 0,042
+    expect(contributionFor(rule, 90000, 3000)).toBe(3000);
+    expect(contributionFor(rule, null, 3000)).toBe(3000);
+  });
+});

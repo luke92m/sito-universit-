@@ -9251,6 +9251,136 @@
         }
       },
       "simulator": "https://www.unifg.it/it/servizi-e-opportunita/segreterie-online/tasse-e-contributi"
+    },
+    "ateneo-07501": {
+      "name": "Università del Salento",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-15",
+      "appliesTo": "Matricole e studenti meritevoli in corso, con ISEE per il diritto allo studio universitario, senza le riduzioni per il voto di maturità o di laurea.",
+      "fixedFees": {
+        "regionalTax": 195,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 211
+      },
+      "fixedFeesNote": "Prima rata: bollo 16 € e tassa regionale ADISU Puglia (146 € fino a 26.000 €, 170 € fino a 52.000 €, poi 195 €; senza ISEE 195 €).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 146
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 170
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 195
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 13000,
+          "rate": 0.0314815,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000,
+          "rate": 0.0472222,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000,
+          "rate": 0.0566667,
+          "base": 0
+        },
+        {
+          "iseeMax": 40000,
+          "from": 13000,
+          "rate": 0.0598148,
+          "base": 0
+        },
+        {
+          "iseeMax": 44999.99,
+          "from": 0,
+          "rate": 0,
+          "base": 1700
+        },
+        {
+          "iseeMax": 49999.99,
+          "from": 0,
+          "rate": 0,
+          "base": 1740
+        },
+        {
+          "iseeMax": 54999.99,
+          "from": 0,
+          "rate": 0,
+          "base": 1780
+        },
+        {
+          "iseeMax": 59999.99,
+          "from": 0,
+          "rate": 0,
+          "base": 1820
+        },
+        {
+          "iseeMax": 79999.99,
+          "from": 14000,
+          "rate": 0.042,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 14000,
+          "rate": 0.045,
+          "base": 0
+        }
+      ],
+      "bandsSource": {
+        "label": "UniSalento, Allegato A al Manifesto degli studi 2026/27 (Modello di contribuzione studentesca)",
+        "url": "https://www.unisalento.it/documents/20143/132441/Allegato-A_26-27.pdf/4ad07be3-c288-f2b9-aa2d-4bac262b2bce"
+      },
+      "maxByLevel": {
+        "triennale": 3000,
+        "ciclo-unico": 3000,
+        "magistrale": 3000
+      },
+      "maxExceptions": [],
+      "maxNote": "Quota reddito: (ISEE − 13.000) / 27.000 × 1.700 € fino a 40.000 €, con le riduzioni d’ateneo (100% fino a 25.000 €, poi 50%, 25%, 10% e 5% fino a 40.000 €); 1.700 € + 40 € ogni 5.000 € fino a 60.000 €; (ISEE − 14.000) × 0,042 fino a 80.000 €, poi × 0,045 fino a 3.000 € (anche senza ISEE). Non sono nel calcolo la riduzione per il voto di maturità (fino al 40% con ISEE sotto 40.000 €: (voto − 80)/20 × 40%), la quota di 140 € per chi non è meritevole e quella per i fuori corso. L’Allegato 2026/27 parla di riduzioni «per l’A.A. 2024-25»: lo leggiamo come refuso.",
+      "maxSource": {
+        "label": "UniSalento, Allegato A al Manifesto degli studi 2026/27",
+        "url": "https://www.unisalento.it/documents/20143/132441/Allegato-A_26-27.pdf/4ad07be3-c288-f2b9-aa2d-4bac262b2bce"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale e bollo) con l’immatricolazione: per i corsi ad accesso libero entro il 5 novembre 2026",
+          "Seconda rata (un terzo del contributo) entro il 31 dicembre 2026",
+          "Terza rata (un terzo) entro il 31 marzo 2027",
+          "Quarta rata (un terzo) entro il 30 giugno 2027"
+        ],
+        "note": "L’ISEE 2026 per il diritto allo studio va acquisito entro il 31 dicembre 2026. Il cruscotto dell’ateneo mostra il calcolo con il proprio ISEE.",
+        "source": {
+          "label": "UniSalento, Manifesto degli studi 2026/27, Parte II, par. 2.6 e 4.1",
+          "url": "https://www.unisalento.it/documents/20143/132441/Manifesto_Studi_2026-2027.pdf/d3ad628f-ad4d-c4ea-174c-3541ca7a3fca"
+        }
+      },
+      "simulator": "https://sistemistudenti.unisalento.it/tasse/"
     }
   }
 }
