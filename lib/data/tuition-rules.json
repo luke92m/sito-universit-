@@ -16396,6 +16396,255 @@
         }
       },
       "simulator": "https://simulatasse.uniupo.it/"
+    },
+    "ateneo-06302": {
+      "name": "Università di Napoli Parthenope",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e iscritti della coorte 2026/27 a tempo pieno, con ISEE per il diritto allo studio (al primo anno l’esonero dipende solo dall’ISEE).",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Con la prima tranche: tassa regionale campana (da 130 € a 173 € secondo l’ISEE) e bollo di 16 €.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 480
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 632
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 809
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1037
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1289
+        },
+        {
+          "iseeMax": 60000,
+          "from": 0,
+          "rate": 0,
+          "base": 1669
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 2301
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2359
+        }
+      ],
+      "bandsSource": {
+        "label": "Parthenope, Regolamento in materia di contribuzione 2026/27 (D.R. 513/2026), artt. 3-7",
+        "url": "https://www.uniparthenope.it:8443/ParthenopePortaleDidatticaRest/rest/render/mediaDownloadByFileName/DECRETO%20REGOLAMENTO%20TASSE_signed.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "ordinari",
+          "label": "corsi ordinari",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 480
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 632
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 809
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1037
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1289
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 1669
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2301
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2359
+            }
+          ],
+          "max": 2359
+        },
+        {
+          "id": "sanitari",
+          "label": "area sanitaria (+20%)",
+          "groups": [],
+          "classCodes": [
+            "L/SNT1",
+            "LM-41"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 576
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 759
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 971
+            },
+            {
+              "iseeMax": 45000,
+              "from": 0,
+              "rate": 0,
+              "base": 1245
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1547
+            },
+            {
+              "iseeMax": 60000,
+              "from": 0,
+              "rate": 0,
+              "base": 2003
+            },
+            {
+              "iseeMax": 75000,
+              "from": 0,
+              "rate": 0,
+              "base": 2762
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2831
+            }
+          ],
+          "max": 2831
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 2359,
+        "ciclo-unico": 2359,
+        "magistrale": 2359
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 30.000 €; poi importi fissi per fascia di ISEE: 480 € fino a 33.000 €, 632, 809, 1.037, 1.289, 1.669 € fino a 60.000 €, 2.301 € fino a 75.000 €, oltre o senza ISEE 2.359 €. Area sanitaria (Infermieristica L/SNT1, Medicina LM-41) +20%: da 576 € a 2.831 €. Le riduzioni per merito fino al 10% (artt. 20-22) non sono calcolate. Per gli iscritti prima del 2026/27 resta il vecchio sistema a formula.",
+      "maxSource": {
+        "label": "Parthenope, Regolamento in materia di contribuzione 2026/27 (D.R. 513/2026), artt. 3-7",
+        "url": "https://www.uniparthenope.it:8443/ParthenopePortaleDidatticaRest/rest/render/mediaDownloadByFileName/DECRETO%20REGOLAMENTO%20TASSE_signed.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima tranche (tassa regionale, bollo ed eventuale quota di 100 €) all’immatricolazione, entro il 2 novembre 2026",
+          "Seconda tranche entro il 21 dicembre 2026",
+          "Terza tranche entro il 31 marzo 2027",
+          "Quarta tranche entro il 31 maggio 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio va acquisito nei termini; fino al 31 marzo 2027 con mora di 200 €. Senza ISEE si pagano contributo e tassa regionale massimi. Sotto 100 € di totale si paga in un’unica soluzione.",
+        "source": {
+          "label": "Parthenope, Regolamento contribuzione 2026/27, artt. 4-5 e 12",
+          "url": "https://www.uniparthenope.it:8443/ParthenopePortaleDidatticaRest/rest/render/mediaDownloadByFileName/DECRETO%20REGOLAMENTO%20TASSE_signed.pdf"
+        }
+      },
+      "simulator": "https://www.simulatoretasse.uniparthenope.it/frmSelezione.aspx"
     }
   }
 }

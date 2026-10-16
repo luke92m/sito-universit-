@@ -1515,3 +1515,34 @@ describe('Piemonte Orientale 2026/27: tasse', () => {
     expect(contributionFor(rule, null, b.max, b.bands)).toBe(2622);
   });
 });
+
+describe('Parthenope 2026/27: tasse a fasce', () => {
+  const rule = tuitionRuleFor('ateneo-06302')!;
+  const named = (name: string) => getCourses('ateneo-06302').find((course) => course.name.startsWith(name))!;
+
+  it('Corsi ordinari: no tax area fino a 30.000 €, poi importi fissi', () => {
+    expect(contributionFor(rule, 30000, 2359)).toBe(0);
+    expect(contributionFor(rule, 30000.01, 2359)).toBe(480);
+    expect(contributionFor(rule, 55000, 2359)).toBe(1669);
+    expect(contributionFor(rule, 80000, 2359)).toBe(2359);
+    expect(maxContribution(rule, named('Economia Aziendale'))).toBe(2359);
+  });
+
+  it('Area sanitaria: +20% per Infermieristica', () => {
+    const nursing = named('Infermieristica');
+    expect(maxContribution(rule, nursing)).toBe(2831);
+    expect(contributionFor(rule, 42000, 2831, courseGroup(rule, nursing)!.bands)).toBe(1245);
+  });
+});
+
+describe('Piemonte Orientale: gruppi per dipartimento', () => {
+  const rule = tuitionRuleFor('ateneo-00201')!;
+  const named = (name: string) => getCourses('ateneo-00201').find((course) => course.name === name)!;
+  it('Medicina e Farmaco nel gruppo B, Servizio Sociale nel gruppo A', () => {
+    expect(maxContribution(rule, named('Farmacia'))).toBe(2622);
+    expect(maxContribution(rule, named('Biotecnologie'))).toBe(2622);
+    expect(maxContribution(rule, named('Servizio Sociale'))).toBe(2280);
+    expect(maxContribution(rule, named('Lettere'))).toBe(2280);
+    expect(isExcludedCourse(rule, named('Chimica Verde'))).toBe(true);
+  });
+});
