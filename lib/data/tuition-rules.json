@@ -17245,6 +17245,191 @@
         }
       },
       "simulator": "https://www.unite.it/UniTE/Segreteria_Studenti/Tasse"
+    },
+    "ateneo-07801": {
+      "name": "Università della Calabria",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti regolari con il merito richiesto (fascia A: al primo anno nessun requisito di merito), con ISEE Università 2026.",
+      "fixedFees": {
+        "regionalTax": 160,
+        "stampDuty": 16,
+        "insurance": 2.75,
+        "total": 178.75
+      },
+      "fixedFeesNote": "Bollo 16 € e assicurazione 2,75 € con la prima rata; tassa per il diritto allo studio (130 € fino a 26.500 € di ISEE, 140 € fino a 53.000 €, poi 160 €) con la seconda.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53000,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 13000,
+          "rate": 0.014,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 13000,
+          "rate": 0.035,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 31000,
+          "from": 30000,
+          "rate": 0.05119,
+          "base": 1201.37
+        },
+        {
+          "iseeMax": 32000,
+          "from": 31000,
+          "rate": 0.05285,
+          "base": 1252.56
+        },
+        {
+          "iseeMax": 33000,
+          "from": 32000,
+          "rate": 0.05457,
+          "base": 1305.41
+        },
+        {
+          "iseeMax": 34000,
+          "from": 33000,
+          "rate": 0.05634,
+          "base": 1359.98
+        },
+        {
+          "iseeMax": 35000,
+          "from": 34000,
+          "rate": 0.05817,
+          "base": 1416.32
+        },
+        {
+          "iseeMax": 36000,
+          "from": 35000,
+          "rate": 0.06007,
+          "base": 1474.49
+        },
+        {
+          "iseeMax": 37000,
+          "from": 36000,
+          "rate": 0.06202,
+          "base": 1534.56
+        },
+        {
+          "iseeMax": 38000,
+          "from": 37000,
+          "rate": 0.06403,
+          "base": 1596.58
+        },
+        {
+          "iseeMax": 39000,
+          "from": 38000,
+          "rate": 0.06612,
+          "base": 1660.61
+        },
+        {
+          "iseeMax": 40000,
+          "from": 39000,
+          "rate": 0.06827,
+          "base": 1726.73
+        },
+        {
+          "iseeMax": 41000,
+          "from": 40000,
+          "rate": 0.07049,
+          "base": 1795
+        },
+        {
+          "iseeMax": 42000,
+          "from": 41000,
+          "rate": 0.07278,
+          "base": 1865.49
+        },
+        {
+          "iseeMax": 43000,
+          "from": 42000,
+          "rate": 0.07515,
+          "base": 1938.27
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2000
+        }
+      ],
+      "bandsSource": {
+        "label": "Unical, Regolamento tasse, Allegato 1 – Tasse a.a. 2026/27: regola di calcolo del CA e Tabella A",
+        "url": "https://www.unical.it/media/medias/2026/ALLEGATO_1_-_Tasse_a.a._26-27.pdf"
+      },
+      "bandsNote": "Oltre 30.000 € l’Ateneo usa una formula esponenziale: il sito la segue a tratti lineari ogni 1.000 € di ISEE (scarto sotto 1 €).",
+      "excludedCourses": {
+        "names": [
+          "Conservazione e Restauro dei Beni Culturali (Abilitante Ai Sensi del D.Lgs N.42/2004)"
+        ],
+        "note": "il corso ha un contributo aggiuntivo pari a (ISEE − 15.000)/5, fino a 2.000 €, non ancora nel calcolo."
+      },
+      "maxByLevel": {
+        "triennale": 2000,
+        "ciclo-unico": 2000,
+        "magistrale": 2000
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 22.000 €; da 22.000 a 30.000 € il 7% dell’ISEE oltre 13.000 € ridotto con i coefficienti del D.M. 1014/2021 (0,2 / 0,5 / 0,75 / 0,9); oltre 30.000 € F(ISEE) = 230 + 602,70202 × (e^(0,000032 × ISEE) − 1), fino a 2.000 € (circa 43.000 € di ISEE). Senza ISEE si paga il massimo.",
+      "maxSource": {
+        "label": "Unical, Regolamento tasse, Allegato 1 – Tasse a.a. 2026/27: regola di calcolo del CA e Tabella A",
+        "url": "https://www.unical.it/media/medias/2026/ALLEGATO_1_-_Tasse_a.a._26-27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo e assicurazione) all’immatricolazione, nei termini del bando di ammissione",
+          "Seconda rata (tassa per il diritto allo studio e un terzo del contributo) entro il 30 novembre 2026 (1° febbraio 2027 per le magistrali)",
+          "Terza rata (un terzo) entro il 1° marzo 2027",
+          "Quarta rata (un terzo) entro il 31 maggio 2027"
+        ],
+        "note": "L’ISEE Università va richiesto entro la scadenza del bando per il diritto allo studio, o entro il 16 ottobre 2026 per chi non partecipa; dal 17 ottobre al 31 dicembre 2026 con mora di 50 €.",
+        "source": {
+          "label": "Unical, Allegato 1 – Tasse a.a. 2026/27, Documenti da presentare e Rate e scadenze",
+          "url": "https://www.unical.it/media/medias/2026/ALLEGATO_1_-_Tasse_a.a._26-27.pdf"
+        }
+      },
+      "simulator": "https://www.unical.it/didattica/iscriversi-studiare-laurearsi/tasse-ed-esoneri/tasse-ed-esoneri-futuri-studenti/"
     }
   }
 }

@@ -1605,3 +1605,12 @@ describe('ADSU Teramo 2026/27: borse', () => {
     expect(amountAt(adsu, 22000, 'inSede')).toBe(2462.91);
   });
 });
+
+describe('Unical 2026/27: tasse (fascia A)', () => {
+  const rule = tuitionRuleFor('ateneo-07801')!;
+  it('Coincide con la Tabella A dell’Allegato 1', () => {
+    const table: [number, number][] = [[22000, 0], [25000, 420], [27000, 735], [29000, 1008], [30000, 1071], [31000, 1252.56], [35000, 1474.49], [38500, 1693.47], [40000, 1795], [42000, 1938.27], [48000, 2000]];
+    for (const [isee, amount] of table) expect(contributionFor(rule, isee, 2000)).toBeCloseTo(amount, 0);
+    expect(fixedFeesRange(rule, exact(30000)).min).toBe(158.75);
+  });
+});
