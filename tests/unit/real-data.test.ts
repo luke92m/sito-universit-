@@ -1502,3 +1502,16 @@ describe('Iuav 2026/27: tasse e borse regionali', () => {
     expect(amountAt(iuav, 15000, 'pendolare')).toBe(4190.71);
   });
 });
+
+describe('Piemonte Orientale 2026/27: tasse', () => {
+  it('No tax area fino a 30.000 €, poi VUPO1 + VUPO2 per dipartimento', () => {
+    const rule = tuitionRuleFor('ateneo-00201')!;
+    const [a, b] = rule.courseGroups!;
+    expect(contributionFor(rule, 30000, a.max, a.bands)).toBe(0);
+    expect(contributionFor(rule, 35000, a.max, a.bands)).toBe(950);
+    expect(contributionFor(rule, 77500, a.max, a.bands)).toBe(1862.5);
+    expect(contributionFor(rule, 150000, a.max, a.bands)).toBe(2280);
+    expect(contributionFor(rule, 45000, b.max, b.bands)).toBe(1349);
+    expect(contributionFor(rule, null, b.max, b.bands)).toBe(2622);
+  });
+});

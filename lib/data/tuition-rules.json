@@ -16144,6 +16144,258 @@
         }
       },
       "simulator": "https://www.iuav.it/tasse-e-contributi/quanto-si-paga"
+    },
+    "ateneo-00201": {
+      "name": "Università del Piemonte Orientale",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole a tempo pieno (per il primo anno conta solo l’ISEE), con ISPE sotto 130.000 €.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale 140 € e bollo 16 €) all’immatricolazione; chi è idoneo alla borsa EDISU chiede il rimborso della tassa regionale.",
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 40000,
+          "from": 30000,
+          "rate": 0.019,
+          "base": 855
+        },
+        {
+          "iseeMax": 50000,
+          "from": 40000,
+          "rate": 0.0245,
+          "base": 1045
+        },
+        {
+          "iseeMax": 60000,
+          "from": 50000,
+          "rate": 0.0285,
+          "base": 1290
+        },
+        {
+          "iseeMax": 70000,
+          "from": 60000,
+          "rate": 0.0165,
+          "base": 1575
+        },
+        {
+          "iseeMax": 85000,
+          "from": 70000,
+          "rate": 0.01633333,
+          "base": 1740
+        },
+        {
+          "iseeMax": 100000,
+          "from": 85000,
+          "rate": 0.007,
+          "base": 1985
+        },
+        {
+          "iseeMax": 120000,
+          "from": 100000,
+          "rate": 0.0095,
+          "base": 2090
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2280
+        }
+      ],
+      "bandsSource": {
+        "label": "UPO, Regolamento in materia di contribuzione studentesca (modifiche CdA 29/4/2026), artt. 4.1-4.4",
+        "url": "https://www.uniupo.it/sites/default/files/2026-05/DR_Regolamento_Contribuzione_integrazioni_def%20rep.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "DiGSPES, DiSEI, DiSIT, DiSUM",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Informatica e Tecnologie ICT",
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Politico-Sociale e Comunicazione",
+            "Scientifico"
+          ],
+          "names": [
+            "Servizio Sociale"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.019,
+              "base": 855
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000,
+              "rate": 0.0245,
+              "base": 1045
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000,
+              "rate": 0.0285,
+              "base": 1290
+            },
+            {
+              "iseeMax": 70000,
+              "from": 60000,
+              "rate": 0.0165,
+              "base": 1575
+            },
+            {
+              "iseeMax": 85000,
+              "from": 70000,
+              "rate": 0.01633333,
+              "base": 1740
+            },
+            {
+              "iseeMax": 100000,
+              "from": 85000,
+              "rate": 0.007,
+              "base": 1985
+            },
+            {
+              "iseeMax": 120000,
+              "from": 100000,
+              "rate": 0.0095,
+              "base": 2090
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2280
+            }
+          ],
+          "max": 2280
+        },
+        {
+          "id": "B",
+          "label": "Scienze del Farmaco e Scuola di Medicina",
+          "groups": [
+            "Medico-Sanitario e Farmaceutico"
+          ],
+          "names": [
+            "Biotecnologie",
+            "Biotecnologie Farmaceutiche",
+            "Medical Biotechnology"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.0232,
+              "base": 972
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000,
+              "rate": 0.0298,
+              "base": 1200
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000,
+              "rate": 0.0342,
+              "base": 1494
+            },
+            {
+              "iseeMax": 70000,
+              "from": 60000,
+              "rate": 0.0198,
+              "base": 1836
+            },
+            {
+              "iseeMax": 85000,
+              "from": 70000,
+              "rate": 0.0196,
+              "base": 2034
+            },
+            {
+              "iseeMax": 100000,
+              "from": 85000,
+              "rate": 0.00693333,
+              "base": 2328
+            },
+            {
+              "iseeMax": 120000,
+              "from": 100000,
+              "rate": 0.0095,
+              "base": 2432
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2622
+            }
+          ],
+          "max": 2622
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Chimica Verde",
+          "Gestione Ambientale e Sviluppo Sostenibile",
+          "Food Health And Environment",
+          "Disaster And Health Crisis Management",
+          "Management for Sustainability"
+        ],
+        "note": "il corso è del nuovo Dipartimento per lo Sviluppo Sostenibile (DiSSTE), che il Regolamento non elenca tra i dipartimenti: l’importo non è certo."
+      },
+      "maxByLevel": {
+        "triennale": 2280,
+        "ciclo-unico": 2280,
+        "magistrale": 2280
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 30.000 € per tutte le matricole. Oltre: COA = VUPO1 (330 €, o 342 € per Scienze del Farmaco e Scuola di Medicina) + VUPO2, che cresce in modo lineare per fasce di ISEE (525 € appena sopra 30.000 €, 1.950 € oltre 120.000 €; 630-2.280 € per Farmaco e Medicina). Senza ISEE o oltre 120.000 €: 2.280 € (2.622 € Farmaco e Medicina). Con ISPE oltre 130.000 € il VUPO2 sale verso il massimo (non calcolato).",
+      "maxSource": {
+        "label": "UPO, Regolamento in materia di contribuzione studentesca (modifiche CdA 29/4/2026), artt. 4.1-4.4",
+        "url": "https://www.uniupo.it/sites/default/files/2026-05/DR_Regolamento_Contribuzione_integrazioni_def%20rep.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € (tassa regionale e bollo) al termine dell’immatricolazione online",
+          "Seconda rata (fino a 330 €, 342 € per Farmaco e Medicina, con 10 € di contributo sportivo) entro il 29 gennaio 2027",
+          "Rate successive (da una a quattro, secondo l’importo) dal 31 marzo 2027"
+        ],
+        "note": "L’Attestazione ISEE per il diritto allo studio va rilasciata entro il 30 ottobre 2026: senza, si paga la fascia massima.",
+        "source": {
+          "label": "UPO, Manifesto degli studi 2026/27, artt. 3.1 e 4.2-4.4",
+          "url": "https://www.uniupo.it/sites/default/files/2026-06/DR_Manifesto%20degli%20Studi_26_27%20rep.pdf"
+        }
+      },
+      "simulator": "https://simulatasse.uniupo.it/"
     }
   }
 }
