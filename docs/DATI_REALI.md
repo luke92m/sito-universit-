@@ -19,7 +19,7 @@ Borse (bandi 2026/27):
 | Ente | Atenei | Soglie ISEE / ISPE | Elenchi dei comuni |
 |---|---|---|---|
 | ER.GO (Emilia-Romagna) | Bologna, Ferrara, Modena e Reggio Emilia, Parma | 25.000 / 50.000 | in sede e pendolari per Bologna |
-| DiSCo Lazio | Sapienza, Tor Vergata, Roma Tre, Foro Italico, Cassino, Tuscia | 28.339,88 / 61.608,48 | pendolari per Roma (Allegato B) |
+| DiSCo Lazio | Sapienza, Tor Vergata, Roma Tre, Foro Italico, Cassino, Tuscia, Luiss | 28.339,88 / 61.608,48 | pendolari per Roma (Allegato B) |
 | EDISU Piemonte | Torino, Politecnico di Torino, Piemonte Orientale | 26.306,25 / 57.187,53 | in sede = stesso comune |
 | DSU Toscana | Firenze, Pisa, Siena, Stranieri di Siena | 27.000 / 60.000 | in sede per Firenze, Pisa, Siena |
 | Università di Padova (borse regionali) | Padova | 26.306,25 / 43.125,94 | — (40/80 km o minuti) |
