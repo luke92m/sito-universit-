@@ -17661,6 +17661,89 @@
         }
       },
       "simulator": "https://www.unirc.it/studiare/iscrizioni-e-immatricolazioni/tasse-e-contributi"
+    },
+    "ateneo-07901": {
+      "name": "Università Magna Græcia di Catanzaro",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole (per chi si immatricola per la prima volta conta solo l’ISEE: colonna «requisiti B e C»), con ISEE Università 2026.",
+      "fixedFees": {
+        "regionalTax": 160,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 176
+      },
+      "fixedFeesNote": "All’iscrizione: tassa per il diritto allo studio di 130 € e bollo 16 €; con la seconda rata l’eventuale saldo della tassa (140 € oltre 23.508,78 € di ISEE, 160 € oltre 47.017,55 €: soglie del bando 2026/27 della Fondazione UMG; il Regolamento tasse indica 27.726,79 € e 55.453,58 € e rimanda al sito della Fondazione per le variazioni).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 23508.78,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 47017.55,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 55000,
+          "from": 13000,
+          "rate": 0.042,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1764
+        }
+      ],
+      "bandsSource": {
+        "label": "UMG, Regolamento tasse 2026/27 (D.R. 871/2026), sezione II, parr. 1-2 (tabella riepilogativa e tabella esemplificativa)",
+        "url": "https://web.unicz.it/admin/uploads/2026/07/regolamento-tasse-a-a-2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2520,
+        "ciclo-unico": 2520,
+        "magistrale": 2520
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 30.000 €; da 30.000 a 55.000 € il 4,2% dell’ISEE oltre 13.000 € (756 € a 31.000 €); oltre 55.000 € 1.764 €. Senza ISEE (o senza l’autorizzazione a prelevarlo dall’INPS) si perde ogni beneficio: 2.520 €, il massimo della tabella. Stessi importi per tutti i corsi.",
+      "maxSource": {
+        "label": "UMG, Regolamento tasse 2026/27 (D.R. 871/2026), sezione II, parr. 2 e 4",
+        "url": "https://web.unicz.it/admin/uploads/2026/07/regolamento-tasse-a-a-2026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale 130 € e bollo 16 €) entro il 5 novembre 2026",
+          "Seconda rata (eventuale saldo della tassa regionale e 20% del contributo) entro il 1° febbraio 2027",
+          "Terza rata (30%) entro il 15 marzo 2027",
+          "Quarta rata (25%) entro il 30 aprile 2027",
+          "Quinta rata (25%) entro il 15 giugno 2027"
+        ],
+        "note": "L’ISEE Università 2026 va autorizzato nella pagina personale all’iscrizione; dopo, con 50 € in più, e oltre il 31 dicembre 2026 solo tramite la segreteria. Mora di 50 € per ogni rata scaduta.",
+        "source": {
+          "label": "UMG, Regolamento tasse 2026/27 (D.R. 871/2026), sezione I, par. 4 e sezione II, parr. 3-4",
+          "url": "https://web.unicz.it/admin/uploads/2026/07/regolamento-tasse-a-a-2026-2027.pdf"
+        }
+      },
+      "simulator": "https://web.unicz.it/it/page/profilo-futuri-studenti"
     }
   }
 }

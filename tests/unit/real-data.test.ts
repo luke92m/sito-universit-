@@ -1625,3 +1625,24 @@ describe('Mediterranea 2026/27: tasse', () => {
     expect(contributionFor(rule, 60000, 2165.29)).toBe(2165.29);
   });
 });
+
+describe('Catanzaro 2026/27: tasse', () => {
+  it('No tax area fino a 30.000 €, poi 4,2% oltre 13.000 € fino a 1.764 €', () => {
+    const rule = tuitionRuleFor('ateneo-07901')!;
+    expect(contributionFor(rule, 30000, 2520)).toBe(0);
+    expect(contributionFor(rule, 31000, 2520)).toBe(756);
+    expect(contributionFor(rule, 45000, 2520)).toBe(1344);
+    expect(contributionFor(rule, 80000, 2520)).toBe(1764);
+    expect(contributionFor(rule, null, 2520)).toBe(2520);
+  });
+});
+
+describe('Fondazione UMG 2026/27: borse', () => {
+  it('Soglie 26.500 / 57.500 €, +15% fino a 13.250 €, poi calo fino alla metà', () => {
+    const umg = dsuEntityFor('ateneo-07901')!;
+    expect(umg.id).toBe('fondazione-umg');
+    expect(umg.thresholds).toMatchObject({ isee: 26500, ispe: 57500 });
+    expect(amountAt(umg, 12000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(umg, 16000, 'pendolare')).toBe(4190.71);
+  });
+});

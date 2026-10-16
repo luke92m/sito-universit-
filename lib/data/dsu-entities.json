@@ -13221,6 +13221,123 @@
         "label": "ADSU Teramo, Bandi borse di studio e alloggi 2026/27",
         "url": "https://www.adsuteramo.it/archivio10_notizie-e-comunicati_0_500.html"
       }
+    },
+    {
+      "id": "fondazione-umg",
+      "name": "Fondazione Università Magna Græcia – Diritto allo studio",
+      "shortName": "Fondazione UMG",
+      "region": "Calabria",
+      "universityIds": [
+        "ateneo-07901"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 26500,
+        "ispe": 57500,
+        "source": {
+          "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), art. 12.1",
+          "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+        }
+      },
+      "amounts": {
+        "note": "Importi lordi dell’art. 16.2: +15% fino a 13.250 €, importo pieno fino a 17.666,67 €, poi riduzione graduale fino alla metà a 26.500 €. Per chi usa posto alloggio e mensa gratuiti la quota in denaro scende (2.391,44 € l’anno per l’alloggio, 978,24 € per ogni pasto giornaliero).",
+        "bands": [
+          {
+            "iseeMax": 13250,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 17666.67,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26500,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.56,
+              "pendolare": 2095.36,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), art. 16.2",
+          "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%: si applica il più favorevole",
+          "source": {
+            "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), art. 16.3",
+            "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), art. 16.3",
+            "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Posto alloggio gratuito nelle residenze del Campus per i fuori sede assegnatari",
+        "Pasti gratuiti nella mensa universitaria",
+        "Rimborso della tassa regionale per vincitori e idonei"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), artt. 3, 11 e 16.4",
+        "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza a più di 50 km dalla sede del corso e posto alloggio nelle residenze UMG o domicilio a titolo oneroso (contratto di almeno 10 mesi).",
+        "pendolare": "Residenza in un comune a meno di 50 km dalla sede; oltre 50 km senza residenza universitaria né affitto («pendolare calcolato»).",
+        "inSede": "Residenza nel comune sede del corso.",
+        "source": {
+          "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), art. 2, nn. 28-31",
+          "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% con 10 crediti entro il 26 febbraio 2027",
+          "50% con 20 crediti entro il 10 agosto 2027 (entro il 30 novembre 2027 si conserva il 50% della borsa)"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 la borsa è revocata e va restituita, servizi compresi.",
+        "source": {
+          "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), art. 8.2-8.3",
+          "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+        }
+      },
+      "application": {
+        "closes": "2026-09-08",
+        "closesTime": "12:00",
+        "note": "Domanda web con SPID o CIE; l’ISEE Università 2026 viene acquisito dall’INPS. Per i corsi ad accesso programmato nazionale e il semestre filtro valgono termini propri.",
+        "source": {
+          "label": "Fondazione UMG, Bando DSU 2026/27 (Determina 330/2026), Riepilogo scadenze e art. 15",
+          "url": "https://www.fondazioneumg.it/servizi/gestionedocumentale/visualizzadocumento.aspx?ID=5429"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Fondazione UMG, Bando DSU 2026/27",
+        "url": "https://www.fondazioneumg.it/servizi/notizie/notizie_fase02.aspx?ID=9677"
+      }
     }
   ]
 }
