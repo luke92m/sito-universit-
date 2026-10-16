@@ -12986,6 +12986,120 @@
         "label": "EDUCatt, Borse di studio per reddito e merito",
         "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
       }
+    },
+    {
+      "id": "iuav-borse",
+      "name": "Università Iuav di Venezia – Borse di studio regionali",
+      "shortName": "Iuav",
+      "region": "Veneto",
+      "universityIds": [
+        "ateneo-02702"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 26306.25,
+        "ispe": 43125.94,
+        "source": {
+          "label": "Iuav, Bando borse di studio regionali 2026/27, art. 3",
+          "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo complessivo: comprende il pasto giornaliero (trattenuta di 760 € fuori sede, 540 € pendolari, 250 € in sede) e, per chi sta nelle residenze ESU, 1.600 € di alloggio. Oltre 17.537,50 € di ISEE cala in modo proporzionale fino alla metà.",
+        "bands": [
+          {
+            "iseeMax": 13153.11,
+            "fuoriSede": 8246,
+            "pendolare": 4819,
+            "inSede": 3323
+          },
+          {
+            "iseeMax": 17537.5,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26306.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.5,
+              "pendolare": 2095.3,
+              "inSede": 1445
+            }
+          }
+        ],
+        "source": {
+          "label": "Iuav, Bando borse di studio regionali 2026/27, art. 9",
+          "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (Architettura, Urbanistica e altri corsi indicati dal bando)",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15% per ISEE basso",
+          "source": {
+            "label": "Iuav, Bando borse di studio regionali 2026/27, art. 9.9",
+            "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "Iuav, Bando borse di studio regionali 2026/27, art. 9.7",
+            "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Un pasto al giorno nelle mense ESU compreso nella borsa",
+        "Esonero totale da contribuzione e tassa regionale per idonei e beneficiari (rimborso della prima rata entro l’anno accademico)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Iuav, Bando borse di studio regionali 2026/27, artt. 9 e 12",
+        "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza oltre 80 km dalla sede e alloggio a pagamento a Venezia o in un comune «in sede», con contratto di almeno 10 mesi.",
+        "pendolare": "Residenza tra 40 e 80 km o tra 40 e 80 minuti di mezzi pubblici dalla sede.",
+        "inSede": "Residenza nel comune della sede o nelle aree immediatamente vicine.",
+        "source": {
+          "label": "Iuav, Bando borse di studio regionali 2026/27, art. 8",
+          "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata a dicembre 2026",
+          "Seconda rata a giugno 2027 con 20 crediti al 15 maggio 2027, oppure a settembre 2027 con 20 crediti al 10 agosto 2027"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 la borsa è revocata e va restituita. Le quote di mensa e alloggio sono versate direttamente dall’Università.",
+        "source": {
+          "label": "Iuav, Bando borse di studio regionali 2026/27, artt. 11 e 13",
+          "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "note": "Domanda sullo Sportello Internet (SPIN) e DSU sottoscritta entro il 30 settembre 2026; prima rata delle tasse pagata entro il 30 settembre per le matricole. Documenti per lo status di fuori sede entro il 9 ottobre o il 15 novembre 2026.",
+        "source": {
+          "label": "Iuav, Bando borse di studio regionali 2026/27, artt. 3-4",
+          "url": "https://www.iuav.it/sites/default/files/2026-07/BandoConcorsoBorse_di_studio_a.a.2026-27_ok.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Iuav, Borse di studio",
+        "url": "https://www.iuav.it/it/diritto-allo-studio/borse-di-studio"
+      }
     }
   ]
 }

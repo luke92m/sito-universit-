@@ -15864,6 +15864,286 @@
         }
       },
       "simulator": "https://www.luiss.it/en/university/luiss-life/student-affairs-office/bachelors-degrees/tuition-fee-deadlines-and-amounts-bachelors-degrees-and-single-cycle-masters-degree-law"
+    },
+    "ateneo-02702": {
+      "name": "Università Iuav di Venezia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole di laurea e laurea magistrale (valutate solo per ISEE), con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 192,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 208
+      },
+      "fixedFeesNote": "Bollo 16 € e tassa regionale veneta (fino a 192 €, ricalcolata in base all’ISEE), pagati con la prima rata.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 15748.78,
+          "from": 0,
+          "base": 146,
+          "rate": 0.001333
+        },
+        {
+          "iseeMax": 31497.56,
+          "from": 15748.79,
+          "base": 167,
+          "rate": 0.001587
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "base": 192,
+          "rate": 0
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 784.24
+        },
+        {
+          "iseeMax": 28000,
+          "from": 27000,
+          "rate": 0.05601,
+          "base": 784.24
+        },
+        {
+          "iseeMax": 29000,
+          "from": 28000,
+          "rate": 0.23527,
+          "base": 840.25
+        },
+        {
+          "iseeMax": 30000,
+          "from": 29000,
+          "rate": 0.11636,
+          "base": 1075.52
+        },
+        {
+          "iseeMax": 31000,
+          "from": 30000,
+          "rate": 0.2134,
+          "base": 1191.88
+        },
+        {
+          "iseeMax": 32000,
+          "from": 31000,
+          "rate": 0.04831,
+          "base": 1405.28
+        },
+        {
+          "iseeMax": 33000,
+          "from": 32000,
+          "rate": 0.04831,
+          "base": 1453.59
+        },
+        {
+          "iseeMax": 34000,
+          "from": 33000,
+          "rate": 0.06815,
+          "base": 1501.9
+        },
+        {
+          "iseeMax": 35000,
+          "from": 34000,
+          "rate": 0.02845,
+          "base": 1570.05
+        },
+        {
+          "iseeMax": 36000,
+          "from": 35000,
+          "rate": 0.0694,
+          "base": 1598.5
+        },
+        {
+          "iseeMax": 37000,
+          "from": 36000,
+          "rate": 0.02669,
+          "base": 1667.9
+        },
+        {
+          "iseeMax": 38000,
+          "from": 37000,
+          "rate": 0.04882,
+          "base": 1694.59
+        },
+        {
+          "iseeMax": 39000,
+          "from": 38000,
+          "rate": 0.0483,
+          "base": 1743.41
+        },
+        {
+          "iseeMax": 40000,
+          "from": 39000,
+          "rate": 0.0483,
+          "base": 1791.71
+        },
+        {
+          "iseeMax": 41000,
+          "from": 40000,
+          "rate": 0.04829,
+          "base": 1840.01
+        },
+        {
+          "iseeMax": 42000,
+          "from": 41000,
+          "rate": 0.04831,
+          "base": 1888.3
+        },
+        {
+          "iseeMax": 43000,
+          "from": 42000,
+          "rate": 0.0483,
+          "base": 1936.61
+        },
+        {
+          "iseeMax": 44000,
+          "from": 43000,
+          "rate": 0.0483,
+          "base": 1984.91
+        },
+        {
+          "iseeMax": 45000,
+          "from": 44000,
+          "rate": 0.04831,
+          "base": 2033.21
+        },
+        {
+          "iseeMax": 46000,
+          "from": 45000,
+          "rate": 0.04829,
+          "base": 2081.52
+        },
+        {
+          "iseeMax": 47000,
+          "from": 46000,
+          "rate": 0.04831,
+          "base": 2129.81
+        },
+        {
+          "iseeMax": 48000,
+          "from": 47000,
+          "rate": 0.04831,
+          "base": 2178.12
+        },
+        {
+          "iseeMax": 49000,
+          "from": 48000,
+          "rate": 0.04829,
+          "base": 2226.43
+        },
+        {
+          "iseeMax": 50000,
+          "from": 49000,
+          "rate": 0.04831,
+          "base": 2274.72
+        },
+        {
+          "iseeMax": 51000,
+          "from": 50000,
+          "rate": 0.04828,
+          "base": 2323.03
+        },
+        {
+          "iseeMax": 52000,
+          "from": 51000,
+          "rate": 0.04831,
+          "base": 2371.31
+        },
+        {
+          "iseeMax": 53000,
+          "from": 52000,
+          "rate": 0.04831,
+          "base": 2419.62
+        },
+        {
+          "iseeMax": 54000,
+          "from": 53000,
+          "rate": 0.04829,
+          "base": 2467.93
+        },
+        {
+          "iseeMax": 55000,
+          "from": 54000,
+          "rate": 0.04831,
+          "base": 2516.22
+        },
+        {
+          "iseeMax": 56000,
+          "from": 55000,
+          "rate": 0.0483,
+          "base": 2564.53
+        },
+        {
+          "iseeMax": 57000,
+          "from": 56000,
+          "rate": 0.0483,
+          "base": 2612.83
+        },
+        {
+          "iseeMax": 58000,
+          "from": 57000,
+          "rate": 0.04831,
+          "base": 2661.13
+        },
+        {
+          "iseeMax": 59000,
+          "from": 58000,
+          "rate": 0.0483,
+          "base": 2709.44
+        },
+        {
+          "iseeMax": 60000,
+          "from": 59000,
+          "rate": 0.04844,
+          "base": 2757.74
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2806.18
+        }
+      ],
+      "bandsSource": {
+        "label": "Iuav, prospetti del contributo onnicomprensivo 2026/27 (ISEE fino a 30.000 € e oltre 30.000 €)",
+        "url": "https://www.iuav.it/tasse-e-contributi/quanto-si-paga"
+      },
+      "bandsNote": "I prospetti danno il contributo ogni 1.000 € di ISEE e dicono che tra un valore e il successivo l’importo è proporzionale all’ISEE: il sito interpola tra i punti. Tra 26.000 e 27.000 € usa l’importo a 27.000 € (stima per eccesso).",
+      "maxByLevel": {
+        "triennale": 2806.18,
+        "ciclo-unico": 2806.18,
+        "magistrale": 2806.18
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 26.000 €; da 26.000 a 30.000 € sconto decrescente dal 25% al 10% (784,24 € a 27.000 €, 1.191,88 € a 30.000 €); da 30.000 a 60.000 € contributo crescente (1.405,28 € a 31.000 €); oltre 60.000 € o senza ISEE 2.806,18 €. Stesso importo per tutti i corsi. Per chi ha i requisiti di merito, oltre 30.000 € è prevista una riduzione del 50% di seconda e terza rata, non calcolata.",
+      "maxSource": {
+        "label": "Iuav, prospetti del contributo onnicomprensivo 2026/27 (ISEE fino a 30.000 € e oltre 30.000 €)",
+        "url": "https://www.iuav.it/tasse-e-contributi/quanto-si-paga"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 890 € (682 € di contributo, 192 € di tassa regionale, 16 € di bollo) entro la scadenza del bando di ammissione",
+          "Seconda rata (contributo in base all’ISEE) entro il 31 gennaio 2027",
+          "Terza rata (saldo) entro il 5 maggio 2027"
+        ],
+        "note": "L’autocertificazione ISEE va fatta sullo Sportello Internet entro il 18 dicembre 2026 (poi mora di 200 € fino al 18 marzo 2027 e di 500 € fino al 5 maggio 2027). Chi non la presenta paga il massimo.",
+        "source": {
+          "label": "Iuav, Quanto si paga e Limiti ISEE e determinazione delle tasse",
+          "url": "https://www.iuav.it/tasse-e-contributi/quanto-si-paga"
+        }
+      },
+      "simulator": "https://www.iuav.it/tasse-e-contributi/quanto-si-paga"
     }
   }
 }

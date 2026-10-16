@@ -1481,3 +1481,24 @@ describe('Private: la borsa non toglie la retta se l’ateneo non lo prevede', (
     expect(cost.lines.find((line) => line.key === 'tasse')?.min).toBe(0);
   });
 });
+
+describe('Iuav 2026/27: tasse e borse regionali', () => {
+  it('Tasse: no tax area fino a 26.000 €, poi i punti dei prospetti ufficiali', () => {
+    const rule = tuitionRuleFor('ateneo-02702')!;
+    expect(contributionFor(rule, 26000, 2806.18)).toBe(0);
+    expect(contributionFor(rule, 28000, 2806.18)).toBe(840.25);
+    expect(contributionFor(rule, 30000, 2806.18)).toBe(1191.88);
+    expect(contributionFor(rule, 45000, 2806.18)).toBe(2081.52);
+    expect(contributionFor(rule, 45500, 2806.18)).toBeCloseTo(2105.67, 1);
+    expect(contributionFor(rule, 90000, 2806.18)).toBe(2806.18);
+    expect(contributionFor(rule, null, 2806.18)).toBe(2806.18);
+  });
+
+  it('Borse: importi veneti, calo fino alla metà oltre 17.537,50 €', () => {
+    const iuav = dsuEntityFor('ateneo-02702')!;
+    expect(iuav.id).toBe('iuav-borse');
+    expect(iuav.thresholds).toMatchObject({ isee: 26306.25, ispe: 43125.94 });
+    expect(amountAt(iuav, 10000, 'fuoriSede')).toBe(8246);
+    expect(amountAt(iuav, 15000, 'pendolare')).toBe(4190.71);
+  });
+});
