@@ -44,6 +44,8 @@ Borse (bandi 2026/27):
 | ADSU Chieti-Pescara | Chieti-Pescara | 24.335,11 / 52.902,43 | Tabelle del bando (Chieti, Pescara, Vasto) |
 | ADSU L'Aquila | L'Aquila | 24.335,11 / 52.902,43 | nessun elenco: stato per distanza (20/50 km) |
 | ERSU Messina | Messina | 22.500 / 53.000 | Tabelle 11.1-11.2 (Messina, Noto, Priolo Gargallo) |
+| ISU Bocconi | Bocconi | 26.887,93 / 58.452,06 | nessun elenco: stato per tempi di viaggio (60/90 minuti) |
+| EDUCatt | Cattolica | 26.887,93 / 58.452,06 | Elenchi EDUCatt (Milano, Brescia, Piacenza, Cremona, Roma, Torino, Moncrivello) |
 | DSU Mediterranea (ateneo) | Mediterranea di Reggio Calabria | 28.339,88 / 61.608,48 | nessun elenco: stato per distanza (50 km) |
 | Centro Residenziale Unical (ateneo) | Università della Calabria | 26.500 / 57.500 | Appendice A (Rende) |
 
@@ -113,6 +115,13 @@ Tasse (2026/27):
 - **Basilicata (tasse)**: Regolamento contribuzione studentesca 2026/27 (D.R. 289/2026), art. 4, Tabelle 1, B e G: esonero fino a 22.000 € per le matricole, 380 € + 3% oltre 22.000 € fino a 30.000 €, poi importi fissi per fascia (1.130-2.100 €). Borse ARDSU Basilicata non inserite: il bando 2026/27 è un PDF grafico da cui non si estraggono gli importi per fascia e le regole sullo status.
 - **Molise**: non inserito. Il bando ESU Molise 2026/27 non è ancora sul sito della Regione (c'è solo il 2025/26); tasse Unimol non cercate.
 - **Elenchi dei comuni di ADISU Puglia, ERSU Palermo ed ERSU Catania** (aggiunti a ottobre 2026): ADISU Allegato A per Bari, Brindisi, Foggia, Lecce (elenco del Polo urbano: per il Polo Ecotekne sono in sede anche Arnesano, Carmiano e Monteroni) e Taranto; ERSU Palermo tab. 8.1-8.2 per sette sedi (tolte le frazioni Pioppo, Grisì e San Nicola; Cefalù comune sede aggiunto in sede per definizione); ERSU Catania tab. 11 per la sede di Catania (Ragusa, Siracusa e Troina non hanno elenchi).
+- **Atenei privati (Bocconi, Cattolica, Luiss)**, ottobre 2026:
+  - **Bocconi (tasse)**: prospetti 2026/27 del primo anno: retta fissa, uguale per ogni ISEE (17.000 € triennali e Giurisprudenza, 18.550 € magistrali, 25.000 € World Bachelor in Business), con tassa regionale e bolli già dentro. Le riduzioni «Bocconi4Access» si chiedono a parte e non sono calcolate. Nuovo campo `noScholarshipExemption`: per le matricole la borsa ISU non toglie la retta.
+  - **ISU Bocconi (borse)**: bando definitivo 2026/27, artt. 1, 7, 9, 13-14: importi regionali con pasto e rimborso della tassa regionale (8.248/7.172/5.857 € fuori sede). Stato per tempi di viaggio, senza elenco di comuni.
+  - **Cattolica (tasse)**: non inserite. L'ateneo non usa l'ISEE ma un proprio «reddito equivalente» (reddito netto del nucleo diviso per un coefficiente familiare, Normativa tasse 2026/27, par. 2.3): con l'ISEE che chiede il sito la stima sarebbe sbagliata.
+  - **EDUCatt (borse)**: bando 2026/27, artt. 4, 8-11: stessi importi regionali della Bocconi, esonero totale da tasse e contributi per idonei beneficiari e non beneficiari. Elenchi dei comuni in sede e pendolari (PDF EDUCatt aggiornati al 4 febbraio 2026) ricostruiti dal PDF a quattro colonne con uno script e controllati a mano; sezioni piccole riscritte a mano. Non inserite le sedi di Colleferro, Rieti e San Martino al Cimino.
+  - **Luiss (tasse)**: prospetti «Tuition fee a.y. 2026/2027»: contributo unico senza fasce (14.000 € triennali e Giurisprudenza, 15.000 € magistrali, 17.000 € Management) più la tassa regionale del Lazio. Corporate Finance esclusa (manca l'importo del primo anno). La borsa DiSCo non toglie il contributo unico (`noScholarshipExemption`).
+  - **DiSCo Lazio**: aggiunta la Luiss tra gli atenei (il bando vale per tutti gli atenei con sede legale nel Lazio e cita la Luiss nella Tabella 3).
 
 ## Fonti
 

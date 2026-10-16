@@ -1426,3 +1426,58 @@ describe('Puglia 2026/27: elenchi dei comuni ADISU (Allegato A)', () => {
     expect(check('Foggia', 'Bari')).toBe('fuoriSede');
   });
 });
+
+describe('Private 2026/27: Bocconi, Cattolica (borse EDUCatt) e Luiss', () => {
+  const course = (name: string, level: 'triennale' | 'magistrale' | 'ciclo-unico', classCode: string) =>
+    ({ name, level, classCode, group: 'Economico' }) as Parameters<typeof maxContribution>[1];
+
+  it('Bocconi: retta fissa per corso, uguale per ogni ISEE; borse ISU a tre fasce', () => {
+    const rule = tuitionRuleFor('ateneo-01503')!;
+    expect(maxContribution(rule, course('Economia Aziendale e Management', 'triennale', 'L-18'))).toBe(17000);
+    expect(maxContribution(rule, course('Business (World Bachelor in Business)', 'triennale', 'L-18'))).toBe(25000);
+    expect(maxContribution(rule, course('Marketing Management', 'magistrale', 'LM-77'))).toBe(18550);
+    expect(contributionFor(rule, 5000, 17000)).toBe(17000);
+    expect(fixedFeesRange(rule, exact(10000)).min).toBe(0);
+    const isu = dsuEntityFor('ateneo-01503')!;
+    expect(isu.id).toBe('isu-bocconi');
+    expect(isu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(isu, 15000, 'fuoriSede')).toBe(7172);
+  });
+
+  it('Cattolica: tasse non inserite (usa un reddito equivalente proprio), borse EDUCatt con gli elenchi dei comuni', () => {
+    expect(tuitionRuleFor('ateneo-01504')).toBeNull();
+    const educatt = dsuEntityFor('ateneo-01504')!;
+    expect(educatt.id).toBe('educatt');
+    expect(amountAt(educatt, 20000, 'inSede')).toBe(2143);
+    const check = (seat: string, city: string) => conditionFromMunicipality(educatt, seat, city, true)?.condition;
+    expect(check('Milano', 'Sesto San Giovanni')).toBe('inSede');
+    expect(check('Milano', 'Pavia')).toBe('pendolare');
+    expect(check('Brescia', 'Rodengo Saiano')).toBe('inSede');
+    expect(check('Piacenza', 'Castel San Giovanni')).toBe('pendolare');
+    expect(check('Milano', 'Napoli')).toBe('fuoriSede');
+  });
+
+  it('Luiss: contributo unico senza fasce di reddito; borse DiSCo Lazio', () => {
+    const rule = tuitionRuleFor('ateneo-05805')!;
+    expect(maxContribution(rule, course('Economia e Management', 'triennale', 'L-18'))).toBe(14000);
+    expect(maxContribution(rule, course('Management', 'magistrale', 'LM-77'))).toBe(17000);
+    expect(contributionFor(rule, 8000, 14000)).toBe(14000);
+    expect(dsuEntityFor('ateneo-05805')!.id).toBe('disco-lazio');
+  });
+});
+
+describe('Private: la borsa non toglie la retta se l’ateneo non lo prevede', () => {
+  it('Bocconi e Luiss: tasse dovute anche per chi è idoneo alla borsa', () => {
+    const bocconi = getUniversityById('ateneo-01503')!;
+    const cost = realCost(bocconi, null, exact(10000), exact(10000), 'inSede');
+    expect(cost.scholarship?.status).toBe('eligible');
+    expect(cost.lines.find((line) => line.key === 'tasse')?.min).toBe(17000);
+    const luiss = realCost(getUniversityById('ateneo-05805')!, null, exact(10000), exact(10000), 'inSede');
+    expect(luiss.lines.find((line) => line.key === 'tasse')?.min).toBe(14000);
+  });
+
+  it('Cattolica (EDUCatt): esonero per gli idonei come dice il bando', () => {
+    const cost = realCost(getUniversityById('ateneo-01504')!, null, exact(10000), exact(10000), 'inSede');
+    expect(cost.lines.find((line) => line.key === 'tasse')?.min).toBe(0);
+  });
+});

@@ -133,10 +133,11 @@ function tuitionLines(
       }
     : base;
   const fixed = fixedFeesRange(rule, isee);
-  const exempt = scholarship?.status === 'eligible';
-  const maybeExempt = scholarship?.status === 'uncertain';
+  const exemptionApplies = !rule.noScholarshipExemption;
+  const exempt = exemptionApplies && scholarship?.status === 'eligible';
+  const maybeExempt = exemptionApplies && scholarship?.status === 'uncertain';
   // Gli idonei alla borsa si vedono rimborsare la tassa regionale pagata all'iscrizione.
-  const refund = exempt ? fixed.regionalTax : { min: 0, max: 0 };
+  const refund = scholarship?.status === 'eligible' ? fixed.regionalTax : { min: 0, max: 0 };
   const scope = group ? `gruppo ${group.label}` : course ? '' : 'corso triennale';
   return [
     {
@@ -146,7 +147,7 @@ function tuitionLines(
       max: exempt ? 0 : range.max,
       note: exempt
         ? 'Esonero totale: spetta a chi è idoneo alla borsa.'
-        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}`,
+        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}${!exemptionApplies && scholarship && scholarship.status !== 'not-eligible' ? ` ${rule.noScholarshipExemption}` : ''}`,
       source: rule.bandsSource,
       estimated: Boolean(rule.bandsNote) && !exempt
     },
@@ -155,7 +156,7 @@ function tuitionLines(
       label: 'Tassa regionale, bollo e assicurazione',
       min: fixed.min - refund.max,
       max: fixed.max - refund.min,
-      note: exempt
+      note: refund.max
         ? 'La paghi con la prima rata; la tassa regionale ti viene poi rimborsata (resta il bollo).'
         : rule.fixedFeesNote,
       source: rule.bandsSource,

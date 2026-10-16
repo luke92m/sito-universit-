@@ -697,7 +697,8 @@
         "ateneo-05807",
         "ateneo-05806",
         "ateneo-06001",
-        "ateneo-05601"
+        "ateneo-05601",
+        "ateneo-05805"
       ],
       "academicYear": "2026/2027",
       "verifiedAt": "2026-10-12",
@@ -10476,6 +10477,2514 @@
       "portal": {
         "label": "Università della Calabria, Bandi diritto allo studio",
         "url": "https://www.unical.it/didattica/diritto-allo-studio/borse-di-studio/bandi-diritto-allo-studio/"
+      }
+    },
+    {
+      "id": "isu-bocconi",
+      "name": "ISU Bocconi – Istituto per il diritto allo studio universitario",
+      "shortName": "ISU Bocconi",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01503"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), art. 7",
+          "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi della Regione Lombardia che comprendono un pasto al giorno gratuito (829 €) e il rimborso della tassa regionale. Tre fasce a scalini.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 8248,
+            "pendolare": 4820,
+            "inSede": 3430
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2991
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5857,
+            "pendolare": 3299,
+            "inSede": 2143
+          }
+        ],
+        "source": {
+          "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), artt. 13 e 13.1",
+          "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "Possibile integrazione per le studentesse dei corsi S.T.E.M.",
+          "conditional": "se restano fondi, secondo le regole pubblicate su www.unibocconi.it/isu",
+          "source": {
+            "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), Capitolo III",
+            "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi",
+          "percent": 20,
+          "conditional": "se restano fondi e con il merito per entrambi i corsi",
+          "source": {
+            "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), Capitolo III",
+            "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero da tassa regionale e tassa d’iscrizione",
+        "Pasti a tariffa agevolata",
+        "Esonero totale dai contributi dal secondo anno (per il primo anno di triennale valgono solo le riduzioni di «Bocconi4Access»)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), art. 1",
+        "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Oltre 90 minuti con i mezzi pubblici (o residenza all’estero) e alloggio a pagamento a Milano per almeno 10 mesi; senza contratto si è pendolari.",
+        "pendolare": "Da 60 a 90 minuti con i mezzi pubblici.",
+        "inSede": "Residenza a Milano o nei dintorni, fino a 60 minuti con i mezzi pubblici.",
+        "source": {
+          "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), art. 13.2",
+          "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima metà entro il 31 dicembre 2026",
+          "Seconda metà dopo la verifica dei crediti al 10 agosto 2027, non prima di ottobre 2027"
+        ],
+        "note": "Senza i crediti minimi la borsa va restituita.",
+        "source": {
+          "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), artt. 6.2 e 14",
+          "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-06-04",
+        "note": "Per le matricole la domanda segue la sessione di selezione (ultima finestra dal 19 maggio al 4 giugno 2026), su www.unibocconi.it/isu.",
+        "source": {
+          "label": "ISU Bocconi, Bando borse di studio 2026/27 (definitivo), art. 9",
+          "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ISU Bocconi, Bando borse di studio 2026/27",
+        "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_1.pdf"
+      }
+    },
+    {
+      "id": "educatt",
+      "name": "EDUCatt – Ente per il diritto allo studio dell’Università Cattolica",
+      "shortName": "EDUCatt",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01504"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "EDUCatt, Bando borse di studio 2026/27, art. 4",
+          "url": "https://www.educatt.it/agevolazioni/bando"
+        }
+      },
+      "amounts": {
+        "note": "Controvalore totale dell’art. 9: comprende un pasto gratuito al giorno e il rimborso della tassa regionale (in denaro, per esempio, 2.601 € in sede in prima fascia). Tre fasce a scalini, uguali a quelle della Regione Lombardia.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 8248,
+            "pendolare": 4820,
+            "inSede": 3430
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2991
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5857,
+            "pendolare": 3299,
+            "inSede": 2143
+          }
+        ],
+        "source": {
+          "label": "EDUCatt, Bando borse di studio 2026/27, artt. 8-9",
+          "url": "https://www.educatt.it/agevolazioni/bando"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (calcolato sull’importo di seconda fascia per la prima e la seconda fascia)",
+          "percent": 20,
+          "conditional": "solo per le studentesse STEM",
+          "source": {
+            "label": "EDUCatt, Bando borse di studio 2026/27, art. 9.3.1",
+            "url": "https://www.educatt.it/agevolazioni/bando"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero totale da tassa d’iscrizione e contributi universitari per idonei beneficiari e non beneficiari",
+        "Un pasto gratuito al giorno nelle mense EDUCatt",
+        "Posto in collegio EDUCatt con bando a parte (la retta si scala dalla borsa)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "EDUCatt, Bando borse di studio 2026/27, artt. 9 e 11",
+        "url": "https://www.educatt.it/agevolazioni/bando"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato per la sede e alloggio a titolo oneroso in un comune «in sede»; senza alloggio a pagamento si è pendolari.",
+        "pendolare": "Comuni «pendolari» degli elenchi EDUCatt per la sede del corso.",
+        "inSede": "Comuni «in sede» degli elenchi EDUCatt per la sede del corso.",
+        "source": {
+          "label": "EDUCatt, Bando borse di studio 2026/27, art. 8.2",
+          "url": "https://www.educatt.it/agevolazioni/bando"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata (almeno metà, a partire dalla quota in servizi: pasti ed eventuale retta del collegio) entro il 31 dicembre 2026",
+          "Il resto dopo i crediti minimi entro il 10 agosto 2027"
+        ],
+        "note": "I crediti richiesti variano per corso (per esempio 25 per Medicina, 27 per Farmacia).",
+        "source": {
+          "label": "EDUCatt, Bando borse di studio 2026/27, art. 10.1",
+          "url": "https://www.educatt.it/agevolazioni/bando"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "closesTime": "13:00",
+        "note": "Domanda online nell’area riservata MyEDUCatt.",
+        "source": {
+          "label": "EDUCatt, Bando borse di studio 2026/27, frontespizio",
+          "url": "https://www.educatt.it/agevolazioni/bando"
+        }
+      },
+      "municipalities": {
+        "Milano": {
+          "inSede": [
+            {
+              "comune": "Abbiategrasso"
+            },
+            {
+              "comune": "Arcore"
+            },
+            {
+              "comune": "Assago"
+            },
+            {
+              "comune": "Basiglio"
+            },
+            {
+              "comune": "Binasco"
+            },
+            {
+              "comune": "Bollate"
+            },
+            {
+              "comune": "Borgarello"
+            },
+            {
+              "comune": "Bovisio-Masciago"
+            },
+            {
+              "comune": "Brugherio"
+            },
+            {
+              "comune": "Buccinasco"
+            },
+            {
+              "comune": "Cabiate"
+            },
+            {
+              "comune": "Canegrate"
+            },
+            {
+              "comune": "Carnate"
+            },
+            {
+              "comune": "Caronno Pertusella"
+            },
+            {
+              "comune": "Casarile"
+            },
+            {
+              "comune": "Cassina Dè Pecchi"
+            },
+            {
+              "comune": "Ceriano Laghetto"
+            },
+            {
+              "comune": "Cernusco sul Naviglio"
+            },
+            {
+              "comune": "Certosa di Pavia"
+            },
+            {
+              "comune": "Cesano Boscone"
+            },
+            {
+              "comune": "Cesano Maderno"
+            },
+            {
+              "comune": "Cesate"
+            },
+            {
+              "comune": "Cinisello Balsamo"
+            },
+            {
+              "comune": "Cislago"
+            },
+            {
+              "comune": "Cogliate"
+            },
+            {
+              "comune": "Cologno Monzese"
+            },
+            {
+              "comune": "Cormano"
+            },
+            {
+              "comune": "Cornaredo"
+            },
+            {
+              "comune": "Corsico"
+            },
+            {
+              "comune": "Cusago"
+            },
+            {
+              "comune": "Cusano Milanino"
+            },
+            {
+              "comune": "Gaggiano"
+            },
+            {
+              "comune": "Garbagnate Milanese"
+            },
+            {
+              "comune": "Gerenzano"
+            },
+            {
+              "comune": "Gropello Cairoli"
+            },
+            {
+              "comune": "Lacchiarella"
+            },
+            {
+              "comune": "Lazzate"
+            },
+            {
+              "comune": "Limbiate"
+            },
+            {
+              "comune": "Locate di Triulzi"
+            },
+            {
+              "comune": "Locate Varesino"
+            },
+            {
+              "comune": "Lomazzo"
+            },
+            {
+              "comune": "Magenta"
+            },
+            {
+              "comune": "Meda"
+            },
+            {
+              "comune": "Mediglia"
+            },
+            {
+              "comune": "Milano"
+            },
+            {
+              "comune": "Monza"
+            },
+            {
+              "comune": "Mozzate"
+            },
+            {
+              "comune": "Novate Milanese"
+            },
+            {
+              "comune": "Noviglio"
+            },
+            {
+              "comune": "Opera"
+            },
+            {
+              "comune": "Origgio"
+            },
+            {
+              "comune": "Paderno Dugnano"
+            },
+            {
+              "comune": "Paullo"
+            },
+            {
+              "comune": "Pero"
+            },
+            {
+              "comune": "Peschiera Borromeo"
+            },
+            {
+              "comune": "Pieve Emanuele"
+            },
+            {
+              "comune": "Pregnana Milanese"
+            },
+            {
+              "comune": "Rescaldina"
+            },
+            {
+              "comune": "Rho"
+            },
+            {
+              "comune": "Rovello Porro"
+            },
+            {
+              "comune": "Rozzano"
+            },
+            {
+              "comune": "San Donato Milanese"
+            },
+            {
+              "comune": "San Giuliano Milanese"
+            },
+            {
+              "comune": "Saronno"
+            },
+            {
+              "comune": "Senago"
+            },
+            {
+              "comune": "Seregno"
+            },
+            {
+              "comune": "Sesto San Giovanni"
+            },
+            {
+              "comune": "Seveso"
+            },
+            {
+              "comune": "Solaro"
+            },
+            {
+              "comune": "Trezzano sul Naviglio"
+            },
+            {
+              "comune": "Turate"
+            },
+            {
+              "comune": "Uboldo"
+            },
+            {
+              "comune": "Vanzaghello"
+            },
+            {
+              "comune": "Vanzago"
+            },
+            {
+              "comune": "Varedo"
+            },
+            {
+              "comune": "Vellezzo Bellini"
+            },
+            {
+              "comune": "Vignate"
+            },
+            {
+              "comune": "Villasanta"
+            },
+            {
+              "comune": "Vimodrone"
+            },
+            {
+              "comune": "Zibido San Giacomo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Agnadello"
+            },
+            {
+              "comune": "Agrate Brianza"
+            },
+            {
+              "comune": "Aicurzio"
+            },
+            {
+              "comune": "Airuno"
+            },
+            {
+              "comune": "Albairate"
+            },
+            {
+              "comune": "Albiate"
+            },
+            {
+              "comune": "Antegnate"
+            },
+            {
+              "comune": "Appiano Gentile"
+            },
+            {
+              "comune": "Arese"
+            },
+            {
+              "comune": "Arluno"
+            },
+            {
+              "comune": "Arona"
+            },
+            {
+              "comune": "Arosio"
+            },
+            {
+              "comune": "Arzago"
+            },
+            {
+              "comune": "Bareggio"
+            },
+            {
+              "comune": "Barlassina"
+            },
+            {
+              "comune": "Bascapè"
+            },
+            {
+              "comune": "Basiano"
+            },
+            {
+              "comune": "Battuda"
+            },
+            {
+              "comune": "Bellinzago Lombardo"
+            },
+            {
+              "comune": "Bellusco"
+            },
+            {
+              "comune": "Bereguardo"
+            },
+            {
+              "comune": "Bergamo"
+            },
+            {
+              "comune": "Bernareggio"
+            },
+            {
+              "comune": "Besana in Brianza"
+            },
+            {
+              "comune": "Besate"
+            },
+            {
+              "comune": "Biassono"
+            },
+            {
+              "comune": "Binago"
+            },
+            {
+              "comune": "Boffalora d'Adda"
+            },
+            {
+              "comune": "Bornasco"
+            },
+            {
+              "comune": "Bottanuco"
+            },
+            {
+              "comune": "Bregnano"
+            },
+            {
+              "comune": "Brembio"
+            },
+            {
+              "comune": "Bressana Bottarone"
+            },
+            {
+              "comune": "Bresso"
+            },
+            {
+              "comune": "Brignano Gera d'Adda"
+            },
+            {
+              "comune": "Bubbiano"
+            },
+            {
+              "comune": "Bulgarograsso"
+            },
+            {
+              "comune": "Burago di Molgora"
+            },
+            {
+              "comune": "Bussero"
+            },
+            {
+              "comune": "Busto Arsizio"
+            },
+            {
+              "comune": "Busto Garolfo"
+            },
+            {
+              "comune": "Cadorago"
+            },
+            {
+              "comune": "Cairate"
+            },
+            {
+              "comune": "Calolziocorte"
+            },
+            {
+              "comune": "Calusco d'Adda"
+            },
+            {
+              "comune": "Calvignasco"
+            },
+            {
+              "comune": "Cambiago"
+            },
+            {
+              "comune": "Camparada"
+            },
+            {
+              "comune": "Caponago"
+            },
+            {
+              "comune": "Capralba"
+            },
+            {
+              "comune": "Carate Brianza"
+            },
+            {
+              "comune": "Caravaggio"
+            },
+            {
+              "comune": "Carbonate"
+            },
+            {
+              "comune": "Cardano al Campo"
+            },
+            {
+              "comune": "Carimate"
+            },
+            {
+              "comune": "Carpiano"
+            },
+            {
+              "comune": "Carugate"
+            },
+            {
+              "comune": "Carugo"
+            },
+            {
+              "comune": "Casaletto Lodigiano"
+            },
+            {
+              "comune": "Casalmaiocco"
+            },
+            {
+              "comune": "Casatenovo"
+            },
+            {
+              "comune": "Casirate d'Adda"
+            },
+            {
+              "comune": "Casnate con Bernate"
+            },
+            {
+              "comune": "Casorate Primo"
+            },
+            {
+              "comune": "Casorate Sempione"
+            },
+            {
+              "comune": "Casorezzo"
+            },
+            {
+              "comune": "Cassano d'Adda"
+            },
+            {
+              "comune": "Cassano Magnago"
+            },
+            {
+              "comune": "Cassina Rizzardi"
+            },
+            {
+              "comune": "Cassinetta di Lugagnano"
+            },
+            {
+              "comune": "Cassolnovo"
+            },
+            {
+              "comune": "Castano Primo"
+            },
+            {
+              "comune": "Castellanza"
+            },
+            {
+              "comune": "Castelnuovo Bozzente"
+            },
+            {
+              "comune": "Castelseprio"
+            },
+            {
+              "comune": "Castiraga Vidardo"
+            },
+            {
+              "comune": "Castronno"
+            },
+            {
+              "comune": "Cava Manara"
+            },
+            {
+              "comune": "Cavaria con Premezzo"
+            },
+            {
+              "comune": "Cavenago d'Adda"
+            },
+            {
+              "comune": "Cavenago di Brianza"
+            },
+            {
+              "comune": "Cerano"
+            },
+            {
+              "comune": "Ceranova"
+            },
+            {
+              "comune": "Cermenate"
+            },
+            {
+              "comune": "Cernusco Lombardone"
+            },
+            {
+              "comune": "Cerro al Lambro"
+            },
+            {
+              "comune": "Cerro Maggiore"
+            },
+            {
+              "comune": "Cervignano d'Adda"
+            },
+            {
+              "comune": "Cirimido"
+            },
+            {
+              "comune": "Cisliano"
+            },
+            {
+              "comune": "Codogno"
+            },
+            {
+              "comune": "Colturano"
+            },
+            {
+              "comune": "Comazzo"
+            },
+            {
+              "comune": "Como"
+            },
+            {
+              "comune": "Concorezzo"
+            },
+            {
+              "comune": "Copiano"
+            },
+            {
+              "comune": "Corbetta"
+            },
+            {
+              "comune": "Cornate d'Adda"
+            },
+            {
+              "comune": "Cornegliano Laudense"
+            },
+            {
+              "comune": "Correzzana"
+            },
+            {
+              "comune": "Covo"
+            },
+            {
+              "comune": "Cucciago"
+            },
+            {
+              "comune": "Cuggiono"
+            },
+            {
+              "comune": "Cura Carpignano"
+            },
+            {
+              "comune": "Dairago"
+            },
+            {
+              "comune": "Desio"
+            },
+            {
+              "comune": "Dresano"
+            },
+            {
+              "comune": "Fagnano Olona"
+            },
+            {
+              "comune": "Fara Olivana con Sola"
+            },
+            {
+              "comune": "Fenegrò"
+            },
+            {
+              "comune": "Ferno"
+            },
+            {
+              "comune": "Figino Serenza"
+            },
+            {
+              "comune": "Fino Mornasco"
+            },
+            {
+              "comune": "Fombio"
+            },
+            {
+              "comune": "Galgagnano"
+            },
+            {
+              "comune": "Gallarate"
+            },
+            {
+              "comune": "Galliate"
+            },
+            {
+              "comune": "Gambolò"
+            },
+            {
+              "comune": "Gazzada Schianno"
+            },
+            {
+              "comune": "Gessate"
+            },
+            {
+              "comune": "Giussago"
+            },
+            {
+              "comune": "Giussano"
+            },
+            {
+              "comune": "Gorgonzola"
+            },
+            {
+              "comune": "Gorla Maggiore"
+            },
+            {
+              "comune": "Gorla Minore"
+            },
+            {
+              "comune": "Gornate-Olona"
+            },
+            {
+              "comune": "Grandate"
+            },
+            {
+              "comune": "Gravellona Lomellina"
+            },
+            {
+              "comune": "Guanzate"
+            },
+            {
+              "comune": "Gudo Visconti"
+            },
+            {
+              "comune": "Inverigo"
+            },
+            {
+              "comune": "Inveruno"
+            },
+            {
+              "comune": "Inzago"
+            },
+            {
+              "comune": "Isso"
+            },
+            {
+              "comune": "Lainate"
+            },
+            {
+              "comune": "Lambrugo"
+            },
+            {
+              "comune": "Landriano"
+            },
+            {
+              "comune": "Lecco"
+            },
+            {
+              "comune": "Legnano"
+            },
+            {
+              "comune": "Lentate sul Seveso"
+            },
+            {
+              "comune": "Lesmo"
+            },
+            {
+              "comune": "Levate"
+            },
+            {
+              "comune": "Limido Comasco"
+            },
+            {
+              "comune": "Liscate"
+            },
+            {
+              "comune": "Lissone"
+            },
+            {
+              "comune": "Lodi"
+            },
+            {
+              "comune": "Lodi Vecchio"
+            },
+            {
+              "comune": "Lomagna"
+            },
+            {
+              "comune": "Lonate Ceppino"
+            },
+            {
+              "comune": "Lozza"
+            },
+            {
+              "comune": "Luisago"
+            },
+            {
+              "comune": "Lurago d'Erba"
+            },
+            {
+              "comune": "Lurago Marinone"
+            },
+            {
+              "comune": "Lurano"
+            },
+            {
+              "comune": "Lurate Caccivio"
+            },
+            {
+              "comune": "Macherio"
+            },
+            {
+              "comune": "Magnago"
+            },
+            {
+              "comune": "Malnate"
+            },
+            {
+              "comune": "Marcallo con Casone"
+            },
+            {
+              "comune": "Marcignago"
+            },
+            {
+              "comune": "Mariano Comense"
+            },
+            {
+              "comune": "Marnate"
+            },
+            {
+              "comune": "Masate"
+            },
+            {
+              "comune": "Melegnano"
+            },
+            {
+              "comune": "Melzo"
+            },
+            {
+              "comune": "Merlino"
+            },
+            {
+              "comune": "Merone"
+            },
+            {
+              "comune": "Mesero"
+            },
+            {
+              "comune": "Misano di Gera d'Adda"
+            },
+            {
+              "comune": "Misinto"
+            },
+            {
+              "comune": "Missaglia"
+            },
+            {
+              "comune": "Monte Cremasco"
+            },
+            {
+              "comune": "Montevecchia"
+            },
+            {
+              "comune": "Monticello Brianza"
+            },
+            {
+              "comune": "Morimondo"
+            },
+            {
+              "comune": "Mortara"
+            },
+            {
+              "comune": "Motta Visconti"
+            },
+            {
+              "comune": "Muggiò"
+            },
+            {
+              "comune": "Mulazzano"
+            },
+            {
+              "comune": "Nerviano"
+            },
+            {
+              "comune": "Nova Milanese"
+            },
+            {
+              "comune": "Novara"
+            },
+            {
+              "comune": "Novedrate"
+            },
+            {
+              "comune": "Olevano di Lomellina"
+            },
+            {
+              "comune": "Olgiate Molgora"
+            },
+            {
+              "comune": "Olgiate Olona"
+            },
+            {
+              "comune": "Osnago"
+            },
+            {
+              "comune": "Ossago Lodigiano"
+            },
+            {
+              "comune": "Ossona"
+            },
+            {
+              "comune": "Ozzero"
+            },
+            {
+              "comune": "Paderno d'Adda"
+            },
+            {
+              "comune": "Pagazzano"
+            },
+            {
+              "comune": "Pandino"
+            },
+            {
+              "comune": "Pantigliate"
+            },
+            {
+              "comune": "Parabiago"
+            },
+            {
+              "comune": "Pavia"
+            },
+            {
+              "comune": "Pessano con Bornago"
+            },
+            {
+              "comune": "Piacenza"
+            },
+            {
+              "comune": "Pieve Fissiraga"
+            },
+            {
+              "comune": "Pioltello"
+            },
+            {
+              "comune": "Pogliano Milanese"
+            },
+            {
+              "comune": "Pognano"
+            },
+            {
+              "comune": "Ponte Lambro"
+            },
+            {
+              "comune": "Ponte San Pietro"
+            },
+            {
+              "comune": "Pozzo d'Adda"
+            },
+            {
+              "comune": "Pozzuolo Martesana"
+            },
+            {
+              "comune": "Renate"
+            },
+            {
+              "comune": "Rivolta d'Adda"
+            },
+            {
+              "comune": "Robbiate"
+            },
+            {
+              "comune": "Robecco sul Naviglio"
+            },
+            {
+              "comune": "Rodano"
+            },
+            {
+              "comune": "Rognano"
+            },
+            {
+              "comune": "Romano di Lombardia"
+            },
+            {
+              "comune": "Romentino"
+            },
+            {
+              "comune": "Ronco Briantino"
+            },
+            {
+              "comune": "Rosate"
+            },
+            {
+              "comune": "Rovellasca"
+            },
+            {
+              "comune": "Salerano sul Lambro"
+            },
+            {
+              "comune": "Samarate"
+            },
+            {
+              "comune": "San Fiorano"
+            },
+            {
+              "comune": "San Genesio ed Uniti"
+            },
+            {
+              "comune": "San Giorgio su Legnano"
+            },
+            {
+              "comune": "San Martino in Strada"
+            },
+            {
+              "comune": "San Martino Siccomario"
+            },
+            {
+              "comune": "San Vittore Olona"
+            },
+            {
+              "comune": "San Zenone al Lambro"
+            },
+            {
+              "comune": "Sant'Angelo Lodigiano"
+            },
+            {
+              "comune": "Santo Stefano Ticino"
+            },
+            {
+              "comune": "Secugnago"
+            },
+            {
+              "comune": "Sedriano"
+            },
+            {
+              "comune": "Segrate"
+            },
+            {
+              "comune": "Sesto Calende"
+            },
+            {
+              "comune": "Settala"
+            },
+            {
+              "comune": "Settimo Milanese"
+            },
+            {
+              "comune": "Siziano"
+            },
+            {
+              "comune": "Solbiate Olona"
+            },
+            {
+              "comune": "Somma Lombardo"
+            },
+            {
+              "comune": "Sordio"
+            },
+            {
+              "comune": "Sovico"
+            },
+            {
+              "comune": "Spino d'Adda"
+            },
+            {
+              "comune": "Tavazzano con Villavesco"
+            },
+            {
+              "comune": "Terranova dei Passerini"
+            },
+            {
+              "comune": "Torre d'Arese"
+            },
+            {
+              "comune": "Torre d'Isola"
+            },
+            {
+              "comune": "Tradate"
+            },
+            {
+              "comune": "Travacò Siccomario"
+            },
+            {
+              "comune": "Trecate"
+            },
+            {
+              "comune": "Treviglio"
+            },
+            {
+              "comune": "Trezzano Rosa"
+            },
+            {
+              "comune": "Trezzo sull'Adda"
+            },
+            {
+              "comune": "Tribiano"
+            },
+            {
+              "comune": "Triuggio"
+            },
+            {
+              "comune": "Trovo"
+            },
+            {
+              "comune": "Truccazzano"
+            },
+            {
+              "comune": "Turbigo"
+            },
+            {
+              "comune": "Vailate"
+            },
+            {
+              "comune": "Vaprio d'Adda"
+            },
+            {
+              "comune": "Varese"
+            },
+            {
+              "comune": "Vedano al Lambro"
+            },
+            {
+              "comune": "Vedano Olona"
+            },
+            {
+              "comune": "Venegono Inferiore"
+            },
+            {
+              "comune": "Veniano"
+            },
+            {
+              "comune": "Verano Brianza"
+            },
+            {
+              "comune": "Verdellino"
+            },
+            {
+              "comune": "Verdello"
+            },
+            {
+              "comune": "Verderio Inferiore"
+            },
+            {
+              "comune": "Verderio Superiore"
+            },
+            {
+              "comune": "Vermezzo"
+            },
+            {
+              "comune": "Vernate"
+            },
+            {
+              "comune": "Vigevano"
+            },
+            {
+              "comune": "Villa Guardia"
+            },
+            {
+              "comune": "Villanova d'Ardenghi"
+            },
+            {
+              "comune": "Villanova del Sillaro"
+            },
+            {
+              "comune": "Vimercate"
+            },
+            {
+              "comune": "Vittuone"
+            },
+            {
+              "comune": "Vizzolo Predabissi"
+            },
+            {
+              "comune": "Voghera"
+            },
+            {
+              "comune": "Zeccone"
+            },
+            {
+              "comune": "Zelo Buon Persico"
+            },
+            {
+              "comune": "Zelo Surrigone"
+            },
+            {
+              "comune": "Zinasco"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        },
+        "Brescia": {
+          "inSede": [
+            {
+              "comune": "Azzano Mella"
+            },
+            {
+              "comune": "Bagnolo Mella"
+            },
+            {
+              "comune": "Bassano Bresciano"
+            },
+            {
+              "comune": "Bedizzole"
+            },
+            {
+              "comune": "Borgosatollo"
+            },
+            {
+              "comune": "Botticino"
+            },
+            {
+              "comune": "Bovezzo"
+            },
+            {
+              "comune": "Brescia"
+            },
+            {
+              "comune": "Caino"
+            },
+            {
+              "comune": "Calcinato"
+            },
+            {
+              "comune": "Calvisano"
+            },
+            {
+              "comune": "Capriano del Colle"
+            },
+            {
+              "comune": "Castegnato"
+            },
+            {
+              "comune": "Castel Mella"
+            },
+            {
+              "comune": "Castelcovati"
+            },
+            {
+              "comune": "Castenedolo"
+            },
+            {
+              "comune": "Cellatica"
+            },
+            {
+              "comune": "Chiari"
+            },
+            {
+              "comune": "Coccaglio"
+            },
+            {
+              "comune": "Collebeato"
+            },
+            {
+              "comune": "Concesio"
+            },
+            {
+              "comune": "Dello"
+            },
+            {
+              "comune": "Desenzano del Garda"
+            },
+            {
+              "comune": "Flero"
+            },
+            {
+              "comune": "Gavardo"
+            },
+            {
+              "comune": "Ghedi"
+            },
+            {
+              "comune": "Gussago"
+            },
+            {
+              "comune": "Iseo"
+            },
+            {
+              "comune": "Leno"
+            },
+            {
+              "comune": "Lograto"
+            },
+            {
+              "comune": "Lonato"
+            },
+            {
+              "comune": "Longhena"
+            },
+            {
+              "comune": "Maclodio"
+            },
+            {
+              "comune": "Mairano"
+            },
+            {
+              "comune": "Manerbio"
+            },
+            {
+              "comune": "Mazzano"
+            },
+            {
+              "comune": "Montirone"
+            },
+            {
+              "comune": "Nave"
+            },
+            {
+              "comune": "Nuvolento"
+            },
+            {
+              "comune": "Nuvolera"
+            },
+            {
+              "comune": "Ospitaletto"
+            },
+            {
+              "comune": "Paderno Franciacorta"
+            },
+            {
+              "comune": "Paitone"
+            },
+            {
+              "comune": "Passirano"
+            },
+            {
+              "comune": "Peschiera del Garda"
+            },
+            {
+              "comune": "Poncarale"
+            },
+            {
+              "comune": "Pontevico"
+            },
+            {
+              "comune": "Prevalle"
+            },
+            {
+              "comune": "Provaglio d'Iseo"
+            },
+            {
+              "comune": "Rezzato"
+            },
+            {
+              "comune": "Rodengo-Saiano"
+            },
+            {
+              "comune": "Romano di Lombardia"
+            },
+            {
+              "comune": "Roncadelle"
+            },
+            {
+              "comune": "Sale Marasino"
+            },
+            {
+              "comune": "San Zeno Naviglio"
+            },
+            {
+              "comune": "Sarezzo"
+            },
+            {
+              "comune": "Sulzano"
+            },
+            {
+              "comune": "Torbole Casaglia"
+            },
+            {
+              "comune": "Travagliato"
+            },
+            {
+              "comune": "Trenzano"
+            },
+            {
+              "comune": "Verona"
+            },
+            {
+              "comune": "Villa Carcina"
+            },
+            {
+              "comune": "Villanuova sul Clisi"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Adro"
+            },
+            {
+              "comune": "Alfianello"
+            },
+            {
+              "comune": "Antegnate"
+            },
+            {
+              "comune": "Arcene"
+            },
+            {
+              "comune": "Barbariga"
+            },
+            {
+              "comune": "Barghe"
+            },
+            {
+              "comune": "Bariano"
+            },
+            {
+              "comune": "Berlingo"
+            },
+            {
+              "comune": "Borgo San Giacomo"
+            },
+            {
+              "comune": "Brandico"
+            },
+            {
+              "comune": "Brignano Gera d'Adda"
+            },
+            {
+              "comune": "Calcio"
+            },
+            {
+              "comune": "Calvagese della Riviera"
+            },
+            {
+              "comune": "Canneto sull'Oglio"
+            },
+            {
+              "comune": "Capralba"
+            },
+            {
+              "comune": "Capriolo"
+            },
+            {
+              "comune": "Caravaggio"
+            },
+            {
+              "comune": "Carpenedolo"
+            },
+            {
+              "comune": "Castiglione delle Stiviere"
+            },
+            {
+              "comune": "Castrezzato"
+            },
+            {
+              "comune": "Cazzago San Martino"
+            },
+            {
+              "comune": "Chiuduno"
+            },
+            {
+              "comune": "Cigole"
+            },
+            {
+              "comune": "Cividate al Piano"
+            },
+            {
+              "comune": "Comezzano-Cizzago"
+            },
+            {
+              "comune": "Corte Franca"
+            },
+            {
+              "comune": "Cortenuova"
+            },
+            {
+              "comune": "Corzano"
+            },
+            {
+              "comune": "Covo"
+            },
+            {
+              "comune": "Erbusco"
+            },
+            {
+              "comune": "Fara Olivana con Sola"
+            },
+            {
+              "comune": "Gambara"
+            },
+            {
+              "comune": "Gardone Riviera"
+            },
+            {
+              "comune": "Gardone Val Trompia"
+            },
+            {
+              "comune": "Gottolengo"
+            },
+            {
+              "comune": "Grumello del Monte"
+            },
+            {
+              "comune": "Isorella"
+            },
+            {
+              "comune": "Lumezzane"
+            },
+            {
+              "comune": "Marcheno"
+            },
+            {
+              "comune": "Marone"
+            },
+            {
+              "comune": "Martinengo"
+            },
+            {
+              "comune": "Milzano"
+            },
+            {
+              "comune": "Moniga del Garda"
+            },
+            {
+              "comune": "Monticelli Brusati"
+            },
+            {
+              "comune": "Montichiari"
+            },
+            {
+              "comune": "Muscoline"
+            },
+            {
+              "comune": "Odolo"
+            },
+            {
+              "comune": "Offlaga"
+            },
+            {
+              "comune": "Olmeneta"
+            },
+            {
+              "comune": "Ome"
+            },
+            {
+              "comune": "Orzinuovi"
+            },
+            {
+              "comune": "Orzivecchi"
+            },
+            {
+              "comune": "Padenghe sul Garda"
+            },
+            {
+              "comune": "Pagazzano"
+            },
+            {
+              "comune": "Palazzolo sull'Oglio"
+            },
+            {
+              "comune": "Paratico"
+            },
+            {
+              "comune": "Pavone del Mella"
+            },
+            {
+              "comune": "Pisogne"
+            },
+            {
+              "comune": "Pompiano"
+            },
+            {
+              "comune": "Pozzolengo"
+            },
+            {
+              "comune": "Pralboino"
+            },
+            {
+              "comune": "Preseglie"
+            },
+            {
+              "comune": "Pumenengo"
+            },
+            {
+              "comune": "Quinzano d'Oglio"
+            },
+            {
+              "comune": "Remedello"
+            },
+            {
+              "comune": "Robecco d'Oglio"
+            },
+            {
+              "comune": "Roccafranca"
+            },
+            {
+              "comune": "Roè Volciano"
+            },
+            {
+              "comune": "Rovato"
+            },
+            {
+              "comune": "Rudiano"
+            },
+            {
+              "comune": "Sabbio Chiese"
+            },
+            {
+              "comune": "Salò"
+            },
+            {
+              "comune": "San Gervasio Bresciano"
+            },
+            {
+              "comune": "San Paolo"
+            },
+            {
+              "comune": "Sarnico"
+            },
+            {
+              "comune": "Serle"
+            },
+            {
+              "comune": "Sirmione"
+            },
+            {
+              "comune": "Telgate"
+            },
+            {
+              "comune": "Treviglio"
+            },
+            {
+              "comune": "Urago d'Oglio"
+            },
+            {
+              "comune": "Vallio Terme"
+            },
+            {
+              "comune": "Verolanuova"
+            },
+            {
+              "comune": "Verolavecchia"
+            },
+            {
+              "comune": "Visano"
+            },
+            {
+              "comune": "Vobarno"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        },
+        "Piacenza": {
+          "inSede": [
+            {
+              "comune": "Alseno"
+            },
+            {
+              "comune": "Cadeo"
+            },
+            {
+              "comune": "Calendasco"
+            },
+            {
+              "comune": "Caorso"
+            },
+            {
+              "comune": "Carpaneto Piacentino"
+            },
+            {
+              "comune": "Casalpusterlengo"
+            },
+            {
+              "comune": "Codogno"
+            },
+            {
+              "comune": "Cortemaggiore"
+            },
+            {
+              "comune": "Fidenza"
+            },
+            {
+              "comune": "Fiorenzuola d'Arda"
+            },
+            {
+              "comune": "Gazzola"
+            },
+            {
+              "comune": "Gossolengo"
+            },
+            {
+              "comune": "Gragnano Trebbiense"
+            },
+            {
+              "comune": "Lodi"
+            },
+            {
+              "comune": "Piacenza"
+            },
+            {
+              "comune": "Podenzano"
+            },
+            {
+              "comune": "Ponte Dell'Olio"
+            },
+            {
+              "comune": "Pontenure"
+            },
+            {
+              "comune": "Rivergaro"
+            },
+            {
+              "comune": "Rottofreno"
+            },
+            {
+              "comune": "San Giorgio Piacentino"
+            },
+            {
+              "comune": "Vigolzone"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Agazzano"
+            },
+            {
+              "comune": "Borgonovo Val Tidone"
+            },
+            {
+              "comune": "Castel San Giovanni"
+            },
+            {
+              "comune": "Cremona"
+            },
+            {
+              "comune": "Milano"
+            },
+            {
+              "comune": "Parma"
+            },
+            {
+              "comune": "Sarmato"
+            },
+            {
+              "comune": "Stradella"
+            },
+            {
+              "comune": "Travo"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        },
+        "Cremona": {
+          "inSede": [
+            {
+              "comune": "Acquanegra Cremonese"
+            },
+            {
+              "comune": "Cappella Cantone"
+            },
+            {
+              "comune": "Castelleone"
+            },
+            {
+              "comune": "Castelvetro Piacentino"
+            },
+            {
+              "comune": "Cicognolo"
+            },
+            {
+              "comune": "Codogno"
+            },
+            {
+              "comune": "Cremona"
+            },
+            {
+              "comune": "Gerre Dè Caprioli"
+            },
+            {
+              "comune": "Malagnino"
+            },
+            {
+              "comune": "Monticelli d'Ongina"
+            },
+            {
+              "comune": "Paderno Ponchielli"
+            },
+            {
+              "comune": "Persico Dosimo"
+            },
+            {
+              "comune": "Pescarolo ed Uniti"
+            },
+            {
+              "comune": "Pessina Cremonese"
+            },
+            {
+              "comune": "Pieve San Giacomo"
+            },
+            {
+              "comune": "Pizzighettone"
+            },
+            {
+              "comune": "Pontevico"
+            },
+            {
+              "comune": "Pozzaglio ed Uniti"
+            },
+            {
+              "comune": "San Daniele Po"
+            },
+            {
+              "comune": "Sospiro"
+            },
+            {
+              "comune": "Vescovato"
+            },
+            {
+              "comune": "Villanova sull'Arda"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Bordolano"
+            },
+            {
+              "comune": "Derovere"
+            },
+            {
+              "comune": "Gadesco-Pieve Delmona"
+            },
+            {
+              "comune": "Piacenza"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        },
+        "Roma": {
+          "inSede": [
+            {
+              "comune": "Ladispoli"
+            },
+            {
+              "comune": "Roma"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Bracciano"
+            },
+            {
+              "comune": "Campagnano di Roma"
+            },
+            {
+              "comune": "Cerveteri"
+            },
+            {
+              "comune": "Civitavecchia"
+            },
+            {
+              "comune": "Colonna"
+            },
+            {
+              "comune": "Fiumicino"
+            },
+            {
+              "comune": "Formello"
+            },
+            {
+              "comune": "Frascati"
+            },
+            {
+              "comune": "Marino"
+            },
+            {
+              "comune": "Monterotondo"
+            },
+            {
+              "comune": "Valmontone"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        },
+        "Torino": {
+          "inSede": [
+            {
+              "comune": "Alpignano"
+            },
+            {
+              "comune": "Avigliana"
+            },
+            {
+              "comune": "Beinasco"
+            },
+            {
+              "comune": "Borgaro Torinese"
+            },
+            {
+              "comune": "Brandizzo"
+            },
+            {
+              "comune": "Cafasse"
+            },
+            {
+              "comune": "Caluso"
+            },
+            {
+              "comune": "Candiolo"
+            },
+            {
+              "comune": "Carmagnola"
+            },
+            {
+              "comune": "Caselle Torinese"
+            },
+            {
+              "comune": "Castiglione Torinese"
+            },
+            {
+              "comune": "Chieri"
+            },
+            {
+              "comune": "Chivasso"
+            },
+            {
+              "comune": "Collegno"
+            },
+            {
+              "comune": "Druento"
+            },
+            {
+              "comune": "Fiano"
+            },
+            {
+              "comune": "Front"
+            },
+            {
+              "comune": "Gassino Torinese"
+            },
+            {
+              "comune": "Grugliasco"
+            },
+            {
+              "comune": "La Loggia"
+            },
+            {
+              "comune": "Leinì"
+            },
+            {
+              "comune": "Lombardore"
+            },
+            {
+              "comune": "Moncalieri"
+            },
+            {
+              "comune": "Nichelino"
+            },
+            {
+              "comune": "None"
+            },
+            {
+              "comune": "Parella"
+            },
+            {
+              "comune": "Pecetto Torinese"
+            },
+            {
+              "comune": "Pianezza"
+            },
+            {
+              "comune": "Pino Torinese"
+            },
+            {
+              "comune": "Piscina"
+            },
+            {
+              "comune": "Rivarossa"
+            },
+            {
+              "comune": "Robassomero"
+            },
+            {
+              "comune": "Rondissone"
+            },
+            {
+              "comune": "Rosta"
+            },
+            {
+              "comune": "San Mauro Torinese"
+            },
+            {
+              "comune": "Sant'Ambrogio di Torino"
+            },
+            {
+              "comune": "Settimo Torinese"
+            },
+            {
+              "comune": "Torino"
+            },
+            {
+              "comune": "Trofarello"
+            },
+            {
+              "comune": "Venaria Reale"
+            },
+            {
+              "comune": "Villastellone"
+            },
+            {
+              "comune": "Volpiano"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Airasca"
+            },
+            {
+              "comune": "Almese"
+            },
+            {
+              "comune": "Andezeno"
+            },
+            {
+              "comune": "Arignano"
+            },
+            {
+              "comune": "Baldissero Torinese"
+            },
+            {
+              "comune": "Banchette"
+            },
+            {
+              "comune": "Barone Canavese"
+            },
+            {
+              "comune": "Borgofranco d'Ivrea"
+            },
+            {
+              "comune": "Borgone Susa"
+            },
+            {
+              "comune": "Bosconero"
+            },
+            {
+              "comune": "Bruino"
+            },
+            {
+              "comune": "Burolo"
+            },
+            {
+              "comune": "Busano"
+            },
+            {
+              "comune": "Bussoleno"
+            },
+            {
+              "comune": "Buttigliera Alta"
+            },
+            {
+              "comune": "Cambiano"
+            },
+            {
+              "comune": "Candia Canavese"
+            },
+            {
+              "comune": "Carema"
+            },
+            {
+              "comune": "Carignano"
+            },
+            {
+              "comune": "Casalborgone"
+            },
+            {
+              "comune": "Cascinette d'Ivrea"
+            },
+            {
+              "comune": "Caselette"
+            },
+            {
+              "comune": "Castagneto Po"
+            },
+            {
+              "comune": "Castagnole Piemonte"
+            },
+            {
+              "comune": "Cavagnolo"
+            },
+            {
+              "comune": "Cercenasco"
+            },
+            {
+              "comune": "Chiaverano"
+            },
+            {
+              "comune": "Chiomonte"
+            },
+            {
+              "comune": "Chiusa di San Michele"
+            },
+            {
+              "comune": "Ciriè"
+            },
+            {
+              "comune": "Colleretto Giacosa"
+            },
+            {
+              "comune": "Condove"
+            },
+            {
+              "comune": "Favria"
+            },
+            {
+              "comune": "Feletto"
+            },
+            {
+              "comune": "Fiorano Canavese"
+            },
+            {
+              "comune": "Foglizzo"
+            },
+            {
+              "comune": "Forno Canavese"
+            },
+            {
+              "comune": "Ivrea"
+            },
+            {
+              "comune": "Lauriano"
+            },
+            {
+              "comune": "Lessolo"
+            },
+            {
+              "comune": "Levone"
+            },
+            {
+              "comune": "Lombriasco"
+            },
+            {
+              "comune": "Loranzè"
+            },
+            {
+              "comune": "Maglione"
+            },
+            {
+              "comune": "Mathi"
+            },
+            {
+              "comune": "Mazzè"
+            },
+            {
+              "comune": "Meana di Susa"
+            },
+            {
+              "comune": "Mercenasco"
+            },
+            {
+              "comune": "Montalenghe"
+            },
+            {
+              "comune": "Montalto Dora"
+            },
+            {
+              "comune": "Montanaro"
+            },
+            {
+              "comune": "Monteu da Po"
+            },
+            {
+              "comune": "Moriondo Torinese"
+            },
+            {
+              "comune": "Nole"
+            },
+            {
+              "comune": "Nomaglio"
+            },
+            {
+              "comune": "Orbassano"
+            },
+            {
+              "comune": "Orio Canavese"
+            },
+            {
+              "comune": "Pavone Canavese"
+            },
+            {
+              "comune": "Perosa Canavese"
+            },
+            {
+              "comune": "Pinerolo"
+            },
+            {
+              "comune": "Piobesi Torinese"
+            },
+            {
+              "comune": "Piossasco"
+            },
+            {
+              "comune": "Poirino"
+            },
+            {
+              "comune": "Porte"
+            },
+            {
+              "comune": "Pralormo"
+            },
+            {
+              "comune": "Quincinetto"
+            },
+            {
+              "comune": "Rivalta di Torino"
+            },
+            {
+              "comune": "Rivara"
+            },
+            {
+              "comune": "Rivarolo Canavese"
+            },
+            {
+              "comune": "Rivoli"
+            },
+            {
+              "comune": "Rubiana"
+            },
+            {
+              "comune": "Salbertrand"
+            },
+            {
+              "comune": "Salerano Canavese"
+            },
+            {
+              "comune": "Samone"
+            },
+            {
+              "comune": "San Benigno Canavese"
+            },
+            {
+              "comune": "San Carlo Canavese"
+            },
+            {
+              "comune": "San Francesco al Campo"
+            },
+            {
+              "comune": "San Gillio"
+            },
+            {
+              "comune": "San Giorgio Canavese"
+            },
+            {
+              "comune": "San Giusto Canavese"
+            },
+            {
+              "comune": "San Maurizio Canavese"
+            },
+            {
+              "comune": "San Pietro Val Lemina"
+            },
+            {
+              "comune": "San Sebastiano da Po"
+            },
+            {
+              "comune": "Sangano"
+            },
+            {
+              "comune": "Sant'Antonino di Susa"
+            },
+            {
+              "comune": "Santena"
+            },
+            {
+              "comune": "Scalenghe"
+            },
+            {
+              "comune": "Sciolze"
+            },
+            {
+              "comune": "Settimo Vittone"
+            },
+            {
+              "comune": "Strambino"
+            },
+            {
+              "comune": "Susa"
+            },
+            {
+              "comune": "Tavagnasco"
+            },
+            {
+              "comune": "Torrazza Piemonte"
+            },
+            {
+              "comune": "Trana"
+            },
+            {
+              "comune": "Vaie"
+            },
+            {
+              "comune": "Vallo Torinese"
+            },
+            {
+              "comune": "Varisella"
+            },
+            {
+              "comune": "Vauda Canavese"
+            },
+            {
+              "comune": "Verolengo"
+            },
+            {
+              "comune": "Vigone"
+            },
+            {
+              "comune": "Villanova Canavese"
+            },
+            {
+              "comune": "Villar Dora"
+            },
+            {
+              "comune": "Villareggia"
+            },
+            {
+              "comune": "Vinovo"
+            },
+            {
+              "comune": "Virle Piemonte"
+            },
+            {
+              "comune": "Volvera"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        },
+        "Moncrivello": {
+          "inSede": [
+            {
+              "comune": "Alice Castello"
+            },
+            {
+              "comune": "Bianzè"
+            },
+            {
+              "comune": "Borgo d'Ale"
+            },
+            {
+              "comune": "Cigliano"
+            },
+            {
+              "comune": "Moncrivello"
+            },
+            {
+              "comune": "Tronzano Vercellese"
+            },
+            {
+              "comune": "Vercelli"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Borgo Vercelli"
+            },
+            {
+              "comune": "Crescentino"
+            },
+            {
+              "comune": "Fontanetto Po"
+            },
+            {
+              "comune": "Palazzolo Vercellese"
+            },
+            {
+              "comune": "Saluggia"
+            },
+            {
+              "comune": "San Germano Vercellese"
+            },
+            {
+              "comune": "Santhià"
+            },
+            {
+              "comune": "Trino"
+            }
+          ],
+          "source": {
+            "label": "EDUCatt, Elenchi dei comuni in sede e pendolari (aggiornamento 4 febbraio 2026)",
+            "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "EDUCatt, Borse di studio per reddito e merito",
+        "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
       }
     }
   ]

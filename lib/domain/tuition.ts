@@ -61,6 +61,11 @@ export interface TuitionRule {
    * questi il calcolo non usa le fasce dell'ateneo ma la media nazionale, e lo dichiara.
    */
   excludedCourses?: { names?: string[]; nameIncludes?: string[]; note: string };
+  /**
+   * Atenei non statali senza esonero automatico per chi ha la borsa (l'esonero del D.Lgs. 68/2012, art. 9,
+   * vale per le statali): il testo spiega cosa succede invece (es. Bocconi: riduzioni solo con domanda a parte).
+   */
+  noScholarshipExemption?: string;
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };

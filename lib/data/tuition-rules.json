@@ -15745,6 +15745,125 @@
         }
       },
       "simulator": "https://portale.unibas.it/site/home/studenti/regolamento-contribuzione-studentesca/documento50738.html"
+    },
+    "ateneo-01503": {
+      "name": "Università Bocconi",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Primo anno di laurea triennale, Giurisprudenza e laurea magistrale: importo unico, non legato all’ISEE.",
+      "fixedFees": {
+        "regionalTax": 0,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 0
+      },
+      "fixedFeesNote": "Tassa regionale, bolli, tassa d’iscrizione e spese amministrative sono già compresi nell’importo annuale (nell’acconto della prima rata).",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 25000
+        }
+      ],
+      "bandsSource": {
+        "label": "Bocconi, Tasse e contributi 2026/27, 1° anno di triennale e Giurisprudenza",
+        "url": "https://www.unibocconi.it/sites/default/files/media/attachments/Tasse%20e%20contributi%20TQ.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 17000,
+        "ciclo-unico": 17000,
+        "magistrale": 18550
+      },
+      "maxExceptions": [
+        {
+          "name": "Business (World Bachelor in Business)",
+          "level": "triennale",
+          "amount": 25000
+        }
+      ],
+      "noScholarshipExemption": "Anche con la borsa ISU la retta del primo anno resta dovuta: le riduzioni passano solo da «Bocconi4Access to Education» (domanda a parte); l’esonero totale vale dal secondo anno.",
+      "maxNote": "Importo unico, uguale per ogni ISEE: 17.000 € per triennali e Giurisprudenza, 18.550 € per le magistrali, 25.000 € per il World Bachelor in Business (23.000 € per il Double Program HEC-Bocconi). Le riduzioni (esonero parziale del 20-80% con «Bocconi4Access to Education») vanno chieste con una domanda a parte e non sono automatiche: qui non sono calcolate.",
+      "maxSource": {
+        "label": "Bocconi, Importi e rateazioni 2026/27 (triennali e Giurisprudenza; magistrali)",
+        "url": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0"
+      },
+      "payments": {
+        "steps": [
+          "Acconto della prima rata all’immatricolazione (3.400 € per le triennali, 3.710 € per le magistrali)",
+          "Conguaglio della prima rata entro il 15 ottobre 2026",
+          "Seconda rata entro il 29 gennaio 2027",
+          "Terza rata entro il 30 aprile 2027"
+        ],
+        "note": "Gli idonei alla borsa ISU del primo anno di triennale non hanno l’esonero automatico: le riduzioni passano da «Bocconi4Access to Education».",
+        "source": {
+          "label": "Bocconi, Tasse e contributi 2026/27, 1° anno",
+          "url": "https://www.unibocconi.it/sites/default/files/media/attachments/Tasse%20e%20contributi%20TQ.pdf"
+        }
+      },
+      "simulator": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0"
+    },
+    "ateneo-05805": {
+      "name": "Luiss Guido Carli",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Primo anno: contributo unico uguale per tutti, non legato all’ISEE.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 140
+      },
+      "fixedFeesNote": "Oltre al contributo unico si paga la tassa regionale per il diritto allo studio del Lazio (140 €, la stessa degli atenei statali di Roma) con la prima rata.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 17000
+        }
+      ],
+      "bandsSource": {
+        "label": "Luiss, Tuition fee a.y. 2026/2027 – Bachelor’s degrees",
+        "url": "https://www.luiss.it/sites/default/files/media-documents/Tuition_Fee_26-27_LT_2.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 14000,
+        "ciclo-unico": 14000,
+        "magistrale": 15000
+      },
+      "maxExceptions": [
+        {
+          "name": "Management",
+          "level": "magistrale",
+          "amount": 17000
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Corporate Finance"
+        ],
+        "note": "Per la magistrale in Corporate Finance il prospetto 2026/27 non indica l’importo del primo anno."
+      },
+      "noScholarshipExemption": "La borsa DiSCo non toglie il contributo unico: l’esonero di legge per chi ha la borsa vale per gli atenei statali e la Luiss non lo prevede nei suoi prospetti; riduzioni solo con le borse Luiss su domanda.",
+      "maxNote": "Contributo unico uguale per tutti, senza fasce di reddito: 14.000 € al primo anno di triennali e Giurisprudenza, 15.000 € per le magistrali (17.000 € per Management e Finance). Riduzioni solo con borse Luiss su domanda o per fratelli iscritti (−20%): non calcolate.",
+      "maxSource": {
+        "label": "Luiss, Tuition fee a.y. 2026/2027 (triennali, Giurisprudenza, magistrali)",
+        "url": "https://www.luiss.it/sites/default/files/2026-05/Tuition_Fee_26-27_LM.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (4.700 € per triennali e Giurisprudenza, 5.000 € per le magistrali) più la tassa regionale, entro la scadenza del bando di ammissione",
+          "Seconda rata entro il 25 novembre 2026",
+          "Terza rata entro il 24 febbraio 2027"
+        ],
+        "note": "Ogni mese di ritardo costa 50 € per rata, dopo 7 giorni di tolleranza.",
+        "source": {
+          "label": "Luiss, Tuition fee a.y. 2026/2027 – Bachelor’s degrees",
+          "url": "https://www.luiss.it/sites/default/files/media-documents/Tuition_Fee_26-27_LT_2.pdf"
+        }
+      },
+      "simulator": "https://www.luiss.it/en/university/luiss-life/student-affairs-office/bachelors-degrees/tuition-fee-deadlines-and-amounts-bachelors-degrees-and-single-cycle-masters-degree-law"
     }
   }
 }
