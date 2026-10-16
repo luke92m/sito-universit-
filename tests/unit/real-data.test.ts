@@ -1285,3 +1285,20 @@ describe('Marche 2026/27: tasse UNIVPM, Macerata e Urbino, borse ERDIS', () => {
     expect(check('Urbino', 'Roma')).toBe('fuoriSede');
   });
 });
+
+describe('Abruzzo 2026/27: borse ADSU Chieti-Pescara', () => {
+  it('soglie regionali, tre fasce a scalini con la mensa, elenchi dei comuni', () => {
+    const adsu = dsuEntityFor('ateneo-06901')!;
+    expect(adsu.id).toBe('adsu-chieti-pescara');
+    expect(adsu.thresholds).toMatchObject({ isee: 24335.11, ispe: 52902.43 });
+    expect(amountAt(adsu, 10000, 'fuoriSede')).toBe(7679.32);
+    expect(amountAt(adsu, 15000, 'fuoriSede')).toBe(7171.11);
+    expect(amountAt(adsu, 22000, 'inSede')).toBe(2462.91);
+    const check = (seat: string, city: string) => conditionFromMunicipality(adsu, seat, city, true)?.condition;
+    expect(check('Chieti', 'Pescara')).toBe('inSede');
+    expect(check('Chieti', 'Lanciano')).toBe('pendolare');
+    expect(check('Pescara', 'Mosciano Sant’Angelo')).toBe('pendolare');
+    expect(check('Vasto', 'San Salvo')).toBe('inSede');
+    expect(check('Pescara', 'Roma')).toBe('fuoriSede');
+  });
+});

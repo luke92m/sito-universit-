@@ -7290,6 +7290,854 @@
         "label": "ERDIS Marche, Bando borsa di studio 2026/27",
         "url": "https://erdis.it/documenti/3615115/bando-borsa-studio-2026-2027"
       }
+    },
+    {
+      "id": "adsu-chieti-pescara",
+      "name": "ADSU Chieti-Pescara – Azienda per il diritto agli studi universitari",
+      "shortName": "ADSU Chieti-Pescara",
+      "region": "Abruzzo",
+      "universityIds": [
+        "ateneo-06901"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 24335.11,
+        "ispe": 52902.43,
+        "source": {
+          "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, art. 6",
+          "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali che comprendono la quota vitto (1.017,83 € con un pasto al giorno, 2.035,67 € con due per i fuori sede) e, per i fuori sede, la quota alloggio (1.747,39 €). Tre fasce ISEE a scalini: la quota denaro scende al 75% e al 50% oltre 16.223,40 € e 20.279,18 €. Fino a 12.167,55 € di ISEE la quota denaro sale del 15% (calcolo nostro sulla regola del bando).",
+        "bands": [
+          {
+            "iseeMax": 12167.55,
+            "fuoriSede": 7679.32,
+            "pendolare": 4666.64,
+            "inSede": 4341.51
+          },
+          {
+            "iseeMax": 16223.4,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 3907.99
+          },
+          {
+            "iseeMax": 20279.18,
+            "fuoriSede": 6324.1,
+            "pendolare": 3397.49,
+            "inSede": 3185.45
+          },
+          {
+            "iseeMax": 24335.11,
+            "fuoriSede": 5477.09,
+            "pendolare": 2604.27,
+            "inSede": 2462.91
+          }
+        ],
+        "source": {
+          "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, art. 19",
+          "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% della quota denaro per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%: si applica l’incremento più favorevole",
+          "source": {
+            "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, art. 19",
+            "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+          }
+        },
+        {
+          "label": "+20% della quota denaro per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "non cumulabile con gli altri incrementi",
+          "source": {
+            "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, art. 19",
+            "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (due pasti al giorno ai fuori sede, uno agli altri)",
+        "Posto letto nelle residenze ADSU per i fuori sede, se disponibile (la quota alloggio viene trattenuta)",
+        "Rimborso o esonero della tassa regionale"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, artt. 19, 21 e 30",
+        "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato per la sede (almeno 50 km) e contratto di affitto a titolo oneroso di almeno 10 mesi nella città sede o in un comune confinante, da inviare entro il 13 novembre 2026.",
+        "pendolare": "Comuni «pendolari» elencati per la sede (21-49 km); oltre 50 km senza affitto con meno di 4 ore di viaggio al giorno.",
+        "inSede": "Comuni «in sede» elencati per la sede (fino a 20 km). Gli iscritti all’Università telematica «Leonardo da Vinci» sono sempre in sede.",
+        "source": {
+          "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, artt. 5, 16 e Tabelle",
+          "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% della quota denaro entro il 10 novembre 2026",
+          "Un altro 30% entro il 31 dicembre 2026",
+          "Restante 50% con almeno 20 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Per le magistrali: 50% entro il 31 dicembre 2026 e 50% con 20 crediti entro il 10 agosto 2027. Senza 20 crediti entro il 30 novembre 2027 la borsa va restituita.",
+        "source": {
+          "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, art. 20",
+          "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-01",
+        "closesTime": "12:00",
+        "note": "Domanda online sul portale studenti ADSU, confermata entro la scadenza; ISEE per il diritto allo studio universitario.",
+        "source": {
+          "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, artt. 4 e 6",
+          "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+        }
+      },
+      "municipalities": {
+        "Chieti": {
+          "inSede": [
+            {
+              "comune": "Chieti"
+            },
+            {
+              "comune": "Bucchianico"
+            },
+            {
+              "comune": "Casacanditella"
+            },
+            {
+              "comune": "Casalincontrada"
+            },
+            {
+              "comune": "Cepagatti"
+            },
+            {
+              "comune": "Fara Filiorum Petri"
+            },
+            {
+              "comune": "Francavilla al Mare"
+            },
+            {
+              "comune": "Manoppello"
+            },
+            {
+              "comune": "Miglianico"
+            },
+            {
+              "comune": "Nocciano"
+            },
+            {
+              "comune": "Pescara"
+            },
+            {
+              "comune": "Pianella"
+            },
+            {
+              "comune": "Ripa Teatina"
+            },
+            {
+              "comune": "Rosciano"
+            },
+            {
+              "comune": "San Giovanni Teatino"
+            },
+            {
+              "comune": "Spoltore"
+            },
+            {
+              "comune": "Torrevecchia Teatina"
+            },
+            {
+              "comune": "Villamagna"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Abbateggio"
+            },
+            {
+              "comune": "Alanno"
+            },
+            {
+              "comune": "Altino"
+            },
+            {
+              "comune": "Ari"
+            },
+            {
+              "comune": "Arielli"
+            },
+            {
+              "comune": "Atri"
+            },
+            {
+              "comune": "Bolognano"
+            },
+            {
+              "comune": "Brittoli"
+            },
+            {
+              "comune": "Bussi sul Tirino"
+            },
+            {
+              "comune": "Canosa Sannita"
+            },
+            {
+              "comune": "Cappelle sul Tavo"
+            },
+            {
+              "comune": "Caramanico Terme"
+            },
+            {
+              "comune": "Carpineto della Nora"
+            },
+            {
+              "comune": "Casoli"
+            },
+            {
+              "comune": "Castel Frentano"
+            },
+            {
+              "comune": "Castiglione a Casauria"
+            },
+            {
+              "comune": "Catignano"
+            },
+            {
+              "comune": "Città Sant’Angelo"
+            },
+            {
+              "comune": "Civitaquana"
+            },
+            {
+              "comune": "Civitella Casanova"
+            },
+            {
+              "comune": "Civitella Messer Raimondo"
+            },
+            {
+              "comune": "Collecorvino"
+            },
+            {
+              "comune": "Corfinio"
+            },
+            {
+              "comune": "Corvara"
+            },
+            {
+              "comune": "Crecchio"
+            },
+            {
+              "comune": "Cugnoli"
+            },
+            {
+              "comune": "Elice"
+            },
+            {
+              "comune": "Fara San Martino"
+            },
+            {
+              "comune": "Farindola"
+            },
+            {
+              "comune": "Filetto"
+            },
+            {
+              "comune": "Fossacesia"
+            },
+            {
+              "comune": "Frisa"
+            },
+            {
+              "comune": "Gessopalena"
+            },
+            {
+              "comune": "Giuliano Teatino"
+            },
+            {
+              "comune": "Guardiagrele"
+            },
+            {
+              "comune": "Lanciano"
+            },
+            {
+              "comune": "Lettomanoppello"
+            },
+            {
+              "comune": "Loreto Aprutino"
+            },
+            {
+              "comune": "Montebello di Bertona"
+            },
+            {
+              "comune": "Montesilvano"
+            },
+            {
+              "comune": "Moscufo"
+            },
+            {
+              "comune": "Ofena"
+            },
+            {
+              "comune": "Orsogna"
+            },
+            {
+              "comune": "Ortona"
+            },
+            {
+              "comune": "Palombaro"
+            },
+            {
+              "comune": "Pennapiedimonte"
+            },
+            {
+              "comune": "Penne"
+            },
+            {
+              "comune": "Perano"
+            },
+            {
+              "comune": "Pescosansonesco"
+            },
+            {
+              "comune": "Picciano"
+            },
+            {
+              "comune": "Pietranico"
+            },
+            {
+              "comune": "Pineto"
+            },
+            {
+              "comune": "Poggiofiorito"
+            },
+            {
+              "comune": "Popoli"
+            },
+            {
+              "comune": "Pretoro"
+            },
+            {
+              "comune": "Rapino"
+            },
+            {
+              "comune": "Rocca San Giovanni"
+            },
+            {
+              "comune": "Roccamontepiano"
+            },
+            {
+              "comune": "Roccamorice"
+            },
+            {
+              "comune": "Roseto degli Abruzzi"
+            },
+            {
+              "comune": "Sant’Eufemia a Maiella"
+            },
+            {
+              "comune": "Sant’Eusanio del Sangro"
+            },
+            {
+              "comune": "San Martino sulla Marrucina"
+            },
+            {
+              "comune": "San Valentino in Abruzzo Citeriore"
+            },
+            {
+              "comune": "San Vito Chietino"
+            },
+            {
+              "comune": "Salle"
+            },
+            {
+              "comune": "Scafa"
+            },
+            {
+              "comune": "Serramonacesca"
+            },
+            {
+              "comune": "Silvi"
+            },
+            {
+              "comune": "Tocco da Casauria"
+            },
+            {
+              "comune": "Tollo"
+            },
+            {
+              "comune": "Torre de’ Passeri"
+            },
+            {
+              "comune": "Treglio"
+            },
+            {
+              "comune": "Turrivalignani"
+            },
+            {
+              "comune": "Vacri"
+            },
+            {
+              "comune": "Vicoli"
+            },
+            {
+              "comune": "Villa Celiera"
+            },
+            {
+              "comune": "Villa Santa Lucia degli Abruzzi"
+            },
+            {
+              "comune": "Vittorito"
+            }
+          ],
+          "source": {
+            "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, Tabelle «Elenco dei comuni» (pag. 29)",
+            "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+          }
+        },
+        "Pescara": {
+          "inSede": [
+            {
+              "comune": "Pescara"
+            },
+            {
+              "comune": "Cappelle sul Tavo"
+            },
+            {
+              "comune": "Cepagatti"
+            },
+            {
+              "comune": "Chieti"
+            },
+            {
+              "comune": "Città Sant’Angelo"
+            },
+            {
+              "comune": "Francavilla al Mare"
+            },
+            {
+              "comune": "Miglianico"
+            },
+            {
+              "comune": "Montesilvano"
+            },
+            {
+              "comune": "Moscufo"
+            },
+            {
+              "comune": "Pianella"
+            },
+            {
+              "comune": "Ripa Teatina"
+            },
+            {
+              "comune": "San Giovanni Teatino"
+            },
+            {
+              "comune": "Silvi"
+            },
+            {
+              "comune": "Spoltore"
+            },
+            {
+              "comune": "Tollo"
+            },
+            {
+              "comune": "Torrevecchia Teatina"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Abbateggio"
+            },
+            {
+              "comune": "Alanno"
+            },
+            {
+              "comune": "Ari"
+            },
+            {
+              "comune": "Arielli"
+            },
+            {
+              "comune": "Atri"
+            },
+            {
+              "comune": "Bisenti"
+            },
+            {
+              "comune": "Bolognano"
+            },
+            {
+              "comune": "Brittoli"
+            },
+            {
+              "comune": "Bucchianico"
+            },
+            {
+              "comune": "Canosa Sannita"
+            },
+            {
+              "comune": "Casacanditella"
+            },
+            {
+              "comune": "Caramanico Terme"
+            },
+            {
+              "comune": "Carpineto della Nora"
+            },
+            {
+              "comune": "Casalincontrada"
+            },
+            {
+              "comune": "Castel Frentano"
+            },
+            {
+              "comune": "Castiglione a Casauria"
+            },
+            {
+              "comune": "Castiglione Messer Raimondo"
+            },
+            {
+              "comune": "Castilenti"
+            },
+            {
+              "comune": "Catignano"
+            },
+            {
+              "comune": "Cellino Attanasio"
+            },
+            {
+              "comune": "Cermignano"
+            },
+            {
+              "comune": "Civitaquana"
+            },
+            {
+              "comune": "Civitella Casanova"
+            },
+            {
+              "comune": "Collecorvino"
+            },
+            {
+              "comune": "Corvara"
+            },
+            {
+              "comune": "Crecchio"
+            },
+            {
+              "comune": "Cugnoli"
+            },
+            {
+              "comune": "Elice"
+            },
+            {
+              "comune": "Fara Filiorum Petri"
+            },
+            {
+              "comune": "Farindola"
+            },
+            {
+              "comune": "Filetto"
+            },
+            {
+              "comune": "Fossacesia"
+            },
+            {
+              "comune": "Frisa"
+            },
+            {
+              "comune": "Giuliano Teatino"
+            },
+            {
+              "comune": "Giulianova"
+            },
+            {
+              "comune": "Guardiagrele"
+            },
+            {
+              "comune": "Lanciano"
+            },
+            {
+              "comune": "Lettomanoppello"
+            },
+            {
+              "comune": "Loreto Aprutino"
+            },
+            {
+              "comune": "Manoppello"
+            },
+            {
+              "comune": "Montebello di Bertona"
+            },
+            {
+              "comune": "Montefino"
+            },
+            {
+              "comune": "Morro d’Oro"
+            },
+            {
+              "comune": "Mosciano Sant’Angelo"
+            },
+            {
+              "comune": "Mozzagrogna"
+            },
+            {
+              "comune": "Nocciano"
+            },
+            {
+              "comune": "Notaresco"
+            },
+            {
+              "comune": "Orsogna"
+            },
+            {
+              "comune": "Ortona"
+            },
+            {
+              "comune": "Paglieta"
+            },
+            {
+              "comune": "Pennapiedimonte"
+            },
+            {
+              "comune": "Penne"
+            },
+            {
+              "comune": "Pescosansonesco"
+            },
+            {
+              "comune": "Picciano"
+            },
+            {
+              "comune": "Pietranico"
+            },
+            {
+              "comune": "Pineto"
+            },
+            {
+              "comune": "Poggiofiorito"
+            },
+            {
+              "comune": "Pretoro"
+            },
+            {
+              "comune": "Rapino"
+            },
+            {
+              "comune": "Rocca San Giovanni"
+            },
+            {
+              "comune": "Roccamontepiano"
+            },
+            {
+              "comune": "Roccamorice"
+            },
+            {
+              "comune": "Rosciano"
+            },
+            {
+              "comune": "Roseto degli Abruzzi"
+            },
+            {
+              "comune": "Santa Maria Imbaro"
+            },
+            {
+              "comune": "San Martino sulla Marrucina"
+            },
+            {
+              "comune": "San Valentino in Abruzzo Citeriore"
+            },
+            {
+              "comune": "San Vito Chietino"
+            },
+            {
+              "comune": "Salle"
+            },
+            {
+              "comune": "Scafa"
+            },
+            {
+              "comune": "Serramonacesca"
+            },
+            {
+              "comune": "Tocco da Casauria"
+            },
+            {
+              "comune": "Torino di Sangro"
+            },
+            {
+              "comune": "Torre de’ Passeri"
+            },
+            {
+              "comune": "Treglio"
+            },
+            {
+              "comune": "Turrivalignani"
+            },
+            {
+              "comune": "Vacri"
+            },
+            {
+              "comune": "Vicoli"
+            },
+            {
+              "comune": "Villa Celiera"
+            },
+            {
+              "comune": "Villamagna"
+            }
+          ],
+          "source": {
+            "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, Tabelle «Elenco dei comuni» (pag. 29)",
+            "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+          }
+        },
+        "Vasto": {
+          "inSede": [
+            {
+              "comune": "Vasto"
+            },
+            {
+              "comune": "Casalbordino"
+            },
+            {
+              "comune": "Cupello"
+            },
+            {
+              "comune": "Monteodorisio"
+            },
+            {
+              "comune": "Pollutri"
+            },
+            {
+              "comune": "San Salvo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Archi"
+            },
+            {
+              "comune": "Atessa"
+            },
+            {
+              "comune": "Carpineto Sinello"
+            },
+            {
+              "comune": "Carunchio"
+            },
+            {
+              "comune": "Casalanguida"
+            },
+            {
+              "comune": "Castel Frentano"
+            },
+            {
+              "comune": "Celenza sul Trigno"
+            },
+            {
+              "comune": "Dogliola"
+            },
+            {
+              "comune": "Fossacesia"
+            },
+            {
+              "comune": "Fresagrandinaria"
+            },
+            {
+              "comune": "Frisa"
+            },
+            {
+              "comune": "Furci"
+            },
+            {
+              "comune": "Gissi"
+            },
+            {
+              "comune": "Guilmi"
+            },
+            {
+              "comune": "Lanciano"
+            },
+            {
+              "comune": "Lentella"
+            },
+            {
+              "comune": "Liscia"
+            },
+            {
+              "comune": "Mozzagrogna"
+            },
+            {
+              "comune": "Ortona"
+            },
+            {
+              "comune": "Paglieta"
+            },
+            {
+              "comune": "Palmoli"
+            },
+            {
+              "comune": "Perano"
+            },
+            {
+              "comune": "Rocca San Giovanni"
+            },
+            {
+              "comune": "Santa Maria Imbaro"
+            },
+            {
+              "comune": "San Buono"
+            },
+            {
+              "comune": "San Giovanni Lipioni"
+            },
+            {
+              "comune": "San Vito Chietino"
+            },
+            {
+              "comune": "Scerni"
+            },
+            {
+              "comune": "Torino di Sangro"
+            },
+            {
+              "comune": "Tornareccio"
+            },
+            {
+              "comune": "Torrebruna"
+            },
+            {
+              "comune": "Treglio"
+            },
+            {
+              "comune": "Tufillo"
+            },
+            {
+              "comune": "Villalfonsina"
+            }
+          ],
+          "source": {
+            "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, Tabelle «Elenco dei comuni» (pag. 29)",
+            "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ADSU Chieti-Pescara, Bandi borse di studio",
+        "url": "https://www.adsuchietipescara.it/bandi-borse-di-studio"
+      }
     }
   ]
 }

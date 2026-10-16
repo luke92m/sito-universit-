@@ -41,6 +41,7 @@ Borse (bandi 2026/27):
 | ARDiS | Trieste, Udine | 28.339,88 / 61.608,48 | Allegato 1 (6 sedi) |
 | ADiSU Umbria | Perugia, Stranieri di Perugia | 28.339,88 / 61.608,48 | Allegato 1 (5 sedi) |
 | ERDIS Marche | Politecnica delle Marche, Macerata, Camerino, Urbino | 24.000 / 50.000 | Allegato E (13 sedi, solo pendolari) |
+| ADSU Chieti-Pescara | Chieti-Pescara | 24.335,11 / 52.902,43 | Tabelle del bando (Chieti, Pescara, Vasto) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -95,6 +96,7 @@ Tasse (2026/27):
 - **Urbino**: pagina «Importo del contributo annuale» 2026/27: esonero fino a 30.000 €, poi m × ISEE + q per area fino a 70.000 €. Gli importi dell'ateneo comprendono tassa regionale e bollo (156 €), qui tolti.
 - **Camerino**: non inserito. Il regolamento tasse 2026/27 non è pubblicato in PDF; il calcolatore online (vele.unicam.it) dà importi senza dire quali riduzioni applica.
 - **ERDIS Marche**: bando borsa 2026/27, artt. 8, 10, 12, 17 e Allegati E-F: soglie ISEE 24.000 € e ISPE 50.000 € (più basse di quelle nazionali), importi a scalini della Tab. 59 comprensivi di alloggio e mensa. In sede = solo il comune sede del corso; pendolari = comuni dell'Allegato E per 13 sedi (riletti a mano).
+- **ADSU Chieti-Pescara**: bando borse 2026/27, artt. 4-6, 16, 19-20 e tabelle dei comuni (pag. 29): soglie regionali (DGR Abruzzo 397/2026), tre fasce ISEE a scalini (quota denaro al 100%, 75%, 50%). Importi totali con quota vitto e, per i fuori sede, quota alloggio. La prima fascia con il +15% fino a 12.167,55 € è calcolata da noi sulla regola del bando. Comuni in sede e pendolari per Chieti, Pescara e Vasto (abbreviazioni sciolte a mano). Tasse della d'Annunzio non inserite: il regolamento 2026/27 è pubblicato solo in inglese, con parti dell'anno precedente e senza la tabella degli importi (rimanda al simulatore).
 
 ## Fonti
 
