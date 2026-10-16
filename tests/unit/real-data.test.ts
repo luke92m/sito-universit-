@@ -1749,3 +1749,16 @@ describe('Camerino 2026/27: tasse', () => {
     expect(at('Farmacia', 80000)).toBe(1925);
   });
 });
+
+describe('Trento: tasse dal simulatore ufficiale', () => {
+  const rule = tuitionRuleFor('ateneo-02201')!;
+  const [l, lm] = rule.courseGroups!;
+  it('Punti del simulatore e punti intermedi entro pochi euro', () => {
+    expect(contributionFor(rule, 26000, l.max, l.bands)).toBe(200);
+    expect(contributionFor(rule, 30000, l.max, l.bands)).toBe(422.33);
+    expect(Math.abs(contributionFor(rule, 45500, l.max, l.bands) - 1341.8)).toBeLessThan(3);
+    expect(Math.abs(contributionFor(rule, 70500, lm.max, lm.bands) - 2996.32)).toBeLessThan(3);
+    expect(contributionFor(rule, null, lm.max, lm.bands)).toBe(3159);
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(166);
+  });
+});
