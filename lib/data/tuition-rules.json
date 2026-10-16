@@ -16840,6 +16840,99 @@
         }
       },
       "simulator": "https://www.uniroma4.it/index.php/come-fare-per/immatricolarsi-iscriversi/tasse-universitarie/"
+    },
+    "ateneo-05403": {
+      "name": "Università per Stranieri di Perugia",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole dei corsi di laurea e laurea magistrale (per il primo anno conta solo l’ISEE), con ISEE «Università».",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata all’immatricolazione: tassa regionale 140 € e bollo virtuale 16 €.",
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 525
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 735
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 840
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 945
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 1050
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1300
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1470
+        }
+      ],
+      "bandsSource": {
+        "label": "Università per Stranieri di Perugia, Manifesto degli studi 2026/27, parte 2, art. 6 (Tabella G)",
+        "url": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/manifesto-degli-studi"
+      },
+      "maxByLevel": {
+        "triennale": 1470,
+        "ciclo-unico": 1470,
+        "magistrale": 1470
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 22.000 €; poi importi fissi per fascia (Tabella G, totale delle rate 2-5): 525 € fino a 24.000 €, 735 € fino a 26.000 €, 840 € fino a 28.000 €, 945 € fino a 30.000 €, 1.050 € fino a 35.000 €, 1.300 € fino a 50.000 €, 1.470 € oltre o senza ISEE. Stessi importi per tutti i corsi. Esonero totale per chi si immatricola a una triennale con il massimo dei voti alla maturità, non calcolato.",
+      "maxSource": {
+        "label": "Università per Stranieri di Perugia, Manifesto degli studi 2026/27, parte 2, artt. 4 e 6",
+        "url": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/manifesto-degli-studi"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale e bollo, 156 €) entro il 31 ottobre 2026",
+          "Seconda rata (un quarto del contributo) entro il 30 novembre 2026",
+          "Terza rata entro il 30 gennaio 2027",
+          "Quarta rata entro il 30 aprile 2027",
+          "Quinta rata entro il 31 maggio 2027"
+        ],
+        "note": "Il protocollo dell’ISEE «Università» va inserito nell’area riservata (di norma dal 1° agosto al 31 ottobre); dopo il 28 febbraio si paga la fascia massima. Mora di 30 € entro 30 giorni, poi 80 €.",
+        "source": {
+          "label": "Università per Stranieri di Perugia, Manifesto degli studi 2026/27, parte 2, artt. 3 e 9",
+          "url": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/manifesto-degli-studi"
+        }
+      },
+      "simulator": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/iscrizioni-e-tasse/tasse-e-contributi"
     }
   }
 }

@@ -1560,3 +1560,13 @@ describe('Foro Italico: tasse per ISEE', () => {
     expect(maxContribution(rule, named('Health And Physical Activity'))).toBe(1987.65);
   });
 });
+
+describe('Stranieri di Perugia 2026/27: tasse a fasce', () => {
+  it('No tax area fino a 22.000 €, poi gli importi della Tabella G', () => {
+    const rule = tuitionRuleFor('ateneo-05403')!;
+    expect(contributionFor(rule, 22000, 1470)).toBe(0);
+    expect(contributionFor(rule, 23000, 1470)).toBe(525);
+    expect(contributionFor(rule, 40000, 1470)).toBe(1300);
+    expect(contributionFor(rule, null, 1470)).toBe(1470);
+  });
+});
