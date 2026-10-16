@@ -18298,6 +18298,274 @@
         }
       },
       "simulator": "https://orientamento.unich.it/studenti-e-futuri-studenti/tasse-e-contributi/simulatori-calcolo-contributo"
+    },
+    "ateneo-04302": {
+      "name": "Università di Camerino",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole, con ISEE-U. Importi dal simulatore ufficiale (che non applica gli esoneri), con esoneri e riduzioni della pagina «Tasse».",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale 140 € e bollo 16 €) entro il 6 novembre 2026.",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 26000,
+          "rate": 0.03025,
+          "base": 649
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28000,
+          "rate": 0.0363,
+          "base": 851.4
+        },
+        {
+          "iseeMax": 40000,
+          "from": 30000,
+          "rate": 0.04033333,
+          "base": 1026.67
+        },
+        {
+          "iseeMax": 60000,
+          "from": 40000,
+          "rate": 0.011,
+          "base": 1430
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1650
+        }
+      ],
+      "bandsSource": {
+        "label": "Unicam, Calcolo tasse universitarie 2026/2027 (simulatore ufficiale, immatricolazione)",
+        "url": "https://vele.unicam.it/asi/studenti/sc_calcolatasse_fino_40000.asp"
+      },
+      "bandsNote": "Gli importi del simulatore sono interpolati in modo lineare (coincidono con i punti campionati); le riduzioni del 25% e del 10% tra 26.000 e 30.000 € sono applicate dal sito all’importo calcolato.",
+      "courseGroups": [
+        {
+          "id": "interesse-nazionale",
+          "label": "corsi di interesse nazionale (L-27, L-30, L-34, L-35, L-43)",
+          "groups": [],
+          "classCodes": [
+            "L-27",
+            "L-30",
+            "L-34",
+            "L-35",
+            "L-43"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.04033333,
+              "base": 1026.67
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.011,
+              "base": 1430
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1650
+            }
+          ],
+          "max": 1650
+        },
+        {
+          "id": "alto",
+          "label": "Architettura, Medicina Veterinaria, Farmacia e CTF",
+          "groups": [],
+          "names": [
+            "Scienze dell'Architettura",
+            "Architettura",
+            "Medicina Veterinaria",
+            "Farmacia",
+            "Chimica e Tecnologia Farmaceutiche"
+          ],
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.03483333,
+              "base": 708.58
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.0418,
+              "base": 933.9
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.04644444,
+              "base": 1130.56
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.0165,
+              "base": 1595
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1925
+            }
+          ],
+          "max": 1925
+        },
+        {
+          "id": "basso",
+          "label": "Giurisprudenza e lauree triennali della Scuola di Farmacia",
+          "groups": [],
+          "names": [
+            "Giurisprudenza",
+            "Scienze Giuridiche per l'Innovazione Organizzativa e la Coesione Sociale",
+            "Gestione dei Fenomeni Migratori e Politiche di Integrazione nell'Unione Europea",
+            "Scienze Gastronomiche",
+            "Informazione Scientifica sul Farmaco e Scienze del Fitness e dei Prodotti della Salute"
+          ],
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.02566667,
+              "base": 589.42
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.0308,
+              "base": 768.9
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.03422222,
+              "base": 922.78
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.011,
+              "base": 1265
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1485
+            }
+          ],
+          "max": 1485
+        },
+        {
+          "id": "medio",
+          "label": "altri corsi",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 26000,
+              "rate": 0.03025,
+              "base": 649
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28000,
+              "rate": 0.0363,
+              "base": 851.4
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000,
+              "rate": 0.04033333,
+              "base": 1026.67
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.011,
+              "base": 1430
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1650
+            }
+          ],
+          "max": 1650
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 1650,
+        "ciclo-unico": 1650,
+        "magistrale": 1650
+      },
+      "maxExceptions": [],
+      "maxNote": "Matricole esonerate fino a 26.000 € (fino a 30.000 € nei corsi delle classi L-27, L-30, L-34, L-35, L-43); tra 26.000 e 30.000 € riduzione del 25% o del 10%. L’importo cresce in modo lineare da 341 € (13.000 €) al valore a 40.000 € e poi al massimo da 60.000 €: 1.650 € per la maggior parte dei corsi, 1.925 € per Architettura, Medicina Veterinaria, Farmacia e CTF, 1.485 € per Giurisprudenza e le triennali della Scuola di Farmacia. Esonero per chi si immatricola con 100/100 alla maturità e sconto del 10% per chi è nella fascia più alta e paga tutto entro il 18 dicembre: non calcolati.",
+      "maxSource": {
+        "label": "Unicam, Calcolo tasse universitarie 2026/2027 (simulatore ufficiale, immatricolazione)",
+        "url": "https://vele.unicam.it/asi/studenti/sc_calcolatasse_fino_40000.asp"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € entro il 6 novembre 2026",
+          "Seconda rata (50% del contributo, o tutto se fino a 300 €) entro il 18 dicembre 2026",
+          "Terza rata (restante 50%) entro il 14 maggio 2027"
+        ],
+        "note": "L’acquisizione dell’ISEE-U va autorizzata su MiIscrivo entro il 14 dicembre 2026 (poi fino al 10 maggio 2027 con 50 € di mora). Senza ISEE si paga il massimo. In alternativa c’è il pacchetto «All Inclusive» da 7.200 € l’anno (tasse, alloggio, mensa, trasporti).",
+        "source": {
+          "label": "Unicam, pagina «Tasse» 2026/27 (esoneri, No-Tax Area, rate)",
+          "url": "https://www.unicam.it/studente/segreterie-studenti/tasse"
+        }
+      },
+      "simulator": "https://vele.unicam.it/asi/studenti/sc_calcolatasse_fino_40000.asp"
     }
   }
 }

@@ -1731,3 +1731,21 @@ describe('Chieti-Pescara 2026/27: tasse', () => {
     expect(maxContribution(rule, named('Servizio Sociale'))).toBe(2000);
   });
 });
+
+describe('Camerino 2026/27: tasse', () => {
+  const rule = tuitionRuleFor('ateneo-04302')!;
+  const named = (name: string) => getCourses('ateneo-04302').find((course) => course.name === name)!;
+  const at = (name: string, isee: number) => {
+    const group = courseGroup(rule, named(name))!;
+    return contributionFor(rule, isee, group.max, group.bands);
+  };
+  it('Punti del simulatore ufficiale e riduzioni della pagina «Tasse»', () => {
+    expect(at('Informatica', 26000)).toBe(0);
+    expect(at('Informatica', 27000)).toBeCloseTo(0.75 * 905.67, 0);
+    expect(at('Informatica', 35000)).toBeCloseTo(1228.3, 0);
+    expect(at('Architettura', 50000)).toBe(1760);
+    expect(at('Giurisprudenza', 30000.5)).toBeCloseTo(922.8, 0);
+    expect(at('Fisica', 29000)).toBe(0);
+    expect(at('Farmacia', 80000)).toBe(1925);
+  });
+});
