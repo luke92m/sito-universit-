@@ -43,6 +43,7 @@ Borse (bandi 2026/27):
 | ERDIS Marche | Politecnica delle Marche, Macerata, Camerino, Urbino | 24.000 / 50.000 | Allegato E (13 sedi, solo pendolari) |
 | ADSU Chieti-Pescara | Chieti-Pescara | 24.335,11 / 52.902,43 | Tabelle del bando (Chieti, Pescara, Vasto) |
 | ADSU L'Aquila | L'Aquila | 24.335,11 / 52.902,43 | nessun elenco: stato per distanza (20/50 km) |
+| ERSU Messina | Messina | 22.500 / 53.000 | Tabelle 11.1-11.2 (Messina, Noto, Priolo Gargallo) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -101,6 +102,7 @@ Tasse (2026/27):
 - **L'Aquila (tasse)**: Guida tasse e contributi 2026/27 (delibere CdA 186 e 251/2026), § 4: schema unico del COA per tutti i corsi, esonero sotto 24.000 €, massimo 1.600 €. Non calcolati gli sconti per voto di diploma e i correttivi per i crediti.
 - **ADSU L'Aquila**: bando borse 2026/27, artt. 3, 5, 11, 13-14: stesse soglie e fasce di Chieti-Pescara (indirizzi della Regione Abruzzo). Il +15% fino a metà soglia è un incremento a parte, perché il bando non dice se tocca anche alloggio e vitto. Lo stato dipende dai km (fino a 20 in sede, 20-50 pendolare, oltre 50 fuori sede con affitto): nessun elenco di comuni.
 - **ADSU Teramo e tasse di Teramo**: non inseriti, bando 2026/27 non raggiungibile (sito dell'ente non risponde).
+- **ERSU Messina**: bando di concorso 2026/27, artt. 3, 8, 21-24 e tabelle 9.1-9.7 e 11.1-11.2: soglie ISEE 22.500 € e ISPE 53.000 €, sette fasce a scalini (dal +15% alla metà). In sede = solo il comune sede del corso. Tasse di Messina non inserite: per il 2026/27 c'è solo il parere del Senato (no tax area confermata fino a 28.000 €), il Documento unico sulla contribuzione con la tabella del COA non è ancora pubblicato.
 
 ## Fonti
 

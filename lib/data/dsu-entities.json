@@ -8259,6 +8259,347 @@
         "label": "ADSU L’Aquila, Bandi borse di studio",
         "url": "https://adsuaq.org/servizi-agli-studenti/bandi-borse-di-studio/"
       }
+    },
+    {
+      "id": "ersu-messina",
+      "name": "ERSU Messina – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Messina",
+      "region": "Sicilia",
+      "universityIds": [
+        "ateneo-08301"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 22500,
+        "ispe": 53000,
+        "source": {
+          "label": "ERSU Messina, Bando di concorso 2026/27, art. 8 e tab. 6",
+          "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi complessivi delle tabelle 9.1-9.7, a scalini di 1.500 € di ISEE: +15% fino a 11.249,99 €, pieno fino a 15.000 €, poi −10% per fascia fino alla metà oltre 21.000 €. Chi mangia gratis alla mensa o ha il posto letto gratuito riceve meno denaro (−600 € per un pasto al giorno, −1.200 € per due, −1.700 € per il posto letto).",
+        "bands": [
+          {
+            "iseeMax": 11249.99,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 15000,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 16500,
+            "fuoriSede": 6454,
+            "pendolare": 3771.64,
+            "inSede": 2601.14
+          },
+          {
+            "iseeMax": 18000,
+            "fuoriSede": 5736.89,
+            "pendolare": 3352.57,
+            "inSede": 2312.13
+          },
+          {
+            "iseeMax": 19500,
+            "fuoriSede": 5019.78,
+            "pendolare": 2933.5,
+            "inSede": 2023.11
+          },
+          {
+            "iseeMax": 21000,
+            "fuoriSede": 4302.67,
+            "pendolare": 2514.43,
+            "inSede": 1734.1
+          },
+          {
+            "iseeMax": 22500,
+            "fuoriSede": 3585.56,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "ERSU Messina, Bando di concorso 2026/27, art. 21 e tabelle 9.1-9.7",
+          "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%: calcolato sull’importo base",
+          "source": {
+            "label": "ERSU Messina, Bando di concorso 2026/27, art. 21",
+            "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi in atenei o istituti diversi",
+          "percent": 20,
+          "conditional": "secondo le regole del bando",
+          "source": {
+            "label": "ERSU Messina, Bando di concorso 2026/27, art. 21",
+            "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (due pasti al giorno ai fuori sede, uno agli altri)",
+        "Posto letto nelle residenze ERSU per i fuori sede assegnatari",
+        "Rimborso della tassa regionale"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ERSU Messina, Bando di concorso 2026/27, artt. 21, 24 e tabella 14",
+        "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza ad almeno 45 km dalla sede del corso e alloggio a pagamento per almeno 10 mesi (dichiarazione di locazione) o posto letto ERSU.",
+        "pendolare": "Comuni della tabella 11.2 per la sede del corso. Chi non presenta la dichiarazione di locazione resta pendolare.",
+        "inSede": "Residenza nel comune sede del corso (tabella 11.1).",
+        "source": {
+          "label": "ERSU Messina, Bando di concorso 2026/27, artt. 22-23",
+          "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% (come pendolare o in sede) entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026",
+          "Saldo del 50% con almeno 15 crediti al 10 agosto 2027 e 20 al 30 novembre 2027"
+        ],
+        "note": "I fuori sede ricevono le prime rate come pendolari e l’integrazione dopo la dichiarazione di locazione. Per le magistrali: 50% entro il 31 dicembre 2026.",
+        "source": {
+          "label": "ERSU Messina, Bando di concorso 2026/27, art. 24",
+          "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-08-18",
+        "closesTime": "14:00",
+        "note": "Domanda online sul portale studenti ERSU Messina.",
+        "source": {
+          "label": "ERSU Messina, Bando di concorso 2026/27, art. 3 e Memorandum",
+          "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+        }
+      },
+      "municipalities": {
+        "Messina": {
+          "inSede": [
+            {
+              "comune": "Messina"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alì"
+            },
+            {
+              "comune": "Alì Terme"
+            },
+            {
+              "comune": "Barcellona Pozzo di Gotto"
+            },
+            {
+              "comune": "Fiumedinisi"
+            },
+            {
+              "comune": "Furci Siculo"
+            },
+            {
+              "comune": "Itala"
+            },
+            {
+              "comune": "Mandanici"
+            },
+            {
+              "comune": "Merì"
+            },
+            {
+              "comune": "Milazzo"
+            },
+            {
+              "comune": "Monforte San Giorgio"
+            },
+            {
+              "comune": "Nizza di Sicilia"
+            },
+            {
+              "comune": "Pace del Mela"
+            },
+            {
+              "comune": "Pagliara"
+            },
+            {
+              "comune": "Roccalumera"
+            },
+            {
+              "comune": "Roccavaldina"
+            },
+            {
+              "comune": "Rometta"
+            },
+            {
+              "comune": "San Filippo del Mela"
+            },
+            {
+              "comune": "San Pier Niceto"
+            },
+            {
+              "comune": "Sant’Alessio Siculo"
+            },
+            {
+              "comune": "Santa Lucia del Mela"
+            },
+            {
+              "comune": "Santa Teresa di Riva"
+            },
+            {
+              "comune": "Saponara"
+            },
+            {
+              "comune": "Scaletta Zanclea"
+            },
+            {
+              "comune": "Spadafora"
+            },
+            {
+              "comune": "Torregrotta"
+            },
+            {
+              "comune": "Valdina"
+            },
+            {
+              "comune": "Venetico"
+            },
+            {
+              "comune": "Villafranca Tirrena"
+            }
+          ],
+          "source": {
+            "label": "ERSU Messina, Bando di concorso 2026/27, Tabelle 11.1 e 11.2",
+            "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+          }
+        },
+        "Noto": {
+          "inSede": [
+            {
+              "comune": "Noto"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Avola"
+            },
+            {
+              "comune": "Buccheri"
+            },
+            {
+              "comune": "Buscemi"
+            },
+            {
+              "comune": "Canicattini Bagni"
+            },
+            {
+              "comune": "Ispica"
+            },
+            {
+              "comune": "Modica"
+            },
+            {
+              "comune": "Pachino"
+            },
+            {
+              "comune": "Palazzolo Acreide"
+            },
+            {
+              "comune": "Portopalo di Capo Passero"
+            },
+            {
+              "comune": "Pozzallo"
+            },
+            {
+              "comune": "Rosolini"
+            },
+            {
+              "comune": "Scicli"
+            },
+            {
+              "comune": "Siracusa"
+            }
+          ],
+          "source": {
+            "label": "ERSU Messina, Bando di concorso 2026/27, Tabelle 11.1 e 11.2",
+            "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+          }
+        },
+        "Priolo Gargallo": {
+          "inSede": [
+            {
+              "comune": "Priolo Gargallo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Augusta"
+            },
+            {
+              "comune": "Avola"
+            },
+            {
+              "comune": "Canicattini Bagni"
+            },
+            {
+              "comune": "Carlentini"
+            },
+            {
+              "comune": "Ferla"
+            },
+            {
+              "comune": "Floridia"
+            },
+            {
+              "comune": "Francofonte"
+            },
+            {
+              "comune": "Lentini"
+            },
+            {
+              "comune": "Melilli"
+            },
+            {
+              "comune": "Noto"
+            },
+            {
+              "comune": "Palazzolo Acreide"
+            },
+            {
+              "comune": "Siracusa"
+            },
+            {
+              "comune": "Solarino"
+            },
+            {
+              "comune": "Sortino"
+            }
+          ],
+          "source": {
+            "label": "ERSU Messina, Bando di concorso 2026/27, Tabelle 11.1 e 11.2",
+            "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Messina, Bando di concorso 2026/27",
+        "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
+      }
     }
   ]
 }

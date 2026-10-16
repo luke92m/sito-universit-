@@ -1322,3 +1322,19 @@ describe('Abruzzo 2026/27: tasse UnivAQ e borse ADSU L’Aquila', () => {
     expect(conditionFromMunicipality(adsu, 'L’Aquila', 'Avezzano', true)).toBeNull();
   });
 });
+
+describe('Sicilia 2026/27: borse ERSU Messina', () => {
+  it('soglie 22.500/53.000 €, sette fasce a scalini, comuni per sede', () => {
+    const ersu = dsuEntityFor('ateneo-08301')!;
+    expect(ersu.id).toBe('ersu-messina');
+    expect(ersu.thresholds).toMatchObject({ isee: 22500, ispe: 53000 });
+    expect(amountAt(ersu, 10000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(ersu, 16000, 'pendolare')).toBe(3771.64);
+    expect(amountAt(ersu, 22000, 'inSede')).toBe(1445.08);
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Messina', 'Messina')).toBe('inSede');
+    expect(check('Messina', 'Milazzo')).toBe('pendolare');
+    expect(check('Priolo Gargallo', 'Siracusa')).toBe('pendolare');
+    expect(check('Messina', 'Catania')).toBe('fuoriSede');
+  });
+});
