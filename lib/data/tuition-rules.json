@@ -18054,6 +18054,250 @@
         }
       },
       "simulator": "https://www3.unimol.it/didattica/entrare-in-unimol/tasse-e-contributi"
+    },
+    "ateneo-06901": {
+      "name": "Università G. d’Annunzio di Chieti-Pescara",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole (regolari e attive per definizione: conta solo l’ISEE, Gruppo 1), con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € (tassa regionale ADSU 140 € e bollo 16 €) entro il 5 novembre 2026.",
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 40000,
+          "from": 20000,
+          "rate": 0.045,
+          "base": 0
+        },
+        {
+          "iseeMax": 60000,
+          "from": 40000,
+          "rate": 0.05,
+          "base": 900
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2000
+        }
+      ],
+      "bandsSource": {
+        "label": "UdA, Allegato 1 – Formule di calcolo del COA 2026/27, Tabelle 1 e 2A-2D (Gruppo 1)",
+        "url": "https://www.unich.it/sites/default/files/2026-07/Allegato%201%20%E2%80%93%20Formule%20di%20calcolo%20del%20Contributo%20Omnicomprensivo%20Annuale%20%28COA%29%20.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "tutti",
+          "label": "tutti i corsi (Tabella 1)",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 20000,
+              "rate": 0.045,
+              "base": 0
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.05,
+              "base": 900
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2000
+            }
+          ],
+          "max": 2000
+        },
+        {
+          "id": "odontoiatria",
+          "label": "Odontoiatria (Tabella 2A)",
+          "groups": [],
+          "names": [
+            "Odontoiatria e Protesi Dentaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 20000,
+              "rate": 0.045,
+              "base": 300
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.05,
+              "base": 1200
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2300
+            }
+          ],
+          "max": 2300
+        },
+        {
+          "id": "farmacia",
+          "label": "Farmacia e CTF (Tabella 2B)",
+          "groups": [],
+          "names": [
+            "Farmacia",
+            "Chimica e Tecnologia Farmaceutiche"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 20000,
+              "rate": 0.045,
+              "base": 100
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.05,
+              "base": 1000
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2100
+            }
+          ],
+          "max": 2100
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e Igiene Dentale (Tabella 2C)",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia",
+            "Igiene Dentale (Abilitante alla Professione Sanitaria di Igienista Dentale)"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 20000,
+              "rate": 0.045,
+              "base": 200
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.05,
+              "base": 1100
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2200
+            }
+          ],
+          "max": 2200
+        },
+        {
+          "id": "testa",
+          "label": "T.E.S.T.A. (Tabella 2D)",
+          "groups": [],
+          "names": [
+            "Tecnologie Eco-Sostenibili e Tossicologia Ambientale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 20000,
+              "rate": 0.045,
+              "base": 50
+            },
+            {
+              "iseeMax": 60000,
+              "from": 40000,
+              "rate": 0.05,
+              "base": 950
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2050
+            }
+          ],
+          "max": 2050
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 2000,
+        "ciclo-unico": 2000,
+        "magistrale": 2000
+      },
+      "maxExceptions": [],
+      "maxNote": "Esonero fino a 24.000 €; poi 4,5% dell’ISEE oltre 20.000 € fino a 40.000 €; 900 € + 5% oltre 40.000 € fino a 60.000 €; oltre o senza ISEE 2.000 €. Quote in più per tutta la durata del corso: Odontoiatria +300 €, Medicina e Igiene Dentale +200 €, Farmacia e CTF +100 €, T.E.S.T.A. +50 € (sopra 24.000 €). Esonero del 50% per le matricole con 100/100 alla maturità (o 110/110 per le magistrali): non calcolato.",
+      "maxSource": {
+        "label": "UdA, Allegato 1 – Formule di calcolo del COA 2026/27, Tabelle 1 e 2A-2D (Gruppo 1)",
+        "url": "https://www.unich.it/sites/default/files/2026-07/Allegato%201%20%E2%80%93%20Formule%20di%20calcolo%20del%20Contributo%20Omnicomprensivo%20Annuale%20%28COA%29%20.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € entro il 5 novembre 2026 (poi con maggiorazione)",
+          "Seconda rata (metà del contributo, o tutto se fino a 100 €) entro il 28 febbraio 2027",
+          "Terza rata entro il 30 aprile 2027 (oltre 400 € si può dividere in quattro tranche fino al 31 maggio)"
+        ],
+        "note": "Serve un’Attestazione ISEE-U valida all’immatricolazione; il ricalcolo con ISEE tardivo costa 250 € ed è possibile fino al 30 aprile 2027. Senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UdA, Regolamento tasse e contributi 2026/27, artt. 2.3-2.3.3",
+          "url": "https://www.unich.it/sites/default/files/2026-06/Regolamento%20tasse%20e%20contributi%202026-27_.pdf"
+        }
+      },
+      "simulator": "https://orientamento.unich.it/studenti-e-futuri-studenti/tasse-e-contributi/simulatori-calcolo-contributo"
     }
   }
 }

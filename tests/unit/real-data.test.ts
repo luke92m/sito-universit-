@@ -1716,3 +1716,18 @@ describe('Molise 2026/27: tasse Unimol e borse ESU Molise', () => {
     expect(amountAt(esu, 12000, 'inSede')).toBe(2890.16);
   });
 });
+
+describe('Chieti-Pescara 2026/27: tasse', () => {
+  const rule = tuitionRuleFor('ateneo-06901')!;
+  const named = (name: string) => getCourses('ateneo-06901').find((course) => course.name === name)!;
+  it('Gruppo 1: esonero fino a 24.000 €, poi formule dell’Allegato 1', () => {
+    expect(contributionFor(rule, 24000, 2000)).toBe(0);
+    expect(contributionFor(rule, 30000, 2000)).toBe(450);
+    expect(contributionFor(rule, 50000, 2000)).toBe(1400);
+    expect(contributionFor(rule, 70000, 2000)).toBe(2000);
+    const dent = courseGroup(rule, named('Odontoiatria e Protesi Dentaria'))!;
+    expect(contributionFor(rule, 30000, dent.max, dent.bands)).toBe(750);
+    expect(maxContribution(rule, named('Farmacia'))).toBe(2100);
+    expect(maxContribution(rule, named('Servizio Sociale'))).toBe(2000);
+  });
+});
