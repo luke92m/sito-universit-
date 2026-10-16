@@ -1646,3 +1646,13 @@ describe('Fondazione UMG 2026/27: borse', () => {
     expect(amountAt(umg, 16000, 'pendolare')).toBe(4190.71);
   });
 });
+
+describe('ARDSU Basilicata 2026/27: borse', () => {
+  it('Soglie nazionali, cinque fasce a scalini', () => {
+    const ardsu = dsuEntityFor('ateneo-07601')!;
+    expect(ardsu.id).toBe('ardsu-basilicata');
+    expect(amountAt(ardsu, 10000, 'fuoriSede')).toBe(8246.7);
+    expect(amountAt(ardsu, 18000, 'pendolare')).toBe(2800);
+    expect(amountAt(ardsu, 25000, 'inSede')).toBe(1150);
+  });
+});

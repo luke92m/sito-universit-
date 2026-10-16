@@ -13338,6 +13338,129 @@
         "label": "Fondazione UMG, Bando DSU 2026/27",
         "url": "https://www.fondazioneumg.it/servizi/notizie/notizie_fase02.aspx?ID=9677"
       }
+    },
+    {
+      "id": "ardsu-basilicata",
+      "name": "ARDSU Basilicata – Azienda regionale per il diritto allo studio universitario",
+      "shortName": "ARDSU Basilicata",
+      "region": "Basilicata",
+      "universityIds": [
+        "ateneo-07601"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), art. 3",
+          "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Cinque fasce ISEE a scalini (art. 3): la prima comprende il +15% (ISEE sotto metà soglia). Ai fuori sede si trattengono 1.500 € per l’alloggio (contributo o posto letto) e 500 € in buoni pasto, ai pendolari 250 € in buoni pasto; agli in sede dal secondo anno spetta anche un pasto gratuito al giorno.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8246.7,
+            "pendolare": 4820,
+            "inSede": 3323.7
+          },
+          {
+            "iseeMax": 16500,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.7,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 19500,
+            "fuoriSede": 4700,
+            "pendolare": 2800,
+            "inSede": 1850
+          },
+          {
+            "iseeMax": 22500,
+            "fuoriSede": 3600,
+            "pendolare": 2150,
+            "inSede": 1500
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 2900,
+            "pendolare": 1650,
+            "inSede": 1150
+          }
+        ],
+        "source": {
+          "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), art. 3, tabella «Scaglioni di reddito e importi delle borse di studio»",
+          "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (dalla seconda fascia)",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15% della prima fascia",
+          "source": {
+            "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), art. 3",
+            "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente (se restano fondi)",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi i corsi",
+          "source": {
+            "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), art. 3",
+            "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Posto letto nelle residenze ARDSU per i fuori sede (in alternativa contributo alloggio)",
+        "Buoni pasto per matricole, fuori sede e pendolari",
+        "Rimborso della tassa regionale agli aventi diritto (va pagata da tutti all’iscrizione)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), artt. 2-3",
+        "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Famiglia residente a più di 50 km dalla sede del corso e alloggio a titolo oneroso (residenze ARDSU o contratto di almeno 10 mesi, canone di almeno 150 € al mese, registrato entro il 31 ottobre 2026) nel comune della sede o entro 26 km.",
+        "pendolare": "Famiglia residente in un comune tra 26 e 50 km dalla sede, servito dal trasporto pubblico locale.",
+        "inSede": "Famiglia residente nel comune della sede o in un comune vicino entro 25 km.",
+        "source": {
+          "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), art. 2",
+          "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% dopo la pubblicazione delle graduatorie definitive",
+          "50% con almeno 20 crediti entro il 30 novembre 2027"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 la borsa decade e la prima rata va restituita.",
+        "source": {
+          "label": "ARDSU Basilicata, Bando diritto allo studio 2026/27 (D.D. 222/2026), art. 4",
+          "url": "https://www.ardsubasilicata.it/main/filesId/796/false/Bando%20Borse%20di%20studio%20e%20posti%20alloggio%202026_2027.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-10-09",
+        "closesTime": "23:59",
+        "note": "Domanda online sullo sportello ARDSU (ardsubasilicata-sol.dirittoallostudio.it); la scadenza del 2 ottobre è stata prorogata al 9 ottobre 2026.",
+        "source": {
+          "label": "ARDSU Basilicata, Proroga scadenza bando 2026/27",
+          "url": "https://www.ardsubasilicata.it/main/page/1/2843/1/2026/PROROGA_SCADENZA_BANDO_Bando_Borse_di_studio_&_alloggi_a.a._2026_2027"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ARDSU Basilicata, Bando borse di studio e alloggi 2026/27",
+        "url": "https://www.ardsubasilicata.it/main/page/1/2843/1/2026/PROROGA_SCADENZA_BANDO_Bando_Borse_di_studio_&_alloggi_a.a._2026_2027"
+      }
     }
   ]
 }
