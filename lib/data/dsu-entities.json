@@ -13100,6 +13100,127 @@
         "label": "Iuav, Borse di studio",
         "url": "https://www.iuav.it/it/diritto-allo-studio/borse-di-studio"
       }
+    },
+    {
+      "id": "adsu-teramo",
+      "name": "ADSU Teramo – Azienda per il diritto agli studi universitari",
+      "shortName": "ADSU Teramo",
+      "region": "Abruzzo",
+      "universityIds": [
+        "ateneo-06701"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 24335.11,
+        "ispe": 52902.43,
+        "source": {
+          "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 4",
+          "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali che comprendono la quota vitto (1.017,83 € con un pasto al giorno, 2.035,67 € con due per i fuori sede) e, per i fuori sede, la quota alloggio (fino a 1.747,39 €, pari al canone del contratto per 10 mesi, trattenuta a chi alloggia nella residenza Studi Hub). Tre fasce ISEE a scalini.",
+        "bands": [
+          {
+            "iseeMax": 16223.4,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 3907.99
+          },
+          {
+            "iseeMax": 20279.18,
+            "fuoriSede": 6324.1,
+            "pendolare": 3397.49,
+            "inSede": 3185.45
+          },
+          {
+            "iseeMax": 24335.11,
+            "fuoriSede": 5477.09,
+            "pendolare": 2604.27,
+            "inSede": 2462.91
+          }
+        ],
+        "source": {
+          "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 12",
+          "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+15% con ISEE fino a 12.167,56 €",
+          "iseeMax": 12167.56,
+          "percent": 15,
+          "conditional": "non cumulabile con il +20% S.T.E.M.: si applica il più favorevole",
+          "source": {
+            "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 12",
+            "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+          }
+        },
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%",
+          "source": {
+            "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 12",
+            "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 12",
+            "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (due pasti al giorno ai fuori sede, uno agli altri)",
+        "Esonero da tassa regionale e tasse universitarie per gli idonei (alle matricole rimborso della prima rata verso marzo-aprile 2027)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), artt. 12 e 15",
+        "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza ad almeno 50 km dalla sede del corso e alloggio a titolo oneroso entro 20 km dalla sede, con contratto registrato di almeno 3 mesi tra ottobre 2026 e settembre 2027.",
+        "pendolare": "Residenza tra 21 e 49 km dalla sede, oppure oltre 50 km senza affitto a pagamento o con comodato gratuito.",
+        "inSede": "Residenza entro 20 km dalla sede del corso; anche oltre 50 km se non si prende alloggio e i tempi di viaggio sono lunghi.",
+        "source": {
+          "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 10",
+          "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Acconto del 20% della quota in denaro entro il 10 novembre 2026 (con iscrizione entro il 7 ottobre)",
+          "Prima rata (50% della quota in denaro, meno l’acconto) entro il 31 dicembre 2026",
+          "Seconda rata a giugno, luglio o settembre 2027 con 20 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Senza 20 crediti entro il 10 agosto 2027 la seconda rata non spetta. La quota vitto non è mai pagata in denaro.",
+        "source": {
+          "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 14",
+          "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-07",
+        "closesTime": "12:00",
+        "note": "Domanda online sul portale ADSU Teramo con l’ISEE per il diritto allo studio universitario 2026. Bando anche per gli iscritti all’Istituto «G. Braga».",
+        "source": {
+          "label": "ADSU Teramo, Bando borse di studio 2026/27 (versione aggiornata), art. 3",
+          "url": "https://www.adsuteramo.it/moduli/downloadFile.php?file=oggetto_notizie/262091138110O__OBandoBorseStudio2026_2027_mod.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ADSU Teramo, Bandi borse di studio e alloggi 2026/27",
+        "url": "https://www.adsuteramo.it/archivio10_notizie-e-comunicati_0_500.html"
+      }
     }
   ]
 }

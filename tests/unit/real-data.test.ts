@@ -1581,3 +1581,27 @@ describe('Messina 2026/27: tasse', () => {
     expect(contributionFor(rule, 70000, 2650)).toBe(2650);
   });
 });
+
+describe('Teramo 2026/27: tasse', () => {
+  const rule = tuitionRuleFor('ateneo-06701')!;
+  const named = (name: string) => getCourses('ateneo-06701').find((course) => course.name === name)!;
+  it('No tax area fino a 26.000 €, 7% ridotto fino a 30.000 €, poi fasce fisse', () => {
+    expect(contributionFor(rule, 26000, 2600)).toBe(0);
+    expect(contributionFor(rule, 27000, 2600)).toBe(735);
+    expect(contributionFor(rule, 29000, 2600)).toBe(1008);
+    expect(contributionFor(rule, 45000, 2600)).toBe(2075);
+    expect(contributionFor(rule, null, 2600)).toBe(2600);
+    expect(maxContribution(rule, named('Medicina Veterinaria'))).toBe(2700);
+    expect(maxContribution(rule, named('Economia'))).toBe(2600);
+  });
+});
+
+describe('ADSU Teramo 2026/27: borse', () => {
+  it('Soglie e fasce abruzzesi, importi con vitto e alloggio', () => {
+    const adsu = dsuEntityFor('ateneo-06701')!;
+    expect(adsu.id).toBe('adsu-teramo');
+    expect(adsu.thresholds).toMatchObject({ isee: 24335.11, ispe: 52902.43 });
+    expect(amountAt(adsu, 18000, 'fuoriSede')).toBe(6324.1);
+    expect(amountAt(adsu, 22000, 'inSede')).toBe(2462.91);
+  });
+});

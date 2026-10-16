@@ -16999,6 +16999,252 @@
         }
       },
       "simulator": "https://www.unime.it/didattica/tasse-ed-esenzioni"
+    },
+    "ateneo-06701": {
+      "name": "Università di Teramo",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole (avvio di una nuova carriera al primo anno), con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale 140 € e bollo 16 €.",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 1620
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1870
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 2075
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0,
+          "base": 2160
+        },
+        {
+          "iseeMax": 90000,
+          "from": 0,
+          "rate": 0,
+          "base": 2300
+        },
+        {
+          "iseeMax": 110000,
+          "from": 0,
+          "rate": 0,
+          "base": 2450
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2600
+        }
+      ],
+      "bandsSource": {
+        "label": "UniTE, Regolamento contribuzione studentesca 2026/27 (D.R. 275/2026), artt. 3-6, Tabelle 1, 2 e 2.1",
+        "url": "https://www.unite.it/UniTE/Engine/RAServeFile.php/f/regolamenti/DR_275_Regolamento_Contribuzione_2026-2027_signed_26062026.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "A",
+          "label": "corsi di tipo A",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 1620
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1870
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2075
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 2160
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 2300
+            },
+            {
+              "iseeMax": 110000,
+              "from": 0,
+              "rate": 0,
+              "base": 2450
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2600
+            }
+          ],
+          "max": 2600
+        },
+        {
+          "id": "B",
+          "label": "Medicina Veterinaria (tipo B)",
+          "groups": [],
+          "names": [
+            "Medicina Veterinaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 26000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 36000,
+              "from": 0,
+              "rate": 0,
+              "base": 1720
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1970
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2175
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0,
+              "base": 2260
+            },
+            {
+              "iseeMax": 90000,
+              "from": 0,
+              "rate": 0,
+              "base": 2400
+            },
+            {
+              "iseeMax": 110000,
+              "from": 0,
+              "rate": 0,
+              "base": 2550
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2700
+            }
+          ],
+          "max": 2700
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 2600,
+        "ciclo-unico": 2600,
+        "magistrale": 2600
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 26.000 €; da 26.000 a 30.000 € il 7% dell’ISEE oltre 13.000 € ridotto del 25% (fino a 28.000 €) o del 10%; poi importi fissi per fascia: 1.620 € fino a 36.000 €, 1.870, 2.075, 2.160, 2.300, 2.450 € fino a 110.000 €, oltre o senza ISEE 2.600 €. Medicina Veterinaria (tipo B) 100 € in più per fascia, fino a 2.700 €.",
+      "maxSource": {
+        "label": "UniTE, Regolamento contribuzione studentesca 2026/27 (D.R. 275/2026), artt. 3-6, Tabelle 1, 2 e 2.1",
+        "url": "https://www.unite.it/UniTE/Engine/RAServeFile.php/f/regolamenti/DR_275_Regolamento_Contribuzione_2026-2027_signed_26062026.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (fino a 200 € di contributo, più bollo 16 € e tassa regionale 140 €) all’immatricolazione, entro il 5 novembre 2026",
+          "Seconda rata entro il 15 gennaio 2027",
+          "Terza rata entro il 17 febbraio 2027",
+          "Quarta rata entro il 31 marzo 2027"
+        ],
+        "note": "L’Attestazione ISEE per il diritto allo studio deve essere valida al momento dell’immatricolazione (DSU del 2026 se ci si iscrive entro il 31 dicembre 2026); senza, si paga il massimo.",
+        "source": {
+          "label": "UniTE, Regolamento contribuzione 2026/27, artt. 3 e 5",
+          "url": "https://www.unite.it/UniTE/Engine/RAServeFile.php/f/regolamenti/DR_275_Regolamento_Contribuzione_2026-2027_signed_26062026.pdf"
+        }
+      },
+      "simulator": "https://www.unite.it/UniTE/Segreteria_Studenti/Tasse"
     }
   }
 }
