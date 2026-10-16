@@ -14,6 +14,7 @@ import {
   courseGroup,
   degreeLevel,
   fixedFeesRange,
+  isExcludedCourse,
   maxContribution,
   offSiteContribution,
   tuitionRuleFor
@@ -554,8 +555,8 @@ describe('costo reale annuo', () => {
   });
 
   it('ateneo senza dati verificati: media dichiarata come stima e dati mancanti elencati', () => {
-    const verona = getUniversityById('ateneo-02301')!;
-    const cost = realCost(verona, null, exact(15000), none, 'inSede');
+    const uer = getUniversityById('ateneo-05812')!;
+    const cost = realCost(uer, null, exact(15000), none, 'inSede');
     expect(cost.entity).toBeNull();
     expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
     expect(cost.missing.length).toBeGreaterThan(0);
@@ -877,5 +878,551 @@ describe('tasse Università di Genova 2026/27', () => {
   it('tassa regionale ligure 120/140/160 €', () => {
     expect(fixedFeesRange(rule, exact(15000)).min).toBe(136);
     expect(fixedFeesRange(rule, exact(40000)).min).toBe(176);
+  });
+});
+
+describe('tasse Politecnico di Bari 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07202')!;
+
+  it('no tax area fino a 26.000 €, minimo 101 €, poi la formula dell’Appendice', () => {
+    expect(contributionFor(rule, 26000, 2257.6)).toBe(0);
+    expect(contributionFor(rule, 26500, 2257.6)).toBe(101);
+    expect(contributionFor(rule, 29000, 2257.6)).toBe(420); // 14% × 3.000
+    expect(contributionFor(rule, 60000, 2257.6)).toBe(1409.56); // 1,017 × 693 / 30.000 × 60.000
+    expect(contributionFor(rule, 90000, 2257.6)).toBe(2257.6);
+    expect(contributionFor(rule, null, 2257.6)).toBe(2257.6);
+  });
+
+  it('tassa regionale ADISU Puglia 146/170/195 €', () => {
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(162);
+    expect(fixedFeesRange(rule, exact(60000)).min).toBe(211);
+  });
+});
+
+describe('tasse Università di Foggia 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07101')!;
+
+  it('esonero fino a 22.000 €, quote del 7% fino a 30.000 €, poi 1.190 € + aliquote', () => {
+    expect(contributionFor(rule, 22000, 1715)).toBe(0);
+    expect(contributionFor(rule, 25000, 1715)).toBe(105); // 50% del 7% di 3.000
+    expect(contributionFor(rule, 30000, 1715)).toBe(504); // 90% del 7% di 8.000
+    expect(contributionFor(rule, 45000, 1715)).toBe(1352.5);
+    expect(contributionFor(rule, 80000, 1715)).toBe(1715);
+    expect(contributionFor(rule, null, 1715)).toBe(1715);
+  });
+});
+
+describe('tasse Università del Salento 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-07501')!;
+
+  it('quota reddito dell’Allegato A con le riduzioni d’ateneo, gradini da 40 € e tetto di 3.000 €', () => {
+    expect(contributionFor(rule, 25000, 3000)).toBe(0);
+    expect(contributionFor(rule, 27000, 3000)).toBe(661.11); // 75% di 14.000/27.000 × 1.700
+    expect(contributionFor(rule, 40000, 3000)).toBe(1615); // 95% di 1.700
+    expect(contributionFor(rule, 52000, 3000)).toBe(1780);
+    expect(contributionFor(rule, 70000, 3000)).toBe(2352); // (70.000 − 14.000) × 0,042
+    expect(contributionFor(rule, 90000, 3000)).toBe(3000);
+    expect(contributionFor(rule, null, 3000)).toBe(3000);
+  });
+});
+
+describe('tasse L’Orientale 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06303')!;
+
+  it('esonero fino a 24.000 €, percentuali dell’ISEE oltre 13.000 €, poi 1.071 € + 1,15% fino a 1.300 €', () => {
+    expect(contributionFor(rule, 24000, 1300)).toBe(0);
+    expect(contributionFor(rule, 25000, 1300)).toBe(420);
+    expect(contributionFor(rule, 30000, 1300)).toBe(1071);
+    expect(contributionFor(rule, 40000, 1300)).toBe(1186);
+    expect(contributionFor(rule, 60000, 1300)).toBe(1300);
+    expect(contributionFor(rule, null, 1300)).toBe(1300);
+  });
+});
+
+describe('tasse Università di Cassino 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06001')!;
+
+  it('esonero fino a 22.000 €, importi della Tabella I per fasce di 1.000 €, massimo 2.500 €', () => {
+    expect(contributionFor(rule, 22000, 2500)).toBe(0);
+    expect(contributionFor(rule, 22000.01, 2500)).toBe(140);
+    expect(contributionFor(rule, 29500, 2500)).toBe(1071);
+    expect(contributionFor(rule, 40000, 2500)).toBe(1786);
+    expect(contributionFor(rule, 60000, 2500)).toBe(2500);
+    expect(contributionFor(rule, null, 2500)).toBe(2500);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+});
+
+describe('tasse Università del Sannio 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-06201')!;
+  const tri = courseGroup(rule, { name: 'Economia Aziendale', classCode: 'L-18' })!;
+  const mag = courseGroup(rule, { name: 'Ingegneria Informatica', classCode: 'LM-32' })!;
+
+  it('no tax area fino a 30.000 €, poi fasce di 5.000 €; magistrali 50 € in più', () => {
+    expect(tri.id).toBe('triennali');
+    expect(mag.id).toBe('magistrali');
+    expect(contributionFor(rule, 30000, tri.max, tri.bands)).toBe(0);
+    expect(contributionFor(rule, 32000, tri.max, tri.bands)).toBe(1400);
+    expect(contributionFor(rule, 32000, mag.max, mag.bands)).toBe(1450);
+    expect(contributionFor(rule, 70000, tri.max, tri.bands)).toBe(1750);
+    expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(1800);
+  });
+});
+
+describe('tasse Università della Tuscia 2026/27', () => {
+  const rule = tuitionRuleFor('ateneo-05601')!;
+
+  it('no tax area fino a 26.000 €, poi interpolazione lineare della Tabella 3 (esempi del par. 7.4)', () => {
+    expect(contributionFor(rule, 26000, 2394)).toBe(0);
+    expect(contributionFor(rule, 27000, 2394)).toBe(267.75);
+    expect(contributionFor(rule, 30000, 2394)).toBe(1071);
+    expect(contributionFor(rule, 37000, 2394)).toBe(1530);
+    expect(contributionFor(rule, 55000, 2394)).toBe(2135);
+    expect(contributionFor(rule, 150000, 2394)).toBe(2394);
+    expect(contributionFor(rule, null, 2394)).toBe(2394);
+  });
+});
+
+describe('borse ALiSEO 2026/27 (Genova)', () => {
+  const aliseo = dsuEntityFor('ateneo-01001')!;
+
+  it('soglie 28.339 € / 61.608 €, Tabella 8 con +15% fino a 14.169,50 €', () => {
+    expect(aliseo.id).toBe('aliseo');
+    expect(aliseo.thresholds).toMatchObject({ isee: 28339, ispe: 61608 });
+    expect(amountAt(aliseo, 10000, 'fuoriSede')).toBe(8247.8);
+    expect(amountAt(aliseo, 16000, 'pendolare')).toBe(4191);
+    expect(amountAt(aliseo, 25000, 'inSede')).toBe(1446);
+  });
+});
+
+describe('Bergamo 2026/27: tasse UniBG e borse DSU', () => {
+  const rule = tuitionRuleFor('ateneo-01601')!;
+  const lettere = courseGroup(rule, { name: 'Lettere', classCode: 'L-10', group: 'Letterario' })!;
+  const ing = courseGroup(rule, { name: 'Ingegneria Informatica', classCode: 'L-8', group: 'Ingegneria industriale e dell\'informazione' })!;
+  const psi = courseGroup(rule, { name: 'Scienze Psicologiche', classCode: 'L-24', group: 'Psicologico' })!;
+
+  it('aree didattiche: 1 predefinita, 2 per nome, 3 per macroarea', () => {
+    expect([lettere.id, psi.id, ing.id]).toEqual(['area-1', 'area-2', 'area-3']);
+  });
+
+  it('no tax area fino a 28.000 €, 8,5% oltre 26.000 € fino a 30.000 €, poi scaglioni (esempi della guida)', () => {
+    expect(contributionFor(rule, 28000, lettere.max, lettere.bands)).toBe(0);
+    expect(contributionFor(rule, 29000, lettere.max, lettere.bands)).toBe(255);
+    expect(contributionFor(rule, 32500, lettere.max, lettere.bands)).toBe(669.2);
+    expect(contributionFor(rule, 40500, ing.max, ing.bands)).toBe(1123.2);
+    expect(contributionFor(rule, 65000, psi.max, psi.bands)).toBe(1883);
+    expect(contributionFor(rule, null, ing.max, ing.bands)).toBe(2083);
+  });
+
+  it('borse con gli importi regionali lombardi e voto minimo di maturità', () => {
+    const dsu = dsuEntityFor('ateneo-01601')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(dsu, 15000, 'fuoriSede')).toBe(6343);
+    expect(dsu.accessRequirement?.text).toContain('70/100');
+  });
+});
+
+describe('Brescia 2026/27: tasse UniBS e borse DSU', () => {
+  const rule = tuitionRuleFor('ateneo-01701')!;
+  const group = (name: string, classCode: string, macro: string) => courseGroup(rule, { name, classCode, group: macro })!;
+  const ingTri = group('Ingegneria Informatica', 'L-8', 'Ingegneria industriale e dell\'informazione');
+  const ingMag = group('Ingegneria Informatica', 'LM-32', 'Ingegneria industriale e dell\'informazione');
+  const eco = group('Economia e Gestione Aziendale', 'L-18', 'Economico');
+  const inf = group('Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)', 'L/SNT1', 'Medico-Sanitario e Farmaceutico');
+  const med = group('Medicina e Chirurgia', 'LM-41', 'Medico-Sanitario e Farmaceutico');
+
+  it('tabelle per area e livello: macroarea più livello, nomi e classi delle professioni sanitarie', () => {
+    expect([ingTri.id, ingMag.id, eco.id, inf.id, med.id]).toEqual([
+      'ingegneria-triennali', 'ingegneria-magistrali', 'economia-giurisprudenza-triennali', 'infermieristica', 'medicina'
+    ]);
+    expect(group('Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)', 'L/SNT2', 'Medico-Sanitario e Farmaceutico').id).toBe('professioni-sanitarie');
+  });
+
+  it('valori uguali al simulatore ufficiale (somma di seconda e terza rata)', () => {
+    expect(contributionFor(rule, 28000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 28500, eco.max, eco.bands)).toBe(500);
+    expect(contributionFor(rule, 29500, eco.max, eco.bands)).toBe(800);
+    expect(contributionFor(rule, 45000, eco.max, eco.bands)).toBe(1660);
+    expect(contributionFor(rule, 60000, ingTri.max, ingTri.bands)).toBe(2210);
+    expect(contributionFor(rule, 40000, med.max, med.bands)).toBe(1804);
+    expect(contributionFor(rule, null, ingMag.max, ingMag.bands)).toBe(2950);
+    expect(contributionFor(rule, null, inf.max, inf.bands)).toBe(1560);
+  });
+
+  it('borse con gli importi regionali lombardi e voto minimo di maturità', () => {
+    const dsu = dsuEntityFor('ateneo-01701')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(dsu, 20000, 'pendolare')).toBe(2470);
+  });
+});
+
+describe('Insubria 2026/27: tasse e borse DSU', () => {
+  const rule = tuitionRuleFor('ateneo-01202')!;
+  const area = (name: string, classCode: string) => courseGroup(rule, { name, classCode })!;
+  const med = area('Medicina e Chirurgia', 'LM-41');
+  const inf = area('Informatica', 'L-31');
+  const eco = area('Giurisprudenza', 'LMG/01');
+
+  it('aree A, B e C dell’elenco del regolamento', () => {
+    expect([med.id, inf.id, eco.id]).toEqual(['area-a', 'area-b', 'area-c']);
+    expect(area('Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)', 'L/SNT2').id).toBe('area-b');
+  });
+
+  it('no tax area fino a 28.000 €, 48% fino a 30.000 €, poi 15% e 6% fino al massimo dell’area', () => {
+    expect(contributionFor(rule, 28000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 29000, eco.max, eco.bands)).toBe(480);
+    expect(contributionFor(rule, 34000, eco.max, eco.bands)).toBe(1560);
+    expect(contributionFor(rule, 40000, med.max, med.bands)).toBe(2280);
+    expect(contributionFor(rule, 70000, inf.max, inf.bands)).toBe(3660);
+    expect(contributionFor(rule, null, med.max, med.bands)).toBe(3840);
+  });
+
+  it('borse con gli importi regionali lombardi', () => {
+    const dsu = dsuEntityFor('ateneo-01202')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(7419);
+  });
+});
+
+describe('Pavia 2026/27: tasse UniPV e borse EDiSU', () => {
+  const rule = tuitionRuleFor('ateneo-01801')!;
+  const area = (name: string, classCode: string, group: string) => courseGroup(rule, { name, classCode, group })!;
+  const eco = area('Economia', 'L-33', 'Economico');
+  const ing = area('Ingegneria Industriale', 'L-9', 'Ingegneria industriale e dell\'informazione');
+  const med = area('Medicina e Chirurgia', 'LM-41', 'Medico-Sanitario e Farmaceutico');
+
+  it('aree dell’Allegato 1: macroarea, nome e classi delle professioni sanitarie', () => {
+    expect([eco.id, ing.id, med.id]).toEqual(['area-1', 'area-2', 'area-3']);
+    expect(area('Conservazione e Restauro dei Beni Culturali (Abilitante Ai Sensi del D.Lgs N.42/2004)', 'LMR/02', 'Letterario-Umanistico').id).toBe('area-2');
+    expect(area('Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)', 'L/SNT2', 'Medico-Sanitario e Farmaceutico').id).toBe('area-2');
+  });
+
+  it('esonero fino a 32.000 €, poi gli importi dell’Allegato 2 per fasce di 1.000 €', () => {
+    expect(contributionFor(rule, 32000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 32500, eco.max, eco.bands)).toBe(74);
+    expect(contributionFor(rule, 45500, ing.max, ing.bands)).toBe(1238);
+    expect(contributionFor(rule, 60000, med.max, med.bands)).toBe(2772);
+    expect(contributionFor(rule, null, med.max, med.bands)).toBe(4851);
+    expect(contributionFor(rule, 90000, eco.max, eco.bands)).toBe(3636);
+  });
+
+  it('borse EDiSU con gli elenchi dei comuni di Pavia e Cremona', () => {
+    const edisu = dsuEntityFor('ateneo-01801')!;
+    const check = (seat: string, city: string) => conditionFromMunicipality(edisu, seat, city, true)?.condition;
+    expect(edisu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(edisu, 15000, 'inSede')).toBe(2162);
+    expect(check('Pavia', 'Voghera')).toBe('inSede');
+    expect(check('Pavia', 'Binasco')).toBe('pendolare');
+    expect(check('Pavia', 'Cernusco sul Naviglio')).toBe('pendolare');
+    expect(check('Cremona', 'Castelvetro Piacentino')).toBe('inSede');
+    expect(check('Pavia', 'Bergamo')).toBe('fuoriSede');
+  });
+});
+
+describe('Verona 2026/27: tasse UniVR e borse regionali venete', () => {
+  const rule = tuitionRuleFor('ateneo-02301')!;
+  const group = (name: string, classCode: string, macro: string) => courseGroup(rule, { name, classCode, group: macro })!;
+  const eco = group('Economia Aziendale', 'L-18', 'Economico');
+  const ecoMag = group('Economia e Legislazione d\'Impresa', 'LM-77', 'Economico');
+  const odo = group('Odontoiatria e Protesi Dentaria', 'LM-46', 'Medico-Sanitario e Farmaceutico');
+  const inf = group('Informatica', 'L-31', 'Informatica e Tecnologie ICT');
+  const san = group('Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)', 'L/SNT1', 'Medico-Sanitario e Farmaceutico');
+
+  it('gruppi A1, A2, A3, B e C', () => {
+    expect([odo.id, inf.id, san.id, ecoMag.id, eco.id]).toEqual(['a1', 'a2', 'a3', 'b', 'c']);
+  });
+
+  it('esonero fino a 27.000 €, 7% ridotto fino a 30.000 € (esempio del regolamento), poi lineare fino a 55.000 €', () => {
+    expect(contributionFor(rule, 27000, eco.max, eco.bands)).toBe(0);
+    expect(contributionFor(rule, 27000.01, eco.max, eco.bands)).toBe(735);
+    expect(contributionFor(rule, 30000, eco.max, eco.bands)).toBe(1071);
+    expect(contributionFor(rule, 55000, inf.max, inf.bands)).toBe(2021);
+    expect(contributionFor(rule, null, odo.max, odo.bands)).toBe(3212);
+  });
+
+  it('borse con gli importi regionali veneti, come a Padova', () => {
+    const dsu = dsuEntityFor('ateneo-02301')!;
+    expect(dsu.thresholds).toMatchObject({ isee: 26306.25, ispe: 43125.94 });
+    expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(8246);
+  });
+});
+
+describe('Ca’ Foscari 2026/27: tasse dal simulatore ufficiale e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-02701')!;
+  const tri = courseGroup(rule, { name: 'Economia e Commercio', classCode: 'L-18' })!;
+  const mag = courseGroup(rule, { name: 'Economia e Finanza', classCode: 'LM-16' })!;
+
+  it('esonero fino a 25.000 €, poi i tratti del simulatore (420-1.020 € fino a 30.000 €)', () => {
+    expect(contributionFor(rule, 25000, tri.max, tri.bands)).toBe(0);
+    expect(contributionFor(rule, 25500, tri.max, tri.bands)).toBe(438);
+    expect(contributionFor(rule, 30000, tri.max, tri.bands)).toBe(1020);
+    expect(Math.round(contributionFor(rule, 45000, tri.max, tri.bands))).toBe(1714);
+    expect(Math.round(contributionFor(rule, 45000, mag.max, mag.bands))).toBe(1944);
+    expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(2428);
+    expect(isExcludedCourse(rule, { name: 'Digital Management', classCode: 'L-18' })).toBe(true);
+  });
+
+  it('borse con gli importi regionali veneti', () => {
+    expect(dsuEntityFor('ateneo-02701')!.thresholds.isee).toBe(26306.25);
+  });
+});
+
+describe('borse Opera Universitaria di Trento 2026/27', () => {
+  const opera = dsuEntityFor('ateneo-02201')!;
+  const check = (seat: string, city: string, rents = true) => conditionFromMunicipality(opera, seat, city, rents)?.condition;
+
+  it('soglie 26.000 € / 52.000 €, +15% fino a 13.000 €, poi calo fino alla metà', () => {
+    expect(opera.thresholds).toMatchObject({ isee: 26000, ispe: 52000 });
+    expect(amountAt(opera, 12000, 'fuoriSede')).toBe(8246.79);
+    expect(amountAt(opera, 15000, 'pendolare')).toBe(4190.72);
+    expect(amountAt(opera, 26000, 'inSede')).toBe(1445.08);
+  });
+
+  it('Tabelle 3 e 4: comuni di Trento e Rovereto, anche in provincia di Bolzano', () => {
+    expect(check('Trento', 'Lavis')).toBe('inSede');
+    expect(check('Trento', 'Rovereto')).toBe('pendolare');
+    expect(check('Trento', 'Termeno sulla Strada del Vino')).toBe('pendolare');
+    expect(check('Rovereto', 'Mori')).toBe('inSede');
+    expect(check('Rovereto', 'Trento')).toBe('pendolare');
+    expect(check('Trento', 'Verona')).toBe('fuoriSede');
+  });
+});
+
+describe('Friuli Venezia Giulia 2026/27: tasse di Trieste e Udine, borse ARDiS', () => {
+  it('Trieste: esonero fino a 30.000 €, poi 400 € + 5,56% fino a 2.900 €', () => {
+    const rule = tuitionRuleFor('ateneo-03201')!;
+    expect(contributionFor(rule, 30000, 2900)).toBe(0);
+    expect(contributionFor(rule, 40000, 2900)).toBe(956);
+    expect(contributionFor(rule, 75000, 2900)).toBe(2900);
+    expect(contributionFor(rule, null, 2900)).toBe(2900);
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(136);
+  });
+
+  it('Udine: esonero fino a 30.000 €, poi gli importi della Tabella 1', () => {
+    const rule = tuitionRuleFor('ateneo-03001')!;
+    expect(contributionFor(rule, 30000, 1900)).toBe(0);
+    expect(contributionFor(rule, 30500, 1900)).toBe(800);
+    expect(contributionFor(rule, 45500, 1900)).toBe(1400);
+    expect(contributionFor(rule, 52000, 1900)).toBe(1625);
+    expect(contributionFor(rule, 70000, 1900)).toBe(1900);
+  });
+
+  it('ARDiS: soglie nazionali, elenchi dei comuni per sede', () => {
+    const ardis = dsuEntityFor('ateneo-03001')!;
+    expect(dsuEntityFor('ateneo-03201')!.id).toBe('ardis-fvg');
+    expect(ardis.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(ardis, 16000, 'fuoriSede')).toBe(7171.11);
+    const check = (seat: string, city: string) => conditionFromMunicipality(ardis, seat, city, true)?.condition;
+    expect(check('Udine', 'Tavagnacco')).toBe('inSede');
+    expect(check('Udine', 'Cervignano')).toBe('pendolare');
+    expect(check('Trieste', 'Duino Aurisina')).toBe('inSede');
+    expect(check('Pordenone', 'Valvasone Arzene')).toBe('pendolare');
+    expect(check('Gemona Del Friuli', 'Venzone')).toBe('inSede');
+    expect(check('Trieste', 'Udine')).toBe('fuoriSede');
+  });
+});
+
+describe('Umbria 2026/27: tasse UniPG e borse ADiSU', () => {
+  it('UniPG: no tax area fino a 22.000 €, low tax area a fasce, poi Allegato 2', () => {
+    const rule = tuitionRuleFor('ateneo-05401')!;
+    expect(contributionFor(rule, 22000, 1940)).toBe(0);
+    expect(contributionFor(rule, 25000, 1940)).toBe(385);
+    expect(contributionFor(rule, 32000, 1940)).toBe(1130);
+    expect(contributionFor(rule, 120000, 1940)).toBe(1940);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+
+  it('ADiSU: importi a scalini con la mensa, elenchi dei comuni per sede', () => {
+    const adisu = dsuEntityFor('ateneo-05401')!;
+    expect(dsuEntityFor('ateneo-05403')!.id).toBe('adisu-umbria');
+    expect(adisu.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(adisu, 20000, 'fuoriSede')).toBe(5499.78);
+    expect(amountAt(adisu, 25000, 'inSede')).toBe(1995.08);
+    const check = (seat: string, city: string) => conditionFromMunicipality(adisu, seat, city, true)?.condition;
+    expect(check('Perugia', 'Corciano')).toBe('inSede');
+    expect(check('Perugia', 'Bastia Umbra')).toBe('pendolare');
+    expect(check('Terni', 'Narni')).toBe('inSede');
+    expect(check('Perugia', 'Todi')).toBe('fuoriSede');
+  });
+});
+
+describe('Marche 2026/27: tasse UNIVPM, Macerata e Urbino, borse ERDIS', () => {
+  it('UNIVPM: esonero fino a 28.000 €, poi formula per fasce con il coefficiente del corso', () => {
+    const rule = tuitionRuleFor('ateneo-04201')!;
+    expect(contributionFor(rule, 28000, 2035)).toBe(0);
+    expect(contributionFor(rule, 29000, 2035)).toBe(753.75);
+    expect(contributionFor(rule, 90000, 2035)).toBe(2035);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+
+  it('Macerata: esonero fino a 26.000 €, poi formula fino a 32.000 € e importi fissi', () => {
+    const rule = tuitionRuleFor('ateneo-04301')!;
+    expect(contributionFor(rule, 26000, 1574)).toBe(0);
+    expect(contributionFor(rule, 29000, 1574)).toBe(785.89);
+    expect(contributionFor(rule, 35000, 1574)).toBe(1410);
+    expect(contributionFor(rule, null, 1574)).toBe(1574);
+  });
+
+  it('Urbino: esonero fino a 30.000 €, poi m × ISEE + q senza tassa regionale e bollo', () => {
+    const rule = tuitionRuleFor('ateneo-04101')!;
+    expect(contributionFor(rule, 30000, 1706)).toBe(0);
+    expect(contributionFor(rule, 35000, 1706)).toBe(1412.81);
+    expect(contributionFor(rule, 90000, 1706)).toBe(1706);
+  });
+
+  it('ERDIS: soglia ISEE 24.000 €, importi a scalini, comuni pendolari per sede', () => {
+    const erdis = dsuEntityFor('ateneo-04301')!;
+    expect(dsuEntityFor('ateneo-04201')!.id).toBe('erdis-marche');
+    expect(dsuEntityFor('ateneo-04101')!.id).toBe('erdis-marche');
+    expect(erdis.thresholds).toMatchObject({ isee: 24000, ispe: 50000 });
+    expect(amountAt(erdis, 17000, 'fuoriSede')).toBe(6274.72);
+    expect(amountAt(erdis, 23000, 'pendolare')).toBe(2095.36);
+    const check = (seat: string, city: string) => conditionFromMunicipality(erdis, seat, city, true)?.condition;
+    expect(check('Macerata', 'Macerata')).toBe('inSede');
+    expect(check('Macerata', 'Tolentino')).toBe('pendolare');
+    expect(check('Ancona', 'Osimo')).toBe('pendolare');
+    expect(check('Fermo', 'Cupra Marittima')).toBe('pendolare');
+    expect(check('Urbino', 'Roma')).toBe('fuoriSede');
+  });
+});
+
+describe('Abruzzo 2026/27: borse ADSU Chieti-Pescara', () => {
+  it('soglie regionali, tre fasce a scalini con la mensa, elenchi dei comuni', () => {
+    const adsu = dsuEntityFor('ateneo-06901')!;
+    expect(adsu.id).toBe('adsu-chieti-pescara');
+    expect(adsu.thresholds).toMatchObject({ isee: 24335.11, ispe: 52902.43 });
+    expect(amountAt(adsu, 10000, 'fuoriSede')).toBe(7679.32);
+    expect(amountAt(adsu, 15000, 'fuoriSede')).toBe(7171.11);
+    expect(amountAt(adsu, 22000, 'inSede')).toBe(2462.91);
+    const check = (seat: string, city: string) => conditionFromMunicipality(adsu, seat, city, true)?.condition;
+    expect(check('Chieti', 'Pescara')).toBe('inSede');
+    expect(check('Chieti', 'Lanciano')).toBe('pendolare');
+    expect(check('Pescara', 'Mosciano Sant’Angelo')).toBe('pendolare');
+    expect(check('Vasto', 'San Salvo')).toBe('inSede');
+    // La città dell'ateneo nel dataset è «Chieti Scalo» (frazione di Chieti): stesso elenco.
+    expect(check('Chieti Scalo', 'Pescara')).toBe('inSede');
+    expect(check('Pescara', 'Roma')).toBe('fuoriSede');
+  });
+});
+
+describe('Abruzzo 2026/27: tasse UnivAQ e borse ADSU L’Aquila', () => {
+  it('UnivAQ: esonero sotto 24.000 €, poi schema a fasce fino a 1.600 €', () => {
+    const rule = tuitionRuleFor('ateneo-06601')!;
+    expect(contributionFor(rule, 23000, 1600)).toBe(0);
+    expect(contributionFor(rule, 30000, 1600)).toBe(680);
+    expect(contributionFor(rule, 40000, 1600)).toBe(1240);
+    expect(contributionFor(rule, 60000, 1600)).toBe(1600);
+    expect(contributionFor(rule, null, 1600)).toBe(1600);
+  });
+
+  it('ADSU L’Aquila: stesse fasce regionali, stato per distanza', () => {
+    const adsu = dsuEntityFor('ateneo-06601')!;
+    expect(adsu.id).toBe('adsu-laquila');
+    expect(adsu.thresholds).toMatchObject({ isee: 24335.11, ispe: 52902.43 });
+    expect(amountAt(adsu, 15000, 'fuoriSede')).toBe(7171.11);
+    expect(amountAt(adsu, 18000, 'pendolare')).toBe(3397.49);
+    expect(conditionFromMunicipality(adsu, 'L’Aquila', 'Avezzano', true)).toBeNull();
+  });
+});
+
+describe('Sicilia 2026/27: borse ERSU Messina', () => {
+  it('soglie 22.500/53.000 €, sette fasce a scalini, comuni per sede', () => {
+    const ersu = dsuEntityFor('ateneo-08301')!;
+    expect(ersu.id).toBe('ersu-messina');
+    expect(ersu.thresholds).toMatchObject({ isee: 22500, ispe: 53000 });
+    expect(amountAt(ersu, 10000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(ersu, 16000, 'pendolare')).toBe(3771.64);
+    expect(amountAt(ersu, 22000, 'inSede')).toBe(1445.08);
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Messina', 'Messina')).toBe('inSede');
+    expect(check('Messina', 'Milazzo')).toBe('pendolare');
+    expect(check('Priolo Gargallo', 'Siracusa')).toBe('pendolare');
+    expect(check('Messina', 'Catania')).toBe('fuoriSede');
+  });
+});
+
+describe('Calabria 2026/27: borse della Mediterranea e dell’Unical', () => {
+  it('Mediterranea: soglie nazionali, calo lineare fino alla metà (esempio del bando)', () => {
+    const dsu = dsuEntityFor('ateneo-08001')!;
+    expect(dsu.id).toBe('unirc-dsu');
+    expect(dsu.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(8246.78);
+    // Il bando arrotonda la percentuale (27,03%): pochi centesimi di scarto.
+    expect(amountAt(dsu, 24000, 'fuoriSede')).toBeCloseTo(5232.76, 0);
+    expect(amountAt(dsu, 28339.88, 'inSede')).toBe(1445.08);
+  });
+
+  it('Unical: soglie 26.500/57.500 €, valori nominali con i servizi, comuni pendolari per Rende', () => {
+    const dsu = dsuEntityFor('ateneo-07801')!;
+    expect(dsu.id).toBe('unical-dsu');
+    expect(dsu.thresholds).toMatchObject({ isee: 26500, ispe: 57500 });
+    expect(amountAt(dsu, 12000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(dsu, 26500, 'fuoriSede')).toBe(5759.56);
+    const check = (city: string) => conditionFromMunicipality(dsu, 'Rende', city, true)?.condition;
+    expect(check('Rende')).toBe('inSede');
+    expect(check('Cosenza')).toBe('pendolare');
+    expect(check('San Fili')).toBe('pendolare');
+    expect(check('Catanzaro')).toBe('fuoriSede');
+  });
+});
+
+describe('Sardegna 2026/27: tasse dell’Università di Cagliari', () => {
+  it('esonero fino a 24.335,11 €, contributo calmierato, poi tabella e formula per facoltà', () => {
+    const rule = tuitionRuleFor('ateneo-09201')!;
+    expect(contributionFor(rule, 24335.11, 3418.7)).toBe(0);
+    expect(contributionFor(rule, 25000, 3418.7)).toBe(420);
+    expect(contributionFor(rule, 27000, 3418.7)).toBe(735);
+    expect(contributionFor(rule, 28300, 3418.7)).toBe(774.95);
+    expect(contributionFor(rule, 40000, 3418.7)).toBeCloseTo(1067.86, 0);
+    expect(contributionFor(rule, null, 3418.7)).toBe(3418.7);
+    const medicina = rule.courseGroups!.find((group) => group.id === 'medicina')!;
+    expect(contributionFor({ ...rule, bands: medicina.bands }, 27900, 3498.8)).toBe(782.25);
+  });
+});
+
+describe('Basilicata 2026/27: tasse Unibas', () => {
+  it('esonero fino a 22.000 €, 380 € + 3% fino a 30.000 €, poi fasce fisse fino a 2.100 €', () => {
+    const rule = tuitionRuleFor('ateneo-07601')!;
+    expect(contributionFor(rule, 22000, 2100)).toBe(0);
+    expect(contributionFor(rule, 26000, 2100)).toBe(500);
+    expect(contributionFor(rule, 30000, 2100)).toBe(620);
+    expect(contributionFor(rule, 40000, 2100)).toBe(1250);
+    expect(contributionFor(rule, null, 2100)).toBe(2100);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+});
+
+describe('Sicilia 2026/27: elenchi dei comuni di ERSU Palermo e Catania', () => {
+  it('Palermo: tab. 8.1-8.2 per sette sedi', () => {
+    const ersu = dsuEntityFor('ateneo-08201')!;
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Palermo', 'Bagheria')).toBe('inSede');
+    expect(check('Palermo', 'Santa Flavia')).toBe('inSede');
+    expect(check('Palermo', 'Partinico')).toBe('pendolare');
+    expect(check('Trapani', 'Castellamare del Golfo')).toBe('pendolare');
+    expect(check('Agrigento', 'Favara')).toBe('inSede');
+    expect(check('Palermo', 'Messina')).toBe('fuoriSede');
+  });
+
+  it('Catania: tab. 11 per la sede di Catania', () => {
+    const ersu = dsuEntityFor('ateneo-08701')!;
+    const check = (city: string) => conditionFromMunicipality(ersu, 'Catania', city, true)?.condition;
+    expect(check('Misterbianco')).toBe('inSede');
+    expect(check('Acireale')).toBe('pendolare');
+    expect(check('Zafferana')).toBe('pendolare');
+    expect(check('Palermo')).toBe('fuoriSede');
+  });
+});
+
+describe('Puglia 2026/27: elenchi dei comuni ADISU (Allegato A)', () => {
+  it('in sede solo nel comune della sede, pendolari dall’elenco, il resto fuori sede', () => {
+    const adisu = dsuEntityFor('ateneo-07201')!;
+    expect(adisu.id).toBe('adisu-puglia');
+    const check = (seat: string, city: string) => conditionFromMunicipality(adisu, seat, city, true)?.condition;
+    expect(check('Bari', 'Bari')).toBe('inSede');
+    expect(check('Bari', 'Molfetta')).toBe('pendolare');
+    expect(check('Lecce', 'Nardò')).toBe('pendolare');
+    expect(check('Taranto', 'Martina Franca')).toBe('pendolare');
+    expect(check('Foggia', 'Bari')).toBe('fuoriSede');
   });
 });
