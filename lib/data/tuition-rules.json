@@ -15655,6 +15655,96 @@
         }
       },
       "simulator": "https://www.unica.it/sites/default/files/2026-07/Regolamento_contribuzione_studentesca_anno_accademico_2026_2027.pdf"
+    },
+    "ateneo-07601": {
+      "name": "Università degli Studi della Basilicata",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti in corso o al primo anno fuori corso con i crediti richiesti, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Tassa regionale per il diritto allo studio (140 €, pagata direttamente alla Regione Basilicata) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 22000,
+          "rate": 0.03,
+          "base": 380
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 1130
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1250
+        },
+        {
+          "iseeMax": 55000,
+          "from": 0,
+          "rate": 0,
+          "base": 1480
+        },
+        {
+          "iseeMax": 65000,
+          "from": 0,
+          "rate": 0,
+          "base": 1680
+        },
+        {
+          "iseeMax": 75000,
+          "from": 0,
+          "rate": 0,
+          "base": 1880
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2100
+        }
+      ],
+      "bandsSource": {
+        "label": "Unibas, Regolamento contribuzione studentesca 2026/27 (D.R. 289/2026), art. 4, Tabella 1 e Tabelle B e G",
+        "url": "https://portale.unibas.it/site/home/studenti/regolamento-contribuzione-studentesca/documento50738.html"
+      },
+      "maxByLevel": {
+        "triennale": 2100,
+        "ciclo-unico": 2100,
+        "magistrale": 2100
+      },
+      "maxExceptions": [],
+      "maxNote": "Stessi importi per tutti i corsi. Matricole: esonero fino a 22.000 €, poi 380 € + 3% dell’ISEE oltre 22.000 € fino a 30.000 € (massimo 620 €); oltre 30.000 € importi fissi per fascia da 1.130 € a 2.100 € (oltre 75.000 €). Dal secondo anno gli importi dipendono anche dai crediti (fino a 309,60 € tra 22.000 e 30.000 € con i crediti richiesti).",
+      "maxSource": {
+        "label": "Unibas, Regolamento contribuzione studentesca 2026/27 (D.R. 289/2026), art. 4, Tabella G",
+        "url": "https://portale.unibas.it/site/home/studenti/regolamento-contribuzione-studentesca/documento50738.html"
+      },
+      "payments": {
+        "steps": [
+          "Fino a 400 €: rata unica entro il 20 dicembre 2026",
+          "Oltre 400 €: prima rata di 400 € entro il 20 dicembre 2026, le altre entro il 31 marzo, il 31 maggio e il 31 luglio 2027 (da due a quattro rate secondo l’importo)"
+        ],
+        "note": "Tassa regionale e bollo vanno pagati all’iscrizione, entro il 30 settembre 2026.",
+        "source": {
+          "label": "Unibas, Regolamento contribuzione studentesca 2026/27 (D.R. 289/2026), art. 4",
+          "url": "https://portale.unibas.it/site/home/studenti/regolamento-contribuzione-studentesca/documento50738.html"
+        }
+      },
+      "simulator": "https://portale.unibas.it/site/home/studenti/regolamento-contribuzione-studentesca/documento50738.html"
     }
   }
 }

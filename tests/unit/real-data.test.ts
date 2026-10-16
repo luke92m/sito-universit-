@@ -1377,3 +1377,15 @@ describe('Sardegna 2026/27: tasse dell’Università di Cagliari', () => {
     expect(contributionFor({ ...rule, bands: medicina.bands }, 27900, 3498.8)).toBe(782.25);
   });
 });
+
+describe('Basilicata 2026/27: tasse Unibas', () => {
+  it('esonero fino a 22.000 €, 380 € + 3% fino a 30.000 €, poi fasce fisse fino a 2.100 €', () => {
+    const rule = tuitionRuleFor('ateneo-07601')!;
+    expect(contributionFor(rule, 22000, 2100)).toBe(0);
+    expect(contributionFor(rule, 26000, 2100)).toBe(500);
+    expect(contributionFor(rule, 30000, 2100)).toBe(620);
+    expect(contributionFor(rule, 40000, 2100)).toBe(1250);
+    expect(contributionFor(rule, null, 2100)).toBe(2100);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+});

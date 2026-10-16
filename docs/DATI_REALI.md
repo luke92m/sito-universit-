@@ -110,6 +110,8 @@ Tasse (2026/27):
 - **Catanzaro (Fondazione UMG)**: borse non inserite, il bando 2026/27 sul portale della Fondazione non si scarica (errore del server). Tasse di Unical, Catanzaro e Mediterranea non ancora inserite.
 - **Cagliari (tasse)**: Regolamento contribuzione studentesca 2026/27, artt. 4, 11, 27 e Allegato 1: esonero per le matricole fino a 24.335,11 €, contributo calmierato tra 24.335,12 e 30.000 € (se più basso), tabelle a fasce per quattro facoltà e formula esponenziale della fascia 19 (approssimata a tratti lineari di 2.000 €, scarto massimo 1 €). Facoltà assegnata per macroarea del corso (comunicazione e giornalismo con gli Studi umanistici). Non calcolata la riduzione d'ufficio dell'ISEE per chi abita oltre 50 km o fuori Sardegna (art. 27).
 - **ERSU Cagliari ed ERSU Sassari, tasse di Sassari**: non inseriti. Il bando unico 2026/27 di ERSU Cagliari non è pubblicato sul sito dell'ente (circola solo una copia su un sito privato); quello di Sassari non è raggiungibile.
+- **Basilicata (tasse)**: Regolamento contribuzione studentesca 2026/27 (D.R. 289/2026), art. 4, Tabelle 1, B e G: esonero fino a 22.000 € per le matricole, 380 € + 3% oltre 22.000 € fino a 30.000 €, poi importi fissi per fascia (1.130-2.100 €). Borse ARDSU Basilicata non inserite: il bando 2026/27 è un PDF grafico da cui non si estraggono gli importi per fascia e le regole sullo status.
+- **Molise**: non inserito. Il bando ESU Molise 2026/27 non è ancora sul sito della Regione (c'è solo il 2025/26); tasse Unimol non cercate.
 
 ## Fonti
 
