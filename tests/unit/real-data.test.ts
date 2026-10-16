@@ -1570,3 +1570,14 @@ describe('Stranieri di Perugia 2026/27: tasse a fasce', () => {
     expect(contributionFor(rule, null, 1470)).toBe(1470);
   });
 });
+
+describe('Messina 2026/27: tasse', () => {
+  it('No tax area fino a 28.000 €, poi le formule della Tabella COA', () => {
+    const rule = tuitionRuleFor('ateneo-08301')!;
+    expect(contributionFor(rule, 28000, 2650)).toBe(0);
+    expect(contributionFor(rule, 29000, 2650)).toBe(350);
+    expect(contributionFor(rule, 50000, 2650)).toBe(1640);
+    expect(contributionFor(rule, 60000, 2650)).toBe(2260);
+    expect(contributionFor(rule, 70000, 2650)).toBe(2650);
+  });
+});

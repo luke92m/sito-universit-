@@ -16933,6 +16933,72 @@
         }
       },
       "simulator": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/iscrizioni-e-tasse/tasse-e-contributi"
+    },
+    "ateneo-08301": {
+      "name": "Università di Messina",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti regolari con il merito richiesto (prima colonna della tabella), con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "All’immatricolazione, entro il 30 settembre 2026: tassa regionale 140 € e bollo 16 €.",
+      "bands": [
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 22000,
+          "rate": 0.05,
+          "base": 0
+        },
+        {
+          "iseeMax": 60000,
+          "from": 30000,
+          "rate": 0.062,
+          "base": 400
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2650
+        }
+      ],
+      "bandsSource": {
+        "label": "UniMe, Tabella determinazione COA 2026/27 (CdA 6/7/2026, All. 1)",
+        "url": "https://www.unime.it/sites/default/files/2026-07/III%20CdA%2006.07.2026%20All.%201%20Tabella%20determinazione%20COA%20%20%281%29.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2650,
+        "ciclo-unico": 2650,
+        "magistrale": 2650
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 28.000 €; da 28.000 a 30.000 € il 5% dell’ISEE oltre 22.000 € (fino a 400 €); da 30.000 a 60.000 € 400 € + 6,2% dell’ISEE oltre 30.000 € (fino a 2.260 €); oltre 60.000 € contributo fisso di 2.650 €. Senza ISEE si considera la fascia più alta (2.650 €). Chi paga in un’unica soluzione entro il 29 gennaio 2027 ha uno sconto del 20%, non calcolato.",
+      "maxSource": {
+        "label": "UniMe, Tabella determinazione COA 2026/27 e Riepilogo scadenze rate e pagamenti",
+        "url": "https://www.unime.it/didattica/tasse-ed-esenzioni"
+      },
+      "payments": {
+        "steps": [
+          "Tassa regionale e bollo (156 €) all’immatricolazione, entro il 30 settembre 2026",
+          "Contributo in un’unica soluzione entro il 29 gennaio 2027 (con lo sconto del 20%), oppure in tre rate: 29 gennaio, 31 marzo e 30 giugno 2027"
+        ],
+        "note": "La modalità di pagamento si sceglie all’iscrizione e non si cambia durante l’anno. Mora di 14 € per ogni rata in ritardo.",
+        "source": {
+          "label": "UniMe, Riepilogo scadenze rate e pagamenti 2026/27",
+          "url": "https://www.unime.it/sites/default/files/2026-07/Riepilogo%20Scadenze%20Rate%20e%20Pagamenti%202026-2027.pdf"
+        }
+      },
+      "simulator": "https://www.unime.it/didattica/tasse-ed-esenzioni"
     }
   }
 }
