@@ -14312,6 +14312,121 @@
         "label": "ERSU Sassari, Borse di studio",
         "url": "https://ersusassari.it/it/servizi/servizio/Borse-di-studio/"
       }
+    },
+    {
+      "id": "esu-molise",
+      "name": "ESU Molise – Ente per il diritto allo studio universitario",
+      "shortName": "ESU Molise",
+      "region": "Molise",
+      "universityIds": [
+        "ateneo-07001"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 19837.92,
+        "ispe": 43125.94,
+        "source": {
+          "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), art. 11",
+          "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali (quota in denaro più servizi gratuiti, art. 22). Soglie più basse di quelle nazionali: importo pieno fino a due terzi della soglia (13.225,28 €), poi riduzione lineare fino alla metà a 19.837,92 €; +15% fino a metà soglia (9.918,96 €; il bando lo applica all’importo netto, qui al totale). Con disabilità almeno del 66% le soglie salgono a 27.619,44 € e 46.303,98 €.",
+        "bands": [
+          {
+            "iseeMax": 9918.96,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 13225.28,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 19837.92,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.56,
+              "pendolare": 2095.36,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), art. 22",
+          "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%: si applica il solo +20%",
+          "source": {
+            "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), art. 22",
+            "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a più corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti per il corso collegato",
+          "source": {
+            "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), art. 22",
+            "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Servizio di ristorazione gratuito per i beneficiari",
+        "Rimborso della tassa regionale a beneficiari e idonei"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), artt. 1 e 24",
+        "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza a più di 50 km dalla sede e alloggio a titolo oneroso vicino alla sede per almeno 10 mesi (tra il 1° ottobre 2026 e il 30 settembre 2027), con contratto registrato.",
+        "pendolare": "Residenza oltre 15 km dalla sede, con trasferimento quotidiano possibile (o oltre 50 km senza affitto).",
+        "inSede": "Residenza nel comune della sede o nell’area circostante, entro 15 km.",
+        "source": {
+          "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), artt. 1 e 21",
+          "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata entro il 31 dicembre 2026, almeno pari a metà della borsa da pendolare (ai fuori sede il resto dopo il contratto)",
+          "Seconda rata (il resto) entro il 28 febbraio 2028, con 18 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Con 20 crediti entro il 30 novembre 2027 si conserva la prima rata; senza, la borsa è revocata e va restituita.",
+        "source": {
+          "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), artt. 12 e 23",
+          "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-10-30",
+        "closesTime": "23:59",
+        "note": "Domanda online con SPID o CIE e PEC obbligatoria; ISEE per il diritto allo studio universitario 2026.",
+        "source": {
+          "label": "ESU Molise, Bando borse di studio 2026/27 rettificato (D.D. 56/2026), art. 28",
+          "url": "https://www.esu.molise.it/attachments/article/135/All%20DD%2056-2026%20BANDO%20ESU_2026-2027%20RETTIFICATO.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ESU Molise, Bando 2026/27",
+        "url": "https://www.esu.molise.it/bandi-di-concorso/bando-di-concorso-per-l-assegnazione-di-borse-di-studio-provvidenze-e-servizi-per-il-diritto-allo-studio-universitario-a-a-2026-2027.html"
+      }
     }
   ]
 }

@@ -1696,3 +1696,23 @@ describe('ERSU Sassari 2026/27: borse', () => {
     expect(check('Sassari', 'Nuoro')).toBe('fuoriSede');
   });
 });
+
+describe('Molise 2026/27: tasse Unimol e borse ESU Molise', () => {
+  const rule = tuitionRuleFor('ateneo-07001')!;
+  const named = (name: string) => getCourses('ateneo-07001').find((course) => course.name === name)!;
+  it('Unimol: no tax area fino a 24.000 €, poi formula con quota di indirizzo', () => {
+    expect(contributionFor(rule, 24000, 1566)).toBe(0);
+    expect(contributionFor(rule, 25000, 1566)).toBe(245);
+    const eco = courseGroup(rule, named('Economia Aziendale'))!;
+    expect(contributionFor(rule, 40000, eco.max, eco.bands)).toBe(1440);
+    expect(maxContribution(rule, named('Scienze Biologiche'))).toBe(1606);
+    expect(maxContribution(rule, named('Medicina e Chirurgia'))).toBe(1676);
+    expect(contributionFor(rule, 80000, eco.max, eco.bands)).toBe(1566);
+  });
+  it('ESU Molise: soglie più basse, calo fino alla metà', () => {
+    const esu = dsuEntityFor('ateneo-07001')!;
+    expect(esu.thresholds).toMatchObject({ isee: 19837.92, ispe: 43125.94 });
+    expect(amountAt(esu, 9000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(esu, 12000, 'inSede')).toBe(2890.16);
+  });
+});

@@ -17811,6 +17811,249 @@
         }
       },
       "simulator": "https://www.uniss.it/it/didattica/servizi-agli-studenti/guide-studenti/tasse-e-isee"
+    },
+    "ateneo-07001": {
+      "name": "Università del Molise",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole (contributo determinato solo dall’ISEE, Allegato 2), con ISEE per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata: bollo 16 € e tassa regionale per il diritto allo studio 140 €.",
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 20000,
+          "rate": 0.049,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 20000,
+          "rate": 0.056,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 20000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 46000,
+          "from": 30000,
+          "rate": 0.021,
+          "base": 1230
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1566
+        }
+      ],
+      "bandsSource": {
+        "label": "Unimol, Regolamento in materia di contribuzione studentesca 2026/27, Allegati 2 e 7",
+        "url": "https://apistrapi.unimol.it/uploads/REGOLAMENTO_CONTRIBUZIONE_STUDENTESCA_307541d9cd.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "economico",
+          "label": "indirizzo economico-giuridico-umanistico",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Arte e Design",
+            "Letterario-Umanistico",
+            "Educazione e Formazione",
+            "Politico-Sociale e Comunicazione",
+            "Psicologico"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 20000,
+              "rate": 0.049,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 20000,
+              "rate": 0.056,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 20000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 46000,
+              "from": 30000,
+              "rate": 0.021,
+              "base": 1230
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1566
+            }
+          ],
+          "max": 1566
+        },
+        {
+          "id": "tecnico",
+          "label": "indirizzo tecnico-scientifico",
+          "groups": [
+            "Agrario-Forestale e Veterinario",
+            "Architettura e Ingegneria civile",
+            "Informatica e Tecnologie ICT",
+            "Ingegneria industriale e dell'informazione",
+            "Medico-Sanitario e Farmaceutico",
+            "Scientifico",
+            "Scienze motorie e sportive"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 20000,
+              "rate": 0.049,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 20000,
+              "rate": 0.056,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 20000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 46000,
+              "from": 30000,
+              "rate": 0.021,
+              "base": 1270
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1606
+            }
+          ],
+          "max": 1606
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e Chirurgia",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 20000,
+              "rate": 0.049,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 20000,
+              "rate": 0.056,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 20000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 46000,
+              "from": 30000,
+              "rate": 0.021,
+              "base": 1340
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1676
+            }
+          ],
+          "max": 1676
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Scienze del Servizio Sociale",
+          "Servizio Sociale e Politiche Sociali",
+          "Management dello Sport"
+        ],
+        "note": "il Regolamento assegna l’indirizzo per dipartimento e per questo corso il dipartimento non è certo."
+      },
+      "maxByLevel": {
+        "triennale": 1566,
+        "ciclo-unico": 1566,
+        "magistrale": 1566
+      },
+      "maxExceptions": [],
+      "maxNote": "No tax area fino a 24.000 € per le matricole; da 24.000 a 30.000 € il 7% dell’ISEE oltre 20.000 € ridotto del 30, 20 o 10%; oltre, 1.190 € + 2,1% dell’ISEE oltre 30.000 € + quota di indirizzo (40 € economico-giuridico-umanistico, 80 € tecnico-scientifico, 150 € Medicina), con l’ISEE contato al massimo come 46.000 €: fino a 1.566/1.606/1.676 €, anche senza ISEE. Riduzioni non calcolate: 100 € con 100/100 alla maturità, 150 € con la lode, 40 € con un familiare iscritto (solo con ISEE presentato nei termini).",
+      "maxSource": {
+        "label": "Unimol, Regolamento in materia di contribuzione studentesca 2026/27, Allegati 2 e 7",
+        "url": "https://apistrapi.unimol.it/uploads/REGOLAMENTO_CONTRIBUZIONE_STUDENTESCA_307541d9cd.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo e tassa regionale, 156 €) all’immatricolazione",
+          "Seconda rata entro il 10 dicembre 2026",
+          "Terza rata entro il 29 gennaio 2027",
+          "Quarta rata entro il 31 marzo 2027",
+          "Quinta rata entro il 31 maggio 2027"
+        ],
+        "note": "La DSU va presentata entro il 20 novembre 2026 (poi mora di 100 € fino al 10 dicembre e di 200 € fino al 22 dicembre) e l’acquisizione dell’ISEE autorizzata sul Portale dello Studente entro il 22 dicembre 2026.",
+        "source": {
+          "label": "Unimol, Regolamento contribuzione 2026/27, Allegato 1 (scadenze)",
+          "url": "https://apistrapi.unimol.it/uploads/REGOLAMENTO_CONTRIBUZIONE_STUDENTESCA_307541d9cd.pdf"
+        }
+      },
+      "simulator": "https://www3.unimol.it/didattica/entrare-in-unimol/tasse-e-contributi"
     }
   }
 }
