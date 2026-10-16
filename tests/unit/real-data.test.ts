@@ -1299,6 +1299,8 @@ describe('Abruzzo 2026/27: borse ADSU Chieti-Pescara', () => {
     expect(check('Chieti', 'Lanciano')).toBe('pendolare');
     expect(check('Pescara', 'Mosciano Sant’Angelo')).toBe('pendolare');
     expect(check('Vasto', 'San Salvo')).toBe('inSede');
+    // La città dell'ateneo nel dataset è «Chieti Scalo» (frazione di Chieti): stesso elenco.
+    expect(check('Chieti Scalo', 'Pescara')).toBe('inSede');
     expect(check('Pescara', 'Roma')).toBe('fuoriSede');
   });
 });

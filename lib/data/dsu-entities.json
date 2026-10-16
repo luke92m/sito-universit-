@@ -9236,6 +9236,307 @@
             "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, Tabelle «Elenco dei comuni» (pag. 29)",
             "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
           }
+        },
+        "Chieti Scalo": {
+          "inSede": [
+            {
+              "comune": "Chieti"
+            },
+            {
+              "comune": "Bucchianico"
+            },
+            {
+              "comune": "Casacanditella"
+            },
+            {
+              "comune": "Casalincontrada"
+            },
+            {
+              "comune": "Cepagatti"
+            },
+            {
+              "comune": "Fara Filiorum Petri"
+            },
+            {
+              "comune": "Francavilla al Mare"
+            },
+            {
+              "comune": "Manoppello"
+            },
+            {
+              "comune": "Miglianico"
+            },
+            {
+              "comune": "Nocciano"
+            },
+            {
+              "comune": "Pescara"
+            },
+            {
+              "comune": "Pianella"
+            },
+            {
+              "comune": "Ripa Teatina"
+            },
+            {
+              "comune": "Rosciano"
+            },
+            {
+              "comune": "San Giovanni Teatino"
+            },
+            {
+              "comune": "Spoltore"
+            },
+            {
+              "comune": "Torrevecchia Teatina"
+            },
+            {
+              "comune": "Villamagna"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Abbateggio"
+            },
+            {
+              "comune": "Alanno"
+            },
+            {
+              "comune": "Altino"
+            },
+            {
+              "comune": "Ari"
+            },
+            {
+              "comune": "Arielli"
+            },
+            {
+              "comune": "Atri"
+            },
+            {
+              "comune": "Bolognano"
+            },
+            {
+              "comune": "Brittoli"
+            },
+            {
+              "comune": "Bussi sul Tirino"
+            },
+            {
+              "comune": "Canosa Sannita"
+            },
+            {
+              "comune": "Cappelle sul Tavo"
+            },
+            {
+              "comune": "Caramanico Terme"
+            },
+            {
+              "comune": "Carpineto della Nora"
+            },
+            {
+              "comune": "Casoli"
+            },
+            {
+              "comune": "Castel Frentano"
+            },
+            {
+              "comune": "Castiglione a Casauria"
+            },
+            {
+              "comune": "Catignano"
+            },
+            {
+              "comune": "Città Sant’Angelo"
+            },
+            {
+              "comune": "Civitaquana"
+            },
+            {
+              "comune": "Civitella Casanova"
+            },
+            {
+              "comune": "Civitella Messer Raimondo"
+            },
+            {
+              "comune": "Collecorvino"
+            },
+            {
+              "comune": "Corfinio"
+            },
+            {
+              "comune": "Corvara"
+            },
+            {
+              "comune": "Crecchio"
+            },
+            {
+              "comune": "Cugnoli"
+            },
+            {
+              "comune": "Elice"
+            },
+            {
+              "comune": "Fara San Martino"
+            },
+            {
+              "comune": "Farindola"
+            },
+            {
+              "comune": "Filetto"
+            },
+            {
+              "comune": "Fossacesia"
+            },
+            {
+              "comune": "Frisa"
+            },
+            {
+              "comune": "Gessopalena"
+            },
+            {
+              "comune": "Giuliano Teatino"
+            },
+            {
+              "comune": "Guardiagrele"
+            },
+            {
+              "comune": "Lanciano"
+            },
+            {
+              "comune": "Lettomanoppello"
+            },
+            {
+              "comune": "Loreto Aprutino"
+            },
+            {
+              "comune": "Montebello di Bertona"
+            },
+            {
+              "comune": "Montesilvano"
+            },
+            {
+              "comune": "Moscufo"
+            },
+            {
+              "comune": "Ofena"
+            },
+            {
+              "comune": "Orsogna"
+            },
+            {
+              "comune": "Ortona"
+            },
+            {
+              "comune": "Palombaro"
+            },
+            {
+              "comune": "Pennapiedimonte"
+            },
+            {
+              "comune": "Penne"
+            },
+            {
+              "comune": "Perano"
+            },
+            {
+              "comune": "Pescosansonesco"
+            },
+            {
+              "comune": "Picciano"
+            },
+            {
+              "comune": "Pietranico"
+            },
+            {
+              "comune": "Pineto"
+            },
+            {
+              "comune": "Poggiofiorito"
+            },
+            {
+              "comune": "Popoli"
+            },
+            {
+              "comune": "Pretoro"
+            },
+            {
+              "comune": "Rapino"
+            },
+            {
+              "comune": "Rocca San Giovanni"
+            },
+            {
+              "comune": "Roccamontepiano"
+            },
+            {
+              "comune": "Roccamorice"
+            },
+            {
+              "comune": "Roseto degli Abruzzi"
+            },
+            {
+              "comune": "Sant’Eufemia a Maiella"
+            },
+            {
+              "comune": "Sant’Eusanio del Sangro"
+            },
+            {
+              "comune": "San Martino sulla Marrucina"
+            },
+            {
+              "comune": "San Valentino in Abruzzo Citeriore"
+            },
+            {
+              "comune": "San Vito Chietino"
+            },
+            {
+              "comune": "Salle"
+            },
+            {
+              "comune": "Scafa"
+            },
+            {
+              "comune": "Serramonacesca"
+            },
+            {
+              "comune": "Silvi"
+            },
+            {
+              "comune": "Tocco da Casauria"
+            },
+            {
+              "comune": "Tollo"
+            },
+            {
+              "comune": "Torre de’ Passeri"
+            },
+            {
+              "comune": "Treglio"
+            },
+            {
+              "comune": "Turrivalignani"
+            },
+            {
+              "comune": "Vacri"
+            },
+            {
+              "comune": "Vicoli"
+            },
+            {
+              "comune": "Villa Celiera"
+            },
+            {
+              "comune": "Villa Santa Lucia degli Abruzzi"
+            },
+            {
+              "comune": "Vittorito"
+            }
+          ],
+          "source": {
+            "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, Tabelle «Elenco dei comuni» (pag. 29)",
+            "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
+          }
         }
       },
       "fundedShare": null,
@@ -9934,6 +10235,124 @@
       },
       "municipalities": {
         "Rende": {
+          "inSede": [
+            {
+              "comune": "Rende"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aprigliano"
+            },
+            {
+              "comune": "Bisignano"
+            },
+            {
+              "comune": "Carolei"
+            },
+            {
+              "comune": "Casali del Manco"
+            },
+            {
+              "comune": "Castiglione Cosentino"
+            },
+            {
+              "comune": "Castrolibero"
+            },
+            {
+              "comune": "Cellara"
+            },
+            {
+              "comune": "Celico"
+            },
+            {
+              "comune": "Cerisano"
+            },
+            {
+              "comune": "Cosenza"
+            },
+            {
+              "comune": "Dipignano"
+            },
+            {
+              "comune": "Domanico"
+            },
+            {
+              "comune": "Figline Vegliaturo"
+            },
+            {
+              "comune": "Fuscaldo"
+            },
+            {
+              "comune": "Lappano"
+            },
+            {
+              "comune": "Luzzi"
+            },
+            {
+              "comune": "Mangone"
+            },
+            {
+              "comune": "Marano Marchesato"
+            },
+            {
+              "comune": "Marano Principato"
+            },
+            {
+              "comune": "Mendicino"
+            },
+            {
+              "comune": "Montalto Uffugo"
+            },
+            {
+              "comune": "Paola"
+            },
+            {
+              "comune": "Paterno Calabro"
+            },
+            {
+              "comune": "Piane Crati"
+            },
+            {
+              "comune": "Pietrafitta"
+            },
+            {
+              "comune": "Rogliano"
+            },
+            {
+              "comune": "Rose"
+            },
+            {
+              "comune": "Rovito"
+            },
+            {
+              "comune": "San Fili"
+            },
+            {
+              "comune": "San Lucido"
+            },
+            {
+              "comune": "San Pietro in Guarano"
+            },
+            {
+              "comune": "Santo Stefano di Rogliano"
+            },
+            {
+              "comune": "San Vincenzo La Costa"
+            },
+            {
+              "comune": "Spezzano della Sila"
+            },
+            {
+              "comune": "Zumpano"
+            }
+          ],
+          "source": {
+            "label": "Università della Calabria, Bando diritto allo studio 2026/27, Appendice A",
+            "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+          }
+        },
+        "Arcavacata di Rende": {
           "inSede": [
             {
               "comune": "Rende"
