@@ -27,9 +27,9 @@ Borse (bandi 2026/27):
 | Milano-Bicocca (Lombardia) | Milano-Bicocca | 26.887,93 / 58.452,06 | — (60/90 minuti) |
 | Statale di Milano (Lombardia) | Università degli Studi di Milano | 26.887,93 / 58.452,06 | — (60/90 minuti) |
 | Politecnico di Milano (Lombardia) | Politecnico di Milano | 26.887,93 / 58.452,06 | — (60/90 minuti) |
-| ADISU Puglia | Bari, Politecnico di Bari, LUM, Foggia, Salento | 26.000 / 56.000 | — (60 minuti; Allegato A non ancora inserito) |
-| ERSU Palermo | Università di Palermo | 23.000 / 52.500 | — (Tab. 8.1 e 8.2 non ancora inserite) |
-| ERSU Catania | Università di Catania | 25.000 / 60.000 | — (Tab. 11 non ancora inserita) |
+| ADISU Puglia | Bari, Politecnico di Bari, LUM, Foggia, Salento | 26.000 / 56.000 | Allegato A (Bari, Brindisi, Foggia, Lecce, Taranto) |
+| ERSU Palermo | Università di Palermo | 23.000 / 52.500 | Tab. 8.1-8.2 (7 sedi) |
+| ERSU Catania | Università di Catania | 25.000 / 60.000 | Tab. 11 (solo Catania) |
 | ALiSEO | Università di Genova | 28.339 / 61.608 | — (Tabella A dei comuni fuori sede non inserita) |
 | Università di Bergamo (DSU) | Università di Bergamo | 26.887,93 / 58.452,06 | — (tempi di percorrenza, non elenchi) |
 | Università di Brescia (DSU) | Università di Brescia | 26.887,93 / 58.452,06 | — (Allegato 2 non inserito) |
@@ -112,6 +112,7 @@ Tasse (2026/27):
 - **ERSU Cagliari ed ERSU Sassari, tasse di Sassari**: non inseriti. Il bando unico 2026/27 di ERSU Cagliari non è pubblicato sul sito dell'ente (circola solo una copia su un sito privato); quello di Sassari non è raggiungibile.
 - **Basilicata (tasse)**: Regolamento contribuzione studentesca 2026/27 (D.R. 289/2026), art. 4, Tabelle 1, B e G: esonero fino a 22.000 € per le matricole, 380 € + 3% oltre 22.000 € fino a 30.000 €, poi importi fissi per fascia (1.130-2.100 €). Borse ARDSU Basilicata non inserite: il bando 2026/27 è un PDF grafico da cui non si estraggono gli importi per fascia e le regole sullo status.
 - **Molise**: non inserito. Il bando ESU Molise 2026/27 non è ancora sul sito della Regione (c'è solo il 2025/26); tasse Unimol non cercate.
+- **Elenchi dei comuni di ADISU Puglia, ERSU Palermo ed ERSU Catania** (aggiunti a ottobre 2026): ADISU Allegato A per Bari, Brindisi, Foggia, Lecce (elenco del Polo urbano: per il Polo Ecotekne sono in sede anche Arnesano, Carmiano e Monteroni) e Taranto; ERSU Palermo tab. 8.1-8.2 per sette sedi (tolte le frazioni Pioppo, Grisì e San Nicola; Cefalù comune sede aggiunto in sede per definizione); ERSU Catania tab. 11 per la sede di Catania (Ragusa, Siracusa e Troina non hanno elenchi).
 
 ## Fonti
 

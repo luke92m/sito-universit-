@@ -2257,7 +2257,580 @@
           "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
         }
       },
-      "municipalities": {},
+      "municipalities": {
+        "Bari": {
+          "inSede": [
+            {
+              "comune": "Bari"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Acquaviva delle Fonti"
+            },
+            {
+              "comune": "Adelfia"
+            },
+            {
+              "comune": "Barletta"
+            },
+            {
+              "comune": "Binetto"
+            },
+            {
+              "comune": "Bisceglie"
+            },
+            {
+              "comune": "Bitetto"
+            },
+            {
+              "comune": "Bitonto"
+            },
+            {
+              "comune": "Bitritto"
+            },
+            {
+              "comune": "Capurso"
+            },
+            {
+              "comune": "Casamassima"
+            },
+            {
+              "comune": "Cassano delle Murge"
+            },
+            {
+              "comune": "Gioia del Colle"
+            },
+            {
+              "comune": "Giovinazzo"
+            },
+            {
+              "comune": "Grumo Appula"
+            },
+            {
+              "comune": "Modugno"
+            },
+            {
+              "comune": "Mola di Bari"
+            },
+            {
+              "comune": "Molfetta"
+            },
+            {
+              "comune": "Monopoli"
+            },
+            {
+              "comune": "Noicattaro"
+            },
+            {
+              "comune": "Palo del Colle"
+            },
+            {
+              "comune": "Polignano a Mare"
+            },
+            {
+              "comune": "Rutigliano"
+            },
+            {
+              "comune": "Ruvo di Puglia"
+            },
+            {
+              "comune": "Sammichele di Bari"
+            },
+            {
+              "comune": "Sannicandro di Bari"
+            },
+            {
+              "comune": "Terlizzi"
+            },
+            {
+              "comune": "Toritto"
+            },
+            {
+              "comune": "Trani"
+            },
+            {
+              "comune": "Turi"
+            },
+            {
+              "comune": "Triggiano"
+            },
+            {
+              "comune": "Valenzano"
+            }
+          ],
+          "source": {
+            "label": "ADISU Puglia, Bando «Benefici e servizi» 2026/27, Allegato A",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        },
+        "Brindisi": {
+          "inSede": [
+            {
+              "comune": "Brindisi"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Arnesano"
+            },
+            {
+              "comune": "Campi Salentina"
+            },
+            {
+              "comune": "Carovigno"
+            },
+            {
+              "comune": "Cellino San Marco"
+            },
+            {
+              "comune": "Cisternino"
+            },
+            {
+              "comune": "Erchie"
+            },
+            {
+              "comune": "Fasano"
+            },
+            {
+              "comune": "Francavilla Fontana"
+            },
+            {
+              "comune": "Ostuni"
+            },
+            {
+              "comune": "Oria"
+            },
+            {
+              "comune": "San Michele Salentino"
+            },
+            {
+              "comune": "Guagnano"
+            },
+            {
+              "comune": "Latiano"
+            },
+            {
+              "comune": "Lecce"
+            },
+            {
+              "comune": "Grottaglie"
+            },
+            {
+              "comune": "Novoli"
+            },
+            {
+              "comune": "Salice Salentino"
+            },
+            {
+              "comune": "San Cesario di Lecce"
+            },
+            {
+              "comune": "San Donaci",
+              "aliases": [
+                "Sandonaci"
+              ]
+            },
+            {
+              "comune": "Squinzano"
+            },
+            {
+              "comune": "San Pancrazio Salentino"
+            },
+            {
+              "comune": "San Vito dei Normanni"
+            },
+            {
+              "comune": "Surbo"
+            },
+            {
+              "comune": "Torchiarolo"
+            },
+            {
+              "comune": "Torre Santa Susanna"
+            },
+            {
+              "comune": "Trepuzzi"
+            },
+            {
+              "comune": "Veglie"
+            },
+            {
+              "comune": "Mesagne"
+            },
+            {
+              "comune": "San Pietro Vernotico"
+            }
+          ],
+          "source": {
+            "label": "ADISU Puglia, Bando «Benefici e servizi» 2026/27, Allegato A",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        },
+        "Foggia": {
+          "inSede": [
+            {
+              "comune": "Foggia"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Apricena"
+            },
+            {
+              "comune": "Ascoli Satriano"
+            },
+            {
+              "comune": "Barletta"
+            },
+            {
+              "comune": "Biccari"
+            },
+            {
+              "comune": "Candela"
+            },
+            {
+              "comune": "Carapelle"
+            },
+            {
+              "comune": "Castelluccio dei Sauri"
+            },
+            {
+              "comune": "Lucera"
+            },
+            {
+              "comune": "Manfredonia"
+            },
+            {
+              "comune": "Ordona"
+            },
+            {
+              "comune": "Orta Nova"
+            },
+            {
+              "comune": "Pietramontecorvino"
+            },
+            {
+              "comune": "San Severo"
+            },
+            {
+              "comune": "Stornara"
+            },
+            {
+              "comune": "Stornarella"
+            },
+            {
+              "comune": "Torremaggiore"
+            },
+            {
+              "comune": "Troia"
+            },
+            {
+              "comune": "Zapponeta"
+            },
+            {
+              "comune": "Cerignola"
+            }
+          ],
+          "source": {
+            "label": "ADISU Puglia, Bando «Benefici e servizi» 2026/27, Allegato A",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        },
+        "Lecce": {
+          "inSede": [
+            {
+              "comune": "Lecce"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alezio"
+            },
+            {
+              "comune": "Aradeo"
+            },
+            {
+              "comune": "Arnesano"
+            },
+            {
+              "comune": "Bagnolo del Salento"
+            },
+            {
+              "comune": "Botrugno"
+            },
+            {
+              "comune": "Brindisi"
+            },
+            {
+              "comune": "Calimera"
+            },
+            {
+              "comune": "Campi Salentina"
+            },
+            {
+              "comune": "Cannole"
+            },
+            {
+              "comune": "Caprarica di Lecce"
+            },
+            {
+              "comune": "Carmiano"
+            },
+            {
+              "comune": "Carovigno"
+            },
+            {
+              "comune": "Carpignano Salentino"
+            },
+            {
+              "comune": "Castrì di Lecce"
+            },
+            {
+              "comune": "Castrignano de’ Greci"
+            },
+            {
+              "comune": "Cavallino"
+            },
+            {
+              "comune": "Cellino San Marco"
+            },
+            {
+              "comune": "Collepasso"
+            },
+            {
+              "comune": "Copertino"
+            },
+            {
+              "comune": "Corigliano d’Otranto"
+            },
+            {
+              "comune": "Cursi"
+            },
+            {
+              "comune": "Cutrofiano"
+            },
+            {
+              "comune": "Francavilla Fontana"
+            },
+            {
+              "comune": "Galatina"
+            },
+            {
+              "comune": "Galatone"
+            },
+            {
+              "comune": "Guagnano"
+            },
+            {
+              "comune": "Latiano"
+            },
+            {
+              "comune": "Lequile"
+            },
+            {
+              "comune": "Leverano"
+            },
+            {
+              "comune": "Lizzanello"
+            },
+            {
+              "comune": "Maglie"
+            },
+            {
+              "comune": "Martano"
+            },
+            {
+              "comune": "Martignano"
+            },
+            {
+              "comune": "Melendugno"
+            },
+            {
+              "comune": "Melpignano"
+            },
+            {
+              "comune": "Mesagne"
+            },
+            {
+              "comune": "Monteroni di Lecce"
+            },
+            {
+              "comune": "Muro Leccese"
+            },
+            {
+              "comune": "Nardò"
+            },
+            {
+              "comune": "Neviano"
+            },
+            {
+              "comune": "Novoli"
+            },
+            {
+              "comune": "Ostuni"
+            },
+            {
+              "comune": "Poggiardo"
+            },
+            {
+              "comune": "Salice Salentino"
+            },
+            {
+              "comune": "San Cesario di Lecce"
+            },
+            {
+              "comune": "San Donato di Lecce"
+            },
+            {
+              "comune": "San Pancrazio Salentino"
+            },
+            {
+              "comune": "San Pietro in Lama"
+            },
+            {
+              "comune": "San Pietro Vernotico"
+            },
+            {
+              "comune": "Sanarica"
+            },
+            {
+              "comune": "San Donaci",
+              "aliases": [
+                "Sandonaci"
+              ]
+            },
+            {
+              "comune": "Sannicola"
+            },
+            {
+              "comune": "Scorrano"
+            },
+            {
+              "comune": "Seclì"
+            },
+            {
+              "comune": "Sogliano Cavour"
+            },
+            {
+              "comune": "Soleto"
+            },
+            {
+              "comune": "Squinzano"
+            },
+            {
+              "comune": "Sternatia"
+            },
+            {
+              "comune": "Surbo"
+            },
+            {
+              "comune": "Torchiarolo"
+            },
+            {
+              "comune": "Trepuzzi"
+            },
+            {
+              "comune": "Veglie"
+            },
+            {
+              "comune": "Vernole"
+            },
+            {
+              "comune": "Zollino"
+            }
+          ],
+          "source": {
+            "label": "ADISU Puglia, Bando «Benefici e servizi» 2026/27, Allegato A",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        },
+        "Taranto": {
+          "inSede": [
+            {
+              "comune": "Taranto"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Carosino"
+            },
+            {
+              "comune": "Castellaneta"
+            },
+            {
+              "comune": "Crispiano"
+            },
+            {
+              "comune": "Faggiano"
+            },
+            {
+              "comune": "Fragagnano"
+            },
+            {
+              "comune": "Grottaglie"
+            },
+            {
+              "comune": "Leporano"
+            },
+            {
+              "comune": "Lizzano"
+            },
+            {
+              "comune": "Martina Franca"
+            },
+            {
+              "comune": "Massafra"
+            },
+            {
+              "comune": "Monteiasi"
+            },
+            {
+              "comune": "Montemesola"
+            },
+            {
+              "comune": "Monteparano"
+            },
+            {
+              "comune": "Mottola"
+            },
+            {
+              "comune": "Oria"
+            },
+            {
+              "comune": "Palagianello"
+            },
+            {
+              "comune": "Palagiano"
+            },
+            {
+              "comune": "Pulsano"
+            },
+            {
+              "comune": "Roccaforzata"
+            },
+            {
+              "comune": "San Giorgio Ionico"
+            },
+            {
+              "comune": "San Marzano di San Giuseppe"
+            },
+            {
+              "comune": "Sava"
+            },
+            {
+              "comune": "Statte"
+            },
+            {
+              "comune": "Torricella"
+            }
+          ],
+          "source": {
+            "label": "ADISU Puglia, Bando «Benefici e servizi» 2026/27, Allegato A",
+            "url": "https://adisupuglia.it//output_allegato.php?id=1444063"
+          }
+        }
+      },
       "fundedShare": null,
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito. Per le matricole la graduatoria segue l’ISEE.",
       "portal": {
@@ -2365,8 +2938,8 @@
       },
       "conditions": {
         "fuoriSede": "Residenza lontana dalla sede del corso e alloggio in residenza ERSU o in affitto con contratto registrato per almeno 10 mesi (dichiarazione di locazione dal 2 novembre 2026 all’8 gennaio 2027).",
-        "pendolare": "Residenza in un comune da cui si può raggiungere ogni giorno la sede (Tab. 8.2 del bando); finché non presenti il contratto d’affitto sei considerato pendolare.",
-        "inSede": "Residenza nel comune della sede o nell’area circostante (Tab. 8.1 del bando); anche chi segue corsi online.",
+        "pendolare": "Comuni della tab. 8.2 per la sede del corso; finché non presenti il contratto d’affitto sei considerato pendolare.",
+        "inSede": "Comuni «in sede» della tab. 8.1 per la sede del corso.",
         "source": {
           "label": "Bando ERSU Palermo 2026/27, artt. 22-23",
           "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
@@ -2394,7 +2967,439 @@
           "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
         }
       },
-      "municipalities": {},
+      "municipalities": {
+        "Palermo": {
+          "inSede": [
+            {
+              "comune": "Palermo"
+            },
+            {
+              "comune": "Altofonte"
+            },
+            {
+              "comune": "Bagheria"
+            },
+            {
+              "comune": "Capaci"
+            },
+            {
+              "comune": "Casteldaccia"
+            },
+            {
+              "comune": "Ficarazzi"
+            },
+            {
+              "comune": "Isola delle Femmine"
+            },
+            {
+              "comune": "Monreale"
+            },
+            {
+              "comune": "Santa Flavia"
+            },
+            {
+              "comune": "Villabate"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Altavilla Milicia"
+            },
+            {
+              "comune": "Balestrate"
+            },
+            {
+              "comune": "Belmonte Mezzagno"
+            },
+            {
+              "comune": "Bolognetta"
+            },
+            {
+              "comune": "Borgetto"
+            },
+            {
+              "comune": "Carini"
+            },
+            {
+              "comune": "Cefalù"
+            },
+            {
+              "comune": "Cinisi"
+            },
+            {
+              "comune": "Giardinello"
+            },
+            {
+              "comune": "Marineo"
+            },
+            {
+              "comune": "Misilmeri"
+            },
+            {
+              "comune": "Montelepre"
+            },
+            {
+              "comune": "Partinico"
+            },
+            {
+              "comune": "Piana degli Albanesi"
+            },
+            {
+              "comune": "San Cipirello"
+            },
+            {
+              "comune": "Santa Cristina Gela"
+            },
+            {
+              "comune": "San Giuseppe Jato"
+            },
+            {
+              "comune": "Termini Imerese"
+            },
+            {
+              "comune": "Terrasini"
+            },
+            {
+              "comune": "Torretta"
+            },
+            {
+              "comune": "Trabia"
+            },
+            {
+              "comune": "Trappeto"
+            },
+            {
+              "comune": "Villafrati"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        "Agrigento": {
+          "inSede": [
+            {
+              "comune": "Agrigento"
+            },
+            {
+              "comune": "Aragona"
+            },
+            {
+              "comune": "Favara"
+            },
+            {
+              "comune": "Joppolo Giancaxio"
+            },
+            {
+              "comune": "Porto Empedocle"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Camastra"
+            },
+            {
+              "comune": "Castrofilippo"
+            },
+            {
+              "comune": "Comitini"
+            },
+            {
+              "comune": "Grotte"
+            },
+            {
+              "comune": "Licata"
+            },
+            {
+              "comune": "Montallegro"
+            },
+            {
+              "comune": "Naro"
+            },
+            {
+              "comune": "Palma di Montechiaro"
+            },
+            {
+              "comune": "Racalmuto"
+            },
+            {
+              "comune": "Raffadali"
+            },
+            {
+              "comune": "Realmonte"
+            },
+            {
+              "comune": "Sant’Angelo Muxaro"
+            },
+            {
+              "comune": "Santa Elisabetta"
+            },
+            {
+              "comune": "Siculiana"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        "Caltanissetta": {
+          "inSede": [
+            {
+              "comune": "Caltanissetta"
+            },
+            {
+              "comune": "San Cataldo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Barrafranca"
+            },
+            {
+              "comune": "Bompensiere"
+            },
+            {
+              "comune": "Canicattì"
+            },
+            {
+              "comune": "Delia"
+            },
+            {
+              "comune": "Marianopoli"
+            },
+            {
+              "comune": "Montedoro"
+            },
+            {
+              "comune": "Pietraperzia"
+            },
+            {
+              "comune": "Santa Caterina Villarmosa"
+            },
+            {
+              "comune": "Serradifalco"
+            },
+            {
+              "comune": "Sommatino"
+            },
+            {
+              "comune": "Villarosa"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        "Marsala": {
+          "inSede": [
+            {
+              "comune": "Marsala"
+            },
+            {
+              "comune": "Petrosino"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Campobello di Mazara"
+            },
+            {
+              "comune": "Mazara del Vallo"
+            },
+            {
+              "comune": "Paceco"
+            },
+            {
+              "comune": "Trapani"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        "Ribera": {
+          "inSede": [
+            {
+              "comune": "Ribera"
+            },
+            {
+              "comune": "Calamonaci"
+            },
+            {
+              "comune": "Lucca Sicula"
+            },
+            {
+              "comune": "Villafranca Sicula"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alessandria della Rocca"
+            },
+            {
+              "comune": "Bisacquino"
+            },
+            {
+              "comune": "Bivona"
+            },
+            {
+              "comune": "Burgio"
+            },
+            {
+              "comune": "Caltabellotta"
+            },
+            {
+              "comune": "Cattolica Eraclea"
+            },
+            {
+              "comune": "Chiusa Sclafani"
+            },
+            {
+              "comune": "Cianciana"
+            },
+            {
+              "comune": "Giuliana"
+            },
+            {
+              "comune": "Menfi"
+            },
+            {
+              "comune": "Montallegro"
+            },
+            {
+              "comune": "Sambuca di Sicilia"
+            },
+            {
+              "comune": "Sant’Angelo Muxaro"
+            },
+            {
+              "comune": "Santo Stefano Quisquina"
+            },
+            {
+              "comune": "Sciacca"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        "Trapani": {
+          "inSede": [
+            {
+              "comune": "Trapani"
+            },
+            {
+              "comune": "Erice"
+            },
+            {
+              "comune": "Paceco"
+            },
+            {
+              "comune": "Valderice"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alcamo"
+            },
+            {
+              "comune": "Buseto Palizzolo"
+            },
+            {
+              "comune": "Calatafimi-Segesta",
+              "aliases": [
+                "Calatafimi Segesta",
+                "Calatafimi"
+              ]
+            },
+            {
+              "comune": "Castellammare del Golfo",
+              "aliases": [
+                "Castellamare del Golfo"
+              ]
+            },
+            {
+              "comune": "Custonaci"
+            },
+            {
+              "comune": "Gibellina"
+            },
+            {
+              "comune": "Marsala"
+            },
+            {
+              "comune": "Mazara del Vallo"
+            },
+            {
+              "comune": "Petrosino"
+            },
+            {
+              "comune": "Salemi"
+            },
+            {
+              "comune": "San Vito Lo Capo"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        },
+        "Cefalù": {
+          "inSede": [
+            {
+              "comune": "Cefalù"
+            },
+            {
+              "comune": "Lascari"
+            },
+            {
+              "comune": "Gratteri"
+            },
+            {
+              "comune": "Isnello"
+            },
+            {
+              "comune": "Pollina"
+            },
+            {
+              "comune": "Castelbuono"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Campofelice di Roccella"
+            },
+            {
+              "comune": "Collesano"
+            },
+            {
+              "comune": "San Mauro Castelverde"
+            },
+            {
+              "comune": "Scillato"
+            },
+            {
+              "comune": "Geraci Siculo"
+            },
+            {
+              "comune": "Polizzi Generosa"
+            },
+            {
+              "comune": "Petralia Sottana"
+            }
+          ],
+          "source": {
+            "label": "ERSU Palermo, Bando di concorso 2026/27, tabelle 8.1 e 8.2",
+            "url": "https://www.ersupalermo.it/wp-content/uploads/2026/06/Bando-di-Concorso-dellERSU-di-Palermo-a.a.-2026_2027.pdf"
+          }
+        }
+      },
       "fundedShare": null,
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
       "portal": {
@@ -2530,7 +3535,108 @@
           "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
         }
       },
-      "municipalities": {},
+      "municipalities": {
+        "Catania": {
+          "inSede": [
+            {
+              "comune": "Catania"
+            },
+            {
+              "comune": "Aci Castello"
+            },
+            {
+              "comune": "Gravina di Catania"
+            },
+            {
+              "comune": "Mascalucia"
+            },
+            {
+              "comune": "Misterbianco"
+            },
+            {
+              "comune": "San Giovanni La Punta"
+            },
+            {
+              "comune": "San Gregorio di Catania"
+            },
+            {
+              "comune": "San Pietro Clarenza"
+            },
+            {
+              "comune": "Sant’Agata li Battiati"
+            },
+            {
+              "comune": "Tremestieri Etneo"
+            },
+            {
+              "comune": "Valverde"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aci Bonaccorsi"
+            },
+            {
+              "comune": "Aci Catena"
+            },
+            {
+              "comune": "Acireale"
+            },
+            {
+              "comune": "Aci Sant’Antonio"
+            },
+            {
+              "comune": "Belpasso"
+            },
+            {
+              "comune": "Camporotondo Etneo"
+            },
+            {
+              "comune": "Giarre"
+            },
+            {
+              "comune": "Mascali"
+            },
+            {
+              "comune": "Motta Sant’Anastasia"
+            },
+            {
+              "comune": "Nicolosi"
+            },
+            {
+              "comune": "Paternò"
+            },
+            {
+              "comune": "Pedara"
+            },
+            {
+              "comune": "Ragalna"
+            },
+            {
+              "comune": "Riposto"
+            },
+            {
+              "comune": "Santa Venerina"
+            },
+            {
+              "comune": "Trecastagni"
+            },
+            {
+              "comune": "Viagrande"
+            },
+            {
+              "comune": "Zafferana Etnea",
+              "aliases": [
+                "Zafferana"
+              ]
+            }
+          ],
+          "source": {
+            "label": "ERSU Catania, Bando 2026/27, tab. 11",
+            "url": "https://www.ersucatania.it/wp-content/uploads/2026/06/Bando-ERSU-CT-2026-27-Delibera-45.pdf"
+          }
+        }
+      },
       "fundedShare": null,
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
       "portal": {

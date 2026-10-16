@@ -1389,3 +1389,38 @@ describe('Basilicata 2026/27: tasse Unibas', () => {
     expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
   });
 });
+
+describe('Sicilia 2026/27: elenchi dei comuni di ERSU Palermo e Catania', () => {
+  it('Palermo: tab. 8.1-8.2 per sette sedi', () => {
+    const ersu = dsuEntityFor('ateneo-08201')!;
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Palermo', 'Bagheria')).toBe('inSede');
+    expect(check('Palermo', 'Santa Flavia')).toBe('inSede');
+    expect(check('Palermo', 'Partinico')).toBe('pendolare');
+    expect(check('Trapani', 'Castellamare del Golfo')).toBe('pendolare');
+    expect(check('Agrigento', 'Favara')).toBe('inSede');
+    expect(check('Palermo', 'Messina')).toBe('fuoriSede');
+  });
+
+  it('Catania: tab. 11 per la sede di Catania', () => {
+    const ersu = dsuEntityFor('ateneo-08701')!;
+    const check = (city: string) => conditionFromMunicipality(ersu, 'Catania', city, true)?.condition;
+    expect(check('Misterbianco')).toBe('inSede');
+    expect(check('Acireale')).toBe('pendolare');
+    expect(check('Zafferana')).toBe('pendolare');
+    expect(check('Palermo')).toBe('fuoriSede');
+  });
+});
+
+describe('Puglia 2026/27: elenchi dei comuni ADISU (Allegato A)', () => {
+  it('in sede solo nel comune della sede, pendolari dall’elenco, il resto fuori sede', () => {
+    const adisu = dsuEntityFor('ateneo-07201')!;
+    expect(adisu.id).toBe('adisu-puglia');
+    const check = (seat: string, city: string) => conditionFromMunicipality(adisu, seat, city, true)?.condition;
+    expect(check('Bari', 'Bari')).toBe('inSede');
+    expect(check('Bari', 'Molfetta')).toBe('pendolare');
+    expect(check('Lecce', 'Nardò')).toBe('pendolare');
+    expect(check('Taranto', 'Martina Franca')).toBe('pendolare');
+    expect(check('Foggia', 'Bari')).toBe('fuoriSede');
+  });
+});
