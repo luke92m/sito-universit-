@@ -16645,6 +16645,201 @@
         }
       },
       "simulator": "https://www.simulatoretasse.uniparthenope.it/frmSelezione.aspx"
+    },
+    "ateneo-05806": {
+      "name": "Università di Roma Foro Italico",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole a tempo pieno, con ISEE per il diritto allo studio. Regolamento in vigore dal 2024/25, richiamato dalla pagina «Tasse universitarie» dell’Ateneo.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata: tassa regionale 140 € e bollo 16 €, entro il 31 ottobre.",
+      "bands": [
+        {
+          "iseeMax": 23000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 24000,
+          "from": 13000,
+          "rate": 0.014,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 13000,
+          "rate": 0.035,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000,
+          "rate": 0.063,
+          "base": 0
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 1201.98
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1340.13
+        }
+      ],
+      "bandsSource": {
+        "label": "Foro Italico, Regolamento tasse e contributi (prot. 3015 del 5/6/2024), art. 3, Tabelle 3-4",
+        "url": "https://www.uniroma4.it/wp-content/uploads/2025/12/Regolamento_Tasse_Contributi_Studenti_prot_3015_05-06-2024_da-aa-2024-25_PROT_WEB.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "triennale",
+          "label": "laurea triennale",
+          "groups": [],
+          "levels": [
+            "triennale"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 24000,
+              "from": 13000,
+              "rate": 0.014,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 13000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1201.98
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1340.13
+            }
+          ],
+          "max": 1340.13
+        },
+        {
+          "id": "magistrale",
+          "label": "laurea magistrale",
+          "groups": [],
+          "levels": [
+            "magistrale",
+            "ciclo-unico"
+          ],
+          "bands": [
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 24000,
+              "from": 13000,
+              "rate": 0.014,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 13000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000,
+              "rate": 0.063,
+              "base": 0
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 1703.97
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1987.65
+            }
+          ],
+          "max": 1987.65
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 1340.13,
+        "ciclo-unico": 1987.65,
+        "magistrale": 1987.65
+      },
+      "maxExceptions": [],
+      "maxNote": "Matricole: esonero fino a 23.000 €; da 23.000 a 30.000 € (ISEE − 13.000) × 7% ridotto dell’80, 50, 25 o 10% (al massimo 1.071,45 € in triennale, 1.190 € in magistrale); da 30.000 a 50.000 € 1.201,98 € (triennale) o 1.703,97 € (magistrale); oltre o senza ISEE 1.340,13 € o 1.987,65 €. L’Ateneo tronca gli importi all’euro. Nel master europeo Health and Physical Activity gli studenti stranieri delle università partner possono pagare una quota fissa (1.600 € l’anno); per gli altri vale l’ISEE.",
+      "maxSource": {
+        "label": "Foro Italico, Regolamento tasse e contributi (prot. 3015 del 5/6/2024), art. 3, Tabelle 3-4",
+        "url": "https://www.uniroma4.it/wp-content/uploads/2025/12/Regolamento_Tasse_Contributi_Studenti_prot_3015_05-06-2024_da-aa-2024-25_PROT_WEB.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale 140 € e bollo 16 €) entro il 31 ottobre",
+          "Seconda rata (50% del contributo) entro il 15 dicembre",
+          "Terza rata (50% del contributo) entro il 30 aprile"
+        ],
+        "note": "L’ISEE per il diritto allo studio va richiesto entro il 30 novembre (entro il 31 dicembre con mora); senza, si paga il massimo. Mora di 50 € fino al 60° giorno di ritardo, poi 100 €.",
+        "source": {
+          "label": "Foro Italico, pagina «Tasse universitarie»",
+          "url": "https://www.uniroma4.it/index.php/come-fare-per/immatricolarsi-iscriversi/tasse-universitarie/"
+        }
+      },
+      "simulator": "https://www.uniroma4.it/index.php/come-fare-per/immatricolarsi-iscriversi/tasse-universitarie/"
     }
   }
 }

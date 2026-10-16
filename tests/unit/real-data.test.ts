@@ -1546,3 +1546,17 @@ describe('Piemonte Orientale: gruppi per dipartimento', () => {
     expect(isExcludedCourse(rule, named('Chimica Verde'))).toBe(true);
   });
 });
+
+describe('Foro Italico: tasse per ISEE', () => {
+  const rule = tuitionRuleFor('ateneo-05806')!;
+  const named = (name: string) => getCourses('ateneo-05806').find((course) => course.name === name)!;
+  it('Esonero fino a 23.000 €, poi 7% con le riduzioni del D.M. 1014, poi importi fissi', () => {
+    const tri = courseGroup(rule, named('Corso di Laurea in Scienze Motorie e Sportive'))!;
+    expect(contributionFor(rule, 23000, tri.max, tri.bands)).toBe(0);
+    expect(contributionFor(rule, 25000, tri.max, tri.bands)).toBe(420);
+    expect(contributionFor(rule, 40000, tri.max, tri.bands)).toBe(1201.98);
+    expect(contributionFor(rule, null, tri.max, tri.bands)).toBe(1340.13);
+    expect(maxContribution(rule, named('Management dello Sport'))).toBe(1987.65);
+    expect(maxContribution(rule, named('Health And Physical Activity'))).toBe(1987.65);
+  });
+});
