@@ -8138,6 +8138,127 @@
         "label": "ADSU Chieti-Pescara, Bandi borse di studio",
         "url": "https://www.adsuchietipescara.it/bandi-borse-di-studio"
       }
+    },
+    {
+      "id": "adsu-laquila",
+      "name": "ADSU L’Aquila – Azienda per il diritto agli studi universitari",
+      "shortName": "ADSU L’Aquila",
+      "region": "Abruzzo",
+      "universityIds": [
+        "ateneo-06601"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 24335.11,
+        "ispe": 52902.43,
+        "source": {
+          "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 11",
+          "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali che comprendono la quota vitto (1.017,83 € con un pasto al giorno, 2.035,67 € con due per i fuori sede) e, per i fuori sede, la quota alloggio (fino a 1.747,39 €, pari al canone del contratto per 10 mesi). Tre fasce ISEE a scalini.",
+        "bands": [
+          {
+            "iseeMax": 16223.4,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 3907.99
+          },
+          {
+            "iseeMax": 20279.18,
+            "fuoriSede": 6324.1,
+            "pendolare": 3397.49,
+            "inSede": 3185.45
+          },
+          {
+            "iseeMax": 24335.11,
+            "fuoriSede": 5477.09,
+            "pendolare": 2604.27,
+            "inSede": 2462.91
+          }
+        ],
+        "source": {
+          "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 13",
+          "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+15% con ISEE fino a 12.167,55 € (metà della soglia)",
+          "iseeMax": 12167.55,
+          "percent": 15,
+          "conditional": "non cumulabile con il +20% S.T.E.M.: si applica il più favorevole",
+          "source": {
+            "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 13",
+            "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+          }
+        },
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%",
+          "source": {
+            "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 13",
+            "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 13",
+            "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (due pasti al giorno ai fuori sede, uno agli altri)",
+        "Posto letto gratuito nelle residenze ADSU per i fuori sede assegnatari (la quota alloggio viene trattenuta)",
+        "Rimborso della tassa regionale (140 €)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ADSU L’Aquila, Bando borse di studio 2026/27, artt. 13-14",
+        "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza ad almeno 50 km dalla sede del corso e alloggio a titolo oneroso vicino alla sede per almeno 10 mesi, con contratto registrato da inviare entro il 30 ottobre 2026.",
+        "pendolare": "Residenza tra 20 e 50 km dalla sede, oppure oltre 50 km senza affitto a pagamento (con meno di 4 ore di viaggio al giorno) o con comodato gratuito registrato.",
+        "inSede": "Residenza a L’Aquila o entro 20 km dalla sede; anche oltre 50 km con più di 4 ore di viaggio al giorno e senza affitto. Gli iscritti ai corsi telematici sono in sede.",
+        "source": {
+          "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 3",
+          "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "Un altro 30% entro il 31 dicembre 2026",
+          "Restante 50% al raggiungimento di 20 crediti entro il 30 novembre 2027"
+        ],
+        "note": "La tassa regionale viene rimborsata alle matricole solo dopo la verifica dei 20 crediti.",
+        "source": {
+          "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 14",
+          "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-08-31",
+        "note": "Domanda online sul portale ADSU con l’ISEE per il diritto allo studio universitario 2026.",
+        "source": {
+          "label": "ADSU L’Aquila, Bando borse di studio 2026/27, art. 5",
+          "url": "https://adsuaq.org/wp-content/uploads/2026/07/BANDO-BORSE-DI-STUDIO-2026-2027-1.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ADSU L’Aquila, Bandi borse di studio",
+        "url": "https://adsuaq.org/servizi-agli-studenti/bandi-borse-di-studio/"
+      }
     }
   ]
 }

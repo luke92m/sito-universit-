@@ -42,6 +42,7 @@ Borse (bandi 2026/27):
 | ADiSU Umbria | Perugia, Stranieri di Perugia | 28.339,88 / 61.608,48 | Allegato 1 (5 sedi) |
 | ERDIS Marche | Politecnica delle Marche, Macerata, Camerino, Urbino | 24.000 / 50.000 | Allegato E (13 sedi, solo pendolari) |
 | ADSU Chieti-Pescara | Chieti-Pescara | 24.335,11 / 52.902,43 | Tabelle del bando (Chieti, Pescara, Vasto) |
+| ADSU L'Aquila | L'Aquila | 24.335,11 / 52.902,43 | nessun elenco: stato per distanza (20/50 km) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -97,6 +98,9 @@ Tasse (2026/27):
 - **Camerino**: non inserito. Il regolamento tasse 2026/27 non è pubblicato in PDF; il calcolatore online (vele.unicam.it) dà importi senza dire quali riduzioni applica.
 - **ERDIS Marche**: bando borsa 2026/27, artt. 8, 10, 12, 17 e Allegati E-F: soglie ISEE 24.000 € e ISPE 50.000 € (più basse di quelle nazionali), importi a scalini della Tab. 59 comprensivi di alloggio e mensa. In sede = solo il comune sede del corso; pendolari = comuni dell'Allegato E per 13 sedi (riletti a mano).
 - **ADSU Chieti-Pescara**: bando borse 2026/27, artt. 4-6, 16, 19-20 e tabelle dei comuni (pag. 29): soglie regionali (DGR Abruzzo 397/2026), tre fasce ISEE a scalini (quota denaro al 100%, 75%, 50%). Importi totali con quota vitto e, per i fuori sede, quota alloggio. La prima fascia con il +15% fino a 12.167,55 € è calcolata da noi sulla regola del bando. Comuni in sede e pendolari per Chieti, Pescara e Vasto (abbreviazioni sciolte a mano). Tasse della d'Annunzio non inserite: il regolamento 2026/27 è pubblicato solo in inglese, con parti dell'anno precedente e senza la tabella degli importi (rimanda al simulatore).
+- **L'Aquila (tasse)**: Guida tasse e contributi 2026/27 (delibere CdA 186 e 251/2026), § 4: schema unico del COA per tutti i corsi, esonero sotto 24.000 €, massimo 1.600 €. Non calcolati gli sconti per voto di diploma e i correttivi per i crediti.
+- **ADSU L'Aquila**: bando borse 2026/27, artt. 3, 5, 11, 13-14: stesse soglie e fasce di Chieti-Pescara (indirizzi della Regione Abruzzo). Il +15% fino a metà soglia è un incremento a parte, perché il bando non dice se tocca anche alloggio e vitto. Lo stato dipende dai km (fino a 20 in sede, 20-50 pendolare, oltre 50 fuori sede con affitto): nessun elenco di comuni.
+- **ADSU Teramo e tasse di Teramo**: non inseriti, bando 2026/27 non raggiungibile (sito dell'ente non risponde).
 
 ## Fonti
 

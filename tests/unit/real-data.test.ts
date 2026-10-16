@@ -1302,3 +1302,23 @@ describe('Abruzzo 2026/27: borse ADSU Chieti-Pescara', () => {
     expect(check('Pescara', 'Roma')).toBe('fuoriSede');
   });
 });
+
+describe('Abruzzo 2026/27: tasse UnivAQ e borse ADSU L’Aquila', () => {
+  it('UnivAQ: esonero sotto 24.000 €, poi schema a fasce fino a 1.600 €', () => {
+    const rule = tuitionRuleFor('ateneo-06601')!;
+    expect(contributionFor(rule, 23000, 1600)).toBe(0);
+    expect(contributionFor(rule, 30000, 1600)).toBe(680);
+    expect(contributionFor(rule, 40000, 1600)).toBe(1240);
+    expect(contributionFor(rule, 60000, 1600)).toBe(1600);
+    expect(contributionFor(rule, null, 1600)).toBe(1600);
+  });
+
+  it('ADSU L’Aquila: stesse fasce regionali, stato per distanza', () => {
+    const adsu = dsuEntityFor('ateneo-06601')!;
+    expect(adsu.id).toBe('adsu-laquila');
+    expect(adsu.thresholds).toMatchObject({ isee: 24335.11, ispe: 52902.43 });
+    expect(amountAt(adsu, 15000, 'fuoriSede')).toBe(7171.11);
+    expect(amountAt(adsu, 18000, 'pendolare')).toBe(3397.49);
+    expect(conditionFromMunicipality(adsu, 'L’Aquila', 'Avezzano', true)).toBeNull();
+  });
+});

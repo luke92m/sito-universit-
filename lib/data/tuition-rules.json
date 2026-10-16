@@ -14426,6 +14426,80 @@
         }
       },
       "simulator": "https://www.uniurb.it/studiaconnoi/studenti/contributi"
+    },
+    "ateneo-06601": {
+      "name": "Università degli Studi dell’Aquila",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti iscritti entro il primo anno fuori corso, con ISEE Università 2026.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Tassa di iscrizione di 156 €: tassa regionale per il diritto allo studio (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 23999.99,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 31999.99,
+          "from": 24000,
+          "rate": 0.1,
+          "base": 80
+        },
+        {
+          "iseeMax": 44999.99,
+          "from": 32000,
+          "rate": 0.045,
+          "base": 880
+        },
+        {
+          "iseeMax": 59999.99,
+          "from": 45000,
+          "rate": 0.009,
+          "base": 1465
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1600
+        }
+      ],
+      "bandsSource": {
+        "label": "UnivAQ, Guida tasse e contributi 2026/27, § 4 (schema di calcolo del COA)",
+        "url": "https://www.univaq.it/include/utilities/blob.php?table=avviso&id=17197&item=allegato"
+      },
+      "maxByLevel": {
+        "triennale": 1600,
+        "ciclo-unico": 1600,
+        "magistrale": 1600
+      },
+      "maxExceptions": [],
+      "maxNote": "Stesso schema per tutti i corsi. Esonero sotto 24.000 € di ISEE Università; poi 80 € + 10% oltre 24.000 €, 880 € + 4,5% oltre 32.000 €, 1.465 € + 0,9% oltre 45.000 €; 1.600 € da 60.000 € o senza ISEE. Non sono calcolati gli sconti per il voto di diploma (fino a 350 € per le matricole) e i correttivi per i crediti degli anni successivi. Dal secondo anno fuori corso lo schema è più alto (fino a 1.990 €).",
+      "maxSource": {
+        "label": "UnivAQ, Guida tasse e contributi 2026/27, § 4",
+        "url": "https://www.univaq.it/include/utilities/blob.php?table=avviso&id=17197&item=allegato"
+      },
+      "payments": {
+        "steps": [
+          "Tassa di iscrizione (156 €) dal 18 luglio al 31 ottobre 2026",
+          "Contributo fino a 250 €: unica rata entro il 31 gennaio 2027",
+          "Tra 250 e 500 €: metà entro il 31 gennaio e metà entro il 31 maggio 2027",
+          "Oltre 500 €: tre rate entro il 31 gennaio, il 31 marzo e il 31 maggio 2027"
+        ],
+        "note": "L’autocertificazione con l’ISEE Università va confermata in Segreteria Virtuale entro il 20 dicembre 2026; senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UnivAQ, Guida tasse e contributi 2026/27, § 5",
+          "url": "https://www.univaq.it/include/utilities/blob.php?table=avviso&id=17197&item=allegato"
+        }
+      },
+      "simulator": "https://www.univaq.it/include/utilities/blob.php?table=avviso&id=17197&item=allegato"
     }
   }
 }
