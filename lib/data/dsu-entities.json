@@ -6070,6 +6070,1226 @@
         "label": "ADiSU Umbria, Bando borse di studio 2026/27",
         "url": "https://www.adisu.umbria.it/concorso-borsa-di-studio/bando/2026-2027/bando-di-concorso-lassegnazione-di-borse-di-studio-e-altri"
       }
+    },
+    {
+      "id": "erdis-marche",
+      "name": "ERDIS Marche – Ente regionale per il diritto allo studio",
+      "shortName": "ERDIS Marche",
+      "region": "Marche",
+      "universityIds": [
+        "ateneo-04201",
+        "ateneo-04301",
+        "ateneo-04302",
+        "ateneo-04101"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 24000,
+        "ispe": 50000,
+        "source": {
+          "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 8.2",
+          "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi della Tab. 59 (Allegato F) a scalini: +15% fino a 12.000 € di ISEE, poi riduzioni del 12,5% ogni 2.000 € fino alla metà a 24.000 €. Per i fuori sede comprendono alloggio (2.821 €) e due pasti al giorno (2.011 €), con almeno 839 € in contanti; per i pendolari un pasto al giorno (1.005,50 €).",
+        "bands": [
+          {
+            "iseeMax": 12000,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 16000,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 18000,
+            "fuoriSede": 6274.72,
+            "pendolare": 3666.87,
+            "inSede": 2528.89
+          },
+          {
+            "iseeMax": 20000,
+            "fuoriSede": 5671,
+            "pendolare": 3143.03,
+            "inSede": 2167.62
+          },
+          {
+            "iseeMax": 22000,
+            "fuoriSede": 5671,
+            "pendolare": 2619.19,
+            "inSede": 1806.35
+          },
+          {
+            "iseeMax": 24000,
+            "fuoriSede": 5671,
+            "pendolare": 2095.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.7 e Allegato F, Tab. 59",
+          "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con la maggiorazione del 15%",
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.5",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi",
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.6",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Mensa gratuita (due pasti al giorno ai fuori sede, uno ai pendolari)",
+        "Posto letto ERDIS gratuito per i fuori sede, se disponibile",
+        "Esonero dalle tasse universitarie e dalla tassa regionale"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ERDIS Marche, Bando borsa di studio 2026/27, artt. 12.7 e 17",
+        "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato per la sede (oltre 60 minuti con i mezzi) e alloggio a pagamento vicino alla sede per almeno 10 mesi.",
+        "pendolare": "Comuni dell’Allegato E per la sede del corso (fino a 60 minuti con i mezzi pubblici); anche chi è ospite gratis vicino alla sede.",
+        "inSede": "Residenza nel comune sede del corso.",
+        "source": {
+          "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1",
+          "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "30% entro il 31 dicembre 2026",
+          "50% con almeno 20 crediti conseguiti entro il 10 agosto 2027"
+        ],
+        "note": "Per le magistrali: 50% entro il 31 dicembre 2026 e 50% con 20 crediti entro il 10 agosto 2027.",
+        "source": {
+          "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 17.3",
+          "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-08-28",
+        "note": "Domanda online sul portale ERDIS con SPID, CIE o CNS e l’attestazione ISEE.",
+        "source": {
+          "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 10.1",
+          "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+        }
+      },
+      "municipalities": {
+        "Ancona": {
+          "inSede": [
+            {
+              "comune": "Ancona"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Agugliano"
+            },
+            {
+              "comune": "Belvedere Ostrense"
+            },
+            {
+              "comune": "Camerano"
+            },
+            {
+              "comune": "Camerata Picena"
+            },
+            {
+              "comune": "Castelbellino"
+            },
+            {
+              "comune": "Castelfidardo"
+            },
+            {
+              "comune": "Castelplanio"
+            },
+            {
+              "comune": "Chiaravalle"
+            },
+            {
+              "comune": "Civitanova Marche"
+            },
+            {
+              "comune": "Falconara Marittima"
+            },
+            {
+              "comune": "Fano"
+            },
+            {
+              "comune": "Filottrano"
+            },
+            {
+              "comune": "Jesi"
+            },
+            {
+              "comune": "Loreto"
+            },
+            {
+              "comune": "Mondolfo"
+            },
+            {
+              "comune": "Monsano"
+            },
+            {
+              "comune": "Monte San Vito"
+            },
+            {
+              "comune": "Montefano"
+            },
+            {
+              "comune": "Montemarciano"
+            },
+            {
+              "comune": "Morro d’Alba"
+            },
+            {
+              "comune": "Numana"
+            },
+            {
+              "comune": "Offagna"
+            },
+            {
+              "comune": "Osimo"
+            },
+            {
+              "comune": "Ostra"
+            },
+            {
+              "comune": "Pedaso"
+            },
+            {
+              "comune": "Pesaro"
+            },
+            {
+              "comune": "Polverigi"
+            },
+            {
+              "comune": "Porto Recanati"
+            },
+            {
+              "comune": "Porto San Giorgio"
+            },
+            {
+              "comune": "Porto Sant’Elpidio"
+            },
+            {
+              "comune": "Potenza Picena"
+            },
+            {
+              "comune": "Recanati"
+            },
+            {
+              "comune": "San Marcello"
+            },
+            {
+              "comune": "Santa Maria Nuova"
+            },
+            {
+              "comune": "Senigallia"
+            },
+            {
+              "comune": "Serra San Quirico"
+            },
+            {
+              "comune": "Sirolo"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Ascoli Piceno": {
+          "inSede": [
+            {
+              "comune": "Ascoli Piceno"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Acquasanta Terme"
+            },
+            {
+              "comune": "Castel di Lama"
+            },
+            {
+              "comune": "Colli del Tronto"
+            },
+            {
+              "comune": "Folignano"
+            },
+            {
+              "comune": "Maltignano"
+            },
+            {
+              "comune": "Monsampolo del Tronto"
+            },
+            {
+              "comune": "Monteprandone"
+            },
+            {
+              "comune": "Nereto"
+            },
+            {
+              "comune": "Palmiano"
+            },
+            {
+              "comune": "Roccafluvione"
+            },
+            {
+              "comune": "San Benedetto del Tronto"
+            },
+            {
+              "comune": "Sant’Egidio alla Vibrata"
+            },
+            {
+              "comune": "Sant’Omero"
+            },
+            {
+              "comune": "Spinetoli"
+            },
+            {
+              "comune": "Venarotta"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Camerino": {
+          "inSede": [
+            {
+              "comune": "Camerino"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Belforte del Chienti"
+            },
+            {
+              "comune": "Caldarola"
+            },
+            {
+              "comune": "Castelraimondo"
+            },
+            {
+              "comune": "Cerreto d’Esi"
+            },
+            {
+              "comune": "Esanatoglia"
+            },
+            {
+              "comune": "Fiuminata"
+            },
+            {
+              "comune": "Gagliole"
+            },
+            {
+              "comune": "Matelica"
+            },
+            {
+              "comune": "Montecavallo",
+              "aliases": [
+                "Monte Cavallo"
+              ]
+            },
+            {
+              "comune": "Muccia"
+            },
+            {
+              "comune": "Pieve Torina"
+            },
+            {
+              "comune": "Pioraco"
+            },
+            {
+              "comune": "San Severino Marche"
+            },
+            {
+              "comune": "Sefro"
+            },
+            {
+              "comune": "Serravalle di Chienti"
+            },
+            {
+              "comune": "Tolentino"
+            },
+            {
+              "comune": "Valfornace"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Fabriano": {
+          "inSede": [
+            {
+              "comune": "Fabriano"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Cerreto d’Esi"
+            },
+            {
+              "comune": "Esanatoglia"
+            },
+            {
+              "comune": "Fossato di Vico"
+            },
+            {
+              "comune": "Genga"
+            },
+            {
+              "comune": "Jesi"
+            },
+            {
+              "comune": "Matelica"
+            },
+            {
+              "comune": "Sassoferrato"
+            },
+            {
+              "comune": "Serra San Quirico"
+            },
+            {
+              "comune": "Sigillo"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Fano": {
+          "inSede": [
+            {
+              "comune": "Fano"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Acqualagna"
+            },
+            {
+              "comune": "Ancona"
+            },
+            {
+              "comune": "Cartoceto"
+            },
+            {
+              "comune": "Cattolica"
+            },
+            {
+              "comune": "Colli al Metauro"
+            },
+            {
+              "comune": "Falconara Marittima"
+            },
+            {
+              "comune": "Fossombrone"
+            },
+            {
+              "comune": "Fratte Rosa"
+            },
+            {
+              "comune": "Gabicce Mare"
+            },
+            {
+              "comune": "Gradara"
+            },
+            {
+              "comune": "Misano Adriatico"
+            },
+            {
+              "comune": "Mombaroccio"
+            },
+            {
+              "comune": "Mondavio"
+            },
+            {
+              "comune": "Mondolfo"
+            },
+            {
+              "comune": "Montefelcino"
+            },
+            {
+              "comune": "Monte Porzio"
+            },
+            {
+              "comune": "Pesaro"
+            },
+            {
+              "comune": "San Costanzo"
+            },
+            {
+              "comune": "Sant’Ippolito"
+            },
+            {
+              "comune": "Senigallia"
+            },
+            {
+              "comune": "Riccione"
+            },
+            {
+              "comune": "Rimini"
+            },
+            {
+              "comune": "Tavullia"
+            },
+            {
+              "comune": "Terre Roveresche"
+            },
+            {
+              "comune": "Vallefoglia"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Fermo": {
+          "inSede": [
+            {
+              "comune": "Fermo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Altidona"
+            },
+            {
+              "comune": "Belmonte Piceno"
+            },
+            {
+              "comune": "Campofilone"
+            },
+            {
+              "comune": "Carassai"
+            },
+            {
+              "comune": "Civitanova Marche"
+            },
+            {
+              "comune": "Cupramarittima",
+              "aliases": [
+                "Cupra Marittima"
+              ]
+            },
+            {
+              "comune": "Falerone"
+            },
+            {
+              "comune": "Francavilla d’Ete"
+            },
+            {
+              "comune": "Grottammare"
+            },
+            {
+              "comune": "Grottazzolina"
+            },
+            {
+              "comune": "Lapedona"
+            },
+            {
+              "comune": "Loreto"
+            },
+            {
+              "comune": "Magliano di Tenna"
+            },
+            {
+              "comune": "Massignano"
+            },
+            {
+              "comune": "Monsampietro Morico"
+            },
+            {
+              "comune": "Monte San Giusto"
+            },
+            {
+              "comune": "Monte San Pietrangeli"
+            },
+            {
+              "comune": "Monte Urano"
+            },
+            {
+              "comune": "Monte Vidon Combatte"
+            },
+            {
+              "comune": "Monte Vidon Corrado"
+            },
+            {
+              "comune": "Montefiore dell’Aso"
+            },
+            {
+              "comune": "Montegiberto"
+            },
+            {
+              "comune": "Montegiorgio"
+            },
+            {
+              "comune": "Montegranaro"
+            },
+            {
+              "comune": "Monteleone di Fermo"
+            },
+            {
+              "comune": "Monterinaldo"
+            },
+            {
+              "comune": "Monterubbiano"
+            },
+            {
+              "comune": "Monte San Martino"
+            },
+            {
+              "comune": "Montottone"
+            },
+            {
+              "comune": "Moresco"
+            },
+            {
+              "comune": "Ortezzano"
+            },
+            {
+              "comune": "Pedaso"
+            },
+            {
+              "comune": "Petritoli"
+            },
+            {
+              "comune": "Ponzano di Fermo"
+            },
+            {
+              "comune": "Porto Recanati"
+            },
+            {
+              "comune": "Porto San Giorgio"
+            },
+            {
+              "comune": "Porto Sant’Elpidio"
+            },
+            {
+              "comune": "Rapagnano"
+            },
+            {
+              "comune": "San Benedetto del Tronto"
+            },
+            {
+              "comune": "Sant’Elpidio a Mare"
+            },
+            {
+              "comune": "Servigliano"
+            },
+            {
+              "comune": "Torre San Patrizio"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Jesi": {
+          "inSede": [
+            {
+              "comune": "Jesi"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Agugliano"
+            },
+            {
+              "comune": "Ancona"
+            },
+            {
+              "comune": "Apiro"
+            },
+            {
+              "comune": "Belvedere Ostrense"
+            },
+            {
+              "comune": "Camerata Picena"
+            },
+            {
+              "comune": "Castelbellino"
+            },
+            {
+              "comune": "Castelplanio"
+            },
+            {
+              "comune": "Chiaravalle"
+            },
+            {
+              "comune": "Cingoli"
+            },
+            {
+              "comune": "Cupramontana"
+            },
+            {
+              "comune": "Fabriano"
+            },
+            {
+              "comune": "Falconara Marittima"
+            },
+            {
+              "comune": "Filottrano"
+            },
+            {
+              "comune": "Genga"
+            },
+            {
+              "comune": "Maiolati Spontini"
+            },
+            {
+              "comune": "Mergo"
+            },
+            {
+              "comune": "Monsano"
+            },
+            {
+              "comune": "Monte San Vito"
+            },
+            {
+              "comune": "Montecarotto"
+            },
+            {
+              "comune": "Montemarciano"
+            },
+            {
+              "comune": "Monte Roberto"
+            },
+            {
+              "comune": "Morro d’Alba"
+            },
+            {
+              "comune": "Offagna"
+            },
+            {
+              "comune": "Osimo"
+            },
+            {
+              "comune": "Ostra"
+            },
+            {
+              "comune": "Ostra Vetere"
+            },
+            {
+              "comune": "Poggio San Marcello"
+            },
+            {
+              "comune": "Polverigi"
+            },
+            {
+              "comune": "Rosora"
+            },
+            {
+              "comune": "San Marcello"
+            },
+            {
+              "comune": "San Paolo di Jesi"
+            },
+            {
+              "comune": "Santa Maria Nuova"
+            },
+            {
+              "comune": "Senigallia"
+            },
+            {
+              "comune": "Serra de’ Conti"
+            },
+            {
+              "comune": "Serra San Quirico"
+            },
+            {
+              "comune": "Staffolo"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Macerata": {
+          "inSede": [
+            {
+              "comune": "Macerata"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Appignano"
+            },
+            {
+              "comune": "Belforte del Chienti"
+            },
+            {
+              "comune": "Cingoli"
+            },
+            {
+              "comune": "Civitanova Marche"
+            },
+            {
+              "comune": "Colmurano"
+            },
+            {
+              "comune": "Corridonia"
+            },
+            {
+              "comune": "Filottrano"
+            },
+            {
+              "comune": "Francavilla d’Ete"
+            },
+            {
+              "comune": "Loreto"
+            },
+            {
+              "comune": "Loro Piceno"
+            },
+            {
+              "comune": "Mogliano"
+            },
+            {
+              "comune": "Monte San Giusto"
+            },
+            {
+              "comune": "Montecassiano"
+            },
+            {
+              "comune": "Montecosaro"
+            },
+            {
+              "comune": "Montefano"
+            },
+            {
+              "comune": "Montegranaro"
+            },
+            {
+              "comune": "Montelupone"
+            },
+            {
+              "comune": "Morrovalle"
+            },
+            {
+              "comune": "Petriolo"
+            },
+            {
+              "comune": "Pollenza"
+            },
+            {
+              "comune": "Potenza Picena"
+            },
+            {
+              "comune": "Recanati"
+            },
+            {
+              "comune": "Ripe San Ginesio"
+            },
+            {
+              "comune": "San Severino Marche"
+            },
+            {
+              "comune": "Tolentino"
+            },
+            {
+              "comune": "Treia"
+            },
+            {
+              "comune": "Urbisaglia"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Matelica": {
+          "inSede": [
+            {
+              "comune": "Matelica"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Camerino"
+            },
+            {
+              "comune": "Castelraimondo"
+            },
+            {
+              "comune": "Cerreto d’Esi"
+            },
+            {
+              "comune": "Esanatoglia"
+            },
+            {
+              "comune": "Fabriano"
+            },
+            {
+              "comune": "Gagliole"
+            },
+            {
+              "comune": "Genga"
+            },
+            {
+              "comune": "Pioraco"
+            },
+            {
+              "comune": "San Severino Marche"
+            },
+            {
+              "comune": "Sefro"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Montecassiano": {
+          "inSede": [
+            {
+              "comune": "Montecassiano"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Appignano"
+            },
+            {
+              "comune": "Castelfidardo"
+            },
+            {
+              "comune": "Corridonia"
+            },
+            {
+              "comune": "Filottrano"
+            },
+            {
+              "comune": "Loreto"
+            },
+            {
+              "comune": "Macerata"
+            },
+            {
+              "comune": "Montefano"
+            },
+            {
+              "comune": "Montelupone"
+            },
+            {
+              "comune": "Osimo"
+            },
+            {
+              "comune": "Pollenza"
+            },
+            {
+              "comune": "Recanati"
+            },
+            {
+              "comune": "Treia"
+            },
+            {
+              "comune": "Urbisaglia"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Pesaro": {
+          "inSede": [
+            {
+              "comune": "Pesaro"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Ancona"
+            },
+            {
+              "comune": "Cattolica"
+            },
+            {
+              "comune": "Colli al Metauro"
+            },
+            {
+              "comune": "Falconara Marittima"
+            },
+            {
+              "comune": "Fano"
+            },
+            {
+              "comune": "Fossombrone"
+            },
+            {
+              "comune": "Gabicce Mare"
+            },
+            {
+              "comune": "Gradara"
+            },
+            {
+              "comune": "Misano Adriatico"
+            },
+            {
+              "comune": "Mombaroccio"
+            },
+            {
+              "comune": "Montecalvo in Foglia"
+            },
+            {
+              "comune": "Montelabbate"
+            },
+            {
+              "comune": "Morciano di Romagna"
+            },
+            {
+              "comune": "Petriano"
+            },
+            {
+              "comune": "Riccione"
+            },
+            {
+              "comune": "Rimini"
+            },
+            {
+              "comune": "Saludecio"
+            },
+            {
+              "comune": "San Costanzo"
+            },
+            {
+              "comune": "San Giovanni in Marignano"
+            },
+            {
+              "comune": "Senigallia"
+            },
+            {
+              "comune": "Tavullia"
+            },
+            {
+              "comune": "Vallefoglia"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "San Benedetto del Tronto": {
+          "inSede": [
+            {
+              "comune": "San Benedetto del Tronto"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Acquaviva Picena"
+            },
+            {
+              "comune": "Alba Adriatica"
+            },
+            {
+              "comune": "Altidona"
+            },
+            {
+              "comune": "Ascoli Piceno"
+            },
+            {
+              "comune": "Campofilone"
+            },
+            {
+              "comune": "Carassai"
+            },
+            {
+              "comune": "Castel di Lama"
+            },
+            {
+              "comune": "Castorano"
+            },
+            {
+              "comune": "Civitanova Marche"
+            },
+            {
+              "comune": "Colli del Tronto"
+            },
+            {
+              "comune": "Colonnella"
+            },
+            {
+              "comune": "Controguerra"
+            },
+            {
+              "comune": "Corropoli"
+            },
+            {
+              "comune": "Cossignano"
+            },
+            {
+              "comune": "Cupramarittima",
+              "aliases": [
+                "Cupra Marittima"
+              ]
+            },
+            {
+              "comune": "Fermo"
+            },
+            {
+              "comune": "Giulianova"
+            },
+            {
+              "comune": "Grottammare"
+            },
+            {
+              "comune": "Lapedona"
+            },
+            {
+              "comune": "Maltignano"
+            },
+            {
+              "comune": "Martinsicuro"
+            },
+            {
+              "comune": "Massignano"
+            },
+            {
+              "comune": "Monsampolo del Tronto"
+            },
+            {
+              "comune": "Montefiore dell’Aso"
+            },
+            {
+              "comune": "Monteprandone"
+            },
+            {
+              "comune": "Monterubbiano"
+            },
+            {
+              "comune": "Moresco"
+            },
+            {
+              "comune": "Nereto"
+            },
+            {
+              "comune": "Offida"
+            },
+            {
+              "comune": "Ortezzano"
+            },
+            {
+              "comune": "Pedaso"
+            },
+            {
+              "comune": "Petritoli"
+            },
+            {
+              "comune": "Porto San Giorgio"
+            },
+            {
+              "comune": "Porto Sant’Elpidio"
+            },
+            {
+              "comune": "Ripatransone"
+            },
+            {
+              "comune": "Spinetoli"
+            },
+            {
+              "comune": "Tortoreto"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        },
+        "Urbino": {
+          "inSede": [
+            {
+              "comune": "Urbino"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Acqualagna"
+            },
+            {
+              "comune": "Cagli"
+            },
+            {
+              "comune": "Cartoceto"
+            },
+            {
+              "comune": "Fermignano"
+            },
+            {
+              "comune": "Fossombrone"
+            },
+            {
+              "comune": "Mercatello sul Metauro"
+            },
+            {
+              "comune": "Montecalvo in Foglia"
+            },
+            {
+              "comune": "Montelabbate"
+            },
+            {
+              "comune": "Peglio"
+            },
+            {
+              "comune": "Petriano"
+            },
+            {
+              "comune": "Sant’Angelo in Vado"
+            },
+            {
+              "comune": "Urbania"
+            },
+            {
+              "comune": "Vallefoglia"
+            }
+          ],
+          "source": {
+            "label": "ERDIS Marche, Bando borsa di studio 2026/27, art. 12.1 e Allegato E",
+            "url": "https://mycity.s3.sbg.io.cloud.ovh.net/5193276/Bando-BORSA-a.a.-2026_2027.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERDIS Marche, Bando borsa di studio 2026/27",
+        "url": "https://erdis.it/documenti/3615115/bando-borsa-studio-2026-2027"
+      }
     }
   ]
 }

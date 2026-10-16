@@ -13789,6 +13789,643 @@
         }
       },
       "simulator": "https://www.unipg.it/news/vita-accademica?layout=scheda&idNews=4624"
+    },
+    "ateneo-04201": {
+      "name": "Università Politecnica delle Marche",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti regolari con i crediti richiesti, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 €: tassa regionale per il diritto allo studio (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 13000.01,
+          "rate": 0.031913,
+          "base": 243.14
+        },
+        {
+          "iseeMax": 40000,
+          "from": 30000.01,
+          "rate": 0.01621,
+          "base": 786.17
+        },
+        {
+          "iseeMax": 50000,
+          "from": 40000.01,
+          "rate": 0.015196,
+          "base": 948.26
+        },
+        {
+          "iseeMax": 60000,
+          "from": 50000.01,
+          "rate": 0.015176,
+          "base": 1177.24
+        },
+        {
+          "iseeMax": 85000,
+          "from": 60000.01,
+          "rate": 0.02168,
+          "base": 1329
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2035
+        }
+      ],
+      "bandsSource": {
+        "label": "UNIVPM, Regolamento contribuzione studentesca 2026/27 (Allegato A), artt. 3, 9, 11 e tabelle dei contributi minimi e massimi",
+        "url": "https://www.univpm.it/Entra/Engine/RAServeFile.php/f/tasse/2026/Regolamento_contribuzione_studentesca.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2035,
+        "ciclo-unico": 2035,
+        "magistrale": 2035
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "odontoiatria",
+          "label": "Odontoiatria (coefficiente 2,3)",
+          "groups": [],
+          "names": [
+            "Odontoiatria e Protesi Dentaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000,
+              "rate": 0.07,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000.01,
+              "rate": 0.037282,
+              "base": 1808.18
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000.01,
+              "rate": 0.034952,
+              "base": 2181
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000.01,
+              "rate": 0.034905,
+              "base": 2707.66
+            },
+            {
+              "iseeMax": 85000,
+              "from": 60000.01,
+              "rate": 0.049865,
+              "base": 3056.71
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4681
+            }
+          ],
+          "max": 4681
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e Chirurgia (coefficiente 1,59)",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia",
+            "Medicine And Surgery"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000,
+              "rate": 0.07,
+              "base": 0
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000.01,
+              "rate": 0.025773,
+              "base": 1250
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000.01,
+              "rate": 0.024162,
+              "base": 1507.74
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000.01,
+              "rate": 0.02413,
+              "base": 1871.82
+            },
+            {
+              "iseeMax": 85000,
+              "from": 60000.01,
+              "rate": 0.034472,
+              "base": 2113.12
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3236
+            }
+          ],
+          "max": 3236
+        },
+        {
+          "id": "professioni-sanitarie",
+          "label": "Professioni sanitarie (coefficiente 1,15)",
+          "groups": [],
+          "classCodes": [
+            "L/SNT1",
+            "L/SNT2",
+            "L/SNT3",
+            "L/SNT4",
+            "LM/SNT1",
+            "LM/SNT2",
+            "LM/SNT3",
+            "LM/SNT4"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.0367,
+              "base": 279.62
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000.01,
+              "rate": 0.018641,
+              "base": 904.09
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000.01,
+              "rate": 0.017476,
+              "base": 1090.5
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000.01,
+              "rate": 0.017453,
+              "base": 1353.83
+            },
+            {
+              "iseeMax": 85000,
+              "from": 60000.01,
+              "rate": 0.024932,
+              "base": 1528.36
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2340
+            }
+          ],
+          "max": 2340
+        },
+        {
+          "id": "ingegneria",
+          "label": "Ingegneria (coefficiente 1,18)",
+          "groups": [
+            "Ingegneria industriale e dell'informazione",
+            "Architettura e Ingegneria civile",
+            "Informatica e Tecnologie ICT"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.037657,
+              "base": 286.91
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000.01,
+              "rate": 0.019127,
+              "base": 927.68
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000.01,
+              "rate": 0.017932,
+              "base": 1118.95
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000.01,
+              "rate": 0.017908,
+              "base": 1389.15
+            },
+            {
+              "iseeMax": 85000,
+              "from": 60000.01,
+              "rate": 0.025583,
+              "base": 1568.23
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2401
+            }
+          ],
+          "max": 2401
+        },
+        {
+          "id": "scienze-agraria",
+          "label": "Scienze e Agraria (coefficiente 1,04)",
+          "groups": [
+            "Scientifico",
+            "Agrario-Forestale e Veterinario",
+            "Scienze motorie e sportive"
+          ],
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.033189,
+              "base": 252.87
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000.01,
+              "rate": 0.016858,
+              "base": 817.61
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000.01,
+              "rate": 0.015804,
+              "base": 986.19
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000.01,
+              "rate": 0.015783,
+              "base": 1224.33
+            },
+            {
+              "iseeMax": 85000,
+              "from": 60000.01,
+              "rate": 0.022548,
+              "base": 1382.17
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2117
+            }
+          ],
+          "max": 2117
+        },
+        {
+          "id": "economia",
+          "label": "Economia (coefficiente 1)",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 28000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 30000,
+              "from": 13000.01,
+              "rate": 0.031913,
+              "base": 243.14
+            },
+            {
+              "iseeMax": 40000,
+              "from": 30000.01,
+              "rate": 0.01621,
+              "base": 786.17
+            },
+            {
+              "iseeMax": 50000,
+              "from": 40000.01,
+              "rate": 0.015196,
+              "base": 948.26
+            },
+            {
+              "iseeMax": 60000,
+              "from": 50000.01,
+              "rate": 0.015176,
+              "base": 1177.24
+            },
+            {
+              "iseeMax": 85000,
+              "from": 60000.01,
+              "rate": 0.02168,
+              "base": 1329
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2035
+            }
+          ],
+          "max": 2035
+        }
+      ],
+      "maxNote": "Esonero fino a 28.000 €. Poi CO = [B + (ISEE − C) × D] × E: fasce da 13.000/30.000/40.000/50.000/60.000/85.000 € con aliquote 3,15%, 1,6%, 1,5%, 1,4%, 2%, moltiplicate per il coefficiente del corso (1 Economia, 1,04 Scienze e Agraria, 1,15 professioni sanitarie, 1,18 Ingegneria, 1,59 Medicina, 2,3 Odontoiatria), +7% oltre 50.000 €; tra 28.000 e 30.000 € al massimo il 7% dell’ISEE oltre 13.000 €. Oltre 85.000 € o senza ISEE il massimo della tabella ufficiale (2.035-4.681 €). Il regolamento aggiorna gli importi all’indice ISTAT FOI senza indicarne il valore: lo ricaviamo dalla tabella dei massimi 2026 (circa +1,31%), con possibili differenze di 1-2 €.",
+      "maxSource": {
+        "label": "UNIVPM, Contributi massimi e minimi 2026/27",
+        "url": "https://www.univpm.it/Entra/Engine/RAServeFile.php/f/tasse/2026/Contributi_MAX.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 156 € entro il 5 novembre 2026",
+          "Seconda rata (metà del contributo) entro il 14 dicembre 2026",
+          "Terza rata (l’altra metà) entro il 31 maggio 2027"
+        ],
+        "note": "La richiesta di riduzione con l’ISEE va fatta su Esse3 entro il 5 novembre 2026.",
+        "source": {
+          "label": "UNIVPM, Regolamento contribuzione studentesca 2026/27, artt. 7-8",
+          "url": "https://www.univpm.it/Entra/Engine/RAServeFile.php/f/tasse/2026/Regolamento_contribuzione_studentesca.pdf"
+        }
+      },
+      "simulator": "https://www.univpm.it/Entra/Tasse_e_contributi"
+    },
+    "ateneo-04301": {
+      "name": "Università di Macerata",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti in corso con i crediti richiesti, a tempo pieno, con ISEEU 2026.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Prima rata di 156 € entro il 31 ottobre: tassa regionale per il diritto allo studio (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 32000,
+          "from": 20000,
+          "rate": 0.0763,
+          "base": 99.19
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1410
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1574
+        }
+      ],
+      "bandsSource": {
+        "label": "UniMC, Agevolazioni: prima, seconda e terza fascia ISEEU (2026/27)",
+        "url": "https://www.unimc.it/it/didattica/iscrizione-e-carriera/agevolazioni/seconda-fascia"
+      },
+      "maxByLevel": {
+        "triennale": 1574,
+        "ciclo-unico": 1574,
+        "magistrale": 1574
+      },
+      "maxExceptions": [],
+      "maxNote": "Fino a 26.000 € di ISEEU solo tassa regionale e bollo; da 26.001 a 32.000 € COA = [(ISEEU − 20.000) × 0,07 + 91] × 1,09; da 32.001 a 40.000 € 1.410 €; oltre 40.000 € o senza ISEEU valido l’importo massimo di 1.730 € totali (1.574 € oltre tassa regionale e bollo). Non sono nei calcoli i contributi aggiuntivi dei corsi e-learning.",
+      "maxSource": {
+        "label": "UniMC, Tasse e contributi: importi massimi",
+        "url": "https://www.unimc.it/it/didattica/iscrizione-e-carriera/tasse-contributi/importi"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (156 €) entro il 31 ottobre 2026",
+          "Seconda rata entro il 31 gennaio 2027",
+          "Terza rata entro il 31 marzo 2027",
+          "Quarta rata entro il 31 maggio 2027"
+        ],
+        "note": "Serve l’ISEEU 2026 entro il 31 dicembre 2026; si può rifare la ricerca nella banca dati INPS dopo l’iscrizione per ricalcolare le rate.",
+        "source": {
+          "label": "UniMC, Tasse e contributi: importi e scadenze",
+          "url": "https://www.unimc.it/it/didattica/iscrizione-e-carriera/tasse-contributi/importi"
+        }
+      },
+      "simulator": "https://www.unimc.it/it/didattica/iscrizione-e-carriera/tasse-contributi/simulatore-tasse"
+    },
+    "ateneo-04101": {
+      "name": "Università di Urbino Carlo Bo",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti in corso o al primo anno fuori corso con i crediti richiesti, con ISEE Università.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale per il diritto allo studio (140 €) e bollo (16 €).",
+      "bands": [
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 70000,
+          "from": 0,
+          "rate": 0.006137502,
+          "base": 1198
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1706
+        }
+      ],
+      "bandsSource": {
+        "label": "Uniurb, Importo del contributo annuale 2026/27 (formula m × ISEEU + q)",
+        "url": "https://www.uniurb.it/studiaconnoi/studenti/contributi/importo-del-contributo-annuale"
+      },
+      "maxByLevel": {
+        "triennale": 1706,
+        "ciclo-unico": 1706,
+        "magistrale": 1706
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "conservazione-restauro",
+          "label": "Conservazione e Restauro",
+          "groups": [],
+          "nameIncludes": [
+            "Conservazione e Restauro"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0.022987506,
+              "base": 4409
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6096
+            }
+          ],
+          "max": 6096
+        },
+        {
+          "id": "scienze",
+          "label": "Scienze biomolecolari, scienze pure e applicate, Psicologia Clinica",
+          "groups": [
+            "Scientifico",
+            "Informatica e Tecnologie ICT",
+            "Scienze motorie e sportive"
+          ],
+          "names": [
+            "Psicologia Clinica",
+            "Farmacia",
+            "Chimica e Tecnologia Farmaceutiche",
+            "Scienze Motorie per la Prevenzione e la Salute"
+          ],
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0.006100002,
+              "base": 1337
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1842
+            }
+          ],
+          "max": 1842
+        },
+        {
+          "id": "umanistici",
+          "label": "Studi umanistici, economia, giurisprudenza, comunicazione e aree collegate",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 70000,
+              "from": 0,
+              "rate": 0.006137502,
+              "base": 1198
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1706
+            }
+          ],
+          "max": 1706
+        }
+      ],
+      "maxNote": "Esonero fino a 30.000 € di ISEE Università (matricole e studenti in regola). Da 30.000,01 a 70.000 €: m × ISEE + q, con m e q per area (studi umanistici e aree collegate 0,0061375 e 1.354 €; scienze biomolecolari, pure e applicate e Psicologia Clinica 0,0061 e 1.493 €; Conservazione e Restauro 0,0229875 e 4.565 €); oltre 70.000 € o senza ISEE 1.862 €, 1.998 € o 6.252 €. Gli importi dell’ateneo comprendono tassa regionale e bollo: qui sono tolti (156 €). L’area segue il dipartimento: per i corsi di altre macroaree la stima usa l’area umanistica.",
+      "maxSource": {
+        "label": "Uniurb, Importo del contributo annuale 2026/27",
+        "url": "https://www.uniurb.it/studiaconnoi/studenti/contributi/importo-del-contributo-annuale"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (tassa regionale, bollo e 300 € di contributo) entro il 13 ottobre 2026 (13 novembre per le magistrali)",
+          "Seconda rata (40% del resto) entro il 22 dicembre 2026",
+          "Terza rata (30%) entro il 18 marzo 2027",
+          "Quarta rata (30%) entro il 29 aprile 2027"
+        ],
+        "note": "Senza la DSU per l’ISEE Università si paga la fascia più alta; la presentazione tardiva costa 150 €.",
+        "source": {
+          "label": "Uniurb, Rateizzazione della contribuzione 2026/27",
+          "url": "https://www.uniurb.it/studiaconnoi/studenti/contributi/rateizzazione-della-contribuzione"
+        }
+      },
+      "simulator": "https://www.uniurb.it/studiaconnoi/studenti/contributi"
     }
   }
 }

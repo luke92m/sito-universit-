@@ -40,6 +40,7 @@ Borse (bandi 2026/27):
 | Opera Universitaria | Università di Trento | 26.000 / 52.000 | Tabelle 3-4 (Trento, Rovereto) |
 | ARDiS | Trieste, Udine | 28.339,88 / 61.608,48 | Allegato 1 (6 sedi) |
 | ADiSU Umbria | Perugia, Stranieri di Perugia | 28.339,88 / 61.608,48 | Allegato 1 (5 sedi) |
+| ERDIS Marche | Politecnica delle Marche, Macerata, Camerino, Urbino | 24.000 / 50.000 | Allegato E (13 sedi, solo pendolari) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -89,6 +90,11 @@ Tasse (2026/27):
 - **ARDiS (FVG)**: Bando unico 2026/27 (versione nella scheda del sito, artt. 4.3, 15-17, 23 e Allegato 1): soglie nazionali 28.339,88 € / 61.608,48 €, importi con +15% fino a 14.169,94 € e calo fino alla metà oltre 18.893,25 €. Elenchi dei comuni in sede e pendolari per Trieste, Udine, Gorizia, Pordenone, Gemona e Portogruaro, riletti a mano (il PDF spezza le lettere); comuni sloveni compresi per Trieste e Gorizia; alias per i nomi abbreviati (Cervignano, Aiello, Lignano) e «(ora …)» per i comuni fusi. La sede di Conegliano non è inserita (l'elenco non nomina il comune sede).
 - **Perugia**: Regolamento in materia di contribuzione studentesca (versione vigente, artt. 3, 12-13 e Allegati 1, 2, 4): no tax area fino a 22.000 € (confermata nell'avviso delle immatricolazioni 2026/27), low tax area a fasce di 2.000 € fino a 30.000 € (126/385/682/945 €), poi Allegato 2 per fasce fino a 1.940 € oltre 100.000 € o senza ISEE (importi al netto di tassa regionale e bollo, 156 €). Il regolamento non indica l'anno: vale finché l'ateneo non adotta nuovi importi (art. 3.4).
 - **ADiSU Umbria**: bando borse 2026/27, artt. 7, 13, 27, 35 e Allegati 1-2: soglie nazionali, importi a scalini (nessun calo lineare) che comprendono il valore della mensa (Allegato 2, Tabella A, come «totale figurativo»), per Università di Perugia e Stranieri di Perugia. Elenchi dei comuni in sede e pendolari per Perugia, Assisi, Terni, Narni e Foligno (tabella a colonne riletta a mano; «Bastia» = Bastia Umbra). Il test dell'ateneo «senza dati» ora usa l'Università Europea di Roma.
+- **Politecnica delle Marche**: Regolamento contribuzione studentesca 2026/27 (Allegato A, artt. 3, 7-11) e tabella dei contributi massimi e minimi: esonero fino a 28.000 €, poi CO = [B + (ISEE − C) × D] × E con il coefficiente del corso (1 Economia … 2,3 Odontoiatria), +7% oltre 50.000 €, tetto del 7% dell'ISEE oltre 13.000 € tra 28.000 e 30.000 €. L'aggiornamento ISTAT FOI non è indicato come numero: è ricavato dalla tabella ufficiale dei massimi (circa +1,31%), con possibili scarti di 1-2 €.
+- **Macerata**: esonero fino a 26.000 €, formula tra 26.000 e 32.000 €, poi importi fissi (1.410 € fino a 40.000 €, 1.574 € oltre o senza ISEE).
+- **Urbino**: pagina «Importo del contributo annuale» 2026/27: esonero fino a 30.000 €, poi m × ISEE + q per area fino a 70.000 €. Gli importi dell'ateneo comprendono tassa regionale e bollo (156 €), qui tolti.
+- **Camerino**: non inserito. Il regolamento tasse 2026/27 non è pubblicato in PDF; il calcolatore online (vele.unicam.it) dà importi senza dire quali riduzioni applica.
+- **ERDIS Marche**: bando borsa 2026/27, artt. 8, 10, 12, 17 e Allegati E-F: soglie ISEE 24.000 € e ISPE 50.000 € (più basse di quelle nazionali), importi a scalini della Tab. 59 comprensivi di alloggio e mensa. In sede = solo il comune sede del corso; pendolari = comuni dell'Allegato E per 13 sedi (riletti a mano).
 
 ## Fonti
 

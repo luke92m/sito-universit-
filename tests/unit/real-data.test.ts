@@ -1245,3 +1245,43 @@ describe('Umbria 2026/27: tasse UniPG e borse ADiSU', () => {
     expect(check('Perugia', 'Todi')).toBe('fuoriSede');
   });
 });
+
+describe('Marche 2026/27: tasse UNIVPM, Macerata e Urbino, borse ERDIS', () => {
+  it('UNIVPM: esonero fino a 28.000 €, poi formula per fasce con il coefficiente del corso', () => {
+    const rule = tuitionRuleFor('ateneo-04201')!;
+    expect(contributionFor(rule, 28000, 2035)).toBe(0);
+    expect(contributionFor(rule, 29000, 2035)).toBe(753.75);
+    expect(contributionFor(rule, 90000, 2035)).toBe(2035);
+    expect(fixedFeesRange(rule, exact(15000)).min).toBe(156);
+  });
+
+  it('Macerata: esonero fino a 26.000 €, poi formula fino a 32.000 € e importi fissi', () => {
+    const rule = tuitionRuleFor('ateneo-04301')!;
+    expect(contributionFor(rule, 26000, 1574)).toBe(0);
+    expect(contributionFor(rule, 29000, 1574)).toBe(785.89);
+    expect(contributionFor(rule, 35000, 1574)).toBe(1410);
+    expect(contributionFor(rule, null, 1574)).toBe(1574);
+  });
+
+  it('Urbino: esonero fino a 30.000 €, poi m × ISEE + q senza tassa regionale e bollo', () => {
+    const rule = tuitionRuleFor('ateneo-04101')!;
+    expect(contributionFor(rule, 30000, 1706)).toBe(0);
+    expect(contributionFor(rule, 35000, 1706)).toBe(1412.81);
+    expect(contributionFor(rule, 90000, 1706)).toBe(1706);
+  });
+
+  it('ERDIS: soglia ISEE 24.000 €, importi a scalini, comuni pendolari per sede', () => {
+    const erdis = dsuEntityFor('ateneo-04301')!;
+    expect(dsuEntityFor('ateneo-04201')!.id).toBe('erdis-marche');
+    expect(dsuEntityFor('ateneo-04101')!.id).toBe('erdis-marche');
+    expect(erdis.thresholds).toMatchObject({ isee: 24000, ispe: 50000 });
+    expect(amountAt(erdis, 17000, 'fuoriSede')).toBe(6274.72);
+    expect(amountAt(erdis, 23000, 'pendolare')).toBe(2095.36);
+    const check = (seat: string, city: string) => conditionFromMunicipality(erdis, seat, city, true)?.condition;
+    expect(check('Macerata', 'Macerata')).toBe('inSede');
+    expect(check('Macerata', 'Tolentino')).toBe('pendolare');
+    expect(check('Ancona', 'Osimo')).toBe('pendolare');
+    expect(check('Fermo', 'Cupra Marittima')).toBe('pendolare');
+    expect(check('Urbino', 'Roma')).toBe('fuoriSede');
+  });
+});
