@@ -17430,6 +17430,237 @@
         }
       },
       "simulator": "https://www.unical.it/didattica/iscriversi-studiare-laurearsi/tasse-ed-esoneri/tasse-ed-esoneri-futuri-studenti/"
+    },
+    "ateneo-08001": {
+      "name": "Università Mediterranea di Reggio Calabria",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole, con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 160,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 176
+      },
+      "fixedFeesNote": "Con la prima rata: bollo 16 € e tassa regionale calabrese (130 € fino a 28.339,88 € di ISEE, 140 € fino a 61.608,48 €, poi 160 €).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 28339.88,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 61608.48,
+          "from": 0,
+          "rate": 0,
+          "base": 140
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 23000,
+          "from": 0,
+          "rate": 0,
+          "base": 770.29
+        },
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 805.29
+        },
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 840.29
+        },
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 915.29
+        },
+        {
+          "iseeMax": 27000,
+          "from": 0,
+          "rate": 0,
+          "base": 935.29
+        },
+        {
+          "iseeMax": 28000,
+          "from": 0,
+          "rate": 0,
+          "base": 965.29
+        },
+        {
+          "iseeMax": 29000,
+          "from": 0,
+          "rate": 0,
+          "base": 1000.29
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 1035.29
+        },
+        {
+          "iseeMax": 31000,
+          "from": 0,
+          "rate": 0,
+          "base": 1075.29
+        },
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 1115.29
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 1155.29
+        },
+        {
+          "iseeMax": 34000,
+          "from": 0,
+          "rate": 0,
+          "base": 1195.29
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 1235.29
+        },
+        {
+          "iseeMax": 36000,
+          "from": 0,
+          "rate": 0,
+          "base": 1275.29
+        },
+        {
+          "iseeMax": 37000,
+          "from": 0,
+          "rate": 0,
+          "base": 1325.29
+        },
+        {
+          "iseeMax": 38000,
+          "from": 0,
+          "rate": 0,
+          "base": 1375.29
+        },
+        {
+          "iseeMax": 39000,
+          "from": 0,
+          "rate": 0,
+          "base": 1425.29
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1475.29
+        },
+        {
+          "iseeMax": 41000,
+          "from": 0,
+          "rate": 0,
+          "base": 1525.29
+        },
+        {
+          "iseeMax": 42000,
+          "from": 0,
+          "rate": 0,
+          "base": 1595.29
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 1665.29
+        },
+        {
+          "iseeMax": 44000,
+          "from": 0,
+          "rate": 0,
+          "base": 1735.29
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1805.29
+        },
+        {
+          "iseeMax": 46000,
+          "from": 0,
+          "rate": 0,
+          "base": 1875.29
+        },
+        {
+          "iseeMax": 47000,
+          "from": 0,
+          "rate": 0,
+          "base": 1945.29
+        },
+        {
+          "iseeMax": 48000,
+          "from": 0,
+          "rate": 0,
+          "base": 2015.29
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2165.29
+        }
+      ],
+      "bandsSource": {
+        "label": "Mediterranea, Regolamento in materia di contribuzione studentesca 2026/27, artt. 3-4, Tabelle A e B",
+        "url": "https://www.unirc.it/sites/default/files/2026-06/Regolamento%20in%20materia%20di%20contribuzione%20studentesca_2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2165.29,
+        "ciclo-unico": 2165.29,
+        "magistrale": 2165.29
+      },
+      "maxExceptions": [],
+      "maxNote": "Matricole esonerate fino a 22.000 € di ISEE; oltre, gli importi fissi della Tabella B per fasce di 1.000 € (770,29 € tra 22.000 e 23.000 €, 1.075,29 € tra 30.000 e 31.000 €, 2.165,29 € oltre 48.000 € o senza ISEE), comprese le prime 100 €. Il Regolamento applica la Tabella B anche alle matricole tra 22.000 e 30.000 €. Esoneri del 30-40% della seconda rata per merito o condizioni particolari (art. 3): non calcolati.",
+      "maxSource": {
+        "label": "Mediterranea, Regolamento in materia di contribuzione studentesca 2026/27, artt. 3-4, Tabelle A e B",
+        "url": "https://www.unirc.it/sites/default/files/2026-06/Regolamento%20in%20materia%20di%20contribuzione%20studentesca_2026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (100 € di contributo, bollo 16 € e tassa regionale di 130 €) entro il 30 settembre 2026",
+          "Seconda rata, metà entro il 21 dicembre 2026",
+          "Seconda rata, l’altra metà entro il 22 marzo 2027"
+        ],
+        "note": "L’ISEE per il diritto allo studio viene acquisito dall’INPS; dal 1° gennaio al 28 maggio 2027 il ricalcolo costa 250 €. Senza ISEE si paga il massimo.",
+        "source": {
+          "label": "Mediterranea, pagina «Tasse e contributi» 2026/27",
+          "url": "https://www.unirc.it/studiare/iscrizioni-e-immatricolazioni/tasse-e-contributi"
+        }
+      },
+      "simulator": "https://www.unirc.it/studiare/iscrizioni-e-immatricolazioni/tasse-e-contributi"
     }
   }
 }

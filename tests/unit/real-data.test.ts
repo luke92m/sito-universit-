@@ -1614,3 +1614,14 @@ describe('Unical 2026/27: tasse (fascia A)', () => {
     expect(fixedFeesRange(rule, exact(30000)).min).toBe(158.75);
   });
 });
+
+describe('Mediterranea 2026/27: tasse', () => {
+  it('Matricole esonerate fino a 22.000 €, poi la Tabella B', () => {
+    const rule = tuitionRuleFor('ateneo-08001')!;
+    expect(contributionFor(rule, 22000, 2165.29)).toBe(0);
+    expect(contributionFor(rule, 22500, 2165.29)).toBe(770.29);
+    expect(contributionFor(rule, 26500, 2165.29)).toBe(935.29);
+    expect(contributionFor(rule, 34500, 2165.29)).toBe(1235.29);
+    expect(contributionFor(rule, 60000, 2165.29)).toBe(2165.29);
+  });
+});
