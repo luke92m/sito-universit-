@@ -8600,6 +8600,358 @@
         "label": "ERSU Messina, Bando di concorso 2026/27",
         "url": "https://www.ersumessina.it/wp-content/uploads/2026/07/Bando-di-concorso-2026_2027_signed.pdf"
       }
+    },
+    {
+      "id": "unirc-dsu",
+      "name": "Università Mediterranea di Reggio Calabria – Diritto allo studio",
+      "shortName": "DSU Mediterranea",
+      "region": "Calabria",
+      "universityIds": [
+        "ateneo-08001"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 3",
+          "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Tabella dell’art. 4: +15% sotto 14.169,94 €, importo base fino a 18.893,25 €, poi riduzione lineare fino alla metà a 28.339,88 € (riduzione % = (ISEE − 18.893,25) / 18.893,25 × 100). Importi interamente in denaro (comprendono vitto e alloggio): mensa convenzionata e residenze si pagano a parte.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.56,
+              "pendolare": 2095.36,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 4, Tabella 26/27",
+          "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15%: calcolato sull’importo base",
+          "source": {
+            "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 4",
+            "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto contemporaneamente a più corsi",
+          "percent": 20,
+          "conditional": "secondo la normativa vigente",
+          "source": {
+            "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 4",
+            "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Posto alloggio nelle residenze dell’ateneo per i fuori sede, con retta mensile",
+        "Esonero dalle tasse universitarie per i beneficiari",
+        "Contributi per alloggio e trasporti agli idonei non beneficiari"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Università Mediterranea, Bando unico DSU 2026/27, artt. 10, 13 e 14",
+        "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune a più di 50 km dalla sede o in un’altra regione, con alloggio a titolo oneroso per almeno 10 mesi (dichiarazione di locazione entro il 16 novembre 2026).",
+        "pendolare": "Residenza in un altro comune entro 50 km, o in una delle località del comune di Reggio Calabria elencate nell’Allegato 1; anche oltre 50 km con alloggio gratuito.",
+        "inSede": "Residenza nel comune di Reggio Calabria, salvo le località dell’Allegato 1.",
+        "source": {
+          "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 1",
+          "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% a dicembre 2026",
+          "Saldo entro il 30 aprile 2027 con 20 crediti al 31 marzo 2027, oppure entro il 30 novembre 2027 con 20 crediti al 10 agosto 2027"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 la prima rata va restituita.",
+        "source": {
+          "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 8",
+          "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "closesTime": "14:00",
+        "note": "Domanda online sul portale DSU Unirc (dsu.unirc.it).",
+        "source": {
+          "label": "Università Mediterranea, Bando unico DSU 2026/27, art. 6",
+          "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Università Mediterranea, Bando unico DSU 2026/27",
+        "url": "https://www.unirc.it/sites/default/files/2026-07/BANDO%20DSU%2026_27.pdf"
+      }
+    },
+    {
+      "id": "unical-dsu",
+      "name": "Università della Calabria – Centro Residenziale (diritto allo studio)",
+      "shortName": "Centro Residenziale Unical",
+      "region": "Calabria",
+      "universityIds": [
+        "ateneo-07801"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 26500,
+        "ispe": 57500,
+        "source": {
+          "label": "Università della Calabria, Bando diritto allo studio 2026/27, art. 3",
+          "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Valori nominali dell’art. 10: comprendono posto alloggio e due pasti al giorno per i fuori sede, un pasto per gli altri; in denaro arriva solo la differenza (per i fuori sede 3.898,78 € nella fascia più bassa). Oltre 17.666,67 € di ISEE la quota in denaro cala in modo lineare fino alla metà a 26.500 €.",
+        "bands": [
+          {
+            "iseeMax": 13250,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 17666.67,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 26500,
+            "fuoriSede": 7171.1,
+            "pendolare": 4190.7,
+            "inSede": 2890.15,
+            "endAt": {
+              "fuoriSede": 5759.56,
+              "pendolare": 2584.61,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "Università della Calabria, Bando diritto allo studio 2026/27, art. 10, commi 4 e 9",
+          "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M. (fasce intera e ridotta)",
+          "percent": 20,
+          "conditional": "non si applica alla fascia maggiorata",
+          "source": {
+            "label": "Università della Calabria, Bando diritto allo studio 2026/27, art. 10, comma 11",
+            "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto contemporaneamente a più corsi (esclusi i telematici)",
+          "percent": 20,
+          "conditional": "secondo la normativa vigente",
+          "source": {
+            "label": "Università della Calabria, Bando diritto allo studio 2026/27, art. 10, comma 12",
+            "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Posto alloggio nel campus per i fuori sede beneficiari",
+        "Mensa (due pasti al giorno ai fuori sede, uno agli altri)",
+        "Esonero dalle tasse universitarie e dalla tassa regionale"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Università della Calabria, Bando diritto allo studio 2026/27, art. 10 e Appendice A",
+        "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune diverso da Rende e da quelli dei pendolari. Se non c’è posto in residenza, integrazione con contratto d’affitto di almeno 10 mesi nell’area Rende-Cosenza-Castrolibero-Montalto Uffugo.",
+        "pendolare": "Residenza in uno dei comuni elencati nell’Appendice A.",
+        "inSede": "Residenza nel comune di Rende.",
+        "source": {
+          "label": "Università della Calabria, Bando diritto allo studio 2026/27, Appendice A e art. 10, comma 14",
+          "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Anticipo del 25% della quota in denaro su richiesta entro il 30 novembre 2026",
+          "Saldo dopo 20 crediti: entro il 31 marzo 2027 (crediti al 28 febbraio), il 31 luglio (al 30 giugno) o il 30 settembre 2027 (al 10 agosto)",
+          "Con 20 crediti solo al 30 novembre 2027 spetta metà della quota in denaro"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 si perde l’idoneità e si restituisce quanto ricevuto.",
+        "source": {
+          "label": "Università della Calabria, Bando diritto allo studio 2026/27, art. 11",
+          "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-08-06",
+        "closesTime": "12:00",
+        "note": "Scadenza per le matricole di triennali e cicli unici; 21 agosto per gli anni successivi, 31 luglio o 30 settembre 2026 per le magistrali. Domanda sul portale sosCR o sull’app Unical Life.",
+        "source": {
+          "label": "Università della Calabria, Bando diritto allo studio 2026/27, Guida rapida e art. 4",
+          "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+        }
+      },
+      "municipalities": {
+        "Rende": {
+          "inSede": [
+            {
+              "comune": "Rende"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aprigliano"
+            },
+            {
+              "comune": "Bisignano"
+            },
+            {
+              "comune": "Carolei"
+            },
+            {
+              "comune": "Casali del Manco"
+            },
+            {
+              "comune": "Castiglione Cosentino"
+            },
+            {
+              "comune": "Castrolibero"
+            },
+            {
+              "comune": "Cellara"
+            },
+            {
+              "comune": "Celico"
+            },
+            {
+              "comune": "Cerisano"
+            },
+            {
+              "comune": "Cosenza"
+            },
+            {
+              "comune": "Dipignano"
+            },
+            {
+              "comune": "Domanico"
+            },
+            {
+              "comune": "Figline Vegliaturo"
+            },
+            {
+              "comune": "Fuscaldo"
+            },
+            {
+              "comune": "Lappano"
+            },
+            {
+              "comune": "Luzzi"
+            },
+            {
+              "comune": "Mangone"
+            },
+            {
+              "comune": "Marano Marchesato"
+            },
+            {
+              "comune": "Marano Principato"
+            },
+            {
+              "comune": "Mendicino"
+            },
+            {
+              "comune": "Montalto Uffugo"
+            },
+            {
+              "comune": "Paola"
+            },
+            {
+              "comune": "Paterno Calabro"
+            },
+            {
+              "comune": "Piane Crati"
+            },
+            {
+              "comune": "Pietrafitta"
+            },
+            {
+              "comune": "Rogliano"
+            },
+            {
+              "comune": "Rose"
+            },
+            {
+              "comune": "Rovito"
+            },
+            {
+              "comune": "San Fili"
+            },
+            {
+              "comune": "San Lucido"
+            },
+            {
+              "comune": "San Pietro in Guarano"
+            },
+            {
+              "comune": "Santo Stefano di Rogliano"
+            },
+            {
+              "comune": "San Vincenzo La Costa"
+            },
+            {
+              "comune": "Spezzano della Sila"
+            },
+            {
+              "comune": "Zumpano"
+            }
+          ],
+          "source": {
+            "label": "Università della Calabria, Bando diritto allo studio 2026/27, Appendice A",
+            "url": "https://www.unical.it/media/medias/2026/Bando-diritto-allo-studio-2026.27_signed.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "Università della Calabria, Bandi diritto allo studio",
+        "url": "https://www.unical.it/didattica/diritto-allo-studio/borse-di-studio/bandi-diritto-allo-studio/"
+      }
     }
   ]
 }

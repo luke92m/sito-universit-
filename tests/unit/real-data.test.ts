@@ -1338,3 +1338,28 @@ describe('Sicilia 2026/27: borse ERSU Messina', () => {
     expect(check('Messina', 'Catania')).toBe('fuoriSede');
   });
 });
+
+describe('Calabria 2026/27: borse della Mediterranea e dell’Unical', () => {
+  it('Mediterranea: soglie nazionali, calo lineare fino alla metà (esempio del bando)', () => {
+    const dsu = dsuEntityFor('ateneo-08001')!;
+    expect(dsu.id).toBe('unirc-dsu');
+    expect(dsu.thresholds).toMatchObject({ isee: 28339.88, ispe: 61608.48 });
+    expect(amountAt(dsu, 10000, 'fuoriSede')).toBe(8246.78);
+    // Il bando arrotonda la percentuale (27,03%): pochi centesimi di scarto.
+    expect(amountAt(dsu, 24000, 'fuoriSede')).toBeCloseTo(5232.76, 0);
+    expect(amountAt(dsu, 28339.88, 'inSede')).toBe(1445.08);
+  });
+
+  it('Unical: soglie 26.500/57.500 €, valori nominali con i servizi, comuni pendolari per Rende', () => {
+    const dsu = dsuEntityFor('ateneo-07801')!;
+    expect(dsu.id).toBe('unical-dsu');
+    expect(dsu.thresholds).toMatchObject({ isee: 26500, ispe: 57500 });
+    expect(amountAt(dsu, 12000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(dsu, 26500, 'fuoriSede')).toBe(5759.56);
+    const check = (city: string) => conditionFromMunicipality(dsu, 'Rende', city, true)?.condition;
+    expect(check('Rende')).toBe('inSede');
+    expect(check('Cosenza')).toBe('pendolare');
+    expect(check('San Fili')).toBe('pendolare');
+    expect(check('Catanzaro')).toBe('fuoriSede');
+  });
+});

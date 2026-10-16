@@ -44,6 +44,8 @@ Borse (bandi 2026/27):
 | ADSU Chieti-Pescara | Chieti-Pescara | 24.335,11 / 52.902,43 | Tabelle del bando (Chieti, Pescara, Vasto) |
 | ADSU L'Aquila | L'Aquila | 24.335,11 / 52.902,43 | nessun elenco: stato per distanza (20/50 km) |
 | ERSU Messina | Messina | 22.500 / 53.000 | Tabelle 11.1-11.2 (Messina, Noto, Priolo Gargallo) |
+| DSU Mediterranea (ateneo) | Mediterranea di Reggio Calabria | 28.339,88 / 61.608,48 | nessun elenco: stato per distanza (50 km) |
+| Centro Residenziale Unical (ateneo) | Università della Calabria | 26.500 / 57.500 | Appendice A (Rende) |
 
 Note sui modelli:
 - **Calo lineare**: DiSCo, UniPD e ADISURC riducono la borsa in modo graduale oltre i 2/3 della soglia; il JSON riporta gli importi a inizio fascia e quelli finali indicati dal bando (`endAt`).
@@ -103,6 +105,9 @@ Tasse (2026/27):
 - **ADSU L'Aquila**: bando borse 2026/27, artt. 3, 5, 11, 13-14: stesse soglie e fasce di Chieti-Pescara (indirizzi della Regione Abruzzo). Il +15% fino a metà soglia è un incremento a parte, perché il bando non dice se tocca anche alloggio e vitto. Lo stato dipende dai km (fino a 20 in sede, 20-50 pendolare, oltre 50 fuori sede con affitto): nessun elenco di comuni.
 - **ADSU Teramo e tasse di Teramo**: non inseriti, bando 2026/27 non raggiungibile (sito dell'ente non risponde).
 - **ERSU Messina**: bando di concorso 2026/27, artt. 3, 8, 21-24 e tabelle 9.1-9.7 e 11.1-11.2: soglie ISEE 22.500 € e ISPE 53.000 €, sette fasce a scalini (dal +15% alla metà). In sede = solo il comune sede del corso. Tasse di Messina non inserite: per il 2026/27 c'è solo il parere del Senato (no tax area confermata fino a 28.000 €), il Documento unico sulla contribuzione con la tabella del COA non è ancora pubblicato.
+- **Mediterranea (borse)**: Bando unico DSU 2026/27 dell'ateneo, artt. 1, 3, 4, 6, 8: soglie nazionali, +15% sotto 14.169,94 €, calo lineare fino alla metà tra 18.893,25 e 28.339,88 € (il test riproduce l'esempio del bando: 5.232,76 € a 24.000 €). Importi in denaro; nessun elenco di comuni (pendolare entro 50 km; l'Allegato 1 elenca frazioni di Reggio, non comuni).
+- **Unical (borse)**: bando diritto allo studio 2026/27 del Centro Residenziale, artt. 3, 4, 10, 11 e Appendice A: soglie 26.500 € / 57.500 €, valori nominali con alloggio e mensa (in denaro va solo la differenza), calo lineare della quota in denaro oltre 17.666,67 €. Comuni pendolari per Rende con le abbreviazioni sciolte.
+- **Catanzaro (Fondazione UMG)**: borse non inserite, il bando 2026/27 sul portale della Fondazione non si scarica (errore del server). Tasse di Unical, Catanzaro e Mediterranea non ancora inserite.
 
 ## Fonti
 
