@@ -13461,6 +13461,400 @@
         "label": "ARDSU Basilicata, Bando borse di studio e alloggi 2026/27",
         "url": "https://www.ardsubasilicata.it/main/page/1/2843/1/2026/PROROGA_SCADENZA_BANDO_Bando_Borse_di_studio_&_alloggi_a.a._2026_2027"
       }
+    },
+    {
+      "id": "ersu-cagliari",
+      "name": "ERSU Cagliari – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Cagliari",
+      "region": "Sardegna",
+      "universityIds": [
+        "ateneo-09201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 2",
+          "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali in denaro e servizi (art. 20): ai fuori sede 731,02 € in pasti (275) e, a chi ha il posto alloggio, 2.223,51 € di servizio abitativo; ai pendolari 366,84 € in pasti (138); gli in sede ricevono tutto in denaro più un pasto gratuito al giorno. Oltre 18.893,25 € di ISEE si riduce in modo graduale la sola parte in denaro, fino alla metà.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3951.07,
+              "pendolare": 2278.78,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 20 e tabella degli importi",
+          "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15% per ISEE basso: si applica il solo +20%",
+          "source": {
+            "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 20",
+            "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per entrambi i corsi",
+          "source": {
+            "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 20",
+            "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Pasti gratuiti (due al giorno ai fuori sede, uno a pendolari e in sede)",
+        "Posto alloggio nelle residenze ERSU per i fuori sede assegnatari",
+        "Esonero da tasse universitarie e tassa regionale per beneficiari e idonei (resta il bollo)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, artt. 20 e 24",
+        "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato per la sede e alloggio a titolo oneroso vicino alla sede per almeno 10 mesi (residenze ERSU o contratto registrato), da confermare dal 10 novembre 2026 al 31 marzo 2027.",
+        "pendolare": "Residenza in uno dei comuni «pendolari» della sede, oppure fuori sede senza affitto a pagamento o con contributi per l’alloggio.",
+        "inSede": "Residenza in uno dei comuni «in sede» della sede del corso (per Cagliari anche Quartu, Selargius, Monserrato e altri), o alloggio di proprietà della famiglia in quei comuni.",
+        "source": {
+          "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 21",
+          "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata entro il 31 dicembre 2026 (in parte già entro il 10 novembre), con l’importo da fuori sede solo se lo status è confermato entro il 21 novembre 2026",
+          "Saldo con 20 crediti al 10 agosto 2027, pagato tra luglio e ottobre 2027"
+        ],
+        "note": "Con 20 crediti ottenuti entro il 30 novembre 2027 si conserva solo la prima rata; senza, la borsa va restituita.",
+        "source": {
+          "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, artt. 3 e 18.2 e calendario delle scadenze",
+          "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-08-28",
+        "closesTime": "13:00",
+        "note": "Domanda online sul Portale dello studente ERSU, anche prima dell’immatricolazione. ISEE per il diritto allo studio universitario 2026.",
+        "source": {
+          "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 10",
+          "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+        }
+      },
+      "municipalities": {
+        "Cagliari": {
+          "inSede": [
+            {
+              "comune": "Cagliari"
+            },
+            {
+              "comune": "Assemini"
+            },
+            {
+              "comune": "Decimomannu"
+            },
+            {
+              "comune": "Elmas"
+            },
+            {
+              "comune": "Monserrato"
+            },
+            {
+              "comune": "Quartucciu"
+            },
+            {
+              "comune": "Quartu Sant’Elena"
+            },
+            {
+              "comune": "Selargius"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Capoterra"
+            },
+            {
+              "comune": "Dolianova"
+            },
+            {
+              "comune": "Maracalagonis"
+            },
+            {
+              "comune": "Monastir"
+            },
+            {
+              "comune": "San Sperate"
+            },
+            {
+              "comune": "Sarroch"
+            },
+            {
+              "comune": "Serdiana"
+            },
+            {
+              "comune": "Sestu"
+            },
+            {
+              "comune": "Settimo San Pietro"
+            },
+            {
+              "comune": "Sinnai"
+            },
+            {
+              "comune": "Soleminis"
+            },
+            {
+              "comune": "Ussana"
+            },
+            {
+              "comune": "Uta"
+            },
+            {
+              "comune": "Villa San Pietro"
+            }
+          ],
+          "source": {
+            "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 21",
+            "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+          }
+        },
+        "Nuoro": {
+          "inSede": [
+            {
+              "comune": "Nuoro"
+            },
+            {
+              "comune": "Oliena"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Dorgali"
+            },
+            {
+              "comune": "Fonni"
+            },
+            {
+              "comune": "Galtellì"
+            },
+            {
+              "comune": "Mamoiada"
+            },
+            {
+              "comune": "Oniferi"
+            },
+            {
+              "comune": "Orani"
+            },
+            {
+              "comune": "Orgosolo"
+            },
+            {
+              "comune": "Orotelli"
+            },
+            {
+              "comune": "Orune"
+            },
+            {
+              "comune": "Ottana"
+            },
+            {
+              "comune": "Sarule"
+            }
+          ],
+          "source": {
+            "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 21",
+            "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+          }
+        },
+        "Oristano": {
+          "inSede": [
+            {
+              "comune": "Oristano"
+            },
+            {
+              "comune": "Arborea"
+            },
+            {
+              "comune": "Baratili San Pietro"
+            },
+            {
+              "comune": "Cabras"
+            },
+            {
+              "comune": "Milis"
+            },
+            {
+              "comune": "Nurachi"
+            },
+            {
+              "comune": "Ollastra"
+            },
+            {
+              "comune": "Riola Sardo"
+            },
+            {
+              "comune": "San Vero Milis"
+            },
+            {
+              "comune": "Santa Giusta"
+            },
+            {
+              "comune": "Simaxis"
+            },
+            {
+              "comune": "Terralba"
+            },
+            {
+              "comune": "Zeddiani"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Allai"
+            },
+            {
+              "comune": "Bauladu"
+            },
+            {
+              "comune": "Bonarcado"
+            },
+            {
+              "comune": "Fordongianus"
+            },
+            {
+              "comune": "Guspini"
+            },
+            {
+              "comune": "Marrubiu"
+            },
+            {
+              "comune": "Narbolia"
+            },
+            {
+              "comune": "Palmas Arborea"
+            },
+            {
+              "comune": "Seneghe"
+            },
+            {
+              "comune": "San Nicolò d’Arcidano"
+            },
+            {
+              "comune": "Santu Lussurgiu"
+            },
+            {
+              "comune": "Siamaggiore"
+            },
+            {
+              "comune": "Siamanna"
+            },
+            {
+              "comune": "Siapiccia"
+            },
+            {
+              "comune": "Solarussa"
+            },
+            {
+              "comune": "Tramatza"
+            },
+            {
+              "comune": "Uras"
+            },
+            {
+              "comune": "Usellus"
+            },
+            {
+              "comune": "Villanova Truschedu"
+            },
+            {
+              "comune": "Villaurbana"
+            },
+            {
+              "comune": "Zerfaliu"
+            }
+          ],
+          "source": {
+            "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 21",
+            "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+          }
+        },
+        "Olbia": {
+          "inSede": [
+            {
+              "comune": "Olbia"
+            },
+            {
+              "comune": "Loiri Porto San Paolo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Arzachena"
+            },
+            {
+              "comune": "Golfo Aranci"
+            },
+            {
+              "comune": "Monti"
+            },
+            {
+              "comune": "Padru"
+            },
+            {
+              "comune": "Palau"
+            },
+            {
+              "comune": "San Teodoro"
+            },
+            {
+              "comune": "Sant’Antonio di Gallura"
+            },
+            {
+              "comune": "Telti"
+            }
+          ],
+          "source": {
+            "label": "ERSU Cagliari, Bando unico borse di studio e posti alloggio 2026/27, art. 21",
+            "url": "https://www.ersucagliari.it/wp-content/uploads/2026/07/Bando-di-concorso-borse-e-alloggi-2026_27_approvato.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Cagliari, Borsa di studio",
+        "url": "https://www.ersucagliari.it/servizio/borsa-di-studio/"
+      }
     }
   ]
 }

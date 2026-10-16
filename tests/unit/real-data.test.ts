@@ -1656,3 +1656,20 @@ describe('ARDSU Basilicata 2026/27: borse', () => {
     expect(amountAt(ardsu, 25000, 'inSede')).toBe(1150);
   });
 });
+
+describe('ERSU Cagliari 2026/27: borse', () => {
+  const ersu = dsuEntityFor('ateneo-09201')!;
+  it('Soglie nazionali, importi con pasti, calo della sola parte in denaro', () => {
+    expect(ersu.id).toBe('ersu-cagliari');
+    expect(amountAt(ersu, 12000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(ersu, 16000, 'pendolare')).toBe(4190.71);
+    expect(amountAt(ersu, 28339.88, 'fuoriSede')).toBeCloseTo(3951.07, 0);
+  });
+  it('Elenchi dei comuni per le sedi', () => {
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Cagliari', 'Quartu Sant\'Elena')).toBe('inSede');
+    expect(check('Cagliari', 'Sestu')).toBe('pendolare');
+    expect(check('Cagliari', 'Sassari')).toBe('fuoriSede');
+    expect(check('Nuoro', 'Orgosolo')).toBe('pendolare');
+  });
+});
