@@ -17744,6 +17744,73 @@
         }
       },
       "simulator": "https://web.unicz.it/it/page/profilo-futuri-studenti"
+    },
+    "ateneo-09001": {
+      "name": "Università di Sassari",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti in corso con i requisiti di merito (Tabella A), con ISEE 2026 per il diritto allo studio.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Bollo 16 € con la prima rata; tassa regionale per il diritto allo studio (140 €, riscossa dall’Agenzia Sarda delle Entrate) con la seconda rata. Ne è esente anche chi ha un reddito familiare lordo sotto 25.000 € (con dichiarazione sul portale della Regione).",
+      "bands": [
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 30000,
+          "from": 22000,
+          "rate": 0.06,
+          "base": 0
+        },
+        {
+          "iseeMax": 70000,
+          "from": 30000,
+          "rate": 0.0175,
+          "base": 1050
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1750
+        }
+      ],
+      "bandsSource": {
+        "label": "UniSS, Guida Carriere Studenti 2026/27, par. 7.5, Tabella A",
+        "url": "https://www.uniss.it/sites/default/files/2026-08/Guida%20Carriere%20Studenti%202026-27_0.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1750,
+        "ciclo-unico": 1750,
+        "magistrale": 1750
+      },
+      "maxExceptions": [],
+      "maxNote": "Tassa = a + (ISEE − b) × c: esonero fino a 22.000 €; 6% dell’ISEE oltre 22.000 € fino a 30.000 € (sempre sotto il tetto del D.M. 1014/2021, Tabella A.1); 1.050 € + 1,75% dell’ISEE oltre 30.000 € fino a 70.000 €; oltre o senza ISEE 1.750 €. Stessi importi per tutti i corsi. Sconto del 20% con un familiare iscritto e di 50 € sulla terza rata per merito (dal secondo anno), non calcolati.",
+      "maxSource": {
+        "label": "UniSS, Guida Carriere Studenti 2026/27, par. 7.5",
+        "url": "https://www.uniss.it/sites/default/files/2026-08/Guida%20Carriere%20Studenti%202026-27_0.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (fino a 310 €) con il bollo di 16 € all’immatricolazione (entro il 16 ottobre 2026 per i rinnovi)",
+          "Seconda rata con la tassa regionale entro il 28 febbraio 2027 (tutto il resto se sotto 50 €, altrimenti la metà)",
+          "Terza rata (saldo) entro il 12 aprile 2027"
+        ],
+        "note": "L’ISEE 2026 va autorizzato all’iscrizione; se inserito dopo il 31 dicembre 2026 si pagano 50 € in più. Senza ISEE si paga il massimo.",
+        "source": {
+          "label": "UniSS, Tasse e ISEE 2026/27",
+          "url": "https://www.uniss.it/it/didattica/servizi-agli-studenti/guide-studenti/tasse-e-isee"
+        }
+      },
+      "simulator": "https://www.uniss.it/it/didattica/servizi-agli-studenti/guide-studenti/tasse-e-isee"
     }
   }
 }

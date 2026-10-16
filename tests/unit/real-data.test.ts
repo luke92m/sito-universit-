@@ -1673,3 +1673,26 @@ describe('ERSU Cagliari 2026/27: borse', () => {
     expect(check('Nuoro', 'Orgosolo')).toBe('pendolare');
   });
 });
+
+describe('Sassari 2026/27: tasse', () => {
+  it('Tabella A: esonero fino a 22.000 €, poi a + (ISEE − b) × c', () => {
+    const rule = tuitionRuleFor('ateneo-09001')!;
+    expect(contributionFor(rule, 22000, 1750)).toBe(0);
+    expect(contributionFor(rule, 26000, 1750)).toBe(240);
+    expect(contributionFor(rule, 50000, 1750)).toBe(1400);
+    expect(contributionFor(rule, 90000, 1750)).toBe(1750);
+  });
+});
+
+describe('ERSU Sassari 2026/27: borse', () => {
+  const ersu = dsuEntityFor('ateneo-09001')!;
+  it('Importi come in Cagliari, elenchi dei comuni per sei sedi', () => {
+    expect(ersu.id).toBe('ersu-sassari');
+    expect(amountAt(ersu, 14000, 'pendolare')).toBe(4819.32);
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Sassari', 'Sassari')).toBe('inSede');
+    expect(check('Sassari', 'Porto Torres')).toBe('pendolare');
+    expect(check('Alghero', 'Sassari')).toBe('pendolare');
+    expect(check('Sassari', 'Nuoro')).toBe('fuoriSede');
+  });
+});

@@ -13855,6 +13855,463 @@
         "label": "ERSU Cagliari, Borsa di studio",
         "url": "https://www.ersucagliari.it/servizio/borsa-di-studio/"
       }
+    },
+    {
+      "id": "ersu-sassari",
+      "name": "ERSU Sassari – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Sassari",
+      "region": "Sardegna",
+      "universityIds": [
+        "ateneo-09001"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 2",
+          "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi totali in denaro e servizi (art. 10): ai fuori sede 731,02 € in pasti e, a chi ha il posto alloggio, 2.021,38 € di servizio abitativo; ai pendolari 365,51 € in pasti. Oltre 18.893,25 € di ISEE si riduce in modo proporzionale la sola parte in denaro, fino alla metà.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3951.06,
+              "pendolare": 2278.11,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, artt. 9-10, tabelle degli importi",
+          "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "non cumulabile con il +15% per ISEE basso",
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 9",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a più corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "mantenendo i requisiti di merito per l’intera durata dei corsi",
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 9",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Pasti gratuiti (due al giorno ai fuori sede, uno ai pendolari)",
+        "Posto alloggio nelle residenze ERSU per i fuori sede assegnatari",
+        "Esonero da tassa regionale e contributo unico di iscrizione per beneficiari e idonei"
+      ],
+      "connectedBenefitsSource": {
+        "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, artt. 9-10 e 22",
+        "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato per la sede e alloggio a titolo oneroso con contratto registrato a proprio nome di almeno 10 mesi (tra il 1° settembre 2026 e il 31 ottobre 2027), da confermare dal 1° dicembre 2026 al 31 marzo 2027.",
+        "pendolare": "Residenza in uno dei comuni «pendolari» della sede, oppure fuori sede senza affitto o con casa di famiglia nel comune della sede.",
+        "inSede": "Residenza nel comune della sede o nei comuni vicini indicati dal bando.",
+        "source": {
+          "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16",
+          "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "20% entro il 10 novembre 2026",
+          "Un altro 30% entro il 31 dicembre 2026",
+          "Restante 50% con 20 crediti, dopo la certificazione dei crediti (dal 30 giugno 2027)"
+        ],
+        "note": "Senza 20 crediti entro il 30 novembre 2027 la borsa è revocata e vanno restituiti anche i servizi goduti.",
+        "source": {
+          "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, artt. 9, 13 e 15",
+          "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-07",
+        "closesTime": "13:00",
+        "note": "Domanda online sullo sportello ERSU dal 27 luglio 2026, con ISEE per il diritto allo studio universitario 2026.",
+        "source": {
+          "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 11",
+          "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+        }
+      },
+      "municipalities": {
+        "Sassari": {
+          "inSede": [
+            {
+              "comune": "Sassari"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Alghero"
+            },
+            {
+              "comune": "Banari"
+            },
+            {
+              "comune": "Cargeghe"
+            },
+            {
+              "comune": "Codrongianos"
+            },
+            {
+              "comune": "Florinas"
+            },
+            {
+              "comune": "Ittiri"
+            },
+            {
+              "comune": "Muros"
+            },
+            {
+              "comune": "Olmedo"
+            },
+            {
+              "comune": "Osilo"
+            },
+            {
+              "comune": "Ossi"
+            },
+            {
+              "comune": "Ploaghe"
+            },
+            {
+              "comune": "Porto Torres"
+            },
+            {
+              "comune": "Siligo"
+            },
+            {
+              "comune": "Sennori"
+            },
+            {
+              "comune": "Sorso"
+            },
+            {
+              "comune": "Tissi"
+            },
+            {
+              "comune": "Uri"
+            },
+            {
+              "comune": "Usini"
+            }
+          ],
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16, schema riassuntivo",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        },
+        "Nuoro": {
+          "inSede": [
+            {
+              "comune": "Nuoro"
+            },
+            {
+              "comune": "Oliena"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Dorgali"
+            },
+            {
+              "comune": "Fonni"
+            },
+            {
+              "comune": "Galtellì"
+            },
+            {
+              "comune": "Mamoiada"
+            },
+            {
+              "comune": "Oniferi"
+            },
+            {
+              "comune": "Orani"
+            },
+            {
+              "comune": "Orgosolo"
+            },
+            {
+              "comune": "Orotelli"
+            },
+            {
+              "comune": "Orune"
+            },
+            {
+              "comune": "Ottana"
+            },
+            {
+              "comune": "Sarule"
+            }
+          ],
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16, schema riassuntivo",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        },
+        "Oristano": {
+          "inSede": [
+            {
+              "comune": "Oristano"
+            },
+            {
+              "comune": "Arborea"
+            },
+            {
+              "comune": "Baratili San Pietro"
+            },
+            {
+              "comune": "Cabras"
+            },
+            {
+              "comune": "Milis"
+            },
+            {
+              "comune": "Nurachi"
+            },
+            {
+              "comune": "Ollastra"
+            },
+            {
+              "comune": "Riola Sardo"
+            },
+            {
+              "comune": "San Vero Milis"
+            },
+            {
+              "comune": "Santa Giusta"
+            },
+            {
+              "comune": "Simaxis"
+            },
+            {
+              "comune": "Zeddiani"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Allai"
+            },
+            {
+              "comune": "Bauladu"
+            },
+            {
+              "comune": "Bonarcado"
+            },
+            {
+              "comune": "Fordongianus"
+            },
+            {
+              "comune": "Guspini"
+            },
+            {
+              "comune": "Marrubiu"
+            },
+            {
+              "comune": "Narbolia"
+            },
+            {
+              "comune": "Palmas Arborea"
+            },
+            {
+              "comune": "Seneghe"
+            },
+            {
+              "comune": "San Nicolò d’Arcidano"
+            },
+            {
+              "comune": "Santu Lussurgiu"
+            },
+            {
+              "comune": "Siamaggiore"
+            },
+            {
+              "comune": "Siamanna"
+            },
+            {
+              "comune": "Siapiccia"
+            },
+            {
+              "comune": "Solarussa"
+            },
+            {
+              "comune": "Terralba"
+            },
+            {
+              "comune": "Tramatza"
+            },
+            {
+              "comune": "Uras"
+            },
+            {
+              "comune": "Usellus"
+            },
+            {
+              "comune": "Villanova Truschedu"
+            },
+            {
+              "comune": "Villaurbana"
+            },
+            {
+              "comune": "Zerfaliu"
+            }
+          ],
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16, schema riassuntivo",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        },
+        "Olbia": {
+          "inSede": [
+            {
+              "comune": "Olbia"
+            },
+            {
+              "comune": "Loiri Porto San Paolo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Arzachena"
+            },
+            {
+              "comune": "Golfo Aranci"
+            },
+            {
+              "comune": "Monti"
+            },
+            {
+              "comune": "Padru"
+            },
+            {
+              "comune": "Palau"
+            },
+            {
+              "comune": "San Teodoro"
+            },
+            {
+              "comune": "Sant’Antonio di Gallura"
+            },
+            {
+              "comune": "Telti"
+            }
+          ],
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16, schema riassuntivo",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        },
+        "Tempio Pausania": {
+          "inSede": [
+            {
+              "comune": "Tempio Pausania"
+            },
+            {
+              "comune": "Aggius"
+            },
+            {
+              "comune": "Calangianus"
+            },
+            {
+              "comune": "Luras"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aglientu"
+            },
+            {
+              "comune": "Bortigiadas"
+            },
+            {
+              "comune": "Luogosanto"
+            },
+            {
+              "comune": "Perfugas"
+            },
+            {
+              "comune": "Sant’Antonio di Gallura"
+            },
+            {
+              "comune": "Trinità d’Agultu e Vignola"
+            }
+          ],
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16, schema riassuntivo",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        },
+        "Alghero": {
+          "inSede": [
+            {
+              "comune": "Alghero"
+            },
+            {
+              "comune": "Olmedo"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Ittiri"
+            },
+            {
+              "comune": "Putifigari"
+            },
+            {
+              "comune": "Sassari"
+            },
+            {
+              "comune": "Uri"
+            },
+            {
+              "comune": "Villanova Monteleone"
+            }
+          ],
+          "source": {
+            "label": "ERSU Sassari, Bando borse di studio e servizi abitativi 2026/27, art. 16, schema riassuntivo",
+            "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Sassari, Borse di studio",
+        "url": "https://ersusassari.it/it/servizi/servizio/Borse-di-studio/"
+      }
     }
   ]
 }
