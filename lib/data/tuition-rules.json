@@ -14500,6 +14500,1161 @@
         }
       },
       "simulator": "https://www.univaq.it/include/utilities/blob.php?table=avviso&id=17197&item=allegato"
+    },
+    "ateneo-09201": {
+      "name": "Università degli Studi di Cagliari",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole e studenti in corso o fuori corso da non più di un anno («attivi»), con ISEE per il diritto allo studio universitario.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Bollo (16 €) con la prima rata; tassa regionale per il diritto allo studio (140 €, se dovuta) entro il 1° marzo 2027.",
+      "bands": [
+        {
+          "iseeMax": 24335.11,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 13000,
+          "rate": 0.035,
+          "base": 0
+        },
+        {
+          "iseeMax": 27760.95,
+          "from": 13000,
+          "rate": 0.0525,
+          "base": 0
+        },
+        {
+          "iseeMax": 28600,
+          "from": 0,
+          "rate": 0,
+          "base": 774.95
+        },
+        {
+          "iseeMax": 30000,
+          "from": 28600,
+          "rate": 0.019513,
+          "base": 815.26
+        },
+        {
+          "iseeMax": 32000,
+          "from": 30000,
+          "rate": 0.020352,
+          "base": 842.58
+        },
+        {
+          "iseeMax": 34000,
+          "from": 32000,
+          "rate": 0.021384,
+          "base": 883.28
+        },
+        {
+          "iseeMax": 36000,
+          "from": 34000,
+          "rate": 0.022471,
+          "base": 926.05
+        },
+        {
+          "iseeMax": 38000,
+          "from": 36000,
+          "rate": 0.023614,
+          "base": 970.99
+        },
+        {
+          "iseeMax": 40000,
+          "from": 38000,
+          "rate": 0.024817,
+          "base": 1018.22
+        },
+        {
+          "iseeMax": 42000,
+          "from": 40000,
+          "rate": 0.026084,
+          "base": 1067.86
+        },
+        {
+          "iseeMax": 44000,
+          "from": 42000,
+          "rate": 0.027417,
+          "base": 1120.02
+        },
+        {
+          "iseeMax": 46000,
+          "from": 44000,
+          "rate": 0.028819,
+          "base": 1174.86
+        },
+        {
+          "iseeMax": 48000,
+          "from": 46000,
+          "rate": 0.030296,
+          "base": 1232.5
+        },
+        {
+          "iseeMax": 50000,
+          "from": 48000,
+          "rate": 0.031849,
+          "base": 1293.09
+        },
+        {
+          "iseeMax": 52000,
+          "from": 50000,
+          "rate": 0.033484,
+          "base": 1356.78
+        },
+        {
+          "iseeMax": 54000,
+          "from": 52000,
+          "rate": 0.035205,
+          "base": 1423.75
+        },
+        {
+          "iseeMax": 56000,
+          "from": 54000,
+          "rate": 0.037015,
+          "base": 1494.16
+        },
+        {
+          "iseeMax": 58000,
+          "from": 56000,
+          "rate": 0.038921,
+          "base": 1568.19
+        },
+        {
+          "iseeMax": 60000,
+          "from": 58000,
+          "rate": 0.040926,
+          "base": 1646.03
+        },
+        {
+          "iseeMax": 62000,
+          "from": 60000,
+          "rate": 0.043037,
+          "base": 1727.89
+        },
+        {
+          "iseeMax": 64000,
+          "from": 62000,
+          "rate": 0.045258,
+          "base": 1813.96
+        },
+        {
+          "iseeMax": 66000,
+          "from": 64000,
+          "rate": 0.047596,
+          "base": 1904.48
+        },
+        {
+          "iseeMax": 68000,
+          "from": 66000,
+          "rate": 0.050056,
+          "base": 1999.67
+        },
+        {
+          "iseeMax": 70000,
+          "from": 68000,
+          "rate": 0.052645,
+          "base": 2099.78
+        },
+        {
+          "iseeMax": 72000,
+          "from": 70000,
+          "rate": 0.055369,
+          "base": 2205.07
+        },
+        {
+          "iseeMax": 74000,
+          "from": 72000,
+          "rate": 0.058236,
+          "base": 2315.81
+        },
+        {
+          "iseeMax": 76000,
+          "from": 74000,
+          "rate": 0.061254,
+          "base": 2432.28
+        },
+        {
+          "iseeMax": 78000,
+          "from": 76000,
+          "rate": 0.06443,
+          "base": 2554.79
+        },
+        {
+          "iseeMax": 80000,
+          "from": 78000,
+          "rate": 0.067772,
+          "base": 2683.65
+        },
+        {
+          "iseeMax": 82000,
+          "from": 80000,
+          "rate": 0.071289,
+          "base": 2819.19
+        },
+        {
+          "iseeMax": 84000,
+          "from": 82000,
+          "rate": 0.074991,
+          "base": 2961.77
+        },
+        {
+          "iseeMax": 86000,
+          "from": 84000,
+          "rate": 0.078886,
+          "base": 3111.75
+        },
+        {
+          "iseeMax": 87723.05,
+          "from": 86000,
+          "rate": 0.082693,
+          "base": 3269.52
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3418.7
+        }
+      ],
+      "bandsSource": {
+        "label": "UniCa, Regolamento contribuzione studentesca 2026/27, artt. 11 e Allegato 1",
+        "url": "https://www.unica.it/sites/default/files/2026-07/Regolamento_contribuzione_studentesca_anno_accademico_2026_2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 3418.7,
+        "ciclo-unico": 3418.7,
+        "magistrale": 3418.7
+      },
+      "maxExceptions": [],
+      "courseGroups": [
+        {
+          "id": "scienze",
+          "label": "Biologia e Farmacia, Ingegneria e Architettura, Scienze",
+          "groups": [
+            "Scientifico",
+            "Architettura e Ingegneria civile",
+            "Ingegneria industriale e dell'informazione",
+            "Informatica e Tecnologie ICT"
+          ],
+          "names": [
+            "Farmacia",
+            "Chimica e Tecnologia Farmaceutiche"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24335.11,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 13000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 28600,
+              "from": 0,
+              "rate": 0,
+              "base": 828.45
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28600,
+              "rate": 0.019515,
+              "base": 868.63
+            },
+            {
+              "iseeMax": 32000,
+              "from": 30000,
+              "rate": 0.020353,
+              "base": 895.95
+            },
+            {
+              "iseeMax": 34000,
+              "from": 32000,
+              "rate": 0.021385,
+              "base": 936.66
+            },
+            {
+              "iseeMax": 36000,
+              "from": 34000,
+              "rate": 0.022472,
+              "base": 979.43
+            },
+            {
+              "iseeMax": 38000,
+              "from": 36000,
+              "rate": 0.023616,
+              "base": 1024.37
+            },
+            {
+              "iseeMax": 40000,
+              "from": 38000,
+              "rate": 0.024819,
+              "base": 1071.6
+            },
+            {
+              "iseeMax": 42000,
+              "from": 40000,
+              "rate": 0.026085,
+              "base": 1121.24
+            },
+            {
+              "iseeMax": 44000,
+              "from": 42000,
+              "rate": 0.027418,
+              "base": 1173.41
+            },
+            {
+              "iseeMax": 46000,
+              "from": 44000,
+              "rate": 0.028821,
+              "base": 1228.25
+            },
+            {
+              "iseeMax": 48000,
+              "from": 46000,
+              "rate": 0.030297,
+              "base": 1285.89
+            },
+            {
+              "iseeMax": 50000,
+              "from": 48000,
+              "rate": 0.031851,
+              "base": 1346.48
+            },
+            {
+              "iseeMax": 52000,
+              "from": 50000,
+              "rate": 0.033485,
+              "base": 1410.19
+            },
+            {
+              "iseeMax": 54000,
+              "from": 52000,
+              "rate": 0.035206,
+              "base": 1477.16
+            },
+            {
+              "iseeMax": 56000,
+              "from": 54000,
+              "rate": 0.037017,
+              "base": 1547.57
+            },
+            {
+              "iseeMax": 58000,
+              "from": 56000,
+              "rate": 0.038922,
+              "base": 1621.6
+            },
+            {
+              "iseeMax": 60000,
+              "from": 58000,
+              "rate": 0.040928,
+              "base": 1699.45
+            },
+            {
+              "iseeMax": 62000,
+              "from": 60000,
+              "rate": 0.043038,
+              "base": 1781.3
+            },
+            {
+              "iseeMax": 64000,
+              "from": 62000,
+              "rate": 0.04526,
+              "base": 1867.38
+            },
+            {
+              "iseeMax": 66000,
+              "from": 64000,
+              "rate": 0.047597,
+              "base": 1957.9
+            },
+            {
+              "iseeMax": 68000,
+              "from": 66000,
+              "rate": 0.050057,
+              "base": 2053.09
+            },
+            {
+              "iseeMax": 70000,
+              "from": 68000,
+              "rate": 0.052646,
+              "base": 2153.21
+            },
+            {
+              "iseeMax": 72000,
+              "from": 70000,
+              "rate": 0.055371,
+              "base": 2258.5
+            },
+            {
+              "iseeMax": 74000,
+              "from": 72000,
+              "rate": 0.058238,
+              "base": 2369.24
+            },
+            {
+              "iseeMax": 76000,
+              "from": 74000,
+              "rate": 0.061256,
+              "base": 2485.72
+            },
+            {
+              "iseeMax": 78000,
+              "from": 76000,
+              "rate": 0.064431,
+              "base": 2608.23
+            },
+            {
+              "iseeMax": 80000,
+              "from": 78000,
+              "rate": 0.067773,
+              "base": 2737.09
+            },
+            {
+              "iseeMax": 82000,
+              "from": 80000,
+              "rate": 0.071291,
+              "base": 2872.64
+            },
+            {
+              "iseeMax": 84000,
+              "from": 82000,
+              "rate": 0.074992,
+              "base": 3015.22
+            },
+            {
+              "iseeMax": 86000,
+              "from": 84000,
+              "rate": 0.078888,
+              "base": 3165.2
+            },
+            {
+              "iseeMax": 87723.05,
+              "from": 86000,
+              "rate": 0.082694,
+              "base": 3322.98
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3472.05
+            }
+          ],
+          "max": 3472.05
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e chirurgia",
+          "groups": [
+            "Medico-Sanitario e Farmaceutico",
+            "Scienze motorie e sportive"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24335.11,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 13000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 28000,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 28600,
+              "from": 0,
+              "rate": 0,
+              "base": 835.1
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28600,
+              "rate": 0.019841,
+              "base": 875.79
+            },
+            {
+              "iseeMax": 32000,
+              "from": 30000,
+              "rate": 0.020679,
+              "base": 903.56
+            },
+            {
+              "iseeMax": 34000,
+              "from": 32000,
+              "rate": 0.021711,
+              "base": 944.92
+            },
+            {
+              "iseeMax": 36000,
+              "from": 34000,
+              "rate": 0.022798,
+              "base": 988.34
+            },
+            {
+              "iseeMax": 38000,
+              "from": 36000,
+              "rate": 0.023941,
+              "base": 1033.94
+            },
+            {
+              "iseeMax": 40000,
+              "from": 38000,
+              "rate": 0.025145,
+              "base": 1081.82
+            },
+            {
+              "iseeMax": 42000,
+              "from": 40000,
+              "rate": 0.026411,
+              "base": 1132.11
+            },
+            {
+              "iseeMax": 44000,
+              "from": 42000,
+              "rate": 0.027744,
+              "base": 1184.93
+            },
+            {
+              "iseeMax": 46000,
+              "from": 44000,
+              "rate": 0.029147,
+              "base": 1240.42
+            },
+            {
+              "iseeMax": 48000,
+              "from": 46000,
+              "rate": 0.030623,
+              "base": 1298.71
+            },
+            {
+              "iseeMax": 50000,
+              "from": 48000,
+              "rate": 0.032176,
+              "base": 1359.96
+            },
+            {
+              "iseeMax": 52000,
+              "from": 50000,
+              "rate": 0.033811,
+              "base": 1424.31
+            },
+            {
+              "iseeMax": 54000,
+              "from": 52000,
+              "rate": 0.035532,
+              "base": 1491.93
+            },
+            {
+              "iseeMax": 56000,
+              "from": 54000,
+              "rate": 0.037342,
+              "base": 1562.99
+            },
+            {
+              "iseeMax": 58000,
+              "from": 56000,
+              "rate": 0.039248,
+              "base": 1637.68
+            },
+            {
+              "iseeMax": 60000,
+              "from": 58000,
+              "rate": 0.041253,
+              "base": 1716.18
+            },
+            {
+              "iseeMax": 62000,
+              "from": 60000,
+              "rate": 0.043364,
+              "base": 1798.68
+            },
+            {
+              "iseeMax": 64000,
+              "from": 62000,
+              "rate": 0.045585,
+              "base": 1885.41
+            },
+            {
+              "iseeMax": 66000,
+              "from": 64000,
+              "rate": 0.047923,
+              "base": 1976.58
+            },
+            {
+              "iseeMax": 68000,
+              "from": 66000,
+              "rate": 0.050383,
+              "base": 2072.43
+            },
+            {
+              "iseeMax": 70000,
+              "from": 68000,
+              "rate": 0.052972,
+              "base": 2173.19
+            },
+            {
+              "iseeMax": 72000,
+              "from": 70000,
+              "rate": 0.055696,
+              "base": 2279.14
+            },
+            {
+              "iseeMax": 74000,
+              "from": 72000,
+              "rate": 0.058564,
+              "base": 2390.53
+            },
+            {
+              "iseeMax": 76000,
+              "from": 74000,
+              "rate": 0.061581,
+              "base": 2507.66
+            },
+            {
+              "iseeMax": 78000,
+              "from": 76000,
+              "rate": 0.064757,
+              "base": 2630.82
+            },
+            {
+              "iseeMax": 80000,
+              "from": 78000,
+              "rate": 0.068099,
+              "base": 2760.33
+            },
+            {
+              "iseeMax": 82000,
+              "from": 80000,
+              "rate": 0.071616,
+              "base": 2896.53
+            },
+            {
+              "iseeMax": 84000,
+              "from": 82000,
+              "rate": 0.075318,
+              "base": 3039.76
+            },
+            {
+              "iseeMax": 86000,
+              "from": 84000,
+              "rate": 0.079213,
+              "base": 3190.4
+            },
+            {
+              "iseeMax": 87723.05,
+              "from": 86000,
+              "rate": 0.08302,
+              "base": 3348.82
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3498.8
+            }
+          ],
+          "max": 3498.8
+        },
+        {
+          "id": "umanistici",
+          "label": "Studi umanistici",
+          "groups": [
+            "Letterario-Umanistico",
+            "Linguistico",
+            "Arte e Design",
+            "Educazione e Formazione",
+            "Psicologico"
+          ],
+          "names": [
+            "Scienze della Comunicazione",
+            "Lingue e Comunicazione",
+            "Giornalismo e Informazione Web"
+          ],
+          "bands": [
+            {
+              "iseeMax": 24335.11,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 13000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 27970.48,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 28600,
+              "from": 0,
+              "rate": 0,
+              "base": 785.95
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28600,
+              "rate": 0.019495,
+              "base": 826.25
+            },
+            {
+              "iseeMax": 32000,
+              "from": 30000,
+              "rate": 0.020334,
+              "base": 853.54
+            },
+            {
+              "iseeMax": 34000,
+              "from": 32000,
+              "rate": 0.021366,
+              "base": 894.21
+            },
+            {
+              "iseeMax": 36000,
+              "from": 34000,
+              "rate": 0.022453,
+              "base": 936.94
+            },
+            {
+              "iseeMax": 38000,
+              "from": 36000,
+              "rate": 0.023596,
+              "base": 981.84
+            },
+            {
+              "iseeMax": 40000,
+              "from": 38000,
+              "rate": 0.024799,
+              "base": 1029.04
+            },
+            {
+              "iseeMax": 42000,
+              "from": 40000,
+              "rate": 0.026066,
+              "base": 1078.63
+            },
+            {
+              "iseeMax": 44000,
+              "from": 42000,
+              "rate": 0.027399,
+              "base": 1130.77
+            },
+            {
+              "iseeMax": 46000,
+              "from": 44000,
+              "rate": 0.028801,
+              "base": 1185.56
+            },
+            {
+              "iseeMax": 48000,
+              "from": 46000,
+              "rate": 0.030278,
+              "base": 1243.17
+            },
+            {
+              "iseeMax": 50000,
+              "from": 48000,
+              "rate": 0.031831,
+              "base": 1303.72
+            },
+            {
+              "iseeMax": 52000,
+              "from": 50000,
+              "rate": 0.033466,
+              "base": 1367.38
+            },
+            {
+              "iseeMax": 54000,
+              "from": 52000,
+              "rate": 0.035187,
+              "base": 1434.32
+            },
+            {
+              "iseeMax": 56000,
+              "from": 54000,
+              "rate": 0.036997,
+              "base": 1504.69
+            },
+            {
+              "iseeMax": 58000,
+              "from": 56000,
+              "rate": 0.038903,
+              "base": 1578.68
+            },
+            {
+              "iseeMax": 60000,
+              "from": 58000,
+              "rate": 0.040908,
+              "base": 1656.49
+            },
+            {
+              "iseeMax": 62000,
+              "from": 60000,
+              "rate": 0.043019,
+              "base": 1738.31
+            },
+            {
+              "iseeMax": 64000,
+              "from": 62000,
+              "rate": 0.04524,
+              "base": 1824.34
+            },
+            {
+              "iseeMax": 66000,
+              "from": 64000,
+              "rate": 0.047578,
+              "base": 1914.82
+            },
+            {
+              "iseeMax": 68000,
+              "from": 66000,
+              "rate": 0.050038,
+              "base": 2009.98
+            },
+            {
+              "iseeMax": 70000,
+              "from": 68000,
+              "rate": 0.052627,
+              "base": 2110.05
+            },
+            {
+              "iseeMax": 72000,
+              "from": 70000,
+              "rate": 0.055351,
+              "base": 2215.31
+            },
+            {
+              "iseeMax": 74000,
+              "from": 72000,
+              "rate": 0.058218,
+              "base": 2326.01
+            },
+            {
+              "iseeMax": 76000,
+              "from": 74000,
+              "rate": 0.061236,
+              "base": 2442.45
+            },
+            {
+              "iseeMax": 78000,
+              "from": 76000,
+              "rate": 0.064412,
+              "base": 2564.92
+            },
+            {
+              "iseeMax": 80000,
+              "from": 78000,
+              "rate": 0.067754,
+              "base": 2693.74
+            },
+            {
+              "iseeMax": 82000,
+              "from": 80000,
+              "rate": 0.071271,
+              "base": 2829.25
+            },
+            {
+              "iseeMax": 84000,
+              "from": 82000,
+              "rate": 0.074973,
+              "base": 2971.79
+            },
+            {
+              "iseeMax": 86000,
+              "from": 84000,
+              "rate": 0.078868,
+              "base": 3121.74
+            },
+            {
+              "iseeMax": 87723.05,
+              "from": 86000,
+              "rate": 0.082675,
+              "base": 3279.48
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3428.55
+            }
+          ],
+          "max": 3428.55
+        },
+        {
+          "id": "economia",
+          "label": "Scienze economiche, giuridiche e politiche",
+          "groups": [
+            "Economico",
+            "Giuridico",
+            "Politico-Sociale e Comunicazione"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 24335.11,
+              "from": 0,
+              "rate": 0,
+              "base": 0
+            },
+            {
+              "iseeMax": 26000,
+              "from": 13000,
+              "rate": 0.035,
+              "base": 0
+            },
+            {
+              "iseeMax": 27760.95,
+              "from": 13000,
+              "rate": 0.0525,
+              "base": 0
+            },
+            {
+              "iseeMax": 28600,
+              "from": 0,
+              "rate": 0,
+              "base": 774.95
+            },
+            {
+              "iseeMax": 30000,
+              "from": 28600,
+              "rate": 0.019513,
+              "base": 815.26
+            },
+            {
+              "iseeMax": 32000,
+              "from": 30000,
+              "rate": 0.020352,
+              "base": 842.58
+            },
+            {
+              "iseeMax": 34000,
+              "from": 32000,
+              "rate": 0.021384,
+              "base": 883.28
+            },
+            {
+              "iseeMax": 36000,
+              "from": 34000,
+              "rate": 0.022471,
+              "base": 926.05
+            },
+            {
+              "iseeMax": 38000,
+              "from": 36000,
+              "rate": 0.023614,
+              "base": 970.99
+            },
+            {
+              "iseeMax": 40000,
+              "from": 38000,
+              "rate": 0.024817,
+              "base": 1018.22
+            },
+            {
+              "iseeMax": 42000,
+              "from": 40000,
+              "rate": 0.026084,
+              "base": 1067.86
+            },
+            {
+              "iseeMax": 44000,
+              "from": 42000,
+              "rate": 0.027417,
+              "base": 1120.02
+            },
+            {
+              "iseeMax": 46000,
+              "from": 44000,
+              "rate": 0.028819,
+              "base": 1174.86
+            },
+            {
+              "iseeMax": 48000,
+              "from": 46000,
+              "rate": 0.030296,
+              "base": 1232.5
+            },
+            {
+              "iseeMax": 50000,
+              "from": 48000,
+              "rate": 0.031849,
+              "base": 1293.09
+            },
+            {
+              "iseeMax": 52000,
+              "from": 50000,
+              "rate": 0.033484,
+              "base": 1356.78
+            },
+            {
+              "iseeMax": 54000,
+              "from": 52000,
+              "rate": 0.035205,
+              "base": 1423.75
+            },
+            {
+              "iseeMax": 56000,
+              "from": 54000,
+              "rate": 0.037015,
+              "base": 1494.16
+            },
+            {
+              "iseeMax": 58000,
+              "from": 56000,
+              "rate": 0.038921,
+              "base": 1568.19
+            },
+            {
+              "iseeMax": 60000,
+              "from": 58000,
+              "rate": 0.040926,
+              "base": 1646.03
+            },
+            {
+              "iseeMax": 62000,
+              "from": 60000,
+              "rate": 0.043037,
+              "base": 1727.89
+            },
+            {
+              "iseeMax": 64000,
+              "from": 62000,
+              "rate": 0.045258,
+              "base": 1813.96
+            },
+            {
+              "iseeMax": 66000,
+              "from": 64000,
+              "rate": 0.047596,
+              "base": 1904.48
+            },
+            {
+              "iseeMax": 68000,
+              "from": 66000,
+              "rate": 0.050056,
+              "base": 1999.67
+            },
+            {
+              "iseeMax": 70000,
+              "from": 68000,
+              "rate": 0.052645,
+              "base": 2099.78
+            },
+            {
+              "iseeMax": 72000,
+              "from": 70000,
+              "rate": 0.055369,
+              "base": 2205.07
+            },
+            {
+              "iseeMax": 74000,
+              "from": 72000,
+              "rate": 0.058236,
+              "base": 2315.81
+            },
+            {
+              "iseeMax": 76000,
+              "from": 74000,
+              "rate": 0.061254,
+              "base": 2432.28
+            },
+            {
+              "iseeMax": 78000,
+              "from": 76000,
+              "rate": 0.06443,
+              "base": 2554.79
+            },
+            {
+              "iseeMax": 80000,
+              "from": 78000,
+              "rate": 0.067772,
+              "base": 2683.65
+            },
+            {
+              "iseeMax": 82000,
+              "from": 80000,
+              "rate": 0.071289,
+              "base": 2819.19
+            },
+            {
+              "iseeMax": 84000,
+              "from": 82000,
+              "rate": 0.074991,
+              "base": 2961.77
+            },
+            {
+              "iseeMax": 86000,
+              "from": 84000,
+              "rate": 0.078886,
+              "base": 3111.75
+            },
+            {
+              "iseeMax": 87723.05,
+              "from": 86000,
+              "rate": 0.082693,
+              "base": 3269.52
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3418.7
+            }
+          ],
+          "max": 3418.7
+        }
+      ],
+      "maxNote": "Esonero fino a 24.335,11 € per le matricole. Tra 24.335,12 e 30.000 € contributo calmierato ((ISEE − 13.000) × 7% al 50%, 75% o 90%) se più basso della tabella; poi le fasce 16-18 della facoltà fino a 28.600 € e la formula esponenziale della fascia 19 fino a 87.723,05 € (qui a tratti lineari di 2.000 €); oltre o senza ISEE 3.418,70-3.498,80 € secondo la facoltà. La facoltà è assegnata da noi per macroarea del corso. Non calcolata la riduzione d’ufficio dell’ISEE per chi abita lontano (−5% oltre 50 km, −10% Nuorese/Ogliastra/Sassarese, −15% Gallura, −20% fuori Sardegna, art. 27): per chi non vive vicino a Cagliari la stima è un po’ più alta del dovuto.",
+      "maxSource": {
+        "label": "UniCa, Regolamento contribuzione studentesca 2026/27, Allegato 1",
+        "url": "https://www.unica.it/sites/default/files/2026-07/Regolamento_contribuzione_studentesca_anno_accademico_2026_2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (bollo, 16 € per le matricole) entro il 1° ottobre 2026",
+          "Seconda rata (340 € per le matricole fino alla fascia 18, altrimenti il 30%) entro il 1° marzo 2027",
+          "Terza rata (saldo) entro il 30 giugno 2027"
+        ],
+        "note": "L’autocertificazione con l’ISEE per il diritto allo studio va completata entro il 31 dicembre 2026.",
+        "source": {
+          "label": "UniCa, Regolamento contribuzione studentesca 2026/27, art. 4 e Allegato 1",
+          "url": "https://www.unica.it/sites/default/files/2026-07/Regolamento_contribuzione_studentesca_anno_accademico_2026_2027.pdf"
+        }
+      },
+      "simulator": "https://www.unica.it/sites/default/files/2026-07/Regolamento_contribuzione_studentesca_anno_accademico_2026_2027.pdf"
     }
   }
 }

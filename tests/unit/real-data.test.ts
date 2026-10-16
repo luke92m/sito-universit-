@@ -1363,3 +1363,17 @@ describe('Calabria 2026/27: borse della Mediterranea e dell’Unical', () => {
     expect(check('Catanzaro')).toBe('fuoriSede');
   });
 });
+
+describe('Sardegna 2026/27: tasse dell’Università di Cagliari', () => {
+  it('esonero fino a 24.335,11 €, contributo calmierato, poi tabella e formula per facoltà', () => {
+    const rule = tuitionRuleFor('ateneo-09201')!;
+    expect(contributionFor(rule, 24335.11, 3418.7)).toBe(0);
+    expect(contributionFor(rule, 25000, 3418.7)).toBe(420);
+    expect(contributionFor(rule, 27000, 3418.7)).toBe(735);
+    expect(contributionFor(rule, 28300, 3418.7)).toBe(774.95);
+    expect(contributionFor(rule, 40000, 3418.7)).toBeCloseTo(1067.86, 0);
+    expect(contributionFor(rule, null, 3418.7)).toBe(3418.7);
+    const medicina = rule.courseGroups!.find((group) => group.id === 'medicina')!;
+    expect(contributionFor({ ...rule, bands: medicina.bands }, 27900, 3498.8)).toBe(782.25);
+  });
+});

@@ -108,6 +108,8 @@ Tasse (2026/27):
 - **Mediterranea (borse)**: Bando unico DSU 2026/27 dell'ateneo, artt. 1, 3, 4, 6, 8: soglie nazionali, +15% sotto 14.169,94 €, calo lineare fino alla metà tra 18.893,25 e 28.339,88 € (il test riproduce l'esempio del bando: 5.232,76 € a 24.000 €). Importi in denaro; nessun elenco di comuni (pendolare entro 50 km; l'Allegato 1 elenca frazioni di Reggio, non comuni).
 - **Unical (borse)**: bando diritto allo studio 2026/27 del Centro Residenziale, artt. 3, 4, 10, 11 e Appendice A: soglie 26.500 € / 57.500 €, valori nominali con alloggio e mensa (in denaro va solo la differenza), calo lineare della quota in denaro oltre 17.666,67 €. Comuni pendolari per Rende con le abbreviazioni sciolte.
 - **Catanzaro (Fondazione UMG)**: borse non inserite, il bando 2026/27 sul portale della Fondazione non si scarica (errore del server). Tasse di Unical, Catanzaro e Mediterranea non ancora inserite.
+- **Cagliari (tasse)**: Regolamento contribuzione studentesca 2026/27, artt. 4, 11, 27 e Allegato 1: esonero per le matricole fino a 24.335,11 €, contributo calmierato tra 24.335,12 e 30.000 € (se più basso), tabelle a fasce per quattro facoltà e formula esponenziale della fascia 19 (approssimata a tratti lineari di 2.000 €, scarto massimo 1 €). Facoltà assegnata per macroarea del corso (comunicazione e giornalismo con gli Studi umanistici). Non calcolata la riduzione d'ufficio dell'ISEE per chi abita oltre 50 km o fuori Sardegna (art. 27).
+- **ERSU Cagliari ed ERSU Sassari, tasse di Sassari**: non inseriti. Il bando unico 2026/27 di ERSU Cagliari non è pubblicato sul sito dell'ente (circola solo una copia su un sito privato); quello di Sassari non è raggiungibile.
 
 ## Fonti
 
