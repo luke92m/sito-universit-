@@ -20160,6 +20160,431 @@
         ],
         "note": "il corso non compare nella Tabella A del Regolamento 2026/27."
       }
+    },
+    "ateneo-05803": {
+      "name": "LUMSA – Libera Università Maria Ss. Assunta",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole delle sedi di Roma e Palermo, con ISEE Università (la fascia assegnata all’immatricolazione resta per tutto il corso).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 140
+      },
+      "fixedFeesNote": "Tassa regionale per il diritto allo studio 140 € con la prima rata.",
+      "bands": [
+        {
+          "iseeMax": 17000,
+          "from": 0,
+          "rate": 0,
+          "base": 3500
+        },
+        {
+          "iseeMax": 21000,
+          "from": 0,
+          "rate": 0,
+          "base": 4250
+        },
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 5000
+        },
+        {
+          "iseeMax": 30000,
+          "from": 0,
+          "rate": 0,
+          "base": 6000
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 6500
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 7250
+        },
+        {
+          "iseeMax": 80000,
+          "from": 0,
+          "rate": 0,
+          "base": 8000
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 8750
+        }
+      ],
+      "bandsSource": {
+        "label": "LUMSA, Guida pratica per lo studente 2026/27, Titolo I (fasce di contribuzione e tabella delle tasse)",
+        "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "ordinario",
+          "label": "tutti i corsi",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 17000,
+              "from": 0,
+              "rate": 0,
+              "base": 3500
+            },
+            {
+              "iseeMax": 21000,
+              "from": 0,
+              "rate": 0,
+              "base": 4250
+            },
+            {
+              "iseeMax": 25000,
+              "from": 0,
+              "rate": 0,
+              "base": 5000
+            },
+            {
+              "iseeMax": 30000,
+              "from": 0,
+              "rate": 0,
+              "base": 6000
+            },
+            {
+              "iseeMax": 35000,
+              "from": 0,
+              "rate": 0,
+              "base": 6500
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 7250
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 8000
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 8750
+            }
+          ],
+          "max": 8750
+        },
+        {
+          "id": "agevolato",
+          "label": "corsi a regime agevolato (Servizio sociale)",
+          "groups": [],
+          "names": [
+            "Scienze del Servizio Sociale e del No Profit",
+            "Programmazione e Gestione delle Politiche e dei Servizi Sociali"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3500
+            }
+          ],
+          "max": 3500
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 8750,
+        "ciclo-unico": 8750,
+        "magistrale": 8750
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "La guida LUMSA non prevede l’esonero dalle tasse per chi è idoneo alla borsa DiSCo: qui la retta resta dovuta (da verificare con l’Ateneo).",
+      "maxNote": "Otto fasce di ISEE (fino a 17.000, 21.000, 25.000, 30.000, 35.000, 50.000, 80.000 € e oltre) a importo fisso: da 3.500 € a 8.750 € (tassa regionale esclusa); senza ISEE la fascia più alta. Servizio sociale (L-39, LM-87): sempre la prima fascia. Riduzione del 20% (seconda, terza e quarta rata) con 100/100 alla maturità e del 30% con un altro familiare iscritto: non calcolate.",
+      "maxSource": {
+        "label": "LUMSA, Guida pratica per lo studente 2026/27, Titolo I (fasce di contribuzione e tabella delle tasse)",
+        "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata di 1.000 € con la tassa regionale all’immatricolazione",
+          "Seconda rata entro il 10 dicembre 2026",
+          "Terza rata entro il 17 febbraio 2027",
+          "Quarta rata entro il 14 aprile 2027"
+        ],
+        "note": "L’ISEE Università va inserito al più tardi entro il 21 novembre 2026; senza, si paga l’ultima fascia. Mora di 50 € per ogni rata in ritardo.",
+        "source": {
+          "label": "LUMSA, Guida pratica per lo studente 2026/27, Titolo I (fasce di contribuzione e tabella delle tasse)",
+          "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
+        }
+      },
+      "simulator": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
+    },
+    "ateneo-05808": {
+      "name": "Università Campus Bio-Medico di Roma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole: contributo unico per corso, non legato all’ISEE.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 140
+      },
+      "fixedFeesNote": "Tassa regionale per il diritto allo studio 140 € con la prima rata.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 6571.5
+        }
+      ],
+      "bandsSource": {
+        "label": "UCBM, Tasse e contributi: importi del primo anno 2026/27",
+        "url": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
+      },
+      "courseGroups": [
+        {
+          "id": "bme",
+          "label": "Biomedical Engineering",
+          "groups": [],
+          "names": [
+            "Biomedical Engineering",
+            "Ingegneria Industriale"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6571.5
+            }
+          ],
+          "max": 6571.5
+        },
+        {
+          "id": "fisio",
+          "label": "Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)",
+          "groups": [],
+          "names": [
+            "Fisioterapia (Abilitante alla Professione Sanitaria di Fisioterapista)"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 7000
+            }
+          ],
+          "max": 7000
+        },
+        {
+          "id": "inf",
+          "label": "Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)",
+          "groups": [],
+          "names": [
+            "Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2350.88
+            }
+          ],
+          "max": 2350.88
+        },
+        {
+          "id": "radio",
+          "label": "Tecniche di Radiologia Medica, per Immagini e Radioterapia (Abilitante alla Professione Sanitaria di Tecnico di Radiologia Medica)",
+          "groups": [],
+          "names": [
+            "Tecniche di Radiologia Medica, per Immagini e Radioterapia (Abilitante alla Professione Sanitaria di Tecnico di Radiologia Medica)"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5110.61
+            }
+          ],
+          "max": 5110.61
+        },
+        {
+          "id": "alim-l",
+          "label": "Scienze dell'Alimentazione e della Nutrizione Umana",
+          "groups": [],
+          "names": [
+            "Scienze dell'Alimentazione e della Nutrizione Umana"
+          ],
+          "levels": [
+            "triennale"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5621.5
+            }
+          ],
+          "max": 5621.5
+        },
+        {
+          "id": "alim-lm",
+          "label": "Scienze dell'Alimentazione e della Nutrizione Umana",
+          "groups": [],
+          "names": [
+            "Scienze dell'Alimentazione e della Nutrizione Umana",
+            "Scienze e Tecnologie Alimentari e Food Design"
+          ],
+          "levels": [
+            "magistrale"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6132.73
+            }
+          ],
+          "max": 6132.73
+        },
+        {
+          "id": "ing-lm",
+          "label": "Ingegneria Biomedica",
+          "groups": [],
+          "names": [
+            "Ingegneria Biomedica",
+            "Ingegneria Chimica per Lo Sviluppo Sostenibile",
+            "Ingegneria dei Sistemi Intelligenti"
+          ],
+          "levels": [
+            "magistrale"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6571.5
+            }
+          ],
+          "max": 6571.5
+        },
+        {
+          "id": "sio",
+          "label": "Scienze Infermieristiche e Ostetriche",
+          "groups": [],
+          "names": [
+            "Scienze Infermieristiche e Ostetriche"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4088.48
+            }
+          ],
+          "max": 4088.48
+        },
+        {
+          "id": "med",
+          "label": "Medicina e Chirurgia",
+          "groups": [],
+          "names": [
+            "Medicina e Chirurgia"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 15500
+            }
+          ],
+          "max": 15500
+        },
+        {
+          "id": "medeng",
+          "label": "Medicine And Surgery",
+          "groups": [],
+          "names": [
+            "Medicine And Surgery"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 19000
+            }
+          ],
+          "max": 19000
+        },
+        {
+          "id": "odo",
+          "label": "Odontoiatria e Protesi Dentaria",
+          "groups": [],
+          "names": [
+            "Odontoiatria e Protesi Dentaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 22486.66
+            }
+          ],
+          "max": 22486.66
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 6571.5,
+        "ciclo-unico": 6571.5,
+        "magistrale": 6571.5
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "L’esonero per chi è idoneo alla borsa DiSCo va chiesto all’Ateneo ed è concesso nei limiti dei fondi statali assegnati (D.R. 504/2025, artt. 8-10): non è automatico.",
+      "maxNote": "Contributo unico per corso, uguale per ogni ISEE: da 2.350,88 € (Infermieristica) a 22.486,66 € (Odontoiatria); ingegnerie 6.571,50 €, Medicina 15.500 € (19.000 € in inglese), più 140 € di tassa regionale.",
+      "maxSource": {
+        "label": "UCBM, Tasse e contributi: importi del primo anno 2026/27",
+        "url": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata con la tassa regionale all’immatricolazione",
+          "Seconda rata entro il 25 gennaio 2027",
+          "Terza rata (date indicate dall’Ateneo)"
+        ],
+        "note": "Importi e scadenze del primo anno 2026/27 dalla pagina «Tasse e contributi».",
+        "source": {
+          "label": "UCBM, Tasse e contributi: importi del primo anno 2026/27",
+          "url": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
+        }
+      },
+      "simulator": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
     }
   }
 }

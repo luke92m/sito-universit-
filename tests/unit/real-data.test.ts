@@ -1798,3 +1798,22 @@ describe('Kore Enna 2026/27: retta fissa per corso', () => {
     expect(cost.lines.find((line) => line.key === 'tasse')?.max).toBe(3750);
   });
 });
+
+describe('Roma, private 2026/27: LUMSA e Campus Bio-Medico', () => {
+  it('LUMSA: otto fasce di ISEE, Servizio sociale in prima fascia', () => {
+    const rule = tuitionRuleFor('ateneo-05803')!;
+    const named = (name: string) => getCourses('ateneo-05803').find((course) => course.name === name)!;
+    const group = courseGroup(rule, named('Giurisprudenza'))!;
+    expect(contributionFor(rule, 20000, group.max, group.bands)).toBe(4250);
+    expect(contributionFor(rule, null, group.max, group.bands)).toBe(8750);
+    expect(maxContribution(rule, named('Scienze del Servizio Sociale e del No Profit'))).toBe(3500);
+  });
+  it('Campus Bio-Medico: contributo per corso', () => {
+    const rule = tuitionRuleFor('ateneo-05808')!;
+    const named = (name: string, level: string) =>
+      getCourses('ateneo-05808').find((course) => course.name === name && degreeLevel(course) === level)!;
+    expect(maxContribution(rule, getCourses('ateneo-05808').find((course) => course.name === 'Medicina e Chirurgia')!)).toBe(15500);
+    expect(maxContribution(rule, named('Scienze dell\'Alimentazione e della Nutrizione Umana', 'triennale'))).toBe(5621.5);
+    expect(maxContribution(rule, named('Scienze dell\'Alimentazione e della Nutrizione Umana', 'magistrale'))).toBe(6132.73);
+  });
+});
