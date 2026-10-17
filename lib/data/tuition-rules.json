@@ -343,7 +343,7 @@
           "iseeMax": null,
           "from": 0,
           "rate": 0,
-          "base": 2840
+          "base": 2785
         }
       ],
       "bandsSource": {
@@ -351,14 +351,14 @@
         "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
       },
       "maxByLevel": {
-        "triennale": 2840,
-        "ciclo-unico": 2840,
-        "magistrale": 2840
+        "triennale": 2785,
+        "ciclo-unico": 2785,
+        "magistrale": 2785
       },
       "maxExceptions": [],
-      "maxNote": "Senza ISEE o con ISEE oltre 85.000 € si pagano 2.840 €. Alcuni corsi chiedono una quota in più (art. 6.1): Business & Management e Business Administration da 400 € a 5.100 € secondo l’ISEE (non nel calcolo), Management dell’informazione e della comunicazione aziendale 2.710 €, Conservazione e restauro 4.000 € (comprese nel calcolo del corso). Per Medicina, Odontoiatria e Veterinaria (semestre filtro) gli importi sono fissati a parte.",
+      "maxNote": "Al primo anno, senza ISEE o con ISEE oltre 85.000 €, si pagano 2.785 € (art. 3.1; dal secondo anno senza i requisiti di merito 2.840 €, art. 2). Alcuni corsi chiedono una quota in più (art. 6.1): Business & Management e Business Administration da 400 € a 5.100 € secondo l’ISEE (non nel calcolo), Management dell’informazione e della comunicazione aziendale 2.710 €, Conservazione e restauro 4.000 € (comprese nel calcolo del corso). Per Medicina, Odontoiatria e Veterinaria (semestre filtro) gli importi sono fissati a parte.",
       "maxSource": {
-        "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 2, 4 e 6",
+        "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 2, 3.1, 4 e 6",
         "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
       },
       "payments": {

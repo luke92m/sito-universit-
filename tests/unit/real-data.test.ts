@@ -182,17 +182,24 @@ describe('tasse Università di Torino 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-00101')!;
 
   it('formule dell’art. 3.1 per le matricole a tempo pieno', () => {
-    expect(contributionFor(rule, 26000, 2840)).toBe(0);
-    expect(contributionFor(rule, 30000, 2840)).toBe(422.06);
-    expect(contributionFor(rule, 40000, 2840)).toBe(1025);
-    expect(contributionFor(rule, 60000, 2840)).toBe(1807.22);
-    expect(contributionFor(rule, 85000, 2840)).toBe(2785);
+    expect(contributionFor(rule, 26000, 2785)).toBe(0);
+    expect(contributionFor(rule, 30000, 2785)).toBe(422.06);
+    expect(contributionFor(rule, 40000, 2785)).toBe(1025);
+    expect(contributionFor(rule, 60000, 2785)).toBe(1807.22);
+    expect(contributionFor(rule, 85000, 2785)).toBe(2785);
   });
 
-  it('massimo di 2.840 € oltre 85.000 € e senza ISEE, prima rata di 156 €', () => {
-    expect(contributionFor(rule, 90000, 2840)).toBe(2840);
-    expect(contributionFor(rule, null, 2840)).toBe(2840);
+  it('massimo di 2.785 € al primo anno oltre 85.000 € e senza ISEE, prima rata di 156 €', () => {
+    expect(rule.maxByLevel.triennale).toBe(2785);
+    expect(contributionFor(rule, 90000, 2785)).toBe(2785);
+    expect(contributionFor(rule, null, 2785)).toBe(2785);
     expect(fixedFeesRange(rule, none).max).toBe(156);
+  });
+
+  // Punti presi dal simulatore ufficiale (simulatore.tasse.unito.it, 1° anno, tempo pieno, 17/10/2026).
+  it('coincide con il simulatore ufficiale UniTo', () => {
+    const official: [number, number][] = [[20000, 0], [30000, 422.06], [50000, 1416.11], [70000, 2198.33], [80000, 2589.44], [100000, 2785]];
+    for (const [isee, value] of official) expect(contributionFor(rule, isee, rule.maxByLevel.triennale)).toBeCloseTo(value, 1);
   });
 });
 
