@@ -2220,3 +2220,17 @@ describe('Pegaso 2026/27: retta standard e contributo servizi', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('Mercatorum 2026/27: retta standard e contributo servizi', () => {
+  const rule = tuitionRuleFor('ateneo-05814')!;
+  const courses = getCourses('ateneo-05814');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Gestione di Impresa')).toBe(2750);
+    expect(max('Management')).toBe(2750);
+    expect(rule.fixedFees.regionalTax).toBe(140);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
