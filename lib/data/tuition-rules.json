@@ -356,7 +356,7 @@
         "magistrale": 2840
       },
       "maxExceptions": [],
-      "maxNote": "Senza ISEE o con ISEE oltre 85.000 € si pagano 2.840 €. Alcuni corsi chiedono una quota in più (art. 6.1): Business & Management e Business Administration da 400 € a 5.100 € secondo l’ISEE, Management dell’informazione e della comunicazione aziendale 2.710 €, Conservazione e restauro 4.000 €. Per Medicina, Odontoiatria e Veterinaria (semestre filtro) gli importi sono fissati a parte.",
+      "maxNote": "Senza ISEE o con ISEE oltre 85.000 € si pagano 2.840 €. Alcuni corsi chiedono una quota in più (art. 6.1): Business & Management e Business Administration da 400 € a 5.100 € secondo l’ISEE (non nel calcolo), Management dell’informazione e della comunicazione aziendale 2.710 €, Conservazione e restauro 4.000 € (comprese nel calcolo del corso). Per Medicina, Odontoiatria e Veterinaria (semestre filtro) gli importi sono fissati a parte.",
       "maxSource": {
         "label": "UniTo, Regolamento tasse e contributi 2026/27, artt. 2, 4 e 6",
         "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
@@ -374,7 +374,23 @@
           "url": "https://en.unito.it/sites/sten/files/document/2026-07/reg_tasse_2026_2027_dr_6194_2026.pdf"
         }
       },
-      "simulator": "https://simulatore.tasse.unito.it/"
+      "simulator": "https://simulatore.tasse.unito.it/",
+      "courseSurcharges": [
+        {
+          "names": [
+            "Management dell'Informazione e della Comunicazione Aziendale"
+          ],
+          "amount": 2710,
+          "note": "Comprende la quota in più del corso (2.710 €, art. 6.1)."
+        },
+        {
+          "nameIncludes": [
+            "Conservazione e Restauro"
+          ],
+          "amount": 4000,
+          "note": "Comprende la quota in più del corso (4.000 €, art. 6.1)."
+        }
+      ]
     },
     "ateneo-05801": {
       "name": "Sapienza Università di Roma",
@@ -678,7 +694,11 @@
           "url": "https://www.polito.it/sites/default/files/2026-07/Regolamento%20L%20imma%2025_26%20%2B%20LM_LS.pdf"
         }
       },
-      "simulator": "https://www.polito.it/didattica/servizi-e-vita-al-politecnico/diritto-allo-studio-e-contribuzione-studentesca/contribuzione-studentesca"
+      "simulator": "https://www.polito.it/didattica/servizi-e-vita-al-politecnico/diritto-allo-studio-e-contribuzione-studentesca/contribuzione-studentesca",
+      "ispeLimit": {
+        "from": 210000,
+        "note": "Con ISPE oltre 210.000 € non spetta la riduzione: si paga il massimo."
+      }
     },
     "ateneo-04801": {
       "name": "Università di Firenze",
@@ -7781,7 +7801,7 @@
         "magistrale": 2950
       },
       "maxExceptions": [],
-      "maxNote": "No tax area fino a 26.000 €. Tra 26.000 e 30.000 € il contributo è ricondotto al tetto (ISEE − 13.000) × 7% × 65% (fino a 28.000 €) o × 85% (art. 4.5). Oltre, le formule della tabella 4.1.2: (ISEE + 38.941,82)/25.000 × 525,62 fino a 50.000 €, 2.012,44 + (ISEE − 50.000)/50.000 × 487,56 fino a 100.000 €, poi 2.950 € (anche senza ISEE). I salti tra le fasce sono nel regolamento. Non sono nel calcolo la riduzione per il voto di maturità (fino a 446,65 €, da 70/100) e le quote in più di Scienze e tecniche psicologiche (+70 €) e Conservazione e restauro (+1.000 €).",
+      "maxNote": "No tax area fino a 26.000 €. Tra 26.000 e 30.000 € il contributo è ricondotto al tetto (ISEE − 13.000) × 7% × 65% (fino a 28.000 €) o × 85% (art. 4.5). Oltre, le formule della tabella 4.1.2: (ISEE + 38.941,82)/25.000 × 525,62 fino a 50.000 €, 2.012,44 + (ISEE − 50.000)/50.000 × 487,56 fino a 100.000 €, poi 2.950 € (anche senza ISEE). I salti tra le fasce sono nel regolamento. Non sono nel calcolo la riduzione per il voto di maturità (fino a 446,65 €, da 70/100) . Le quote in più di Scienze e tecniche psicologiche (+70 €) e Conservazione e restauro (+1.000 €) sono comprese nel calcolo del corso.",
       "maxSource": {
         "label": "Uniba, Regolamento contribuzione studentesca 2026/27, art. 4.1",
         "url": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
@@ -7799,7 +7819,23 @@
           "url": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
         }
       },
-      "simulator": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027"
+      "simulator": "https://www.uniba.it/it/ateneo/statuto-regolamenti/regolamenti-generali/regolamento-contribuzione-studentesca-2026-2027",
+      "courseSurcharges": [
+        {
+          "names": [
+            "Scienze e Tecniche Psicologiche"
+          ],
+          "amount": 70,
+          "note": "Comprende la quota in più del corso (70 €)."
+        },
+        {
+          "nameIncludes": [
+            "Conservazione e Restauro"
+          ],
+          "amount": 1000,
+          "note": "Comprende la quota in più del corso (1.000 €)."
+        }
+      ]
     },
     "ateneo-08201": {
       "name": "Università di Palermo",
@@ -16222,7 +16258,7 @@
       "name": "Università del Piemonte Orientale",
       "academicYear": "2026/2027",
       "verifiedAt": "2026-10-16",
-      "appliesTo": "Matricole a tempo pieno (per il primo anno conta solo l’ISEE), con ISPE sotto 130.000 €.",
+      "appliesTo": "Matricole a tempo pieno (per il primo anno conta solo l’ISEE); con ISPE oltre 130.000 € il contributo sale verso il massimo.",
       "fixedFees": {
         "regionalTax": 140,
         "stampDuty": 16,
@@ -16451,7 +16487,7 @@
         "magistrale": 2280
       },
       "maxExceptions": [],
-      "maxNote": "No tax area fino a 30.000 € per tutte le matricole. Oltre: COA = VUPO1 (330 €, o 342 € per Scienze del Farmaco e Scuola di Medicina) + VUPO2, che cresce in modo lineare per fasce di ISEE (525 € appena sopra 30.000 €, 1.950 € oltre 120.000 €; 630-2.280 € per Farmaco e Medicina). Senza ISEE o oltre 120.000 €: 2.280 € (2.622 € Farmaco e Medicina). Con ISPE oltre 130.000 € il VUPO2 sale verso il massimo (non calcolato).",
+      "maxNote": "No tax area fino a 30.000 € per tutte le matricole. Oltre: COA = VUPO1 (330 €, o 342 € per Scienze del Farmaco e Scuola di Medicina) + VUPO2, che cresce in modo lineare per fasce di ISEE (525 € appena sopra 30.000 €, 1.950 € oltre 120.000 €; 630-2.280 € per Farmaco e Medicina). Senza ISEE o oltre 120.000 €: 2.280 € (2.622 € Farmaco e Medicina). Con ISPE oltre 130.000 € il VUPO2 sale in modo lineare fino al massimo a 160.000 € (calcolato se indichi l’ISPE).",
       "maxSource": {
         "label": "UPO, Regolamento in materia di contribuzione studentesca (modifiche CdA 29/4/2026), artt. 4.1-4.4",
         "url": "https://www.uniupo.it/sites/default/files/2026-05/DR_Regolamento_Contribuzione_integrazioni_def%20rep.pdf"
@@ -16468,7 +16504,12 @@
           "url": "https://www.uniupo.it/sites/default/files/2026-06/DR_Manifesto%20degli%20Studi_26_27%20rep.pdf"
         }
       },
-      "simulator": "https://simulatasse.uniupo.it/"
+      "simulator": "https://simulatasse.uniupo.it/",
+      "ispeLimit": {
+        "from": 130000,
+        "to": 160000,
+        "note": "Con ISPE tra 130.000 e 160.000 € il VUPO2 sale in modo lineare fino al massimo (art. 4.2)."
+      }
     },
     "ateneo-06302": {
       "name": "Università di Napoli Parthenope",

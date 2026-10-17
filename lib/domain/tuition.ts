@@ -72,6 +72,13 @@ export interface TuitionRule {
    * indicato dallo studente il calcolo applica quello con la soglia più alta raggiunta.
    */
   gradeReductions?: GradeReduction[];
+  /**
+   * Limite ISPE per le riduzioni: oltre `from` si paga il massimo; con `to` il contributo sale in modo lineare
+   * fino al massimo tra `from` e `to` (es. Piemonte Orientale tra 130.000 e 160.000 €).
+   */
+  ispeLimit?: { from: number; to?: number; note: string };
+  /** Quote fisse in più per alcuni corsi, dovute per ogni ISEE (es. Bari: Conservazione e restauro +1.000 €). */
+  courseSurcharges?: { names?: string[]; nameIncludes?: string[]; amount: number; note: string }[];
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };
@@ -206,4 +213,25 @@ export function fixedFeesRange(rule: TuitionRule, isee: { min: number | null; ma
     max: cents(taxMax + other),
     regionalTax: { min: taxMin, max: taxMax }
   };
+}
+
+/** Quota in più del corso (0 se non prevista). */
+export function courseSurcharge(rule: TuitionRule, course: CourseLike | null) {
+  if (!course || !rule.courseSurcharges) return null;
+  const name = normalize(course.name);
+  return (
+    rule.courseSurcharges.find(
+      (item) =>
+        item.names?.some((value) => normalize(value) === name) ||
+        item.nameIncludes?.some((part) => name.includes(normalize(part)))
+    ) || null
+  );
+}
+
+/** Contributo dopo il limite ISPE: verso il massimo quando l'ISPE supera la soglia. */
+export function ispeAdjusted(rule: TuitionRule, contribution: number, max: number, ispe: number | null): number {
+  const limit = rule.ispeLimit;
+  if (!limit || ispe == null || ispe <= limit.from) return contribution;
+  if (!limit.to || ispe >= limit.to) return max;
+  return cents(contribution + ((max - contribution) * (ispe - limit.from)) / (limit.to - limit.from));
 }

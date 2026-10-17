@@ -195,6 +195,11 @@ Tasse (2026/27):
 
 Per leggere i PDF dei bandi si può usare qualunque estrattore di testo (per esempio `pdftotext`, o la libreria `pdfjs-dist`); le tabelle a più colonne vanno ricontrollate a mano. I PDF scansionati o grafici si leggono convertendo le pagine in immagini (pdfjs-dist con `@napi-rs/canvas`).
 
+### Limite ISPE e quote in più dei corsi
+
+- `ispeLimit` della regola: oltre `from` di ISPE si paga il massimo; con `to` il contributo sale in modo lineare fino al massimo (Politecnico di Torino: 210.000 €; Piemonte Orientale: 130.000-160.000 €). Vale solo se l’ISPE è indicato.
+- `courseSurcharges`: quote fisse in più per alcuni corsi, sommate al contributo (Bari: Scienze e tecniche psicologiche +70 €, Conservazione e restauro +1.000 €; Torino: Management dell’informazione e della comunicazione aziendale +2.710 €, Conservazione e restauro +4.000 €). Restano in nota le quote che dipendono dall’ISEE (Torino, Business & Management) e la riduzione ISEE di Cagliari per chi abita lontano (serve la distanza).
+
 ### Voto di maturità (facoltativo)
 
 Lo studente può indicare il voto di maturità (a intervalli: 60-69, 70-79, 80-89, 90-94, 95-97, 98-99, 100, 100 e lode; il calcolo usa il minimo dell’intervallo, quindi non promette mai uno sconto incerto). Il voto non viene salvato e non entra nel link condiviso.

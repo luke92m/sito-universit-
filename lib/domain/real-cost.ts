@@ -14,6 +14,8 @@ import {
 import {
   contributionRange,
   courseGroup,
+  courseSurcharge,
+  ispeAdjusted,
   degreeLevel,
   fixedFeesRange,
   maxContribution,
@@ -85,7 +87,8 @@ function tuitionLines(
   isee: EconomicRange,
   scholarship: ScholarshipEstimate | null,
   condition: StudentCondition,
-  grade: DiplomaGrade = null
+  grade: DiplomaGrade = null,
+  ispe: EconomicRange = { min: null, max: null }
 ): CostLine[] {
   if (!rule) {
     // Chi è idoneo alla borsa non paga le tasse: lo prevede la legge nazionale, anche senza le regole dell'ateneo.
@@ -125,7 +128,13 @@ function tuitionLines(
   }
   const group = courseGroup(rule, course);
   const max = course ? maxContribution(rule, course) : group ? group.max : rule.maxByLevel.triennale;
-  const base = contributionRange(rule, isee, max, group?.bands);
+  const plain = contributionRange(rule, isee, max, group?.bands);
+  // Limite ISPE: l'ISPE più basso dà il minimo, il più alto il massimo.
+  const ispeCapped = isee.min == null ? plain : { min: ispeAdjusted(rule, plain.min, max, ispe.min), max: ispeAdjusted(rule, plain.max, max, ispe.max) };
+  const surcharge = courseSurcharge(rule, course);
+  const base = surcharge
+    ? { min: ispeCapped.min + surcharge.amount, max: ispeCapped.max + surcharge.amount }
+    : ispeCapped;
   // Riduzione fuori sede: certa per chi è fuori sede, possibile per i pendolari (dipende dai tempi di viaggio).
   const offSite = rule.offSiteReduction && condition !== 'inSede' ? rule.offSiteReduction : null;
   const range = offSite
@@ -155,7 +164,7 @@ function tuitionLines(
       max: exempt ? 0 : tuitionMax,
       note: exempt
         ? 'Esonero totale: spetta a chi è idoneo alla borsa.'
-        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}${!exemptionApplies && scholarship && scholarship.status !== 'not-eligible' ? ` ${rule.noScholarshipExemption}` : ''}${gradeCut && !exempt && grade != null ? ` Con ${gradeLabel(grade)} alla maturità: ${gradeCut.note}` : ''}`,
+        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}${!exemptionApplies && scholarship && scholarship.status !== 'not-eligible' ? ` ${rule.noScholarshipExemption}` : ''}${surcharge ? ` ${surcharge.note}` : ''}${rule.ispeLimit && ispe.max != null && ispe.max > rule.ispeLimit.from ? ` ${rule.ispeLimit.note}` : ''}${gradeCut && !exempt && grade != null ? ` Con ${gradeLabel(grade)} alla maturità: ${gradeCut.note}` : ''}`,
       source: rule.bandsSource,
       estimated: Boolean(rule.bandsNote) && !exempt
     },
@@ -191,7 +200,7 @@ export function realCost(
   const excluded = universityRule ? isExcludedCourse(universityRule, course) : false;
   const rule = excluded ? null : universityRule;
   const missing: string[] = [];
-  const lines = tuitionLines(rule, university, course, isee, scholarship, condition, grade);
+  const lines = tuitionLines(rule, university, course, isee, scholarship, condition, grade, ispe);
   if (grade == null && firstCycle && rule?.gradeReductions?.length)
     missing.push('Sconto per voto di maturità: indica il voto per calcolarlo');
   if (excluded) missing.push(`Tasse per fascia ISEE di questo corso: ${universityRule!.excludedCourses!.note}`);

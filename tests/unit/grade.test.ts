@@ -74,3 +74,34 @@ describe('voto di maturità nel costo reale', () => {
     expect(master.status).toBe('eligible');
   });
 });
+
+describe('regole portate dalle note al calcolo', () => {
+  it('PoliTo: con ISPE oltre 210.000 € si paga il massimo', () => {
+    const polito = getUniversityById('ateneo-00102')!;
+    const normal = tuition(realCost(polito, null, exact(40000), exact(100000), 'inSede'));
+    const rich = tuition(realCost(polito, null, exact(40000), exact(250000), 'inSede'));
+    expect(normal.max).toBeLessThan(3600);
+    expect(rich.max).toBe(3600);
+  });
+
+  it('Piemonte Orientale: tra 130.000 e 160.000 € di ISPE il contributo sale verso il massimo', () => {
+    const upo = getUniversityById('ateneo-00201')!;
+    const base = tuition(realCost(upo, null, exact(40000), exact(100000), 'inSede')).max;
+    const mid = tuition(realCost(upo, null, exact(40000), exact(145000), 'inSede')).max;
+    expect(mid).toBeCloseTo((base + 2280) / 2, 0);
+  });
+
+  it('Bari e Torino: quote in più del corso', () => {
+    const bari = getUniversityById('ateneo-07201')!;
+    const psico = getCourses('ateneo-07201').find((course) => course.name === 'Scienze e Tecniche Psicologiche')!;
+    const other = getCourses('ateneo-07201').find((course) => course.name !== psico.name && degreeLevel(course) === 'triennale')!;
+    const withQuota = tuition(realCost(bari, psico, exact(40000), none, 'inSede')).max;
+    const without = tuition(realCost(bari, other, exact(40000), none, 'inSede')).max;
+    expect(withQuota - without).toBe(70);
+    const torino = getUniversityById('ateneo-00101')!;
+    const mica = getCourses('ateneo-00101').find((course) => course.name.startsWith('Management dell'))!;
+    const plain = getCourses('ateneo-00101').find((course) => course.name === 'Economia Aziendale') || getCourses('ateneo-00101').find((course) => degreeLevel(course) === 'triennale' && course.name !== mica.name)!;
+    const diff = tuition(realCost(torino, mica, exact(50000), none, 'inSede')).max - tuition(realCost(torino, plain, exact(50000), none, 'inSede')).max;
+    expect(diff).toBe(2710);
+  });
+});
