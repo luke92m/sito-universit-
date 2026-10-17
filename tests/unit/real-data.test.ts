@@ -2050,3 +2050,28 @@ describe('Stranieri di Siena 2026/27: tasse dal simulatore ufficiale', () => {
     expect(dsuEntityFor('ateneo-05202')!.id).toBe(dsuEntityFor('ateneo-05201')!.id);
   });
 });
+
+describe('UniCamillus 2026/27: contributo fisso per corso', () => {
+  const rule = tuitionRuleFor('ateneo-05818')!;
+  const courses = getCourses('ateneo-05818');
+  const max = (name: string, city?: string) => {
+    const course = courses.find((item) => item.name.startsWith(name) && (!city || item.city === city))!;
+    return isExcludedCourse(rule, course) ? null : maxContribution(rule, course);
+  };
+  it('Importi del primo anno dai regolamenti 2026/27', () => {
+    expect(max('Medicina e Chirurgia', 'Roma')).toBe(16500);
+    expect(max('Medicina e Chirurgia', "Cefalu'")).toBe(16500);
+    expect(max('Odontoiatria')).toBe(16000);
+    expect(max('Fisioterapia')).toBe(8000);
+    expect(max('Ostetricia')).toBe(4000);
+    expect(max('Infermieristica')).toBe(3000);
+    expect(max('Tecniche di Radiologia')).toBe(3000);
+    expect(max('Scienze della Nutrizione Umana')).toBe(2620);
+    expect(max('Tecniche di Laboratorio Biomedico')).toBeNull();
+    expect(contributionFor(rule, 10000, 16500)).toBe(16500);
+  });
+  it('La borsa DiSCo non toglie la retta', () => {
+    expect(rule.noScholarshipExemption).toBe(true);
+    expect(dsuEntityFor('ateneo-05818')!.id).toBe('disco-lazio');
+  });
+});

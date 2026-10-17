@@ -22681,6 +22681,98 @@
           "note": "100 € in meno sulla prima rata per chi si immatricola a una triennale con un voto da 95 a 100 (Regolamento tasse 2026/27, art. 3, comma 6)."
         }
       ]
+    },
+    "ateneo-05818": {
+      "name": "UniCamillus – Saint Camillus International University of Health Sciences",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27 comunitarie: contributo annuo fisso per corso, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Oltre al contributo: tassa regionale per il diritto allo studio (140 € nel Lazio; i regolamenti citano l’importo 2025/26) e bollo 16 € all’immatricolazione. Per Medicina a Cefalù e a Venezia la tassa regionale è quella di Sicilia e Veneto: il sito usa comunque 140 €.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 16500
+        }
+      ],
+      "bandsSource": {
+        "label": "UniCamillus, Regolamenti tasse e contributi 2026/2027 (pagina «Tasse e contributi»)",
+        "url": "https://unicamillus.org/it/tasse-e-contributi/"
+      },
+      "maxByLevel": {
+        "triennale": 8000,
+        "ciclo-unico": 16500,
+        "magistrale": 2620
+      },
+      "maxExceptions": [
+        {
+          "name": "Fisioterapia",
+          "level": "triennale",
+          "amount": 8000
+        },
+        {
+          "name": "Ostetricia",
+          "level": "triennale",
+          "amount": 4000
+        },
+        {
+          "name": "Infermieristica",
+          "level": "triennale",
+          "amount": 3000
+        },
+        {
+          "name": "Tecniche di Radiologia Medica, per Immagini e Radioterapia",
+          "level": "triennale",
+          "amount": 3000
+        },
+        {
+          "name": "Medicina e Chirurgia",
+          "level": "ciclo-unico",
+          "amount": 16500
+        },
+        {
+          "name": "Odontoiatria e Protesi Dentaria",
+          "level": "ciclo-unico",
+          "amount": 16000
+        },
+        {
+          "name": "Scienze della Nutrizione Umana",
+          "level": "magistrale",
+          "amount": 2620
+        }
+      ],
+      "excludedCourses": {
+        "nameIncludes": [
+          "Tecniche di Laboratorio Biomedico"
+        ],
+        "note": "Il regolamento 2026/27 delle triennali per studenti comunitari (sede di Roma) non riporta Tecniche di Laboratorio Biomedico."
+      },
+      "noScholarshipExemption": true,
+      "maxNote": "Contributo annuo del primo anno, uguale per ogni ISEE: Medicina e Chirurgia in italiano 16.500 € (uguale a Roma, Venezia-Lido e Cefalù; 21.000 € il corso in inglese), Odontoiatria 16.000 €, Fisioterapia 8.000 €, Ostetricia 4.000 €, Infermieristica e Tecniche di Radiologia (in inglese) 3.000 €, magistrale in Scienze della Nutrizione Umana 2.500 € più 120 € di diritti di segreteria (2.620 €, corso soprattutto a distanza). I regolamenti dicono che l’esonero per gli idonei alla borsa (D.Lgs. 68/2012, art. 9) non si applica a UniCamillus, perché l’Ateneo non riceve contributi statali.",
+      "maxSource": {
+        "label": "UniCamillus, Regolamenti tasse e contributi 2026/2027: ciclo unico Roma (D.R. 59/2026), Venezia-Lido (D.R. 60/2026), Cefalù (D.R. 61/2026), triennali UE Roma (D.R. 180/2026), Scienze della Nutrizione Umana (D.R. 520/2026)",
+        "url": "https://unicamillus.org/wp-content/uploads/regolamenti/191r-59-2026dr_-regolamento_tassecontributi_cdl-magistrale-ciclo-unico-2026-2027-roma.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima e seconda rata secondo il bando di ammissione (Medicina: 2.000 € + 4.500 €; triennali: 1.500 €)",
+          "Ciclo unico: terza rata entro il 30 novembre 2026 e quarta entro il 28 febbraio 2027",
+          "Triennali: seconda rata entro il 31 gennaio 2027 e terza entro il 30 aprile 2027"
+        ],
+        "note": "Pagamenti solo con PagoPA o CBILL dal portale Gomp. In ritardo: blocco di esami e carriera e penale da 100 a 300 €.",
+        "source": {
+          "label": "UniCamillus, Regolamenti tasse e contributi 2026/2027, par. 1 e 1.1",
+          "url": "https://unicamillus.org/wp-content/uploads/regolamenti/201r-regolamento_tassecontributi_cdl-triennali-studenti-ue-2026-2027-sede-roma.pdf"
+        }
+      },
+      "simulator": "https://unicamillus.org/it/tasse-e-contributi/"
     }
   }
 }
