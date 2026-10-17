@@ -2234,3 +2234,18 @@ describe('Mercatorum 2026/27: retta standard e contributo servizi', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('San Raffaele Roma 2026/27: retta standard e contributo servizi', () => {
+  const rule = tuitionRuleFor('ateneo-05816')!;
+  const courses = getCourses('ateneo-05816');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Scienze Motorie')).toBe(2750);
+    expect(max('Scienze della Nutrizione Umana')).toBe(2750);
+    expect(max('Scienze Biologiche')).toBe(5300);
+    expect(max('Scienza dell\'Amministrazione e dell\'Organizzazione')).toBe(2750);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

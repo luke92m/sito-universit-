@@ -23382,6 +23382,62 @@
         }
       },
       "simulator": "https://www.unimercatorum.it/studenti/iscrizioni"
+    },
+    "ateneo-05816": {
+      "name": "Università telematica San Raffaele Roma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Retta standard 2026/27 (senza agevolazioni) più contributo per i servizi, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 140
+      },
+      "fixedFeesNote": "Tassa regionale DiSCo Lazio (140 €) all’iscrizione e a ogni anno. La pagina non indica il bollo.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 5300
+        }
+      ],
+      "bandsSource": {
+        "label": "Università telematica San Raffaele Roma, pagina «Iscriviti» (costi e modalità di pagamento)",
+        "url": "https://www.uniroma5.it/iscrizione"
+      },
+      "maxByLevel": {
+        "triennale": 2750,
+        "ciclo-unico": 2750,
+        "magistrale": 2750
+      },
+      "maxExceptions": [
+        {
+          "name": "Scienze Biologiche",
+          "level": "triennale",
+          "amount": 5300
+        }
+      ],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Retta standard 2026/27 di 2.450 € più il contributo annuale per i servizi agli studenti di 300 € (2.750 €). Scienze Biologiche (L-13): retta 5.000 € più 300 € (5.300 €). L’indirizzo «Scienze dell’Amministrazione nel Calcio» di L-16 costa 3.200 € online e 7.200 € college: il sito usa la retta standard del corso. Ci sono agevolazioni per convenzioni e promozioni: il sito usa la retta standard.",
+      "maxSource": {
+        "label": "Università telematica San Raffaele Roma, pagina «Iscriviti» (a.a. 2026/2027)",
+        "url": "https://www.uniroma5.it/iscrizione"
+      },
+      "payments": {
+        "steps": [
+          "Retta rateizzabile, online o con bonifico",
+          "Contributo per i servizi ogni anno",
+          "Tassa regionale ogni anno, direttamente all’ente regionale"
+        ],
+        "note": "Costi accessori (certificati, trasferimenti, prova finale) nella tabella della stessa pagina.",
+        "source": {
+          "label": "Università telematica San Raffaele Roma, pagina «Iscriviti»",
+          "url": "https://www.uniroma5.it/iscrizione"
+        }
+      },
+      "simulator": "https://www.uniroma5.it/iscrizione"
     }
   }
 }
