@@ -911,6 +911,19 @@ describe('tasse Università di Genova 2026/27', () => {
     expect(contributionFor(rule, null, one.max, one.bands)).toBe(3025);
   });
 
+  // Seconda + terza rata dal simulatore ufficiale (servizionline.unige.it, primo anno, 17/10/2026), che arrotonda
+  // all'euro. Tra 24.000 e 30.000 € il simulatore chiede di più del tetto del 7% dell'art. 6.3.c: lì seguiamo il
+  // regolamento e non lo confrontiamo.
+  it('coincide con il simulatore ufficiale UniGe fuori dalla fascia 24.000-30.000 €', () => {
+    const official: [number, number, number][] = [
+      [20000, 0, 0], [30500, 964, 1047], [40000, 1426, 1561], [50000, 1911, 2103], [70000, 2695, 2970], [999999, 3025, 3300]
+    ];
+    for (const [isee, first, second] of official) {
+      expect(Math.abs(contributionFor(rule, isee, one.max, one.bands) - first)).toBeLessThan(1);
+      expect(Math.abs(contributionFor(rule, isee, two.max, two.bands) - second)).toBeLessThan(1);
+    }
+  });
+
   it('tassa regionale ligure 120/140/160 €', () => {
     expect(fixedFeesRange(rule, exact(15000)).min).toBe(136);
     expect(fixedFeesRange(rule, exact(40000)).min).toBe(176);

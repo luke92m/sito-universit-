@@ -9075,7 +9075,7 @@
     "ateneo-01001": {
       "name": "Università di Genova",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-15",
+      "verifiedAt": "2026-10-17",
       "appliesTo": "Matricole a tempo pieno (gruppo contributivo 1: al primo anno conta solo l’ISEE-U), con ISEE-U autocertificato all’Università.",
       "fixedFees": {
         "regionalTax": 160,
@@ -9137,8 +9137,8 @@
         }
       ],
       "bandsSource": {
-        "label": "UniGe, Regolamento contribuzione dal 2026/27 (art. 6) e tabella «Rate e calcolo» 2026/27",
-        "url": "https://unige.it/tasse-e-benefici/rate-calcolo"
+        "label": "UniGe, Regolamento contribuzione dal 2026/27, art. 6 (versione di settembre 2026)",
+        "url": "https://unige.it/sites/unige.it/files/2026-09/Regolamento_Contribuzione_da_aa_2026-27_x_pubblicaz_merged.pdf"
       },
       "maxByLevel": {
         "triennale": 3300,
@@ -9290,7 +9290,7 @@
           "max": 3300
         }
       ],
-      "maxNote": "Esonero fino a 24.000 € di ISEE-U; tra 24.000 e 30.000 € il contributo è contenuto entro il 7% dell’ISEE oltre 24.000 € (art. 6.3.c), più basso della retta in tabella; poi lineare da 940 € a 2.640 € (classe 1) o da 1.020 € a 2.915 € (classe 2) fino a 65.000 €, e fino a 3.025 € o 3.300 € a 100.000 €, anche senza ISEE. La classe segue l’area ministeriale della classe di laurea (Tabella dei raggruppamenti).",
+      "maxNote": "Esonero fino a 24.000 € di ISEE-U; tra 24.000 e 30.000 € il contributo è contenuto entro il 7% dell’ISEE oltre 24.000 € (art. 6.3.c), più basso della retta in tabella; poi lineare da 940 € a 2.640 € (classe 1) o da 1.020 € a 2.915 € (classe 2) fino a 65.000 €, e fino a 3.025 € o 3.300 € a 100.000 €, anche senza ISEE. La classe segue l’area ministeriale della classe di laurea (Tabella dei raggruppamenti). Il simulatore ufficiale tra 24.000 e 30.000 € dà importi più alti (2,8%, 4,2% e 5,6% dell’ISEE oltre 13.000 €, es. 336 € a 25.000 €): qui seguiamo il tetto del regolamento, che è più basso; se paghi di più, chiedi alla Segreteria.",
       "maxSource": {
         "label": "UniGe, tabella del contributo 2026/27 (pagina «Rate e calcolo»)",
         "url": "https://unige.it/tasse-e-benefici/rate-calcolo"
