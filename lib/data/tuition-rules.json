@@ -20049,6 +20049,117 @@
         }
       },
       "simulator": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
+    },
+    "ateneo-08601": {
+      "name": "Università Kore di Enna",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Tutti gli iscritti: retta fissa per corso, non legata all’ISEE, bloccata per la durata del corso più un anno.",
+      "fixedFees": {
+        "regionalTax": 0,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 0
+      },
+      "fixedFeesNote": "La tassa regionale per il diritto allo studio è compresa nel contributo unico di Ateneo (2.500 €).",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3750
+        }
+      ],
+      "bandsSource": {
+        "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27 (D.P. 45/2026), artt. 3-7 e Tabella A",
+        "url": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "base",
+          "label": "corsi di area tecnica, umanistica, economica, giuridica e sociale",
+          "groups": [],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3750
+            }
+          ],
+          "max": 3750
+        },
+        {
+          "id": "sanitari",
+          "label": "Biotecnologie e professioni sanitarie",
+          "groups": [],
+          "classCodes": [
+            "L-2",
+            "L/SNT1",
+            "L/SNT2",
+            "L/SNT3",
+            "LM/SNT1"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6500
+            }
+          ],
+          "max": 6500
+        },
+        {
+          "id": "medicina",
+          "label": "Medicina e chirurgia",
+          "groups": [],
+          "classCodes": [
+            "LM-41"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 18000
+            }
+          ],
+          "max": 18000
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 3750,
+        "ciclo-unico": 3750,
+        "magistrale": 3750
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "L’esonero per chi è idoneo alla borsa ERSU di Enna non è automatico: va chiesto, copre il contributo di corso di laurea nei limiti dei fondi statali assegnati all’Ateneo ed è pagato come rimborso (art. 5-6).",
+      "maxNote": "Retta fissa per ogni ISEE: 3.750 € per la maggior parte dei corsi (2.500 € di contributo unico, tassa regionale compresa, e 1.250 € di contributo di corso), 6.500 € per Biotecnologie e professioni sanitarie, 18.000 € per Medicina e chirurgia. Riduzioni del 50% per il secondo iscritto dello stesso nucleo e per il tempo parziale (Tabella B): non calcolate.",
+      "maxSource": {
+        "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27 (D.P. 45/2026), artt. 3-7 e Tabella A",
+        "url": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (contributo unico e prima quota del contributo di corso) all’immatricolazione",
+          "Seconda rata entro il 20 dicembre 2026",
+          "Terza rata entro il 31 marzo 2027"
+        ],
+        "note": "Per i corsi a numero programmato nazionale le scadenze possono essere diverse (vedi i bandi).",
+        "source": {
+          "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27 (D.P. 45/2026), artt. 3-7 e Tabella A",
+          "url": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf"
+        }
+      },
+      "simulator": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf",
+      "excludedCourses": {
+        "names": [
+          "Scienze Strategiche e della Sicurezza"
+        ],
+        "note": "il corso non compare nella Tabella A del Regolamento 2026/27."
+      }
     }
   }
 }

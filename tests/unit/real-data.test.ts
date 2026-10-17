@@ -1787,3 +1787,14 @@ describe('LIUC 2026/27: retta unica e borse regionali', () => {
     expect(dsuEntityFor('ateneo-01201')!.id).toBe('liuc-dsu');
   });
 });
+
+describe('Kore Enna 2026/27: retta fissa per corso', () => {
+  const rule = tuitionRuleFor('ateneo-08601')!;
+  const named = (name: string) => getCourses('ateneo-08601').find((course) => course.name.startsWith(name))!;
+  it('3.750 €, 18.000 € per Medicina, senza esonero automatico', () => {
+    expect(maxContribution(rule, named('Giurisprudenza'))).toBe(3750);
+    expect(maxContribution(rule, named('Medicina'))).toBe(18000);
+    const cost = realCost(getUniversityById('ateneo-08601')!, named('Giurisprudenza'), exact(10000), exact(10000), 'inSede');
+    expect(cost.lines.find((line) => line.key === 'tasse')?.max).toBe(3750);
+  });
+});
