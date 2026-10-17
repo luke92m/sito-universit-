@@ -779,6 +779,14 @@ describe('tasse Università di Ferrara 2026/27', () => {
     expect(contributionFor(rule, 60000, 2092)).toBe(2091.5); // 47.000 × 0,0445
     expect(contributionFor(rule, null, 2092)).toBe(2092);
   });
+
+  // Totali del simulatore ufficiale (sos.unife.it/app/sim_tax26.php, full-time, primo anno) meno 156 € di
+  // prima rata, 17/10/2026.
+  it('coincide con il simulatore ufficiale Unife', () => {
+    const official: [number, number][] = [[25000, 0], [27500, 362.5], [30000, 552.5], [50000, 1646.5], [60000, 2091.5], [70000, 2092], [150000, 2092]];
+    for (const [isee, value] of official) expect(contributionFor(rule, isee, 2092)).toBeCloseTo(value, 1);
+    expect(rule.fixedFees.total).toBe(156);
+  });
 });
 
 describe('tasse Università di Modena e Reggio Emilia 2026/27', () => {
@@ -994,6 +1002,20 @@ describe('tasse Università del Sannio 2026/27', () => {
     expect(contributionFor(rule, 32000, mag.max, mag.bands)).toBe(1450);
     expect(contributionFor(rule, 70000, tri.max, tri.bands)).toBe(1750);
     expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(1800);
+  });
+
+  // Tabelle del simulatore ufficiale (unisannio.it/public/simulatore, assets/simulator.js, regime ordinario
+  // entro il 1° fuori corso, tassa regionale ADISURC), 17/10/2026.
+  it('coincide con il simulatore ufficiale del Sannio', () => {
+    const limits = [35000, 40000, 45000, 50000, 55000, 60000, 65000, 90000];
+    const L = [1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750];
+    const LM = [1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800];
+    limits.forEach((isee, i) => {
+      expect(contributionFor(rule, isee, tri.max, tri.bands)).toBe(L[i]);
+      expect(contributionFor(rule, isee, mag.max, mag.bands)).toBe(LM[i]);
+    });
+    expect(fixedFeesRange(rule, { min: 25500, max: 51000 }).regionalTax).toEqual({ min: 130, max: 151 });
+    expect(fixedFeesRange(rule, { min: 51001, max: 51001 }).regionalTax.max).toBe(173);
   });
 });
 
