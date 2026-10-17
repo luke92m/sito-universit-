@@ -14427,6 +14427,106 @@
         "label": "ESU Molise, Bando 2026/27",
         "url": "https://www.esu.molise.it/bandi-di-concorso/bando-di-concorso-per-l-assegnazione-di-borse-di-studio-provvidenze-e-servizi-per-il-diritto-allo-studio-universitario-a-a-2026-2027.html"
       }
+    },
+    {
+      "id": "iulm-dsu",
+      "name": "Università IULM – Borse di studio regionali",
+      "shortName": "IULM",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01505"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "IULM, Bando borse di studio regionali 2026/27, punto 4.2",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/1f451b52-1c2b-4117-9906-55010159b9eb/Bando+Borsa+Studio+IULM+2026_2027.pdf?MOD=AJPERES"
+        }
+      },
+      "amounts": {
+        "note": "Importi della Regione Lombardia, comprensivi del rimborso della tassa regionale e della quota per il servizio di ristorazione (829 €). Tre fasce a scalini. Per il primo anno dei corsi di laurea servono almeno 70/100 alla maturità e nessun OFA.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 8248,
+            "pendolare": 4820,
+            "inSede": 3430
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2991
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5857,
+            "pendolare": 3299,
+            "inSede": 2143
+          }
+        ],
+        "source": {
+          "label": "IULM, Bando borse di studio regionali 2026/27, punti 5.1 e 5.3.1",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/1f451b52-1c2b-4117-9906-55010159b9eb/Bando+Borsa+Studio+IULM+2026_2027.pdf?MOD=AJPERES"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "con il merito per entrambi i corsi",
+          "source": {
+            "label": "IULM, Bando borse di studio regionali 2026/27, punto 6.1.1",
+            "url": "https://www.iulm.it/wps/wcm/connect/iulm/1f451b52-1c2b-4117-9906-55010159b9eb/Bando+Borsa+Studio+IULM+2026_2027.pdf?MOD=AJPERES"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Ristorazione gratuita (un pasto al giorno) per beneficiari e idonei",
+        "Esonero da tasse e contributi universitari per gli idonei (D.Lgs. 68/2012)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "IULM, Bando borse di studio regionali 2026/27, punto 5.4",
+        "url": "https://www.iulm.it/wps/wcm/connect/iulm/1f451b52-1c2b-4117-9906-55010159b9eb/Bando+Borsa+Studio+IULM+2026_2027.pdf?MOD=AJPERES"
+      },
+      "conditions": {
+        "fuoriSede": "Famiglia a più di 90 minuti di mezzi pubblici dalla sede e alloggio a titolo oneroso vicino alla sede per almeno 10 mesi (contratto registrato entro il 10 novembre 2026).",
+        "pendolare": "Famiglia a 61-90 minuti di mezzi pubblici dalla sede (o fuori sede senza alloggio a pagamento).",
+        "inSede": "Famiglia nel comune della sede o entro 60 minuti di mezzi pubblici.",
+        "source": {
+          "label": "IULM, Bando borse di studio regionali 2026/27, punto 5.2",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/1f451b52-1c2b-4117-9906-55010159b9eb/Bando+Borsa+Studio+IULM+2026_2027.pdf?MOD=AJPERES"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Metà della borsa il 27 dicembre 2026",
+          "Saldo il 30 settembre 2027, con 35 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Con 35 crediti tra il 10 agosto e il 30 novembre 2027 si resta beneficiari parziali; senza, la borsa va restituita.",
+        "source": {
+          "label": "IULM, Bando borse di studio regionali 2026/27, punti 3.2.2 e 10.3.1",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/1f451b52-1c2b-4117-9906-55010159b9eb/Bando+Borsa+Studio+IULM+2026_2027.pdf?MOD=AJPERES"
+        }
+      },
+      "application": {
+        "closes": "2026-09-16",
+        "note": "Domanda sullo Sportello Diritto allo studio IULM; graduatorie provvisorie pubblicate il 16 ottobre 2026.",
+        "source": {
+          "label": "IULM, Borse di studio regionali",
+          "url": "https://www.iulm.it/it/orientamento-iscrizioni/agevolazioni-economiche/borse-di-studio-regionali"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Nel 2025/26 la borsa è stata assegnata a tutti gli idonei (terzo ampliamento, giugno 2026); dato 2026/27 non ancora disponibile.",
+      "portal": {
+        "label": "IULM, Borse di studio regionali",
+        "url": "https://www.iulm.it/it/orientamento-iscrizioni/agevolazioni-economiche/borse-di-studio-regionali"
+      }
     }
   ]
 }

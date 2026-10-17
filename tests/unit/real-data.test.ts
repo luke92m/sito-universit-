@@ -1762,3 +1762,15 @@ describe('Trento: tasse dal simulatore ufficiale', () => {
     expect(fixedFeesRange(rule, exact(20000)).min).toBe(166);
   });
 });
+
+describe('IULM 2026/27: tasse a fasce e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-01505')!;
+  it('Sei fasce di ISEE a importo fisso, laurea e magistrale', () => {
+    const [l, m] = rule.courseGroups!;
+    expect(contributionFor(rule, 10000, l.max, l.bands)).toBe(3600);
+    expect(contributionFor(rule, 40000, l.max, l.bands)).toBe(7700);
+    expect(contributionFor(rule, null, m.max, m.bands)).toBe(12100);
+    expect(dsuEntityFor('ateneo-01505')!.id).toBe('iulm-dsu');
+    expect(amountAt(dsuEntityFor('ateneo-01505')!, 15000, 'fuoriSede')).toBe(7172);
+  });
+});

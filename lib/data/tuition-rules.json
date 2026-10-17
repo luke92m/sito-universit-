@@ -19790,6 +19790,203 @@
         }
       },
       "simulator": "https://webapps.unitn.it/calciseeu/"
+    },
+    "ateneo-01505": {
+      "name": "Università IULM",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-16",
+      "appliesTo": "Matricole a tempo pieno con famiglia residente in Italia (Capitolo 1, Sezione 1), con ISEE per prestazioni universitarie.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Con la prima rata acconto di 146 € (130 € di tassa regionale e bollo 16 €); con la seconda l’eventuale saldo della tassa regionale lombarda (160 € oltre 26.516,70 € di ISEE, 190 € oltre 53.033,40 € o senza ISEE entro il 27 novembre 2026).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26516.7,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 53033.4,
+          "from": 0,
+          "rate": 0,
+          "base": 160
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 190
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 13000,
+          "from": 0,
+          "rate": 0,
+          "base": 3600
+        },
+        {
+          "iseeMax": 23000,
+          "from": 0,
+          "rate": 0,
+          "base": 4900
+        },
+        {
+          "iseeMax": 33000,
+          "from": 0,
+          "rate": 0,
+          "base": 6200
+        },
+        {
+          "iseeMax": 43000,
+          "from": 0,
+          "rate": 0,
+          "base": 7700
+        },
+        {
+          "iseeMax": 57000,
+          "from": 0,
+          "rate": 0,
+          "base": 9100
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 10600
+        }
+      ],
+      "bandsSource": {
+        "label": "IULM, Regolamento tasse e contributi 2026/27 (D.R. 21472/2025), Capitolo 1, Sezione 1, Tabelle A e B",
+        "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
+      },
+      "courseGroups": [
+        {
+          "id": "laurea",
+          "label": "corsi di laurea",
+          "groups": [],
+          "levels": [
+            "triennale",
+            "ciclo-unico"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 13000,
+              "from": 0,
+              "rate": 0,
+              "base": 3600
+            },
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 4900
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 6200
+            },
+            {
+              "iseeMax": 43000,
+              "from": 0,
+              "rate": 0,
+              "base": 7700
+            },
+            {
+              "iseeMax": 57000,
+              "from": 0,
+              "rate": 0,
+              "base": 9100
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 10600
+            }
+          ],
+          "max": 10600
+        },
+        {
+          "id": "magistrale",
+          "label": "corsi di laurea magistrale",
+          "groups": [],
+          "levels": [
+            "magistrale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 13000,
+              "from": 0,
+              "rate": 0,
+              "base": 4500
+            },
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 5900
+            },
+            {
+              "iseeMax": 33000,
+              "from": 0,
+              "rate": 0,
+              "base": 7500
+            },
+            {
+              "iseeMax": 43000,
+              "from": 0,
+              "rate": 0,
+              "base": 9000
+            },
+            {
+              "iseeMax": 57000,
+              "from": 0,
+              "rate": 0,
+              "base": 10600
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 12100
+            }
+          ],
+          "max": 12100
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 10600,
+        "ciclo-unico": 10600,
+        "magistrale": 12100
+      },
+      "maxExceptions": [],
+      "maxNote": "Sei fasce di ISEE (fino a 13.000, 23.000, 33.000, 43.000, 57.000 € e oltre) con importi fissi: corsi di laurea da 3.600 € a 10.600 €, magistrali da 4.500 € a 12.100 € (iscrizione 250 €, contributi finalizzati 90 € e contributi universitari). Senza ISEE si paga la fascia più alta. Esonero del 20% per chi si immatricola con 100/100 alla maturità (non calcolato). Gli idonei alla borsa regionale hanno l’esonero del D.Lgs. 68/2012.",
+      "maxSource": {
+        "label": "IULM, Regolamento tasse e contributi 2026/27 (D.R. 21472/2025), artt. 1.2-1.3",
+        "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’iscrizione (1.600 € laurea, 2.000 € magistrale) con l’acconto di 146 €",
+          "Seconda rata entro il 14 dicembre 2026, con il saldo della tassa regionale",
+          "Terza rata entro il 31 marzo 2027"
+        ],
+        "note": "L’autocertificazione ISEE va compilata dal 12 gennaio al 27 novembre 2026 (fino al 21 dicembre con 200 € in più); senza, si paga la fascia massima. Mora di 50 € (100 € oltre 3.000 €) per ogni rata in ritardo.",
+        "source": {
+          "label": "IULM, Regolamento tasse e contributi 2026/27 (D.R. 21472/2025), artt. 1.2 e 5.1",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
+        }
+      },
+      "simulator": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
     }
   }
 }
