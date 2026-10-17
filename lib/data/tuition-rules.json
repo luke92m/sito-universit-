@@ -22844,6 +22844,55 @@
         }
       },
       "simulator": "https://www.uer.it/entra-in-uer/immatricolazione-e-tasse/"
+    },
+    "ateneo-05811": {
+      "name": "Unitelma Sapienza (telematica)",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Quota d’iscrizione standard 2026/27, uguale per ogni ISEE (senza convenzioni o promozioni).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 140
+      },
+      "fixedFeesNote": "Si aggiunge la tassa regionale per il diritto allo studio (140 €). La pagina non indica il bollo.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2500
+        }
+      ],
+      "bandsSource": {
+        "label": "Unitelma Sapienza, «Importi e altri contributi» (a.a. 2026/2027)",
+        "url": "https://www.unitelmasapienza.it/studenti/tasse-e-contributi/importi-e-altri-contributi/"
+      },
+      "maxByLevel": {
+        "triennale": 2300,
+        "ciclo-unico": 2500,
+        "magistrale": 2500
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Quota standard 2026/27: 2.300 € per le lauree e 2.500 € per le magistrali e per Giurisprudenza a ciclo unico. È più bassa con il «Progetto Giovani» (1.300 € per chi ha fino a 25 anni all’immatricolazione), con le convenzioni (1.840 € / 2.000 €) e con il «Progetto UniLazio» (1.400 €): il sito usa la quota standard. I corsi con sede amministrativa alla Sapienza (es. Informatica, Scienze e tecniche psicologiche) hanno le tasse della Sapienza.",
+      "maxSource": {
+        "label": "Unitelma Sapienza, «Importi e altri contributi» e «Sconti e promozioni» (a.a. 2026/2027)",
+        "url": "https://www.unitelmasapienza.it/studenti/tasse-e-contributi/importi-e-altri-contributi/"
+      },
+      "payments": {
+        "steps": [
+          "Quota d’iscrizione all’immatricolazione, per ogni anno di iscrizione",
+          "Oltre 1.000 € si può rateizzare fino a 12 mesi con un finanziamento"
+        ],
+        "note": "In ritardo: mora di 50 € (da 5 a 60 giorni), 100 € (da 61 a 90) o 150 € (oltre 90).",
+        "source": {
+          "label": "Unitelma Sapienza, «Importi e altri contributi»",
+          "url": "https://www.unitelmasapienza.it/studenti/tasse-e-contributi/importi-e-altri-contributi/"
+        }
+      },
+      "simulator": "https://www.unitelmasapienza.it/studenti/tasse-e-contributi/importi-e-altri-contributi/"
     }
   }
 }

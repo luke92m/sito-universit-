@@ -2093,3 +2093,19 @@ describe('Europea di Roma 2026/27: retta fissa per corso', () => {
     expect(rule.noScholarshipExemption).toContain('rimborso');
   });
 });
+
+describe('Unitelma Sapienza 2026/27: quota standard per livello', () => {
+  const rule = tuitionRuleFor('ateneo-05811')!;
+  const courses = getCourses('ateneo-05811');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Scienze dell\'Economia Aziendale')).toBe(2300);
+    expect(max('Scienze Giuridiche')).toBe(2300);
+    expect(max('Giurisprudenza')).toBe(2500);
+    expect(max('Economia, Management e Innovazione')).toBe(2500);
+    expect(rule.fixedFees.total).toBe(140);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

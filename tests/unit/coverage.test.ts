@@ -22,7 +22,8 @@ describe('copertura dei dati verificati', () => {
     expect(tuition.every((university) => coverageOf(university.id).tuition)).toBe(true);
     const names = tuition.map((university) => university.name);
     expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b, 'it')));
-    expect(universitiesWithScholarship().length).toBeGreaterThan(tuition.length);
+    // Le telematiche hanno le tasse ma nessun bando regionale: gli atenei con borse non sono più di quelli con tasse.
+    expect(universitiesWithScholarship().length).toBeGreaterThanOrEqual(11);
   });
 });
 
