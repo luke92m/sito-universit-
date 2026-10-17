@@ -2071,7 +2071,7 @@ describe('UniCamillus 2026/27: contributo fisso per corso', () => {
     expect(contributionFor(rule, 10000, 16500)).toBe(16500);
   });
   it('La borsa DiSCo non toglie la retta', () => {
-    expect(rule.noScholarshipExemption).toBe(true);
+    expect(rule.noScholarshipExemption).toContain('contributi statali');
     expect(dsuEntityFor('ateneo-05818')!.id).toBe('disco-lazio');
   });
 });
@@ -2090,6 +2090,6 @@ describe('Europea di Roma 2026/27: retta fissa per corso', () => {
     expect(max('Management della Transizione Digitale', 'LM-91')).toBe(3950);
     expect(max('Medicina e Chirurgia')).toBe(18250);
     expect(contributionFor(rule, 5000, 7250)).toBe(7250);
-    expect(rule.noScholarshipExemption).toBe(true);
+    expect(rule.noScholarshipExemption).toContain('rimborso');
   });
 });
