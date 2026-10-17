@@ -21643,6 +21643,100 @@
         }
       },
       "simulator": "https://www.unisg.it/course/laurea-triennale-in-scienze-e-culture-gastronomiche/"
+    },
+    "ateneo-07203": {
+      "name": "LUM – Libera Università Mediterranea «Giuseppe Degennaro»",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27: contributo unico per corso, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 195,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 211
+      },
+      "fixedFeesNote": "Con la prima rata si pagano il bollo (16 €) e la tassa regionale per il diritto allo studio, da versare insieme all’immatricolazione (Manifesto, par. 3); l’importo della tassa è quello regionale pugliese (146, 170 o 195 € secondo l’ISEE, D.G.R. Puglia 848/2026), che il Manifesto non riporta.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 26000,
+          "from": 0,
+          "rate": 0,
+          "base": 146
+        },
+        {
+          "iseeMax": 52000,
+          "from": 0,
+          "rate": 0,
+          "base": 170
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 195
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 20600
+        }
+      ],
+      "bandsSource": {
+        "label": "LUM, Manifesto degli studi 2026/27, par. 2 e tabelle del contributo accademico per dipartimento (pp. 22-26)",
+        "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 6000,
+        "ciclo-unico": 6200,
+        "magistrale": 7000
+      },
+      "maxExceptions": [
+        {
+          "name": "Infermieristica",
+          "level": "triennale",
+          "amount": 4000
+        },
+        {
+          "name": "Medicina e Chirurgia",
+          "level": "ciclo-unico",
+          "amount": 16500
+        },
+        {
+          "name": "Odontoiatria e Protesi Dentaria",
+          "level": "ciclo-unico",
+          "amount": 20600
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Ingegneria Informatica per la Transizione Digitale",
+          "Economia ed Organizzazione Aziendale"
+        ],
+        "note": "Nel 2026/27 questo corso non ha il primo anno con questo nome: il Manifesto indica l’importo solo per gli anni successivi (le matricole L-18 si iscrivono a «Economia e Gestione Aziendale», 6.000 €; per l’L-8 c’è «Ingegneria Biomedica», 6.000 €)."
+      },
+      "noScholarshipExemption": "L’esonero totale vale solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale assegnato all’Ateneo, ed è un rimborso: prima si paga tutto il contributo unico (Manifesto, par. 5).",
+      "maxNote": "Contributo unico del primo anno, uguale per ogni ISEE: 6.000 € per le triennali (Economia, Business Economics, Ingegneria), 6.200 € Giurisprudenza, 7.000 € per le magistrali LM-77 e LM-31, 4.000 € Infermieristica, 16.500 € Medicina, 20.600 € Odontoiatria, più bollo e tassa regionale. Borse parziali per voto di maturità (20/15/10% con 100, 95 e 90/100, non per Medicina) o di laurea: non calcolate.",
+      "maxSource": {
+        "label": "LUM, Manifesto degli studi 2026/27, tabelle del contributo accademico per dipartimento (pp. 22-26)",
+        "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata con bollo e tassa regionale all’immatricolazione (dal 9 giugno 2026)",
+          "Seconda rata entro il 7 settembre 2026",
+          "Terza rata entro il 7 ottobre 2026",
+          "Quarta rata entro il 7 dicembre 2026"
+        ],
+        "note": "Scadenze dei corsi di Economia, Ingegneria e Giurisprudenza; Medicina, Odontoiatria e Infermieristica hanno date proprie legate al bando. Ritardo: +5% entro 30 giorni, +10% oltre.",
+        "source": {
+          "label": "LUM, Manifesto degli studi 2026/27, par. 5 e tabelle (pp. 22-26)",
+          "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+        }
+      },
+      "simulator": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
     }
   }
 }

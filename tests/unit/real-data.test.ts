@@ -1958,3 +1958,20 @@ describe('Scienze Gastronomiche 2026/27: retta fissa e borse EDISU', () => {
     expect(dsuEntityFor('ateneo-00401')!.id).toBe('edisu-piemonte');
   });
 });
+
+describe('LUM 2026/27: contributo unico per corso', () => {
+  const rule = tuitionRuleFor('ateneo-07203')!;
+  const course = (name: string, level: string) =>
+    getCourses('ateneo-07203').find((item) => item.name === name && degreeLevel(item) === level)!;
+  it('Importi del Manifesto per le matricole, uguali per ogni ISEE', () => {
+    expect(maxContribution(rule, course('Business Economics And Organization', 'triennale'))).toBe(6000);
+    expect(contributionFor(rule, 15000, maxContribution(rule, course('Ingegneria Gestionale', 'magistrale')))).toBe(7000);
+    expect(maxContribution(rule, course('Giurisprudenza', 'ciclo-unico'))).toBe(6200);
+    expect(maxContribution(rule, course('Medicina e Chirurgia', 'ciclo-unico'))).toBe(16500);
+    expect(maxContribution(rule, course('Odontoiatria e Protesi Dentaria', 'ciclo-unico'))).toBe(20600);
+    expect(maxContribution(rule, course('Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)', 'triennale'))).toBe(4000);
+    expect(isExcludedCourse(rule, course('Ingegneria Informatica per la Transizione Digitale', 'triennale'))).toBe(true);
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(162);
+    expect(rule.noScholarshipExemption).toContain('ADISU');
+  });
+});
