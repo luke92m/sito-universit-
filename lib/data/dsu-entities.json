@@ -14853,6 +14853,109 @@
         "url": "https://www.hunimed.eu/it/modulo-di-domanda-per-la-borsa-di-studio-dsu/"
       },
       "minDiplomaGrade": 80
+    },
+    {
+      "id": "unida-dsu",
+      "name": "Università per Stranieri Dante Alighieri – Diritto allo studio",
+      "shortName": "DSU Dante Alighieri",
+      "region": "Calabria",
+      "universityIds": [
+        "ateneo-08003"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), art. 3",
+          "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Tabella dell’art. 4 (come per la Mediterranea): +15% fino a 14.169,94 €, importo base fino a 18.893,25 €, poi riduzione graduale fino alla metà a 28.339,88 €. Importi interamente in denaro.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8246.78,
+            "pendolare": 4819.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 7171.11,
+            "pendolare": 4190.71,
+            "inSede": 2890.16,
+            "endAt": {
+              "fuoriSede": 3585.56,
+              "pendolare": 2095.36,
+              "inSede": 1445.08
+            }
+          }
+        ],
+        "source": {
+          "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), art. 4, commi 2 e 6",
+          "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per chi è iscritto contemporaneamente a più corsi",
+          "percent": 20,
+          "conditional": "con il merito per entrambi i corsi",
+          "source": {
+            "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), art. 4, comma 6",
+            "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [],
+      "connectedBenefitsSource": {
+        "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), art. 8",
+        "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune ad almeno 50 km da Reggio Calabria, con alloggio a titolo oneroso vicino all’Ateneo per almeno 10 mesi (contratto registrato).",
+        "pendolare": "Residenza in un luogo da cui si può raggiungere la sede ogni giorno, o fuori sede senza alloggio a pagamento.",
+        "inSede": "Residenza nel comune di Reggio Calabria.",
+        "source": {
+          "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), art. 1, comma 5",
+          "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Laurea: 20% e poi 30% della borsa dopo la graduatoria (magistrale: 50%)",
+          "Saldo del 50% con almeno 20 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Con i 20 crediti raggiunti entro il 30 novembre 2027 si tiene la metà già ricevuta; senza, la borsa è revocata e va restituita.",
+        "source": {
+          "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), artt. 4, comma 7, e 8, comma 3",
+          "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "closesTime": "23:59",
+        "note": "Domanda solo con il modulo online indicato dall’Ateneo (sezioni «Borse di studio» e «Avvisi studenti»), anche prima dell’immatricolazione.",
+        "source": {
+          "label": "Università per Stranieri Dante Alighieri, Bando DSU 2026/27 (D.P. 68/2026), art. 6",
+          "url": "https://www.unidarc.it/wp-content/uploads/2026/09/decreto-presidenziale-n-68-2026_del_04-09-2026_bando-dsu-2026-2027_signed.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Borse assegnate fino a esaurimento delle risorse di ciascuna fonte (statale, regionale, tassa regionale); dato sulla copertura non pubblicato.",
+      "portal": {
+        "label": "Università per Stranieri Dante Alighieri, Borse di studio",
+        "url": "https://www.unidarc.it/borse-di-studio/"
+      }
     }
   ]
 }

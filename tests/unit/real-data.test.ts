@@ -1998,3 +1998,19 @@ describe('Suor Orsola Benincasa 2026/27: sei fasce per corso', () => {
     for (const course of getCourses('ateneo-06304')) expect(names).toContain(course.name);
   });
 });
+
+describe('Stranieri Dante Alighieri 2026/27: otto fasce e borse dell’Ateneo', () => {
+  const rule = tuitionRuleFor('ateneo-08003')!;
+  it('Totale annuo della tabella meno 160 € di bollo, tassa regionale e assicurazione', () => {
+    expect(contributionFor(rule, 4000, 2096) + rule.fixedFees.total).toBe(564);
+    expect(contributionFor(rule, 22000, 2096) + rule.fixedFees.total).toBe(1056);
+    expect(contributionFor(rule, 60000, 2096) + rule.fixedFees.total).toBe(2256);
+    expect(contributionFor(rule, null, 2096)).toBe(2096);
+  });
+  it('Borse con la tabella della Circolare MUR e soglie nazionali', () => {
+    const unida = dsuEntityFor('ateneo-08003')!;
+    expect(unida.id).toBe('unida-dsu');
+    expect(amountAt(unida, 10000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(unida, 28339.88, 'inSede')).toBe(1445.08);
+  });
+});

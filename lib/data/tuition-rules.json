@@ -22500,6 +22500,107 @@
         }
       },
       "simulator": "https://www.unisob.na.it/universita/normeamministrative/3000c0.htm?vr=1"
+    },
+    "ateneo-08003": {
+      "name": "Università per Stranieri «Dante Alighieri» di Reggio Calabria",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Corsi in presenza, studenti ordinari: otto fasce di ISEE a importo fisso (il corso online ha una tabella propria).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 4,
+        "total": 160
+      },
+      "fixedFeesNote": "Prima rata uguale per tutti (300 €): bollo 16 €, tassa regionale 140 €, assicurazione 4 € e diritti di segreteria 140 € (questi ultimi contati nelle tasse).",
+      "bands": [
+        {
+          "iseeMax": 5000,
+          "from": 0,
+          "rate": 0,
+          "base": 404
+        },
+        {
+          "iseeMax": 10000,
+          "from": 0,
+          "rate": 0,
+          "base": 452
+        },
+        {
+          "iseeMax": 15000,
+          "from": 0,
+          "rate": 0,
+          "base": 596
+        },
+        {
+          "iseeMax": 20000,
+          "from": 0,
+          "rate": 0,
+          "base": 692
+        },
+        {
+          "iseeMax": 25000,
+          "from": 0,
+          "rate": 0,
+          "base": 896
+        },
+        {
+          "iseeMax": 35000,
+          "from": 0,
+          "rate": 0,
+          "base": 1100
+        },
+        {
+          "iseeMax": 45000,
+          "from": 0,
+          "rate": 0,
+          "base": 1496
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2096
+        }
+      ],
+      "bandsSource": {
+        "label": "Università per Stranieri Dante Alighieri, Allegato 1 – Tasse e contributi a.a. 2026/27, tabella «Studenti ordinari»",
+        "url": "https://www.unidarc.it/wp-content/uploads/2026/08/allegato1-tasse-e-contributi-unida-aa-2026-2027.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2096,
+        "ciclo-unico": 2096,
+        "magistrale": 2096
+      },
+      "maxExceptions": [],
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "percent": 20,
+          "keep": 140,
+          "note": "riduzione del 20% sulle rate dopo la prima per chi si immatricola a una triennale con 100/100."
+        }
+      ],
+      "noScholarshipExemption": "La tabella tasse 2026/27 non prevede un esonero per chi è idoneo alla borsa e il bando DSU (art. 8.5) rinvia agli esoneri della normativa e dell’Ateneo senza indicarli: il sito non toglie le tasse.",
+      "maxNote": "Totale annuo da 564 € (ISEE fino a 5.000 €) a 2.256 € (oltre 45.000 € o senza ISEE), compresi i 160 € di bollo, tassa regionale e assicurazione. Gli importi del sito sono le tasse senza quei 160 €.",
+      "maxSource": {
+        "label": "Università per Stranieri Dante Alighieri, Allegato 1 – Tasse e contributi a.a. 2026/27, tabella «Studenti ordinari»",
+        "url": "https://www.unidarc.it/wp-content/uploads/2026/08/allegato1-tasse-e-contributi-unida-aa-2026-2027.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (300 €) con l’immatricolazione, entro il 31 dicembre 2026",
+          "Seconda rata entro il 26 febbraio 2027",
+          "Terza rata entro il 26 marzo 2027",
+          "Quarta rata entro il 26 aprile 2027"
+        ],
+        "note": "Le rate dalla seconda alla quarta dipendono dall’ISEE (un terzo ciascuna). Ritardo: 30, 60 o 90 € secondo i giorni.",
+        "source": {
+          "label": "Università per Stranieri Dante Alighieri, Allegato 1 – Tasse e contributi a.a. 2026/27, scadenze e more",
+          "url": "https://www.unidarc.it/wp-content/uploads/2026/08/allegato1-tasse-e-contributi-unida-aa-2026-2027.pdf"
+        }
+      },
+      "simulator": "https://www.unidarc.it/come-iscriversi/"
     }
   }
 }
