@@ -19987,6 +19987,68 @@
         }
       },
       "simulator": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
+    },
+    "ateneo-01201": {
+      "name": "Università Carlo Cattaneo LIUC",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole delle lauree triennali: retta unica, non legata all’ISEE. Le rette delle magistrali 2026/27 non sono ancora pubblicate.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "Tassa regionale (190 € nella tabella dell’Ateneo) e bollo 16 € compresi nella prima rata.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 8500
+        }
+      ],
+      "bandsSource": {
+        "label": "LIUC, Tasse e contributi laurea triennale, Immatricolazione 2026/27",
+        "url": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
+      },
+      "maxByLevel": {
+        "triennale": 8500,
+        "ciclo-unico": 8500,
+        "magistrale": 8500
+      },
+      "maxExceptions": [
+        {
+          "name": "Ingegneria Gestionale",
+          "level": "triennale",
+          "amount": 7800
+        }
+      ],
+      "excludedCourses": {
+        "levels": [
+          "magistrale"
+        ],
+        "note": "la retta 2026/27 delle lauree magistrali LIUC non è ancora pubblicata."
+      },
+      "maxNote": "Retta unica per ogni ISEE: Economia e Management 8.500 € (9.500 € per i percorsi Business Economics e Business Analytics for Management), Ingegneria Gestionale 7.800 € (9.500 € per il percorso Management Engineering), oltre a tassa regionale e bollo. Con «La scelta che ti premia» (ISEE tra 26.516 e 50.000 € e merito) riduzione di 3.500 €, a bando: non calcolata. Gli idonei alla borsa regionale sono esonerati dall’intera retta.",
+      "maxSource": {
+        "label": "LIUC, Tasse e contributi laurea triennale, Immatricolazione 2026/27",
+        "url": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’immatricolazione (2.756 € Economia, 2.546 € Ingegneria, con tassa regionale e bollo)",
+          "Seconda rata entro il 30 novembre 2026",
+          "Terza rata entro il 15 marzo 2027",
+          "Quarta rata entro il 15 maggio 2027"
+        ],
+        "note": "Per ogni versamento in ritardo si paga un’indennità amministrativa.",
+        "source": {
+          "label": "LIUC, Tasse e contributi laurea triennale, Immatricolazione 2026/27",
+          "url": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
+        }
+      },
+      "simulator": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
     }
   }
 }

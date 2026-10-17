@@ -1774,3 +1774,16 @@ describe('IULM 2026/27: tasse a fasce e borse regionali', () => {
     expect(amountAt(dsuEntityFor('ateneo-01505')!, 15000, 'fuoriSede')).toBe(7172);
   });
 });
+
+describe('LIUC 2026/27: retta unica e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-01201')!;
+  const course = (name: string, level: string) =>
+    getCourses('ateneo-01201').find((item) => item.name === name && degreeLevel(item) === level)!;
+  it('Retta per corso, magistrali escluse finché non pubblicate', () => {
+    expect(maxContribution(rule, course('Economia e Management', 'triennale'))).toBe(8500);
+    expect(maxContribution(rule, course('Ingegneria Gestionale', 'triennale'))).toBe(7800);
+    expect(isExcludedCourse(rule, course('Ingegneria Gestionale', 'triennale'))).toBe(false);
+    expect(isExcludedCourse(rule, course('Ingegneria Gestionale', 'magistrale'))).toBe(true);
+    expect(dsuEntityFor('ateneo-01201')!.id).toBe('liuc-dsu');
+  });
+});

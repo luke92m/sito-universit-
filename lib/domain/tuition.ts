@@ -60,7 +60,7 @@ export interface TuitionRule {
    * Corsi con importi propri non ancora inseriti (es. Tor Vergata: classi di contribuzione superiori): per
    * questi il calcolo non usa le fasce dell'ateneo ma la media nazionale, e lo dichiara.
    */
-  excludedCourses?: { names?: string[]; nameIncludes?: string[]; note: string };
+  excludedCourses?: { names?: string[]; nameIncludes?: string[]; levels?: DegreeLevel[]; note: string };
   /**
    * Atenei non statali senza esonero automatico per chi ha la borsa (l'esonero del D.Lgs. 68/2012, art. 9,
    * vale per le statali): il testo spiega cosa succede invece (es. Bocconi: riduzioni solo con domanda a parte).
@@ -95,9 +95,12 @@ export function degreeLevel(course: { classCode: string; level?: string }): Degr
 export function isExcludedCourse(rule: TuitionRule, course: CourseLike | null): boolean {
   const excluded = rule.excludedCourses;
   if (!excluded || !course) return false;
+  // Con `levels` l'esclusione vale solo per quei livelli (es. magistrali con lo stesso nome della triennale).
+  if (excluded.levels && !excluded.levels.includes(degreeLevel(course))) return false;
   const name = normalize(course.name);
   return Boolean(
-    excluded.names?.some((item) => normalize(item) === name) ||
+    (!excluded.names && !excluded.nameIncludes && excluded.levels) ||
+      excluded.names?.some((item) => normalize(item) === name) ||
       excluded.nameIncludes?.some((part) => name.includes(normalize(part)))
   );
 }

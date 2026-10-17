@@ -14527,6 +14527,115 @@
         "label": "IULM, Borse di studio regionali",
         "url": "https://www.iulm.it/it/orientamento-iscrizioni/agevolazioni-economiche/borse-di-studio-regionali"
       }
+    },
+    {
+      "id": "liuc-dsu",
+      "name": "Università Carlo Cattaneo LIUC – Borse di studio regionali",
+      "shortName": "LIUC",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01201"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "LIUC, Bando borse di studio regionali 2026/27, requisiti economici",
+          "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi della Regione Lombardia, comprensivi di un pasto giornaliero gratuito (trattenuta di 829 €). Tre fasce a scalini. Per il primo anno servono almeno 70/100 alla maturità.",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 8248,
+            "pendolare": 4820,
+            "inSede": 3430
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2991
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5857,
+            "pendolare": 3299,
+            "inSede": 2143
+          }
+        ],
+        "source": {
+          "label": "LIUC, Bando borse di studio regionali 2026/27, importi delle borse",
+          "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "calcolato sull’importo di seconda o terza fascia, non cumulabile con il +15% della prima",
+          "source": {
+            "label": "LIUC, Bando borse di studio regionali 2026/27, incrementi",
+            "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi contemporaneamente",
+          "percent": 20,
+          "conditional": "con il merito per entrambi i corsi",
+          "source": {
+            "label": "LIUC, Bando borse di studio regionali 2026/27, incrementi",
+            "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Un pasto gratuito al giorno nell’area ristorazione dell’Ateneo",
+        "Residenza universitaria Carlo Pomini per i fuori sede (con bando a parte)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "LIUC, Bando borse di studio regionali 2026/27, servizio ristorazione e residenza",
+        "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza lontana dalla sede e alloggio a titolo oneroso a Castellanza o nei comuni limitrofi per almeno 10 mesi (tra settembre 2026 e agosto 2027), con contratto prodotto entro il 10 novembre 2026.",
+        "pendolare": "Residenza in un comune diverso da Castellanza e dai limitrofi che permetta il viaggio quotidiano.",
+        "inSede": "Residenza a Castellanza o nei comuni limitrofi di Busto Arsizio, Olgiate Olona, Legnano, Marnate, Rescaldina.",
+        "source": {
+          "label": "LIUC, Bando borse di studio regionali 2026/27, condizione di studente in sede, pendolare, fuori sede",
+          "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Prima rata entro il 31 dicembre 2026",
+          "Saldo con 35 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Le graduatorie provvisorie escono entro il 31 ottobre 2026.",
+        "source": {
+          "label": "LIUC, Bando borse di studio regionali 2026/27, erogazione della borsa",
+          "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-30",
+        "note": "Domanda online sul sito LIUC; serve l’ISEE per il diritto allo studio universitario.",
+        "source": {
+          "label": "LIUC, Bando borse di studio regionali 2026/27, presentazione della domanda",
+          "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "LIUC, Borse di studio e agevolazioni economiche",
+        "url": "https://www.liuc.it/entra-in-liuc/borse-di-studio-e-agevolazioni-economiche/"
+      }
     }
   ]
 }
