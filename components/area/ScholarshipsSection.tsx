@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useRef, useState, type FormEvent } from 'react';
+import { GRADE_OPTIONS } from '@/lib/domain/grade';
 import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
@@ -92,6 +93,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
   const [iseeExact, setIseeExact] = useState('');
   const [ispeExact, setIspeExact] = useState('');
   const [rentsNearSeat, setRentsNearSeat] = useState(true);
+  // Voto di maturità facoltativo: '' = non indicato, 60-100, 101 = 100 e lode. Non viene salvato.
+  const [grade, setGrade] = useState('');
   const [chosenCourse, setChosenCourse] = useState<string | null>(null);
   const [cost, setCost] = useState<RealCostResponse | null>(null);
   const [busy, setBusy] = useState(false);
@@ -157,6 +160,7 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
           residenceRegion: region,
           residenceCity: city.trim(),
           rentsNearSeat,
+          grade: grade ? Number(grade) : null,
           condition
         })
       });
@@ -343,6 +347,18 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
                 placeholder="Es. 32000"
                 onChange={(event) => setIspeExact(event.target.value)}
               />
+            </label>
+            <label className="field">
+              <span>
+                Voto di maturità <small>(facoltativo, non viene salvato)</small>
+              </span>
+              <select value={grade} onChange={(event) => setGrade(event.target.value)}>
+                {GRADE_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
             <label className="field">
               <span>Regione di residenza</span>

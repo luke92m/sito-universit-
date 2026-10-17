@@ -1898,7 +1898,8 @@
       "portal": {
         "label": "Milano-Bicocca, Bando diritto allo studio 2026/27",
         "url": "https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf"
-      }
+      },
+      "minDiplomaGrade": 70
     },
     {
       "id": "unimi-dsu",
@@ -3906,7 +3907,8 @@
       "portal": {
         "label": "UniBG, Bando borse di studio e residenze 2026/27",
         "url": "https://www.unibg.it/bandi/bando-borse-studio-e-residenze-universitarie-aa-20262027-scholarships-and-accommodation"
-      }
+      },
+      "minDiplomaGrade": 70
     },
     {
       "id": "unibs-dsu",
@@ -4050,7 +4052,8 @@
       "portal": {
         "label": "UniBS, Bando servizi DSU 2026/27",
         "url": "https://www.unibs.it/sites/default/files/2026-07/Bando%20servizi%20DSU%2026-27%20prot..pdf"
-      }
+      },
+      "minDiplomaGrade": 70
     },
     {
       "id": "uninsubria-dsu",
@@ -4194,7 +4197,8 @@
       "portal": {
         "label": "Uninsubria, Bando benefici DSU 2026/27",
         "url": "https://www.uninsubria.it/sites/default/files/2026-07/Bando_benefici_economici_2026_2027.pdf"
-      }
+      },
+      "minDiplomaGrade": 70
     },
     {
       "id": "edisu-pavia",
@@ -5042,7 +5046,8 @@
       "portal": {
         "label": "EDiSU Pavia, bando borse di studio 2026/27",
         "url": "https://www.edisu.pv.it/wp-content/uploads/dlm_uploads/2026/07/BANDO-BORSE-DI-STUDIO-26_27_EDISU-PAVIA_in-pubblicazione.pdf"
-      }
+      },
+      "minDiplomaGrade": 70
     },
     {
       "id": "univr-borse",
@@ -14532,7 +14537,8 @@
       "portal": {
         "label": "IULM, Borse di studio regionali",
         "url": "https://www.iulm.it/it/orientamento-iscrizioni/agevolazioni-economiche/borse-di-studio-regionali"
-      }
+      },
+      "minDiplomaGrade": 70
     },
     {
       "id": "liuc-dsu",
@@ -14641,7 +14647,8 @@
       "portal": {
         "label": "LIUC, Borse di studio e agevolazioni economiche",
         "url": "https://www.liuc.it/entra-in-liuc/borse-di-studio-e-agevolazioni-economiche/"
-      }
+      },
+      "minDiplomaGrade": 70
     }
   ]
 }

@@ -1,6 +1,7 @@
 // Tasse universitarie per fascia ISEE, con le regole ufficiali dell'ateneo (lib/data/tuition-rules.json).
 import tuitionJson from '../data/tuition-rules.json';
 import type { Source } from './dsu';
+import type { GradeReduction } from './grade';
 import { normalize } from './text';
 
 export type DegreeLevel = 'triennale' | 'ciclo-unico' | 'magistrale';
@@ -66,6 +67,11 @@ export interface TuitionRule {
    * vale per le statali): il testo spiega cosa succede invece (es. Bocconi: riduzioni solo con domanda a parte).
    */
   noScholarshipExemption?: string;
+  /**
+   * Sconti sulle tasse del primo anno per voto di maturità (solo lauree triennali e a ciclo unico): con il voto
+   * indicato dallo studente il calcolo applica quello con la soglia più alta raggiunta.
+   */
+  gradeReductions?: GradeReduction[];
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };

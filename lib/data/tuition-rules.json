@@ -1186,7 +1186,14 @@
           "url": "https://www.unina.it/documents/d/guest/guida_studente_rapida_26-27_10-7-2026"
         }
       },
-      "simulator": "http://calcolatrice.unina.it"
+      "simulator": "http://calcolatrice.unina.it",
+      "gradeReductions": [
+        {
+          "minGrade": 101,
+          "percent": 50,
+          "note": "il contributo del primo anno si dimezza."
+        }
+      ]
     },
     "ateneo-01509": {
       "name": "Università di Milano-Bicocca",
@@ -1370,7 +1377,14 @@
           "url": "https://www.unimib.it/sites/default/files/2026-08/01_Guida%20CONTRIBUZIONE%2026_27.pdf"
         }
       },
-      "simulator": "https://www.unimib.it/servizi/segreterie/immatricolazione/tasse"
+      "simulator": "https://www.unimib.it/servizi/segreterie/immatricolazione/tasse",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "amount": 200,
+          "note": "il contributo scende di 200 €."
+        }
+      ]
     },
     "ateneo-05001": {
       "name": "Università di Pisa",
@@ -1870,7 +1884,14 @@
           "url": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
         }
       },
-      "simulator": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf"
+      "simulator": "https://www.unipi.it/wp-content/uploads/Regolamento_tasse_2026_2027-2.pdf",
+      "gradeReductions": [
+        {
+          "minGrade": 95,
+          "amount": 150,
+          "note": "il contributo scende di 150 €."
+        }
+      ]
     },
     "ateneo-01501": {
       "name": "Università degli Studi di Milano",
@@ -6940,7 +6961,7 @@
           "max": 2070
         }
       ],
-      "maxNote": "Formula lineare tra contributo minimo e massimo per tre fasce di ISEE (27.000-30.000, 30.000-40.000, 40.000-70.000 €); esonero fino a 27.000 €. Oltre 70.000 € o senza ISEE: 2.725 € (Odontoiatria, Medicine and Surgery, Dental Hygiene), 2.190 € (Medicina, Veterinaria, professioni sanitarie), 2.070 € (scientifico-tecnologica), 1.950 € (umanistico-sociale). Riduzione di 250 € con 100/100 alla maturità (non nel calcolo). L’area segue gli elenchi del Manifesto.",
+      "maxNote": "Formula lineare tra contributo minimo e massimo per tre fasce di ISEE (27.000-30.000, 30.000-40.000, 40.000-70.000 €); esonero fino a 27.000 €. Oltre 70.000 € o senza ISEE: 2.725 € (Odontoiatria, Medicine and Surgery, Dental Hygiene), 2.190 € (Medicina, Veterinaria, professioni sanitarie), 2.070 € (scientifico-tecnologica), 1.950 € (umanistico-sociale). Riduzione di 250 € con 100/100 alla maturità (calcolata se indichi il voto). L’area segue gli elenchi del Manifesto.",
       "maxSource": {
         "label": "Università di Parma, Allegato 3, tabella del contributo personalizzato",
         "url": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
@@ -6957,7 +6978,14 @@
           "url": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
         }
       },
-      "simulator": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf"
+      "simulator": "https://www.unipr.it/sites/default/files/2026-04/Allegato%203%20-%20Tasse%20e%20contribuzione_0.pdf",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "amount": 250,
+          "note": "riduzione di 250 €."
+        }
+      ]
     },
     "ateneo-03801": {
       "name": "Università di Ferrara",
@@ -9362,7 +9390,7 @@
         "magistrale": 3000
       },
       "maxExceptions": [],
-      "maxNote": "Quota reddito: (ISEE − 13.000) / 27.000 × 1.700 € fino a 40.000 €, con le riduzioni d’ateneo (100% fino a 25.000 €, poi 50%, 25%, 10% e 5% fino a 40.000 €); 1.700 € + 40 € ogni 5.000 € fino a 60.000 €; (ISEE − 14.000) × 0,042 fino a 80.000 €, poi × 0,045 fino a 3.000 € (anche senza ISEE). Non sono nel calcolo la riduzione per il voto di maturità (fino al 40% con ISEE sotto 40.000 €: (voto − 80)/20 × 40%), la quota di 140 € per chi non è meritevole e quella per i fuori corso. L’Allegato 2026/27 parla di riduzioni «per l’A.A. 2024-25»: lo leggiamo come refuso.",
+      "maxNote": "Quota reddito: (ISEE − 13.000) / 27.000 × 1.700 € fino a 40.000 €, con le riduzioni d’ateneo (100% fino a 25.000 €, poi 50%, 25%, 10% e 5% fino a 40.000 €); 1.700 € + 40 € ogni 5.000 € fino a 60.000 €; (ISEE − 14.000) × 0,042 fino a 80.000 €, poi × 0,045 fino a 3.000 € (anche senza ISEE). La riduzione per il voto di maturità (fino al 40% con ISEE sotto 40.000 €: (voto − 80)/20 × 40%) è calcolata se indichi il voto; non sono nel calcolo la quota di 140 € per chi non è meritevole e quella per i fuori corso. L’Allegato 2026/27 parla di riduzioni «per l’A.A. 2024-25»: lo leggiamo come refuso.",
       "maxSource": {
         "label": "UniSalento, Allegato A al Manifesto degli studi 2026/27",
         "url": "https://www.unisalento.it/documents/20143/132441/Allegato-A_26-27.pdf/4ad07be3-c288-f2b9-aa2d-4bac262b2bce"
@@ -9380,7 +9408,33 @@
           "url": "https://www.unisalento.it/documents/20143/132441/Manifesto_Studi_2026-2027.pdf/d3ad628f-ad4d-c4ea-174c-3541ca7a3fca"
         }
       },
-      "simulator": "https://sistemistudenti.unisalento.it/tasse/"
+      "simulator": "https://sistemistudenti.unisalento.it/tasse/",
+      "gradeReductions": [
+        {
+          "minGrade": 90,
+          "percent": 20,
+          "iseeMax": 40000,
+          "note": "riduzione di (voto − 80)/20 × 40% con ISEE sotto 40.000 € (calcolata sul voto minimo dell’intervallo)."
+        },
+        {
+          "minGrade": 95,
+          "percent": 30,
+          "iseeMax": 40000,
+          "note": "riduzione di (voto − 80)/20 × 40% con ISEE sotto 40.000 € (calcolata sul voto minimo dell’intervallo)."
+        },
+        {
+          "minGrade": 98,
+          "percent": 36,
+          "iseeMax": 40000,
+          "note": "riduzione di (voto − 80)/20 × 40% con ISEE sotto 40.000 € (calcolata sul voto minimo dell’intervallo)."
+        },
+        {
+          "minGrade": 100,
+          "percent": 40,
+          "iseeMax": 40000,
+          "note": "riduzione del 40% con ISEE sotto 40.000 €."
+        }
+      ]
     },
     "ateneo-06303": {
       "name": "Università di Napoli L’Orientale",
@@ -10034,7 +10088,7 @@
         "magistrale": 2394
       },
       "maxExceptions": [],
-      "maxNote": "No tax area fino a 26.000 €, poi interpolazione lineare tra i punti della Tabella 3: 1.071 € a 30.000 €, 1.275 € a 32.500 €, 1.450 € a 35.000 €, 1.650 € a 40.000 €, 2.000 € a 50.000 €, 2.270 € a 60.000 €, 2.320 € a 75.000 €, 2.370 € a 90.000 €, 2.394 € da 120.000 € o senza ISEE. Non sono nel calcolo il bonus per il voto di maturità (100 € da 95/100, 175 € con 100/100), le maggiorazioni per chi non ha i crediti o è fuori corso e il contributo proprio di Conservazione e restauro.",
+      "maxNote": "No tax area fino a 26.000 €, poi interpolazione lineare tra i punti della Tabella 3: 1.071 € a 30.000 €, 1.275 € a 32.500 €, 1.450 € a 35.000 €, 1.650 € a 40.000 €, 2.000 € a 50.000 €, 2.270 € a 60.000 €, 2.320 € a 75.000 €, 2.370 € a 90.000 €, 2.394 € da 120.000 € o senza ISEE. Il bonus per il voto di maturità (100 € da 95/100, 175 € con 100/100) è calcolato se indichi il voto; non sono nel calcolo le maggiorazioni per chi non ha i crediti o è fuori corso e il contributo proprio di Conservazione e restauro.",
       "maxSource": {
         "label": "Unitus, Disciplina tasse e contributi 2026/27, Tabella 3",
         "url": "https://www.unitus.it/wp-content/uploads/2026/07/ALL.A_DISCIPLINA-TASSE-E-CONTRIBUTI-A.A.-2026-2027_POST-SEDUTA.rev-aa_18.6.2026-2.pdf"
@@ -10053,7 +10107,19 @@
           "url": "https://www.unitus.it/wp-content/uploads/2026/07/ALL.A_DISCIPLINA-TASSE-E-CONTRIBUTI-A.A.-2026-2027_POST-SEDUTA.rev-aa_18.6.2026-2.pdf"
         }
       },
-      "simulator": "https://www.unitus.it/studenti/tasse-e-contributi/"
+      "simulator": "https://www.unitus.it/studenti/tasse-e-contributi/",
+      "gradeReductions": [
+        {
+          "minGrade": 95,
+          "amount": 100,
+          "note": "bonus di 100 €."
+        },
+        {
+          "minGrade": 100,
+          "amount": 175,
+          "note": "bonus di 175 €."
+        }
+      ]
     },
     "ateneo-01601": {
       "name": "Università di Bergamo",
@@ -13337,7 +13403,7 @@
         ],
         "note": "Corso con contribuzione propria (8.726 € o 6.915 € l’anno sopra 30.000 € di ISEE), non ancora inserita: usiamo la media nazionale."
       },
-      "maxNote": "Esonero fino a 25.000 €; tra 25.000 e 30.000 € da 420 € a 1.020 € in quattro tratti lineari; da 30.001 € a 60.000 € interpolazione tra i valori della tabella (triennali 1.197 → 1.912 €, magistrali 1.341 → 2.163 €); oltre 60.000 € o senza richiesta agevolazioni 2.177 € (triennali) o 2.428 € (magistrali). Formule lette dal simulatore ufficiale 2026/27. Non sono nel calcolo la riduzione per merito (315 € con voto di maturità da 98/100) e le maggiorazioni per chi è fuori corso o in ritardo.",
+      "maxNote": "Esonero fino a 25.000 €; tra 25.000 e 30.000 € da 420 € a 1.020 € in quattro tratti lineari; da 30.001 € a 60.000 € interpolazione tra i valori della tabella (triennali 1.197 → 1.912 €, magistrali 1.341 → 2.163 €); oltre 60.000 € o senza richiesta agevolazioni 2.177 € (triennali) o 2.428 € (magistrali). Formule lette dal simulatore ufficiale 2026/27. La riduzione per merito (315 € con voto di maturità da 98/100) è calcolata se indichi il voto; non sono nel calcolo le maggiorazioni per chi è fuori corso o in ritardo.",
       "maxSource": {
         "label": "Ca’ Foscari, simulatore tasse 2026/27 (calcolo_2026-0.js)",
         "url": "https://www.unive.it/pag/50580/"
@@ -13354,7 +13420,14 @@
           "url": "https://www.unive.it/pag/50463/"
         }
       },
-      "simulator": "https://www.unive.it/pag/50580/"
+      "simulator": "https://www.unive.it/pag/50580/",
+      "gradeReductions": [
+        {
+          "minGrade": 98,
+          "amount": 315,
+          "note": "riduzione per merito di 315 €."
+        }
+      ]
     },
     "ateneo-03201": {
       "name": "Università di Trieste",
@@ -16913,7 +16986,7 @@
         "magistrale": 1470
       },
       "maxExceptions": [],
-      "maxNote": "No tax area fino a 22.000 €; poi importi fissi per fascia (Tabella G, totale delle rate 2-5): 525 € fino a 24.000 €, 735 € fino a 26.000 €, 840 € fino a 28.000 €, 945 € fino a 30.000 €, 1.050 € fino a 35.000 €, 1.300 € fino a 50.000 €, 1.470 € oltre o senza ISEE. Stessi importi per tutti i corsi. Esonero totale per chi si immatricola a una triennale con il massimo dei voti alla maturità, non calcolato.",
+      "maxNote": "No tax area fino a 22.000 €; poi importi fissi per fascia (Tabella G, totale delle rate 2-5): 525 € fino a 24.000 €, 735 € fino a 26.000 €, 840 € fino a 28.000 €, 945 € fino a 30.000 €, 1.050 € fino a 35.000 €, 1.300 € fino a 50.000 €, 1.470 € oltre o senza ISEE. Stessi importi per tutti i corsi. Esonero totale per chi si immatricola a una triennale con il massimo dei voti alla maturità (calcolato se indichi il voto).",
       "maxSource": {
         "label": "Università per Stranieri di Perugia, Manifesto degli studi 2026/27, parte 2, artt. 4 e 6",
         "url": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/manifesto-degli-studi"
@@ -16932,7 +17005,14 @@
           "url": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/manifesto-degli-studi"
         }
       },
-      "simulator": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/iscrizioni-e-tasse/tasse-e-contributi"
+      "simulator": "https://www.unistrapg.it/it/offerta-formativa/corsi-di-laurea-e-laurea-magistrale/informazioni-gli-studenti-sui-corsi-di-laurea/iscrizioni-e-tasse/tasse-e-contributi",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "percent": 100,
+          "note": "esonero totale dal contributo per il primo anno (resta la prima rata di 156 €)."
+        }
+      ]
     },
     "ateneo-08301": {
       "name": "Università di Messina",
@@ -18034,7 +18114,7 @@
         "magistrale": 1566
       },
       "maxExceptions": [],
-      "maxNote": "No tax area fino a 24.000 € per le matricole; da 24.000 a 30.000 € il 7% dell’ISEE oltre 20.000 € ridotto del 30, 20 o 10%; oltre, 1.190 € + 2,1% dell’ISEE oltre 30.000 € + quota di indirizzo (40 € economico-giuridico-umanistico, 80 € tecnico-scientifico, 150 € Medicina), con l’ISEE contato al massimo come 46.000 €: fino a 1.566/1.606/1.676 €, anche senza ISEE. Riduzioni non calcolate: 100 € con 100/100 alla maturità, 150 € con la lode, 40 € con un familiare iscritto (solo con ISEE presentato nei termini).",
+      "maxNote": "No tax area fino a 24.000 € per le matricole; da 24.000 a 30.000 € il 7% dell’ISEE oltre 20.000 € ridotto del 30, 20 o 10%; oltre, 1.190 € + 2,1% dell’ISEE oltre 30.000 € + quota di indirizzo (40 € economico-giuridico-umanistico, 80 € tecnico-scientifico, 150 € Medicina), con l’ISEE contato al massimo come 46.000 €: fino a 1.566/1.606/1.676 €, anche senza ISEE. Con il voto indicato sono calcolate le riduzioni di 100 € (100/100) e 150 € (lode); non calcolata quella di 40 € con un familiare iscritto (solo con ISEE presentato nei termini).",
       "maxSource": {
         "label": "Unimol, Regolamento in materia di contribuzione studentesca 2026/27, Allegati 2 e 7",
         "url": "https://apistrapi.unimol.it/uploads/REGOLAMENTO_CONTRIBUZIONE_STUDENTESCA_307541d9cd.pdf"
@@ -18053,7 +18133,19 @@
           "url": "https://apistrapi.unimol.it/uploads/REGOLAMENTO_CONTRIBUZIONE_STUDENTESCA_307541d9cd.pdf"
         }
       },
-      "simulator": "https://www3.unimol.it/didattica/entrare-in-unimol/tasse-e-contributi"
+      "simulator": "https://www3.unimol.it/didattica/entrare-in-unimol/tasse-e-contributi",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "amount": 100,
+          "note": "riduzione di 100 € (con ISEE presentato nei termini)."
+        },
+        {
+          "minGrade": 101,
+          "amount": 150,
+          "note": "riduzione di 150 € (con ISEE presentato nei termini)."
+        }
+      ]
     },
     "ateneo-06901": {
       "name": "Università G. d’Annunzio di Chieti-Pescara",
@@ -18280,7 +18372,7 @@
         "magistrale": 2000
       },
       "maxExceptions": [],
-      "maxNote": "Esonero fino a 24.000 €; poi 4,5% dell’ISEE oltre 20.000 € fino a 40.000 €; 900 € + 5% oltre 40.000 € fino a 60.000 €; oltre o senza ISEE 2.000 €. Quote in più per tutta la durata del corso: Odontoiatria +300 €, Medicina e Igiene Dentale +200 €, Farmacia e CTF +100 €, T.E.S.T.A. +50 € (sopra 24.000 €). Esonero del 50% per le matricole con 100/100 alla maturità (o 110/110 per le magistrali): non calcolato.",
+      "maxNote": "Esonero fino a 24.000 €; poi 4,5% dell’ISEE oltre 20.000 € fino a 40.000 €; 900 € + 5% oltre 40.000 € fino a 60.000 €; oltre o senza ISEE 2.000 €. Quote in più per tutta la durata del corso: Odontoiatria +300 €, Medicina e Igiene Dentale +200 €, Farmacia e CTF +100 €, T.E.S.T.A. +50 € (sopra 24.000 €). Esonero del 50% per le matricole con 100/100 alla maturità (calcolato se indichi il voto; per le magistrali vale il 110/110 della laurea, non calcolato).",
       "maxSource": {
         "label": "UdA, Allegato 1 – Formule di calcolo del COA 2026/27, Tabelle 1 e 2A-2D (Gruppo 1)",
         "url": "https://www.unich.it/sites/default/files/2026-07/Allegato%201%20%E2%80%93%20Formule%20di%20calcolo%20del%20Contributo%20Omnicomprensivo%20Annuale%20%28COA%29%20.pdf"
@@ -18297,7 +18389,14 @@
           "url": "https://www.unich.it/sites/default/files/2026-06/Regolamento%20tasse%20e%20contributi%202026-27_.pdf"
         }
       },
-      "simulator": "https://orientamento.unich.it/studenti-e-futuri-studenti/tasse-e-contributi/simulatori-calcolo-contributo"
+      "simulator": "https://orientamento.unich.it/studenti-e-futuri-studenti/tasse-e-contributi/simulatori-calcolo-contributo",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "percent": 50,
+          "note": "esonero del 50% del contributo per il primo anno."
+        }
+      ]
     },
     "ateneo-04302": {
       "name": "Università di Camerino",
@@ -18548,7 +18647,7 @@
         "magistrale": 1650
       },
       "maxExceptions": [],
-      "maxNote": "Matricole esonerate fino a 26.000 € (fino a 30.000 € nei corsi delle classi L-27, L-30, L-34, L-35, L-43); tra 26.000 e 30.000 € riduzione del 25% o del 10%. L’importo cresce in modo lineare da 341 € (13.000 €) al valore a 40.000 € e poi al massimo da 60.000 €: 1.650 € per la maggior parte dei corsi, 1.925 € per Architettura, Medicina Veterinaria, Farmacia e CTF, 1.485 € per Giurisprudenza e le triennali della Scuola di Farmacia. Esonero per chi si immatricola con 100/100 alla maturità e sconto del 10% per chi è nella fascia più alta e paga tutto entro il 18 dicembre: non calcolati.",
+      "maxNote": "Matricole esonerate fino a 26.000 € (fino a 30.000 € nei corsi delle classi L-27, L-30, L-34, L-35, L-43); tra 26.000 e 30.000 € riduzione del 25% o del 10%. L’importo cresce in modo lineare da 341 € (13.000 €) al valore a 40.000 € e poi al massimo da 60.000 €: 1.650 € per la maggior parte dei corsi, 1.925 € per Architettura, Medicina Veterinaria, Farmacia e CTF, 1.485 € per Giurisprudenza e le triennali della Scuola di Farmacia. Esonero per chi si immatricola con 100/100 alla maturità (calcolato se indichi il voto); non calcolato lo sconto del 10% per chi è nella fascia più alta e paga tutto entro il 18 dicembre.",
       "maxSource": {
         "label": "Unicam, Calcolo tasse universitarie 2026/2027 (simulatore ufficiale, immatricolazione)",
         "url": "https://vele.unicam.it/asi/studenti/sc_calcolatasse_fino_40000.asp"
@@ -18565,7 +18664,14 @@
           "url": "https://www.unicam.it/studente/segreterie-studenti/tasse"
         }
       },
-      "simulator": "https://vele.unicam.it/asi/studenti/sc_calcolatasse_fino_40000.asp"
+      "simulator": "https://vele.unicam.it/asi/studenti/sc_calcolatasse_fino_40000.asp",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "percent": 100,
+          "note": "esonero dal contributo per il primo anno, se il diploma è del 2024/25 o 2025/26 (restano tassa regionale e bollo)."
+        }
+      ]
     },
     "ateneo-02201": {
       "name": "Università di Trento",
@@ -19969,7 +20075,7 @@
         "magistrale": 12100
       },
       "maxExceptions": [],
-      "maxNote": "Sei fasce di ISEE (fino a 13.000, 23.000, 33.000, 43.000, 57.000 € e oltre) con importi fissi: corsi di laurea da 3.600 € a 10.600 €, magistrali da 4.500 € a 12.100 € (iscrizione 250 €, contributi finalizzati 90 € e contributi universitari). Senza ISEE si paga la fascia più alta. Esonero del 20% per chi si immatricola con 100/100 alla maturità (non calcolato). Gli idonei alla borsa regionale hanno l’esonero del D.Lgs. 68/2012.",
+      "maxNote": "Sei fasce di ISEE (fino a 13.000, 23.000, 33.000, 43.000, 57.000 € e oltre) con importi fissi: corsi di laurea da 3.600 € a 10.600 €, magistrali da 4.500 € a 12.100 € (iscrizione 250 €, contributi finalizzati 90 € e contributi universitari). Senza ISEE si paga la fascia più alta. Esonero del 20% per chi si immatricola con 100/100 alla maturità (calcolato se indichi il voto). Gli idonei alla borsa regionale hanno l’esonero del D.Lgs. 68/2012.",
       "maxSource": {
         "label": "IULM, Regolamento tasse e contributi 2026/27 (D.R. 21472/2025), artt. 1.2-1.3",
         "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
@@ -19986,7 +20092,14 @@
           "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
         }
       },
-      "simulator": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES"
+      "simulator": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "percent": 20,
+          "note": "esonero del 20% su tasse e contributi del primo anno."
+        }
+      ]
     },
     "ateneo-01201": {
       "name": "Università Carlo Cattaneo LIUC",
@@ -20311,7 +20424,7 @@
       },
       "maxExceptions": [],
       "noScholarshipExemption": "La guida LUMSA non prevede l’esonero dalle tasse per chi è idoneo alla borsa DiSCo: qui la retta resta dovuta (da verificare con l’Ateneo).",
-      "maxNote": "Otto fasce di ISEE (fino a 17.000, 21.000, 25.000, 30.000, 35.000, 50.000, 80.000 € e oltre) a importo fisso: da 3.500 € a 8.750 € (tassa regionale esclusa); senza ISEE la fascia più alta. Servizio sociale (L-39, LM-87): sempre la prima fascia. Riduzione del 20% (seconda, terza e quarta rata) con 100/100 alla maturità e del 30% con un altro familiare iscritto: non calcolate.",
+      "maxNote": "Otto fasce di ISEE (fino a 17.000, 21.000, 25.000, 30.000, 35.000, 50.000, 80.000 € e oltre) a importo fisso: da 3.500 € a 8.750 € (tassa regionale esclusa); senza ISEE la fascia più alta. Servizio sociale (L-39, LM-87): sempre la prima fascia. Riduzione del 20% (seconda, terza e quarta rata) con 100/100 alla maturità, calcolata se indichi il voto; non calcolata quella del 30% con un altro familiare iscritto.",
       "maxSource": {
         "label": "LUMSA, Guida pratica per lo studente 2026/27, Titolo I (fasce di contribuzione e tabella delle tasse)",
         "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
@@ -20329,7 +20442,15 @@
           "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
         }
       },
-      "simulator": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf"
+      "simulator": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf",
+      "gradeReductions": [
+        {
+          "minGrade": 100,
+          "percent": 20,
+          "keep": 1000,
+          "note": "riduzione del 20% su seconda, terza e quarta rata (la prima, 1.000 €, resta intera)."
+        }
+      ]
     },
     "ateneo-05808": {
       "name": "Università Campus Bio-Medico di Roma",
@@ -20617,7 +20738,7 @@
       },
       "maxExceptions": [],
       "noScholarshipExemption": "La pagina dell’Ateneo non prevede l’esonero dalla retta per chi è idoneo alla borsa DiSCo: qui la retta resta dovuta (da verificare con l’Ateneo).",
-      "maxNote": "Retta standard 6.900 € per ogni ISEE. Al primo anno di triennale è ridotta in base al voto di maturità: 6.000 € (70-79), 5.400 € (80-89), 4.800 € (90-99), 4.500 € (100 e 100 e lode); nelle magistrali in base al voto di laurea: 6.000 € (101-105), 5.700 € (106-110), 5.550 € (110 e lode). Riduzioni non ancora nel calcolo.",
+      "maxNote": "Retta standard 6.900 € per ogni ISEE. Al primo anno di triennale è ridotta in base al voto di maturità: 6.000 € (70-79), 5.400 € (80-89), 4.800 € (90-99), 4.500 € (100 e 100 e lode); nelle magistrali in base al voto di laurea: 6.000 € (101-105), 5.700 € (106-110), 5.550 € (110 e lode). Le rette agevolate delle triennali sono calcolate se indichi il voto di maturità; quelle delle magistrali (voto di laurea) no.",
       "maxSource": {
         "label": "UNINT, Tasse e contributi a.a. 2026/2027",
         "url": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
@@ -20633,7 +20754,29 @@
           "url": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
         }
       },
-      "simulator": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
+      "simulator": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/",
+      "gradeReductions": [
+        {
+          "minGrade": 70,
+          "setTo": 6000,
+          "note": "retta agevolata di 6.000 €."
+        },
+        {
+          "minGrade": 80,
+          "setTo": 5400,
+          "note": "retta agevolata di 5.400 €."
+        },
+        {
+          "minGrade": 90,
+          "setTo": 4800,
+          "note": "retta agevolata di 4.800 €."
+        },
+        {
+          "minGrade": 100,
+          "setTo": 4500,
+          "note": "retta agevolata di 4.500 €."
+        }
+      ]
     },
     "ateneo-05817": {
       "name": "Link Campus University",

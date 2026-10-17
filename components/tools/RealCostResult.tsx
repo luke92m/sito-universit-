@@ -60,6 +60,9 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
     } else if (scholarship.status === 'uncertain') {
       grantTitle = 'Sei vicino alla soglia: con il valore esatto sapresti se ti spetta.';
       grantText = `${entity.shortName} chiede ${limits}. Inserisci ISEE e ISPE precisi per un risultato sicuro.`;
+    } else if (scholarship.status === 'not-eligible' && scholarship.gradeTooLow) {
+      grantTitle = `Con questo voto di maturità non puoi chiedere la borsa ${entity.shortName}.`;
+      grantText = `Per il primo anno il bando chiede almeno ${scholarship.gradeTooLow}/100 alla maturità. Restano le riduzioni delle tasse per ISEE.`;
     } else if (scholarship.status === 'not-eligible') {
       grantTitle = `Con questi valori non puoi chiedere la borsa ${entity.shortName}.`;
       grantText = `Servono ${limits}${belowNational ? ', soglie più basse dei limiti nazionali' : ''}. Restano le riduzioni delle tasse per ISEE.`;
@@ -68,6 +71,9 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
       grantText = `${entity.shortName} chiede ${limits}. L’ISEE per il diritto allo studio si chiede gratis al CAF o sul sito INPS.`;
     }
   }
+
+  if (scholarship?.gradeRequired && scholarship.status !== 'not-eligible')
+    grantText += ` Per il primo anno serve anche almeno ${scholarship.gradeRequired}/100 alla maturità.`;
 
   return (
     <section className="real-cost" aria-labelledby="realCostTitle">

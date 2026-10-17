@@ -193,7 +193,13 @@ Tasse (2026/27):
 4. Aggiungi in `tests/unit/real-data.test.ts` almeno due valori controllati a mano.
 5. `npm test` controlla struttura, fonti e coerenza delle soglie.
 
-Per leggere i PDF dei bandi si può usare qualunque estrattore di testo (per esempio `pdftotext`, o la libreria `pdfjs-dist`); le tabelle a più colonne vanno ricontrollate a mano.
+Per leggere i PDF dei bandi si può usare qualunque estrattore di testo (per esempio `pdftotext`, o la libreria `pdfjs-dist`); le tabelle a più colonne vanno ricontrollate a mano. I PDF scansionati o grafici si leggono convertendo le pagine in immagini (pdfjs-dist con `@napi-rs/canvas`).
+
+### Voto di maturità (facoltativo)
+
+Lo studente può indicare il voto di maturità (a intervalli: 60-69, 70-79, 80-89, 90-94, 95-97, 98-99, 100, 100 e lode; il calcolo usa il minimo dell’intervallo, quindi non promette mai uno sconto incerto). Il voto non viene salvato e non entra nel link condiviso.
+- **Tasse** (`gradeReductions` della regola): sconti del primo anno per lauree triennali e a ciclo unico, con `minGrade` (101 = 100 e lode) e uno tra `percent` (con `keep` per la parte che resta intera, es. la prima rata), `amount` o `setTo` (retta agevolata); `iseeMax` se lo sconto vale solo sotto un ISEE. Vale la soglia più alta raggiunta. Inseriti per Federico II, Bicocca, Pisa, Salento, Ca’ Foscari, Parma, Tuscia, Stranieri di Perugia, Molise, Chieti-Pescara, Camerino, IULM, LUMSA, UNINT. Restano solo in nota (regola non abbastanza precisa): Bari, L’Aquila, Udine, Valle d’Aosta, e gli sconti delle magistrali legati al voto di laurea.
+- **Borse** (`minDiplomaGrade` dell’ente): voto minimo per la borsa al primo anno di triennale o ciclo unico. Con un voto più basso la borsa risulta non spettante; senza voto il risultato lo ricorda. Inserito (70/100) per Bicocca, Bergamo, Brescia, Insubria, EDiSU Pavia, IULM e LIUC.
 
 ## Calendario della scelta (`lib/data/choice-calendar.json`)
 

@@ -22,6 +22,7 @@ import {
   tuitionRuleFor,
   type TuitionRule
 } from './tuition';
+import { applyGradeReduction, gradeLabel, gradeReductionFor, type DiplomaGrade } from './grade';
 import { GRANT_KEYS, type CostLineKey } from './real-cost-keys';
 import { getMetrics } from '../data';
 import type { Course, University } from '../types';
@@ -83,7 +84,8 @@ function tuitionLines(
   course: Course | null,
   isee: EconomicRange,
   scholarship: ScholarshipEstimate | null,
-  condition: StudentCondition
+  condition: StudentCondition,
+  grade: DiplomaGrade = null
 ): CostLine[] {
   if (!rule) {
     // Chi è idoneo alla borsa non paga le tasse: lo prevede la legge nazionale, anche senza le regole dell'ateneo.
@@ -132,6 +134,12 @@ function tuitionLines(
         max: condition === 'fuoriSede' ? offSiteContribution(rule, base.max) : base.max
       }
     : base;
+  // Sconto per voto di maturità: solo lauree triennali e a ciclo unico (il voto conta per chi si immatricola lì).
+  const firstCycle = !course || degreeLevel(course) !== 'magistrale';
+  const cutFor = (value: number | null) => (firstCycle ? gradeReductionFor(rule.gradeReductions, grade, value) : null);
+  const gradeCut = cutFor(isee.min);
+  const tuitionMin = applyGradeReduction(range.min, gradeCut);
+  const tuitionMax = applyGradeReduction(range.max, cutFor(isee.max));
   const fixed = fixedFeesRange(rule, isee);
   const exemptionApplies = !rule.noScholarshipExemption;
   const exempt = exemptionApplies && scholarship?.status === 'eligible';
@@ -143,11 +151,11 @@ function tuitionLines(
     {
       key: 'tasse',
       label: 'Tasse universitarie',
-      min: exempt || maybeExempt ? 0 : range.min,
-      max: exempt ? 0 : range.max,
+      min: exempt || maybeExempt ? 0 : tuitionMin,
+      max: exempt ? 0 : tuitionMax,
       note: exempt
         ? 'Esonero totale: spetta a chi è idoneo alla borsa.'
-        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}${!exemptionApplies && scholarship && scholarship.status !== 'not-eligible' ? ` ${rule.noScholarshipExemption}` : ''}`,
+        : `${isee.min == null ? 'Senza ISEE si paga il massimo del corso' : 'Calcolate con le regole ufficiali per il tuo ISEE'} (massimo ${euro(max)}${scope ? `, ${scope}` : ''}).${offSite ? ` ${offSite.note}` : ''}${rule.bandsNote ? ` ${rule.bandsNote}` : ''}${!exemptionApplies && scholarship && scholarship.status !== 'not-eligible' ? ` ${rule.noScholarshipExemption}` : ''}${gradeCut && !exempt && grade != null ? ` Con ${gradeLabel(grade)} alla maturità: ${gradeCut.note}` : ''}`,
       source: rule.bandsSource,
       estimated: Boolean(rule.bandsNote) && !exempt
     },
@@ -170,17 +178,22 @@ export function realCost(
   course: Course | null,
   isee: EconomicRange,
   ispe: EconomicRange,
-  condition: StudentCondition
+  condition: StudentCondition,
+  /** Voto di maturità, facoltativo: sconti per merito e voto minimo delle borse. */
+  grade: DiplomaGrade = null
 ): RealCost {
   const seatCity = course?.city || university.city;
   const entity = dsuEntityFor(university.id);
-  const scholarship = entity ? scholarshipFor(entity, isee, ispe, condition) : null;
+  const firstCycle = !course || degreeLevel(course) !== 'magistrale';
+  const scholarship = entity ? scholarshipFor(entity, isee, ispe, condition, { grade, firstCycle }) : null;
   const universityRule = tuitionRuleFor(university.id);
   // Corso con importi propri non ancora inseriti: si usa la media dichiarata, come per gli atenei non coperti.
   const excluded = universityRule ? isExcludedCourse(universityRule, course) : false;
   const rule = excluded ? null : universityRule;
   const missing: string[] = [];
-  const lines = tuitionLines(rule, university, course, isee, scholarship, condition);
+  const lines = tuitionLines(rule, university, course, isee, scholarship, condition, grade);
+  if (grade == null && firstCycle && rule?.gradeReductions?.length)
+    missing.push('Sconto per voto di maturità: indica il voto per calcolarlo');
   if (excluded) missing.push(`Tasse per fascia ISEE di questo corso: ${universityRule!.excludedCourses!.note}`);
   else if (!rule) missing.push('Tasse per fascia ISEE di questo ateneo');
 
