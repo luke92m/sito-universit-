@@ -534,6 +534,27 @@ describe('tasse Università di Bologna 2026/27', () => {
       )
     ).toBe(2040);
   });
+
+  it('magistrali a importo maggiorato dalla tabella ufficiale', () => {
+    const courses = getCourses(BOLOGNA);
+    const named = (name: string) => courses.find((course) => course.name === name && degreeLevel(course) === 'magistrale')!;
+    expect(maxContribution(rule, named('International Management'))).toBe(4080);
+    expect(maxContribution(rule, named('Bioinformatics'))).toBe(3825);
+    expect(maxContribution(rule, named('Interpretazione'))).toBe(3162);
+    expect(maxContribution(rule, named('Science Of Climate'))).toBe(2805);
+    expect(maxContribution(rule, named('Informatica'))).toBe(2550);
+  });
+
+  // Punti presi dal simulatore ufficiale (studenti.unibo.it/sol/simulatore/2026.htm, matricola con ISEE,
+  // totale meno 157,04 € di quota fissa), 17/10/2026: corsi da 2.040 € e da 3.060 €.
+  it('coincide con il simulatore ufficiale UniBo', () => {
+    const official: [number, number, number][] = [
+      [25000, 2040, 0], [30000, 2040, 630], [40000, 2040, 1215], [50000, 2040, 1654.5], [70000, 2040, 2040],
+      [50000, 3060, 1654.5], [70000, 3060, 3060]
+    ];
+    for (const [isee, max, value] of official) expect(contributionFor(rule, isee, max)).toBeCloseTo(value, 1);
+    expect(rule.fixedFees.total).toBe(157.04);
+  });
 });
 
 describe('costo reale annuo', () => {

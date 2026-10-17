@@ -112,11 +112,216 @@
           "name": "Veterinary Medicine",
           "level": "ciclo-unico",
           "amount": 3315
+        },
+        {
+          "name": "Food Animal Metabolism and Management in the Circular Economy",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Architecture and Creative Practices for the City and Landscape",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Civil Engineering",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Offshore Engineering for Energy Transition",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Fashion Studies",
+          "level": "magistrale",
+          "amount": 3570
+        },
+        {
+          "name": "Applied Economics and Markets",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Economics and Econometrics",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Greening Energy Market and Finance",
+          "level": "magistrale",
+          "amount": 3500
+        },
+        {
+          "name": "Innovation and Organization of Culture and the Arts",
+          "level": "magistrale",
+          "amount": 4080
+        },
+        {
+          "name": "International Management",
+          "level": "magistrale",
+          "amount": 4080
+        },
+        {
+          "name": "International Politics and Economics",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Law, Economics and Governance",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Quantitative Finance",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Service Management",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Artificial Intelligence",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Digital Transformation Management",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Aerospace Engineering",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Automation Engineering",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Biomedical Engineering",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Electric Vehicle Engineering",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Mechanical Engineering for Sustainability",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Interpretazione",
+          "level": "magistrale",
+          "amount": 3162
+        },
+        {
+          "name": "Specialized Translation",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Digital Humanities and Digital Knowledge",
+          "level": "magistrale",
+          "amount": 3570
+        },
+        {
+          "name": "East European and Eurasian Studies",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "International Cooperation on Human Rights and Intercultural Heritage",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "International Relations",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Psychology of Wellbeing and Social Inclusivity",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Advanced Cosmetic Sciences",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Astrophysics and Cosmology",
+          "level": "magistrale",
+          "amount": 2805
+        },
+        {
+          "name": "Low Carbon Technologies and Sustainable Chemistry",
+          "level": "magistrale",
+          "amount": 2805
+        },
+        {
+          "name": "Medical Biotechnology",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Science for the Conservation-Restoration of Cultural Heritage",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Science of Climate",
+          "level": "magistrale",
+          "amount": 2805
+        },
+        {
+          "name": "Statistical Sciences",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Telecommunications Engineering",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
+          "name": "Bioinformatics",
+          "level": "magistrale",
+          "amount": 3825
+        },
+        {
+          "name": "Biotecnologie molecolari e industriali",
+          "level": "magistrale",
+          "amount": 2907
+        },
+        {
+          "name": "Molecular and Cell Biology",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Pharmaceutical Biotechnology",
+          "level": "magistrale",
+          "amount": 3060
+        },
+        {
+          "name": "Wellness, Sport and Health",
+          "level": "magistrale",
+          "amount": 3060
         }
       ],
-      "maxNote": "Diversi corsi magistrali in inglese hanno un massimo più alto (da 2.805 € a 4.080 €): per le magistrali verifica la tabella ufficiale.",
+      "maxNote": "Diversi corsi magistrali in inglese o internazionali hanno un massimo più alto (da 2.805 € a 4.080 €), inseriti corso per corso dalla tabella ufficiale. I curricula con un importo proprio (es. «curriculum electrical engineering») non sono distinti nel nostro elenco dei corsi: per quelli verifica la tabella.",
       "maxSource": {
-        "label": "UniBo, Tabella importi massimi 2026/27",
+        "label": "UniBo, Tabella importi massimi 2026/27 (corsi a importo maggiorato), confrontata con il simulatore ufficiale",
         "url": "https://www.unibo.it/it/allegati/Tabellaimportimassimi2627.pdf/@@download/file/Tabella%20importi%20massimi%202026-2027.pdf"
       },
       "payments": {
