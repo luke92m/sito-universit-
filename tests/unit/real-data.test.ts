@@ -555,7 +555,7 @@ describe('costo reale annuo', () => {
   });
 
   it('ateneo senza dati verificati: media dichiarata come stima e dati mancanti elencati', () => {
-    const uer = getUniversityById('ateneo-05812')!;
+    const uer = getUniversityById('ateneo-01301')!;
     const cost = realCost(uer, null, exact(15000), none, 'inSede');
     expect(cost.entity).toBeNull();
     expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
