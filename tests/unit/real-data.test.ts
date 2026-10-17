@@ -1905,3 +1905,32 @@ describe('Valle d’Aosta 2026/27: tasse a sei fasce', () => {
     expect(maxContribution(rule, named('Scienze della Formazione Primaria'))).toBe(2171);
   });
 });
+
+describe('San Raffaele 2026/27: retta per corso e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-01508')!;
+  const course = (name: string, level: string) =>
+    getCourses('ateneo-01508').find((item) => item.name === name && degreeLevel(item) === level)!;
+  it('Retta del primo anno meno 206 € di tassa regionale e bollo, uguale per ogni ISEE', () => {
+    const medicina = course('Medicina e Chirurgia', 'ciclo-unico');
+    expect(maxContribution(rule, medicina) + rule.fixedFees.total).toBe(20190);
+    expect(contributionFor(rule, 5000, maxContribution(rule, medicina))).toBe(19984);
+    expect(maxContribution(rule, course('Medicine And Surgery', 'ciclo-unico')) + 206).toBe(20690);
+    expect(maxContribution(rule, course('Filosofia', 'triennale')) + 206).toBe(5490);
+    expect(maxContribution(rule, course('Psicologia', 'magistrale')) + 206).toBe(8190);
+    const nursing = getCourses('ateneo-01508').filter((item) => item.name.startsWith('Infermieristica'));
+    for (const item of nursing) expect(maxContribution(rule, item) + 206).toBe(2590);
+    expect(isExcludedCourse(rule, course('Biotechnology And Medical Biology', 'magistrale'))).toBe(true);
+    expect(rule.noScholarshipExemption).toBeUndefined();
+  });
+  it('Borse lombarde con 80/100 alla maturità per le matricole', () => {
+    const unisr = dsuEntityFor('ateneo-01508')!;
+    expect(unisr.id).toBe('unisr-dsu');
+    expect(amountAt(unisr, 15000, 'fuoriSede')).toBe(7172);
+    expect(amountAt(unisr, 20000, 'inSede')).toBe(2143);
+    expect(scholarshipFor(unisr, exact(12000), none, 'pendolare', { grade: 75, firstCycle: true })).toMatchObject({
+      status: 'not-eligible',
+      gradeTooLow: 80
+    });
+    expect(scholarshipFor(unisr, exact(12000), none, 'pendolare', { grade: 85, firstCycle: true }).amountMax).toBe(4820);
+  });
+});

@@ -51,6 +51,7 @@ Borse (bandi 2026/27):
 | ISU Bocconi | Bocconi | 26.887,93 / 58.452,06 | nessun elenco: stato per tempi di viaggio (60/90 minuti) |
 | IULM (borse regionali) | IULM | 26.887,93 / 58.452,06 | nessun elenco: stato per tempi di viaggio (60/90 minuti) |
 | LIUC (borse regionali) | LIUC | 26.887,93 / 58.452,06 | in sede Castellanza e 5 comuni limitrofi (nelle condizioni) |
+| San Raffaele (borse regionali) | Vita-Salute San Raffaele | 26.887,93 / 58.452,06 | nessun elenco: stato per tempi di viaggio (60/90 minuti) |
 | EDUCatt | Cattolica | 26.887,93 / 58.452,06 | Elenchi EDUCatt (Milano, Brescia, Piacenza, Cremona, Roma, Torino, Moncrivello) |
 | DSU Mediterranea (ateneo) | Mediterranea di Reggio Calabria | 28.339,88 / 61.608,48 | nessun elenco: stato per distanza (50 km) |
 | Centro Residenziale Unical (ateneo) | Università della Calabria | 26.500 / 57.500 | Appendice A (Rende) |
@@ -159,6 +160,8 @@ Tasse (2026/27):
   - **Valle d’Aosta (tasse)**: Sistema delle tasse e dei contributi 2026/27 (allegato alla deliberazione del Consiglio dell’Università), punti 1-3 e 10-17: sei fasce di ISEE (fino a 14.000, 23.000, 32.000, 40.000, 80.000 € e oltre) a importo fisso, senza no tax area, comprensivi di tassa regionale e bollo (la tassa regionale non è indicata a parte, per questo la quota fissa è a zero): triennali 1.061-1.729 €, Scienze della formazione primaria 1.317-2.171 €, magistrale 2.400-4.054 €. Esonero del primo anno con 100/100 alla maturità e parziale da 95/100: non calcolati. Assegni di studio regionali (Regione Valle d’Aosta) non ancora inseriti.
   - **Bolzano (unibz)**: non inserita. Le pagine delle tasse e il regolamento 2026/27 non sono raggiungibili (pagine non trovate a ottobre 2026).
   - **Campus Bio-Medico (tasse)**: pagina «Tasse e contributi», importi del primo anno 2026/27, e Regolamento (D.R. 504/2025): contributo unico per corso, non legato all’ISEE, da 2.350,88 € (Infermieristica) a 22.486,66 € (Odontoiatria), più 140 € di tassa regionale. Esonero per gli idonei DiSCo solo su domanda e nei limiti dei fondi statali (`noScholarshipExemption`).
+  - **San Raffaele (tasse)**: pagina «Tasse e contributi» dei corsi di laurea 2026/27 e prospetti per corso (luglio 2026): retta annua per corso, uguale per ogni ISEE, da 2.590 € (Infermieristica, stessa retta per Milano e Ponte San Pietro) a 30.190 € (Odontoiatria); Medicina 20.190 €, International MD Program 20.690 €. Per il Regolamento contribuzione (D.R. 9723/2025, art. 6) la retta comprende tassa regionale (190 €) e bollo (16 €): il sito li tiene come quota fissa e usa la retta meno 206 €. Gli idonei alla borsa, beneficiari o no, sono esonerati da tassa di iscrizione e contributi (art. 13), quindi niente `noScholarshipExemption`. Esclusi Biotechnology and Medical Biology (oggi c’è «Biotechnology for Innovative Therapeutics», 7.890 €, nome diverso) e Cognitive Psychology in Health Communication (nessun prospetto). Premi di merito di Filosofia non calcolati.
+  - **San Raffaele (borse)**: bando benefici DSU 2026/27, artt. 1-9: importi regionali lombardi (come IULM), stato per tempi di viaggio (60/90 minuti). Per le matricole di laurea e ciclo unico servono **80/100** alla maturità (non 70 come negli altri bandi lombardi). Borse a numero chiuso (39 per le matricole): `fundedShare` resta vuoto. +20% per le studentesse di tre corsi STEM.
 
 ## Fonti
 
@@ -204,7 +207,7 @@ Per leggere i PDF dei bandi si può usare qualunque estrattore di testo (per ese
 
 Lo studente può indicare il voto di maturità (a intervalli: 60-69, 70-79, 80-89, 90-94, 95-97, 98-99, 100, 100 e lode; il calcolo usa il minimo dell’intervallo, quindi non promette mai uno sconto incerto). Il voto non viene salvato e non entra nel link condiviso.
 - **Tasse** (`gradeReductions` della regola): sconti del primo anno per lauree triennali e a ciclo unico, con `minGrade` (101 = 100 e lode) e uno tra `percent` (con `keep` per la parte che resta intera, es. la prima rata), `amount` o `setTo` (retta agevolata); `iseeMax` se lo sconto vale solo sotto un ISEE. Vale la soglia più alta raggiunta. Inseriti per Federico II, Bicocca, Pisa, Salento, Ca’ Foscari, Parma, Tuscia, Stranieri di Perugia, Molise, Chieti-Pescara, Camerino, IULM, LUMSA, UNINT. Restano solo in nota (regola non abbastanza precisa): Bari, L’Aquila, Udine, Valle d’Aosta, e gli sconti delle magistrali legati al voto di laurea.
-- **Borse** (`minDiplomaGrade` dell’ente): voto minimo per la borsa al primo anno di triennale o ciclo unico. Con un voto più basso la borsa risulta non spettante; senza voto il risultato lo ricorda. Inserito (70/100) per Bicocca, Bergamo, Brescia, Insubria, EDiSU Pavia, IULM e LIUC.
+- **Borse** (`minDiplomaGrade` dell’ente): voto minimo per la borsa al primo anno di triennale o ciclo unico. Con un voto più basso la borsa risulta non spettante; senza voto il risultato lo ricorda. Inserito (70/100) per Bicocca, Bergamo, Brescia, Insubria, EDiSU Pavia, IULM e LIUC; 80/100 per il San Raffaele.
 
 ## Calendario della scelta (`lib/data/choice-calendar.json`)
 

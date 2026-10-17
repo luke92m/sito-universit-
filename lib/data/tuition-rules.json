@@ -21451,6 +21451,148 @@
         }
       },
       "simulator": "https://www.univda.it/wp-content/uploads/2026/05/Allegato-delibera-tasse-2026.2027-.pdf"
+    },
+    "ateneo-01508": {
+      "name": "Università Vita-Salute San Raffaele",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27: retta annua per corso, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 190,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 206
+      },
+      "fixedFeesNote": "La retta pubblicata comprende tassa regionale (190 € nel 2026/27) e imposta di bollo (16 €, importo di legge), che restano dovute anche con l’esonero; qui sono separate dalla retta.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 29984
+        }
+      ],
+      "bandsSource": {
+        "label": "UniSR, Tasse e contributi dei corsi di laurea triennale e magistrale 2026/27 (prospetti per corso)",
+        "url": "https://www.unisr.it/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale"
+      },
+      "maxByLevel": {
+        "triennale": 7484,
+        "ciclo-unico": 29984,
+        "magistrale": 7984
+      },
+      "maxExceptions": [
+        {
+          "name": "Filosofia",
+          "level": "triennale",
+          "amount": 5284
+        },
+        {
+          "name": "Scienze Politiche e Strategie Globali",
+          "level": "triennale",
+          "amount": 2884
+        },
+        {
+          "name": "Scienze e Tecniche Psicologiche",
+          "level": "triennale",
+          "amount": 7484
+        },
+        {
+          "name": "Ricerca Biotecnologica in Medicina",
+          "level": "triennale",
+          "amount": 6684
+        },
+        {
+          "name": "Infermieristica",
+          "level": "triennale",
+          "amount": 2384
+        },
+        {
+          "name": "Fisioterapia",
+          "level": "triennale",
+          "amount": 5884
+        },
+        {
+          "name": "Igiene Dentale",
+          "level": "triennale",
+          "amount": 6484
+        },
+        {
+          "name": "Ostetricia",
+          "level": "triennale",
+          "amount": 4584
+        },
+        {
+          "name": "Medicina e Chirurgia",
+          "level": "ciclo-unico",
+          "amount": 19984
+        },
+        {
+          "name": "Medicine And Surgery",
+          "level": "ciclo-unico",
+          "amount": 20484
+        },
+        {
+          "name": "Odontoiatria e Protesi Dentaria",
+          "level": "ciclo-unico",
+          "amount": 29984
+        },
+        {
+          "name": "Teoria e Storia delle Arti e dell'Immagine",
+          "level": "magistrale",
+          "amount": 6484
+        },
+        {
+          "name": "Filosofia del Mondo Contemporaneo",
+          "level": "magistrale",
+          "amount": 6484
+        },
+        {
+          "name": "Psicologia",
+          "level": "magistrale",
+          "amount": 7984
+        },
+        {
+          "name": "Health Informatics",
+          "level": "magistrale",
+          "amount": 6484
+        },
+        {
+          "name": "Scienze Infermieristiche e Ostetriche",
+          "level": "magistrale",
+          "amount": 4584
+        },
+        {
+          "name": "Scienze Riabilitative delle Professioni Sanitarie",
+          "level": "magistrale",
+          "amount": 6584
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Cognitive Psychology in Health Communication",
+          "Biotechnology And Medical Biology"
+        ],
+        "note": "Per questi corsi la pagina tasse 2026/27 non ha un prospetto con lo stesso nome: per la magistrale LM-9 c’è «Biotechnology for Innovative Therapeutics» (7.890 €), per Cognitive Psychology in Health Communication nessun prospetto."
+      },
+      "maxNote": "Retta annua per corso, uguale per ogni ISEE (prospetti 2026/27, primo anno): da 2.590 € (Infermieristica) a 30.190 € (Odontoiatria); Medicina 20.190 € (20.690 € l’International MD Program), Psicologia triennale 7.690 € e magistrale 8.190 €, Filosofia 5.490 €. Gli importi del sito sono la retta meno 206 € di tassa regionale e bollo. Gli idonei alla borsa regionale (beneficiari o no) sono esonerati da tassa di iscrizione e contributi (Regolamento contribuzione, art. 13).",
+      "maxSource": {
+        "label": "UniSR, Tasse e contributi 2026/27 e Regolamento in materia di contribuzione studentesca (D.R. 9723/2025), artt. 6 e 13",
+        "url": "https://www.unisr.it/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’immatricolazione",
+          "Seconda rata entro il 31 gennaio 2027 (31 marzo 2027 per i corsi delle professioni sanitarie, in due rate)",
+          "Terza rata entro il 31 marzo 2027 (corsi in tre rate)"
+        ],
+        "note": "Dal 15° giorno dopo una scadenza mancata si paga un diritto di sollecito. Per Psicologia magistrale, Filosofia del Mondo Contemporaneo e Teoria e Storia delle Arti chi si iscrive dopo febbraio paga seconda e terza rata il 30 aprile e il 31 maggio.",
+        "source": {
+          "label": "UniSR, Tasse e contributi dei corsi di laurea triennale e magistrale 2026/27",
+          "url": "https://www.unisr.it/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale"
+        }
+      },
+      "simulator": "https://www.unisr.it/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale"
     }
   }
 }
