@@ -1831,3 +1831,14 @@ describe('Roma, private 2026/27: UNINT e Link Campus', () => {
     expect(isExcludedCourse(rule, named('Tecniche di Laboratorio'))).toBe(true);
   });
 });
+
+describe('Valle d’Aosta 2026/27: tasse a sei fasce', () => {
+  it('Importi fissi per fascia, tassa regionale e bollo compresi', () => {
+    const rule = tuitionRuleFor('ateneo-00701')!;
+    const named = (name: string) => getCourses('ateneo-00701').find((course) => course.name === name)!;
+    const tri = courseGroup(rule, named('Economia e Management'))!;
+    expect(contributionFor(rule, 10000, tri.max, tri.bands)).toBe(1061);
+    expect(contributionFor(rule, null, tri.max, tri.bands)).toBe(1729);
+    expect(maxContribution(rule, named('Scienze della Formazione Primaria'))).toBe(2171);
+  });
+});

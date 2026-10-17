@@ -20839,6 +20839,229 @@
         }
       },
       "simulator": "https://www.unilink.it/iscrizione/tasse-e-rette"
+    },
+    "ateneo-00701": {
+      "name": "Università della Valle d’Aosta",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole e iscritti in corso, con ISEE per il diritto allo studio rilasciato entro il 31 dicembre 2026. Gli importi comprendono tassa regionale e bollo.",
+      "fixedFees": {
+        "regionalTax": 0,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 0
+      },
+      "fixedFeesNote": "Tassa regionale per il diritto allo studio e bollo sono compresi nella prima rata (439 € per le triennali); l’Ateneo non ne indica a parte l’importo.",
+      "bands": [
+        {
+          "iseeMax": 14000,
+          "from": 0,
+          "rate": 0,
+          "base": 1061
+        },
+        {
+          "iseeMax": 23000,
+          "from": 0,
+          "rate": 0,
+          "base": 1287
+        },
+        {
+          "iseeMax": 32000,
+          "from": 0,
+          "rate": 0,
+          "base": 1457
+        },
+        {
+          "iseeMax": 40000,
+          "from": 0,
+          "rate": 0,
+          "base": 1589
+        },
+        {
+          "iseeMax": 80000,
+          "from": 0,
+          "rate": 0,
+          "base": 1649
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1729
+        }
+      ],
+      "bandsSource": {
+        "label": "Università della Valle d’Aosta, Sistema delle tasse e dei contributi 2026/27 (allegato alla deliberazione del Consiglio dell’Università), punti 1-3, 10-17",
+        "url": "https://www.univda.it/wp-content/uploads/2026/05/Allegato-delibera-tasse-2026.2027-.pdf"
+      },
+      "courseGroups": [
+        {
+          "id": "triennale",
+          "label": "corsi di laurea triennale",
+          "groups": [],
+          "levels": [
+            "triennale"
+          ],
+          "default": true,
+          "bands": [
+            {
+              "iseeMax": 14000,
+              "from": 0,
+              "rate": 0,
+              "base": 1061
+            },
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 1287
+            },
+            {
+              "iseeMax": 32000,
+              "from": 0,
+              "rate": 0,
+              "base": 1457
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1589
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 1649
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 1729
+            }
+          ],
+          "max": 1729
+        },
+        {
+          "id": "sfp",
+          "label": "Scienze della formazione primaria",
+          "groups": [],
+          "names": [
+            "Scienze della Formazione Primaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 14000,
+              "from": 0,
+              "rate": 0,
+              "base": 1317
+            },
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 1607
+            },
+            {
+              "iseeMax": 32000,
+              "from": 0,
+              "rate": 0,
+              "base": 1825
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 1993
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 2071
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 2171
+            }
+          ],
+          "max": 2171
+        },
+        {
+          "id": "lm",
+          "label": "Economia e politiche del territorio e dell’impresa",
+          "groups": [],
+          "names": [
+            "Economia e Politiche del Territorio e dell'Impresa"
+          ],
+          "bands": [
+            {
+              "iseeMax": 14000,
+              "from": 0,
+              "rate": 0,
+              "base": 2400
+            },
+            {
+              "iseeMax": 23000,
+              "from": 0,
+              "rate": 0,
+              "base": 2962
+            },
+            {
+              "iseeMax": 32000,
+              "from": 0,
+              "rate": 0,
+              "base": 3384
+            },
+            {
+              "iseeMax": 40000,
+              "from": 0,
+              "rate": 0,
+              "base": 3712
+            },
+            {
+              "iseeMax": 80000,
+              "from": 0,
+              "rate": 0,
+              "base": 3860
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4054
+            }
+          ],
+          "max": 4054
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 1729,
+        "ciclo-unico": 2171,
+        "magistrale": 4054
+      },
+      "maxExceptions": [],
+      "maxNote": "Sei fasce di ISEE (fino a 14.000, 23.000, 32.000, 40.000, 80.000 € e oltre) a importo fisso, comprese tassa regionale e bollo: triennali da 1.061 € a 1.729 €, Scienze della formazione primaria da 1.317 € a 2.171 €, magistrale da 2.400 € a 4.054 €. Non c’è una no tax area: anche la prima fascia paga. Senza ISEE si va nella sesta fascia. Esonero totale del primo anno con 100/100 alla maturità (resta tassa regionale e bollo) e parziale da 95/100: non calcolati.",
+      "maxSource": {
+        "label": "Università della Valle d’Aosta, Sistema delle tasse e dei contributi 2026/27 (allegato alla deliberazione del Consiglio dell’Università), punti 1-3, 10-17",
+        "url": "https://www.univda.it/wp-content/uploads/2026/05/Allegato-delibera-tasse-2026.2027-.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (con tassa regionale e bollo) entro la scadenza dell’immatricolazione",
+          "Seconda rata entro il 28 febbraio 2027",
+          "Terza rata entro il 20 maggio 2027"
+        ],
+        "note": "Indennità di mora di 60 € per ogni scadenza non rispettata. Ai beneficiari e agli idonei dell’assegno di studio regionale sono rimborsate d’ufficio tasse e tassa regionale.",
+        "source": {
+          "label": "Università della Valle d’Aosta, Sistema delle tasse e dei contributi 2026/27 (allegato alla deliberazione del Consiglio dell’Università), punti 1-3, 10-17",
+          "url": "https://www.univda.it/wp-content/uploads/2026/05/Allegato-delibera-tasse-2026.2027-.pdf"
+        }
+      },
+      "simulator": "https://www.univda.it/wp-content/uploads/2026/05/Allegato-delibera-tasse-2026.2027-.pdf"
     }
   }
 }
