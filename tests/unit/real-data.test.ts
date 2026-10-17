@@ -2154,3 +2154,21 @@ describe('UNINETTUNO 2026/27: tasse per triennali e magistrali', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('Niccolò Cusano: tassa universitaria per area', () => {
+  const rule = tuitionRuleFor('ateneo-05815')!;
+  const courses = getCourses('ateneo-05815');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Economia Aziendale e Management,')).toBe(3300);
+    expect(max('Giurisprudenza')).toBe(3300);
+    expect(max('Scienze Motorie')).toBe(4000);
+    expect(max('Psicologia')).toBe(4000);
+    expect(max('Sociologia e Ricerca Sociale')).toBe(3500);
+    expect(max('Scienze Umanistiche')).toBe(3500);
+    expect(max('Scienza e Tecnica dello Sport')).toBe(4000);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

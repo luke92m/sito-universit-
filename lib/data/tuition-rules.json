@@ -23041,6 +23041,86 @@
         }
       },
       "simulator": "https://www.uninettunouniversity.net/it/tasse-universitarie.aspx"
+    },
+    "ateneo-05815": {
+      "name": "Università telematica Niccolò Cusano",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Tassa universitaria «Total Learning» per area di studio, uguale per ogni ISEE (pagina in vigore a ottobre 2026).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Si aggiungono la tassa regionale DiSCo Lazio (140 € nel 2026/27) e il bollo sulla domanda d’iscrizione (16 €, una volta sola).",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 4000
+        }
+      ],
+      "bandsSource": {
+        "label": "Università Niccolò Cusano, «Tassa universitaria»",
+        "url": "https://www.unicusano.it/iscriversi-universita/tassa-universitaria-e-diritti-di-segreteria"
+      },
+      "maxByLevel": {
+        "triennale": 3300,
+        "ciclo-unico": 3300,
+        "magistrale": 4000
+      },
+      "maxExceptions": [
+        {
+          "name": "Scienze Motorie",
+          "level": "triennale",
+          "amount": 4000
+        },
+        {
+          "name": "Scienza e Tecnica dello Sport",
+          "level": "magistrale",
+          "amount": 4000
+        },
+        {
+          "name": "Comunicazione Digitale",
+          "level": "magistrale",
+          "amount": 3500
+        },
+        {
+          "name": "Scienze Filosofiche Applicate",
+          "level": "magistrale",
+          "amount": 3500
+        },
+        {
+          "name": "Sociologia e Ricerca Sociale",
+          "level": "magistrale",
+          "amount": 3500
+        },
+        {
+          "name": "Scienze Umanistiche",
+          "level": "magistrale",
+          "amount": 3500
+        }
+      ],
+      "noScholarshipExemption": "Ateneo non statale: la borsa regionale non toglie la tassa universitaria; l’esonero c’è solo per i vincitori delle borse dell’Ateneo (bando a parte).",
+      "maxNote": "Triennali e Giurisprudenza 3.300 €; magistrali di Economia, Psicologia, Ingegneria, Scienze Politiche e Pedagogia 4.000 €; magistrali di Comunicazione, Filosofia, Sociologia e Lettere 3.500 €; Scienze Motorie («percorso eccellenza») 4.000 € anche in triennale. La pagina non indica l’anno accademico: il sito usa gli importi in vigore a ottobre 2026.",
+      "maxSource": {
+        "label": "Università Niccolò Cusano, «Tassa universitaria»",
+        "url": "https://www.unicusano.it/iscriversi-universita/tassa-universitaria-e-diritti-di-segreteria"
+      },
+      "payments": {
+        "steps": [
+          "Unica soluzione con addebito diretto (SDD)",
+          "Oppure 2 rate mensili; 6 per triennali, magistrali e ciclo unico; 8 per magistrali o eccellenza"
+        ],
+        "note": "Il ritardo comporta l’indennità di mora.",
+        "source": {
+          "label": "Università Niccolò Cusano, «Tassa universitaria»",
+          "url": "https://www.unicusano.it/iscriversi-universita/tassa-universitaria-e-diritti-di-segreteria"
+        }
+      },
+      "simulator": "https://www.unicusano.it/iscriversi-universita/tassa-universitaria-e-diritti-di-segreteria"
     }
   }
 }
