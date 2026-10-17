@@ -22773,6 +22773,77 @@
         }
       },
       "simulator": "https://unicamillus.org/it/tasse-e-contributi/"
+    },
+    "ateneo-05812": {
+      "name": "Università Europea di Roma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27: tassa di iscrizione più contributi accademici, importo fisso per corso uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Da aggiungere all’iscrizione: tassa regionale per il diritto allo studio (140 € nel Lazio, si paga con PagoPA) e bollo virtuale 16 €.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 18250
+        }
+      ],
+      "bandsSource": {
+        "label": "Università Europea di Roma, Regolamento tasse e contributi 2026/27 (D.R. 132/26), Allegato 1",
+        "url": "https://www.uer.it/wp-content/uploads/2018/04/All.-DR-132-Regolamento-tasse-e-contributi-2026-2027-immatricolati-e-iscritti-a.a.-23-24-e-24-25-1.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 7250,
+        "ciclo-unico": 7250,
+        "magistrale": 7250
+      },
+      "maxExceptions": [
+        {
+          "name": "Turismo e Valorizzazione del Territorio",
+          "level": "triennale",
+          "amount": 3950
+        },
+        {
+          "name": "Scienze della Formazione Primaria",
+          "level": "ciclo-unico",
+          "amount": 3950
+        },
+        {
+          "name": "Medicina e Chirurgia",
+          "level": "ciclo-unico",
+          "amount": 18250
+        },
+        {
+          "name": "Management della Transizione Digitale",
+          "level": "magistrale",
+          "amount": 3950
+        }
+      ],
+      "noScholarshipExemption": true,
+      "maxNote": "Tassa di iscrizione (1.190 €) più contributi accademici, primo anno: 7.250 € per Economia e Gestione Aziendale, Scienze e Tecniche Psicologiche, Giurisprudenza, Economia e Management dell’Innovazione e Psicologia; 3.950 € per Scienze della Formazione Primaria, Turismo e Valorizzazione del Territorio e (dopo la modifica del D.R. 229/26) Management della Transizione Digitale; 18.250 € per Medicina e Chirurgia; 6.250 € per Fisioterapia (in accreditamento). Con il pagamento in un’unica soluzione entro il 16/10/2026 i contributi scendono del 5% (non per Medicina, Fisioterapia, Formazione Primaria e Turismo). L’esonero per gli idonei DiSCo è un rimborso e vale solo nei limiti dei fondi statali assegnati all’Ateneo (artt. 8-9): il sito non lo sottrae.",
+      "maxSource": {
+        "label": "Università Europea di Roma, Regolamento tasse e contributi 2026/27 (D.R. 132/26), artt. 2-4, 8-9 e Allegato 1; modifica D.R. 229/26",
+        "url": "https://www.uer.it/wp-content/uploads/2018/04/All.-DR-132-Regolamento-tasse-e-contributi-2026-2027-immatricolati-e-iscritti-a.a.-23-24-e-24-25-1.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Tassa di iscrizione (1.190 €) entro il 18 settembre 2026 (Medicina: 4.250 € secondo il bando)",
+          "Contributi in quattro rate: 6 novembre 2026, 4 dicembre 2026, 5 marzo 2027, 7 maggio 2027 (Medicina: 17 luglio e 6 novembre 2026, 5 marzo e 7 maggio 2027)",
+          "Oppure in un’unica soluzione entro il 16 ottobre 2026, con lo sconto del 5% dove previsto"
+        ],
+        "note": "In ritardo: mora di 50 € (da 15 a 60 giorni) o 150 € (oltre 60 giorni). Chi ottiene l’esonero paga comunque 100 € di spese d’iscrizione e 16 € di bollo.",
+        "source": {
+          "label": "Università Europea di Roma, Regolamento tasse e contributi 2026/27 (D.R. 132/26), artt. 3, 5 e 9",
+          "url": "https://www.uer.it/wp-content/uploads/2018/04/All.-DR-132-Regolamento-tasse-e-contributi-2026-2027-immatricolati-e-iscritti-a.a.-23-24-e-24-25-1.pdf"
+        }
+      },
+      "simulator": "https://www.uer.it/entra-in-uer/immatricolazione-e-tasse/"
     }
   }
 }

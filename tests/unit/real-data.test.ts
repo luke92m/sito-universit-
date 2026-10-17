@@ -2075,3 +2075,21 @@ describe('UniCamillus 2026/27: contributo fisso per corso', () => {
     expect(dsuEntityFor('ateneo-05818')!.id).toBe('disco-lazio');
   });
 });
+
+describe('Europea di Roma 2026/27: retta fissa per corso', () => {
+  const rule = tuitionRuleFor('ateneo-05812')!;
+  const courses = getCourses('ateneo-05812');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('Tassa di iscrizione + contributi dell’Allegato 1 (e modifica D.R. 229/26)', () => {
+    expect(max('Economia e Gestione Aziendale')).toBe(7250);
+    expect(max('Giurisprudenza')).toBe(7250);
+    expect(max('Psicologia')).toBe(7250);
+    expect(max('Scienze della Formazione Primaria')).toBe(3950);
+    expect(max('Turismo e Valorizzazione del Territorio')).toBe(3950);
+    expect(max('Management della Transizione Digitale', 'LM-91')).toBe(3950);
+    expect(max('Medicina e Chirurgia')).toBe(18250);
+    expect(contributionFor(rule, 5000, 7250)).toBe(7250);
+    expect(rule.noScholarshipExemption).toBe(true);
+  });
+});
