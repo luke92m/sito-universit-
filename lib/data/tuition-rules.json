@@ -22601,6 +22601,86 @@
         }
       },
       "simulator": "https://www.unidarc.it/come-iscriversi/"
+    },
+    "ateneo-05202": {
+      "name": "Università per Stranieri di Siena",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27 delle lauree triennali e magistrali, in corso.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con l’iscrizione: tassa regionale per il diritto allo studio (140 €, si paga al DSU Toscana) e bollo virtuale (16 €). La tassa di iscrizione è già compresa nel contributo. Per le triennali c’è anche il contributo di 10 € per il test di ingresso (art. 16), non contato qui.",
+      "bands": [
+        {
+          "iseeMax": 24000,
+          "from": 0,
+          "rate": 0,
+          "base": 0
+        },
+        {
+          "iseeMax": 26000,
+          "from": 13000,
+          "rate": 0.049,
+          "base": 0
+        },
+        {
+          "iseeMax": 28000,
+          "from": 13000,
+          "rate": 0.056,
+          "base": 0
+        },
+        {
+          "iseeMax": 45000,
+          "from": 13000,
+          "rate": 0.0595,
+          "base": 0
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2200
+        }
+      ],
+      "bandsSource": {
+        "label": "Università per Stranieri di Siena, Regolamento tasse 2026/27 (D.R. 325.26), art. 5, commi 1 e 3",
+        "url": "https://www.unistrasi.it/public/articoli/3478/DR%20325.26%20emanazione%20Regolamento%20tasse%20universitarie%202026.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2200,
+        "ciclo-unico": 2200,
+        "magistrale": 2200
+      },
+      "maxExceptions": [],
+      "maxNote": "Primo anno: nessun contributo fino a 24.000 € di ISEE; poi (ISEE − 13.000) × 4,9% fino a 26.000 €, × 5,6% fino a 28.000 €, × 5,95% fino a 45.000 €, con un massimo di 2.200 € (anche senza ISEE). Stessi importi per triennali e magistrali. Idonei e beneficiari della borsa DSU Toscana sono esonerati da contributi e tassa regionale (art. 32).",
+      "maxSource": {
+        "label": "Università per Stranieri di Siena, Regolamento tasse 2026/27 (D.R. 325.26), artt. 5 e 32",
+        "url": "https://www.unistrasi.it/public/articoli/3478/DR%20325.26%20emanazione%20Regolamento%20tasse%20universitarie%202026.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’immatricolazione: 300 € (733,33 € se si paga il massimo) più il bollo",
+          "Seconda rata entro il 28 febbraio 2027",
+          "Terza rata entro il 31 luglio 2027 (10 agosto 2027 per le magistrali)"
+        ],
+        "note": "Sotto 400 € si paga in un’unica rata. L’ISEE va autorizzato entro il 15 ottobre: fino al 31 dicembre si paga un contributo di 100 € in più, dopo si paga il massimo. La terza rata scende del 35% con 15 crediti e media 28/30 entro la sessione invernale (art. 28).",
+        "source": {
+          "label": "Università per Stranieri di Siena, Regolamento tasse 2026/27 (D.R. 325.26), artt. 5, 19, 23 e 28",
+          "url": "https://www.unistrasi.it/public/articoli/3478/DR%20325.26%20emanazione%20Regolamento%20tasse%20universitarie%202026.pdf"
+        }
+      },
+      "simulator": "https://online.unistrasi.it/simulatoretasse/simtasse.asp",
+      "gradeReductions": [
+        {
+          "minGrade": 95,
+          "amount": 100,
+          "note": "100 € in meno sulla prima rata per chi si immatricola a una triennale con un voto da 95 a 100 (Regolamento tasse 2026/27, art. 3, comma 6)."
+        }
+      ]
     }
   }
 }

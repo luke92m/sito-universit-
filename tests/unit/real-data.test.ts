@@ -2032,3 +2032,21 @@ describe('Valle d’Aosta 2026/27: assegni di studio regionali (bando VDA1)', ()
     expect(cost.lines.find((line) => line.key === 'tasse')!.max).toBe(0);
   });
 });
+
+describe('Stranieri di Siena 2026/27: tasse dal simulatore ufficiale', () => {
+  const rule = tuitionRuleFor('ateneo-05202')!;
+  it('Punti del simulatore 2026/27 (somma delle tre rate, primo anno)', () => {
+    expect(contributionFor(rule, 24000, 2200)).toBe(0);
+    expect(contributionFor(rule, 25000, 2200)).toBe(588);
+    expect(contributionFor(rule, 26500, 2200)).toBe(756);
+    expect(contributionFor(rule, 30000, 2200)).toBe(1011.5);
+    expect(contributionFor(rule, 40000, 2200)).toBe(1606.5);
+    expect(contributionFor(rule, 45000, 2200)).toBe(1904);
+    expect(contributionFor(rule, 46000, 2200)).toBe(2200);
+    expect(contributionFor(rule, null, 2200)).toBe(2200);
+    expect(fixedFeesRange(rule, exact(30000)).min).toBe(156);
+  });
+  it('Borse del DSU Toscana', () => {
+    expect(dsuEntityFor('ateneo-05202')!.id).toBe(dsuEntityFor('ateneo-05201')!.id);
+  });
+});
