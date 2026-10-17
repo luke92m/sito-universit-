@@ -199,7 +199,8 @@ test('costo reale nel comparatore: ISEE, condizione ed etichette di copertura', 
   await page.getByRole('button', { name: 'Confronta gli atenei' }).click();
   const block = page.locator('.comparison-real-cost');
   await expect(block.locator('.comparison-real-cost-card')).toHaveCount(2, { timeout: 20_000 });
-  await block.locator('select').selectOption('13000-16000');
+  await block.getByLabel('La tua fascia ISEE').selectOption('13000-16000');
+  await block.getByLabel('Voto di maturità (facoltativo)').selectOption('95');
   await block.getByRole('button', { name: 'Fuori sede' }).click();
   // Bologna e Padova: tasse per ISEE e borsa verificate, borsa sottratta.
   await expect(block.locator('.comparison-real-cost-card').first()).toContainText('Tasse per ISEE verificate');

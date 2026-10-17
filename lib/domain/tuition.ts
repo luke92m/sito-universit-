@@ -1,6 +1,7 @@
 // Tasse universitarie per fascia ISEE, con le regole ufficiali dell'ateneo (lib/data/tuition-rules.json).
 import tuitionJson from '../data/tuition-rules.json';
 import type { Source } from './dsu';
+import type { GradeReduction } from './grade';
 import { normalize } from './text';
 
 export type DegreeLevel = 'triennale' | 'ciclo-unico' | 'magistrale';
@@ -60,7 +61,24 @@ export interface TuitionRule {
    * Corsi con importi propri non ancora inseriti (es. Tor Vergata: classi di contribuzione superiori): per
    * questi il calcolo non usa le fasce dell'ateneo ma la media nazionale, e lo dichiara.
    */
-  excludedCourses?: { names?: string[]; nameIncludes?: string[]; note: string };
+  excludedCourses?: { names?: string[]; nameIncludes?: string[]; levels?: DegreeLevel[]; note: string };
+  /**
+   * Atenei non statali senza esonero automatico per chi ha la borsa (l'esonero del D.Lgs. 68/2012, art. 9,
+   * vale per le statali): il testo spiega cosa succede invece (es. Bocconi: riduzioni solo con domanda a parte).
+   */
+  noScholarshipExemption?: string;
+  /**
+   * Sconti sulle tasse del primo anno per voto di maturità (solo lauree triennali e a ciclo unico): con il voto
+   * indicato dallo studente il calcolo applica quello con la soglia più alta raggiunta.
+   */
+  gradeReductions?: GradeReduction[];
+  /**
+   * Limite ISPE per le riduzioni: oltre `from` si paga il massimo; con `to` il contributo sale in modo lineare
+   * fino al massimo tra `from` e `to` (es. Piemonte Orientale tra 130.000 e 160.000 €).
+   */
+  ispeLimit?: { from: number; to?: number; note: string };
+  /** Quote fisse in più per alcuni corsi, dovute per ogni ISEE (es. Bari: Conservazione e restauro +1.000 €). */
+  courseSurcharges?: { names?: string[]; nameIncludes?: string[]; amount: number; note: string }[];
   maxNote: string;
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };
@@ -90,9 +108,12 @@ export function degreeLevel(course: { classCode: string; level?: string }): Degr
 export function isExcludedCourse(rule: TuitionRule, course: CourseLike | null): boolean {
   const excluded = rule.excludedCourses;
   if (!excluded || !course) return false;
+  // Con `levels` l'esclusione vale solo per quei livelli (es. magistrali con lo stesso nome della triennale).
+  if (excluded.levels && !excluded.levels.includes(degreeLevel(course))) return false;
   const name = normalize(course.name);
   return Boolean(
-    excluded.names?.some((item) => normalize(item) === name) ||
+    (!excluded.names && !excluded.nameIncludes && excluded.levels) ||
+      excluded.names?.some((item) => normalize(item) === name) ||
       excluded.nameIncludes?.some((part) => name.includes(normalize(part)))
   );
 }
@@ -192,4 +213,25 @@ export function fixedFeesRange(rule: TuitionRule, isee: { min: number | null; ma
     max: cents(taxMax + other),
     regionalTax: { min: taxMin, max: taxMax }
   };
+}
+
+/** Quota in più del corso (0 se non prevista). */
+export function courseSurcharge(rule: TuitionRule, course: CourseLike | null) {
+  if (!course || !rule.courseSurcharges) return null;
+  const name = normalize(course.name);
+  return (
+    rule.courseSurcharges.find(
+      (item) =>
+        item.names?.some((value) => normalize(value) === name) ||
+        item.nameIncludes?.some((part) => name.includes(normalize(part)))
+    ) || null
+  );
+}
+
+/** Contributo dopo il limite ISPE: verso il massimo quando l'ISPE supera la soglia. */
+export function ispeAdjusted(rule: TuitionRule, contribution: number, max: number, ispe: number | null): number {
+  const limit = rule.ispeLimit;
+  if (!limit || ispe == null || ispe <= limit.from) return contribution;
+  if (!limit.to || ispe >= limit.to) return max;
+  return cents(contribution + ((max - contribution) * (ispe - limit.from)) / (limit.to - limit.from));
 }

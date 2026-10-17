@@ -6,6 +6,7 @@ import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { useSite } from '@/components/site/SiteProvider';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { CONDITION_LABELS, type StudentCondition } from '@/lib/domain/dsu';
+import { GRADE_OPTIONS } from '@/lib/domain/grade';
 import { normalizedIseeValue } from '@/lib/domain/isee';
 import { GRANT_KEYS } from '@/lib/domain/real-cost-keys';
 import { scholarshipHref } from '@/lib/flow/journey-params';
@@ -47,6 +48,8 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
   const [isee, setIsee] = useState(() => normalizedIseeValue(guidance.iseeRange) || 'unknown');
   // null: condizione dedotta per ogni ateneo da residenza, preferenze e tabelle dei comuni dell'ente.
   const [condition, setCondition] = useState<StudentCondition | null>(null);
+  // Voto di maturità facoltativo, solo per questo confronto (non entra nel profilo né nel link).
+  const [grade, setGrade] = useState('');
   const [results, setResults] = useState<RealCostResponse[] | null>(null);
   const [failed, setFailed] = useState(false);
   const key = sides.map((side) => `${side.universityId}|${side.courseId}`).join('/');
@@ -65,7 +68,8 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
           residenceRegion: guidance.residenceRegion || '',
           residenceCity: guidance.residenceCity || '',
           commutes: guidance.commutePreference === 'yes',
-          condition: condition || undefined
+          condition: condition || undefined,
+          grade: grade ? Number(grade) : null
         })
       }).then((response) => (response.ok ? (response.json() as Promise<RealCostResponse>) : Promise.reject()));
     Promise.all(sides.map(load))
@@ -80,7 +84,7 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
     };
     // `key` riassume i lati: l'array cambia identità a ogni render del genitore.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key, isee, condition, guidance.residenceRegion, guidance.residenceCity, guidance.commutePreference]);
+  }, [key, isee, grade, condition, guidance.residenceRegion, guidance.residenceCity, guidance.commutePreference]);
 
   const changeIsee = (value: string) => {
     setIsee(value);
@@ -101,6 +105,16 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
             {STUDENT_SERVICES.iseeRanges.map((range) => (
               <option key={range.value} value={range.value}>
                 {range.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <span>Voto di maturità (facoltativo)</span>
+          <select value={grade} onChange={(event) => setGrade(event.target.value)}>
+            {GRADE_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
               </option>
             ))}
           </select>

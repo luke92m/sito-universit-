@@ -7,6 +7,7 @@ import {
   type EconomicRange,
   type StudentCondition
 } from '@/lib/domain/dsu';
+import { parseGrade } from '@/lib/domain/grade';
 import { getIseeRange, findRange } from '@/lib/domain/isee';
 import { realCost, type RealCost } from '@/lib/domain/real-cost';
 import { normalize } from '@/lib/domain/text';
@@ -61,6 +62,8 @@ export async function POST(request: Request) {
     findRange(STUDENT_SERVICES.ispeRanges, value)
   );
   if (!isee || !ispe) return NextResponse.json({ error: 'Valori ISEE o ISPE non validi.' }, { status: 400 });
+  const grade = parseGrade(body.grade);
+  if (grade === undefined) return NextResponse.json({ error: 'Voto di maturità non valido.' }, { status: 400 });
 
   const residenceCity = typeof body.residenceCity === 'string' ? body.residenceCity.trim().slice(0, 80) : '';
   const residenceRegion = typeof body.residenceRegion === 'string' ? body.residenceRegion : '';
@@ -97,6 +100,6 @@ export async function POST(request: Request) {
     sourceUrl: table?.source.url || null
   };
 
-  const payload: RealCostResponse = { ...realCost(university, course, isee, ispe, condition), conditionInfo };
+  const payload: RealCostResponse = { ...realCost(university, course, isee, ispe, condition, grade), conditionInfo };
   return NextResponse.json(payload, { headers: { 'cache-control': 'no-store' } });
 }

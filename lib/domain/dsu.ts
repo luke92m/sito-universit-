@@ -41,6 +41,8 @@ export interface DsuEntity {
   increments: { label: string; iseeMax?: number; percent?: number; conditional: string; source: Source }[];
   /** Requisiti in più per chi si iscrive al primo anno (es. voto minimo di maturità). */
   accessRequirement?: { text: string; source: Source };
+  /** Voto di maturità minimo per la borsa al primo anno di laurea triennale o a ciclo unico (es. 70). */
+  minDiplomaGrade?: number;
   connectedBenefits: string[];
   connectedBenefitsSource: Source;
   conditions: Record<StudentCondition, string> & { source: Source };
@@ -141,6 +143,10 @@ export interface ScholarshipEstimate {
   /** Maggiorazioni a cui si potrebbe avere diritto, se restano risorse. */
   increments: DsuEntity['increments'];
   ispeUnknown: boolean;
+  /** Voto di maturità minimo richiesto dal bando, se non ancora verificato (voto non indicato). */
+  gradeRequired?: number;
+  /** Non idoneo perché il voto indicato è sotto il minimo del bando. */
+  gradeTooLow?: number;
 }
 
 const known = (range: EconomicRange) => range.min != null && range.max != null;
@@ -161,10 +167,16 @@ export function scholarshipFor(
   entity: DsuEntity,
   isee: EconomicRange,
   ispe: EconomicRange,
-  condition: StudentCondition
+  condition: StudentCondition,
+  /** Voto di maturità e se il corso è di primo ciclo (triennale o ciclo unico): servono per il voto minimo. */
+  merit: { grade?: number | null; firstCycle?: boolean } = {}
 ): ScholarshipEstimate {
   const empty = { amountMin: 0, amountMax: 0, inKind: [], increments: [], ispeUnknown: !known(ispe) };
-  if (!known(isee)) return { status: 'unknown', ...empty };
+  const required = entity.minDiplomaGrade && merit.firstCycle !== false ? entity.minDiplomaGrade : null;
+  if (required && merit.grade != null && merit.grade < required)
+    return { status: 'not-eligible', ...empty, gradeTooLow: required };
+  const gradeInfo = required && merit.grade == null ? { gradeRequired: required } : {};
+  if (!known(isee)) return { status: 'unknown', ...empty, ...gradeInfo };
   const { isee: iseeLimit, ispe: ispeLimit } = entity.thresholds;
   const iseeMin = isee.min!;
   const iseeMax = isee.max!;
@@ -181,6 +193,7 @@ export function scholarshipFor(
     increments: entity.increments.filter(
       (increment) => increment.iseeMax == null || iseeMin <= increment.iseeMax
     ),
-    ispeUnknown: !known(ispe)
+    ispeUnknown: !known(ispe),
+    ...gradeInfo
   };
 }

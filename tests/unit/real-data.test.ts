@@ -182,17 +182,24 @@ describe('tasse Università di Torino 2026/27', () => {
   const rule = tuitionRuleFor('ateneo-00101')!;
 
   it('formule dell’art. 3.1 per le matricole a tempo pieno', () => {
-    expect(contributionFor(rule, 26000, 2840)).toBe(0);
-    expect(contributionFor(rule, 30000, 2840)).toBe(422.06);
-    expect(contributionFor(rule, 40000, 2840)).toBe(1025);
-    expect(contributionFor(rule, 60000, 2840)).toBe(1807.22);
-    expect(contributionFor(rule, 85000, 2840)).toBe(2785);
+    expect(contributionFor(rule, 26000, 2785)).toBe(0);
+    expect(contributionFor(rule, 30000, 2785)).toBe(422.06);
+    expect(contributionFor(rule, 40000, 2785)).toBe(1025);
+    expect(contributionFor(rule, 60000, 2785)).toBe(1807.22);
+    expect(contributionFor(rule, 85000, 2785)).toBe(2785);
   });
 
-  it('massimo di 2.840 € oltre 85.000 € e senza ISEE, prima rata di 156 €', () => {
-    expect(contributionFor(rule, 90000, 2840)).toBe(2840);
-    expect(contributionFor(rule, null, 2840)).toBe(2840);
+  it('massimo di 2.785 € al primo anno oltre 85.000 € e senza ISEE, prima rata di 156 €', () => {
+    expect(rule.maxByLevel.triennale).toBe(2785);
+    expect(contributionFor(rule, 90000, 2785)).toBe(2785);
+    expect(contributionFor(rule, null, 2785)).toBe(2785);
     expect(fixedFeesRange(rule, none).max).toBe(156);
+  });
+
+  // Punti presi dal simulatore ufficiale (simulatore.tasse.unito.it, 1° anno, tempo pieno, 17/10/2026).
+  it('coincide con il simulatore ufficiale UniTo', () => {
+    const official: [number, number][] = [[20000, 0], [30000, 422.06], [50000, 1416.11], [70000, 2198.33], [80000, 2589.44], [100000, 2785]];
+    for (const [isee, value] of official) expect(contributionFor(rule, isee, rule.maxByLevel.triennale)).toBeCloseTo(value, 1);
   });
 });
 
@@ -527,6 +534,27 @@ describe('tasse Università di Bologna 2026/27', () => {
       )
     ).toBe(2040);
   });
+
+  it('magistrali a importo maggiorato dalla tabella ufficiale', () => {
+    const courses = getCourses(BOLOGNA);
+    const named = (name: string) => courses.find((course) => course.name === name && degreeLevel(course) === 'magistrale')!;
+    expect(maxContribution(rule, named('International Management'))).toBe(4080);
+    expect(maxContribution(rule, named('Bioinformatics'))).toBe(3825);
+    expect(maxContribution(rule, named('Interpretazione'))).toBe(3162);
+    expect(maxContribution(rule, named('Science Of Climate'))).toBe(2805);
+    expect(maxContribution(rule, named('Informatica'))).toBe(2550);
+  });
+
+  // Punti presi dal simulatore ufficiale (studenti.unibo.it/sol/simulatore/2026.htm, matricola con ISEE,
+  // totale meno 157,04 € di quota fissa), 17/10/2026: corsi da 2.040 € e da 3.060 €.
+  it('coincide con il simulatore ufficiale UniBo', () => {
+    const official: [number, number, number][] = [
+      [25000, 2040, 0], [30000, 2040, 630], [40000, 2040, 1215], [50000, 2040, 1654.5], [70000, 2040, 2040],
+      [50000, 3060, 1654.5], [70000, 3060, 3060]
+    ];
+    for (const [isee, max, value] of official) expect(contributionFor(rule, isee, max)).toBeCloseTo(value, 1);
+    expect(rule.fixedFees.total).toBe(157.04);
+  });
 });
 
 describe('costo reale annuo', () => {
@@ -555,7 +583,7 @@ describe('costo reale annuo', () => {
   });
 
   it('ateneo senza dati verificati: media dichiarata come stima e dati mancanti elencati', () => {
-    const uer = getUniversityById('ateneo-05812')!;
+    const uer = getUniversityById('ateneo-01301')!;
     const cost = realCost(uer, null, exact(15000), none, 'inSede');
     expect(cost.entity).toBeNull();
     expect(cost.lines[0]).toMatchObject({ key: 'tasse', estimated: true });
@@ -751,6 +779,14 @@ describe('tasse Università di Ferrara 2026/27', () => {
     expect(contributionFor(rule, 60000, 2092)).toBe(2091.5); // 47.000 × 0,0445
     expect(contributionFor(rule, null, 2092)).toBe(2092);
   });
+
+  // Totali del simulatore ufficiale (sos.unife.it/app/sim_tax26.php, full-time, primo anno) meno 156 € di
+  // prima rata, 17/10/2026.
+  it('coincide con il simulatore ufficiale Unife', () => {
+    const official: [number, number][] = [[25000, 0], [27500, 362.5], [30000, 552.5], [50000, 1646.5], [60000, 2091.5], [70000, 2092], [150000, 2092]];
+    for (const [isee, value] of official) expect(contributionFor(rule, isee, 2092)).toBeCloseTo(value, 1);
+    expect(rule.fixedFees.total).toBe(156);
+  });
 });
 
 describe('tasse Università di Modena e Reggio Emilia 2026/27', () => {
@@ -875,6 +911,19 @@ describe('tasse Università di Genova 2026/27', () => {
     expect(contributionFor(rule, null, one.max, one.bands)).toBe(3025);
   });
 
+  // Seconda + terza rata dal simulatore ufficiale (servizionline.unige.it, primo anno, 17/10/2026), che arrotonda
+  // all'euro. Tra 24.000 e 30.000 € il simulatore chiede di più del tetto del 7% dell'art. 6.3.c: lì seguiamo il
+  // regolamento e non lo confrontiamo.
+  it('coincide con il simulatore ufficiale UniGe fuori dalla fascia 24.000-30.000 €', () => {
+    const official: [number, number, number][] = [
+      [20000, 0, 0], [30500, 964, 1047], [40000, 1426, 1561], [50000, 1911, 2103], [70000, 2695, 2970], [999999, 3025, 3300]
+    ];
+    for (const [isee, first, second] of official) {
+      expect(Math.abs(contributionFor(rule, isee, one.max, one.bands) - first)).toBeLessThan(1);
+      expect(Math.abs(contributionFor(rule, isee, two.max, two.bands) - second)).toBeLessThan(1);
+    }
+  });
+
   it('tassa regionale ligure 120/140/160 €', () => {
     expect(fixedFeesRange(rule, exact(15000)).min).toBe(136);
     expect(fixedFeesRange(rule, exact(40000)).min).toBe(176);
@@ -966,6 +1015,20 @@ describe('tasse Università del Sannio 2026/27', () => {
     expect(contributionFor(rule, 32000, mag.max, mag.bands)).toBe(1450);
     expect(contributionFor(rule, 70000, tri.max, tri.bands)).toBe(1750);
     expect(contributionFor(rule, null, mag.max, mag.bands)).toBe(1800);
+  });
+
+  // Tabelle del simulatore ufficiale (unisannio.it/public/simulatore, assets/simulator.js, regime ordinario
+  // entro il 1° fuori corso, tassa regionale ADISURC), 17/10/2026.
+  it('coincide con il simulatore ufficiale del Sannio', () => {
+    const limits = [35000, 40000, 45000, 50000, 55000, 60000, 65000, 90000];
+    const L = [1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750];
+    const LM = [1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800];
+    limits.forEach((isee, i) => {
+      expect(contributionFor(rule, isee, tri.max, tri.bands)).toBe(L[i]);
+      expect(contributionFor(rule, isee, mag.max, mag.bands)).toBe(LM[i]);
+    });
+    expect(fixedFeesRange(rule, { min: 25500, max: 51000 }).regionalTax).toEqual({ min: 130, max: 151 });
+    expect(fixedFeesRange(rule, { min: 51001, max: 51001 }).regionalTax.max).toBe(173);
   });
 });
 
@@ -1424,5 +1487,765 @@ describe('Puglia 2026/27: elenchi dei comuni ADISU (Allegato A)', () => {
     expect(check('Lecce', 'Nardò')).toBe('pendolare');
     expect(check('Taranto', 'Martina Franca')).toBe('pendolare');
     expect(check('Foggia', 'Bari')).toBe('fuoriSede');
+  });
+});
+
+describe('Private 2026/27: Bocconi, Cattolica (borse EDUCatt) e Luiss', () => {
+  const course = (name: string, level: 'triennale' | 'magistrale' | 'ciclo-unico', classCode: string) =>
+    ({ name, level, classCode, group: 'Economico' }) as Parameters<typeof maxContribution>[1];
+
+  it('Bocconi: retta fissa per corso, uguale per ogni ISEE; borse ISU a tre fasce', () => {
+    const rule = tuitionRuleFor('ateneo-01503')!;
+    expect(maxContribution(rule, course('Economia Aziendale e Management', 'triennale', 'L-18'))).toBe(17000);
+    expect(maxContribution(rule, course('Business (World Bachelor in Business)', 'triennale', 'L-18'))).toBe(25000);
+    expect(maxContribution(rule, course('Marketing Management', 'magistrale', 'LM-77'))).toBe(18550);
+    expect(contributionFor(rule, 5000, 17000)).toBe(17000);
+    expect(fixedFeesRange(rule, exact(10000)).min).toBe(0);
+    const isu = dsuEntityFor('ateneo-01503')!;
+    expect(isu.id).toBe('isu-bocconi');
+    expect(isu.thresholds).toMatchObject({ isee: 26887.93, ispe: 58452.06 });
+    expect(amountAt(isu, 15000, 'fuoriSede')).toBe(7172);
+  });
+
+  it('Cattolica: tasse non inserite (usa un reddito equivalente proprio), borse EDUCatt con gli elenchi dei comuni', () => {
+    expect(tuitionRuleFor('ateneo-01504')).toBeNull();
+    const educatt = dsuEntityFor('ateneo-01504')!;
+    expect(educatt.id).toBe('educatt');
+    expect(amountAt(educatt, 20000, 'inSede')).toBe(2143);
+    const check = (seat: string, city: string) => conditionFromMunicipality(educatt, seat, city, true)?.condition;
+    expect(check('Milano', 'Sesto San Giovanni')).toBe('inSede');
+    expect(check('Milano', 'Pavia')).toBe('pendolare');
+    expect(check('Brescia', 'Rodengo Saiano')).toBe('inSede');
+    expect(check('Piacenza', 'Castel San Giovanni')).toBe('pendolare');
+    expect(check('Milano', 'Napoli')).toBe('fuoriSede');
+  });
+
+  it('Luiss: contributo unico senza fasce di reddito; borse DiSCo Lazio', () => {
+    const rule = tuitionRuleFor('ateneo-05805')!;
+    expect(maxContribution(rule, course('Economia e Management', 'triennale', 'L-18'))).toBe(14000);
+    expect(maxContribution(rule, course('Management', 'magistrale', 'LM-77'))).toBe(17000);
+    expect(contributionFor(rule, 8000, 14000)).toBe(14000);
+    expect(dsuEntityFor('ateneo-05805')!.id).toBe('disco-lazio');
+  });
+});
+
+describe('Private: la borsa non toglie la retta se l’ateneo non lo prevede', () => {
+  it('Bocconi e Luiss: tasse dovute anche per chi è idoneo alla borsa', () => {
+    const bocconi = getUniversityById('ateneo-01503')!;
+    const cost = realCost(bocconi, null, exact(10000), exact(10000), 'inSede');
+    expect(cost.scholarship?.status).toBe('eligible');
+    expect(cost.lines.find((line) => line.key === 'tasse')?.min).toBe(17000);
+    const luiss = realCost(getUniversityById('ateneo-05805')!, null, exact(10000), exact(10000), 'inSede');
+    expect(luiss.lines.find((line) => line.key === 'tasse')?.min).toBe(14000);
+  });
+
+  it('Cattolica (EDUCatt): esonero per gli idonei come dice il bando', () => {
+    const cost = realCost(getUniversityById('ateneo-01504')!, null, exact(10000), exact(10000), 'inSede');
+    expect(cost.lines.find((line) => line.key === 'tasse')?.min).toBe(0);
+  });
+});
+
+describe('Iuav 2026/27: tasse e borse regionali', () => {
+  it('Tasse: no tax area fino a 26.000 €, poi i punti dei prospetti ufficiali', () => {
+    const rule = tuitionRuleFor('ateneo-02702')!;
+    expect(contributionFor(rule, 26000, 2806.18)).toBe(0);
+    expect(contributionFor(rule, 28000, 2806.18)).toBe(840.25);
+    expect(contributionFor(rule, 30000, 2806.18)).toBe(1191.88);
+    expect(contributionFor(rule, 45000, 2806.18)).toBe(2081.52);
+    expect(contributionFor(rule, 45500, 2806.18)).toBeCloseTo(2105.67, 1);
+    expect(contributionFor(rule, 90000, 2806.18)).toBe(2806.18);
+    expect(contributionFor(rule, null, 2806.18)).toBe(2806.18);
+  });
+
+  it('Borse: importi veneti, calo fino alla metà oltre 17.537,50 €', () => {
+    const iuav = dsuEntityFor('ateneo-02702')!;
+    expect(iuav.id).toBe('iuav-borse');
+    expect(iuav.thresholds).toMatchObject({ isee: 26306.25, ispe: 43125.94 });
+    expect(amountAt(iuav, 10000, 'fuoriSede')).toBe(8246);
+    expect(amountAt(iuav, 15000, 'pendolare')).toBe(4190.71);
+  });
+});
+
+describe('Piemonte Orientale 2026/27: tasse', () => {
+  it('No tax area fino a 30.000 €, poi VUPO1 + VUPO2 per dipartimento', () => {
+    const rule = tuitionRuleFor('ateneo-00201')!;
+    const [a, b] = rule.courseGroups!;
+    expect(contributionFor(rule, 30000, a.max, a.bands)).toBe(0);
+    expect(contributionFor(rule, 35000, a.max, a.bands)).toBe(950);
+    expect(contributionFor(rule, 77500, a.max, a.bands)).toBe(1862.5);
+    expect(contributionFor(rule, 150000, a.max, a.bands)).toBe(2280);
+    expect(contributionFor(rule, 45000, b.max, b.bands)).toBe(1349);
+    expect(contributionFor(rule, null, b.max, b.bands)).toBe(2622);
+  });
+});
+
+describe('Parthenope 2026/27: tasse a fasce', () => {
+  const rule = tuitionRuleFor('ateneo-06302')!;
+  const named = (name: string) => getCourses('ateneo-06302').find((course) => course.name.startsWith(name))!;
+
+  it('Corsi ordinari: no tax area fino a 30.000 €, poi importi fissi', () => {
+    expect(contributionFor(rule, 30000, 2359)).toBe(0);
+    expect(contributionFor(rule, 30000.01, 2359)).toBe(480);
+    expect(contributionFor(rule, 55000, 2359)).toBe(1669);
+    expect(contributionFor(rule, 80000, 2359)).toBe(2359);
+    expect(maxContribution(rule, named('Economia Aziendale'))).toBe(2359);
+  });
+
+  it('Area sanitaria: +20% per Infermieristica', () => {
+    const nursing = named('Infermieristica');
+    expect(maxContribution(rule, nursing)).toBe(2831);
+    expect(contributionFor(rule, 42000, 2831, courseGroup(rule, nursing)!.bands)).toBe(1245);
+  });
+});
+
+describe('Piemonte Orientale: gruppi per dipartimento', () => {
+  const rule = tuitionRuleFor('ateneo-00201')!;
+  const named = (name: string) => getCourses('ateneo-00201').find((course) => course.name === name)!;
+  it('Medicina e Farmaco nel gruppo B, Servizio Sociale nel gruppo A', () => {
+    expect(maxContribution(rule, named('Farmacia'))).toBe(2622);
+    expect(maxContribution(rule, named('Biotecnologie'))).toBe(2622);
+    expect(maxContribution(rule, named('Servizio Sociale'))).toBe(2280);
+    expect(maxContribution(rule, named('Lettere'))).toBe(2280);
+    expect(isExcludedCourse(rule, named('Chimica Verde'))).toBe(true);
+  });
+});
+
+describe('Foro Italico: tasse per ISEE', () => {
+  const rule = tuitionRuleFor('ateneo-05806')!;
+  const named = (name: string) => getCourses('ateneo-05806').find((course) => course.name === name)!;
+  it('Esonero fino a 23.000 €, poi 7% con le riduzioni del D.M. 1014, poi importi fissi', () => {
+    const tri = courseGroup(rule, named('Corso di Laurea in Scienze Motorie e Sportive'))!;
+    expect(contributionFor(rule, 23000, tri.max, tri.bands)).toBe(0);
+    expect(contributionFor(rule, 25000, tri.max, tri.bands)).toBe(420);
+    expect(contributionFor(rule, 40000, tri.max, tri.bands)).toBe(1201.98);
+    expect(contributionFor(rule, null, tri.max, tri.bands)).toBe(1340.13);
+    expect(maxContribution(rule, named('Management dello Sport'))).toBe(1987.65);
+    expect(maxContribution(rule, named('Health And Physical Activity'))).toBe(1987.65);
+  });
+});
+
+describe('Stranieri di Perugia 2026/27: tasse a fasce', () => {
+  it('No tax area fino a 22.000 €, poi gli importi della Tabella G', () => {
+    const rule = tuitionRuleFor('ateneo-05403')!;
+    expect(contributionFor(rule, 22000, 1470)).toBe(0);
+    expect(contributionFor(rule, 23000, 1470)).toBe(525);
+    expect(contributionFor(rule, 40000, 1470)).toBe(1300);
+    expect(contributionFor(rule, null, 1470)).toBe(1470);
+  });
+});
+
+describe('Messina 2026/27: tasse', () => {
+  it('No tax area fino a 28.000 €, poi le formule della Tabella COA', () => {
+    const rule = tuitionRuleFor('ateneo-08301')!;
+    expect(contributionFor(rule, 28000, 2650)).toBe(0);
+    expect(contributionFor(rule, 29000, 2650)).toBe(350);
+    expect(contributionFor(rule, 50000, 2650)).toBe(1640);
+    expect(contributionFor(rule, 60000, 2650)).toBe(2260);
+    expect(contributionFor(rule, 70000, 2650)).toBe(2650);
+  });
+});
+
+describe('Teramo 2026/27: tasse', () => {
+  const rule = tuitionRuleFor('ateneo-06701')!;
+  const named = (name: string) => getCourses('ateneo-06701').find((course) => course.name === name)!;
+  it('No tax area fino a 26.000 €, 7% ridotto fino a 30.000 €, poi fasce fisse', () => {
+    expect(contributionFor(rule, 26000, 2600)).toBe(0);
+    expect(contributionFor(rule, 27000, 2600)).toBe(735);
+    expect(contributionFor(rule, 29000, 2600)).toBe(1008);
+    expect(contributionFor(rule, 45000, 2600)).toBe(2075);
+    expect(contributionFor(rule, null, 2600)).toBe(2600);
+    expect(maxContribution(rule, named('Medicina Veterinaria'))).toBe(2700);
+    expect(maxContribution(rule, named('Economia'))).toBe(2600);
+  });
+});
+
+describe('ADSU Teramo 2026/27: borse', () => {
+  it('Soglie e fasce abruzzesi, importi con vitto e alloggio', () => {
+    const adsu = dsuEntityFor('ateneo-06701')!;
+    expect(adsu.id).toBe('adsu-teramo');
+    expect(adsu.thresholds).toMatchObject({ isee: 24335.11, ispe: 52902.43 });
+    expect(amountAt(adsu, 18000, 'fuoriSede')).toBe(6324.1);
+    expect(amountAt(adsu, 22000, 'inSede')).toBe(2462.91);
+  });
+});
+
+describe('Unical 2026/27: tasse (fascia A)', () => {
+  const rule = tuitionRuleFor('ateneo-07801')!;
+  it('Coincide con la Tabella A dell’Allegato 1', () => {
+    const table: [number, number][] = [[22000, 0], [25000, 420], [27000, 735], [29000, 1008], [30000, 1071], [31000, 1252.56], [35000, 1474.49], [38500, 1693.47], [40000, 1795], [42000, 1938.27], [48000, 2000]];
+    for (const [isee, amount] of table) expect(contributionFor(rule, isee, 2000)).toBeCloseTo(amount, 0);
+    expect(fixedFeesRange(rule, exact(30000)).min).toBe(158.75);
+  });
+});
+
+describe('Mediterranea 2026/27: tasse', () => {
+  it('Matricole esonerate fino a 22.000 €, poi la Tabella B', () => {
+    const rule = tuitionRuleFor('ateneo-08001')!;
+    expect(contributionFor(rule, 22000, 2165.29)).toBe(0);
+    expect(contributionFor(rule, 22500, 2165.29)).toBe(770.29);
+    expect(contributionFor(rule, 26500, 2165.29)).toBe(935.29);
+    expect(contributionFor(rule, 34500, 2165.29)).toBe(1235.29);
+    expect(contributionFor(rule, 60000, 2165.29)).toBe(2165.29);
+  });
+});
+
+describe('Catanzaro 2026/27: tasse', () => {
+  it('No tax area fino a 30.000 €, poi 4,2% oltre 13.000 € fino a 1.764 €', () => {
+    const rule = tuitionRuleFor('ateneo-07901')!;
+    expect(contributionFor(rule, 30000, 2520)).toBe(0);
+    expect(contributionFor(rule, 31000, 2520)).toBe(756);
+    expect(contributionFor(rule, 45000, 2520)).toBe(1344);
+    expect(contributionFor(rule, 80000, 2520)).toBe(1764);
+    expect(contributionFor(rule, null, 2520)).toBe(2520);
+  });
+});
+
+describe('Fondazione UMG 2026/27: borse', () => {
+  it('Soglie 26.500 / 57.500 €, +15% fino a 13.250 €, poi calo fino alla metà', () => {
+    const umg = dsuEntityFor('ateneo-07901')!;
+    expect(umg.id).toBe('fondazione-umg');
+    expect(umg.thresholds).toMatchObject({ isee: 26500, ispe: 57500 });
+    expect(amountAt(umg, 12000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(umg, 16000, 'pendolare')).toBe(4190.71);
+  });
+});
+
+describe('ARDSU Basilicata 2026/27: borse', () => {
+  it('Soglie nazionali, cinque fasce a scalini', () => {
+    const ardsu = dsuEntityFor('ateneo-07601')!;
+    expect(ardsu.id).toBe('ardsu-basilicata');
+    expect(amountAt(ardsu, 10000, 'fuoriSede')).toBe(8246.7);
+    expect(amountAt(ardsu, 18000, 'pendolare')).toBe(2800);
+    expect(amountAt(ardsu, 25000, 'inSede')).toBe(1150);
+  });
+});
+
+describe('ERSU Cagliari 2026/27: borse', () => {
+  const ersu = dsuEntityFor('ateneo-09201')!;
+  it('Soglie nazionali, importi con pasti, calo della sola parte in denaro', () => {
+    expect(ersu.id).toBe('ersu-cagliari');
+    expect(amountAt(ersu, 12000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(ersu, 16000, 'pendolare')).toBe(4190.71);
+    expect(amountAt(ersu, 28339.88, 'fuoriSede')).toBeCloseTo(3951.07, 0);
+  });
+  it('Elenchi dei comuni per le sedi', () => {
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Cagliari', 'Quartu Sant\'Elena')).toBe('inSede');
+    expect(check('Cagliari', 'Sestu')).toBe('pendolare');
+    expect(check('Cagliari', 'Sassari')).toBe('fuoriSede');
+    expect(check('Nuoro', 'Orgosolo')).toBe('pendolare');
+  });
+});
+
+describe('Sassari 2026/27: tasse', () => {
+  it('Tabella A: esonero fino a 22.000 €, poi a + (ISEE − b) × c', () => {
+    const rule = tuitionRuleFor('ateneo-09001')!;
+    expect(contributionFor(rule, 22000, 1750)).toBe(0);
+    expect(contributionFor(rule, 26000, 1750)).toBe(240);
+    expect(contributionFor(rule, 50000, 1750)).toBe(1400);
+    expect(contributionFor(rule, 90000, 1750)).toBe(1750);
+  });
+});
+
+describe('ERSU Sassari 2026/27: borse', () => {
+  const ersu = dsuEntityFor('ateneo-09001')!;
+  it('Importi come in Cagliari, elenchi dei comuni per sei sedi', () => {
+    expect(ersu.id).toBe('ersu-sassari');
+    expect(amountAt(ersu, 14000, 'pendolare')).toBe(4819.32);
+    const check = (seat: string, city: string) => conditionFromMunicipality(ersu, seat, city, true)?.condition;
+    expect(check('Sassari', 'Sassari')).toBe('inSede');
+    expect(check('Sassari', 'Porto Torres')).toBe('pendolare');
+    expect(check('Alghero', 'Sassari')).toBe('pendolare');
+    expect(check('Sassari', 'Nuoro')).toBe('fuoriSede');
+  });
+});
+
+describe('Molise 2026/27: tasse Unimol e borse ESU Molise', () => {
+  const rule = tuitionRuleFor('ateneo-07001')!;
+  const named = (name: string) => getCourses('ateneo-07001').find((course) => course.name === name)!;
+  it('Unimol: no tax area fino a 24.000 €, poi formula con quota di indirizzo', () => {
+    expect(contributionFor(rule, 24000, 1566)).toBe(0);
+    expect(contributionFor(rule, 25000, 1566)).toBe(245);
+    const eco = courseGroup(rule, named('Economia Aziendale'))!;
+    expect(contributionFor(rule, 40000, eco.max, eco.bands)).toBe(1440);
+    expect(maxContribution(rule, named('Scienze Biologiche'))).toBe(1606);
+    expect(maxContribution(rule, named('Medicina e Chirurgia'))).toBe(1676);
+    expect(contributionFor(rule, 80000, eco.max, eco.bands)).toBe(1566);
+  });
+  it('ESU Molise: soglie più basse, calo fino alla metà', () => {
+    const esu = dsuEntityFor('ateneo-07001')!;
+    expect(esu.thresholds).toMatchObject({ isee: 19837.92, ispe: 43125.94 });
+    expect(amountAt(esu, 9000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(esu, 12000, 'inSede')).toBe(2890.16);
+  });
+});
+
+describe('Chieti-Pescara 2026/27: tasse', () => {
+  const rule = tuitionRuleFor('ateneo-06901')!;
+  const named = (name: string) => getCourses('ateneo-06901').find((course) => course.name === name)!;
+  it('Gruppo 1: esonero fino a 24.000 €, poi formule dell’Allegato 1', () => {
+    expect(contributionFor(rule, 24000, 2000)).toBe(0);
+    expect(contributionFor(rule, 30000, 2000)).toBe(450);
+    expect(contributionFor(rule, 50000, 2000)).toBe(1400);
+    expect(contributionFor(rule, 70000, 2000)).toBe(2000);
+    const dent = courseGroup(rule, named('Odontoiatria e Protesi Dentaria'))!;
+    expect(contributionFor(rule, 30000, dent.max, dent.bands)).toBe(750);
+    expect(maxContribution(rule, named('Farmacia'))).toBe(2100);
+    expect(maxContribution(rule, named('Servizio Sociale'))).toBe(2000);
+  });
+});
+
+describe('Camerino 2026/27: tasse', () => {
+  const rule = tuitionRuleFor('ateneo-04302')!;
+  const named = (name: string) => getCourses('ateneo-04302').find((course) => course.name === name)!;
+  const at = (name: string, isee: number) => {
+    const group = courseGroup(rule, named(name))!;
+    return contributionFor(rule, isee, group.max, group.bands);
+  };
+  it('Punti del simulatore ufficiale e riduzioni della pagina «Tasse»', () => {
+    expect(at('Informatica', 26000)).toBe(0);
+    expect(at('Informatica', 27000)).toBeCloseTo(0.75 * 905.67, 0);
+    expect(at('Informatica', 35000)).toBeCloseTo(1228.3, 0);
+    expect(at('Architettura', 50000)).toBe(1760);
+    expect(at('Giurisprudenza', 30000.5)).toBeCloseTo(922.8, 0);
+    expect(at('Fisica', 29000)).toBe(0);
+    expect(at('Farmacia', 80000)).toBe(1925);
+  });
+});
+
+describe('Trento: tasse dal simulatore ufficiale', () => {
+  const rule = tuitionRuleFor('ateneo-02201')!;
+  const [l, lm] = rule.courseGroups!;
+  it('Punti del simulatore e punti intermedi entro pochi euro', () => {
+    expect(contributionFor(rule, 26000, l.max, l.bands)).toBe(200);
+    expect(contributionFor(rule, 30000, l.max, l.bands)).toBe(422.33);
+    expect(Math.abs(contributionFor(rule, 45500, l.max, l.bands) - 1341.8)).toBeLessThan(3);
+    expect(Math.abs(contributionFor(rule, 70500, lm.max, lm.bands) - 2996.32)).toBeLessThan(3);
+    expect(contributionFor(rule, null, lm.max, lm.bands)).toBe(3159);
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(166);
+  });
+});
+
+describe('IULM 2026/27: tasse a fasce e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-01505')!;
+  it('Sei fasce di ISEE a importo fisso, laurea e magistrale', () => {
+    const [l, m] = rule.courseGroups!;
+    expect(contributionFor(rule, 10000, l.max, l.bands)).toBe(3600);
+    expect(contributionFor(rule, 40000, l.max, l.bands)).toBe(7700);
+    expect(contributionFor(rule, null, m.max, m.bands)).toBe(12100);
+    expect(dsuEntityFor('ateneo-01505')!.id).toBe('iulm-dsu');
+    expect(amountAt(dsuEntityFor('ateneo-01505')!, 15000, 'fuoriSede')).toBe(7172);
+  });
+});
+
+describe('LIUC 2026/27: retta unica e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-01201')!;
+  const course = (name: string, level: string) =>
+    getCourses('ateneo-01201').find((item) => item.name === name && degreeLevel(item) === level)!;
+  it('Retta per corso, magistrali escluse finché non pubblicate', () => {
+    expect(maxContribution(rule, course('Economia e Management', 'triennale'))).toBe(8500);
+    expect(maxContribution(rule, course('Ingegneria Gestionale', 'triennale'))).toBe(7800);
+    expect(isExcludedCourse(rule, course('Ingegneria Gestionale', 'triennale'))).toBe(false);
+    expect(isExcludedCourse(rule, course('Ingegneria Gestionale', 'magistrale'))).toBe(true);
+    expect(dsuEntityFor('ateneo-01201')!.id).toBe('liuc-dsu');
+  });
+});
+
+describe('Kore Enna 2026/27: retta fissa per corso', () => {
+  const rule = tuitionRuleFor('ateneo-08601')!;
+  const named = (name: string) => getCourses('ateneo-08601').find((course) => course.name.startsWith(name))!;
+  it('3.750 €, 18.000 € per Medicina, senza esonero automatico', () => {
+    expect(maxContribution(rule, named('Giurisprudenza'))).toBe(3750);
+    expect(maxContribution(rule, named('Medicina'))).toBe(18000);
+    const cost = realCost(getUniversityById('ateneo-08601')!, named('Giurisprudenza'), exact(10000), exact(10000), 'inSede');
+    expect(cost.lines.find((line) => line.key === 'tasse')?.max).toBe(3750);
+  });
+});
+
+describe('Roma, private 2026/27: LUMSA e Campus Bio-Medico', () => {
+  it('LUMSA: otto fasce di ISEE, Servizio sociale in prima fascia', () => {
+    const rule = tuitionRuleFor('ateneo-05803')!;
+    const named = (name: string) => getCourses('ateneo-05803').find((course) => course.name === name)!;
+    const group = courseGroup(rule, named('Giurisprudenza'))!;
+    expect(contributionFor(rule, 20000, group.max, group.bands)).toBe(4250);
+    expect(contributionFor(rule, null, group.max, group.bands)).toBe(8750);
+    expect(maxContribution(rule, named('Scienze del Servizio Sociale e del No Profit'))).toBe(3500);
+  });
+  it('Campus Bio-Medico: contributo per corso', () => {
+    const rule = tuitionRuleFor('ateneo-05808')!;
+    const named = (name: string, level: string) =>
+      getCourses('ateneo-05808').find((course) => course.name === name && degreeLevel(course) === level)!;
+    expect(maxContribution(rule, getCourses('ateneo-05808').find((course) => course.name === 'Medicina e Chirurgia')!)).toBe(15500);
+    expect(maxContribution(rule, named('Scienze dell\'Alimentazione e della Nutrizione Umana', 'triennale'))).toBe(5621.5);
+    expect(maxContribution(rule, named('Scienze dell\'Alimentazione e della Nutrizione Umana', 'magistrale'))).toBe(6132.73);
+  });
+});
+
+describe('Roma, private 2026/27: UNINT e Link Campus', () => {
+  it('UNINT: retta unica 6.900 €', () => {
+    expect(tuitionRuleFor('ateneo-05809')!.maxByLevel.triennale).toBe(6900);
+  });
+  it('Link Campus: retta per classe di laurea più diritto di iscrizione', () => {
+    const rule = tuitionRuleFor('ateneo-05817')!;
+    const named = (name: string) => getCourses('ateneo-05817').find((course) => course.name.startsWith(name))!;
+    expect(maxContribution(rule, named('Giurisprudenza'))).toBe(8250);
+    expect(maxContribution(rule, named('Osteopatia'))).toBe(12150);
+    expect(maxContribution(rule, named('Medicina e Chirurgia'))).toBe(20050);
+    expect(isExcludedCourse(rule, named('Tecniche di Laboratorio'))).toBe(true);
+  });
+});
+
+describe('Valle d’Aosta 2026/27: tasse a sei fasce', () => {
+  it('Importi fissi per fascia, tassa regionale e bollo compresi', () => {
+    const rule = tuitionRuleFor('ateneo-00701')!;
+    const named = (name: string) => getCourses('ateneo-00701').find((course) => course.name === name)!;
+    const tri = courseGroup(rule, named('Economia e Management'))!;
+    expect(contributionFor(rule, 10000, tri.max, tri.bands)).toBe(1061);
+    expect(contributionFor(rule, null, tri.max, tri.bands)).toBe(1729);
+    expect(maxContribution(rule, named('Scienze della Formazione Primaria'))).toBe(2171);
+  });
+});
+
+describe('San Raffaele 2026/27: retta per corso e borse regionali', () => {
+  const rule = tuitionRuleFor('ateneo-01508')!;
+  const course = (name: string, level: string) =>
+    getCourses('ateneo-01508').find((item) => item.name === name && degreeLevel(item) === level)!;
+  it('Retta del primo anno meno 206 € di tassa regionale e bollo, uguale per ogni ISEE', () => {
+    const medicina = course('Medicina e Chirurgia', 'ciclo-unico');
+    expect(maxContribution(rule, medicina) + rule.fixedFees.total).toBe(20190);
+    expect(contributionFor(rule, 5000, maxContribution(rule, medicina))).toBe(19984);
+    expect(maxContribution(rule, course('Medicine And Surgery', 'ciclo-unico')) + 206).toBe(20690);
+    expect(maxContribution(rule, course('Filosofia', 'triennale')) + 206).toBe(5490);
+    expect(maxContribution(rule, course('Psicologia', 'magistrale')) + 206).toBe(8190);
+    const nursing = getCourses('ateneo-01508').filter((item) => item.name.startsWith('Infermieristica'));
+    for (const item of nursing) expect(maxContribution(rule, item) + 206).toBe(2590);
+    expect(isExcludedCourse(rule, course('Biotechnology And Medical Biology', 'magistrale'))).toBe(true);
+    expect(rule.noScholarshipExemption).toBeUndefined();
+  });
+  it('Borse lombarde con 80/100 alla maturità per le matricole', () => {
+    const unisr = dsuEntityFor('ateneo-01508')!;
+    expect(unisr.id).toBe('unisr-dsu');
+    expect(amountAt(unisr, 15000, 'fuoriSede')).toBe(7172);
+    expect(amountAt(unisr, 20000, 'inSede')).toBe(2143);
+    expect(scholarshipFor(unisr, exact(12000), none, 'pendolare', { grade: 75, firstCycle: true })).toMatchObject({
+      status: 'not-eligible',
+      gradeTooLow: 80
+    });
+    expect(scholarshipFor(unisr, exact(12000), none, 'pendolare', { grade: 85, firstCycle: true }).amountMax).toBe(4820);
+  });
+});
+
+describe('Humanitas 2026/27: borse regionali (tasse con indice ISEP, non inserite)', () => {
+  it('Importi lombardi, 80/100 alla maturità, nessuna regola tasse', () => {
+    const humanitas = dsuEntityFor('ateneo-01510')!;
+    expect(humanitas.id).toBe('humanitas-dsu');
+    expect(amountAt(humanitas, 10000, 'fuoriSede')).toBe(8248);
+    expect(amountAt(humanitas, 25000, 'pendolare')).toBe(3299);
+    expect(humanitas.minDiplomaGrade).toBe(80);
+    expect(tuitionRuleFor('ateneo-01510')).toBeNull();
+  });
+});
+
+describe('Scienze Gastronomiche 2026/27: retta fissa e borse EDISU', () => {
+  const rule = tuitionRuleFor('ateneo-00401')!;
+  const named = (name: string) => getCourses('ateneo-00401').find((course) => course.name === name)!;
+  it('15.500 € in triennale e 14.000 € in magistrale per ogni ISEE; esonero EDISU non garantito', () => {
+    const lt = named('Scienze e Culture Gastronomiche');
+    expect(degreeLevel(lt)).toBe('triennale');
+    expect(contributionFor(rule, 8000, maxContribution(rule, lt))).toBe(15500);
+    expect(maxContribution(rule, named('Food Industry Management'))).toBe(14000);
+    expect(rule.noScholarshipExemption).toContain('103.000');
+    expect(dsuEntityFor('ateneo-00401')!.id).toBe('edisu-piemonte');
+  });
+});
+
+describe('LUM 2026/27: contributo unico per corso', () => {
+  const rule = tuitionRuleFor('ateneo-07203')!;
+  const course = (name: string, level: string) =>
+    getCourses('ateneo-07203').find((item) => item.name === name && degreeLevel(item) === level)!;
+  it('Importi del Manifesto per le matricole, uguali per ogni ISEE', () => {
+    expect(maxContribution(rule, course('Business Economics And Organization', 'triennale'))).toBe(6000);
+    expect(contributionFor(rule, 15000, maxContribution(rule, course('Ingegneria Gestionale', 'magistrale')))).toBe(7000);
+    expect(maxContribution(rule, course('Giurisprudenza', 'ciclo-unico'))).toBe(6200);
+    expect(maxContribution(rule, course('Medicina e Chirurgia', 'ciclo-unico'))).toBe(16500);
+    expect(maxContribution(rule, course('Odontoiatria e Protesi Dentaria', 'ciclo-unico'))).toBe(20600);
+    expect(maxContribution(rule, course('Infermieristica (Abilitante alla Professione Sanitaria di Infermiere)', 'triennale'))).toBe(4000);
+    expect(isExcludedCourse(rule, course('Ingegneria Informatica per la Transizione Digitale', 'triennale'))).toBe(true);
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(162);
+    expect(rule.noScholarshipExemption).toContain('ADISU');
+  });
+});
+
+describe('Suor Orsola Benincasa 2026/27: sei fasce per corso', () => {
+  const rule = tuitionRuleFor('ateneo-06304')!;
+  const named = (name: string, classCode?: string) =>
+    getCourses('ateneo-06304').find((course) => course.name === name && (!classCode || course.classCode === classCode))!;
+  it('Totale della tabella più il contributo di immatricolazione', () => {
+    const com = courseGroup(rule, named('Scienze della Comunicazione'))!;
+    expect(com.id).toBe('unisob-a');
+    expect(contributionFor(rule, 8000, com.max, com.bands)).toBe(2640);
+    expect(contributionFor(rule, 30000, com.max, com.bands)).toBe(3300);
+    expect(contributionFor(rule, null, com.max, com.bands)).toBe(4280);
+    const giur = courseGroup(rule, named('Giurisprudenza'))!;
+    expect(contributionFor(rule, 12000, giur.max, giur.bands)).toBe(3880);
+    for (const code of ['LM-57', 'LM-85']) expect(courseGroup(rule, named('Consulenza Pedagogica', code))!.id).toBe('unisob-l');
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(146);
+    expect(rule.noScholarshipExemption).toContain('colonne A e B');
+    expect(dsuEntityFor('ateneo-06304')!.id).toBe('adisurc');
+  });
+  it('ogni corso del dataset ha il suo gruppo', () => {
+    const names = rule.courseGroups!.flatMap((group) => group.names!);
+    for (const course of getCourses('ateneo-06304')) expect(names).toContain(course.name);
+  });
+});
+
+describe('Stranieri Dante Alighieri 2026/27: otto fasce e borse dell’Ateneo', () => {
+  const rule = tuitionRuleFor('ateneo-08003')!;
+  it('Totale annuo della tabella meno 160 € di bollo, tassa regionale e assicurazione', () => {
+    expect(contributionFor(rule, 4000, 2096) + rule.fixedFees.total).toBe(564);
+    expect(contributionFor(rule, 22000, 2096) + rule.fixedFees.total).toBe(1056);
+    expect(contributionFor(rule, 60000, 2096) + rule.fixedFees.total).toBe(2256);
+    expect(contributionFor(rule, null, 2096)).toBe(2096);
+  });
+  it('Borse con la tabella della Circolare MUR e soglie nazionali', () => {
+    const unida = dsuEntityFor('ateneo-08003')!;
+    expect(unida.id).toBe('unida-dsu');
+    expect(amountAt(unida, 10000, 'fuoriSede')).toBe(8246.78);
+    expect(amountAt(unida, 28339.88, 'inSede')).toBe(1445.08);
+  });
+});
+
+describe('Valle d’Aosta 2026/27: assegni di studio regionali (bando VDA1)', () => {
+  const vda = dsuEntityFor('ateneo-00701')!;
+  it('Quattro fasce; fuori sede = colonna A più contributo alloggio', () => {
+    expect(vda.id).toBe('vda-assegni');
+    expect(amountAt(vda, 10000, 'inSede')).toBe(3476);
+    expect(amountAt(vda, 10000, 'pendolare')).toBe(4972);
+    expect(amountAt(vda, 10000, 'fuoriSede')).toBe(3476 + 4924);
+    expect(amountAt(vda, 27000, 'fuoriSede')).toBe(2248 + 3145);
+    expect(scholarshipFor(vda, exact(30000), none, 'inSede').status).toBe('not-eligible');
+  });
+  it('Con l’assegno le tasse dell’Università della Valle d’Aosta vanno a zero', () => {
+    const university = getUniversityById('ateneo-00701')!;
+    const course = getCourses('ateneo-00701')[0];
+    const cost = realCost(university, course, exact(12000), exact(20000), 'inSede');
+    expect(cost.lines.find((line) => line.key === 'tasse')!.max).toBe(0);
+  });
+});
+
+describe('Stranieri di Siena 2026/27: tasse dal simulatore ufficiale', () => {
+  const rule = tuitionRuleFor('ateneo-05202')!;
+  it('Punti del simulatore 2026/27 (somma delle tre rate, primo anno)', () => {
+    expect(contributionFor(rule, 24000, 2200)).toBe(0);
+    expect(contributionFor(rule, 25000, 2200)).toBe(588);
+    expect(contributionFor(rule, 26500, 2200)).toBe(756);
+    expect(contributionFor(rule, 30000, 2200)).toBe(1011.5);
+    expect(contributionFor(rule, 40000, 2200)).toBe(1606.5);
+    expect(contributionFor(rule, 45000, 2200)).toBe(1904);
+    expect(contributionFor(rule, 46000, 2200)).toBe(2200);
+    expect(contributionFor(rule, null, 2200)).toBe(2200);
+    expect(fixedFeesRange(rule, exact(30000)).min).toBe(156);
+  });
+  it('Borse del DSU Toscana', () => {
+    expect(dsuEntityFor('ateneo-05202')!.id).toBe(dsuEntityFor('ateneo-05201')!.id);
+  });
+});
+
+describe('UniCamillus 2026/27: contributo fisso per corso', () => {
+  const rule = tuitionRuleFor('ateneo-05818')!;
+  const courses = getCourses('ateneo-05818');
+  const max = (name: string, city?: string) => {
+    const course = courses.find((item) => item.name.startsWith(name) && (!city || item.city === city))!;
+    return isExcludedCourse(rule, course) ? null : maxContribution(rule, course);
+  };
+  it('Importi del primo anno dai regolamenti 2026/27', () => {
+    expect(max('Medicina e Chirurgia', 'Roma')).toBe(16500);
+    expect(max('Medicina e Chirurgia', "Cefalu'")).toBe(16500);
+    expect(max('Odontoiatria')).toBe(16000);
+    expect(max('Fisioterapia')).toBe(8000);
+    expect(max('Ostetricia')).toBe(4000);
+    expect(max('Infermieristica')).toBe(3000);
+    expect(max('Tecniche di Radiologia')).toBe(3000);
+    expect(max('Scienze della Nutrizione Umana')).toBe(2620);
+    expect(max('Tecniche di Laboratorio Biomedico')).toBeNull();
+    expect(contributionFor(rule, 10000, 16500)).toBe(16500);
+  });
+  it('La borsa DiSCo non toglie la retta', () => {
+    expect(rule.noScholarshipExemption).toContain('contributi statali');
+    expect(dsuEntityFor('ateneo-05818')!.id).toBe('disco-lazio');
+  });
+});
+
+describe('Europea di Roma 2026/27: retta fissa per corso', () => {
+  const rule = tuitionRuleFor('ateneo-05812')!;
+  const courses = getCourses('ateneo-05812');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('Tassa di iscrizione + contributi dell’Allegato 1 (e modifica D.R. 229/26)', () => {
+    expect(max('Economia e Gestione Aziendale')).toBe(7250);
+    expect(max('Giurisprudenza')).toBe(7250);
+    expect(max('Psicologia')).toBe(7250);
+    expect(max('Scienze della Formazione Primaria')).toBe(3950);
+    expect(max('Turismo e Valorizzazione del Territorio')).toBe(3950);
+    expect(max('Management della Transizione Digitale', 'LM-91')).toBe(3950);
+    expect(max('Medicina e Chirurgia')).toBe(18250);
+    expect(contributionFor(rule, 5000, 7250)).toBe(7250);
+    expect(rule.noScholarshipExemption).toContain('rimborso');
+  });
+});
+
+describe('Unitelma Sapienza 2026/27: quota standard per livello', () => {
+  const rule = tuitionRuleFor('ateneo-05811')!;
+  const courses = getCourses('ateneo-05811');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Scienze dell\'Economia Aziendale')).toBe(2300);
+    expect(max('Scienze Giuridiche')).toBe(2300);
+    expect(max('Giurisprudenza')).toBe(2500);
+    expect(max('Economia, Management e Innovazione')).toBe(2500);
+    expect(rule.fixedFees.total).toBe(140);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('Guglielmo Marconi 2026/27: retta standard unica', () => {
+  const rule = tuitionRuleFor('ateneo-05810')!;
+  const courses = getCourses('ateneo-05810');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Ingegneria Civile', 'L-7')).toBe(2760);
+    expect(max('Psicologia')).toBe(2760);
+    expect(max('Giurisprudenza')).toBe(2760);
+    expect(rule.fixedFees.regionalTax).toBe(140);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('IUL 2026/27: contributo unico dal Manifesto', () => {
+  const rule = tuitionRuleFor('ateneo-04804')!;
+  const courses = getCourses('ateneo-04804');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Comunicazione Innovativa, Multimediale e Digitale')).toBe(2500);
+    expect(max('Innovazione Educativa e Apprendimento Permanente nella Formazione degli Adulti in Contesti Nazionali e Internazionali')).toBe(2500);
+    expect(rule.fixedFees.total).toBe(156);
+    expect(rule.noScholarshipExemption).toContain('8.12');
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('UNINETTUNO 2026/27: tasse per triennali e magistrali', () => {
+  const rule = tuitionRuleFor('ateneo-05813')!;
+  const courses = getCourses('ateneo-05813');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Ingegneria Gestionale', 'L-9')).toBe(2000);
+    expect(max('Ingegneria Gestionale', 'LM-31')).toBe(2200);
+    expect(max('Scienze della Mente')).toBe(2200);
+    expect(rule.fixedFees.total).toBe(16);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('Niccolò Cusano: tassa universitaria per area', () => {
+  const rule = tuitionRuleFor('ateneo-05815')!;
+  const courses = getCourses('ateneo-05815');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Economia Aziendale e Management,')).toBe(3300);
+    expect(max('Giurisprudenza')).toBe(3300);
+    expect(max('Scienze Motorie')).toBe(4000);
+    expect(max('Psicologia')).toBe(4000);
+    expect(max('Sociologia e Ricerca Sociale')).toBe(3500);
+    expect(max('Scienze Umanistiche')).toBe(3500);
+    expect(max('Scienza e Tecnica dello Sport')).toBe(4000);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('Giustino Fortunato 2026/27: contributo unico per corso', () => {
+  const rule = tuitionRuleFor('ateneo-06202')!;
+  const courses = getCourses('ateneo-06202');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Diritto ed Economia delle Imprese', 'L-18')).toBe(2500);
+    expect(max('Diritto ed Economia delle Imprese', 'L-14')).toBe(2500);
+    expect(max('Scienze dell\'Educazione')).toBe(2800);
+    expect(max('Ingegneria Informatica')).toBe(3500);
+    expect(max('Scienze e Tecnologie dei Trasporti')).toBe(3500);
+    expect(max('Giurisprudenza')).toBe(2500);
+    expect(max('Economia Aziendale')).toBe(2500);
+    expect(max('Psicologia Comportamentale e Cognitiva Applicata')).toBe(3000);
+    expect(rule.regionalTaxBands?.map((band) => band.base)).toEqual([130, 151, 173]);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('UniDAV 2026/27: contributo onnicomprensivo', () => {
+  const rule = tuitionRuleFor('ateneo-06902')!;
+  const courses = getCourses('ateneo-06902');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Scienze dell\'Educazione e della Formazione')).toBe(2200);
+    expect(max('Giurisprudenza')).toBe(2200);
+    expect(rule.fixedFees.total).toBe(156);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('Pegaso 2026/27: retta standard e contributo servizi', () => {
+  const rule = tuitionRuleFor('ateneo-06307')!;
+  const courses = getCourses('ateneo-06307');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Economia Aziendale')).toBe(2750);
+    expect(max('GIURISPRUDENZA')).toBe(2750);
+    expect(rule.regionalTaxBands?.map((band) => band.base)).toEqual([130, 151, 173]);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('Mercatorum 2026/27: retta standard e contributo servizi', () => {
+  const rule = tuitionRuleFor('ateneo-05814')!;
+  const courses = getCourses('ateneo-05814');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Gestione di Impresa')).toBe(2750);
+    expect(max('Management')).toBe(2750);
+    expect(rule.fixedFees.regionalTax).toBe(140);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
+
+describe('San Raffaele Roma 2026/27: retta standard e contributo servizi', () => {
+  const rule = tuitionRuleFor('ateneo-05816')!;
+  const courses = getCourses('ateneo-05816');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Scienze Motorie')).toBe(2750);
+    expect(max('Scienze della Nutrizione Umana')).toBe(2750);
+    expect(max('Scienze Biologiche')).toBe(5300);
+    expect(max('Scienza dell\'Amministrazione e dell\'Organizzazione')).toBe(2750);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
