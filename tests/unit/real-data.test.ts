@@ -2192,3 +2192,17 @@ describe('Giustino Fortunato 2026/27: contributo unico per corso', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('UniDAV 2026/27: contributo onnicomprensivo', () => {
+  const rule = tuitionRuleFor('ateneo-06902')!;
+  const courses = getCourses('ateneo-06902');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Scienze dell\'Educazione e della Formazione')).toBe(2200);
+    expect(max('Giurisprudenza')).toBe(2200);
+    expect(rule.fixedFees.total).toBe(156);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

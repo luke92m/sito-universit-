@@ -23212,6 +23212,56 @@
         }
       },
       "simulator": "https://www.unifortunato.eu/iscrizioni-unifortunato/"
+    },
+    "ateneo-06902": {
+      "name": "Università telematica Leonardo da Vinci (UniDAV)",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Contributo onnicomprensivo 2026/27, uguale per ogni corso e per ogni ISEE (salvo convenzioni).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale per il diritto allo studio (140 €) e bollo virtuale (16 €).",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2200
+        }
+      ],
+      "bandsSource": {
+        "label": "UniDAV, Manifesto degli Studi 2026/2027 (D.R. 35/2026), art. 36",
+        "url": "https://www.unidav.it/wp-content/uploads/DR_35-26_manifesto-studi_Carta-Servizi_Contratto-studente-1.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2200,
+        "ciclo-unico": 2200,
+        "magistrale": 2200
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Contributo onnicomprensivo 2026/27: 2.200 € per triennali, ciclo unico e magistrali, anche fuori corso; possibili convenzioni o agevolazioni.",
+      "maxSource": {
+        "label": "UniDAV, Manifesto degli Studi 2026/2027 (D.R. 35/2026 del 30/07/2026), art. 36",
+        "url": "https://www.unidav.it/wp-content/uploads/DR_35-26_manifesto-studi_Carta-Servizi_Contratto-studente-1.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (50%) all’immatricolazione, con tassa regionale e bollo",
+          "Seconda rata (25%) entro il 31 dicembre",
+          "Terza rata (25%) entro il 30 aprile"
+        ],
+        "note": "Oppure in un’unica soluzione.",
+        "source": {
+          "label": "UniDAV, Manifesto degli Studi 2026/2027, art. 36",
+          "url": "https://www.unidav.it/wp-content/uploads/DR_35-26_manifesto-studi_Carta-Servizi_Contratto-studente-1.pdf"
+        }
+      },
+      "simulator": "https://www.unidav.it/index.php/segreteria-studenti/"
     }
   }
 }
