@@ -2109,3 +2109,18 @@ describe('Unitelma Sapienza 2026/27: quota standard per livello', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('Guglielmo Marconi 2026/27: retta standard unica', () => {
+  const rule = tuitionRuleFor('ateneo-05810')!;
+  const courses = getCourses('ateneo-05810');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Ingegneria Civile', 'L-7')).toBe(2760);
+    expect(max('Psicologia')).toBe(2760);
+    expect(max('Giurisprudenza')).toBe(2760);
+    expect(rule.fixedFees.regionalTax).toBe(140);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

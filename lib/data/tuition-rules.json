@@ -22893,6 +22893,55 @@
         }
       },
       "simulator": "https://www.unitelmasapienza.it/studenti/tasse-e-contributi/importi-e-altri-contributi/"
+    },
+    "ateneo-05810": {
+      "name": "Università telematica Guglielmo Marconi",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Retta standard «tutto incluso», uguale per ogni corso e per ogni ISEE (senza agevolazioni).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 140
+      },
+      "fixedFeesNote": "Esclusa dalla retta la tassa regionale DiSCo Lazio 2026/27 (140 €, da pagare sul sito di DiSCo). La pagina non indica il bollo.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2760
+        }
+      ],
+      "bandsSource": {
+        "label": "Università Guglielmo Marconi, «Tasse di iscrizione»",
+        "url": "https://www.unimarconi.it/tasse-di-iscrizione/"
+      },
+      "maxByLevel": {
+        "triennale": 2760,
+        "ciclo-unico": 2760,
+        "magistrale": 2760
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Retta standard 230 € al mese (2.760 € l’anno), con diritti di segreteria e tasse d’esame inclusi; escluse tassa regionale e tassa di laurea. I curricula in inglese costano 3.000 € l’anno. Ci sono agevolazioni su domanda: il sito usa la retta standard.",
+      "maxSource": {
+        "label": "Università Guglielmo Marconi, «Tasse di iscrizione»",
+        "url": "https://www.unimarconi.it/tasse-di-iscrizione/"
+      },
+      "payments": {
+        "steps": [
+          "Retta in rate mensili da 230 €",
+          "Tassa regionale a DiSCo Lazio all’iscrizione"
+        ],
+        "note": "In ritardo: mora da 40 € (fino a 30 giorni) a 300 € (oltre 180 giorni).",
+        "source": {
+          "label": "Università Guglielmo Marconi, «Tasse di iscrizione»",
+          "url": "https://www.unimarconi.it/tasse-di-iscrizione/"
+        }
+      },
+      "simulator": "https://www.unimarconi.it/tasse-di-iscrizione/"
     }
   }
 }
