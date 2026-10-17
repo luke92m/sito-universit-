@@ -2139,3 +2139,18 @@ describe('IUL 2026/27: contributo unico dal Manifesto', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('UNINETTUNO 2026/27: tasse per triennali e magistrali', () => {
+  const rule = tuitionRuleFor('ateneo-05813')!;
+  const courses = getCourses('ateneo-05813');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Ingegneria Gestionale', 'L-9')).toBe(2000);
+    expect(max('Ingegneria Gestionale', 'LM-31')).toBe(2200);
+    expect(max('Scienze della Mente')).toBe(2200);
+    expect(rule.fixedFees.total).toBe(16);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

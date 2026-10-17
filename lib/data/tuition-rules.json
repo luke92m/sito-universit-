@@ -22991,6 +22991,56 @@
         }
       },
       "simulator": "https://www.iuline.it/studenti/tasse-contributi/"
+    },
+    "ateneo-05813": {
+      "name": "Università telematica internazionale UNINETTUNO",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Tasse universitarie 2026/27, uguali per ogni ISEE: una cifra per le triennali e una per le magistrali.",
+      "fixedFees": {
+        "regionalTax": 0,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 16
+      },
+      "fixedFeesNote": "Bollo di 16 € sulla domanda d’iscrizione. La pagina non cita la tassa regionale: il sito non la aggiunge.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2200
+        }
+      ],
+      "bandsSource": {
+        "label": "UNINETTUNO, «Regole per il pagamento delle tasse universitarie»",
+        "url": "https://www.uninettunouniversity.net/it/tasse-universitarie.aspx"
+      },
+      "maxByLevel": {
+        "triennale": 2000,
+        "ciclo-unico": 2000,
+        "magistrale": 2200
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Tasse 2026/27: 2.000 € per le triennali e 2.200 € per le magistrali. Pagando in un’unica soluzione scendono a 1.930 € e 2.100 €. I neodiplomati hanno una riduzione del 20% su domanda: il sito usa l’importo pieno.",
+      "maxSource": {
+        "label": "UNINETTUNO, «Regole per il pagamento delle tasse universitarie» (a.a. 2026/2027)",
+        "url": "https://www.uninettunouniversity.net/it/tasse-universitarie.aspx"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata (1.000 € o 1.100 €) all’iscrizione",
+          "Seconda rata uguale entro sei mesi",
+          "Oppure tutto subito, con lo sconto"
+        ],
+        "note": "Le tasse dell’anno dopo vanno pagate entro il 12° mese dall’iscrizione.",
+        "source": {
+          "label": "UNINETTUNO, «Regole per il pagamento delle tasse universitarie»",
+          "url": "https://www.uninettunouniversity.net/it/tasse-universitarie.aspx"
+        }
+      },
+      "simulator": "https://www.uninettunouniversity.net/it/tasse-universitarie.aspx"
     }
   }
 }
