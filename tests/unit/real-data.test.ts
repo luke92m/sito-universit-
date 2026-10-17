@@ -1975,3 +1975,26 @@ describe('LUM 2026/27: contributo unico per corso', () => {
     expect(rule.noScholarshipExemption).toContain('ADISU');
   });
 });
+
+describe('Suor Orsola Benincasa 2026/27: sei fasce per corso', () => {
+  const rule = tuitionRuleFor('ateneo-06304')!;
+  const named = (name: string, classCode?: string) =>
+    getCourses('ateneo-06304').find((course) => course.name === name && (!classCode || course.classCode === classCode))!;
+  it('Totale della tabella più il contributo di immatricolazione', () => {
+    const com = courseGroup(rule, named('Scienze della Comunicazione'))!;
+    expect(com.id).toBe('unisob-a');
+    expect(contributionFor(rule, 8000, com.max, com.bands)).toBe(2640);
+    expect(contributionFor(rule, 30000, com.max, com.bands)).toBe(3300);
+    expect(contributionFor(rule, null, com.max, com.bands)).toBe(4280);
+    const giur = courseGroup(rule, named('Giurisprudenza'))!;
+    expect(contributionFor(rule, 12000, giur.max, giur.bands)).toBe(3880);
+    for (const code of ['LM-57', 'LM-85']) expect(courseGroup(rule, named('Consulenza Pedagogica', code))!.id).toBe('unisob-l');
+    expect(fixedFeesRange(rule, exact(20000)).min).toBe(146);
+    expect(rule.noScholarshipExemption).toContain('colonne A e B');
+    expect(dsuEntityFor('ateneo-06304')!.id).toBe('adisurc');
+  });
+  it('ogni corso del dataset ha il suo gruppo', () => {
+    const names = rule.courseGroups!.flatMap((group) => group.names!);
+    for (const course of getCourses('ateneo-06304')) expect(names).toContain(course.name);
+  });
+});

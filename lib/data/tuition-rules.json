@@ -21737,6 +21737,769 @@
         }
       },
       "simulator": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+    },
+    "ateneo-06304": {
+      "name": "Università Suor Orsola Benincasa",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27: sei fasce di ISEE a importo fisso per corso, più il contributo di immatricolazione. La fascia si calcola sull’ISEE Università 2027 (quello 2026 serve solo per la tassa regionale).",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Oltre alle rate: bollo 16 € e tassa regionale ADISURC secondo l’ISEE (130 € fino a 25.500 €, 151 € fino a 51.000 €, poi 173 €; senza ISEE 173 €).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": 10000,
+          "from": 0,
+          "rate": 0,
+          "base": 2640
+        },
+        {
+          "iseeMax": 15000,
+          "from": 0,
+          "rate": 0,
+          "base": 2750
+        },
+        {
+          "iseeMax": 22000,
+          "from": 0,
+          "rate": 0,
+          "base": 2880
+        },
+        {
+          "iseeMax": 50000,
+          "from": 0,
+          "rate": 0,
+          "base": 3300
+        },
+        {
+          "iseeMax": 150000,
+          "from": 0,
+          "rate": 0,
+          "base": 3820
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 4280
+        }
+      ],
+      "bandsSource": {
+        "label": "UNISOB, Tasse universitarie a.a. 2026/27 – Immatricolazioni (tabelle per corso, colonne A+B+C e nota 2)",
+        "url": "https://www.unisob.na.it/universita/normeamministrative/3000c0.htm?vr=1"
+      },
+      "courseGroups": [
+        {
+          "id": "unisob-a",
+          "label": "Scienze della comunicazione",
+          "groups": [],
+          "names": [
+            "Scienze della Comunicazione"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2640
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2750
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 2880
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 3300
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 3820
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4280
+            }
+          ],
+          "max": 4280
+        },
+        {
+          "id": "unisob-b",
+          "label": "Servizio sociale e Scienze dell’educazione",
+          "groups": [],
+          "names": [
+            "Scienze dell'Educazione",
+            "Scienze del Servizio Sociale: Diritti e Inclusione"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2040
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2150
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 2360
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2760
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 3150
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3530
+            }
+          ],
+          "max": 3530
+        },
+        {
+          "id": "unisob-c",
+          "label": "Economia aziendale e Green Economy",
+          "groups": [],
+          "names": [
+            "Economia Aziendale e Green Economy"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 3580
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 3690
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3850
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 4160
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 4870
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5680
+            }
+          ],
+          "max": 5680
+        },
+        {
+          "id": "unisob-c1",
+          "label": "Economia, Management e Sostenibilità",
+          "groups": [],
+          "names": [
+            "Economia, Management e Sostenibilità"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2830
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2940
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3460
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 4130
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 4870
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5500
+            }
+          ],
+          "max": 5500
+        },
+        {
+          "id": "unisob-d",
+          "label": "Scienze e tecniche di psicologia cognitiva",
+          "groups": [],
+          "names": [
+            "Scienze e Tecniche di Psicologia Cognitiva"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2740
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2850
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3190
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 3710
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 4330
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4880
+            }
+          ],
+          "max": 4880
+        },
+        {
+          "id": "unisob-e",
+          "label": "Lingue e culture moderne, Beni culturali",
+          "groups": [],
+          "names": [
+            "Lingue e Culture Moderne",
+            "Scienze dei Beni Culturali. Turismo, Arte, Archeologia"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2010
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2120
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 2330
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2730
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 3130
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3510
+            }
+          ],
+          "max": 3510
+        },
+        {
+          "id": "unisob-f",
+          "label": "Scienze della formazione primaria",
+          "groups": [],
+          "names": [
+            "Scienze della Formazione Primaria"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 3100
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 3210
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3650
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 4280
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 5010
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5640
+            }
+          ],
+          "max": 5640
+        },
+        {
+          "id": "unisob-g",
+          "label": "Giurisprudenza",
+          "groups": [],
+          "names": [
+            "Giurisprudenza"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 3770
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 3880
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 4050
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 4420
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 5230
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5920
+            }
+          ],
+          "max": 5920
+        },
+        {
+          "id": "unisob-h",
+          "label": "Comunicazione pubblica e d’impresa",
+          "groups": [],
+          "names": [
+            "Comunicazione Pubblica e d'Impresa"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2710
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2820
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3350
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 4020
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 4750
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5370
+            }
+          ],
+          "max": 5370
+        },
+        {
+          "id": "unisob-i",
+          "label": "Politiche e servizi sociali (LM-87)",
+          "groups": [],
+          "names": [
+            "Programmazione, Amministrazione e Gestione delle Politiche e dei Servizi Sociali"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 1960
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2070
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 2230
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 2580
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 2940
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 3290
+            }
+          ],
+          "max": 3290
+        },
+        {
+          "id": "unisob-l",
+          "label": "Consulenza pedagogica",
+          "groups": [],
+          "names": [
+            "Consulenza Pedagogica"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2470
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2580
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3050
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 3720
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 4360
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4910
+            }
+          ],
+          "max": 4910
+        },
+        {
+          "id": "unisob-m",
+          "label": "Digital Humanities e Lingue moderne (LM)",
+          "groups": [],
+          "names": [
+            "Digital Humanities. Beni Culturali e Materie Letterarie",
+            "Lingue Moderne per la Comunicazione e la Cooperazione Internazionale"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2360
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2470
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 2850
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 3410
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 3980
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4490
+            }
+          ],
+          "max": 4490
+        },
+        {
+          "id": "unisob-n",
+          "label": "Psicologia (LM-51)",
+          "groups": [],
+          "names": [
+            "Psicologia: Risorse Umane, Ergonomia Cognitiva, Neuroscienze Cognitive"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 2830
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 2940
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 3460
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 4130
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 4870
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 5500
+            }
+          ],
+          "max": 5500
+        },
+        {
+          "id": "unisob-o",
+          "label": "Conservazione e restauro",
+          "groups": [],
+          "names": [
+            "Conservazione e Restauro dei Beni Culturali (Abilitante Ai Sensi del D.Lgs N.42/2004)"
+          ],
+          "bands": [
+            {
+              "iseeMax": 10000,
+              "from": 0,
+              "rate": 0,
+              "base": 6000
+            },
+            {
+              "iseeMax": 15000,
+              "from": 0,
+              "rate": 0,
+              "base": 6110
+            },
+            {
+              "iseeMax": 22000,
+              "from": 0,
+              "rate": 0,
+              "base": 6200
+            },
+            {
+              "iseeMax": 50000,
+              "from": 0,
+              "rate": 0,
+              "base": 6480
+            },
+            {
+              "iseeMax": 150000,
+              "from": 0,
+              "rate": 0,
+              "base": 7230
+            },
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 7890
+            }
+          ],
+          "max": 7890
+        }
+      ],
+      "maxByLevel": {
+        "triennale": 5680,
+        "ciclo-unico": 7890,
+        "magistrale": 5500
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Chi è idoneo o beneficiario della borsa ADISURC riceve a rimborso solo tassa di iscrizione e contributi universitari (colonne A e B, da 417 a 1.131 € secondo la fascia); gli oneri per servizi e il contributo di immatricolazione restano dovuti, per questo il sito non li toglie.",
+      "maxNote": "Importi del primo anno per fascia di ISEE (fino a 10.000, 15.000, 22.000, 50.000, 150.000 € e oltre), comprensivi di tassa di iscrizione, contributi, oneri per servizi e contributo di immatricolazione (500-700 € secondo il corso); senza ISEE la fascia più alta. Da 1.960 € (Politiche e servizi sociali, I fascia) a 7.890 € (Conservazione e restauro, VI fascia).",
+      "maxSource": {
+        "label": "UNISOB, Tasse universitarie a.a. 2026/27 – Immatricolazioni (tabelle per corso, colonne A+B+C e nota 2)",
+        "url": "https://www.unisob.na.it/universita/normeamministrative/3000c0.htm?vr=1"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’immatricolazione (data indicata dagli avvisi per i corsi a numero chiuso), con bollo, tassa regionale e parte del contributo di immatricolazione",
+          "Seconda rata entro il 29 gennaio 2027, con il resto del contributo di immatricolazione",
+          "Terza rata (secondo la fascia) entro il 31 marzo 2027, divisibile in cinque mensilità se supera 300 €"
+        ],
+        "note": "Senza autorizzazione a prendere l’ISEE dall’INPS si va in fascia massima; l’ISEE 2027 si può presentare fino al 1° marzo 2027.",
+        "source": {
+          "label": "UNISOB, Determinazione della fascia di appartenenza e tabelle tasse 2026/27",
+          "url": "https://www.unisob.na.it/universita/normeamministrative/fasce.htm"
+        }
+      },
+      "simulator": "https://www.unisob.na.it/universita/normeamministrative/3000c0.htm?vr=1"
     }
   }
 }
