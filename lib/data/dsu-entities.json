@@ -14956,6 +14956,103 @@
         "label": "Università per Stranieri Dante Alighieri, Borse di studio",
         "url": "https://www.unidarc.it/borse-di-studio/"
       }
+    },
+    {
+      "id": "vda-assegni",
+      "name": "Regione Valle d’Aosta – Assegni di studio universitari",
+      "shortName": "Regione VdA",
+      "region": "Valle d'Aosta",
+      "universityIds": [
+        "ateneo-00701"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "thresholds": {
+        "isee": 28339.88,
+        "ispe": 61608.48,
+        "source": {
+          "label": "Regione Valle d’Aosta, Bando VDA1 assegni di studio e contributi alloggio 2026/27, art. 3.1",
+          "url": "https://www.regione.vda.it/allegato.aspx?pk=97584"
+        }
+      },
+      "amounts": {
+        "note": "Assegno di studio in quattro fasce a scalini (colonna A entro 24 km, colonna B oltre 24 km senza alloggio). Per il fuori sede il sito somma l’assegno della colonna A e il contributo alloggio (art. 7). Gli importi comprendono 152 € per i pasti. Con ISEE fino a 44.968 € (senza limite ISPE) c’è anche il bando VDA2, con importi più bassi (1.502-2.524 €) e senza esonero dalle tasse: non calcolato.",
+        "bands": [
+          {
+            "iseeMax": 14169.94,
+            "fuoriSede": 8400,
+            "pendolare": 4972,
+            "inSede": 3476
+          },
+          {
+            "iseeMax": 18893.25,
+            "fuoriSede": 7324,
+            "pendolare": 4343,
+            "inSede": 3042
+          },
+          {
+            "iseeMax": 25452.43,
+            "fuoriSede": 6150,
+            "pendolare": 3762,
+            "inSede": 2598
+          },
+          {
+            "iseeMax": 28339.88,
+            "fuoriSede": 5393,
+            "pendolare": 3063,
+            "inSede": 2248
+          }
+        ],
+        "source": {
+          "label": "Regione Valle d’Aosta, Bando VDA1 assegni di studio e contributi alloggio 2026/27, artt. 6.1 e 7.1",
+          "url": "https://www.regione.vda.it/allegato.aspx?pk=97584"
+        }
+      },
+      "increments": [],
+      "connectedBenefits": [
+        "Rimborso o esonero delle tasse universitarie e della tassa regionale per chi è in graduatoria",
+        "Integrazione per la mobilità internazionale"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Regione Valle d’Aosta, Bando VDA1 assegni di studio e contributi alloggio 2026/27, art. 1.1",
+        "url": "https://www.regione.vda.it/allegato.aspx?pk=97584"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza ad almeno 24 km dalla sede e alloggio a titolo oneroso entro 15 km dalla sede per almeno 9 mesi (contributo alloggio, solo in corso): assegno della colonna A più contributo alloggio.",
+        "pendolare": "Residenza ad almeno 24 km dalla sede, senza contributo alloggio: assegno della colonna B.",
+        "inSede": "Residenza a meno di 24 km dalla sede: assegno della colonna A.",
+        "source": {
+          "label": "Regione Valle d’Aosta, Bando VDA1 assegni di studio e contributi alloggio 2026/27, artt. 6.1 e 7.2",
+          "url": "https://www.regione.vda.it/allegato.aspx?pk=97584"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Acconto del 25% entro il 30 aprile 2027, con almeno 6 crediti al 28 febbraio 2027",
+          "Saldo del 75% entro il 31 ottobre 2027, con 30 crediti (36 nelle magistrali) registrati entro il 10 agosto 2027"
+        ],
+        "note": "Per le matricole il merito si verifica dopo: senza i crediti del saldo l’acconto non va restituito, ma il resto non arriva.",
+        "source": {
+          "label": "Regione Valle d’Aosta, Bando VDA1 assegni di studio e contributi alloggio 2026/27, artt. 4.1, 5, 6.3 e 15.2",
+          "url": "https://www.regione.vda.it/allegato.aspx?pk=97584"
+        }
+      },
+      "application": {
+        "closes": "2026-12-04",
+        "closesTime": "12:00",
+        "note": "Domanda online sul sito della Regione (un solo bando tra VDA1 e VDA2). Valgono anche per il Conservatoire de la Vallée d’Aoste.",
+        "source": {
+          "label": "Regione Valle d’Aosta, Assegni di studio per università valdostane 2026/27",
+          "url": "https://www.regione.vda.it/istruzione/dirittostudio/borse_universita_valdostane/default_i.aspx"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Assegni attribuiti nei limiti delle risorse regionali, in ordine di ISEE (artt. 14-15); dato sulla copertura non pubblicato.",
+      "portal": {
+        "label": "Regione Valle d’Aosta, Assegni di studio per università valdostane",
+        "url": "https://www.regione.vda.it/istruzione/dirittostudio/borse_universita_valdostane/default_i.aspx"
+      }
     }
   ]
 }

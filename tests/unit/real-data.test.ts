@@ -2014,3 +2014,21 @@ describe('Stranieri Dante Alighieri 2026/27: otto fasce e borse dell’Ateneo', 
     expect(amountAt(unida, 28339.88, 'inSede')).toBe(1445.08);
   });
 });
+
+describe('Valle d’Aosta 2026/27: assegni di studio regionali (bando VDA1)', () => {
+  const vda = dsuEntityFor('ateneo-00701')!;
+  it('Quattro fasce; fuori sede = colonna A più contributo alloggio', () => {
+    expect(vda.id).toBe('vda-assegni');
+    expect(amountAt(vda, 10000, 'inSede')).toBe(3476);
+    expect(amountAt(vda, 10000, 'pendolare')).toBe(4972);
+    expect(amountAt(vda, 10000, 'fuoriSede')).toBe(3476 + 4924);
+    expect(amountAt(vda, 27000, 'fuoriSede')).toBe(2248 + 3145);
+    expect(scholarshipFor(vda, exact(30000), none, 'inSede').status).toBe('not-eligible');
+  });
+  it('Con l’assegno le tasse dell’Università della Valle d’Aosta vanno a zero', () => {
+    const university = getUniversityById('ateneo-00701')!;
+    const course = getCourses('ateneo-00701')[0];
+    const cost = realCost(university, course, exact(12000), exact(20000), 'inSede');
+    expect(cost.lines.find((line) => line.key === 'tasse')!.max).toBe(0);
+  });
+});
