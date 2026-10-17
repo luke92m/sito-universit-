@@ -22942,6 +22942,55 @@
         }
       },
       "simulator": "https://www.unimarconi.it/tasse-di-iscrizione/"
+    },
+    "ateneo-04804": {
+      "name": "Università telematica IUL",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Nuovi immatricolati 2026/27 (Manifesto, par. 8.1): contributo uguale per ogni corso e per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Con la prima rata: tassa regionale ARDSU Toscana (140 €) e bollo virtuale (16 €).",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2500
+        }
+      ],
+      "bandsSource": {
+        "label": "IUL, Manifesto degli Studi 2026/2027, par. 8.1",
+        "url": "https://www.iuline.it/wp-content/uploads/2026/08/Manifesto_2026_2027_approvazione_310726.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 2500,
+        "ciclo-unico": 2500,
+        "magistrale": 2500
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Ateneo non statale: chi ha la borsa ARDSU è esonerato solo dalla tassa regionale (Manifesto, par. 8.12), non dal contributo.",
+      "maxNote": "Contributo 2026/27 per tutte le lauree e per la magistrale LM-57: 2.500 € (1.300 € + 1.200 €). Chi ha fatto la pre-immatricolazione paga 1.350 € il primo anno e 1.850 € dal secondo (par. 8.3).",
+      "maxSource": {
+        "label": "IUL, Manifesto degli Studi 2026/2027 (approvato dal CdA il 31 luglio 2026), parr. 8.1, 8.3 e 8.12",
+        "url": "https://www.iuline.it/wp-content/uploads/2026/08/Manifesto_2026_2027_approvazione_310726.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata 1.456 € all’immatricolazione (1.300 € + tassa regionale + bollo)",
+          "Seconda rata 1.200 € entro il 6 maggio 2027"
+        ],
+        "note": "In ritardo: mora di 70 € (fino a 30 giorni) o 100 € (oltre).",
+        "source": {
+          "label": "IUL, Manifesto degli Studi 2026/2027, par. 8.1",
+          "url": "https://www.iuline.it/wp-content/uploads/2026/08/Manifesto_2026_2027_approvazione_310726.pdf"
+        }
+      },
+      "simulator": "https://www.iuline.it/studenti/tasse-contributi/"
     }
   }
 }

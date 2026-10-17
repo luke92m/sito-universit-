@@ -2124,3 +2124,18 @@ describe('Guglielmo Marconi 2026/27: retta standard unica', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('IUL 2026/27: contributo unico dal Manifesto', () => {
+  const rule = tuitionRuleFor('ateneo-04804')!;
+  const courses = getCourses('ateneo-04804');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Comunicazione Innovativa, Multimediale e Digitale')).toBe(2500);
+    expect(max('Innovazione Educativa e Apprendimento Permanente nella Formazione degli Adulti in Contesti Nazionali e Internazionali')).toBe(2500);
+    expect(rule.fixedFees.total).toBe(156);
+    expect(rule.noScholarshipExemption).toContain('8.12');
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
