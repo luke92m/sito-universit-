@@ -1934,3 +1934,14 @@ describe('San Raffaele 2026/27: retta per corso e borse regionali', () => {
     expect(scholarshipFor(unisr, exact(12000), none, 'pendolare', { grade: 85, firstCycle: true }).amountMax).toBe(4820);
   });
 });
+
+describe('Humanitas 2026/27: borse regionali (tasse con indice ISEP, non inserite)', () => {
+  it('Importi lombardi, 80/100 alla maturità, nessuna regola tasse', () => {
+    const humanitas = dsuEntityFor('ateneo-01510')!;
+    expect(humanitas.id).toBe('humanitas-dsu');
+    expect(amountAt(humanitas, 10000, 'fuoriSede')).toBe(8248);
+    expect(amountAt(humanitas, 25000, 'pendolare')).toBe(3299);
+    expect(humanitas.minDiplomaGrade).toBe(80);
+    expect(tuitionRuleFor('ateneo-01510')).toBeNull();
+  });
+});

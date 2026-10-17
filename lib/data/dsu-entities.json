@@ -14760,6 +14760,97 @@
         "url": "https://www.unisr.it/servizi/borse-di-studio/borse-di-studio-regionali"
       },
       "minDiplomaGrade": 80
+    },
+    {
+      "id": "humanitas-dsu",
+      "name": "Humanitas University – Borse di studio regionali",
+      "shortName": "Humanitas",
+      "region": "Lombardia",
+      "universityIds": [
+        "ateneo-01510"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "thresholds": {
+        "isee": 26887.93,
+        "ispe": 58452.06,
+        "source": {
+          "label": "Humanitas University, Bando DSU 2026/27 (22 luglio 2026), art. 3.3",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/07/DSU-26.27.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importi della Regione Lombardia, comprensivi del rimborso della tassa regionale e del pasto giornaliero (829 €). Tre fasce a scalini. Al primo anno servono 80/100 alla maturità nei corsi triennali e 90/100 a Medicina e MEDTEC, e nessun OFA. Fondi limitati (78.136,13 € per l’Ateneo).",
+        "bands": [
+          {
+            "iseeMax": 13443.97,
+            "fuoriSede": 8248,
+            "pendolare": 4820,
+            "inSede": 3430
+          },
+          {
+            "iseeMax": 17925.29,
+            "fuoriSede": 7172,
+            "pendolare": 4191,
+            "inSede": 2991
+          },
+          {
+            "iseeMax": 26887.93,
+            "fuoriSede": 5857,
+            "pendolare": 3299,
+            "inSede": 2143
+          }
+        ],
+        "source": {
+          "label": "Humanitas University, Bando DSU 2026/27 (22 luglio 2026), art. 4.1",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/07/DSU-26.27.pdf"
+        }
+      },
+      "increments": [],
+      "connectedBenefits": [
+        "Pasto giornaliero (829 €) per i beneficiari",
+        "Posto letto alla residenza Mario Luzzatto per 8 fuori sede di Pieve Emanuele (valore 2.799 €, con differenza da pagare)"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Humanitas University, Bando DSU 2026/27 (22 luglio 2026), art. 4.1",
+        "url": "https://www.hunimed.eu/wp-content/uploads/2026/07/DSU-26.27.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Famiglia a più di 90 minuti di mezzi pubblici dalla sede e alloggio a titolo oneroso vicino alla sede per almeno 9 mesi (contratto entro il 14 ottobre 2026).",
+        "pendolare": "Famiglia a 60-90 minuti di mezzi pubblici dalla sede (o fuori sede senza alloggio a pagamento).",
+        "inSede": "Famiglia nel comune della sede o entro 60 minuti di mezzi pubblici.",
+        "source": {
+          "label": "Humanitas University, Bando DSU 2026/27 (22 luglio 2026), art. 4.1",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/07/DSU-26.27.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "Metà della borsa entro il 31 dicembre 2026",
+          "Saldo entro il 31 ottobre 2027, con 35 crediti entro il 10 agosto 2027"
+        ],
+        "note": "Con i 35 crediti raggiunti entro il 26 novembre 2027 non si restituisce la prima rata; senza, la borsa è revocata e va restituita.",
+        "source": {
+          "label": "Humanitas University, Bando DSU 2026/27 (22 luglio 2026), art. 8",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/07/DSU-26.27.pdf"
+        }
+      },
+      "application": {
+        "closes": "2026-09-22",
+        "note": "Domanda con il modulo online di Humanitas (anche prima dell’immatricolazione, purché entro il 6 ottobre 2026); graduatorie entro il 20 ottobre 2026.",
+        "source": {
+          "label": "Humanitas University, Bando DSU 2026/27 (22 luglio 2026), artt. 6-7 e 10",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/07/DSU-26.27.pdf"
+        }
+      },
+      "municipalities": {},
+      "fundedShare": null,
+      "fundedShareNote": "Borse fino a esaurimento dei fondi regionali (78.136,13 €), divisi a metà tra matricole e anni successivi (art. 1); gli idonei con disabilità le ricevono comunque.",
+      "portal": {
+        "label": "Humanitas University, Modulo di domanda per la borsa di studio DSU",
+        "url": "https://www.hunimed.eu/it/modulo-di-domanda-per-la-borsa-di-studio-dsu/"
+      },
+      "minDiplomaGrade": 80
     }
   ]
 }
