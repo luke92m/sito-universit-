@@ -20585,6 +20585,260 @@
         }
       },
       "simulator": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
+    },
+    "ateneo-05809": {
+      "name": "UNINT – Università degli Studi Internazionali di Roma",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole: contributo unico senza fasce di reddito; la retta agevolata dipende dal voto di maturità (triennali) o di laurea (magistrali).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Tassa regionale 140 € (pagata a DiSCo Lazio) e bollo 16 €, oltre alla retta.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 6900
+        }
+      ],
+      "bandsSource": {
+        "label": "UNINT, Tasse e contributi a.a. 2026/2027",
+        "url": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
+      },
+      "maxByLevel": {
+        "triennale": 6900,
+        "ciclo-unico": 6900,
+        "magistrale": 6900
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "La pagina dell’Ateneo non prevede l’esonero dalla retta per chi è idoneo alla borsa DiSCo: qui la retta resta dovuta (da verificare con l’Ateneo).",
+      "maxNote": "Retta standard 6.900 € per ogni ISEE. Al primo anno di triennale è ridotta in base al voto di maturità: 6.000 € (70-79), 5.400 € (80-89), 4.800 € (90-99), 4.500 € (100 e 100 e lode); nelle magistrali in base al voto di laurea: 6.000 € (101-105), 5.700 € (106-110), 5.550 € (110 e lode). Riduzioni non ancora nel calcolo.",
+      "maxSource": {
+        "label": "UNINT, Tasse e contributi a.a. 2026/2027",
+        "url": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata entro il 16 ottobre 2026 (fino al 5 novembre con 250 € di mora)",
+          "Rate successive il 7 dicembre 2026, 7 gennaio, 5 marzo, 5 aprile e 5 maggio 2027"
+        ],
+        "note": "Si può pagare anche in un’unica soluzione. Mora di 25 € entro 30 giorni dalla scadenza, poi 100 €.",
+        "source": {
+          "label": "UNINT, Tasse e contributi a.a. 2026/2027",
+          "url": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
+        }
+      },
+      "simulator": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/"
+    },
+    "ateneo-05817": {
+      "name": "Link Campus University",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Iscritti ai corsi di laurea: retta annuale per corso, non legata all’ISEE (pagina «Tasse e rette» in vigore a ottobre 2026).",
+      "fixedFees": {
+        "regionalTax": 140,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 156
+      },
+      "fixedFeesNote": "Tassa regionale 140 € e bollo 16 €, oltre a retta e diritto di iscrizione.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 9750
+        }
+      ],
+      "bandsSource": {
+        "label": "Link Campus University, Tasse e rette (corsi di laurea, 2026)",
+        "url": "https://www.unilink.it/iscrizione/tasse-e-rette"
+      },
+      "courseGroups": [
+        {
+          "id": "a",
+          "label": "comunicazione, economia, politica",
+          "groups": [],
+          "classCodes": [
+            "L-3",
+            "L-20",
+            "LM-59",
+            "L-18",
+            "L-36"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 9750
+            }
+          ],
+          "max": 9750,
+          "default": true
+        },
+        {
+          "id": "b",
+          "label": "magistrali e Giurisprudenza",
+          "groups": [],
+          "classCodes": [
+            "LM-77",
+            "LM-62",
+            "LMG/01"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 8250
+            }
+          ],
+          "max": 8250
+        },
+        {
+          "id": "c",
+          "label": "Scienze economiche del lavoro",
+          "groups": [],
+          "classCodes": [
+            "LM-56"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 4150
+            }
+          ],
+          "max": 4150
+        },
+        {
+          "id": "d",
+          "label": "Ingegneria e Farmacia",
+          "groups": [],
+          "classCodes": [
+            "L-8",
+            "LM-13"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 8150
+            }
+          ],
+          "max": 8150
+        },
+        {
+          "id": "e",
+          "label": "Scienze della difesa",
+          "groups": [],
+          "classCodes": [
+            "L/DS"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6750
+            }
+          ],
+          "max": 6750
+        },
+        {
+          "id": "f",
+          "label": "Formazione primaria, Infermieristica, Radiologia",
+          "groups": [],
+          "classCodes": [
+            "LM-85 bis",
+            "L/SNT1",
+            "L/SNT3"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 6150
+            }
+          ],
+          "max": 6150
+        },
+        {
+          "id": "g",
+          "label": "Fisioterapia e Osteopatia",
+          "groups": [],
+          "classCodes": [
+            "L/SNT2",
+            "L/SNT4"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 12150
+            }
+          ],
+          "max": 12150
+        },
+        {
+          "id": "h",
+          "label": "Medicina e Odontoiatria",
+          "groups": [],
+          "classCodes": [
+            "LM-41",
+            "LM-46"
+          ],
+          "bands": [
+            {
+              "iseeMax": null,
+              "from": 0,
+              "rate": 0,
+              "base": 20050
+            }
+          ],
+          "max": 20050
+        }
+      ],
+      "excludedCourses": {
+        "names": [
+          "Tecniche di Laboratorio Biomedico (Abilitante alla Professione Sanitaria di Tecnico di Laboratorio Biomedico)"
+        ],
+        "note": "il corso non compare nella tabella delle rette."
+      },
+      "maxByLevel": {
+        "triennale": 9750,
+        "ciclo-unico": 9750,
+        "magistrale": 9750
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "La pagina dell’Ateneo prevede solo borse proprie a copertura parziale della retta: l’esonero per gli idonei DiSCo non è indicato (da verificare con l’Ateneo).",
+      "maxNote": "Retta annuale per corso più 250 € di diritto di iscrizione, uguale per ogni ISEE: da 4.150 € (Scienze economiche, del lavoro e dei sistemi socio-sanitari) a 20.050 € (Medicina, Odontoiatria); 9.750 € per comunicazione, DAMS, economia e scienze politiche. Il corso è assegnato per classe di laurea.",
+      "maxSource": {
+        "label": "Link Campus University, Tasse e rette (corsi di laurea, 2026)",
+        "url": "https://www.unilink.it/iscrizione/tasse-e-rette"
+      },
+      "payments": {
+        "steps": [
+          "Diritto di iscrizione, tassa regionale e bollo all’iscrizione",
+          "Retta in più rate secondo le modalità dell’Ateneo"
+        ],
+        "note": "L’Ateneo prevede diverse rateizzazioni e un finanziamento sull’onore, da chiedere all’ufficio.",
+        "source": {
+          "label": "Link Campus University, Tasse e rette (corsi di laurea, 2026)",
+          "url": "https://www.unilink.it/iscrizione/tasse-e-rette"
+        }
+      },
+      "simulator": "https://www.unilink.it/iscrizione/tasse-e-rette"
     }
   }
 }

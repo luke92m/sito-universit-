@@ -1817,3 +1817,17 @@ describe('Roma, private 2026/27: LUMSA e Campus Bio-Medico', () => {
     expect(maxContribution(rule, named('Scienze dell\'Alimentazione e della Nutrizione Umana', 'magistrale'))).toBe(6132.73);
   });
 });
+
+describe('Roma, private 2026/27: UNINT e Link Campus', () => {
+  it('UNINT: retta unica 6.900 €', () => {
+    expect(tuitionRuleFor('ateneo-05809')!.maxByLevel.triennale).toBe(6900);
+  });
+  it('Link Campus: retta per classe di laurea più diritto di iscrizione', () => {
+    const rule = tuitionRuleFor('ateneo-05817')!;
+    const named = (name: string) => getCourses('ateneo-05817').find((course) => course.name.startsWith(name))!;
+    expect(maxContribution(rule, named('Giurisprudenza'))).toBe(8250);
+    expect(maxContribution(rule, named('Osteopatia'))).toBe(12150);
+    expect(maxContribution(rule, named('Medicina e Chirurgia'))).toBe(20050);
+    expect(isExcludedCourse(rule, named('Tecniche di Laboratorio'))).toBe(true);
+  });
+});
