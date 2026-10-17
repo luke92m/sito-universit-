@@ -20,7 +20,7 @@ Borse (bandi 2026/27):
 |---|---|---|---|
 | ER.GO (Emilia-Romagna) | Bologna, Ferrara, Modena e Reggio Emilia, Parma | 25.000 / 50.000 | in sede e pendolari per Bologna |
 | DiSCo Lazio | Sapienza, Tor Vergata, Roma Tre, Foro Italico, Cassino, Tuscia, Luiss, LUMSA, Campus Bio-Medico, UNINT, Link Campus, UniCamillus, Europea di Roma (Allegato A) | 28.339,88 / 61.608,48 | pendolari per Roma (Allegato B) |
-| EDISU Piemonte | Torino, Politecnico di Torino, Piemonte Orientale | 26.306,25 / 57.187,53 | in sede = stesso comune |
+| EDISU Piemonte | Torino, Politecnico di Torino, Piemonte Orientale, Scienze Gastronomiche | 26.306,25 / 57.187,53 | in sede = stesso comune |
 | DSU Toscana | Firenze, Pisa, Siena, Stranieri di Siena | 27.000 / 60.000 | in sede per Firenze, Pisa, Siena |
 | Università di Padova (borse regionali) | Padova | 26.306,25 / 43.125,94 | — (40/80 km o minuti) |
 | ADISURC (Campania) | Federico II, Parthenope, L'Orientale, Vanvitelli, Salerno, Sannio | 25.500 / 54.000 | in sede per Napoli e Fisciano |
@@ -165,6 +165,8 @@ Tasse (2026/27):
   - **San Raffaele (borse)**: bando benefici DSU 2026/27, artt. 1-9: importi regionali lombardi (come IULM), stato per tempi di viaggio (60/90 minuti). Per le matricole di laurea e ciclo unico servono **80/100** alla maturità (non 70 come negli altri bandi lombardi). Borse a numero chiuso (39 per le matricole): `fundedShare` resta vuoto. +20% per le studentesse di tre corsi STEM.
   - **Humanitas (tasse)**: non inserite. Il Regolamento tasse 2026/27 (sintesi ufficiale per studenti internazionali, par. 3-4) usa quattro fasce di un indice proprio, l’ISEP (redditi imponibili e una quota dei patrimoni, calcolato dall’Ateneo), non l’ISEE: Medicina e MEDTEC 10.206-23.206 €, Infermieristica e tecniche 1.706-3.706 €. Con l’ISEE che chiede il sito la fascia sarebbe sbagliata, come per la Cattolica. Il Regolamento non prevede esoneri per gli idonei alla borsa (solo per disabilità).
   - **Humanitas (borse)**: bando DSU 2026/27 del 22 luglio 2026, artt. 1-10: importi regionali lombardi, stato per tempi di viaggio (60/90 minuti; fuori sede con alloggio per 9 mesi). Al primo anno 80/100 alla maturità per i corsi triennali e **90/100 per Medicina e MEDTEC** (il sito usa 80, il campo è uno solo: la differenza è nella nota), e nessun OFA. Fondi limitati (78.136,13 €). Limite noto: Infermieristica ha anche una sede a Misterbianco (Catania); il bando non distingue le sedi e il sito usa lo stesso ente per tutte.
+  - **Scienze Gastronomiche (tasse)**: «Disposizioni per il pagamento della retta» 2026/27 (triennale e magistrali): retta fissa, non legata all’ISEE, 15.500 € l’anno in triennale e 14.000 € in magistrale, in acconto e due rate. Tassa regionale e bollo non sono indicati a parte (quota fissa a zero). Per gli idonei EDISU l’esonero totale è su domanda e fino a esaurimento di un fondo di 103.000 € (Regolamento esoneri del 12/01/2026, art. 3): `noScholarshipExemption`. Esenzioni per merito e reddito dei bandi di Ateneo e riduzioni (4.000 € ex studenti, 500 € Summer School) non calcolate.
+  - **EDISU Piemonte**: aggiunta Scienze Gastronomiche tra gli atenei (bando 2026/27, art. 1 comma 2). Pollenzo (Bra) non ha un elenco dei comuni: lo stato lo indica lo studente.
 
 ## Fonti
 

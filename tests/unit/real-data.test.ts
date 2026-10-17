@@ -1945,3 +1945,16 @@ describe('Humanitas 2026/27: borse regionali (tasse con indice ISEP, non inserit
     expect(tuitionRuleFor('ateneo-01510')).toBeNull();
   });
 });
+
+describe('Scienze Gastronomiche 2026/27: retta fissa e borse EDISU', () => {
+  const rule = tuitionRuleFor('ateneo-00401')!;
+  const named = (name: string) => getCourses('ateneo-00401').find((course) => course.name === name)!;
+  it('15.500 € in triennale e 14.000 € in magistrale per ogni ISEE; esonero EDISU non garantito', () => {
+    const lt = named('Scienze e Culture Gastronomiche');
+    expect(degreeLevel(lt)).toBe('triennale');
+    expect(contributionFor(rule, 8000, maxContribution(rule, lt))).toBe(15500);
+    expect(maxContribution(rule, named('Food Industry Management'))).toBe(14000);
+    expect(rule.noScholarshipExemption).toContain('103.000');
+    expect(dsuEntityFor('ateneo-00401')!.id).toBe('edisu-piemonte');
+  });
+});

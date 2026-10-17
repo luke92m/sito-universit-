@@ -21593,6 +21593,56 @@
         }
       },
       "simulator": "https://www.unisr.it/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale"
+    },
+    "ateneo-00401": {
+      "name": "Università di Scienze Gastronomiche",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Matricole 2026/27: retta annua fissa, uguale per ogni ISEE e per ogni anno di corso.",
+      "fixedFees": {
+        "regionalTax": 0,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 0
+      },
+      "fixedFeesNote": "Le disposizioni di pagamento 2026/27 indicano solo la retta (acconto e rate): tassa regionale e bollo non sono indicati a parte.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 15500
+        }
+      ],
+      "bandsSource": {
+        "label": "UNISG, Disposizioni per il pagamento della retta 2026/27 – Scienze e Culture Gastronomiche",
+        "url": "https://www.unisg.it/assets/disposizioni_pag_retta_scienze-e-culture-gastronomiche_2026_2027-2.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 15500,
+        "ciclo-unico": 15500,
+        "magistrale": 14000
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Per gli idonei alla borsa EDISU l’esonero totale dalla retta va chiesto all’Ateneo ed è concesso in ordine di graduatoria fino a esaurimento del fondo (103.000 € nel 2026/27 per tutti i corsi; Regolamento esoneri, art. 3): non è garantito.",
+      "maxNote": "Retta fissa, non legata all’ISEE: 15.500 € l’anno per la laurea triennale (per ciascuno dei tre anni) e 14.000 € l’anno per le magistrali. Esenzioni per merito e reddito solo con i bandi dell’Ateneo; riduzioni di 4.000 € per chi ha già un titolo UNISG e di 500 € per chi ha frequentato una Summer School: non calcolate.",
+      "maxSource": {
+        "label": "UNISG, Disposizioni per il pagamento della retta 2026/27 (laurea triennale e lauree magistrali)",
+        "url": "https://www.unisg.it/assets/disposizioni_pagamento_retta_corsi_-laurea_magistrale_26_27-1.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Acconto di 2.000 € entro una settimana dalla comunicazione dell’ammissione",
+          "Prima rata entro il 1° settembre 2026 (7.000 €)",
+          "Seconda rata entro il 25 febbraio 2027 (6.500 € in triennale, 5.000 € in magistrale)"
+        ],
+        "note": "Chi rinuncia entro il 31 agosto 2026 riceve indietro 1.000 € dell’acconto. Proroghe solo su richiesta scritta, fino a 90 giorni.",
+        "source": {
+          "label": "UNISG, Disposizioni per il pagamento della retta 2026/27 – Scienze e Culture Gastronomiche",
+          "url": "https://www.unisg.it/assets/disposizioni_pag_retta_scienze-e-culture-gastronomiche_2026_2027-2.pdf"
+        }
+      },
+      "simulator": "https://www.unisg.it/course/laurea-triennale-in-scienze-e-culture-gastronomiche/"
     }
   }
 }
