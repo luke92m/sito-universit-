@@ -23121,6 +23121,97 @@
         }
       },
       "simulator": "https://www.unicusano.it/iscriversi-universita/tassa-universitaria-e-diritti-di-segreteria"
+    },
+    "ateneo-06202": {
+      "name": "Università telematica Giustino Fortunato",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Contributo unico obbligatorio 2026/27 per corso, dai moduli di immatricolazione, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 16,
+        "insurance": 0,
+        "total": 189
+      },
+      "fixedFeesNote": "Tassa regionale ADISURC 2026/27 da 130 € a 173 € secondo l’ISEE, entro 3 mesi dall’immatricolazione, e bollo di 16 € (compreso nella prima rata del contributo unico).",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 3500
+        }
+      ],
+      "bandsSource": {
+        "label": "Università Giustino Fortunato, moduli di immatricolazione a.a. 2026/27 (pagina «Iscrizioni»)",
+        "url": "https://www.unifortunato.eu/iscrizioni-unifortunato/"
+      },
+      "maxByLevel": {
+        "triennale": 2800,
+        "ciclo-unico": 2500,
+        "magistrale": 3000
+      },
+      "maxExceptions": [
+        {
+          "name": "Diritto ed Economia delle Imprese",
+          "level": "triennale",
+          "amount": 2500
+        },
+        {
+          "name": "Ingegneria Informatica",
+          "level": "triennale",
+          "amount": 3500
+        },
+        {
+          "name": "Scienze e Tecnologie dei Trasporti",
+          "level": "triennale",
+          "amount": 3500
+        },
+        {
+          "name": "Economia Aziendale",
+          "level": "magistrale",
+          "amount": 2500
+        }
+      ],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Contributo unico 2026/27 (bollo di 16 € tolto): 2.500 € per Diritto ed Economia delle Imprese (L-14/L-18), Giurisprudenza ed Economia Aziendale (LM-77); 2.800 € per Scienze dell’Educazione, Scienze e Tecniche Psicologiche e Scienze Motorie; 3.000 € per le magistrali LM-47, LM-51 e LM-85; 3.500 € per Ingegneria Informatica e Scienze e Tecnologie dei Trasporti. La prima rata comprende 300 € di «tassa lavorazione pratica».",
+      "maxSource": {
+        "label": "Università Giustino Fortunato, moduli di immatricolazione a.a. 2026/27, punto f)",
+        "url": "https://www.unifortunato.eu/neicontent/uploads/2026/08/L19-Scienze-dellEducazione_Modulo-Immatricolazione-a.a.-26.27.pdf"
+      },
+      "payments": {
+        "steps": [
+          "Prima rata all’immatricolazione (comprende 300 € di lavorazione pratica e 16 € di bollo)",
+          "Seconda rata entro tre mesi",
+          "Terza rata entro cinque mesi"
+        ],
+        "note": "Tassa regionale entro 3 mesi dall’immatricolazione, solo con PagoPA di ADISURC.",
+        "source": {
+          "label": "Università Giustino Fortunato, modulo di immatricolazione L-19 a.a. 2026/27",
+          "url": "https://www.unifortunato.eu/neicontent/uploads/2026/08/L19-Scienze-dellEducazione_Modulo-Immatricolazione-a.a.-26.27.pdf"
+        }
+      },
+      "simulator": "https://www.unifortunato.eu/iscrizioni-unifortunato/"
     }
   }
 }

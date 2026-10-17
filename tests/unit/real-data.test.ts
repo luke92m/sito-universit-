@@ -2172,3 +2172,23 @@ describe('Niccolò Cusano: tassa universitaria per area', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('Giustino Fortunato 2026/27: contributo unico per corso', () => {
+  const rule = tuitionRuleFor('ateneo-06202')!;
+  const courses = getCourses('ateneo-06202');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Diritto ed Economia delle Imprese', 'L-18')).toBe(2500);
+    expect(max('Diritto ed Economia delle Imprese', 'L-14')).toBe(2500);
+    expect(max('Scienze dell\'Educazione')).toBe(2800);
+    expect(max('Ingegneria Informatica')).toBe(3500);
+    expect(max('Scienze e Tecnologie dei Trasporti')).toBe(3500);
+    expect(max('Giurisprudenza')).toBe(2500);
+    expect(max('Economia Aziendale')).toBe(2500);
+    expect(max('Psicologia Comportamentale e Cognitiva Applicata')).toBe(3000);
+    expect(rule.regionalTaxBands?.map((band) => band.base)).toEqual([130, 151, 173]);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});
