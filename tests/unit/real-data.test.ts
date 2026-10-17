@@ -2206,3 +2206,17 @@ describe('UniDAV 2026/27: contributo onnicomprensivo', () => {
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('Pegaso 2026/27: retta standard e contributo servizi', () => {
+  const rule = tuitionRuleFor('ateneo-06307')!;
+  const courses = getCourses('ateneo-06307');
+  const max = (name: string, classCode?: string) =>
+    maxContribution(rule, courses.find((item) => item.name === name && (!classCode || item.classCode === classCode))!);
+  it('importi fissi dalla fonte ufficiale, uguali per ogni ISEE', () => {
+    expect(max('Economia Aziendale')).toBe(2750);
+    expect(max('GIURISPRUDENZA')).toBe(2750);
+    expect(rule.regionalTaxBands?.map((band) => band.base)).toEqual([130, 151, 173]);
+    expect(contributionFor(rule, 5000, 2000)).toBe(2000);
+    expect(rule.noScholarshipExemption).toBeTypeOf('string');
+  });
+});

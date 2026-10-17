@@ -23262,6 +23262,76 @@
         }
       },
       "simulator": "https://www.unidav.it/index.php/segreteria-studenti/"
+    },
+    "ateneo-06307": {
+      "name": "Università telematica Pegaso",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-10-17",
+      "appliesTo": "Retta standard 2026/27 (senza agevolazioni) più contributo per i servizi, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 173,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 173
+      },
+      "fixedFeesNote": "Tassa regionale ADISURC Campania, ogni anno: da 130 € a 173 € secondo l’ISEE (importi 2026/27). La pagina non indica il bollo.",
+      "regionalTaxBands": [
+        {
+          "iseeMax": 25500,
+          "from": 0,
+          "rate": 0,
+          "base": 130
+        },
+        {
+          "iseeMax": 51000,
+          "from": 0,
+          "rate": 0,
+          "base": 151
+        },
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 173
+        }
+      ],
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 2750
+        }
+      ],
+      "bandsSource": {
+        "label": "Università telematica Pegaso, pagina «Iscriviti» (costi e modalità di pagamento)",
+        "url": "https://www.unipegaso.it/iscriviti"
+      },
+      "maxByLevel": {
+        "triennale": 2750,
+        "ciclo-unico": 2750,
+        "magistrale": 2750
+      },
+      "maxExceptions": [],
+      "noScholarshipExemption": "Ateneo non statale: la borsa per il diritto allo studio non toglie la retta, perché le regole dell’Ateneo non prevedono l’esonero per chi è idoneo.",
+      "maxNote": "Retta standard 2026/27 di 2.450 € più il contributo annuale per i servizi agli studenti di 300 € (2.750 €). Ci sono agevolazioni per convenzioni e promozioni: il sito usa la retta standard.",
+      "maxSource": {
+        "label": "Università telematica Pegaso, pagina «Iscriviti» (a.a. 2026/2027)",
+        "url": "https://www.unipegaso.it/iscriviti"
+      },
+      "payments": {
+        "steps": [
+          "Retta rateizzabile, online o con bonifico",
+          "Contributo per i servizi ogni anno",
+          "Tassa regionale ogni anno, direttamente all’ente regionale"
+        ],
+        "note": "Costi accessori (certificati, trasferimenti, prova finale) nella tabella della stessa pagina.",
+        "source": {
+          "label": "Università telematica Pegaso, pagina «Iscriviti»",
+          "url": "https://www.unipegaso.it/iscriviti"
+        }
+      },
+      "simulator": "https://www.unipegaso.it/iscriviti"
     }
   }
 }
