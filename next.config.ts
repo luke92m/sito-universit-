@@ -8,6 +8,9 @@ const ACCOUNT_PATHS = ['/area-studente', '/area-studente/:path*', '/auth/:path*'
 const LEGACY_PAGES = ['atenei', 'comparison', 'trova-corso', 'preparazione', 'burocrazia', 'scuole-aziende'];
 
 const nextConfig: NextConfig = {
+  experimental: {
+    agentUpgrade: 'security'
+  },
   // Il dataset corsi viene letto dalle route API: va incluso nei bundle serverless.
   outputFileTracingIncludes: {
     '/api/**/*': ['./lib/data/*.json']
