@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Figtree } from 'next/font/google';
 import { AuthModal } from '@/components/site/AuthModal';
 import { Footer } from '@/components/site/Footer';
 import { Header } from '@/components/site/Header';
@@ -10,6 +11,8 @@ import { isEnabled } from '@/lib/features';
 import { SITE_CONFIG } from '@/lib/site-config';
 import './globals.css';
 
+const figtree = Figtree({ subsets: ['latin'], variable: '--font-figtree', display: 'swap' });
+
 export const metadata: Metadata = {
   title: { default: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`, template: `%s — ${SITE_CONFIG.name}` },
   description:
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#5a4cf0'
+  themeColor: '#12505c'
 };
 
 // Elenco leggero degli atenei per selettori e intestazioni (il dataset corsi resta sul server).
@@ -28,7 +31,7 @@ const universitySummaries = UNIVERSITIES.slice()
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" data-scroll-behavior="smooth">
+    <html lang="it" data-scroll-behavior="smooth" className={figtree.variable}>
       <body>
         <SiteProvider universities={universitySummaries}>
           <Header />

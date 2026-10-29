@@ -1,31 +1,31 @@
 :root {
-  --ink: #172033;
-  --ink-soft: #566078;
-  --ink-faint: #7b8498;
+  --ink: #17282c;
+  --ink-soft: #3e5258;
+  --ink-faint: #5d7177;
   --surface: #ffffff;
-  --surface-soft: #f6f7fb;
-  --surface-tint: #eef1ff;
-  --line: #dfe3ef;
-  --line-strong: #cbd1e1;
-  --primary: #5a4cf0;
-  --primary-dark: #4035c7;
-  --primary-soft: #ebe9ff;
-  --accent: #ff8b5f;
-  --accent-soft: #fff0e9;
+  --surface-soft: #f3f7f8;
+  --surface-tint: #e3f1f6;
+  --line: #dbe6ea;
+  --line-strong: #c3d3d9;
+  --primary: #12505c;
+  --primary-dark: #0b3740;
+  --primary-soft: #e3f1f6;
+  --accent: #4f97b0;
+  --accent-soft: #e3f1f6;
   --success: #16866a;
   --success-soft: #e7f7f2;
   --warning: #a7650b;
   --warning-soft: #fff5dc;
   --danger: #b53a52;
-  --shadow-sm: 0 8px 24px rgba(31, 39, 72, 0.08);
-  --shadow-md: 0 20px 60px rgba(31, 39, 72, 0.14);
+  --shadow-sm: 0 8px 24px rgba(14, 60, 69, 0.08);
+  --shadow-md: 0 20px 60px rgba(14, 60, 69, 0.14);
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 32px;
   --max-width: 1180px;
   --header-height: 78px;
-  --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --display: Georgia, "Times New Roman", serif;
+  --sans: var(--font-figtree), ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: var(--sans);
 }
 
 * {
@@ -40,9 +40,7 @@ body {
   margin: 0;
   min-width: 320px;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 12% 6%, rgba(90, 76, 240, 0.10), transparent 28rem),
-    linear-gradient(180deg, #fbfbff 0%, #ffffff 44%, #f7f8fc 100%);
+  background: var(--surface);
   font-family: var(--sans);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -83,7 +81,7 @@ a {
 
 ::selection {
   color: var(--ink);
-  background: #d9d5ff;
+  background: #acd7e6;
 }
 
 .site-header {
@@ -121,11 +119,11 @@ a {
   place-items: center;
   border-radius: 13px;
   color: #fff;
-  background: linear-gradient(145deg, var(--primary), #8075ff);
-  box-shadow: 0 8px 18px rgba(90, 76, 240, 0.24);
+  background: var(--primary);
+  box-shadow: 0 8px 18px rgba(18, 80, 92, 0.24);
   font-family: var(--display);
   font-size: 25px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
   line-height: 1;
 }
@@ -222,7 +220,7 @@ a {
   border-radius: 15px;
   color: var(--ink);
   background: var(--surface);
-  box-shadow: 0 4px 14px rgba(31, 39, 72, 0.05);
+  box-shadow: 0 4px 14px rgba(14, 60, 69, 0.05);
   cursor: pointer;
   gap: 8px;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
@@ -231,8 +229,8 @@ a {
 .profile-button:hover,
 .profile-button:focus-visible,
 .profile-button[aria-expanded="true"] {
-  border-color: rgba(90, 76, 240, 0.48);
-  box-shadow: 0 8px 22px rgba(90, 76, 240, 0.12);
+  border-color: rgba(18, 80, 92, 0.48);
+  box-shadow: 0 8px 22px rgba(18, 80, 92, 0.12);
   outline: none;
   transform: translateY(-1px);
 }
@@ -322,7 +320,7 @@ a {
   place-items: center;
   border-radius: 14px;
   color: #fff;
-  background: linear-gradient(135deg, var(--primary), #8176ff);
+  background: var(--primary);
   font-weight: 800;
 }
 
@@ -438,21 +436,15 @@ main {
 
 .hero {
   position: relative;
-  width: min(calc(100% - 40px), var(--max-width));
-  margin: 0 auto;
-  padding: 88px 0 78px;
+  width: min(calc(100% - 32px), var(--max-width));
+  margin: 16px auto 0;
+  padding: 72px clamp(20px, 4vw, 56px);
+  border-radius: 28px;
+  background: var(--surface-tint);
 }
 
 .hero::before {
-  position: absolute;
-  z-index: -1;
-  top: 48px;
-  right: 1%;
-  width: 350px;
-  height: 350px;
-  border: 1px solid rgba(90, 76, 240, 0.12);
-  border-radius: 50%;
-  content: "";
+  content: none;
 }
 
 .hero-grid {
@@ -489,16 +481,16 @@ main {
   max-width: 790px;
   margin: 20px 0 18px;
   font-family: var(--display);
-  font-size: clamp(52px, 7.5vw, 104px);
-  font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 0.92;
+  font-size: clamp(40px, 5.6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
 .hero h1 em {
   position: relative;
   color: var(--primary);
-  font-style: italic;
+  font-style: normal;
 }
 
 .hero h1 em::after {
@@ -508,9 +500,7 @@ main {
   left: 2%;
   height: 7px;
   border-radius: 50%;
-  background: rgba(255, 139, 95, 0.42);
-  content: "";
-  transform: rotate(-1.5deg);
+  content: none;
 }
 
 .hero-subtitle {
@@ -562,13 +552,13 @@ main {
 .button-primary {
   color: #fff;
   background: var(--primary);
-  box-shadow: 0 12px 28px rgba(90, 76, 240, 0.24);
+  box-shadow: 0 12px 28px rgba(18, 80, 92, 0.24);
 }
 
 .button-primary:hover,
 .button-primary:focus-visible {
   background: var(--primary-dark);
-  box-shadow: 0 16px 36px rgba(90, 76, 240, 0.30);
+  box-shadow: 0 16px 36px rgba(18, 80, 92, 0.30);
 }
 
 .button-secondary {
@@ -579,7 +569,7 @@ main {
 
 .button-secondary:hover,
 .button-secondary:focus-visible {
-  border-color: rgba(90, 76, 240, 0.44);
+  border-color: rgba(18, 80, 92, 0.44);
   background: var(--surface);
 }
 
@@ -591,7 +581,7 @@ main {
   position: relative;
   overflow: hidden;
   padding: 28px;
-  border: 1px solid rgba(90, 76, 240, 0.16);
+  border: 1px solid rgba(18, 80, 92, 0.16);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow-md);
@@ -605,7 +595,7 @@ main {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: rgba(90, 76, 240, 0.10);
+  background: rgba(18, 80, 92, 0.10);
   content: "";
 }
 
@@ -648,7 +638,7 @@ main {
   background: var(--primary-soft);
   font-family: var(--display);
   font-size: 17px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
 }
 
@@ -704,7 +694,7 @@ main {
   padding: 20px 24px;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: linear-gradient(100deg, var(--ink), #293450);
+  background: linear-gradient(100deg, var(--ink), #163f47);
   color: #fff;
 }
 
@@ -732,7 +722,7 @@ main {
   margin-bottom: 3px;
   font-family: var(--display);
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .strip-item span {
@@ -756,9 +746,9 @@ main {
 .section-heading h2 {
   margin: 8px 0 0;
   font-family: var(--display);
-  font-size: clamp(42px, 5vw, 68px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-size: clamp(31.5px, 3.8vw, 51px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1;
 }
 
@@ -788,8 +778,8 @@ main {
   margin: 24px 0 10px;
   font-family: var(--display);
   font-size: clamp(28px, 3.2vw, 42px);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.08;
 }
 
@@ -834,7 +824,7 @@ main {
 .page-hero h1 {
   max-width: 900px;
   margin-top: 16px;
-  font-size: clamp(48px, 6.6vw, 86px);
+  font-size: clamp(28.5px, 3.8vw, 48px);
 }
 
 .page-lead {
@@ -889,7 +879,7 @@ main {
 .filter-toggle:hover,
 .filter-toggle:focus-visible,
 .filter-toggle[aria-expanded="true"] {
-  border-color: rgba(90, 76, 240, 0.5);
+  border-color: rgba(18, 80, 92, 0.5);
   outline: none;
 }
 
@@ -964,7 +954,7 @@ main {
   border-radius: 9px;
   background: var(--surface-tint);
   font-family: var(--display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
 }
 
@@ -1045,9 +1035,9 @@ main {
 }
 
 .search-field input:focus {
-  border-color: rgba(90, 76, 240, 0.35);
+  border-color: rgba(18, 80, 92, 0.35);
   background: var(--surface);
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.08);
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.08);
 }
 
 .catalog-count {
@@ -1092,13 +1082,13 @@ main {
   border: 1px solid var(--line);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 4px 14px rgba(31, 39, 72, 0.035);
+  box-shadow: 0 4px 14px rgba(14, 60, 69, 0.035);
   gap: 18px;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .university-card:hover {
-  border-color: rgba(90, 76, 240, 0.30);
+  border-color: rgba(18, 80, 92, 0.30);
   box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
 }
@@ -1113,7 +1103,7 @@ main {
   background: var(--primary-soft);
   font-family: var(--display);
   font-size: 17px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
 }
 
@@ -1170,7 +1160,7 @@ main {
   margin: 0;
   font-family: var(--display);
   font-size: clamp(19px, 2.1vw, 27px);
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.14;
 }
@@ -1254,14 +1244,14 @@ main {
   background: var(--primary-soft);
   font-family: var(--display);
   font-size: 28px;
-  font-style: italic;
+  font-style: normal;
 }
 
 .catalog-empty h2 {
   margin: 16px 0 3px;
   font-family: var(--display);
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .catalog-empty p {
@@ -1299,7 +1289,7 @@ main {
 
 .area-shell h1 {
   margin-top: 16px;
-  font-size: clamp(50px, 7vw, 88px);
+  font-size: clamp(37.5px, 5.3vw, 66px);
 }
 
 .coming-grid {
@@ -1322,15 +1312,15 @@ main {
   color: var(--accent);
   font-family: var(--display);
   font-size: 18px;
-  font-style: italic;
+  font-style: normal;
 }
 
 .coming-card h2 {
   margin: 42px 0 8px;
   font-family: var(--display);
   font-size: 28px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 .coming-card p {
@@ -1440,8 +1430,8 @@ main {
   margin: 13px 0 8px;
   font-family: var(--display);
   font-size: clamp(34px, 5vw, 46px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1;
 }
 
@@ -1482,7 +1472,7 @@ main {
 
 .field input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.10);
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.10);
 }
 
 .situation-fieldset {
@@ -1513,7 +1503,7 @@ main {
 }
 
 .situation-option:hover {
-  border-color: rgba(90, 76, 240, 0.38);
+  border-color: rgba(18, 80, 92, 0.38);
   background: var(--surface-tint);
 }
 
@@ -1558,7 +1548,7 @@ main {
 }
 
 .situation-option:has(input:focus-visible) {
-  outline: 3px solid rgba(90, 76, 240, 0.16);
+  outline: 3px solid rgba(18, 80, 92, 0.16);
 }
 
 .form-message {
@@ -1713,8 +1703,8 @@ main {
 }
 
 .institution-type-field:focus-within {
-  border-color: rgba(90, 76, 240, 0.48);
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.08);
+  border-color: rgba(18, 80, 92, 0.48);
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.08);
 }
 
 .institution-type-field > span {
@@ -1746,7 +1736,7 @@ main {
   display: grid;
   min-width: 112px;
   padding: 8px 10px;
-  border: 1px solid rgba(90, 76, 240, 0.2);
+  border: 1px solid rgba(18, 80, 92, 0.2);
   border-radius: 13px;
   color: var(--primary-dark);
   background: var(--primary-soft);
@@ -1852,14 +1842,14 @@ main {
 }
 
 .finder-mode-card:hover {
-  border-color: rgba(90, 76, 240, 0.32);
+  border-color: rgba(18, 80, 92, 0.32);
   transform: translateY(-1px);
 }
 
 .finder-mode-card.is-active {
-  border-color: rgba(90, 76, 240, 0.34);
+  border-color: rgba(18, 80, 92, 0.34);
   background: var(--primary-soft);
-  box-shadow: 0 10px 28px rgba(90, 76, 240, 0.09);
+  box-shadow: 0 10px 28px rgba(18, 80, 92, 0.09);
 }
 
 .finder-mode-card > span {
@@ -1870,7 +1860,7 @@ main {
   place-items: center;
   border-radius: 10px;
   color: var(--primary-dark);
-  background: rgba(90, 76, 240, 0.11);
+  background: rgba(18, 80, 92, 0.11);
   font-size: 9px;
   font-weight: 900;
 }
@@ -1941,7 +1931,7 @@ main {
   width: 0;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--primary), #8b82ff);
+  background: var(--primary);
   transition: width 260ms ease;
 }
 
@@ -1958,8 +1948,8 @@ main {
   padding: 0;
   font-family: var(--display);
   font-size: clamp(30px, 4vw, 46px);
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.06;
 }
 
@@ -2002,7 +1992,7 @@ main {
 }
 
 .quiz-option:hover {
-  border-color: rgba(90, 76, 240, 0.36);
+  border-color: rgba(18, 80, 92, 0.36);
   background: var(--surface-tint);
   transform: translateY(-1px);
 }
@@ -2010,7 +2000,7 @@ main {
 .quiz-option.is-selected {
   border-color: var(--primary);
   background: var(--primary-soft);
-  box-shadow: 0 8px 22px rgba(90, 76, 240, 0.1);
+  box-shadow: 0 8px 22px rgba(18, 80, 92, 0.1);
 }
 
 .quiz-option input {
@@ -2023,7 +2013,7 @@ main {
 }
 
 .quiz-option:focus-within {
-  outline: 3px solid rgba(90, 76, 240, 0.15);
+  outline: 3px solid rgba(18, 80, 92, 0.15);
 }
 
 .quiz-option-control {
@@ -2130,8 +2120,8 @@ main {
   border-radius: 28px;
   color: #fff;
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 139, 95, 0.45), transparent 15rem),
-    linear-gradient(145deg, #1b2340, #34305d);
+    radial-gradient(circle at 100% 0%, rgba(172, 215, 230, 0.45), transparent 15rem),
+    linear-gradient(145deg, #102f36, #0e3c45);
   box-shadow: var(--shadow-md);
 }
 
@@ -2147,18 +2137,18 @@ main {
 }
 
 .finder-guide-number {
-  color: #bdb8ff;
+  color: #acd7e6;
   font-family: var(--display);
   font-size: 20px;
-  font-style: italic;
+  font-style: normal;
 }
 
 .finder-guide-card h2 {
   margin: 60px 0 10px;
   font-family: var(--display);
   font-size: 34px;
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.02;
 }
 
@@ -2184,7 +2174,7 @@ main {
 }
 
 .finder-guide-list span {
-  color: #bdb8ff;
+  color: #acd7e6;
   font-size: 9px;
   font-weight: 850;
   letter-spacing: 0.08em;
@@ -2222,9 +2212,9 @@ main {
 .result-heading h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-size: clamp(30px, 3.8vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1;
 }
 
@@ -2260,9 +2250,9 @@ main {
   min-height: 260px;
   align-items: center;
   padding: 32px;
-  border-color: rgba(90, 76, 240, 0.25);
+  border-color: rgba(18, 80, 92, 0.25);
   background:
-    radial-gradient(circle at 100% 0%, rgba(90, 76, 240, 0.12), transparent 22rem),
+    radial-gradient(circle at 100% 0%, rgba(18, 80, 92, 0.12), transparent 22rem),
     var(--surface);
   box-shadow: var(--shadow-md);
 }
@@ -2273,7 +2263,7 @@ main {
   height: 82px;
   place-items: center;
   align-content: center;
-  border: 1px solid rgba(90, 76, 240, 0.2);
+  border: 1px solid rgba(18, 80, 92, 0.2);
   border-radius: 50%;
   color: var(--primary-dark);
   background: var(--primary-soft);
@@ -2306,8 +2296,8 @@ main {
   margin: 5px 0 7px;
   font-family: var(--display);
   font-size: clamp(25px, 3vw, 40px);
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -2353,8 +2343,8 @@ main {
   margin: 7px 0 5px;
   font-family: var(--display);
   font-size: 30px;
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 .remember-preferences-card p {
@@ -2380,11 +2370,11 @@ main {
   align-items: center;
   margin-top: 14px;
   padding: 28px;
-  border: 1px solid rgba(90, 76, 240, 0.2);
+  border: 1px solid rgba(18, 80, 92, 0.2);
   border-radius: 24px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(90, 76, 240, 0.12), transparent 18rem),
-    linear-gradient(135deg, #f7f6ff, #ffffff);
+    radial-gradient(circle at 100% 0%, rgba(18, 80, 92, 0.12), transparent 18rem),
+    linear-gradient(135deg, #f3f8fa, #ffffff);
   gap: 24px;
 }
 
@@ -2393,8 +2383,8 @@ main {
   margin: 7px 0 5px;
   font-family: var(--display);
   font-size: clamp(27px, 3vw, 38px);
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -2421,10 +2411,10 @@ main {
 .university-finder-intro h2 {
   margin: 6px 0 8px;
   font-family: var(--display);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  font-size: clamp(30px, 3.8vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
 .university-finder-intro p {
@@ -2442,7 +2432,7 @@ main {
 .university-guide-card {
   background:
     radial-gradient(circle at 100% 0%, rgba(80, 206, 168, 0.3), transparent 15rem),
-    linear-gradient(145deg, #152d36, #263f53);
+    linear-gradient(145deg, #152d36, #163f47);
 }
 
 .university-question-fieldset .field {
@@ -2525,7 +2515,7 @@ main {
 .profile-confirmation-card strong {
   font-family: var(--display);
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: -0.025em;
 }
 
@@ -2582,8 +2572,8 @@ main {
 }
 
 .university-telematic-toggle:hover {
-  border-color: rgba(90, 76, 240, 0.32);
-  box-shadow: 0 10px 28px rgba(25, 31, 54, 0.07);
+  border-color: rgba(18, 80, 92, 0.32);
+  box-shadow: 0 10px 28px rgba(14, 60, 69, 0.07);
   transform: translateY(-1px);
 }
 
@@ -2614,7 +2604,7 @@ main {
   height: 16px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 2px 7px rgba(25, 31, 54, 0.2);
+  box-shadow: 0 2px 7px rgba(14, 60, 69, 0.2);
   transition: transform 160ms ease;
 }
 
@@ -2628,7 +2618,7 @@ main {
 }
 
 .university-telematic-toggle input:focus-visible + .university-toggle-control {
-  outline: 3px solid rgba(90, 76, 240, 0.2);
+  outline: 3px solid rgba(18, 80, 92, 0.2);
   outline-offset: 3px;
 }
 
@@ -2659,7 +2649,7 @@ main {
   border: 1px solid var(--line);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 12px 34px rgba(25, 31, 54, 0.06);
+  box-shadow: 0 12px 34px rgba(14, 60, 69, 0.06);
 }
 
 .university-match-rank {
@@ -2668,7 +2658,7 @@ main {
   justify-items: center;
   padding: 24px 12px;
   color: #fff;
-  background: linear-gradient(160deg, #29255c, #5548d6);
+  background: linear-gradient(160deg, #0e3c45, #0b3740);
   text-align: center;
 }
 
@@ -2683,7 +2673,7 @@ main {
   margin-top: 44px;
   font-family: var(--display);
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 1;
 }
 
@@ -2711,8 +2701,8 @@ main {
   margin: 5px 0 5px;
   font-family: var(--display);
   font-size: clamp(26px, 3vw, 38px);
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -2852,7 +2842,7 @@ main {
   margin: 8px 0;
   font-family: var(--display);
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .university-no-results p {
@@ -3004,7 +2994,7 @@ main {
   background: var(--primary);
   font-family: var(--display);
   font-size: 18px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
 }
 
@@ -3036,7 +3026,7 @@ main {
 
 .comparison-choice-card select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.09);
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.09);
 }
 
 .comparison-divider {
@@ -3081,9 +3071,9 @@ main {
 .comparison-result-heading h2 {
   margin: 8px 0 4px;
   font-family: var(--display);
-  font-size: clamp(38px, 5vw, 62px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-size: clamp(28.5px, 3.8vw, 46.5px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1;
 }
 
@@ -3120,7 +3110,7 @@ main {
 
 .comparison-print-button:hover,
 .comparison-print-button:focus-visible {
-  border-color: rgba(90, 76, 240, 0.45);
+  border-color: rgba(18, 80, 92, 0.45);
   color: var(--primary-dark);
   outline: none;
 }
@@ -3155,7 +3145,7 @@ main {
 
 .comparison-table-head {
   color: #fff;
-  background: linear-gradient(135deg, #202841, #35325e);
+  background: linear-gradient(135deg, #102f36, #0e3c45);
 }
 
 .comparison-table-head > div {
@@ -3177,7 +3167,7 @@ main {
   color: #fff;
   background: var(--primary);
   font-family: var(--display);
-  font-style: italic;
+  font-style: normal;
 }
 
 .comparison-criterion {
@@ -3758,7 +3748,7 @@ main {
   }
 
   .hero h1 {
-    font-size: clamp(49px, 16vw, 76px);
+    font-size: clamp(40px, 12vw, 56px);
   }
 
   .hero-subtitle {
@@ -3823,7 +3813,7 @@ main {
 
   .page-hero h1,
   .area-shell h1 {
-    font-size: clamp(45px, 14vw, 67px);
+    font-size: clamp(34px, 10vw, 46px);
   }
 
   .catalog-toolbar {
@@ -3914,9 +3904,9 @@ main {
 .journey-form-panel {
   display: grid;
   padding: 18px;
-  border: 1px solid rgba(90, 76, 240, 0.18);
+  border: 1px solid rgba(18, 80, 92, 0.18);
   border-radius: 18px;
-  background: linear-gradient(145deg, rgba(238, 241, 255, 0.82), rgba(255, 255, 255, 0.95));
+  background: linear-gradient(145deg, rgba(227, 241, 246, 0.82), rgba(255, 255, 255, 0.95));
   gap: 15px;
 }
 
@@ -3980,11 +3970,11 @@ main {
   border-color: var(--primary);
   color: var(--primary-dark);
   background: var(--primary-soft);
-  box-shadow: inset 0 0 0 1px rgba(90, 76, 240, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(18, 80, 92, 0.08);
 }
 
 .choice-pill:has(input:focus-visible) {
-  outline: 3px solid rgba(90, 76, 240, 0.15);
+  outline: 3px solid rgba(18, 80, 92, 0.15);
 }
 
 .field select,
@@ -4020,7 +4010,7 @@ main {
 .field select:focus,
 .field textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.10);
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.10);
 }
 
 .profile-edit-journey {
@@ -4082,10 +4072,10 @@ main {
   max-width: 800px;
   margin: 14px 0 16px;
   font-family: var(--display);
-  font-size: clamp(48px, 7vw, 86px);
-  font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
+  font-size: clamp(36px, 5.3vw, 64.5px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
 .tool-hero p,
@@ -4104,10 +4094,10 @@ main {
   min-height: 150px;
   align-content: center;
   padding: 22px;
-  border: 1px solid rgba(90, 76, 240, 0.17);
+  border: 1px solid rgba(18, 80, 92, 0.17);
   border-radius: 22px;
   background:
-    radial-gradient(circle at 90% 10%, rgba(255, 139, 95, 0.15), transparent 95px),
+    radial-gradient(circle at 90% 10%, rgba(172, 215, 230, 0.15), transparent 95px),
     linear-gradient(145deg, var(--surface-tint), #fff);
   box-shadow: var(--shadow-sm);
   gap: 4px;
@@ -4124,8 +4114,8 @@ main {
 .today-card strong {
   font-family: var(--display);
   font-size: 25px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 .today-card small {
@@ -4186,9 +4176,9 @@ main {
 }
 
 .service-card-emphasis {
-  border-color: rgba(90, 76, 240, 0.22);
+  border-color: rgba(18, 80, 92, 0.22);
   background:
-    radial-gradient(circle at 96% 5%, rgba(90, 76, 240, 0.12), transparent 180px),
+    radial-gradient(circle at 96% 5%, rgba(18, 80, 92, 0.12), transparent 180px),
     #fff;
 }
 
@@ -4196,8 +4186,8 @@ main {
 .service-card h3 {
   margin: 10px 0 10px;
   font-family: var(--display);
-  font-weight: 500;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -4305,7 +4295,7 @@ main {
   font-size: 11px;
   font-weight: 800;
   text-decoration: underline;
-  text-decoration-color: rgba(90, 76, 240, 0.28);
+  text-decoration-color: rgba(18, 80, 92, 0.28);
   text-underline-offset: 4px;
 }
 
@@ -4341,18 +4331,18 @@ main {
   place-content: center;
   justify-items: start;
   padding: clamp(32px, 6vw, 72px);
-  border: 1px solid rgba(90, 76, 240, 0.18);
+  border: 1px solid rgba(18, 80, 92, 0.18);
   border-radius: 32px;
   background:
-    radial-gradient(circle at 80% 25%, rgba(90, 76, 240, 0.16), transparent 260px),
-    radial-gradient(circle at 15% 85%, rgba(255, 139, 95, 0.12), transparent 230px),
+    radial-gradient(circle at 80% 25%, rgba(18, 80, 92, 0.16), transparent 260px),
+    radial-gradient(circle at 15% 85%, rgba(172, 215, 230, 0.12), transparent 230px),
     #fff;
   box-shadow: var(--shadow-md);
 }
 
 .access-gate h1,
 .student-area-locked h1 {
-  font-size: clamp(44px, 6.5vw, 76px);
+  font-size: clamp(33px, 4.9vw, 57px);
 }
 
 .access-gate .inline-actions,
@@ -4482,8 +4472,8 @@ main {
   margin: 8px 0;
   font-family: var(--display);
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -4590,7 +4580,7 @@ main {
 }
 
 .context-setup-card {
-  border-color: rgba(90, 76, 240, 0.22);
+  border-color: rgba(18, 80, 92, 0.22);
 }
 
 .toggle-row {
@@ -4641,7 +4631,7 @@ main {
   place-items: center;
   border-radius: 12px;
   color: #fff;
-  background: linear-gradient(145deg, var(--primary), #887dff);
+  background: var(--primary);
   font-size: 12px;
   font-weight: 850;
 }
@@ -4770,7 +4760,7 @@ main {
 
 .accompaniment-step:hover,
 .action-link-stack a:hover {
-  border-color: rgba(90, 76, 240, 0.35);
+  border-color: rgba(18, 80, 92, 0.35);
   background: var(--primary-soft);
   transform: translateY(-2px);
 }
@@ -5031,7 +5021,7 @@ main {
   align-items: center;
   margin: 22px 0;
   padding: 24px;
-  border: 1px solid rgba(90, 76, 240, 0.23);
+  border: 1px solid rgba(18, 80, 92, 0.23);
   border-radius: 22px;
   background: linear-gradient(145deg, var(--primary-soft), #fff);
   box-shadow: var(--shadow-sm);
@@ -5044,7 +5034,7 @@ main {
   height: 96px;
   place-items: center;
   border-radius: 50%;
-  background: conic-gradient(var(--primary) calc(var(--score) * 1%), rgba(90, 76, 240, 0.14) 0);
+  background: conic-gradient(var(--primary) calc(var(--score) * 1%), rgba(18, 80, 92, 0.14) 0);
 }
 
 .score-dial::before {
@@ -5068,7 +5058,7 @@ main {
   margin: 6px 0;
   font-family: var(--display);
   font-size: 34px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .quiz-score-card p {
@@ -5091,10 +5081,10 @@ main {
   align-items: flex-start;
   justify-content: space-between;
   padding: 28px;
-  border: 1px solid rgba(90, 76, 240, 0.20);
+  border: 1px solid rgba(18, 80, 92, 0.20);
   border-radius: 24px;
   background:
-    radial-gradient(circle at 90% 10%, rgba(90, 76, 240, 0.14), transparent 180px),
+    radial-gradient(circle at 90% 10%, rgba(18, 80, 92, 0.14), transparent 180px),
     #fff;
   box-shadow: var(--shadow-sm);
   gap: 20px;
@@ -5104,8 +5094,8 @@ main {
   margin: 9px 0 5px;
   font-family: var(--display);
   font-size: clamp(34px, 5vw, 56px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1;
 }
 
@@ -5198,7 +5188,7 @@ main {
   .student-area-hero h1,
   .access-gate h1,
   .student-area-locked h1 {
-    font-size: clamp(43px, 14vw, 66px);
+    font-size: clamp(32.3px, 10.5vw, 49.5px);
   }
 
   .student-area-tabs {
@@ -5352,7 +5342,7 @@ main {
 
 .community-compose textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.10);
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.10);
 }
 
 @media (max-width: 640px) {
@@ -5410,7 +5400,7 @@ main {
 .university-combobox-input:focus,
 .university-combobox.is-open .university-combobox-input {
   border-color: var(--primary) !important;
-  box-shadow: 0 0 0 4px rgba(90, 76, 240, 0.10) !important;
+  box-shadow: 0 0 0 4px rgba(18, 80, 92, 0.10) !important;
 }
 
 .university-combobox-input:disabled {
@@ -5526,9 +5516,9 @@ main {
 
 .deadline-sync-card {
   overflow: visible;
-  border-color: rgba(90, 76, 240, 0.24);
+  border-color: rgba(18, 80, 92, 0.24);
   background:
-    radial-gradient(circle at 100% 0%, rgba(90, 76, 240, 0.11), transparent 250px),
+    radial-gradient(circle at 100% 0%, rgba(18, 80, 92, 0.11), transparent 250px),
     rgba(255, 255, 255, 0.94);
 }
 
@@ -5571,7 +5561,7 @@ main {
   padding: 13px 15px;
   border: 1px solid var(--line);
   border-radius: 15px;
-  background: rgba(246, 247, 251, 0.82);
+  background: rgba(243, 247, 248, 0.82);
   gap: 11px;
 }
 
@@ -5600,7 +5590,7 @@ main {
 }
 
 .sync-spinner {
-  border: 3px solid rgba(90, 76, 240, 0.15);
+  border: 3px solid rgba(18, 80, 92, 0.15);
   border-top-color: var(--primary);
   border-radius: 50%;
   animation: university-spin 800ms linear infinite;
@@ -5660,7 +5650,7 @@ main {
 .deadline-view-switch button.is-active {
   color: var(--primary-dark);
   background: #fff;
-  box-shadow: 0 3px 10px rgba(31, 39, 72, 0.08);
+  box-shadow: 0 3px 10px rgba(14, 60, 69, 0.08);
 }
 
 .automatic-deadlines-view {
@@ -5693,7 +5683,7 @@ main {
   font-family: var(--display);
   color: var(--ink);
   font-size: 23px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .automatic-deadline-list {
@@ -5780,7 +5770,7 @@ main {
   text-align: center;
   font-family: var(--display);
   font-size: 23px;
-  font-weight: 500;
+  font-weight: 800;
   text-transform: capitalize;
 }
 
@@ -6002,7 +5992,7 @@ main {
   position: static;
   width: 100%;
   margin-top: 7px;
-  box-shadow: 0 12px 30px rgba(31, 39, 72, 0.12);
+  box-shadow: 0 12px 30px rgba(14, 60, 69, 0.12);
 }
 
 /* Versione 7: QS per materia, calcolo trasparente e classifica estesa */
@@ -6022,7 +6012,7 @@ main {
   margin-top: 16px;
   border: 1px solid var(--line);
   border-radius: 17px;
-  background: rgba(249, 249, 253, 0.9);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .university-calculation-details > summary,
@@ -6187,7 +6177,7 @@ main {
 
 .university-extended-ranking {
   background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 12px 34px rgba(25, 31, 54, 0.04);
+  box-shadow: 0 12px 34px rgba(14, 60, 69, 0.04);
 }
 
 .university-extended-list {
@@ -6296,7 +6286,7 @@ main {
   display: inline-flex;
   justify-content: flex-end;
   margin-top: .45rem;
-  color: var(--accent, #5b4bff);
+  color: var(--accent, #12505c);
   font-size: .76rem;
   font-weight: 800;
   letter-spacing: .02em;
@@ -6310,8 +6300,8 @@ main {
 .university-card[role="button"]:hover,
 .university-card[role="button"]:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(91, 75, 255, .42);
-  box-shadow: 0 18px 48px rgba(31, 41, 77, .12);
+  border-color: rgba(18, 80, 92, .42);
+  box-shadow: 0 18px 48px rgba(14, 60, 69, .12);
   outline: none;
 }
 
@@ -6350,7 +6340,7 @@ main {
   max-height: min(860px, calc(100vh - 2.5rem));
   overflow: auto;
   padding: clamp(1.35rem, 3vw, 2.4rem);
-  border: 1px solid #dfe3f1;
+  border: 1px solid #dbe6ea;
   border-radius: 28px;
   background: #fff;
   box-shadow: 0 34px 90px rgba(10, 18, 45, .28);
@@ -6364,14 +6354,14 @@ main {
   width: 42px;
   height: 42px;
   margin: -.25rem -.25rem .5rem 1rem;
-  border: 1px solid #dfe3f1;
+  border: 1px solid #dbe6ea;
   border-radius: 999px;
   background: #fff;
   color: #17203c;
   font-size: 1.65rem;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(31, 41, 77, .08);
+  box-shadow: 0 8px 20px rgba(14, 60, 69, .08);
 }
 
 .university-profile-header {
@@ -6380,12 +6370,12 @@ main {
   gap: 1.4rem;
   align-items: end;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e7e9f2;
+  border-bottom: 1px solid #e3ecef;
 }
 
 .university-profile-header p {
   margin: .75rem 0 .25rem;
-  color: #69718d;
+  color: #5d7177;
 }
 
 .university-profile-header h2 {
@@ -6396,16 +6386,16 @@ main {
 
 .university-profile-ranking {
   padding: 1.1rem;
-  border: 1px solid #dfe3f1;
+  border: 1px solid #dbe6ea;
   border-radius: 18px;
-  background: #f8f9ff;
+  background: #f3f8fa;
 }
 
 .university-profile-ranking span,
 .university-profile-facts span,
 .university-strength-item span {
   display: block;
-  color: #6d7590;
+  color: #5d7177;
   font-size: .72rem;
   font-weight: 800;
   letter-spacing: .08em;
@@ -6420,7 +6410,7 @@ main {
 
 .university-profile-ranking small {
   display: block;
-  color: #6d7590;
+  color: #5d7177;
   line-height: 1.45;
 }
 
@@ -6433,7 +6423,7 @@ main {
 
 .university-profile-facts article {
   padding: 1rem;
-  border: 1px solid #e2e5f1;
+  border: 1px solid #dbe6ea;
   border-radius: 16px;
   background: #fff;
 }
@@ -6446,9 +6436,9 @@ main {
 .university-profile-section {
   margin-top: 1.4rem;
   padding: 1.25rem;
-  border: 1px solid #e2e5f1;
+  border: 1px solid #dbe6ea;
   border-radius: 20px;
-  background: #fbfbfe;
+  background: #ffffff;
 }
 
 .university-profile-section h3 {
@@ -6458,7 +6448,7 @@ main {
 
 .university-profile-section > p {
   margin: .55rem 0 0;
-  color: #4e5670;
+  color: #3e5258;
   line-height: 1.7;
 }
 
@@ -6472,7 +6462,7 @@ main {
   display: grid;
   gap: .35rem;
   padding: 1rem;
-  border: 1px solid #dfe3f1;
+  border: 1px solid #dbe6ea;
   border-radius: 16px;
   background: #fff;
   color: inherit;
@@ -6482,13 +6472,13 @@ main {
 
 .university-strength-item:hover,
 .university-strength-item:focus-visible {
-  border-color: rgba(91, 75, 255, .5);
+  border-color: rgba(18, 80, 92, .5);
   transform: translateY(-1px);
   outline: none;
 }
 
 .university-strength-item small {
-  color: #5b4bff;
+  color: #12505c;
   font-weight: 800;
 }
 
@@ -6500,7 +6490,7 @@ main {
 }
 
 .comparison-data-link {
-  color: #4d3fe3;
+  color: #0b3740;
   text-decoration: underline;
   text-decoration-thickness: .08em;
   text-underline-offset: .17em;
@@ -6829,8 +6819,8 @@ a.journey-copy:hover strong {
   margin: 6px 0 4px;
   font-family: var(--display);
   font-size: clamp(34px, 5vw, 52px);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -7068,7 +7058,7 @@ a.journey-copy:hover strong {
   margin: 6px 0 14px;
   font-family: var(--display);
   font-size: clamp(22px, 3vw, 28px);
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .comparison-real-cost-controls {
@@ -7132,7 +7122,7 @@ a.journey-copy:hover strong {
 .comparison-real-cost-total {
   font-family: var(--display);
   font-size: clamp(28px, 4vw, 38px);
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: -0.02em;
 }
 
@@ -7234,7 +7224,7 @@ a.journey-copy:hover strong {
 .university-real-cost-metric strong {
   font-family: var(--display);
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .university-real-cost-metric strong small {
@@ -7410,7 +7400,7 @@ a.journey-copy:hover strong {
   margin: 6px 0 14px;
   font-family: var(--display);
   font-size: clamp(22px, 3vw, 28px);
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .choice-calendar ol {
