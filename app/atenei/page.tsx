@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { AteneiCatalog } from '@/components/atenei/AteneiCatalog';
 import { catalogEntries, departmentGroups } from '@/lib/domain/catalog';
 
+// Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Atenei',
   description: 'Catalogo degli istituti universitari italiani con ranking ufficiali QS e CENSIS e aree disciplinari.'

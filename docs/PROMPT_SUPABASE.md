@@ -15,7 +15,7 @@ Ciao! Ho bisogno che tu mi guidi **passo per passo** nella configurazione di un 
 
 ## Contesto del progetto
 
-- Sito di orientamento universitario in **Next.js 16 (App Router) + TypeScript**, in sviluppo in locale su `http://localhost:3000`, poi pubblicato su **Vercel**.
+- Sito di orientamento universitario in **Next.js 16 (App Router) + TypeScript**, in sviluppo in locale su `http://localhost:3000`, poi pubblicato su **Cloudflare Workers** (tramite vinext).
 - Usa **Supabase** per: autenticazione email + password (con conferma email e recupero password) e database Postgres con **Row Level Security**.
 - Il codice usa `@supabase/supabase-js` e `@supabase/ssr`. Legge due variabili d'ambiente da `.env.local`:
   - `NEXT_PUBLIC_SUPABASE_URL`
@@ -42,7 +42,7 @@ Ciao! Ho bisogno che tu mi guidi **passo per passo** nella configurazione di un 
    - un utente per i test end-to-end, che deve risultare "studente universitario": poiché gli utenti creati dalla dashboard non passano i metadati, dammi la query SQL per impostare `situation = 'university'` sul suo profilo.
    - Poi dimmi quali righe aggiungere a `.env.local`: `RLS_USER_A_EMAIL`, `RLS_USER_A_PASSWORD`, `RLS_USER_B_EMAIL`, `RLS_USER_B_PASSWORD`, `E2E_USER_EMAIL`, `E2E_USER_PASSWORD` (senza farmeli incollare in chat).
 6. **Verifica finale**: query SQL per controllare che per ogni utente esista la riga in `profiles`; poi dimmi di lanciare nel progetto `npm test` (test RLS) e `npm run test:e2e`, e aiutami a interpretare eventuali errori.
-7. **Preparazione alla produzione (solo spiegazione)**: cosa dovrò fare quando pubblicherò su Vercel (variabili d'ambiente in Vercel, aggiunta del dominio tra i Redirect URLs, SMTP personalizzato, backup).
+7. **Preparazione alla produzione (solo spiegazione)**: cosa dovrò fare quando pubblicherò su Cloudflare (variabili d'ambiente in Cloudflare, aggiunta del dominio tra i Redirect URLs, SMTP personalizzato, backup).
 
 ## Script SQL da eseguire (fase 2)
 

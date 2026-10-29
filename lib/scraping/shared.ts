@@ -2,6 +2,7 @@
 import 'server-only';
 
 import universityDirectory from '../data/university-directory.json';
+import { siteUrl } from '../site-config';
 
 export interface DirectoryEntry {
   id: string;
@@ -19,7 +20,7 @@ export interface FetchedPage {
 }
 
 const UNIVERSITY_BY_ID = new Map((universityDirectory as DirectoryEntry[]).map((entry) => [entry.id, entry]));
-const USER_AGENT = 'UniversitaSempliceBot/1.0 (+https://vercel.com; educational deadline and course resolver)';
+const USER_AGENT = `UniversitaSempliceBot/1.0 (+${siteUrl()}; educational deadline and course resolver)`;
 
 export function normalize(value: unknown): string {
   return String(value || '')

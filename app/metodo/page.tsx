@@ -4,6 +4,9 @@ import { CITY_SOURCES } from '@/lib/domain/city-indicators';
 import { scholarshipEntities, tuitionSources, universitiesWithScholarship } from '@/lib/domain/coverage';
 import { formatDate, NEUTRALITY_TEXT, SITE_CONFIG } from '@/lib/site-config';
 
+// Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Come calcoliamo i costi',
   description:

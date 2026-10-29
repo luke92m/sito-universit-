@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { isEnabled } from '@/lib/features';
 
+// Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Informativa privacy',
   description: 'Come il sito tratta i dati: niente account, niente dati personali salvati sui nostri server.'
@@ -42,9 +45,9 @@ export default function PrivacyPage() {
 
         <h2>Statistiche di visita</h2>
         <p>
-          Per capire quali pagine sono utili il sito può usare statistiche anonime e aggregate senza cookie (Vercel Web
+          Per capire quali pagine sono utili il sito può usare statistiche anonime e aggregate senza cookie (Cloudflare Web
           Analytics): conteggi di pagine viste, paese e tipo di dispositivo, senza identificare chi visita. Il sito è
-          ospitato su Vercel, che come ogni servizio di hosting registra per motivi tecnici e di sicurezza dati come
+          ospitato su Cloudflare, che come ogni servizio di hosting registra per motivi tecnici e di sicurezza dati come
           l’indirizzo IP.
         </p>
 

@@ -6,6 +6,9 @@ import { NeutralityNote } from '@/components/site/NeutralityNote';
 import { ScholarshipCheck } from '@/components/tools/ScholarshipCheck';
 import { scholarshipEntities, universitiesWithScholarship, universitiesWithTuition } from '@/lib/domain/coverage';
 
+// Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Borse di studio',
   description:
