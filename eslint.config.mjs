@@ -5,7 +5,7 @@ const config = [
   ...nextVitals,
   ...nextTs,
   {
-    ignores: ['legacy/**', '.next/**', 'node_modules/**', 'lib/data/**', 'next-env.d.ts', 'playwright-report/**']
+    ignores: ['legacy/**', '.next/**', 'node_modules/**', 'lib/data/**', 'next-env.d.ts', 'playwright-report/**', 'dist/**', '.vinext/**', '.cloudflare/**']
   }
 ];
 

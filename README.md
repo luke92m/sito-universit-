@@ -85,13 +85,26 @@ legacy/                 sito v8 originale, tenuto per confronto: da rimuovere do
 
 Fonti, limiti e metodologia dei dati sono descritti in `legacy/data/NOTE_DATI.md` (invariati rispetto alla v8).
 
-## Pubblicazione su Vercel
+## Pubblicazione su Cloudflare Workers
 
-Al merge su `main`:
+Il sito gira su Cloudflare Workers tramite [vinext](https://vinext.dev/) (configurazione in `vite.config.ts` e `cloudflare.config.ts`). `npm run dev` e `npm run build` restano quelli di Next.js; per Cloudflare:
 
-1. in Vercel imposta il *Framework Preset* su **Next.js** (la *Root Directory* resta vuota);
-2. aggiungi le variabili `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` e `NEXT_PUBLIC_SITE_URL`;
-3. aggiungi il dominio di produzione tra i *Redirect URLs* di Supabase.
+```
+npm run build:vinext    # build del Worker
+npm run start:vinext    # anteprima locale del Worker (porta 4173)
+npm run deploy:vinext   # pubblicazione manuale
+```
+
+Con la build automatica da GitHub (Workers & Pages → collega il repository):
+
+1. comando di build `npm run build:vinext`, comando di deploy `npm run deploy:vinext`, branch di produzione `main`; attiva le anteprime per i branch;
+2. aggiungi le variabili di build `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` e `NEXT_PUBLIC_SITE_URL`;
+3. aggiungi il dominio di produzione (e quello delle anteprime) tra i *Redirect URLs* di Supabase;
+4. le statistiche di visita si attivano da Cloudflare Web Analytics, senza codice nel sito.
+
+Le pagine uguali per tutti dichiarano `export const revalidate = 3600`: il deploy (`--warm-cache`) le classifica come statiche e le mette nella cache Workers, che le rigenera al massimo ogni ora. In anteprima locale la cache non è attiva (le pagine escono `no-store`). Una pagina nuova uguale per tutti deve dichiarare lo stesso `revalidate`, altrimenti viene generata a ogni visita.
+
+Il piano Workers Free concede 10 ms di CPU per richiesta: se nella dashboard compaiono errori *Exceeded CPU* (1102), serve il piano Workers Paid.
 
 I vecchi indirizzi `*.html` reindirizzano automaticamente ai nuovi percorsi.
 

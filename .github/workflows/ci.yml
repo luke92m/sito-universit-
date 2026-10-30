@@ -19,6 +19,8 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      # Build per Cloudflare Workers (vinext): è quella che va in produzione.
+      - run: npm run build:vinext
 
   # Percorso pubblico nel browser (finder, comparatore, borse, metodo) sulla build di produzione.
   # I test con account (auth.spec.ts) restano locali: servono Supabase e un utente di test.

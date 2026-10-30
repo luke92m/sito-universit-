@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isEnabled } from '@/lib/features';
 
+// Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Scuole e aziende',
   description: 'Uno spazio di incontro tra università, scuole e aziende.'

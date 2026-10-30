@@ -6,6 +6,9 @@ import { isEnabled } from '@/lib/features';
 import { FLOW_STEPS } from '@/components/flow/FlowSteps';
 import { scholarshipEntities, universitiesWithScholarship, universitiesWithTuition } from '@/lib/domain/coverage';
 
+// Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
+export const revalidate = 3600;
+
 const STEP_COPY = [
   'Sei domande sui tuoi interessi, senza account',
   'Gli atenei adatti a te, con il perché di ogni risultato',

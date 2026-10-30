@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Figtree } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
 import { AuthModal } from '@/components/site/AuthModal';
 import { Footer } from '@/components/site/Footer';
 import { Header } from '@/components/site/Header';
@@ -46,8 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ) : null}
           <Toast />
         </SiteProvider>
-        {/* Statistiche anonime senza cookie: attive solo se abilitate nel progetto Vercel. */}
-        <Analytics />
       </body>
     </html>
   );

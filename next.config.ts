@@ -11,10 +11,6 @@ const nextConfig: NextConfig = {
   experimental: {
     agentUpgrade: 'security'
   },
-  // Il dataset corsi viene letto dalle route API: va incluso nei bundle serverless.
-  outputFileTracingIncludes: {
-    '/api/**/*': ['./lib/data/*.json']
-  },
   async redirects() {
     return [
       { source: '/index.html', destination: '/', permanent: true },
