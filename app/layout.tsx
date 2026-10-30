@@ -29,6 +29,10 @@ const universitySummaries = UNIVERSITIES.slice()
   .sort((a, b) => a.name.localeCompare(b.name, 'it'))
   .map(({ id, name, shortName, city, region, isPublic, category }) => ({ id, name, shortName, city, region, isPublic, category }));
 
+// Cloudflare Web Analytics (statistiche senza cookie, vedi /privacy). Il token è pubblico e legato al dominio
+// workers.dev: con un dominio proprio va aggiunto anche quello al sito in Web Analytics.
+const CF_BEACON = JSON.stringify({ token: 'bd9bb48322da43819cd8d44a96d043fa' });
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" data-scroll-behavior="smooth" className={figtree.variable}>
@@ -45,6 +49,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ) : null}
           <Toast />
         </SiteProvider>
+        {process.env.NODE_ENV === 'production' ? (
+          <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={CF_BEACON} />
+        ) : null}
       </body>
     </html>
   );
