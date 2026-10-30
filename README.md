@@ -102,7 +102,7 @@ Con la build automatica da GitHub (Workers & Pages → collega il repository):
 3. aggiungi il dominio di produzione (e quello delle anteprime) tra i *Redirect URLs* di Supabase;
 4. le statistiche di visita si attivano da Cloudflare Web Analytics, senza codice nel sito.
 
-Le pagine uguali per tutti dichiarano `export const revalidate = 3600`: la prima visita le mette nella cache Workers, che le rigenera al massimo ogni ora. In anteprima locale la cache non è attiva (le pagine escono `no-store`). Una pagina nuova uguale per tutti deve dichiarare lo stesso `revalidate`, altrimenti viene generata a ogni visita.
+Le pagine uguali per tutti dichiarano `export const revalidate = 3600`: la prima visita le mette nella cache Workers, che le rigenera al massimo ogni ora. In anteprima locale la cache non è attiva (le pagine escono `no-store`). Una pagina nuova uguale per tutti deve dichiarare lo stesso `revalidate`, altrimenti viene generata a ogni visita. La cache vale solo se `proxy.ts` lascia la richiesta com'è: per questo il proxy contatta Supabase solo per chi ha i cookie di sessione, e passa `{ request }` a `NextResponse.next` solo quando deve scrivere cookie nuovi. La risposta di una pagina in cache contiene `X-Vinext-Cache: HIT`.
 
 Il deploy non usa `--warm-cache` (precaricamento della cache): con `@vinext/cloudflare` 1.3.0 fallisce su Cloudflare con *Could not detect Worker version ID*, perché `cf` scrive l'ID della versione su stderr e vinext legge solo stdout. Si può rimettere quando il pacchetto sarà corretto.
 

@@ -2,10 +2,17 @@ import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from './lib/supabase/config';
 
+// Cookie della sessione Supabase: sb-<progetto>-auth-token, eventualmente diviso in .0, .1, ...
+function hasSessionCookie(request: NextRequest) {
+  return request.cookies.getAll().some(({ name }) => name.startsWith('sb-') && name.includes('-auth-token'));
+}
+
 // Aggiorna i cookie della sessione Supabase a ogni richiesta di pagina.
+// Chi non ha una sessione riceve una risposta senza modifiche: su Cloudflare la cache Workers la serve
+// solo se il proxy non riscrive la richiesta, quindi NextResponse.next({ request }) solo quando servono cookie nuovi.
 export async function proxy(request: NextRequest) {
-  let response = NextResponse.next({ request });
-  if (!isSupabaseConfigured) return response;
+  let response = NextResponse.next();
+  if (!isSupabaseConfigured || !hasSessionCookie(request)) return response;
 
   const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     cookies: {
