@@ -97,7 +97,7 @@ npm run deploy:vinext   # pubblicazione manuale
 
 Con la build automatica da GitHub (Workers & Pages → collega il repository):
 
-1. comando di build `npm run build:vinext`, comando di deploy `npm run deploy:vinext`, branch di produzione `main`; attiva le anteprime per i branch;
+1. Worker `sito-universit` (deve coincidere con `name` in `cloudflare.config.ts`); comando di build vuoto, comando di deploy `npm run deploy:vinext` (fa già la build); branch di produzione `main`. Senza questi comandi Cloudflare lancia `wrangler deploy`, che prova a convertire il progetto con OpenNext e fallisce;
 2. aggiungi le variabili di build `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` e `NEXT_PUBLIC_SITE_URL`;
 3. aggiungi il dominio di produzione (e quello delle anteprime) tra i *Redirect URLs* di Supabase;
 4. le statistiche di visita si attivano da Cloudflare Web Analytics, senza codice nel sito.

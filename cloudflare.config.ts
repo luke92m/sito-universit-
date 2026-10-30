@@ -6,7 +6,8 @@ const cache = await createWorkersCacheConfig();
 export default defineConfig({
   worker: defineWorker({
     ...cache,
-    name: "sito-universita",
+    // Deve coincidere con il nome del Worker su Cloudflare, altrimenti la build da GitHub fallisce.
+    name: "sito-universit",
     entrypoint: "vinext/server/fetch-handler",
     compatibilityDate: "2026-10-29",
     compatibilityFlags: ["nodejs_compat"],
