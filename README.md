@@ -116,3 +116,5 @@ I vecchi indirizzi `*.html` reindirizzano automaticamente ai nuovi percorsi.
 - Libri usati: invece di mostrare l’email di chi pubblica, l’annuncio riporta un **recapito scelto dal venditore** (precompilato con la sua email, modificabile).
 - Community e annunci sono visibili a tutti gli utenti registrati; ogni autore può cancellare i propri contenuti.
 - Gli ospiti conservano preferenze e fascia ISEE nel browser; con un account gli stessi dati vanno nel profilo.
+
+Test deploy Cloudflare
