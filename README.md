@@ -100,7 +100,7 @@ Con la build automatica da GitHub (Workers & Pages → collega il repository):
 1. Worker `sito-universit` (deve coincidere con `name` in `cloudflare.config.ts`); comando di build vuoto, comando di deploy `npm run deploy:vinext` (fa già la build); branch di produzione `main`. Senza questi comandi Cloudflare lancia `wrangler deploy`, che prova a convertire il progetto con OpenNext e fallisce;
 2. aggiungi le variabili di build `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` e `NEXT_PUBLIC_SITE_URL`;
 3. aggiungi il dominio di produzione (e quello delle anteprime) tra i *Redirect URLs* di Supabase;
-4. le statistiche di visita si attivano da Cloudflare Web Analytics, senza codice nel sito.
+4. le statistiche di visita sono Cloudflare Web Analytics (Analytics → Web analytics nella dashboard): su `*.workers.dev` l'iniezione automatica non funziona, quindi lo script è in `app/layout.tsx` (solo in produzione). Con un dominio proprio va aggiunto anche quello al sito in Web Analytics.
 
 Le pagine uguali per tutti dichiarano `export const revalidate = 3600`: la prima visita le mette nella cache Workers, che le rigenera al massimo ogni ora. In anteprima locale la cache non è attiva (le pagine escono `no-store`). Una pagina nuova uguale per tutti deve dichiarare lo stesso `revalidate`, altrimenti viene generata a ogni visita. La cache vale solo se `proxy.ts` lascia la richiesta com'è: per questo il proxy contatta Supabase solo per chi ha i cookie di sessione, e passa `{ request }` a `NextResponse.next` solo quando deve scrivere cookie nuovi. La risposta di una pagina in cache contiene `X-Vinext-Cache: HIT`.
 
