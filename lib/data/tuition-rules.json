@@ -23438,6 +23438,54 @@
         }
       },
       "simulator": "https://www.uniroma5.it/iscrizione"
+    },
+    "ateneo-02101": {
+      "name": "Libera Università di Bolzano",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-19",
+      "appliesTo": "Corsi di laurea e laurea magistrale a tempo pieno, fino a un anno oltre la durata normale: importo unico, uguale per ogni ISEE.",
+      "fixedFees": {
+        "regionalTax": 0,
+        "stampDuty": 0,
+        "insurance": 0,
+        "total": 0
+      },
+      "fixedFeesNote": "Il bollo è già compreso nei 1.200 €. La tassa provinciale per il diritto allo studio (173 € nel 2024/25) è stata azzerata dalla Provincia di Bolzano con il Bilancio 2025-27.",
+      "bands": [
+        {
+          "iseeMax": null,
+          "from": 0,
+          "rate": 0,
+          "base": 1200
+        }
+      ],
+      "bandsSource": {
+        "label": "unibz, Regolamento tasse a.a. 2026/27 (delibera n. 158 del 21.11.2025), artt. 1-2",
+        "url": "https://guide.unibz.it/assets/study-career/fees/2026-07-24_Fees-regulation.pdf"
+      },
+      "maxByLevel": {
+        "triennale": 1200,
+        "ciclo-unico": 1200,
+        "magistrale": 1200
+      },
+      "maxExceptions": [],
+      "maxNote": "Importo unico di 1.200 € l’anno (bollo compreso) per tutti i corsi, senza fasce ISEE. Part time 600 €; dal secondo anno fuori corso 1.500 €. Tassa provinciale per il diritto allo studio azzerata dal 2025 (comunicato della Provincia del 7 gennaio 2025). Chi vince una borsa della Provincia di Bolzano ha il rimborso delle tasse versate (di norma tra marzo e aprile).",
+      "maxSource": {
+        "label": "Provincia di Bolzano, «Bilancio 2025-27: azzeramento tassa provinciale diritto allo studio» (7/1/2025)",
+        "url": "https://news.provincia.bz.it/it/news/bilancio-2025-27-azzeramento-tassa-provinciale-diritto-allo-studio"
+      },
+      "payments": {
+        "steps": [
+          "1ª rata: 600 € entro il 13 ottobre 2026",
+          "2ª rata: 600 € entro il 31 marzo 2027"
+        ],
+        "note": "In ritardo: indennità di mora di 30 €.",
+        "source": {
+          "label": "unibz, Guida allo Studio, «Tasse universitarie»",
+          "url": "https://guide.unibz.it/it/study-career/general-information/fees/"
+        }
+      },
+      "simulator": "https://guide.unibz.it/it/study-career/general-information/fees/"
     }
   }
 }
