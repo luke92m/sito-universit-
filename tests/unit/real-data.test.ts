@@ -2249,3 +2249,16 @@ describe('San Raffaele Roma 2026/27: retta standard e contributo servizi', () =>
     expect(rule.noScholarshipExemption).toBeTypeOf('string');
   });
 });
+
+describe('Bolzano 2026/27: retta unica, tassa provinciale azzerata', () => {
+  const rule = tuitionRuleFor('ateneo-02101')!;
+  const courses = getCourses('ateneo-02101');
+  it('1.200 € per ogni corso e ogni ISEE, senza quote fisse in più', () => {
+    expect(courses.length).toBeGreaterThan(0);
+    for (const course of courses) expect(maxContribution(rule, course)).toBe(1200);
+    expect(contributionFor(rule, 5000, 1200)).toBe(1200);
+    expect(contributionFor(rule, null, 1200)).toBe(1200);
+    expect(rule.fixedFees.total).toBe(0);
+    expect(rule.noScholarshipExemption).toBeUndefined();
+  });
+});
