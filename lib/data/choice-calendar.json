@@ -22,14 +22,14 @@
         "id": "polito-tolc-2027",
         "kind": "test",
         "title": "Test di ammissione 2027/28: TOLC del CISIA",
-        "text": "Dal 2027/28 il Politecnico di Torino entra nel consorzio CISIA e usa i TOLC per i candidati italiani (CeNT-S per quelli internazionali) al posto del TIL: si potranno sostenere anche nelle altre sedi del consorzio. Le date non sono ancora pubblicate.",
+        "text": "Dal 2027/28 il Politecnico di Torino entra nel consorzio CISIA e usa i TOLC per i candidati italiani (CEnT-S per quelli internazionali) al posto del TIL. Valgono solo le prove in presenza (TOLC@UNI e CEnT@UNI, anche in altre sedi del consorzio), non quelle da casa. Il primo TOLC-I al Politecnico si è tenuto il 24 novembre 2026; il bando 2027/28 e le altre date non sono ancora pubblicati.",
         "date": null,
         "status": "non-pubblicata",
         "source": {
-          "label": "Politecnico di Torino, Poliflash del 23 luglio 2026",
-          "url": "https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/test-d-ingresso-20262027-il-politecnico-sempre-piu"
+          "label": "Politecnico di Torino, «Admission test» (a.a. 2027/2028)",
+          "url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test"
         },
-        "verifiedAt": "2026-10-14"
+        "verifiedAt": "2026-11-20"
       }
     ],
     "ateneo-01502": [
@@ -37,15 +37,14 @@
         "id": "polimi-tol-2027",
         "kind": "test",
         "title": "TOL di Ingegneria per il 2027/28",
-        "text": "Il TOL anticipato per chi si diploma nel 2027 (ingresso 2027/28, soglia 75/100) si è già svolto. Le sessioni ordinarie per il 2027/28 non sono ancora pubblicate.",
-        "date": null,
-        "status": "non-pubblicata",
-        "previous": { "label": "TOL anticipato", "opens": "2026-03-11", "closes": "2026-07-16" },
+        "text": "Per chi si diploma nel 2027 (TEST STANDARD) due finestre: dal 1° febbraio al 9 marzo 2027 e dal 10 marzo al 29 maggio 2027, una prova per finestra, iscrizione 35 € nei Servizi Online. Serve almeno 30/100. Con 75/100 (anche dal TOL anticipato del 2026) ci si immatricola subito, dal 3 maggio al 10 giugno 2027; gli altri entrano nelle graduatorie, con le preferenze entro il 17 giugno 2027. Le date delle singole prove e i posti sono nei Servizi Online.",
+        "date": "2027-02-01",
+        "status": "confermata",
         "source": {
-          "label": "Politecnico di Milano, Early TOL: test dates",
-          "url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/when-to-register-for-the-tol/early-tol-test-dates"
+          "label": "Politecnico di Milano, Bando di ammissione Ingegneria 2027/28, artt. 1-2, 5-6",
+          "url": "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Ingegneria_LT/BandoLaureaIngegneria27-28.pdf"
         },
-        "verifiedAt": "2026-10-14"
+        "verifiedAt": "2026-11-20"
       }
     ]
   }

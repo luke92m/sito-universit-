@@ -28,6 +28,13 @@ describe('calendario della scelta per ateneo', () => {
     expect(borsa.previous?.closes).toBe('2026-08-05');
   });
 
+  it('Politecnico di Milano: TOL 2027/28 confermato dal bando, prima finestra dal 1° febbraio 2027', () => {
+    const tol = choiceCalendar('ateneo-01502').find((item) => item.kind === 'test')!;
+    expect(tol.status).toBe('confermata');
+    expect(tol.date).toBe('2027-02-01');
+    expect(tol.source.url).toContain('BandoLaureaIngegneria27-28.pdf');
+  });
+
   it('ateneo senza dati curati né bando: solo la regola dell’ISEE', () => {
     expect(choiceCalendar('ateneo-06307').map((item) => item.kind)).toEqual(['isee']);
   });
