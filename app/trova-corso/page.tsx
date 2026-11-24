@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function TrovaCorsoPage() {
   return (
-    <main>
+    <main id="contenuto">
       <FinderPage />
     </main>
   );

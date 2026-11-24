@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function BorsePage() {
   const entities = scholarshipEntities();
   return (
-    <main>
+    <main id="contenuto">
       <section className="student-tool-shell">
         <FlowSteps current={2} />
         <section className="tool-hero tool-hero-compact">

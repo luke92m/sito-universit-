@@ -8,6 +8,7 @@ import { CourseNameSelect } from './CourseNameSelect';
 import { Icon } from './Icons';
 import { useSite } from './SiteProvider';
 import { UniversityCombobox } from './UniversityCombobox';
+import { useDialogFocus } from './useDialogFocus';
 
 type Message = { text: string; type: 'error' | 'success' } | null;
 
@@ -57,6 +58,8 @@ function AuthDialog({ view: authModal }: { view: AuthView }) {
   const [message, setMessage] = useState<Message>(null);
   const [busy, setBusy] = useState(false);
   const firstInput = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
+  useDialogFocus(dialogRef);
 
   // Stato del form di registrazione
   const [email, setEmail] = useState('');
@@ -219,7 +222,7 @@ function AuthDialog({ view: authModal }: { view: AuthView }) {
   return (
     <div className="auth-modal" aria-hidden="false">
       <div className="modal-backdrop" onClick={closeAuth} />
-      <section className="auth-dialog auth-dialog-large" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <section ref={dialogRef} className="auth-dialog auth-dialog-large" role="dialog" aria-modal="true" aria-labelledby="authTitle">
         <button className="modal-close" type="button" onClick={closeAuth} aria-label="Chiudi">
           <Icon name="close" />
         </button>

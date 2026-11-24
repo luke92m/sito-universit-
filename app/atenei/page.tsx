@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AteneiPage() {
   const entries = catalogEntries();
   return (
-    <main>
+    <main id="contenuto">
       <section className="page-hero compact" aria-labelledby="catalogTitle">
         <span className="eyebrow">Orientati con ordine</span>
         <h1 id="catalogTitle">

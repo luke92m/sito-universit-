@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: 'Link non valido', robots: { index: f
 
 export default function AuthErrorPage() {
   return (
-    <main className="legal-page">
+    <main id="contenuto" className="legal-page">
       <article>
         <span className="eyebrow">Accesso</span>
         <h1>Il link non è più valido.</h1>

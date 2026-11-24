@@ -38,7 +38,7 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <main className="legal-page">
+    <main id="contenuto" className="legal-page">
       <article>
         <span className="eyebrow">Recupero accesso</span>
         <h1>Scegli una nuova password</h1>

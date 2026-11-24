@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { UniversityCard } from '@/lib/domain/catalog';
+import { useDialogFocus } from '@/components/site/useDialogFocus';
 import { categoryClass, displayCategory } from './labels';
 
 const integerFormatter = new Intl.NumberFormat('it-IT');
@@ -11,6 +12,8 @@ export function UniversityProfileModal({ universityId, onClose }: { universityId
   const [card, setCard] = useState<UniversityCard | null>(null);
   const [failed, setFailed] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
+  useDialogFocus(dialogRef);
 
   useEffect(() => {
     let active = true;
@@ -50,7 +53,7 @@ export function UniversityProfileModal({ universityId, onClose }: { universityId
   return (
     <div className="university-profile-modal">
       <button className="university-profile-backdrop" type="button" onClick={onClose} aria-label="Chiudi la scheda" />
-      <section className="university-profile-dialog" role="dialog" aria-modal="true" aria-labelledby="universityProfileTitle">
+      <section ref={dialogRef} className="university-profile-dialog" role="dialog" aria-modal="true" aria-labelledby="universityProfileTitle">
         <button ref={closeRef} className="university-profile-close" type="button" onClick={onClose} aria-label="Chiudi">
           ×
         </button>

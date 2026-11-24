@@ -25,7 +25,7 @@ export default async function AreaStudentePage({ params }: { params: Promise<{ s
   // Sezione esistente ma spenta (lib/features.ts): si torna alle borse, la prima sezione utile.
   if (!isActiveSection(sezione)) redirect('/area-studente/borse-di-studio');
   return (
-    <main>
+    <main id="contenuto">
       <section className="area-shell">
         {/* useSearchParams nelle sezioni (es. ?ateneo= nelle borse) richiede un confine Suspense. */}
         <Suspense fallback={null}>
