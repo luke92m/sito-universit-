@@ -1,0 +1,545 @@
+/* =====================================================================================================
+   Sistema tasteskill 2.5.1 (design-taste-frontend), su tutto il sito. Caricato dopo globals.css.
+   Restano le scelte del 27/10/2026: petrolio #12505c unico colore d'azione, ceruleo #e3f1f6 solo nei fondi,
+   Figtree, niente corsivi. Dalla skill: titoli a peso 500 con spaziatura stretta, testo mai sotto 13px,
+   etichette senza maiuscoletto, un pulsante pieno e uno secondario alti 44px con raggio 8, schede piatte con
+   una riga da 1px, barra opaca con una riga sotto, footer a colonne, hover discreti, fuoco sempre visibile.
+   ===================================================================================================== */
+
+:root {
+  --shadow-sm: none;
+  --shadow-md: 0 24px 64px rgba(14, 60, 69, 0.16);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Equestrian Red (Pantone 19-1755, #9E1528): solo sul pulsante dell’azione principale. */
+  --signal: #9e1528;
+  --signal-hover: #7d0f1f;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500 !important;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+:is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ---- Barra in alto: opaca, una riga sotto, sempre uguale ---- */
+.site-header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  backdrop-filter: none;
+}
+
+body {
+  padding-top: var(--header-height);
+}
+
+.header-shell {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  width: min(100% - 160px, 1280px);
+  min-height: var(--header-height);
+  gap: 24px;
+}
+
+.brand {
+  min-width: 0;
+  justify-self: start;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 0;
+  fill: var(--primary);
+  background: none;
+  box-shadow: none;
+}
+
+.brand-mark.small {
+  width: 24px;
+  height: 24px;
+  flex-basis: 24px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.primary-nav {
+  grid-column: 2;
+  grid-row: 1;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 12px;
+  border-radius: 0;
+  color: var(--ink-soft);
+  background: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 120ms var(--ease);
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  left: 12px;
+  height: 1px;
+  background: currentColor;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 120ms var(--ease);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--ink);
+  background: none;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transition-duration: 150ms;
+}
+
+.nav-link.is-active {
+  color: var(--ink);
+  background: none;
+}
+
+.nav-link.is-active::after {
+  height: 2px;
+  transform: scaleX(1);
+}
+
+.nav-link.is-cta {
+  display: none;
+}
+
+.header-cta {
+  display: inline-flex;
+  grid-column: 3;
+  grid-row: 1;
+  align-items: center;
+  justify-self: end;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--signal);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color 120ms var(--ease),
+    transform 90ms var(--ease);
+}
+
+.header-cta:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header-cta:hover {
+    background: var(--signal-hover);
+    transform: translateY(-1px);
+  }
+
+  .header-cta:active {
+    transform: translateY(1px) scale(0.985);
+  }
+}
+
+.profile-wrap {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.mobile-nav-button {
+  width: 44px;
+  height: 44px;
+  border-color: color-mix(in oklab, var(--ink) 18%, transparent);
+  border-radius: 8px;
+}
+
+@media (max-width: 1023px) {
+  .header-shell {
+    width: min(100% - 96px, 1280px);
+  }
+}
+
+@media (max-width: 900px) {
+  .header-shell {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 12px;
+  }
+
+  .header-cta {
+    grid-column: 2;
+  }
+
+  .mobile-nav-button {
+    display: inline-flex;
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .primary-nav {
+    position: fixed;
+    z-index: 49;
+    inset: var(--header-height) 0 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 8px 24px 24px;
+    background: #fff;
+    gap: 0;
+  }
+
+  .primary-nav.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 18px;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link.is-active {
+    color: var(--primary);
+  }
+
+  .nav-link.is-cta {
+    display: flex;
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --header-height: 56px;
+  }
+
+  .header-shell {
+    width: min(100% - 48px, 1280px);
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  .brand-copy {
+    display: grid;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+}
+
+/* ---- Pulsanti del sito: uno pieno, uno secondario ---- */
+.button {
+  min-height: 44px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: none;
+  transition:
+    background-color 120ms var(--ease),
+    border-color 120ms var(--ease),
+    color 120ms var(--ease),
+    transform 90ms var(--ease);
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: none;
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.button-primary {
+  color: #fff;
+  background: var(--primary);
+}
+
+.button-secondary {
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+  color: var(--ink);
+  background: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    transform: translateY(-1px);
+  }
+
+  .button:active {
+    transform: translateY(1px) scale(0.985);
+  }
+
+  .button-primary:hover {
+    background: color-mix(in oklab, var(--primary) 86%, var(--ink));
+  }
+
+  .button-secondary:hover {
+    border-color: color-mix(in oklab, var(--ink) 34%, transparent);
+    background: var(--surface-soft);
+  }
+}
+
+/* ---- Footer a colonne; sulla home con la chiusura (close-word) ---- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.footer-shell {
+  display: block;
+  width: min(100% - 160px, 1280px);
+  min-height: 0;
+  padding: 64px 0 32px;
+}
+
+.footer-close {
+  display: grid;
+  padding-bottom: 64px;
+  gap: 48px;
+}
+
+.footer-close__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-close__head h2 {
+  max-width: 26ch;
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.08;
+}
+
+.footer-muted {
+  color: var(--ink-faint);
+}
+
+.footer-close__btn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--signal);
+  font-size: 16px;
+  font-weight: 500;
+  transition:
+    background-color 120ms var(--ease),
+    transform 90ms var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-close__btn:hover {
+    background: var(--signal-hover);
+    transform: translateY(-1px);
+  }
+}
+
+.footer-close__btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.footer-shell .footer-close__word {
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(64px, 12vw, 176px);
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.footer-directory {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr);
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+  gap: 24px;
+}
+
+.footer-brand {
+  font-size: 18px;
+  font-weight: 500;
+  gap: 10px;
+}
+
+.footer-brand-col p {
+  max-width: 44ch;
+  margin: 16px 0 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer-col h3 {
+  margin: 0 0 12px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.footer-col ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: var(--ink);
+  font-size: 15px;
+  background: linear-gradient(currentColor, currentColor) left calc(50% + 0.75em) / 0 1px no-repeat;
+  transition: background-size 120ms var(--ease);
+}
+
+.footer-col a:hover {
+  background-size: 100% 1px;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  gap: 16px;
+}
+
+.footer-status {
+  padding: 0;
+  border-radius: 0;
+  color: var(--ink-faint);
+  background: none;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+@media (max-width: 1023px) {
+  .footer-shell {
+    width: min(100% - 96px, 1280px);
+  }
+
+  .footer-close__head h2 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 639px) {
+  .footer-shell {
+    width: min(100% - 48px, 1280px);
+    padding-top: 48px;
+  }
+
+  .footer-close {
+    padding-bottom: 48px;
+    gap: 32px;
+  }
+
+  .footer-close__head h2 {
+    font-size: 30px;
+  }
+
+  .footer-close__btn {
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .footer-directory {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+
+  .footer-col a {
+    min-height: 44px;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-cta,
+  .button,
+  .footer-close__btn {
+    transform: none !important;
+  }
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+/* Sulla home il footer è l'ultima sezione: alta uno schermo, titolo a 120px dall'alto. */
+.site-footer.is-closing .footer-shell {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 120px;
+}
+
+@media (max-width: 639px) {
+  .site-footer.is-closing .footer-shell {
+    padding-top: 96px;
+  }
+}

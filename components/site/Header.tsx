@@ -16,6 +16,18 @@ import {
 import { Icon, type IconName } from './Icons';
 import { useSite } from './SiteProvider';
 
+// Azione principale del sito: pulsante a destra nella barra, prima voce nel menu del telefono.
+const CTA = { href: '/trova-corso', label: 'Trova la tua università' };
+
+/** Marchio ad anello (tasteskill, mark "ring"), ripetuto nel footer. */
+export function BrandMark({ small = false }: { small?: boolean }) {
+  return (
+    <svg className={`brand-mark${small ? ' small' : ''}`} viewBox="0 0 24 24" aria-hidden="true">
+      <path fillRule="evenodd" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 5.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z" />
+    </svg>
+  );
+}
+
 export function Header() {
   const pathname = usePathname();
   const { user, openAuth, openJourneyEditor, signOut, showToast, getUniversity } = useSite();
@@ -61,20 +73,23 @@ export function Header() {
   };
 
   return (
-    <header className="site-header">
-      <div className="header-shell">
-        <Link className="brand" href="/" aria-label={`Vai alla homepage di ${SITE_CONFIG.name}`}>
-          <span className="brand-mark" aria-hidden="true">
-            u
-          </span>
+    <header className="site-header nav">
+      <div className="header-shell wrap">
+        <Link className="brand nav__logo" href="/" aria-label={`Vai alla homepage di ${SITE_CONFIG.name}`}>
+          <BrandMark />
           <span className="brand-copy">
             <span className="brand-name">{SITE_CONFIG.name}</span>
-            <span className="brand-note">{SITE_CONFIG.note}</span>
           </span>
         </Link>
 
+        {isEnabled('account') ? null : (
+          <Link className="header-cta" href={CTA.href} aria-current={pathname === CTA.href ? 'page' : undefined}>
+            {CTA.label}
+          </Link>
+        )}
+
         <button
-          className="mobile-nav-button"
+          className="mobile-nav-button nav__toggle"
           type="button"
           aria-expanded={mobileOpen}
           aria-controls="primaryNav"
@@ -90,7 +105,7 @@ export function Header() {
             return (
               <Link
                 key={item.href}
-                className={`nav-link${active ? ' is-active' : ''}`}
+                className={`nav-link${active ? ' is-active' : ''}${item.href === CTA.href ? ' is-cta' : ''}`}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 onClick={() => setMobileOpen(false)}

@@ -4,11 +4,12 @@ import { expect, test } from '@playwright/test';
 
 test('home e navigazione principale', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('fa per te');
-  await expect(page.getByText('nessun ateneo paga per comparire', { exact: true })).toBeVisible();
-  await expect(page.getByText('99 istituti universitari')).toBeVisible();
-  await expect(page.getByText(/\d+ atenei con costi verificati/)).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Cosa trovi oggi.' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('borsa compresa');
+  // La finestra del hero è un calcolo vero (UniBo, fuori sede): mostra la borsa ER.GO e il totale.
+  await expect(page.getByRole('group', { name: /Esempio di calcolo/ })).toContainText('ER.GO');
+  await expect(page.getByText('istituti universitari nel catalogo')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Dati ufficiali/ })).toBeVisible();
+  await expect(page.getByText(/Nessun ateneo paga per comparire/).first()).toBeVisible();
   await page.getByRole('navigation', { name: 'Navigazione principale' }).getByRole('link', { name: 'atenei' }).click();
   await expect(page).toHaveURL(/\/atenei$/);
 });
