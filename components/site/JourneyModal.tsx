@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
 import { CourseNameSelect } from './CourseNameSelect';
 import { Icon } from './Icons';
 import { useSite } from './SiteProvider';
 import { UniversityCombobox } from './UniversityCombobox';
+import { useDialogFocus } from './useDialogFocus';
 
 export function JourneyModal() {
   const { journeyModalOpen, user } = useSite();
@@ -22,6 +23,8 @@ function JourneyDialog({ user }: { user: SiteUser }) {
   const [year, setYear] = useState(initial?.year ? String(initial.year) : '');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
+  const dialogRef = useRef<HTMLElement>(null);
+  useDialogFocus(dialogRef);
 
   useEffect(() => {
     document.body.classList.add('modal-open');
@@ -64,7 +67,7 @@ function JourneyDialog({ user }: { user: SiteUser }) {
   return (
     <div className="auth-modal" aria-hidden="false">
       <div className="modal-backdrop" onClick={closeJourneyEditor} />
-      <section className="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="journeyModalTitle">
+      <section ref={dialogRef} className="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="journeyModalTitle">
         <button className="modal-close" type="button" onClick={closeJourneyEditor} aria-label="Chiudi">
           <Icon name="close" />
         </button>

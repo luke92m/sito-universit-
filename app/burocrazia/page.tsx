@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function BurocraziaPage() {
   return (
-    <main>
+    <main id="contenuto">
       <section className="student-tool-shell">
         <FlowSteps current={3} />
         {/* useSearchParams (?ateneo=&corso=) richiede un confine Suspense nelle pagine statiche. */}

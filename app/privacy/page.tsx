@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   const accounts = isEnabled('account');
   return (
-    <main className="legal-page">
+    <main id="contenuto" className="legal-page">
       <article>
         <span className="placeholder-label">Bozza da validare</span>
         <span className="eyebrow">Informativa privacy</span>

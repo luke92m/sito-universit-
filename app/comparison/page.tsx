@@ -46,7 +46,7 @@ export default async function ComparisonPage({
   const courseRightUniversity = right?.universityId || defaultUniversityId('Padova', 1, true);
 
   return (
-    <main>
+    <main id="contenuto">
       <section className="page-hero compact comparison-page-hero" aria-labelledby="comparisonTitle">
         <FlowSteps current={2} />
         <span className="eyebrow">Metti le alternative una accanto all’altra</span>

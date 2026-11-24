@@ -37,6 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it" data-scroll-behavior="smooth" className={figtree.variable}>
       <body>
+        <a className="skip-link" href="#contenuto">
+          Salta al contenuto
+        </a>
         <SiteProvider universities={universitySummaries}>
           <Header />
           {children}

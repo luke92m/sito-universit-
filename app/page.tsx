@@ -32,7 +32,7 @@ export default function HomePage() {
   const entities = scholarshipEntities();
   const scholarshipCount = universitiesWithScholarship().length;
   return (
-    <main>
+    <main id="contenuto">
       <section className="hero" aria-labelledby="heroTitle">
         <div className="hero-grid">
           <div className="hero-copy">

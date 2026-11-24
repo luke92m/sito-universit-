@@ -19,7 +19,7 @@ const CARDS = [
 export default function SchoolsCompaniesPage() {
   if (!isEnabled('scuoleAziende')) notFound();
   return (
-    <main>
+    <main id="contenuto">
       <section className="coming-section">
         <span className="eyebrow">Connessioni utili</span>
         <div className="page-hero" style={{ width: '100%', padding: 0 }}>

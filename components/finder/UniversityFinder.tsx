@@ -588,7 +588,7 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
               <strong>{STEP_TITLES[key]}</strong>
             </div>
             <div className="quiz-progress-track" aria-hidden="true">
-              <span style={{ width: `${((step + 1) / STEPS.length) * 100}%` }} />
+              <span style={{ transform: `translateX(${((step + 1) / STEPS.length) * 100 - 100}%)` }} />
             </div>
           </div>
 

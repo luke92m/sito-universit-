@@ -22,7 +22,7 @@ export default function MethodPage() {
   const scholarshipCount = universitiesWithScholarship().length;
 
   return (
-    <main className="legal-page method-page">
+    <main id="contenuto" className="legal-page method-page">
       <article>
         <span className="eyebrow">Metodo e fonti</span>
         <h1>Come calcoliamo quanto ti costa davvero</h1>

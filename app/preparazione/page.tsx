@@ -15,7 +15,7 @@ export default function PreparazionePage() {
   // Funzione spenta (lib/features.ts): la burocrazia spiega comunque tipo di accesso e test.
   if (!isEnabled('preparazione')) redirect('/burocrazia');
   return (
-    <main>
+    <main id="contenuto">
       <section className="student-tool-shell">
         <Preparation />
       </section>

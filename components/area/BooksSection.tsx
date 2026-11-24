@@ -129,11 +129,11 @@ export function BooksSection({ user }: { user: SiteUser }) {
               </label>
               <label className="field">
                 <span>Titolo</span>
-                <input type="text" required value={form.title} onChange={(event) => update({ title: event.target.value })} />
+                <input type="text" name="bookTitle" autoComplete="off" required value={form.title} onChange={(event) => update({ title: event.target.value })} />
               </label>
               <label className="field">
                 <span>Autore</span>
-                <input type="text" value={form.author} onChange={(event) => update({ author: event.target.value })} />
+                <input type="text" name="bookAuthor" autoComplete="off" value={form.author} onChange={(event) => update({ author: event.target.value })} />
               </label>
               <label className="field">
                 <span>
@@ -141,6 +141,9 @@ export function BooksSection({ user }: { user: SiteUser }) {
                 </span>
                 <input
                   type="number"
+                  name="bookPrice"
+                  inputMode="decimal"
+                  autoComplete="off"
                   min="0"
                   step="0.01"
                   value={form.price}
@@ -163,9 +166,12 @@ export function BooksSection({ user }: { user: SiteUser }) {
                 </span>
                 <input
                   type="text"
+                  name="bookContact"
+                  autoComplete="off"
+                  spellCheck={false}
                   maxLength={120}
                   value={form.contact}
-                  placeholder="Email, telefono o altro recapito"
+                  placeholder="Es. nome@email.it o 333 1234567…"
                   onChange={(event) => update({ contact: event.target.value })}
                 />
               </label>
@@ -173,12 +179,14 @@ export function BooksSection({ user }: { user: SiteUser }) {
                 <span>Nota</span>
                 <input
                   type="text"
-                  placeholder="Edizione, modalità di consegna, informazioni utili"
+                  name="bookNotes"
+                  autoComplete="off"
+                  placeholder="Edizione, modalità di consegna, informazioni utili…"
                   value={form.notes}
                   onChange={(event) => update({ notes: event.target.value })}
                 />
               </label>
-              <p className="form-message field-wide" data-type={error ? 'error' : undefined}>
+              <p className="form-message field-wide" aria-live="polite" data-type={error ? 'error' : undefined}>
                 {error}
               </p>
               <button className="button button-primary field-wide" type="submit" disabled={busy}>

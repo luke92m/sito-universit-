@@ -136,7 +136,7 @@ export function CourseFinder({ onResult, onFindUniversity }: Props) {
               <strong>{step === 0 ? 'Iniziamo dai tuoi interessi' : 'Stiamo costruendo il tuo profilo'}</strong>
             </div>
             <div className="quiz-progress-track" aria-hidden="true">
-              <span style={{ width: `${((step + 1) / total) * 100}%` }} />
+              <span style={{ transform: `translateX(${((step + 1) / total) * 100 - 100}%)` }} />
             </div>
           </div>
 

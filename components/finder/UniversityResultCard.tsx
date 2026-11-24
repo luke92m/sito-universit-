@@ -25,6 +25,18 @@ function formatCurrency(value: number, maximumFractionDigits = 0): string {
   }).format(value);
 }
 
+const decimalFormatters = new Map<number, Intl.NumberFormat>();
+
+/** Punteggi con la virgola italiana e un numero fisso di decimali. */
+function formatScore(value: number, digits = 1): string {
+  let formatter = decimalFormatters.get(digits);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat('it-IT', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+    decimalFormatters.set(digits, formatter);
+  }
+  return formatter.format(value);
+}
+
 export function courseLink(item: FinderApiResult): string {
   const params = new URLSearchParams({
     universityId: item.university.id,
@@ -117,16 +129,16 @@ function CalculationDetails({ item }: { item: FinderApiResult }) {
           {SCORE_ROWS.map((row) => (
             <div className="university-score-row" role="row" key={row.key}>
               <strong>{row.label}</strong>
-              <span>{scoreOf(item, row.key).toFixed(1)}</span>
+              <span>{formatScore(scoreOf(item, row.key), 1)}</span>
               <span>{Math.round(item.weights[row.key] * 100)}%</span>
-              <span>{item.contributions[row.key].toFixed(2)}</span>
+              <span>{formatScore(item.contributions[row.key], 2)}</span>
             </div>
           ))}
           <div className="university-score-row is-total" role="row">
             <strong>Totale</strong>
             <span />
             <span>100%</span>
-            <span>{item.totalRaw.toFixed(2)}</span>
+            <span>{formatScore(item.totalRaw, 2)}</span>
           </div>
         </div>
 
@@ -148,9 +160,9 @@ function CalculationDetails({ item }: { item: FinderApiResult }) {
               {item.ranking.details.map((detail, index) => {
                 const visible = detail.rank || (detail.position ? `#${detail.position}` : '');
                 const scoreCopy = Number.isFinite(Number(detail.score))
-                  ? `punteggio algoritmo ${Number(detail.score).toFixed(1)}`
+                  ? `punteggio algoritmo ${formatScore(Number(detail.score), 1)}`
                   : Number.isFinite(Number(detail.rawScore))
-                    ? `punteggio fonte ${Number(detail.rawScore).toFixed(1)}`
+                    ? `punteggio fonte ${formatScore(Number(detail.rawScore), 1)}`
                     : 'dato ufficiale';
                 const weightCopy = Number.isFinite(Number(detail.weight))
                   ? ` · peso relativo ${Math.round(Number(detail.weight) * 100)}%`
@@ -171,12 +183,12 @@ function CalculationDetails({ item }: { item: FinderApiResult }) {
         </section>
 
         <section className="university-calculation-section">
-          <h4>Borse e sostegni · {item.support.score.toFixed(1)}/100</h4>
+          <h4>Borse e sostegni · {formatScore(item.support.score, 1)}/100</h4>
           <div className="university-support-breakdown">
             {supportItems.map(([label, score]) => (
               <span key={label}>
                 <strong>{label}</strong>
-                <small>{score.toFixed(1)}</small>
+                <small>{formatScore(score, 1)}</small>
               </span>
             ))}
           </div>
