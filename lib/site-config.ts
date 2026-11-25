@@ -34,12 +34,12 @@ interface NavItem {
 
 // Menu corto, centrato sulla scelta. La burocrazia è l'ultimo passo del percorso ed è nel footer.
 const NAV_ITEMS: NavItem[] = [
-  { href: '/trova-corso', label: 'trova la tua università' },
-  { href: '/comparison', label: 'comparatore' },
-  { href: '/borse', label: 'borse di studio' },
-  { href: '/atenei', label: 'atenei' },
-  { href: '/preparazione', label: 'preparazione', feature: 'preparazione' },
-  { href: '/scuole-aziende', label: 'scuole e aziende', feature: 'scuoleAziende' }
+  { href: '/trova-corso', label: 'Trova la tua università' },
+  { href: '/comparison', label: 'Comparatore' },
+  { href: '/borse', label: 'Borse di studio' },
+  { href: '/atenei', label: 'Atenei' },
+  { href: '/preparazione', label: 'Preparazione', feature: 'preparazione' },
+  { href: '/scuole-aziende', label: 'Scuole e aziende', feature: 'scuoleAziende' }
 ];
 
 /** Voci della navigazione principale con le funzioni attive. */

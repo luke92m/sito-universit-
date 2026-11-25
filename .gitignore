@@ -13,3 +13,6 @@ playwright-report/
 /dist/
 .vinext/
 .cloudflare/
+
+# Cartella di lavoro di tasteskill (storico delle estrazioni, screenshot dei controlli)
+.taste-skill/

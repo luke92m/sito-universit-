@@ -1,137 +1,147 @@
 import Link from 'next/link';
 import { ProfileCtaButton } from '@/components/home/ProfileCtaButton';
-import { Icon } from '@/components/site/Icons';
+import { HeroWindow } from '@/components/home/HeroWindow';
+import { StepFragments } from '@/components/home/StepFragments';
+import { WordHighlight } from '@/components/home/WordHighlight';
 import { UNIVERSITIES } from '@/lib/data';
 import { isEnabled } from '@/lib/features';
-import { FLOW_STEPS } from '@/components/flow/FlowSteps';
 import { scholarshipEntities, universitiesWithScholarship, universitiesWithTuition } from '@/lib/domain/coverage';
+import { NEUTRALITY_TEXT } from '@/lib/site-config';
+import './home.css';
 
 // Pagina uguale per tutti: su Cloudflare la serve la cache Workers, rigenerata al massimo ogni ora.
 export const revalidate = 3600;
 
-const STEP_COPY = [
-  'Sei domande sui tuoi interessi, senza account',
-  'Gli atenei adatti a te, con il perché di ogni risultato',
-  'Ranking, costi e borse fianco a fianco, con le fonti',
-  'Accesso, documenti e bandi ufficiali'
-];
-
-const PRINCIPLES = [
-  ['Neutrale', 'Nessun ateneo paga per comparire nei risultati o per la sua posizione.'],
-  ['Con le fonti', 'Ogni numero ha accanto da dove viene: MUR, QS, CENSIS, ISTAT, bandi regionali.'],
-  [
-    'Senza account',
-    isEnabled('account')
-      ? 'Puoi fare tutto il percorso senza registrarti. L’account serve solo per salvare.'
-      : 'Puoi fare tutto il percorso senza registrarti: le tue scelte restano solo nel tuo browser.'
-  ]
-];
+/*
+  Home costruita con tasteskill 2.5.1 (design-taste-frontend).
+  Tipo: software (strumento web gratuito). Palette del cliente: petrolio #12505c come unico colore,
+  ceruleo #e3f1f6 solo nei fondi, Figtree, niente corsivi (decisione del 27/10/2026).
+  Rivista con frontend-design: hero diviso, a destra il conto vero su un pannello petrolio che arriva al bordo.
+  Il petrolio sta nelle superfici grandi (pannello, finestre dei passi, fascia dei dati); il rosso Equestrian
+  solo sul pulsante dell'azione principale.
+*/
 
 export default function HomePage() {
   const tuition = universitiesWithTuition();
   const entities = scholarshipEntities();
   const scholarshipCount = universitiesWithScholarship().length;
-  return (
-    <main id="contenuto">
-      <section className="hero" aria-labelledby="heroTitle">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <span className="hero-kicker">scegliere l’università · costi reali · borse di studio</span>
-            <h1 id="heroTitle">
-              Scopri quale università
-              <br />
-              <em>fa per te.</em>
-            </h1>
-            <p className="hero-subtitle">E quanto ti costa davvero, borsa compresa.</p>
 
-            <div className="hero-actions">
-              <Link className="button button-primary" href="/trova-corso">
-                Inizia: trova la tua università
-                <Icon name="arrow" />
+  const facts = [
+    { value: tuition.length, label: 'atenei con le tasse calcolate sul tuo ISEE' },
+    { value: entities.length, label: 'bandi regionali per il diritto allo studio' },
+    { value: scholarshipCount, label: 'atenei con la borsa calcolata' },
+    { value: UNIVERSITIES.length, label: 'istituti universitari nel catalogo' }
+  ];
+
+  return (
+    <main id="contenuto" className="th-home">
+      <section className="hero--centred th-hero" data-enter aria-labelledby="heroTitle">
+        <div className="wrap th-wrap th-hero__inner">
+          <div className="th-hero__text">
+            <p className="th-pill th-enter-line">Tasse e borse 2026/27 per {tuition.length} atenei</p>
+            <h1 id="heroTitle" className="th-enter-line">
+              Il costo reale dell’università, borsa compresa
+            </h1>
+            <p className="hero__lead th-hero__lead th-enter-follow">
+              Sei domande per trovare gli atenei adatti a te. Poi tasse per ISEE, affitto e borsa regionale in un solo
+              conto, gratis e senza account.
+            </p>
+            <div className="th-btn-row th-enter-follow">
+              <Link className="th-btn th-btn--primary" href="/trova-corso">
+                Trova la tua università
               </Link>
-              <Link className="button button-secondary" href="/comparison">
+              <Link className="th-btn th-btn--secondary" href="/comparison">
                 Confronta due atenei
               </Link>
               {isEnabled('account') ? <ProfileCtaButton /> : null}
             </div>
-
-            <div className="hero-proof" aria-label="Caratteristiche principali">
-              <span className="proof-chip">{UNIVERSITIES.length} istituti universitari</span>
-              <span className="proof-chip">{tuition.length} atenei con costi verificati</span>
-              <span className="proof-chip">nessun ateneo paga per comparire</span>
-              <span className="proof-chip">nessun account obbligatorio</span>
-            </div>
           </div>
+          <div className="hero__window th-hero__window">
+            <HeroWindow />
+          </div>
+        </div>
+      </section>
 
-          <aside className="journey-card" aria-label="Il percorso di scelta">
-            <p className="journey-label">Il percorso, in quattro passi</p>
-            <ol className="journey-list">
-              {FLOW_STEPS.map((step, index) => (
-                <li className="journey-item" key={step.label}>
-                  <span className="journey-number">{String(index + 1).padStart(2, '0')}</span>
-                  <Link className="journey-copy" href={step.href}>
-                    <strong>{step.label}</strong>
-                    <span>{STEP_COPY[index]}</span>
-                  </Link>
-                  <span className="journey-status" aria-hidden="true" />
-                </li>
+      <section className="th-section" id="percorso" aria-labelledby="stepsTitle">
+        <div className="wrap th-wrap">
+          <h2 id="stepsTitle">
+            Quattro passi, dalla prima domanda all’iscrizione
+          </h2>
+          <StepFragments />
+        </div>
+      </section>
+
+      <section className="th-section th-ground-inverse" id="dati" aria-labelledby="dataTitle">
+        <div className="wrap th-wrap">
+          <h2 id="dataTitle">
+            Dati ufficiali, con la fonte accanto.{' '}
+            <span className="th-muted">Ogni cifra rimanda al documento da cui viene.</span>
+          </h2>
+          <div className="th-data-grid">
+            <dl className="th-facts">
+              {facts.map((fact) => (
+                <div className="th-fact" key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
               ))}
-            </ol>
-          </aside>
+            </dl>
+            <div
+              className="th-formula"
+              role="img"
+              aria-label="Il costo reale: tasse dell’ateneo più affitto e spese di vita, meno la borsa di studio del bando regionale"
+            >
+              <p className="th-formula__label">Come si forma il costo reale</p>
+              <div className="th-formula__row">
+                <span className="th-formula__sign">+</span>
+                <span className="th-formula__what">Tasse universitarie</span>
+                <span className="th-formula__src">Regolamento dell’ateneo 2026/27</span>
+              </div>
+              <div className="th-formula__row">
+                <span className="th-formula__sign">+</span>
+                <span className="th-formula__what">Affitto e spese di vita</span>
+                <span className="th-formula__src">Immobiliare.it e ISTAT, come stima</span>
+              </div>
+              <div className="th-formula__row">
+                <span className="th-formula__sign">−</span>
+                <span className="th-formula__what">Borsa di studio</span>
+                <span className="th-formula__src">Bando regionale 2026/27</span>
+              </div>
+              <div className="th-formula__row is-total">
+                <span className="th-formula__sign">=</span>
+                <span className="th-formula__what">Costo reale in un anno</span>
+                <span className="th-formula__src">Calcolato sul tuo ISEE</span>
+              </div>
+            </div>
+          </div>
+          <div className="th-btn-row">
+            <Link className="th-btn th-btn--secondary th-btn--on-dark" href="/metodo">
+              Leggi come calcoliamo i costi
+            </Link>
+            <Link className="th-link th-link--on-dark" href="/atenei">
+              Sfoglia i {UNIVERSITIES.length} atenei
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="home-strip" aria-label="Come funziona il sito">
-        <div className="strip-grid">
-          {PRINCIPLES.map(([title, copy]) => (
-            <div className="strip-item" key={title}>
-              <strong>{title}</strong>
-              <span>{copy}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-catalog-link" aria-label="Catalogo">
-        <p>
-          Vuoi solo curiosare? <Link href="/atenei">Esplora tutti i {UNIVERSITIES.length} atenei</Link> con schede e
-          ranking ufficiali.
-        </p>
-      </section>
-
-      <section className="about-section" id="dati" aria-labelledby="coverageTitle">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Dati verificati</span>
-            <h2 id="coverageTitle">Cosa trovi oggi.</h2>
-          </div>
-
-          <div className="home-coverage-card">
-            <ul>
-              <li>
-                <strong>Tasse per ISEE di {tuition.length} atenei</strong>
-                <span>{tuition.map((university) => university.name).join(', ')}.</span>
-              </li>
-              <li>
-                <strong>
-                  Borse di {entities.length} bandi regionali per {scholarshipCount} atenei
-                </strong>
-                <span>{[...new Set(entities.map((entity) => entity.region))].join(', ')}.</span>
-              </li>
-              <li>
-                <strong>Per tutti gli altri atenei</strong>
-                <span>Tasse medie nazionali, sempre segnate come stima. Li aggiungiamo uno alla volta.</span>
-              </li>
-            </ul>
-            <div className="inline-actions">
-              <Link className="button button-secondary" href="/metodo">
-                Come calcoliamo i costi
-              </Link>
-              <Link className="text-button" href="/atenei">
-                Esplora gli atenei
-              </Link>
-            </div>
-          </div>
+      <section className="th-section th-statement statement" id="neutralita" data-moment="word-highlight" aria-label="Le regole del sito">
+        <div className="wrap th-wrap">
+          <WordHighlight text={NEUTRALITY_TEXT} strong="fonte" />
+          <ul className="th-rules">
+            <li>
+              <strong>Le tue scelte restano a te</strong>
+              <span>Risposte e preferenze si salvano solo nel tuo browser. Il calcolo non le conserva.</span>
+            </li>
+            <li>
+              <strong>Le stime si vedono</strong>
+              <span>Affitto e spese di vita sono medie ufficiali, e lo diciamo accanto alla cifra.</span>
+            </li>
+            <li>
+              <strong>Un ateneo alla volta</strong>
+              <span>Dove mancano le regole ufficiali usiamo la media nazionale, segnata come tale.</span>
+            </li>
+          </ul>
         </div>
       </section>
     </main>

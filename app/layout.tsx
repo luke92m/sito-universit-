@@ -10,6 +10,7 @@ import { UNIVERSITIES } from '@/lib/data';
 import { isEnabled } from '@/lib/features';
 import { SITE_CONFIG } from '@/lib/site-config';
 import './globals.css';
+import './system.css';
 
 const figtree = Figtree({ subsets: ['latin'], variable: '--font-figtree', display: 'swap' });
 
