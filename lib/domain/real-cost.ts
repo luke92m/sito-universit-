@@ -18,6 +18,7 @@ import {
   ispeAdjusted,
   degreeLevel,
   fixedFeesRange,
+  institutionalAidFor,
   maxContribution,
   offSiteContribution,
   isExcludedCourse,
@@ -156,7 +157,7 @@ function tuitionLines(
   // Gli idonei alla borsa si vedono rimborsare la tassa regionale pagata all'iscrizione.
   const refund = scholarship?.status === 'eligible' ? fixed.regionalTax : { min: 0, max: 0 };
   const scope = group ? `gruppo ${group.label}` : course ? '' : 'corso triennale';
-  return [
+  const lines: CostLine[] = [
     {
       key: 'tasse',
       label: 'Tasse universitarie',
@@ -180,6 +181,27 @@ function tuitionLines(
       estimated: false
     }
   ];
+  // Borsa o riduzione propria dell'ateneo (es. Bocconi4Access): caso migliore se non è garantita.
+  const aid = exempt
+    ? null
+    : institutionalAidFor(rule, isee, exempt || maybeExempt ? 0 : tuitionMin, tuitionMax, scholarship?.status ?? null);
+  if (aid) {
+    lines.push({
+      key: 'riduzione',
+      label: aid.aid.name,
+      min: aid.min,
+      max: aid.max,
+      note:
+        (aid.min === aid.max
+          ? 'Spetta a chi ha un ISEE in questa fascia. '
+          : aid.min > 0
+            ? 'Una parte è certa per il tuo ISEE, il resto dipende dal valore esatto. '
+            : 'Non è automatica: è il caso migliore se la ottieni. ') + aid.aid.note,
+      source: aid.aid.source,
+      estimated: false
+    });
+  }
+  return lines;
 }
 
 export function realCost(

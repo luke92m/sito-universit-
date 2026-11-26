@@ -16063,7 +16063,7 @@
     "ateneo-01503": {
       "name": "Università Bocconi",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-16",
+      "verifiedAt": "2026-11-26",
       "appliesTo": "Primo anno di laurea triennale, Giurisprudenza e laurea magistrale: importo unico, non legato all’ISEE.",
       "fixedFees": {
         "regionalTax": 0,
@@ -16097,7 +16097,7 @@
         }
       ],
       "noScholarshipExemption": "Anche con la borsa ISU la retta del primo anno resta dovuta: le riduzioni passano solo da «Bocconi4Access to Education» (domanda a parte); l’esonero totale vale dal secondo anno.",
-      "maxNote": "Importo unico, uguale per ogni ISEE: 17.000 € per triennali e Giurisprudenza, 18.550 € per le magistrali, 25.000 € per il World Bachelor in Business (23.000 € per il Double Program HEC-Bocconi). Le riduzioni (esonero parziale del 20-80% con «Bocconi4Access to Education») vanno chieste con una domanda a parte e non sono automatiche: qui non sono calcolate.",
+      "maxNote": "Importo unico, uguale per ogni ISEE: 17.000 € per triennali e Giurisprudenza, 18.550 € per le magistrali, 25.000 € per il World Bachelor in Business (23.000 € per il Double Program HEC-Bocconi). Le riduzioni di «Bocconi4Access to Education» (esonero dal 20 al 100%) vanno chieste con una domanda a parte e non sono automatiche: qui sono mostrate come caso migliore.",
       "maxSource": {
         "label": "Bocconi, Importi e rateazioni 2026/27 (triennali e Giurisprudenza; magistrali)",
         "url": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0"
@@ -16115,7 +16115,32 @@
           "url": "https://www.unibocconi.it/sites/default/files/media/attachments/Tasse%20e%20contributi%20TQ.pdf"
         }
       },
-      "simulator": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0"
+      "simulator": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0",
+      "institutionalAid": [
+        {
+          "name": "Esonero Bocconi4Access to Education",
+          "guaranteed": false,
+          "tiers": [
+            {
+              "iseeMax": 30000,
+              "reduction": 1
+            },
+            {
+              "iseeMax": 50000,
+              "reduction": 0.8
+            },
+            {
+              "iseeMax": 100000,
+              "reduction": 0.4
+            }
+          ],
+          "note": "Domanda unica dopo l’immatricolazione, a esaurimento risorse e senza un numero di posti dichiarato: con ISEE sotto 30.000 € si ha la priorità per l’esonero totale, sotto 50.000 € per quello dell’80 o 60%, tra 50.000 e 100.000 € per il 40 o 20% (pagina 2027/28). Per gravi difficoltà «Una Scelta Possibile» aggiunge 8.058 € e l’alloggio gratuito. Per il 2027/28 la prima sessione è dal 12 al 30 novembre 2026.",
+          "source": {
+            "label": "Bocconi, 100% Full tuition waivers a.a. 2026/27",
+            "url": "https://www.unibocconi.it/it/studenti-iscritti/agevolazioni/agevolazioni-lauree-triennali-e-giurisprudenza/100-full-tuition-waivers-aa-2026-27"
+          }
+        }
+      ]
     },
     "ateneo-05805": {
       "name": "Luiss Guido Carli",

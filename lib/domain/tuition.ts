@@ -83,6 +83,42 @@ export interface TuitionRule {
   maxSource: Source;
   payments: { steps: string[]; note: string; source: Source };
   simulator: string;
+  /**
+   * Borse e riduzioni proprie dell'ateneo (soprattutto non statali, es. Bocconi4Access): tolgono una quota
+   * della retta per fascia ISEE. Se non sono garantite il calcolo le mostra come caso migliore (min 0).
+   */
+  institutionalAid?: InstitutionalAid[];
+}
+
+/** Fascia di una borsa d'ateneo: fino a iseeMax (incluso; null = qualunque ISEE). */
+export interface InstitutionalAidTier {
+  iseeMax: number | null;
+  /** Quota della retta tolta, da 0 a 1 (1 = retta azzerata). */
+  reduction: number;
+  /** Denaro o servizi in più all'anno, in euro (es. contributo per l'alloggio). */
+  cash?: number;
+}
+
+export interface InstitutionalAid {
+  name: string;
+  /** true se spetta a chiunque sia nella fascia (senza graduatoria né fondi limitati). */
+  guaranteed: boolean;
+  /** Solo per chi è idoneo alla borsa regionale per il diritto allo studio. */
+  requiresScholarship?: boolean;
+  /** Fasce in ordine di ISEE crescente. */
+  tiers: InstitutionalAidTier[];
+  /** Cosa serve e cosa sapere (domanda, scadenza, posti), in una o due frasi. */
+  note: string;
+  source: Source;
+}
+
+/** Riduzione d'ateneo applicata al costo: valori annui in euro, da sottrarre. */
+export interface InstitutionalAidEstimate {
+  aid: InstitutionalAid;
+  /** Riduzione sicura (0 se la borsa non è garantita o l'ISEE può superare la soglia). */
+  min: number;
+  /** Riduzione nel caso migliore. */
+  max: number;
 }
 
 type CourseLike = { name: string; classCode: string; level?: string; group?: string };
@@ -234,4 +270,39 @@ export function ispeAdjusted(rule: TuitionRule, contribution: number, max: numbe
   if (!limit || ispe == null || ispe <= limit.from) return contribution;
   if (!limit.to || ispe >= limit.to) return max;
   return cents(contribution + ((max - contribution) * (ispe - limit.from)) / (limit.to - limit.from));
+}
+
+function aidTier(aid: InstitutionalAid, isee: number | null): InstitutionalAidTier | null {
+  if (isee == null) return null;
+  return aid.tiers.find((tier) => tier.iseeMax == null || isee <= tier.iseeMax) || null;
+}
+
+/**
+ * Borsa d'ateneo più favorevole per l'intervallo ISEE: `tuitionAtMin` e `tuitionAtMax` sono le tasse già
+ * calcolate agli estremi dell'intervallo. Senza ISEE non spetta nulla. `scholarship` dice se lo studente è
+ * idoneo alla borsa regionale (serve alle borse riservate agli idonei).
+ */
+export function institutionalAidFor(
+  rule: TuitionRule,
+  isee: { min: number | null; max: number | null },
+  tuitionAtMin: number,
+  tuitionAtMax: number,
+  scholarship: string | null
+): InstitutionalAidEstimate | null {
+  if (!rule.institutionalAid?.length || isee.min == null) return null;
+  const estimates = rule.institutionalAid
+    .filter((aid) => !aid.requiresScholarship || scholarship === 'eligible' || scholarship === 'uncertain')
+    .map((aid) => {
+      const best = aidTier(aid, isee.min);
+      if (!best) return null;
+      const worst = aidTier(aid, isee.max);
+      const sure = aid.guaranteed && worst && (!aid.requiresScholarship || scholarship === 'eligible');
+      return {
+        aid,
+        min: sure ? Math.round(tuitionAtMax * worst.reduction + (worst.cash || 0)) : 0,
+        max: Math.round(tuitionAtMin * best.reduction + (best.cash || 0))
+      };
+    })
+    .filter((item): item is InstitutionalAidEstimate => Boolean(item && item.max > 0));
+  return estimates.sort((a, b) => b.max - a.max || b.min - a.min)[0] || null;
 }

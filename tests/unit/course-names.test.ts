@@ -47,3 +47,18 @@ describe('corso cercato per nome', () => {
     expect(state?.answers.courseChoice).toBe(answers.courseChoice);
   });
 });
+
+describe('borse proprie dell’ateneo', () => {
+  it('Bocconi4Access: con ISEE basso il caso migliore azzera la retta, ma non è garantito', async () => {
+    const { realCost } = await import('@/lib/domain/real-cost');
+    const { getUniversityById } = await import('@/lib/data');
+    const bocconi = getUniversityById('ateneo-01503')!;
+    const cost = realCost(bocconi, null, { min: 20000, max: 20000 }, { min: 10000, max: 10000 }, 'inSede');
+    const tuition = cost.lines.find((line) => line.key === 'tasse')!;
+    const aid = cost.lines.find((line) => line.key === 'riduzione')!;
+    expect(aid.min).toBe(0);
+    expect(aid.max).toBe(tuition.max);
+    const high = realCost(bocconi, null, { min: 120000, max: 120000 }, { min: 10000, max: 10000 }, 'inSede');
+    expect(high.lines.some((line) => line.key === 'riduzione')).toBe(false);
+  });
+});
