@@ -41,7 +41,7 @@ export interface RankingResult {
 
 /** Destinazione del finder: un corso generale o una macroarea. */
 export interface RankingTarget {
-  type?: 'course' | 'group';
+  type?: 'course' | 'name' | 'group';
   label?: string;
   group?: string;
   profile?: CourseProfile | null;

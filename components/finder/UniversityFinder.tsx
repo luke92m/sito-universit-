@@ -17,6 +17,7 @@ import {
   type FinderAnswerKey,
   type FinderLinkState
 } from '@/lib/flow/journey-params';
+import { CourseNameSearch } from './CourseNameSearch';
 import { UniversityResultCard } from './UniversityResultCard';
 
 const STEPS = ['course', 'degree', 'residence', 'commute', 'relocation', 'isee', 'language'] as const;
@@ -323,6 +324,11 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
           <span>Corso o macroarea</span>
           <select value={answers.courseChoice} onChange={(event) => set({ courseChoice: event.target.value })}>
             <option value="">Seleziona un corso o una macroarea</option>
+            {answers.courseChoice.startsWith('name:') ? (
+              <optgroup label="Corso cercato per nome">
+                <option value={answers.courseChoice}>{answers.courseChoice.slice(5)}</option>
+              </optgroup>
+            ) : null}
             {savedChoices.length ? (
               <optgroup label="Corsi emersi dalle tue preferenze">
                 {savedChoices.map((item) => (
@@ -349,6 +355,10 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
             </optgroup>
           </select>
         </label>
+        <CourseNameSearch
+          selected={answers.courseChoice.startsWith('name:') ? answers.courseChoice.slice(5) : ''}
+          onPick={(name) => set({ courseChoice: `name:${name}` })}
+        />
       </fieldset>
     );
   } else if (key === 'degree') {
@@ -545,7 +555,7 @@ export function UniversityFinder({ startCourseSlug, currentCourseResult, onBackT
   const results = verifiedOnly ? allResults.filter((item) => item.coverage?.tuition) : allResults;
   const visible = results.slice(0, 5);
   const target = response?.target;
-  const courseLabel = target ? (target.type === 'course' ? `corso ${target.label}` : `area ${target.label}`) : '';
+  const courseLabel = target ? (target.type === 'group' ? `area ${target.label}` : `corso ${target.label}`) : '';
 
   const toggle = (next: { includeTelematic: boolean; includeDistance: boolean }) => {
     setIncludeTelematic(next.includeTelematic);

@@ -2491,6 +2491,67 @@ main {
   margin-top: 0;
 }
 
+.course-name-search input {
+  min-height: 48px;
+}
+
+.course-name-search-status {
+  max-width: 720px;
+  min-height: 1em;
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.course-name-search-results {
+  display: grid;
+  max-width: 720px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  gap: 6px;
+}
+
+.course-name-search-results button {
+  display: grid;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  gap: 2px;
+  touch-action: manipulation;
+}
+
+.course-name-search-results button:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-soft);
+}
+
+.course-name-search-results button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.course-name-search-results button.is-selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.course-name-search-results strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.course-name-search-results small {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
 .finder-prefill-note {
   display: grid;
   max-width: 720px;
