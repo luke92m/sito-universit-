@@ -1869,8 +1869,8 @@ describe('Roma, private 2026/27: LUMSA e Campus Bio-Medico', () => {
     const group = courseGroup(rule, named('Giurisprudenza'))!;
     expect(contributionFor(rule, 20000, group.max, group.bands)).toBe(4250);
     expect(contributionFor(rule, null, group.max, group.bands)).toBe(8750);
-    // Nel dataset 2025/26 il corso si chiama «Scienze del servizio sociale e del non profit»; la regola in tuition-rules.json
-    // cita ancora il nome 2024/25 (da aggiornare), quindi il controllo usa il nome della regola.
+    // Corso rinominato nel 2025/26: la regola riconosce sia il nome nuovo sia quello del regolamento.
+    expect(maxContribution(rule, named('Scienze del servizio sociale e del non profit'))).toBe(3500);
     expect(maxContribution(rule, { name: 'Scienze del Servizio Sociale e del No Profit', classCode: 'L-39' })).toBe(3500);
   });
   it('Campus Bio-Medico: contributo per corso', () => {
@@ -1921,8 +1921,8 @@ describe('San Raffaele 2026/27: retta per corso e borse regionali', () => {
     expect(maxContribution(rule, course('Psicologia', 'magistrale')) + 206).toBe(8190);
     const nursing = getCourses('ateneo-01508').filter((item) => item.name.startsWith('Infermieristica'));
     for (const item of nursing) expect(maxContribution(rule, item) + 206).toBe(2590);
-    // Nel dataset 2025/26 il corso LM-9 si chiama «Biotechnology for Innovative Therapeutics»; la regola in tuition-rules.json
-    // cita ancora «Biotechnology And Medical Biology» (da aggiornare), quindi il controllo usa il nome della regola.
+    // Corso LM-9 rinominato nel 2025/26: escluso con il nome nuovo e con quello della regola.
+    expect(isExcludedCourse(rule, course('Biotechnology for Innovative Therapeutics', 'magistrale'))).toBe(true);
     expect(isExcludedCourse(rule, { name: 'Biotechnology And Medical Biology', classCode: 'LM-9' })).toBe(true);
     expect(rule.noScholarshipExemption).toBeUndefined();
   });

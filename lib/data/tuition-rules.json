@@ -294,6 +294,11 @@
           "amount": 3315
         },
         {
+          "name": "Communications Engineering",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
           "name": "Bioinformatics",
           "level": "magistrale",
           "amount": 3825
@@ -4124,7 +4129,9 @@
           "Mechatronics Engineering",
           "Lingua e Cultura Italiana a Stranieri",
           "Biotechnology - Biotecnologie",
+          "Biotechnology for Industry and Health",
           "Physical Activity And Health Promotion",
+          "Sport and Health Promotion",
           "Odontoiatria",
           "Art History in Rome",
           "Finance And Banking",
@@ -7000,6 +7007,7 @@
             "Amministrazione e Direzione Aziendale",
             "Data Science for Management",
             "Economia e Management dei Sistemi Alimentari Sostenibili",
+            "Economics and Management of Sustainable Food System",
             "Economics and Management of Sustainable food Systems",
             "Filosofia (interateneo - sede Amministrativa Parma)",
             "F inancial M anagement per I mprese, M ercati e I ntermediari",
@@ -7035,6 +7043,7 @@
           "nameIncludes": [
             "International Business and Development",
             "Psychobiology",
+            "Psicobiologia",
             "Finanza e Risk Management"
           ],
           "groups": [
@@ -7107,6 +7116,7 @@
             "Scienze Geologiche",
             "Scienze Motorie, Sport e Salute",
             "Scienze Zootecniche e Tecnologie delle Produzioni Animali",
+            "Scienze Animali",
             "Tecnologie e Gestione dell’Impresa Casearia",
             "Advanced Molecular Sciences for Health Products",
             "Architettura",
@@ -7454,7 +7464,8 @@
           "groups": [],
           "names": [
             "Digital Education",
-            "Scienze Giuridiche dell'Impresa e della Pubblica Amministrazione"
+            "Scienze Giuridiche dell'Impresa e della Pubblica Amministrazione",
+            "Scienze dei Servizi Giuridici"
           ],
           "bands": [
             {
@@ -7760,6 +7771,7 @@
           "groups": [],
           "names": [
             "Analisi, Consulenza e Gestione Finanziaria",
+            "Finanza e management",
             "Direzione e Consulenza di Impresa",
             "Economia, Politiche Pubbliche e Sostenibilità",
             "International Management",
@@ -8743,7 +8755,10 @@
               "base": 2914
             }
           ],
-          "max": 2914
+          "max": 2914,
+          "names": [
+            "Design"
+          ]
         },
         {
           "id": "umanistica",
@@ -14669,7 +14684,8 @@
             "Psicologia Clinica",
             "Farmacia",
             "Chimica e Tecnologia Farmaceutiche",
-            "Scienze Motorie per la Prevenzione e la Salute"
+            "Scienze Motorie per la Prevenzione e la Salute",
+            "Scienze delle attività motorie preventive e adattate per la salute"
           ],
           "bands": [
             {
@@ -18374,7 +18390,9 @@
       "excludedCourses": {
         "names": [
           "Scienze del Servizio Sociale",
+          "Servizio sociale, comunità e vulnerabilità",
           "Servizio Sociale e Politiche Sociali",
+          "Servizio sociale e politiche sociali per il contrasto alle vulnerabilità",
           "Management dello Sport"
         ],
         "note": "il Regolamento assegna l’indirizzo per dipartimento e per questo corso il dipartimento non è certo."
@@ -20715,6 +20733,7 @@
           "groups": [],
           "names": [
             "Scienze del Servizio Sociale e del No Profit",
+            "Scienze del servizio sociale e del non profit",
             "Programmazione e Gestione delle Politiche e dei Servizi Sociali"
           ],
           "bands": [
@@ -21654,7 +21673,8 @@
       "excludedCourses": {
         "names": [
           "Cognitive Psychology in Health Communication",
-          "Biotechnology And Medical Biology"
+          "Biotechnology And Medical Biology",
+          "Biotechnology for Innovative Therapeutics"
         ],
         "note": "Per questi corsi la pagina tasse 2026/27 non ha un prospetto con lo stesso nome: per la magistrale LM-9 c’è «Biotechnology for Innovative Therapeutics» (7.890 €), per Cognitive Psychology in Health Communication nessun prospetto."
       },
