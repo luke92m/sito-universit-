@@ -107,26 +107,28 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
               <>
                 {' '}
                 <a href={conditionInfo.sourceUrl} target="_blank" rel="noreferrer">
-                  Tabelle ufficiali
+                  {conditionInfo.origin === 'telematica' ? 'Bando ufficiale' : 'Tabelle ufficiali'}
                 </a>
               </>
             ) : null}
           </small>
         </div>
-        <div className="real-cost-condition-options">
-          {(Object.keys(CONDITION_LABELS) as StudentCondition[]).map((key) => (
-            <button
-              key={key}
-              type="button"
-              className={conditionInfo.condition === key ? 'is-active' : ''}
-              aria-pressed={conditionInfo.condition === key}
-              disabled={busy}
-              onClick={() => onCondition(key)}
-            >
-              {CONDITION_LABELS[key]}
-            </button>
-          ))}
-        </div>
+        {conditionInfo.origin === 'telematica' ? null : (
+          <div className="real-cost-condition-options">
+            {(Object.keys(CONDITION_LABELS) as StudentCondition[]).map((key) => (
+              <button
+                key={key}
+                type="button"
+                className={conditionInfo.condition === key ? 'is-active' : ''}
+                aria-pressed={conditionInfo.condition === key}
+                disabled={busy}
+                onClick={() => onCondition(key)}
+              >
+                {CONDITION_LABELS[key]}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="real-cost-lines" role="table" aria-label="Voci del costo annuo">

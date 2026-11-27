@@ -273,7 +273,8 @@ export function realCost(
       max: scholarship.amountMax,
       note: uncertain
         ? 'Il tuo ISEE o ISPE è vicino alla soglia: con il valore esatto sapresti se ti spetta.'
-        : `Importo annuo del bando per il tuo ISEE, pagato a rate se raggiungi i crediti richiesti. ${entity.amounts.note}`,
+        : `Importo annuo del bando per il tuo ISEE, pagato a rate se raggiungi i crediti richiesti. ${entity.amounts.note}` +
+          (telematic ? ` ${telematic.note}${telematic.services ? '' : ' Per questo il sito non conta i pasti.'}` : ''),
       source: entity.amounts.source,
       estimated: false
     });
