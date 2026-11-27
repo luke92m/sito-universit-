@@ -11,6 +11,10 @@ Il calcolo «quanto ti costa davvero» (`/borse`, API `/api/real-cost`) usa **so
 
 La logica è in `lib/domain/dsu.ts`, `lib/domain/tuition.ts` e `lib/domain/real-cost.ts`. I test in `tests/unit/real-data.test.ts` contengono valori controllati a mano sui documenti: se cambiano i dati, vanno aggiornati anche i test.
 
+## Corsi degli atenei (a.a. 2025/26)
+
+I corsi del sito (`lib/data/university-dataset.json`, 5.955 righe per 92 atenei, a.a. 2025/26, struttura al 1/9/2026) vengono dall’offerta formativa MUR e dagli iscritti per corso 2025/26 (dati USTAT, <https://dati-ustat.mur.gov.it/dataset/metadati/resource/c0e63906-7190-4568-892b-0cf399f56071>). Prima erano 5.833 righe dell’a.a. 2024/25. Gli iscritti 2025/26 sono provvisori; il campo `metrics` degli atenei (contribuzione, borse, alloggi) non è stato toccato ed è ancora quello della rilevazione 2025. Metodo e limiti in `legacy/data/NOTE_DATI.md`. Le regole delle tasse citano alcuni corsi per nome: se un ateneo rinomina un corso, la regola va aggiornata a mano.
+
 ## Copertura (verificata il 12-15/10/2026)
 
 

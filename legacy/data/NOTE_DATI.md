@@ -21,11 +21,19 @@ Il campo `qsRank` deriva dalla QS World University Rankings 2027. Gli istituti n
 
 `js/university-courses.js` aggrega:
 
-- offerta formativa MUR 2024/25;
-- iscritti per corso MUR 2024/25;
+- offerta formativa MUR a.a. 2025/26 (file USTAT «offerta», anno 2025);
+- iscritti per corso MUR a.a. 2025/26 (file USTAT «iscritti», anno accademico 2025/2026, dato provvisorio: il MUR può rivederlo);
 - contribuzione e interventi degli atenei, rilevazione MUR 2025.
 
-Il dataset del sito include 5.833 offerte di corso collegate a 92 istituzioni del catalogo. Le istituzioni senza corsi collegati restano comunque visibili nella sezione Atenei.
+Il dataset del sito include 5.955 offerte di corso (a.a. 2025/26, `structureDate` 2026-09-01) collegate a 92 istituzioni del catalogo; prima, con l’a.a. 2024/25, erano 5.833. Le istituzioni senza corsi collegati restano comunque visibili nella sezione Atenei.
+
+Come si ricavano i valori (procedura ripetibile, script non versionato):
+
+- ogni riga dell’offerta è un corso in una sede; l’ateneo si collega con `shortName` o `name` del catalogo; i corsi con lo stesso nome, la stessa classe, la stessa sede e gli stessi campi (anche se in lingue diverse) sono una riga sola;
+- `level` dalla classe di laurea: LM-13 e LMG/01 ciclo unico, altre LM magistrale, L/SNT, L/DS, L/GASTR e LMR altro, il resto triennale;
+- `enrolled` è la somma di tutti gli iscritti (sessi, sedi e classi) del corso con quel nome nell’ateneo: lo stesso numero compare su ogni sede. Dal 2025 il MUR scrive le sedi secondarie come «NOME REPLICA sede»: il suffisso è tolto e gli iscritti sono sommati al corso principale;
+- per ateneo e macroarea, `groups.courseCount` e `groups.enrolled` contano i corsi distinti (nome senza maiuscole e classe) e la somma dei loro iscritti, `share` è la quota sul totale dell’ateneo; `index` è la media delle posizioni percentili tra gli atenei di quella macroarea per iscritti, quota e numero di corsi, `rank` la posizione per `index` e `rankedUniversities` il numero di atenei con quella macroarea. Il calcolo di `index` e `rank` approssima quello del dataset 2024/25 (formula originale non conservata): i numeri sono confrontabili solo dentro la stessa versione;
+- i CSV MUR sono in windows-1252: gli apostrofi e i trattini dei nomi sono ripristinati (nel dataset 2024/25 restavano come caratteri di controllo invisibili, per cui comparivano nomi come «dellArchitettura»).
 
 Le aree disciplinari usate nel filtro sono raggruppamenti editoriali costruiti dalle classi di laurea e dai campi MUR. Il termine `Dipartimento` è usato nell’interfaccia per essere comprensibile, ma il filtro rappresenta una macroarea disciplinare e non l’organigramma ufficiale dei dipartimenti di ciascun ateneo.
 
