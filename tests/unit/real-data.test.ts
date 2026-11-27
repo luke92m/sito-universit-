@@ -1541,7 +1541,8 @@ describe('Private: la borsa non toglie la retta se l’ateneo non lo prevede', (
 
   it('Cattolica (EDUCatt): esonero per gli idonei come dice il bando', () => {
     const cost = realCost(getUniversityById('ateneo-01504')!, null, exact(10000), exact(10000), 'inSede');
-    expect(cost.lines.find((line) => line.key === 'tasse')?.min).toBe(0);
+    // Esonero da tasse e contributi: resta la tassa regionale (130 €), che EDUCatt restituisce dentro la borsa.
+    expect(cost.lines.find((line) => line.key === 'tasse')).toMatchObject({ min: 130, max: 130 });
   });
 });
 

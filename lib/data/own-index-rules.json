@@ -1,0 +1,859 @@
+{
+  "version": "2026-11-27",
+  "note": "Atenei non statali che calcolano le tasse (o la borsa) con un indicatore proprio al posto dell’ISEE. Senza i dati dello studente il sito mostra la forbice minimo–massimo; con i dati chiesti dal regolamento calcola l’importo.",
+  "universities": {
+    "ateneo-01504": {
+      "kind": "cattolica",
+      "indexName": "reddito equivalente",
+      "academicYear": "2026/27",
+      "verifiedAt": "2026-11-27",
+      "source": {
+        "label": "Università Cattolica, Normativa tasse primo anno 2026/27, par. 2 e 4",
+        "url": "https://studenticattolica.unicatt.it/2026-2027%20Normativa%20tasse%20primo%20anno%20di%20corso.pdf"
+      },
+      "divisors": [
+        0.6,
+        0.75,
+        0.88,
+        1,
+        1.17,
+        1.33,
+        1.47,
+        1.59
+      ],
+      "divisorStep": 0.12,
+      "regionalTax": {
+        "advance": 130,
+        "bands": [
+          {
+            "iseeMax": 26887.93,
+            "amount": 130
+          },
+          {
+            "iseeMax": 53775.88,
+            "amount": 160
+          },
+          {
+            "iseeMax": null,
+            "amount": 190
+          }
+        ]
+      },
+      "halfFifthMaxIncome": 70000,
+      "schemes": {
+        "padane": {
+          "first": 1500,
+          "second": {
+            "triennale": 1000,
+            "ciclo-unico": 1000,
+            "magistrale": 1200
+          },
+          "extra": 145,
+          "perCoefficient": 1170,
+          "contribution": {
+            "brackets": [
+              {
+                "upTo": 24000,
+                "base": 0,
+                "rate": 0,
+                "from": 0
+              },
+              {
+                "upTo": 40000,
+                "base": 0,
+                "rate": 0.118,
+                "from": 24000
+              },
+              {
+                "upTo": 70000,
+                "base": 1888,
+                "rate": 0.08,
+                "from": 40000
+              },
+              {
+                "upTo": 100000,
+                "base": 4288,
+                "rate": 0.046,
+                "from": 70000
+              },
+              {
+                "upTo": 150000,
+                "base": 6018,
+                "rate": 0.001,
+                "from": 100000
+              }
+            ],
+            "over": 6918
+          }
+        },
+        "romaMedicina": {
+          "first": 2500,
+          "second": {
+            "triennale": 2000,
+            "ciclo-unico": 2000,
+            "magistrale": 2000
+          },
+          "extra": 0,
+          "perCoefficient": 0,
+          "contribution": {
+            "brackets": [
+              {
+                "upTo": 24000,
+                "base": 2400,
+                "rate": 0,
+                "from": 0
+              },
+              {
+                "upTo": 40000,
+                "base": 2400,
+                "rate": 0.168,
+                "from": 24000
+              },
+              {
+                "upTo": 80000,
+                "base": 5088,
+                "rate": 0.14,
+                "from": 40000
+              },
+              {
+                "upTo": 100000,
+                "base": 10688,
+                "rate": 0.108,
+                "from": 80000
+              },
+              {
+                "upTo": 150000,
+                "base": 13198,
+                "rate": 0.001,
+                "from": 100000
+              }
+            ],
+            "over": 14098
+          }
+        },
+        "romaFarmacia": {
+          "first": 2500,
+          "second": {
+            "triennale": 2000,
+            "ciclo-unico": 2000,
+            "magistrale": 2000
+          },
+          "extra": 0,
+          "perCoefficient": 0,
+          "contribution": {
+            "brackets": [
+              {
+                "upTo": 24000,
+                "base": 440,
+                "rate": 0,
+                "from": 0
+              },
+              {
+                "upTo": 40000,
+                "base": 440,
+                "rate": 0.129,
+                "from": 24000
+              },
+              {
+                "upTo": 80000,
+                "base": 2504,
+                "rate": 0.09,
+                "from": 40000
+              },
+              {
+                "upTo": 100000,
+                "base": 6104,
+                "rate": 0.052,
+                "from": 80000
+              },
+              {
+                "upTo": 150000,
+                "base": 7494,
+                "rate": 0.001,
+                "from": 100000
+              }
+            ],
+            "over": 8394
+          }
+        },
+        "romaBiotech": {
+          "first": 1500,
+          "second": {
+            "triennale": 1000,
+            "ciclo-unico": 1000,
+            "magistrale": 1200
+          },
+          "extra": 120,
+          "perCoefficient": 1184,
+          "contribution": {
+            "brackets": [
+              {
+                "upTo": 24000,
+                "base": 0,
+                "rate": 0,
+                "from": 0
+              },
+              {
+                "upTo": 40000,
+                "base": 0,
+                "rate": 0.116,
+                "from": 24000
+              },
+              {
+                "upTo": 70000,
+                "base": 1856,
+                "rate": 0.082,
+                "from": 40000
+              },
+              {
+                "upTo": 100000,
+                "base": 4316,
+                "rate": 0.049,
+                "from": 70000
+              },
+              {
+                "upTo": 150000,
+                "base": 6136,
+                "rate": 0.001,
+                "from": 100000
+              }
+            ],
+            "over": 7036
+          }
+        }
+      },
+      "coefficientRange": {
+        "min": 0.55,
+        "max": 2
+      },
+      "courses": {
+        "agricoltura sostenibile e di precisione|piacenza|magistrale": {
+          "coef": 1
+        },
+        "agricultural and food economics|cremona|magistrale": {
+          "coef": 1
+        },
+        "food processing innovation and tradition|cremona|magistrale": {
+          "coef": 1.25
+        },
+        "scienze e tecnologie agrarie|piacenza|triennale": {
+          "coef": 1.25
+        },
+        "scienze e tecnologie alimentari|cremona|triennale": {
+          "coef": 1.05
+        },
+        "scienze e tecnologie alimentari|piacenza|triennale": {
+          "coef": 1.25
+        },
+        "scienze e tecnologie alimentari|piacenza|magistrale": {
+          "coef": 1
+        },
+        "archeologia e storia dell arte|milano|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "discipline delle arti dei media e dello spettacolo|brescia|triennale": {
+          "coef": 0.85,
+          "half": true
+        },
+        "scienze dei beni culturali|milano|triennale": {
+          "coef": 0.7,
+          "half": true
+        },
+        "banking and finance|milano|magistrale": {
+          "coef": 1.35
+        },
+        "banking e consulting|piacenza|magistrale": {
+          "coef": 1.45
+        },
+        "business and finance|brescia|triennale": {
+          "coef": 1.35
+        },
+        "direzione e consulenza aziendale|milano|magistrale": {
+          "coef": 1.75
+        },
+        "direzione e consulenza aziendale|roma|magistrale": {
+          "coef": 1.55
+        },
+        "economia|milano|magistrale": {
+          "coef": 1.45
+        },
+        "economia aziendale|cremona|triennale": {
+          "coef": 1.5
+        },
+        "economia aziendale|piacenza|triennale": {
+          "coef": 1.5
+        },
+        "economia dei mercati e degli intermediari finanziari|milano|triennale": {
+          "coef": 1.35
+        },
+        "economia dei mercati e degli intermediari finanziari|milano|magistrale": {
+          "coef": 1.25
+        },
+        "economia delle imprese e dei mercati|milano|triennale": {
+          "coef": 1.55
+        },
+        "economia e gestione aziendale|milano|triennale": {
+          "coef": 1.55
+        },
+        "economia e legislazione d impresa|milano|triennale": {
+          "coef": 1.55
+        },
+        "economia e legislazione d impresa|milano|magistrale": {
+          "coef": 1.45
+        },
+        "economics and management|milano|triennale": {
+          "coef": 1.85
+        },
+        "food marketing e strategie commerciali|piacenza|magistrale": {
+          "coef": 1.45
+        },
+        "gestione d azienda|piacenza|magistrale": {
+          "coef": 1.45
+        },
+        "global business management|piacenza|magistrale": {
+          "coef": 1.8
+        },
+        "healthcare management|roma|magistrale": {
+          "coef": 1.2
+        },
+        "innovation and technology management|milano|magistrale": {
+          "coef": 1.55
+        },
+        "management|milano|magistrale": {
+          "coef": 2
+        },
+        "management per l impresa|milano|magistrale": {
+          "coef": 1.45
+        },
+        "management per la sostenibilita|piacenza|triennale": {
+          "coef": 1.5
+        },
+        "management imprese e mercati|roma|magistrale": {
+          "coef": 1.2
+        },
+        "mercati e strategie d impresa|milano|magistrale": {
+          "coef": 1.45
+        },
+        "tourism management sostenibilita e valorizzazione del territorio|brescia|triennale": {
+          "coef": 0.9
+        },
+        "consulenza pedagogica per la disabilita e la marginalita|milano|magistrale": {
+          "coef": 0.9
+        },
+        "digital learning e media education|milano|magistrale": {
+          "coef": 1.55,
+          "half": true
+        },
+        "progettazione pedagogica e coordinamento dei servizi per l infanzia e l adolescenza|piacenza|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "progettazione pedagogica e formazione delle risorse umane|brescia|magistrale": {
+          "coef": 0.9
+        },
+        "scienze dell educazione e della formazione|brescia|triennale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "scienze dell educazione e della formazione|milano|triennale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "scienze dell educazione e della formazione|piacenza|triennale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "scienze della formazione primaria|brescia|ciclo-unico": {
+          "fixed": 4070
+        },
+        "scienze della formazione primaria|milano|ciclo-unico": {
+          "fixed": 4070
+        },
+        "scienze della formazione primaria|piacenza|ciclo-unico": {
+          "fixed": 4070
+        },
+        "scienze pedagogiche e servizi alla persona|milano|magistrale": {
+          "coef": 0.9
+        },
+        "giurisprudenza|milano|ciclo-unico": {
+          "coef": 1.15
+        },
+        "giurisprudenza|piacenza|ciclo-unico": {
+          "coef": 1.15
+        },
+        "servizi giuridici per l impresa il lavoro e le pubbliche amministrazioni|milano|triennale": {
+          "coef": 1.15
+        },
+        "filologia moderna|brescia|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "filologia moderna|milano|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "filosofia|milano|triennale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "filosofia|milano|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "lettere|brescia|triennale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "lettere|milano|triennale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "scienze dell antichita|milano|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "lingue letterature e culture straniere|milano|magistrale": {
+          "coef": 0.9
+        },
+        "linguistic computing|milano|magistrale": {
+          "coef": 1.1
+        },
+        "scienze linguistiche|brescia|triennale": {
+          "coef": 1.05
+        },
+        "scienze linguistiche|milano|triennale": {
+          "coef": 1.05
+        },
+        "scienze linguistiche|brescia|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "scienze linguistiche|milano|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "scienze linguistiche per le relazioni internazionali|milano|triennale": {
+          "coef": 1.05
+        },
+        "dietistica abilitante alla professione sanitaria di dietista|roma|triennale": {
+          "fixed": 3815
+        },
+        "farmacia|roma|ciclo-unico": {
+          "scheme": "romaFarmacia"
+        },
+        "fisioterapia abilitante alla professione sanitaria di fisioterapista|potenza|triennale": {
+          "fixed": 3665
+        },
+        "fisioterapia abilitante alla professione sanitaria di fisioterapista|roma|triennale": {
+          "fixed": 3815
+        },
+        "fisioterapia abilitante alla professione sanitaria di fisioterapista|viterbo|triennale": {
+          "fixed": 3815
+        },
+        "igiene dentale abilitante alla professione sanitaria di igienista dentale|bolzano bozen|triennale": {
+          "fixed": 2395
+        },
+        "igiene dentale abilitante alla professione sanitaria di igienista dentale|roma|triennale": {
+          "fixed": 3815
+        },
+        "infermieristica abilitante alla professione sanitaria di infermiere|brescia|triennale": {
+          "fixed": 2395
+        },
+        "infermieristica abilitante alla professione sanitaria di infermiere|marsicovetere|triennale": {
+          "fixed": 2240
+        },
+        "infermieristica abilitante alla professione sanitaria di infermiere|potenza|triennale": {
+          "fixed": 2240
+        },
+        "infermieristica abilitante alla professione sanitaria di infermiere|roma|triennale": {
+          "fixed": 2395
+        },
+        "infermieristica abilitante alla professione sanitaria di infermiere|torino|triennale": {
+          "fixed": 2395
+        },
+        "lavoro sociale e coordinamento di servizi per immigrazione poverta e non auto sufficienza|brescia|magistrale": {
+          "coef": 0.9
+        },
+        "lavoro sociale e servizi per le famiglie i minori e le comunita|milano|magistrale": {
+          "coef": 0.7
+        },
+        "logopedia abilitante alla professione sanitaria di logopedista|roma|triennale": {
+          "fixed": 3815
+        },
+        "medicina e chirurgia|bolzano bozen|ciclo-unico": {
+          "fixed": 18150
+        },
+        "medicina e chirurgia|roma|ciclo-unico": {
+          "scheme": "romaMedicina"
+        },
+        "medicina e chirurgia a indirizzo tecnologico|roma|ciclo-unico": {
+          "fixed": 18150
+        },
+        "medicine and surgery|roma|ciclo-unico": {
+          "fixed": 18150
+        },
+        "odontoiatria e protesi dentaria|roma|ciclo-unico": {
+          "scheme": "romaMedicina"
+        },
+        "ortottica ed assistenza oftalmologica abilitante alla professione sanitaria di ortottista ed assistente di oftalmologia|roma|triennale": {
+          "fixed": 3815
+        },
+        "ostetricia abilitante alla professione sanitaria di ostetrica o|bolzano bozen|triennale": {
+          "fixed": 2395
+        },
+        "ostetricia abilitante alla professione sanitaria di ostetrica o|roma|triennale": {
+          "fixed": 3815
+        },
+        "scienze del servizio sociale|brescia|triennale": {
+          "coef": 0.55
+        },
+        "scienze del servizio sociale|milano|triennale": {
+          "coef": 0.55
+        },
+        "scienze e tecniche del benessere e dello sport|milano|magistrale": {
+          "coef": 0.7
+        },
+        "scienze infermieristiche e ostetriche|roma|magistrale": {
+          "scheme": "romaBiotech",
+          "coef": 0.9
+        },
+        "scienze riabilitative delle professioni sanitarie|roma|magistrale": {
+          "scheme": "romaBiotech",
+          "coef": 0.9
+        },
+        "tecniche audioprotesiche abilitante alla professione sanitaria di audioprotesista|roma|triennale": {
+          "fixed": 3815
+        },
+        "tecniche della prevenzione nell ambiente e nei luoghi di lavoro abilitante alla professione sanitaria di tecnico della prevenzione nell ambiente e nei luoghi di lavoro|roma|triennale": {
+          "fixed": 3815
+        },
+        "tecniche di fisiopatologia cardiocircolatoria e perfusione cardiovascolare abilitante alla professione sanitaria di tecnico di fisiopatologia cardiocircolatoria e perfusione cardiovascolare|roma|triennale": {
+          "fixed": 3815
+        },
+        "tecniche di laboratorio biomedico abilitante alla professione sanitaria di tecnico di laboratorio biomedico|bolzano bozen|triennale": {
+          "fixed": 2395
+        },
+        "tecniche di laboratorio biomedico abilitante alla professione sanitaria di tecnico di laboratorio biomedico|roma|triennale": {
+          "fixed": 3815
+        },
+        "tecniche di radiologia medica per immagini e radioterapia abilitante alla professione sanitaria di tecnico di radiologia medica|bolzano bozen|triennale": {
+          "fixed": 2395
+        },
+        "tecniche di radiologia medica per immagini e radioterapia abilitante alla professione sanitaria di tecnico di radiologia medica|potenza|triennale": {
+          "fixed": 3665
+        },
+        "tecniche di radiologia medica per immagini e radioterapia abilitante alla professione sanitaria di tecnico di radiologia medica|roma|triennale": {
+          "fixed": 3815
+        },
+        "terapia della neuro e psicomotricita dell eta evolutiva abilitante alla professione sanitaria di terapista della neuro e psicomotricita dell eta evolutiva|roma|triennale": {
+          "fixed": 3815
+        },
+        "comunicazione e societa|milano|triennale": {
+          "coef": 1.05
+        },
+        "comunicazione per l impresa i media e le organizzazioni complesse|milano|magistrale": {
+          "coef": 1.25
+        },
+        "european studies in investor relations and financial communication|milano|magistrale": {
+          "fixed": 7000
+        },
+        "gestione del lavoro e comunicazione per le organizzazioni|brescia|magistrale": {
+          "coef": 0.9
+        },
+        "gestione del lavoro e comunicazione per le organizzazioni|milano|magistrale": {
+          "coef": 0.9
+        },
+        "gestione di contenuti digitali per i media le imprese e i patrimoni culturali|brescia|magistrale": {
+          "coef": 0.9,
+          "half": true
+        },
+        "linguaggi dei media|milano|triennale": {
+          "coef": 0.95
+        },
+        "politiche europee ed internazionali|milano|magistrale": {
+          "coef": 0.9
+        },
+        "politiche per la cooperazione internazionale allo sviluppo|milano|magistrale": {
+          "coef": 0.9
+        },
+        "politiche pubbliche|milano|magistrale": {
+          "coef": 0.9
+        },
+        "scienze politiche e delle relazioni internazionali|brescia|triennale": {
+          "coef": 0.9
+        },
+        "scienze politiche e delle relazioni internazionali|milano|triennale": {
+          "coef": 1
+        },
+        "sociologia|milano|triennale": {
+          "coef": 0.9
+        },
+        "consumer behaviour psychology applied to food health and environment|cremona|magistrale": {
+          "coef": 1
+        },
+        "psicologia clinica e della salute persona relazioni famigliari e di comunita|milano|magistrale": {
+          "coef": 1.2
+        },
+        "psicologia degli interventi clinici gruppi organizzazioni comunita|brescia|magistrale": {
+          "coef": 1.2
+        },
+        "psicologia dello sviluppo e dei processi di tutela|milano|magistrale": {
+          "coef": 1.2
+        },
+        "psicologia per il benessere empowerment riabilitazione e tecnologia positiva|milano|magistrale": {
+          "coef": 1.2
+        },
+        "psicologia per le organizzazioni risorse umane marketing e comunicazione|milano|magistrale": {
+          "coef": 1.2
+        },
+        "scienze e tecniche psicologiche|brescia|triennale": {
+          "coef": 1.2
+        },
+        "scienze e tecniche psicologiche|milano|triennale": {
+          "coef": 1.2
+        },
+        "actuarial sciences risk and data analysis|milano|magistrale": {
+          "coef": 1.55
+        },
+        "biotecnologie per la medicina personalizzata|roma|magistrale": {
+          "scheme": "romaBiotech",
+          "coef": 0.9
+        },
+        "data analytics for business|milano|magistrale": {
+          "coef": 1.55
+        },
+        "innovations in biotechnology applied to regenerative medicine|brescia|magistrale": {
+          "scheme": "romaBiotech",
+          "coef": 0.9
+        },
+        "matematica|brescia|triennale": {
+          "coef": 1.2
+        },
+        "matematica|brescia|magistrale": {
+          "coef": 1.1
+        },
+        "physics|brescia|magistrale": {
+          "coef": 1.2
+        },
+        "scienze e tecnologie cosmetologiche|roma|triennale": {
+          "fixed": 3815
+        },
+        "scienze motorie e dello sport|milano|triennale": {
+          "coef": 0.65
+        }
+      },
+      "exemption": "Chi è idoneo alla borsa EDUCatt è esonerato da tasse e contributi; la tassa regionale (130 €) viene restituita dentro la borsa.",
+      "exemptionSource": {
+        "label": "Bando borse EDUCatt 2026/27",
+        "url": "https://educatt.unicatt.it/educatt-borse-di-studio-e-agevolazioni-borse-di-studio-per-reddito-e-merito-educatt"
+      }
+    },
+    "ateneo-01510": {
+      "kind": "humanitas",
+      "indexName": "ISEP",
+      "academicYear": "2026/27",
+      "verifiedAt": "2026-11-27",
+      "source": {
+        "label": "Humanitas University, Regolamento tasse e contributi 2026/27, par. 3 e 4.4",
+        "url": "https://www.hunimed.eu/wp-content/uploads/2026/02/Regolamento-Tasse-e-Contributi-accademici-2026-2027.pdf"
+      },
+      "groups": [
+        {
+          "label": "Medicina e Chirurgia",
+          "nameIncludes": [
+            "medicina e chirurgia"
+          ],
+          "bands": [
+            {
+              "isepMax": 29999.99,
+              "amount": 10206
+            },
+            {
+              "isepMax": 55000,
+              "amount": 15206
+            },
+            {
+              "isepMax": 80000,
+              "amount": 19206
+            },
+            {
+              "isepMax": null,
+              "amount": 23206
+            }
+          ]
+        },
+        {
+          "label": "Fisioterapia",
+          "nameIncludes": [
+            "fisioterapia"
+          ],
+          "bands": [
+            {
+              "isepMax": 29999.99,
+              "amount": 2706
+            },
+            {
+              "isepMax": 55000,
+              "amount": 4206
+            },
+            {
+              "isepMax": 80000,
+              "amount": 5206
+            },
+            {
+              "isepMax": null,
+              "amount": 7206
+            }
+          ]
+        },
+        {
+          "label": "Osteopatia",
+          "nameIncludes": [
+            "osteopatia"
+          ],
+          "bands": [
+            {
+              "isepMax": null,
+              "amount": 7206
+            }
+          ]
+        },
+        {
+          "label": "Scienze Infermieristiche e Ostetriche",
+          "nameIncludes": [
+            "scienze infermieristiche e ostetriche"
+          ],
+          "bands": [
+            {
+              "isepMax": 40000,
+              "amount": 3706
+            },
+            {
+              "isepMax": null,
+              "amount": 4706
+            }
+          ]
+        },
+        {
+          "label": "Infermieristica e Tecniche sanitarie",
+          "nameIncludes": [
+            "infermieristica",
+            "tecniche di laboratorio biomedico",
+            "tecniche di radiologia medica"
+          ],
+          "bands": [
+            {
+              "isepMax": 29999.99,
+              "amount": 1706
+            },
+            {
+              "isepMax": 55000,
+              "amount": 2706
+            },
+            {
+              "isepMax": 80000,
+              "amount": 3206
+            },
+            {
+              "isepMax": null,
+              "amount": 3706
+            }
+          ]
+        }
+      ],
+      "cityDiscount": {
+        "city": "Catania",
+        "amount": 50,
+        "note": "Nella sede di Misterbianco (Catania) la tassa regionale è 140 €: il totale è 50 € più basso."
+      },
+      "weights": {
+        "firstHome": 0.1,
+        "otherHomes": 0.2,
+        "financial": 0.1,
+        "rent": 0.25,
+        "dependentFrom": 3,
+        "dependentCut": 0.1
+      },
+      "noExemption": "Humanitas non prevede l’esonero per chi è idoneo alla borsa regionale: le tasse restano dovute (sono esonerati solo gli studenti con disabilità)."
+    },
+    "ateneo-02101": {
+      "kind": "vse",
+      "indexName": "VSE (valore della situazione economica)",
+      "academicYear": "2026/27",
+      "verifiedAt": "2026-11-27",
+      "source": {
+        "label": "Provincia di Bolzano, ammontare della borsa di studio universitaria 2026/27",
+        "url": "https://mycivis.civis.bz.it/File/download.aspx?Entity=msdyn_kbattachment&Attribute=msdyn_fileattachment&Id=55883954-fd87-f011-b4cc-7c1e526076ae"
+      },
+      "portal": {
+        "label": "Provincia di Bolzano, diritto allo studio",
+        "url": "https://diritto-allo-studio.provincia.bz.it/it/home"
+      },
+      "awayCut": 0.5,
+      "bands": [
+        {
+          "vseMax": 1,
+          "amount": 6960
+        },
+        {
+          "vseMax": 1.1,
+          "amount": 6380
+        },
+        {
+          "vseMax": 1.2,
+          "amount": 5860
+        },
+        {
+          "vseMax": 1.3,
+          "amount": 5380
+        },
+        {
+          "vseMax": 1.4,
+          "amount": 4960
+        },
+        {
+          "vseMax": 1.5,
+          "amount": 4560
+        },
+        {
+          "vseMax": 1.6,
+          "amount": 4210
+        },
+        {
+          "vseMax": 1.7,
+          "amount": 3890
+        },
+        {
+          "vseMax": 1.9,
+          "amount": 3360
+        },
+        {
+          "vseMax": 2.1,
+          "amount": 2890
+        },
+        {
+          "vseMax": 2.5,
+          "amount": 2520
+        },
+        {
+          "vseMax": 3.1,
+          "amount": 2220
+        },
+        {
+          "vseMax": 3.7,
+          "amount": 1970
+        },
+        {
+          "vseMax": 4.3,
+          "amount": 1820
+        },
+        {
+          "vseMax": 5,
+          "amount": 1680
+        }
+      ],
+      "note": "Borsa della Provincia di Bolzano per chi studia a tempo pieno in un ateneo dell’Alto Adige: l’importo dipende dal VSE della dichiarazione DURP (gratis presso patronati e CAAF) e dagli altri requisiti del bando. Il VSE si riduce di 0,50 per ogni familiare che vive fuori casa per studio."
+    }
+  }
+}

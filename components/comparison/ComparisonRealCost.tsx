@@ -190,14 +190,26 @@ export function ComparisonRealCost({ sides }: { sides: Side[] }) {
                   </ul>
                   <p className="comparison-real-cost-tags">
                     <span className={verifiedTuition ? 'is-verified' : 'is-pending'}>
-                      {verifiedTuition ? 'Tasse per ISEE verificate' : 'Tasse: media nazionale, non per ISEE'}
+                      {result.ownIndex?.target === 'tasse'
+                        ? `Tasse dal regolamento, con il ${result.ownIndex.indexName}`
+                        : verifiedTuition
+                          ? 'Tasse per ISEE verificate'
+                          : 'Tasse: media nazionale, non per ISEE'}
                     </span>
-                    <span className={result.entity ? 'is-verified' : 'is-pending'}>
+                    <span className={result.entity || result.ownIndex?.target === 'borsa' ? 'is-verified' : 'is-pending'}>
                       {result.entity
                         ? `${SCHOLARSHIP_COPY[result.scholarship?.status || 'unknown']} (${result.entity.shortName})`
-                        : 'Bando borsa non ancora nel sito: la borsa non è sottratta'}
+                        : result.ownIndex?.target === 'borsa'
+                          ? 'Borsa della Provincia di Bolzano, con il VSE'
+                          : 'Bando borsa non ancora nel sito: la borsa non è sottratta'}
                     </span>
                   </p>
+                  {result.ownIndex ? (
+                    <p className="own-index-note">
+                      Usa il suo {result.ownIndex.indexName} al posto dell’ISEE: per questo è una forbice. Nel
+                      dettaglio puoi calcolarlo e avere una stima precisa.
+                    </p>
+                  ) : null}
                   <Link href={scholarshipHref(result.university.id, result.course?.name)}>
                     Dettaglio voce per voce, con le fonti
                   </Link>

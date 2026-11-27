@@ -7568,3 +7568,55 @@ a.journey-copy:hover strong {
   color: var(--primary-dark);
   font-weight: 600;
 }
+
+/* Indicatore proprio dell'ateneo al posto dell'ISEE (Cattolica, Humanitas, Bolzano): calcolo facoltativo. */
+.own-index {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+}
+
+.own-index summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.own-index p {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.own-index a {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.own-index-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 16px;
+  margin: 10px 0 12px;
+}
+
+.own-index-fields small {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.own-index-error {
+  color: var(--danger, #b42318);
+}
+
+.own-index-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.own-index-note a {
+  color: var(--primary-dark);
+  font-weight: 600;
+}

@@ -4,7 +4,10 @@ import Link from 'next/link';
 import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import { CONDITION_LABELS, type StudentCondition } from '@/lib/domain/dsu';
+import type { OwnIndexInput } from '@/lib/domain/own-index';
 import { GRANT_KEYS } from '@/lib/domain/real-cost-keys';
+import { scholarshipHref } from '@/lib/flow/journey-params';
+import { OwnIndexCalculator } from './OwnIndexCalculator';
 import { formatDate } from '@/lib/site-config';
 
 const euro = (value: number) =>
@@ -40,10 +43,12 @@ interface Props {
   result: RealCostResponse;
   onCondition: (condition: StudentCondition) => void;
   busy: boolean;
+  /** Ricalcolo con l'indicatore proprio dell'ateneo (Cattolica, Humanitas, Bolzano), se la pagina lo consente. */
+  onOwnIndex?: (input: OwnIndexInput) => void;
 }
 
 /** "Quanto ti costa davvero": un numero, le voci con la fonte e la borsa spiegata. */
-export function RealCostResult({ result, onCondition, busy }: Props) {
+export function RealCostResult({ result, onCondition, busy, onOwnIndex }: Props) {
   const { entity, scholarship, conditionInfo, total } = result;
   const grants = result.lines.filter((line) => GRANT_KEYS.includes(line.key));
   const costs = result.lines.filter((line) => !GRANT_KEYS.includes(line.key));
@@ -171,6 +176,17 @@ export function RealCostResult({ result, onCondition, busy }: Props) {
           </div>
         ))}
       </div>
+
+      {result.ownIndex ? (
+        onOwnIndex ? (
+          <OwnIndexCalculator info={result.ownIndex} busy={busy} onSubmit={onOwnIndex} />
+        ) : (
+          <p className="own-index-note">
+            Questo ateneo usa il suo {result.ownIndex.indexName} al posto dell’ISEE: per questo vedi una forbice.{' '}
+            <Link href={scholarshipHref(result.university.id, result.course?.name)}>Calcolalo per una stima precisa</Link>
+          </p>
+        )
+      ) : null}
 
       {entity && scholarship ? (
         <div className={`real-cost-grant scholarship-${scholarship.status}`}>

@@ -4,6 +4,7 @@ import { UNIVERSITIES } from '../data';
 import type { University } from '../types';
 import { DSU_ENTITIES, dsuEntityFor } from './dsu';
 import { tuitionRuleFor } from './tuition';
+import { hasOwnIndexTuition, ownIndexRuleFor, ownIndexScholarshipName } from './own-index';
 
 export interface Coverage {
   /** Tasse calcolate con le regole per fascia ISEE dell'ateneo. */
@@ -14,8 +15,9 @@ export interface Coverage {
 
 export function coverageOf(universityId: string): Coverage {
   return {
-    tuition: Boolean(tuitionRuleFor(universityId)),
-    scholarship: dsuEntityFor(universityId)?.shortName || null
+    // Anche gli atenei con un indicatore proprio al posto dell'ISEE (Cattolica, Humanitas; borsa di Bolzano).
+    tuition: Boolean(tuitionRuleFor(universityId)) || hasOwnIndexTuition(universityId),
+    scholarship: dsuEntityFor(universityId)?.shortName || ownIndexScholarshipName(universityId)
   };
 }
 
@@ -51,13 +53,13 @@ export const scholarshipEntities = () =>
 /** Regolamenti delle tasse nel sito, uno per ateneo, in ordine alfabetico. */
 export const tuitionSources = () =>
   universitiesWithTuition().map((university) => {
-    const rule = tuitionRuleFor(university.id)!;
+    const rule = tuitionRuleFor(university.id) || ownIndexRuleFor(university.id)!;
     return {
       universityId: university.id,
       university: university.name,
       academicYear: rule.academicYear,
       verifiedAt: rule.verifiedAt,
-      source: rule.bandsSource,
-      estimatedBetweenBands: Boolean(rule.bandsNote)
+      source: 'bandsSource' in rule ? rule.bandsSource : rule.source,
+      estimatedBetweenBands: 'bandsNote' in rule ? Boolean(rule.bandsNote) : false
     };
   });
