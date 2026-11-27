@@ -3,6 +3,7 @@ import { getCourse, getUniversityById } from '@/lib/data';
 import { STUDENT_SERVICES } from '@/lib/data/student-services';
 import {
   conditionFromMunicipality,
+  telematicRule,
   dsuEntityFor,
   type EconomicRange,
   type StudentCondition
@@ -21,7 +22,7 @@ const CONDITIONS: StudentCondition[] = ['fuoriSede', 'pendolare', 'inSede'];
 export interface ConditionInfo {
   condition: StudentCondition;
   /** tabella-1/2: comune elencato dall'ente; fuori-tabella: non elencato; stima: senza tabelle; scelta: indicata dall'utente. */
-  origin: 'tabella-1' | 'tabella-2' | 'fuori-tabella' | 'stima' | 'scelta';
+  origin: 'tabella-1' | 'tabella-2' | 'fuori-tabella' | 'stima' | 'scelta' | 'telematica';
   /** Condizione che risulterebbe dalle tabelle, quando l'utente ne ha scelta un'altra. */
   suggested: StudentCondition | null;
   seat: string;
@@ -90,15 +91,19 @@ export async function POST(request: Request) {
   const chosen = CONDITIONS.includes(body.condition as StudentCondition)
     ? (body.condition as StudentCondition)
     : null;
-  const condition = chosen || suggested;
+  // Università telematica: la condizione la fissa il bando, non il comune né la scelta.
+  const telematic = telematicRule(entity, university);
+  const condition = telematic ? telematic.condition : chosen || suggested;
 
-  const conditionInfo: ConditionInfo = {
-    condition,
-    origin: chosen && chosen !== suggested ? 'scelta' : table ? table.origin : 'stima',
-    suggested: chosen && chosen !== suggested ? suggested : null,
-    seat,
-    sourceUrl: table?.source.url || null
-  };
+  const conditionInfo: ConditionInfo = telematic
+    ? { condition, origin: 'telematica', suggested: null, seat, sourceUrl: telematic.source.url }
+    : {
+        condition,
+        origin: chosen && chosen !== suggested ? 'scelta' : table ? table.origin : 'stima',
+        suggested: chosen && chosen !== suggested ? suggested : null,
+        seat,
+        sourceUrl: table?.source.url || null
+      };
 
   const payload: RealCostResponse = { ...realCost(university, course, isee, ispe, condition, grade), conditionInfo };
   return NextResponse.json(payload, { headers: { 'cache-control': 'no-store' } });

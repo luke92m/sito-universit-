@@ -294,6 +294,11 @@
           "amount": 3315
         },
         {
+          "name": "Communications Engineering",
+          "level": "magistrale",
+          "amount": 3315
+        },
+        {
           "name": "Bioinformatics",
           "level": "magistrale",
           "amount": 3825
@@ -4124,7 +4129,9 @@
           "Mechatronics Engineering",
           "Lingua e Cultura Italiana a Stranieri",
           "Biotechnology - Biotecnologie",
+          "Biotechnology for Industry and Health",
           "Physical Activity And Health Promotion",
+          "Sport and Health Promotion",
           "Odontoiatria",
           "Art History in Rome",
           "Finance And Banking",
@@ -7000,6 +7007,7 @@
             "Amministrazione e Direzione Aziendale",
             "Data Science for Management",
             "Economia e Management dei Sistemi Alimentari Sostenibili",
+            "Economics and Management of Sustainable Food System",
             "Economics and Management of Sustainable food Systems",
             "Filosofia (interateneo - sede Amministrativa Parma)",
             "F inancial M anagement per I mprese, M ercati e I ntermediari",
@@ -7035,6 +7043,7 @@
           "nameIncludes": [
             "International Business and Development",
             "Psychobiology",
+            "Psicobiologia",
             "Finanza e Risk Management"
           ],
           "groups": [
@@ -7107,6 +7116,7 @@
             "Scienze Geologiche",
             "Scienze Motorie, Sport e Salute",
             "Scienze Zootecniche e Tecnologie delle Produzioni Animali",
+            "Scienze Animali",
             "Tecnologie e Gestione dell’Impresa Casearia",
             "Advanced Molecular Sciences for Health Products",
             "Architettura",
@@ -7454,7 +7464,8 @@
           "groups": [],
           "names": [
             "Digital Education",
-            "Scienze Giuridiche dell'Impresa e della Pubblica Amministrazione"
+            "Scienze Giuridiche dell'Impresa e della Pubblica Amministrazione",
+            "Scienze dei Servizi Giuridici"
           ],
           "bands": [
             {
@@ -7760,6 +7771,7 @@
           "groups": [],
           "names": [
             "Analisi, Consulenza e Gestione Finanziaria",
+            "Finanza e management",
             "Direzione e Consulenza di Impresa",
             "Economia, Politiche Pubbliche e Sostenibilità",
             "International Management",
@@ -8743,7 +8755,10 @@
               "base": 2914
             }
           ],
-          "max": 2914
+          "max": 2914,
+          "names": [
+            "Design"
+          ]
         },
         {
           "id": "umanistica",
@@ -14669,7 +14684,8 @@
             "Psicologia Clinica",
             "Farmacia",
             "Chimica e Tecnologia Farmaceutiche",
-            "Scienze Motorie per la Prevenzione e la Salute"
+            "Scienze Motorie per la Prevenzione e la Salute",
+            "Scienze delle attività motorie preventive e adattate per la salute"
           ],
           "bands": [
             {
@@ -16063,7 +16079,7 @@
     "ateneo-01503": {
       "name": "Università Bocconi",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-16",
+      "verifiedAt": "2026-11-26",
       "appliesTo": "Primo anno di laurea triennale, Giurisprudenza e laurea magistrale: importo unico, non legato all’ISEE.",
       "fixedFees": {
         "regionalTax": 0,
@@ -16097,7 +16113,7 @@
         }
       ],
       "noScholarshipExemption": "Anche con la borsa ISU la retta del primo anno resta dovuta: le riduzioni passano solo da «Bocconi4Access to Education» (domanda a parte); l’esonero totale vale dal secondo anno.",
-      "maxNote": "Importo unico, uguale per ogni ISEE: 17.000 € per triennali e Giurisprudenza, 18.550 € per le magistrali, 25.000 € per il World Bachelor in Business (23.000 € per il Double Program HEC-Bocconi). Le riduzioni (esonero parziale del 20-80% con «Bocconi4Access to Education») vanno chieste con una domanda a parte e non sono automatiche: qui non sono calcolate.",
+      "maxNote": "Importo unico, uguale per ogni ISEE: 17.000 € per triennali e Giurisprudenza, 18.550 € per le magistrali, 25.000 € per il World Bachelor in Business (23.000 € per il Double Program HEC-Bocconi). Le riduzioni di «Bocconi4Access to Education» (esonero dal 20 al 100%) vanno chieste con una domanda a parte e non sono automatiche: qui sono mostrate come caso migliore.",
       "maxSource": {
         "label": "Bocconi, Importi e rateazioni 2026/27 (triennali e Giurisprudenza; magistrali)",
         "url": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0"
@@ -16115,7 +16131,32 @@
           "url": "https://www.unibocconi.it/sites/default/files/media/attachments/Tasse%20e%20contributi%20TQ.pdf"
         }
       },
-      "simulator": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0"
+      "simulator": "https://www.unibocconi.it/it/corsi-di-studio/area-studenti-iscritti/servizi/importi-e-rateazioni-lauree-triennali-e-giurisprudenza-0",
+      "institutionalAid": [
+        {
+          "name": "Esonero Bocconi4Access to Education",
+          "guaranteed": false,
+          "tiers": [
+            {
+              "iseeMax": 30000,
+              "reduction": 1
+            },
+            {
+              "iseeMax": 50000,
+              "reduction": 0.8
+            },
+            {
+              "iseeMax": 100000,
+              "reduction": 0.4
+            }
+          ],
+          "note": "Domanda unica dopo l’immatricolazione, a esaurimento risorse e senza un numero di posti dichiarato: con ISEE sotto 30.000 € si ha la priorità per l’esonero totale, sotto 50.000 € per quello dell’80 o 60%, tra 50.000 e 100.000 € per il 40 o 20% (pagina 2027/28). Per gravi difficoltà «Una Scelta Possibile» aggiunge 8.058 € e l’alloggio gratuito. Per il 2027/28 la prima sessione è dal 12 al 30 novembre 2026.",
+          "source": {
+            "label": "Bocconi, 100% Full tuition waivers a.a. 2026/27",
+            "url": "https://www.unibocconi.it/it/studenti-iscritti/agevolazioni/agevolazioni-lauree-triennali-e-giurisprudenza/100-full-tuition-waivers-aa-2026-27"
+          }
+        }
+      ]
     },
     "ateneo-05805": {
       "name": "Luiss Guido Carli",
@@ -16163,7 +16204,7 @@
       "maxNote": "Contributo unico uguale per tutti, senza fasce di reddito: 14.000 € al primo anno di triennali e Giurisprudenza, 15.000 € per le magistrali (17.000 € per Management e Finance). Riduzioni solo con borse Luiss su domanda o per fratelli iscritti (−20%): non calcolate.",
       "maxSource": {
         "label": "Luiss, Tuition fee a.y. 2026/2027 (triennali, Giurisprudenza, magistrali)",
-        "url": "https://www.luiss.it/sites/default/files/2026-05/Tuition_Fee_26-27_LM.pdf"
+        "url": "https://www.luiss.it/sites/default/files/media-documents/Tuition_Fee_26-27_LM_0.pdf"
       },
       "payments": {
         "steps": [
@@ -18349,7 +18390,9 @@
       "excludedCourses": {
         "names": [
           "Scienze del Servizio Sociale",
+          "Servizio sociale, comunità e vulnerabilità",
           "Servizio Sociale e Politiche Sociali",
+          "Servizio sociale e politiche sociali per il contrasto alle vulnerabilità",
           "Management dello Sport"
         ],
         "note": "il Regolamento assegna l’indirizzo per dipartimento e per questo corso il dipartimento non è certo."
@@ -20350,7 +20393,7 @@
     "ateneo-01201": {
       "name": "Università Carlo Cattaneo LIUC",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Matricole delle lauree triennali: retta unica, non legata all’ISEE. Le rette delle magistrali 2026/27 non sono ancora pubblicate.",
       "fixedFees": {
         "regionalTax": 190,
@@ -20407,12 +20450,33 @@
           "url": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
         }
       },
-      "simulator": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
+      "simulator": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/",
+      "institutionalAid": [
+        {
+          "name": "La scelta che ti premia (LIUC)",
+          "guaranteed": false,
+          "levels": [
+            "triennale"
+          ],
+          "tiers": [
+            {
+              "iseeMax": 50000,
+              "reduction": 0,
+              "cash": 3500
+            }
+          ],
+          "note": "Riduzione di 3.500 € sulla retta del 1° anno di triennale per ISEE fino a 50.000 € (sotto la soglia regionale vale il bando regionale), media di almeno 7/10 e test: domanda con pagella e ISEE, 50 posti (25 per le province di Milano e Varese). L’edizione 2026/27 si è esaurita a luglio 2026.",
+          "source": {
+            "label": "LIUC, La scelta che ti premia",
+            "url": "https://www.liuc.it/entra-in-liuc/la-scelta-che-ti-premia/"
+          }
+        }
+      ]
     },
     "ateneo-08601": {
       "name": "Università Kore di Enna",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Tutti gli iscritti: retta fissa per corso, non legata all’ISEE, bloccata per la durata del corso più un anno.",
       "fixedFees": {
         "regionalTax": 0,
@@ -20494,7 +20558,7 @@
         "magistrale": 3750
       },
       "maxExceptions": [],
-      "noScholarshipExemption": "L’esonero per chi è idoneo alla borsa ERSU di Enna non è automatico: va chiesto, copre il contributo di corso di laurea nei limiti dei fondi statali assegnati all’Ateneo ed è pagato come rimborso (art. 5-6).",
+      "noScholarshipExemption": "L’esonero per chi è idoneo alla borsa ERSU di Enna non è automatico: va chiesto, copre la Tassa di Frequenza (2.500 €) nei limiti dei fondi statali assegnati all’Ateneo ed è pagato come rimborso (artt. 5-7): il sito lo mostra come caso migliore.",
       "maxNote": "Retta fissa per ogni ISEE: 3.750 € per la maggior parte dei corsi (2.500 € di contributo unico, tassa regionale compresa, e 1.250 € di contributo di corso), 6.500 € per Biotecnologie e professioni sanitarie, 18.000 € per Medicina e chirurgia. Riduzioni del 50% per il secondo iscritto dello stesso nucleo e per il tempo parziale (Tabella B): non calcolate.",
       "maxSource": {
         "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27 (D.P. 45/2026), artt. 3-7 e Tabella A",
@@ -20518,7 +20582,26 @@
           "Scienze Strategiche e della Sicurezza"
         ],
         "note": "il corso non compare nella Tabella A del Regolamento 2026/27."
-      }
+      },
+      "institutionalAid": [
+        {
+          "name": "Esonero Kore per gli idonei ERSU",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 0,
+              "cash": 2500
+            }
+          ],
+          "note": "Rimborso della Tassa di Frequenza (2.500 €) a chi è beneficiario o idoneo alla borsa ERSU di Enna: va chiesto all’Ateneo ed è concesso nei limiti dei fondi statali assegnati alla Kore (Regolamento contribuzione 2026/27, artt. 5-7).",
+          "source": {
+            "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27, artt. 5-7",
+            "url": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf"
+          }
+        }
+      ]
     },
     "ateneo-05803": {
       "name": "LUMSA – Libera Università Maria Ss. Assunta",
@@ -20650,6 +20733,7 @@
           "groups": [],
           "names": [
             "Scienze del Servizio Sociale e del No Profit",
+            "Scienze del servizio sociale e del non profit",
             "Programmazione e Gestione delle Politiche e dei Servizi Sociali"
           ],
           "bands": [
@@ -20701,7 +20785,7 @@
     "ateneo-05808": {
       "name": "Università Campus Bio-Medico di Roma",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Matricole: contributo unico per corso, non legato all’ISEE.",
       "fixedFees": {
         "regionalTax": 140,
@@ -20951,7 +21035,25 @@
           "url": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
         }
       },
-      "simulator": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
+      "simulator": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/",
+      "institutionalAid": [
+        {
+          "name": "Esonero per gli idonei DiSCo",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Va chiesto all’Ateneo: si paga prima tutto e poi arriva il rimborso del contributo unico, nei limiti dei fondi statali e in ordine di graduatoria DiSCo (D.R. 504/2025, artt. 8-10).",
+          "source": {
+            "label": "Campus Bio-Medico, D.R. 504/2025, tasse e contributi 2026/27, artt. 8-10",
+            "url": "https://www.unicampus.it/2.0/wp-content/uploads/2026/05/DR-504-2025-tasse-e-contributi-2026-2027_corpo.pdf"
+          }
+        }
+      ]
     },
     "ateneo-05809": {
       "name": "UNINT – Università degli Studi Internazionali di Roma",
@@ -21571,7 +21673,8 @@
       "excludedCourses": {
         "names": [
           "Cognitive Psychology in Health Communication",
-          "Biotechnology And Medical Biology"
+          "Biotechnology And Medical Biology",
+          "Biotechnology for Innovative Therapeutics"
         ],
         "note": "Per questi corsi la pagina tasse 2026/27 non ha un prospetto con lo stesso nome: per la magistrale LM-9 c’è «Biotechnology for Innovative Therapeutics» (7.890 €), per Cognitive Psychology in Health Communication nessun prospetto."
       },
@@ -21624,7 +21727,7 @@
         "magistrale": 14000
       },
       "maxExceptions": [],
-      "noScholarshipExemption": "Per gli idonei alla borsa EDISU l’esonero totale dalla retta va chiesto all’Ateneo ed è concesso in ordine di graduatoria fino a esaurimento del fondo (103.000 € nel 2026/27 per tutti i corsi; Regolamento esoneri, art. 3): non è garantito.",
+      "noScholarshipExemption": "Per gli idonei alla borsa EDISU l’esonero totale dalla retta va chiesto all’Ateneo ed è concesso in ordine di graduatoria fino a esaurimento del fondo (103.000 € nel 2026/27 per tutti i corsi; Regolamento esoneri, art. 3): non è garantito, il sito lo mostra come caso migliore.",
       "maxNote": "Retta fissa, non legata all’ISEE: 15.500 € l’anno per la laurea triennale (per ciascuno dei tre anni) e 14.000 € l’anno per le magistrali. Esenzioni per merito e reddito solo con i bandi dell’Ateneo; riduzioni di 4.000 € per chi ha già un titolo UNISG e di 500 € per chi ha frequentato una Summer School: non calcolate.",
       "maxSource": {
         "label": "UNISG, Disposizioni per il pagamento della retta 2026/27 (laurea triennale e lauree magistrali)",
@@ -21642,7 +21745,25 @@
           "url": "https://www.unisg.it/assets/disposizioni_pag_retta_scienze-e-culture-gastronomiche_2026_2027-2.pdf"
         }
       },
-      "simulator": "https://www.unisg.it/course/laurea-triennale-in-scienze-e-culture-gastronomiche/"
+      "simulator": "https://www.unisg.it/course/laurea-triennale-in-scienze-e-culture-gastronomiche/",
+      "institutionalAid": [
+        {
+          "name": "Esonero UNISG per gli idonei EDISU",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Esonero totale dalla retta per chi è idoneo alla borsa EDISU Piemonte: va chiesto all’Ateneo ed è dato in ordine di graduatoria EDISU fino a esaurimento del fondo annuale (Regolamento esoneri, art. 3).",
+          "source": {
+            "label": "UNISG, Regolamento per il conferimento dell’esenzione dal pagamento della retta (12/01/2026), art. 3",
+            "url": "https://www.unisg.it/ateneo/statuto-e-regolamenti/"
+          }
+        }
+      ]
     },
     "ateneo-07203": {
       "name": "LUM – Libera Università Mediterranea «Giuseppe Degennaro»",
@@ -21717,7 +21838,7 @@
         ],
         "note": "Nel 2026/27 questo corso non ha il primo anno con questo nome: il Manifesto indica l’importo solo per gli anni successivi (le matricole L-18 si iscrivono a «Economia e Gestione Aziendale», 6.000 €; per l’L-8 c’è «Ingegneria Biomedica», 6.000 €)."
       },
-      "noScholarshipExemption": "L’esonero totale vale solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale assegnato all’Ateneo, ed è un rimborso: prima si paga tutto il contributo unico (Manifesto, par. 5).",
+      "noScholarshipExemption": "L’esonero totale vale solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale assegnato all’Ateneo, ed è un rimborso: prima si paga tutto il contributo unico (Manifesto, par. 5). Il sito lo mostra come caso migliore.",
       "maxNote": "Contributo unico del primo anno, uguale per ogni ISEE: 6.000 € per le triennali (Economia, Business Economics, Ingegneria), 6.200 € Giurisprudenza, 7.000 € per le magistrali LM-77 e LM-31, 4.000 € Infermieristica, 16.500 € Medicina, 20.600 € Odontoiatria, più bollo e tassa regionale. Borse parziali per voto di maturità (20/15/10% con 100, 95 e 90/100, non per Medicina) o di laurea: non calcolate.",
       "maxSource": {
         "label": "LUM, Manifesto degli studi 2026/27, tabelle del contributo accademico per dipartimento (pp. 22-26)",
@@ -21736,7 +21857,25 @@
           "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
         }
       },
-      "simulator": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+      "simulator": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf",
+      "institutionalAid": [
+        {
+          "name": "Esonero LUM per i beneficiari ADISU",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Esonero totale del contributo unico solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale dato all’Ateneo. È un rimborso: prima si paga tutto (Manifesto 2026/27, par. 5).",
+          "source": {
+            "label": "LUM, Manifesto degli studi 2026/27, par. 5 «More ed esenzioni»",
+            "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+          }
+        }
+      ]
     },
     "ateneo-06304": {
       "name": "Università Suor Orsola Benincasa",
@@ -22777,7 +22916,7 @@
     "ateneo-05812": {
       "name": "Università Europea di Roma",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Matricole 2026/27: tassa di iscrizione più contributi accademici, importo fisso per corso uguale per ogni ISEE.",
       "fixedFees": {
         "regionalTax": 140,
@@ -22825,7 +22964,7 @@
           "amount": 3950
         }
       ],
-      "noScholarshipExemption": "Per chi è idoneo alla borsa DiSCo l’esonero è un rimborso e vale solo nei limiti dei fondi statali assegnati all’Ateneo (artt. 8-9 del regolamento): il sito non lo sottrae.",
+      "noScholarshipExemption": "Per chi è idoneo alla borsa DiSCo l’esonero è un rimborso e vale solo nei limiti di un fondo dell’Ateneo (artt. 1-5 del bando esoneri): il sito lo mostra come caso migliore.",
       "maxNote": "Tassa di iscrizione (1.190 €) più contributi accademici, primo anno: 7.250 € per Economia e Gestione Aziendale, Scienze e Tecniche Psicologiche, Giurisprudenza, Economia e Management dell’Innovazione e Psicologia; 3.950 € per Scienze della Formazione Primaria, Turismo e Valorizzazione del Territorio e (dopo la modifica del D.R. 229/26) Management della Transizione Digitale; 18.250 € per Medicina e Chirurgia; 6.250 € per Fisioterapia (in accreditamento). Con il pagamento in un’unica soluzione entro il 16/10/2026 i contributi scendono del 5% (non per Medicina, Fisioterapia, Formazione Primaria e Turismo). L’esonero per gli idonei DiSCo è un rimborso e vale solo nei limiti dei fondi statali assegnati all’Ateneo (artt. 8-9): il sito non lo sottrae.",
       "maxSource": {
         "label": "Università Europea di Roma, Regolamento tasse e contributi 2026/27 (D.R. 132/26), artt. 2-4, 8-9 e Allegato 1; modifica D.R. 229/26",
@@ -22843,7 +22982,25 @@
           "url": "https://www.uer.it/wp-content/uploads/2018/04/All.-DR-132-Regolamento-tasse-e-contributi-2026-2027-immatricolati-e-iscritti-a.a.-23-24-e-24-25-1.pdf"
         }
       },
-      "simulator": "https://www.uer.it/entra-in-uer/immatricolazione-e-tasse/"
+      "simulator": "https://www.uer.it/entra-in-uer/immatricolazione-e-tasse/",
+      "institutionalAid": [
+        {
+          "name": "Esonero per gli idonei DiSCo",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Su domanda e fino a esaurimento del fondo (100.000 € nel bando 2025/26), in ordine di graduatoria DiSCo; restano 100 € di spese di iscrizione, il bollo e la tassa regionale. Il bando 2026/27 non è ancora pubblicato.",
+          "source": {
+            "label": "Università Europea di Roma, D.R. 05, bando esoneri 2025/26, artt. 1-5",
+            "url": "https://www.universitaeuropeadiroma.it/wp-content/uploads/2018/04/DR-05-Bando-per-esoneri-contributi-immatricolati-2025_2026-e-iscritti-2023_2024-e-2024_2025Pubblicazione-1.pdf"
+          }
+        }
+      ]
     },
     "ateneo-05811": {
       "name": "Unitelma Sapienza (telematica)",

@@ -42,7 +42,7 @@ function isValidAnswer(key: FinderAnswerKey, value: string): boolean {
   if (!value) return false;
   const choices = CHOICES[key];
   if (choices) return choices.includes(value);
-  if (key === 'courseChoice') return /^(course|group):.{1,100}$/.test(value);
+  if (key === 'courseChoice') return /^(course|name|group):.{1,100}$/.test(value);
   if (key === 'residenceRegion') return STUDENT_SERVICES.regions.includes(value);
   if (key === 'iseeRange') return STUDENT_SERVICES.iseeRanges.some((range) => range.value === value);
   return value.length <= 80; // residenceCity: testo libero

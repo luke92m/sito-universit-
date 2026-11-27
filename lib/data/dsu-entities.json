@@ -704,7 +704,13 @@
         "ateneo-05818",
         "ateneo-05808",
         "ateneo-05809",
-        "ateneo-05812"
+        "ateneo-05812",
+        "ateneo-05810",
+        "ateneo-05811",
+        "ateneo-05813",
+        "ateneo-05814",
+        "ateneo-05815",
+        "ateneo-05816"
       ],
       "academicYear": "2026/2027",
       "verifiedAt": "2026-10-12",
@@ -1052,6 +1058,15 @@
           }
         }
       },
+      "telematic": {
+        "condition": "inSede",
+        "services": false,
+        "note": "Chi è iscritto a un’università telematica con sede legale nel Lazio è considerato in sede d’ufficio, ovunque abiti. La mensa non viene monetizzata e la maggiorazione per lo studente indipendente non si applica.",
+        "source": {
+          "label": "Bando DiSCo Lazio 2026/27, art. 2 lett. h (p. 11), art. 8 (p. 20) e art. 10.3",
+          "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf"
+        }
+      },
       "fundedShare": null,
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
       "portal": {
@@ -1237,7 +1252,8 @@
         "ateneo-04801",
         "ateneo-05001",
         "ateneo-05201",
-        "ateneo-05202"
+        "ateneo-05202",
+        "ateneo-04804"
       ],
       "academicYear": "2026/2027",
       "verifiedAt": "2026-10-12",
@@ -1462,6 +1478,15 @@
           }
         }
       },
+      "telematic": {
+        "condition": "inSede",
+        "services": false,
+        "note": "Chi è iscritto a un’università telematica (in Toscana la IUL) è sempre considerato in sede. La mensa non viene monetizzata.",
+        "source": {
+          "label": "Bando DSU Toscana 2026/27, punti 1.3, 2.2.12 (p. 6) e 19.3.6 (p. 42)",
+          "url": "https://www.dsu.toscana.it/documents/4390857/32478257/bando+borsa+alloggio+26-27.pdf/092c16da-95e8-1712-b1eb-f159d5e7743e?t=1784280597313"
+        }
+      },
       "fundedShare": null,
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
       "portal": {
@@ -1595,7 +1620,7 @@
         "ispe": 54000,
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 4.1",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "amounts": {
@@ -1627,7 +1652,7 @@
         ],
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 6",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "increments": [
@@ -1637,7 +1662,7 @@
           "conditional": "non cumulabile con la maggiorazione del 15%",
           "source": {
             "label": "Bando ADISURC Campania 2026/27, art. 6.2",
-            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+            "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
           }
         }
       ],
@@ -1647,7 +1672,7 @@
       ],
       "connectedBenefitsSource": {
         "label": "Bando ADISURC Campania 2026/27, art. 9",
-        "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+        "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
       },
       "conditions": {
         "fuoriSede": "Corso ad almeno 30 km dal comune di residenza (o residenza a Ischia, Capri, Procida) e casa in affitto con contratto registrato per almeno 10 mesi.",
@@ -1655,7 +1680,7 @@
         "inSede": "Residenza nel comune del corso o in un comune confinante (per Napoli: Portici, Pozzuoli, Casoria, Marano…).",
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 7",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "firstYearPayments": {
@@ -1666,7 +1691,7 @@
         "note": "Dalla borsa si tolgono gli eventuali servizi di mensa e alloggio.",
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 9",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "application": {
@@ -1674,8 +1699,8 @@
         "closesTime": "12:00",
         "note": "Domanda online sul sito ADISURC con SPID o CIE.",
         "source": {
-          "label": "ADISURC, Approvazione bando di concorso 2026/2027",
-          "url": "https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027"
+          "label": "Bando ADISURC Campania 2026/27, art. 5.1",
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "municipalities": {
@@ -1730,7 +1755,7 @@
           "pendolari": [],
           "source": {
             "label": "Bando ADISURC Campania 2026/27, art. 7.2",
-            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+            "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
           }
         },
         "Fisciano": {
@@ -1757,7 +1782,7 @@
           "pendolari": [],
           "source": {
             "label": "Bando ADISURC Campania 2026/27, art. 7.2",
-            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+            "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
           }
         }
       },
@@ -3655,6 +3680,280 @@
       }
     },
     {
+      "id": "ersu-enna",
+      "name": "ERSU Enna – Ente regionale per il diritto allo studio universitario",
+      "shortName": "ERSU Enna",
+      "region": "Sicilia",
+      "universityIds": [
+        "ateneo-08601"
+      ],
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "thresholds": {
+        "isee": 25948.6,
+        "ispe": 56410.04,
+        "source": {
+          "label": "Bando ERSU Enna 2026/27, art. 8 e Tab. 5",
+          "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+        }
+      },
+      "amounts": {
+        "note": "Importo in denaro della Tab. 8: base +15% fino a 12.974,30 € di ISEE, poi cala a scalini fino alla soglia. In più i servizi: posto letto e due pasti al giorno per i fuori sede, un pasto al giorno per pendolari e in sede.",
+        "bands": [
+          {
+            "iseeMax": 12974.3,
+            "fuoriSede": 5546.78,
+            "pendolare": 4219.32,
+            "inSede": 3323.68
+          },
+          {
+            "iseeMax": 17299.06,
+            "fuoriSede": 4471.11,
+            "pendolare": 3590.71,
+            "inSede": 2890.16
+          },
+          {
+            "iseeMax": 19028.97,
+            "fuoriSede": 3754,
+            "pendolare": 3171.64,
+            "inSede": 2601.14
+          },
+          {
+            "iseeMax": 20758.88,
+            "fuoriSede": 3036.89,
+            "pendolare": 2752.57,
+            "inSede": 2312.13
+          },
+          {
+            "iseeMax": 22488.78,
+            "fuoriSede": 2319.78,
+            "pendolare": 2333.5,
+            "inSede": 2023.11
+          },
+          {
+            "iseeMax": 24218.69,
+            "fuoriSede": 1602.67,
+            "pendolare": 1914.43,
+            "inSede": 1734.1
+          },
+          {
+            "iseeMax": 25948.6,
+            "fuoriSede": 885.56,
+            "pendolare": 1495.36,
+            "inSede": 1445.08
+          }
+        ],
+        "source": {
+          "label": "Bando ERSU Enna 2026/27, art. 21 e Tab. 8",
+          "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+        }
+      },
+      "inKind": {
+        "items": {
+          "fuoriSede": [
+            {
+              "label": "Posto letto gratuito o rimborso dell’alloggio",
+              "value": 1500
+            },
+            {
+              "label": "2 pasti gratuiti al giorno",
+              "value": 1200
+            }
+          ],
+          "pendolare": [
+            {
+              "label": "1 pasto gratuito al giorno",
+              "value": 600
+            }
+          ],
+          "inSede": [
+            {
+              "label": "1 pasto gratuito al giorno",
+              "value": 600
+            }
+          ]
+        },
+        "source": {
+          "label": "Bando ERSU Enna 2026/27, Tab. 8 e note (600 € per un pasto al giorno, 1.500 € per l’alloggio)",
+          "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+        }
+      },
+      "increments": [
+        {
+          "label": "+40% per gli studenti con disabilità (L. 104/92, art. 3 comma 1)",
+          "percent": 40,
+          "conditional": "applicato d’ufficio",
+          "source": {
+            "label": "Bando ERSU Enna 2026/27, art. 21",
+            "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+          }
+        },
+        {
+          "label": "+20% per le studentesse dei corsi S.T.E.M.",
+          "percent": 20,
+          "conditional": "applicato d’ufficio",
+          "source": {
+            "label": "Bando ERSU Enna 2026/27, art. 21",
+            "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+          }
+        },
+        {
+          "label": "+20% per chi è iscritto a due corsi in atenei o istituti AFAM diversi",
+          "percent": 20,
+          "conditional": "applicato d’ufficio",
+          "source": {
+            "label": "Bando ERSU Enna 2026/27, art. 21",
+            "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+          }
+        }
+      ],
+      "connectedBenefits": [
+        "Esonero dalla Tassa di Frequenza dell’Università Kore (2.500 €): su domanda, a rimborso e nei limiti dei fondi statali",
+        "Rimborso della tassa regionale per il diritto allo studio, da chiedere all’ERSU",
+        "Pasti nella mensa ERSU compresi nella borsa"
+      ],
+      "connectedBenefitsSource": {
+        "label": "Bando ERSU Enna 2026/27, art. 21 e Tab. 8; Regolamento contribuzione Kore 2026/27, art. 5",
+        "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+      },
+      "conditions": {
+        "fuoriSede": "Residenza in un comune non elencato e alloggio nella residenza ERSU (Domus Kore) o in affitto con contratto registrato di almeno 10 mesi; gli studenti stranieri con la famiglia all’estero sono sempre fuori sede.",
+        "pendolare": "Residenza in uno dei comuni della Tab. 11 bis (Aidone, Assoro, Barrafranca, Leonforte, Piazza Armerina, Pietraperzia, Valguarnera, Villarosa); finché non presenti il contratto d’affitto sei considerato pendolare.",
+        "inSede": "Residenza a Enna o Calascibetta (Tab. 11); per la sede di Caltagirone, a Caltagirone.",
+        "source": {
+          "label": "Bando ERSU Enna 2026/27, artt. 22-23 e Tab. 11",
+          "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+        }
+      },
+      "firstYearPayments": {
+        "steps": [
+          "50% entro il 31 dicembre 2026, come in sede o pendolare (serve una polizza fideiussoria firmata dai genitori)",
+          "50% con almeno 15 crediti al 10 agosto 2027 e 20 al 30 novembre 2027, come fuori sede se hai presentato il contratto o accettato il posto letto"
+        ],
+        "note": "Senza 20 crediti al 30 novembre 2027 la borsa è revocata: si restituiscono la prima rata e il valore dei servizi usati.",
+        "source": {
+          "label": "Bando ERSU Enna 2026/27, modalità di erogazione (pp. 32-33)",
+          "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+        }
+      },
+      "application": {
+        "opens": "2026-07-20",
+        "closes": "2026-09-07",
+        "closesTime": "14:00",
+        "note": "Domanda online sul sito ERSU Enna; i documenti si regolarizzano entro il 30 novembre 2026.",
+        "source": {
+          "label": "Bando ERSU Enna 2026/27, scadenze",
+          "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+        }
+      },
+      "municipalities": {
+        "Enna": {
+          "inSede": [
+            {
+              "comune": "Enna"
+            },
+            {
+              "comune": "Calascibetta"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aidone"
+            },
+            {
+              "comune": "Assoro"
+            },
+            {
+              "comune": "Barrafranca"
+            },
+            {
+              "comune": "Leonforte"
+            },
+            {
+              "comune": "Piazza Armerina"
+            },
+            {
+              "comune": "Pietraperzia"
+            },
+            {
+              "comune": "Valguarnera",
+              "aliases": [
+                "Valguarnera Caropepe"
+              ]
+            },
+            {
+              "comune": "Villarosa"
+            }
+          ],
+          "source": {
+            "label": "Bando ERSU Enna 2026/27, Tab. 11 e 11 bis",
+            "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+          }
+        },
+        "Enna Bassa": {
+          "inSede": [
+            {
+              "comune": "Enna"
+            },
+            {
+              "comune": "Calascibetta"
+            }
+          ],
+          "pendolari": [
+            {
+              "comune": "Aidone"
+            },
+            {
+              "comune": "Assoro"
+            },
+            {
+              "comune": "Barrafranca"
+            },
+            {
+              "comune": "Leonforte"
+            },
+            {
+              "comune": "Piazza Armerina"
+            },
+            {
+              "comune": "Pietraperzia"
+            },
+            {
+              "comune": "Valguarnera",
+              "aliases": [
+                "Valguarnera Caropepe"
+              ]
+            },
+            {
+              "comune": "Villarosa"
+            }
+          ],
+          "source": {
+            "label": "Bando ERSU Enna 2026/27, Tab. 11 e 11 bis",
+            "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+          }
+        },
+        "Caltagirone": {
+          "inSede": [
+            {
+              "comune": "Caltagirone"
+            }
+          ],
+          "pendolari": [],
+          "source": {
+            "label": "Bando ERSU Enna 2026/27, Tab. 11",
+            "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf"
+          }
+        }
+      },
+      "fundedShare": null,
+      "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
+      "portal": {
+        "label": "ERSU Enna, bando borse di studio 2026/27",
+        "url": "https://www.ersuenna.it/avviso-bando-di-concorso-per-borse-di-studio-altri-contributi-economici-e-servizi-a-a-2026-27/"
+      }
+    },
+    {
       "id": "aliseo",
       "name": "ALiSEO – Agenzia ligure per gli studenti e l’orientamento",
       "shortName": "ALiSEO",
@@ -5066,7 +5365,7 @@
         "ispe": 43125.94,
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 7",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "amounts": {
@@ -5098,7 +5397,7 @@
         ],
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 6",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "increments": [
@@ -5108,7 +5407,7 @@
           "conditional": "non cumulabile con la maggiorazione del 15% per ISEE basso",
           "source": {
             "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 6 bis",
-            "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+            "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
           }
         }
       ],
@@ -5118,7 +5417,7 @@
       ],
       "connectedBenefitsSource": {
         "label": "UniVR, Bando borse per il diritto allo studio 2026/27, artt. 6 e 9",
-        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
       },
       "conditions": {
         "fuoriSede": "Residenza oltre 80 km o 80 minuti dalla sede e alloggio a pagamento vicino alla sede per almeno 10 mesi (richiesta entro il 15 ottobre 2026).",
@@ -5126,7 +5425,7 @@
         "inSede": "Residenza nel comune o nell’area entro 40 km dalla sede.",
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 5",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "firstYearPayments": {
@@ -5137,7 +5436,7 @@
         "note": "Con i 20 crediti raggiunti solo entro il 30 novembre 2027 si tiene la prima rata e si ha l’esonero da tassa regionale e metà dei contributi.",
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, artt. 9 e 13",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "application": {
@@ -5146,7 +5445,7 @@
         "note": "Domanda Unica Benefici online con l’ISEE universitario; lo status di fuori sede si chiede entro il 15 ottobre 2026.",
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 4",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "municipalities": {},
@@ -5154,7 +5453,7 @@
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
       "portal": {
         "label": "UniVR, Bando borse per il diritto allo studio 2026/27",
-        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
       }
     },
     {
@@ -8417,7 +8716,8 @@
       "shortName": "ADSU Chieti-Pescara",
       "region": "Abruzzo",
       "universityIds": [
-        "ateneo-06901"
+        "ateneo-06901",
+        "ateneo-06902"
       ],
       "academicYear": "2026/2027",
       "verifiedAt": "2026-10-16",
@@ -9551,6 +9851,15 @@
             "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, Tabelle «Elenco dei comuni» (pag. 29)",
             "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
           }
+        }
+      },
+      "telematic": {
+        "condition": "inSede",
+        "services": true,
+        "note": "Gli iscritti ai corsi dell’Università telematica “Leonardo da Vinci” sono considerati con lo status “in sede”.",
+        "source": {
+          "label": "ADSU Chieti-Pescara, Bando borse di studio 2026/27, art. 19 (p. 20)",
+          "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf"
         }
       },
       "fundedShare": null,
@@ -14849,8 +15158,8 @@
       "fundedShare": null,
       "fundedShareNote": "Borse fino a esaurimento dei fondi regionali (78.136,13 €), divisi a metà tra matricole e anni successivi (art. 1); gli idonei con disabilità le ricevono comunque.",
       "portal": {
-        "label": "Humanitas University, Modulo di domanda per la borsa di studio DSU",
-        "url": "https://www.hunimed.eu/it/modulo-di-domanda-per-la-borsa-di-studio-dsu/"
+        "label": "Humanitas University, Documenti ufficiali (bando e graduatoria DSU 2026/27)",
+        "url": "https://www.hunimed.eu/it/organizzazione-e-governance/documenti-ufficiali-di-ateneo/"
       },
       "minDiplomaGrade": 80
     },

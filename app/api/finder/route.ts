@@ -32,7 +32,7 @@ const CONDITION_BY_MODE: Record<GeographyFit['mode'], StudentCondition> = {
 };
 
 export interface FinderApiResponse {
-  target: { type: 'course' | 'group'; label: string; group: string };
+  target: { type: 'course' | 'name' | 'group'; label: string; group: string };
   results: FinderApiResult[];
   /** Senza telematiche non resta nulla, ma esistono risultati telematici. */
   telematicOnly: boolean;

@@ -4,6 +4,7 @@ import { CITY_SOURCES, roomRent, studentMonthlyEstimate } from './city-indicator
 import {
   CONDITION_LABELS,
   dsuEntityFor,
+  telematicRule,
   scholarshipFor,
   type DsuEntity,
   type EconomicRange,
@@ -18,6 +19,7 @@ import {
   ispeAdjusted,
   degreeLevel,
   fixedFeesRange,
+  institutionalAidFor,
   maxContribution,
   offSiteContribution,
   isExcludedCourse,
@@ -156,7 +158,7 @@ function tuitionLines(
   // Gli idonei alla borsa si vedono rimborsare la tassa regionale pagata all'iscrizione.
   const refund = scholarship?.status === 'eligible' ? fixed.regionalTax : { min: 0, max: 0 };
   const scope = group ? `gruppo ${group.label}` : course ? '' : 'corso triennale';
-  return [
+  const lines: CostLine[] = [
     {
       key: 'tasse',
       label: 'Tasse universitarie',
@@ -180,6 +182,27 @@ function tuitionLines(
       estimated: false
     }
   ];
+  // Borsa o riduzione propria dell'ateneo (es. Bocconi4Access): caso migliore se non è garantita.
+  const aid = exempt
+    ? null
+    : institutionalAidFor(rule, isee, exempt || maybeExempt ? 0 : tuitionMin, tuitionMax, scholarship?.status ?? null, course ? degreeLevel(course) : null);
+  if (aid) {
+    lines.push({
+      key: 'riduzione',
+      label: aid.aid.name,
+      min: aid.min,
+      max: aid.max,
+      note:
+        (aid.min === aid.max
+          ? 'Spetta a chi ha un ISEE in questa fascia. '
+          : aid.min > 0
+            ? 'Una parte è certa per il tuo ISEE, il resto dipende dal valore esatto. '
+            : 'Non è automatica: è il caso migliore se la ottieni. ') + aid.aid.note,
+      source: aid.aid.source,
+      estimated: false
+    });
+  }
+  return lines;
 }
 
 export function realCost(
@@ -187,14 +210,18 @@ export function realCost(
   course: Course | null,
   isee: EconomicRange,
   ispe: EconomicRange,
-  condition: StudentCondition,
+  askedCondition: StudentCondition,
   /** Voto di maturità, facoltativo: sconti per merito e voto minimo delle borse. */
   grade: DiplomaGrade = null
 ): RealCost {
   const seatCity = course?.city || university.city;
   const entity = dsuEntityFor(university.id);
+  // Telematiche: il bando fissa la condizione (di norma "in sede") e può escludere i pasti.
+  const telematic = telematicRule(entity, university);
+  const condition = telematic ? telematic.condition : askedCondition;
   const firstCycle = !course || degreeLevel(course) !== 'magistrale';
-  const scholarship = entity ? scholarshipFor(entity, isee, ispe, condition, { grade, firstCycle }) : null;
+  const computed = entity ? scholarshipFor(entity, isee, ispe, condition, { grade, firstCycle }) : null;
+  const scholarship = computed && telematic && !telematic.services ? { ...computed, inKind: [] } : computed;
   const universityRule = tuitionRuleFor(university.id);
   // Corso con importi propri non ancora inseriti: si usa la media dichiarata, come per gli atenei non coperti.
   const excluded = universityRule ? isExcludedCourse(universityRule, course) : false;
@@ -246,7 +273,8 @@ export function realCost(
       max: scholarship.amountMax,
       note: uncertain
         ? 'Il tuo ISEE o ISPE è vicino alla soglia: con il valore esatto sapresti se ti spetta.'
-        : `Importo annuo del bando per il tuo ISEE, pagato a rate se raggiungi i crediti richiesti. ${entity.amounts.note}`,
+        : `Importo annuo del bando per il tuo ISEE, pagato a rate se raggiungi i crediti richiesti. ${entity.amounts.note}` +
+          (telematic ? ` ${telematic.note}${telematic.services ? '' : ' Per questo il sito non conta i pasti.'}` : ''),
       source: entity.amounts.source,
       estimated: false
     });

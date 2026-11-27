@@ -3,6 +3,7 @@
 import { FINDER_DATA as finderData, STUDENT_SERVICES as serviceData, UNIVERSITIES, getCourses, getMetrics } from '../data';
 import type { Course, CourseProfile, University } from '../types';
 import { COURSES, getCourseProfile, matchCourse } from './course-catalog';
+import { courseTitleKey, findCourseName } from './course-names';
 import { getIseeRange } from './isee';
 import { forTarget, type RankingResult } from './official-rankings';
 import { clamp, normalize } from './text';
@@ -21,10 +22,13 @@ export interface FinderAnswers {
 }
 
 export interface FinderTarget {
-  type: 'course' | 'group';
+  /** course: corso generale del catalogo; name: nome preciso di un corso reale; group: macroarea. */
+  type: 'course' | 'name' | 'group';
   label: string;
   group: string;
   profile: CourseProfile | null;
+  /** Solo per type 'name': classi di laurea dei corsi con quel nome. */
+  classCodes?: string[];
 }
 
 export interface CourseMatch {
@@ -163,6 +167,13 @@ export function targetFromChoice(choice: string): FinderTarget | null {
     const profile = getCourseProfile(choice.slice(7));
     return profile ? { type: 'course', label: profile.name, group: profile.group, profile } : null;
   }
+  if (choice.startsWith('name:')) {
+    const found = findCourseName(choice.slice(5));
+    if (!found) return null;
+    // Il profilo generale più vicino serve alle classifiche per materia (QS) e alle schede.
+    const profile = matchCourse({ name: found.name, classCode: found.classCodes[0], group: found.group });
+    return { type: 'name', label: found.name, group: found.group, profile, classCodes: found.classCodes };
+  }
   if (choice.startsWith('group:')) {
     const group = choice.slice(6);
     return group ? { type: 'group', label: group, group, profile: null } : null;
@@ -208,9 +219,7 @@ export function inferCourseLanguage(course: Pick<Course, 'name'>): 'english' | '
   return englishHits > italianHits && englishHits > 0 ? 'english' : 'italian';
 }
 
-function cleanCourseTitle(value: unknown): string {
-  return normalize(String(value || '').replace(/\([^)]*\)/g, ' '));
-}
+const cleanCourseTitle = courseTitleKey;
 
 function normalizedClassCode(value: unknown): string {
   return String(value || '')
@@ -242,6 +251,7 @@ export function isDistanceCourse(course: Pick<Course, 'delivery'> | null | undef
 }
 
 export function courseMatch(course: Course, target: FinderTarget): CourseMatch {
+  if (target.type === 'name') return nameMatch(course, target);
   if (!course || course.group !== target.group) {
     return { score: 0, tier: 'none', label: 'Non coerente', reason: 'Macroarea differente.', similarity: 0, classHit: false };
   }
@@ -342,6 +352,56 @@ export function courseMatch(course: Course, target: FinderTarget): CourseMatch {
     tier: 'macro',
     label: MATCH_TIER_LABELS.macro,
     reason: `Il corso è nella stessa macroarea ${target.group}, ma classe e focus non coincidono.`,
+    classHit,
+    similarity
+  };
+}
+
+/** Abbinamento a un nome di corso preciso: stesso nome = 100, poi titoli simili della stessa area. */
+function nameMatch(course: Course, target: FinderTarget): CourseMatch {
+  const title = cleanCourseTitle(course?.name);
+  const wanted = cleanCourseTitle(target.label);
+  if (course && title === wanted) {
+    return {
+      score: 100,
+      tier: 'exact',
+      label: MATCH_TIER_LABELS.exact,
+      reason: `Il corso si chiama proprio “${target.label}”.`,
+      similarity: 1,
+      classHit: true
+    };
+  }
+  if (!course || course.group !== target.group) {
+    return { score: 0, tier: 'none', label: 'Non coerente', reason: 'Macroarea differente.', similarity: 0, classHit: false };
+  }
+  const similarity = setSimilarity(titleTokens(course.name), titleTokens(target.label));
+  const courseClass = normalizedClassCode(course.classCode);
+  const classHit = (target.classCodes || []).some((code) => normalizedClassCode(code) === courseClass);
+  if (classHit && (title.includes(wanted) || similarity >= 0.6)) {
+    return {
+      score: Math.round(clamp(90 + similarity * 5, 90, 95)),
+      tier: 'close',
+      label: MATCH_TIER_LABELS.close,
+      reason: `Titolo e classe di laurea sono molto vicini a “${target.label}”.`,
+      classHit,
+      similarity
+    };
+  }
+  if (classHit) {
+    return {
+      score: Math.round(clamp(75 + similarity * 16, 75, 89)),
+      tier: 'class',
+      label: MATCH_TIER_LABELS.class,
+      reason: `Stessa classe di laurea (${course.classCode}) di “${target.label}”, con un titolo diverso.`,
+      classHit,
+      similarity
+    };
+  }
+  return {
+    score: Math.round(clamp(60 + similarity * 16, 60, 74)),
+    tier: 'macro',
+    label: MATCH_TIER_LABELS.macro,
+    reason: `Il corso è nella stessa macroarea ${target.group}, ma classe e titolo non coincidono.`,
     classHit,
     similarity
   };

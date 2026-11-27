@@ -1,0 +1,401 @@
+[
+  {
+    "universityId": "ateneo-01503",
+    "name": "Bocconi",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Per gli idonei ISU Bocconi immatricolati al 1° anno di triennale/Giurisprudenza NON c'è esonero automatico dalla retta: devono far riferimento esclusivamente ai benefici assegnati con la domanda unica Bocconi4Access to Education (a esaurimento risorse). La borsa ISU (ISEE/ISEEU parificato <= 26.887,93; ISPE <= 58.452,06) dà comunque: esonero tassa regionale e tassa di iscrizione, borsa in denaro (in sede 3.430/2.991/2.143; pendolare 4.820/4.191/3.299; fuori sede 8.248/7.172/5.857 euro per 1a/2a/3a fascia, comprensivi di 829 euro di pasto e rimborso tassa regionale), pasto gratuito. Dal 2° anno gli idonei ISU hanno esonero totale dai contributi Bocconi (50% al 1° anno fuori corso). Il rimborso dell'acconto 1a rata avviene con la borsa. La borsa ISU non e' cumulabile con analoghe provvidenze Bocconi: si opta.",
+      "source": {
+        "label": "Bando Borse di studio ISU Bocconi a.a. 2026-27",
+        "url": "https://www.unibocconi.it/sites/default/files/media/attachments/a.a.%202026-27%20Bando%20DEFINITIVO%20Borse%20di%20studio%20ISU%20Bocconi_5.pdf",
+        "where": "Cap. II art. 1 (p.5), art. 5 limiti ISEE/ISPE, art. 13-13.2 importi e fasce (p.15), art. 15 incompatibilita'"
+      }
+    },
+    "aid": [
+      {
+        "name": "Bocconi4Access to Education - Una Scelta Possibile Scholarship",
+        "kind": "mixed",
+        "who": "Italiani immatricolati per la prima volta al 1° anno di triennale o Giurisprudenza, residenti in Italia con nucleo in Italia, grave disagio economico-sociale (lettera motivazionale)",
+        "index": "ISEE Università (criterio prioritario) + condizione economico-patrimoniale del nucleo convenzionale Bocconi",
+        "tiers": [
+          { "iseeMax": 30000, "reductionPct": 100, "amountEur": 8058, "extra": "borsa lorda 8.058 EUR (incompatibile con lavoro > 200 ore/anno), alloggio gratuito in camera doppia in residenza convenzionata (Villaggio Olimpico nel 2027/28), pasti agevolati su domanda separata. 'ISEE < 30.000' e' priorita', non soglia di diritto." }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "Domanda unica dopo l'immatricolazione. 2026/27: Early 12/11-03/12/2025 (+ integrazione ISEE 2026 dal 08/01 al 23/01/2026, esiti entro 03/03/2026), Winter 11/03-09/04/2026, Spring 19/05-04/06/2026 (esiti entro 09/07/2026). Per 2027/28 (ora aperta): Early 12/11-30/11/2026, integrazione ISEE 2027 11-22/01/2027, esiti entro 25/02/2027; Winter 15/03-05/04/2027; Spring 27/05-04/06/2027.",
+        "source": {
+          "label": "Una Scelta Possibile Scholarship a.a. 2026-27",
+          "url": "https://www.unibocconi.it/it/studenti-iscritti/agevolazioni/agevolazioni-lauree-triennali-e-giurisprudenza/una-scelta-possibile-scholarship-aa-2026-27",
+          "where": "pagina intera; stessi importi su pagina 2027-28 https://www.unibocconi.it/it/entrare-bocconi/corsi-di-laurea-triennale-e-giurisprudenza/agevolazioni/una-scelta-possibile-scholarship-aa-2027-28"
+        },
+        "notes": "Rinnovabile per la durata legale: conferma richiede 30 CFU entro il 10 settembre (no crediti bonus). Se redditi/patrimonio non coerenti puo' essere assegnato un beneficio inferiore."
+      },
+      {
+        "name": "Bocconi4Access to Education - 100% Full tuition waiver",
+        "kind": "fee-reduction",
+        "who": "Italiani immatricolati al 1° anno di triennale o Giurisprudenza, residenti in Italia con nucleo in Italia",
+        "index": "ISEE Università + condizione economico-patrimoniale del nucleo convenzionale Bocconi (reddito+patrimonio lordo, prima di detrazioni/franchigie ISEE)",
+        "tiers": [
+          { "iseeMax": 30000, "reductionPct": 100, "amountEur": null, "extra": "esonero totale da tasse e contributi. ISEE < 30.000 e' solo criterio PRIORITARIO: avere i requisiti non da' diritto automatico, assegnazione a insindacabile giudizio, fino a esaurimento risorse. Chi ha ISEE Univ. 2026 < 30.000 puo' avere anche la borsa in denaro ISU (fondi Regione Lombardia)." }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "Stesse sessioni della domanda unica (vedi sopra)",
+        "source": {
+          "label": "100% Full tuition waivers a.a. 2026-27",
+          "url": "https://www.unibocconi.it/it/studenti-iscritti/agevolazioni/agevolazioni-lauree-triennali-e-giurisprudenza/100-full-tuition-waivers-aa-2026-27",
+          "where": "requisiti punto 1 e sezione esonero"
+        },
+        "notes": "RISPOSTA ALL'UTENTE: NON esiste 'sotto X ISEE retta a costo zero garantito'. ISEE < 30.000 e' una priorita' di valutazione; il numero di posti non e' dichiarato. Ogni anno va pagato l'acconto 1a rata, rimborsato entro dicembre se si mantengono i requisiti. Conferma anni successivi: CFU (es. 49 al 2° anno, 95 al 3°, entro 10/09), altrimenti downgrade progressivo (100% -> 60% -> 20% secondo il riassunto non verificato del sito)."
+      },
+      {
+        "name": "Bocconi4Access to Education - Moving to Milan Scholarship",
+        "kind": "mixed",
+        "who": "Italiani al 1° anno di triennale/Giurisprudenza, nucleo residente in Italia ma NON a Milano",
+        "index": "ISEE Università (priorita' < 50.000) + condizione economico-patrimoniale convenzionale Bocconi",
+        "tiers": [
+          { "iseeMax": 50000, "reductionPct": null, "amountEur": null, "extra": "esonero tra 100% e 60% (percentuale decisa dalla valutazione, non legata a soglie ISEE pubblicate) + camera doppia in residenza convenzionata a 200 EUR/mese (tariffa ordinaria Villaggio Olimpico 615 EUR/mese; 2027/28 attesa entro fine febbraio 2027). Nessun contributo in denaro." }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "Stessa domanda unica",
+        "source": {
+          "label": "Moving to Milan Scholarship a.a. 2026-27",
+          "url": "https://www.unibocconi.it/it/studenti-iscritti/agevolazioni/agevolazioni-lauree-triennali-e-giurisprudenza/moving-milan-scholarship-aa-2026-27",
+          "where": "pagina intera; per 2027/28 https://www.unibocconi.it/it/entrare-bocconi/corsi-di-laurea-triennale-e-giurisprudenza/agevolazioni/moving-milan-scholarship-aa-2027-28"
+        },
+        "notes": "Numero limitato di posti non specificato. Mancato raggiungimento CFU: downgrade senza mantenimento dell'alloggio agevolato."
+      },
+      {
+        "name": "Bocconi4Access to Education - 80% / 60% Partial tuition waivers",
+        "kind": "fee-reduction",
+        "who": "Italiani al 1° anno di triennale/Giurisprudenza, residenti in Italia",
+        "index": "ISEE Università + condizione economico-patrimoniale (reddito+patrimonio complessivo entro 500.000 EUR, valutato sul nucleo convenzionale Bocconi)",
+        "tiers": [
+          { "iseeMax": 50000, "reductionPct": 80, "amountEur": null, "extra": "80% o 60%: la pagina non specifica quale fascia spetti a quale situazione. ISEE < 50.000 e' priorita', non diritto." },
+          { "iseeMax": 50000, "reductionPct": 60, "amountEur": null, "extra": "vedi sopra" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "Stessa domanda unica",
+        "source": {
+          "label": "80/60 Partial tuition waivers a.a. 2026-27",
+          "url": "https://www.unibocconi.it/it/studenti-iscritti/agevolazioni/agevolazioni-lauree-triennali-e-giurisprudenza/80-60-partial-tuition-waivers-aa-2026-27-studenti-iscritti",
+          "where": "pagina intera"
+        },
+        "notes": "Valutazione dal beneficio di importo maggiore fino a esaurimento risorse; chi resta escluso puo' essere considerato per altri benefici."
+      },
+      {
+        "name": "Boost your Future Scholarships - 40% / 20% Partial tuition waivers",
+        "kind": "fee-reduction",
+        "who": "Italiani al 1° anno di triennale/Giurisprudenza, residenti in Italia",
+        "index": "ISEE Università + ISPE",
+        "tiers": [
+          { "iseeMax": 100000, "reductionPct": 40, "amountEur": null, "extra": "ISEE Univ. > 50.000 e < 100.000 con ISPE < 200.000; possibili anche ISEE < 50.000 se reddito+patrimonio lordo > 500.000. Non e' specificato che cosa determina 40% vs 20%." },
+          { "iseeMax": 100000, "reductionPct": 20, "amountEur": null, "extra": "vedi sopra" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "Stessa domanda unica",
+        "source": {
+          "label": "40/20 Partial tuition waivers a.a. 2027-28 (pagina 2026/27 non verificata)",
+          "url": "https://www.unibocconi.it/it/entrare-bocconi/corsi-di-laurea-triennale-e-giurisprudenza/agevolazioni/40-20-partial-tuition-waivers-aa-2027-2028",
+          "where": "pagina intera (segnalata 'in aggiornamento')"
+        },
+        "notes": "Dato letto sulla pagina 2027/28; per il 2026/27 l'elenco generale cita il programma ma la pagina dedicata non e' stata verificata."
+      }
+    ],
+    "tuitionTable": null,
+    "notFound": "Numero di posti e fondi totali di ciascun beneficio Bocconi4Access (non pubblicati). Criterio che distingue 100/80/60 e 40/20 (valutazione discrezionale). Pagina 2026/27 dei 40/20 non verificata. Tabella di downgrade CFU non letta in modo affidabile. Le pagine 'regole generali' risultano riferite all'a.a. 2027-28: l'ateneo ha gia' aperto il bando 2027/28 (Early session 12-30/11/2026)."
+  },
+  {
+    "universityId": "ateneo-01504",
+    "name": "Cattolica",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Gli 'idonei beneficiari' ma anche gli 'idonei non beneficiari per carenza di fondi' del 1° anno sono esonerati totalmente da tassa di iscrizione e contributi (restano il contributo di laurea e il bollo; la tassa regionale 130 EUR e' rimborsata/inclusa nella borsa). Va comunque pagata la 1a rata (rimborsata dopo il riconoscimento). Condizione di merito: 30 CFU entro il 10/08/2027 (25 Medicina, 27 Farmacia, 33 MEDTEC); in alternativa 35 CFU entro il 30/11/2027 con esonero ridotto (tassa iscrizione totale + 50% contributi); senza CFU nessun esonero. Borsa EDUCatt: ISEE/ISEEUP <= 26.887,93; fasce 1a 0-13.443,97, 2a 13.443,98-17.925,29, 3a 17.925,30-26.887,93. Domanda scaduta il 30/09/2026 (ore 13). Nel 2025/26 l'ateneo ha reso beneficiari tutti gli idonei con fondi propri.",
+      "source": {
+        "label": "Bando borse Università Cattolica - EDUCatt a.a. 2026/27 (agg. 27/10/2026)",
+        "url": "https://www.educatt.it/agevolazioni/doc/EDUCattBandoBorse.pdf",
+        "where": "cap. 1 (esiti idoneo beneficiario/non beneficiario), art. 8.1 fasce, art. 11.2, 11.2.1, 11.2.2 (pp. 32-34 del bando)"
+      }
+    },
+    "aid": [
+      {
+        "name": "Contribuzione a reddito equivalente (sistema proprio dell'Ateneo, non ISEE)",
+        "kind": "fee-reduction",
+        "who": "Tutti gli iscritti al 1° anno (sedi padane); il contributo cala con il reddito equivalente del nucleo convenzionale",
+        "index": "altro: reddito equivalente = reddito totale netto 2025 (al netto di imposte) / divisore familiare (1 comp. 0,60; 2 0,75; 3 0,88; 4 1,00; 5 1,17; 6 1,33; 7 1,47; 8 1,59). NON e' l'ISEE (l'ISEE serve solo per la fascia della tassa regionale e per EDUCatt)",
+        "tiers": [
+          { "iseeMax": 24000, "reductionPct": null, "amountEur": 0, "extra": "contributo sul reddito = 0 (reddito equivalente fino a 24.000 EUR)" },
+          { "iseeMax": 40000, "reductionPct": null, "amountEur": 1888, "extra": "11,8% della parte eccedente 24.000 (da 0 a 1.888)" },
+          { "iseeMax": 70000, "reductionPct": null, "amountEur": 4288, "extra": "1.888 + 8% eccedente 40.000 (da 1.888 a 4.288)" },
+          { "iseeMax": 100000, "reductionPct": null, "amountEur": 5668, "extra": "4.288 + 4,6% eccedente 70.000 (da 4.288 a 5.668)" },
+          { "iseeMax": 150000, "reductionPct": null, "amountEur": 6068, "extra": "6.018 + 0,1% eccedente 100.000 (da 6.018 a 6.068): salto 5.668 -> 6.018 cosi' pubblicato nel PDF" },
+          { "iseeMax": null, "reductionPct": null, "amountEur": 6918, "extra": "oltre 150.000 (fascia massima): 6.918" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "Inserimento redditi nell'applicativo web entro il 04/12/2026 (a.a. 2026/27); l'ISEE per la tassa regionale entro il 23/12/2026 (altrimenti 3a fascia 190 EUR; fasce 130/160/190 per ISEE <= 26.887,93 / fino a 53.775,88 / oltre)",
+        "source": {
+          "label": "Normativa generale contributi universitari a.a. 2026/27 - primo anno",
+          "url": "https://studenticattolica.unicatt.it/2026-2027%20Normativa%20tasse%20primo%20anno%20di%20corso.pdf",
+          "where": "par. 2.2-2.3 (pp. 7-9), par. 3.3 (p. 11), par. 4a (p. 12), par. 4a.2 (p. 16)"
+        },
+        "notes": "Struttura retta lauree triennali e Giurisprudenza (sedi padane): 1a rata 1.500 (21/09/2026) + 2a rata 1.000 (18/12/2026) fisse; 3a rata (29/01/2027) = 50% contributo sul reddito + 72; 4a rata (31/03/2027) = 50% contributo sul reddito + 73; 5a rata (28/05/2027) = coefficiente del corso x 1.170 (es. coefficienti dal PDF: Economia 1,55 / Psicologia / Lettere tra 0,7 e 1,2: tabella a p. 13 non leggibile in modo affidabile). Lettura 3a/4a/5a rata ricostruita dal testo estratto: verificare sul PDF. Riduzione 50% della 5a rata per alcuni corsi (Lettere, Filosofia, Beni culturali, Scienze della formazione ecc.) e riduzione di 1.000 EUR per Scienze del servizio sociale (500 a tempo parziale) solo per 1° anno con reddito equivalente <= 70.000. Richiesta di riduzione per grave disagio imprevisto: istanza all'Ufficio Contributi (par. 5.2 n)."
+      }
+    ],
+    "tuitionTable": {
+      "index": "reddito equivalente (non ISEE): contributo sul reddito, da dividere per 2 per terza e quarta rata (+72 e +73), a cui si sommano 1a rata 1.500, 2a rata 1.000 e 5a rata (coefficiente corso x 1.170)",
+      "bands": [
+        { "max": 24000, "amount": 0 },
+        { "max": 40000, "amount": 1888 },
+        { "max": 70000, "amount": 4288 },
+        { "max": 100000, "amount": 5668 },
+        { "max": 150000, "amount": 6068 },
+        { "max": null, "amount": 6918 }
+      ],
+      "source": {
+        "label": "Normativa generale contributi universitari a.a. 2026/27 - primo anno",
+        "url": "https://studenticattolica.unicatt.it/2026-2027%20Normativa%20tasse%20primo%20anno%20di%20corso.pdf",
+        "where": "par. 4a, p. 12 (formula contributo sul reddito, valori in coda a ciascuno scaglione)"
+      }
+    },
+    "notFound": "Coefficienti per corso della 5a rata (tabella p. 13) non leggibili in modo affidabile dal PDF. Non trovata una riduzione ISEE separata oltre al sistema a reddito equivalente. Da una ricerca risulta un 'meccanismo di adeguamento economico' dal 2026/27 citato in una pagina di corso (Finanza Milano), non verificato. Bando EDUCatt 2027/28 non ancora pubblicato; normativa 2027/28 non verificata. Importi in denaro della borsa EDUCatt per status in sede/pendolare/fuori sede non estratti (es. in sede 1a fascia 2.601 EUR incl. tassa regionale)."
+  },
+  {
+    "universityId": "ateneo-01505",
+    "name": "IULM",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Gli studenti beneficiari di borsa regionale e gli idonei non beneficiari per carenza di fondi sono esonerati totalmente da tassa di iscrizione e contributi universitari (restano bollo e tassa regionale; la tassa regionale e' compresa nella borsa per i borsisti, rimborsata ai non beneficiari). Gli esoneri parziali IULM non sono cumulabili con l'esonero D.Lgs. 68/2012 per gli idonei. Soglie ISEE della borsa regionale 2026/27 non lette dal testo del bando IULM; limiti regionali 2026/27: ISEE <= 26.887,93 e ISPE <= 58.452,06 (delibera XII/6298 del 15/06/2026, riportati da altri bandi lombardi 2026/27 ma non verificati sul bando IULM). Il 1° anno: la sintesi cita l'esonero per 'beneficiari e idonei non beneficiari' senza distinguere il 1° anno (condizioni di merito del bando non lette).",
+      "source": {
+        "label": "Regolamento Tasse e contributi a.a. 2026/27 + news bando regionale",
+        "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES",
+        "where": "art. 1.3 Agevolazioni (p. 6) ultimo capoverso, Cap. 4 tassa regionale; news https://www.iulm.it/it/news-ed-eventi/news/borse-di-studio-regionali-2026-2027 (domanda entro 16/09/2026)"
+      }
+    },
+    "aid": [
+      {
+        "name": "Fasce di contribuzione per ISEE (retta a 6 fasce)",
+        "kind": "fee-reduction",
+        "who": "Tutti gli immatricolati 2026/27 di cittadinanza italiana/estera con nucleo residente in Italia (triennali: tempo pieno)",
+        "index": "ISEE per prestazioni universitarie (DSU sottoscritta dopo 01/01/2026)",
+        "tiers": [
+          { "iseeMax": 13000, "reductionPct": null, "amountEur": 3746, "extra": "totale annuo triennale: 1a rata 1.600 + 146 (acconto tassa regionale e bollo) + 2a 1.400 (14/12/2026) + 3a 600 (31/03/2027). Contributi universitari 3.260 + iscrizione 250 + contributi finalizzati 90 + 146" },
+          { "iseeMax": 23000, "reductionPct": null, "amountEur": 5046, "extra": "2a rata 2.200, 3a 1.100" },
+          { "iseeMax": 33000, "reductionPct": null, "amountEur": 6346, "extra": "2a rata 3.000, 3a 1.600" },
+          { "iseeMax": 43000, "reductionPct": null, "amountEur": 7846, "extra": "2a rata 3.800, 3a 2.300" },
+          { "iseeMax": 57000, "reductionPct": null, "amountEur": 9246, "extra": "2a rata 4.600, 3a 2.900" },
+          { "iseeMax": null, "reductionPct": null, "amountEur": 10746, "extra": "oltre 57.000 (anche chi non presenta ISEE): 2a rata 5.500, 3a 3.500" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "Autocertificazione ISEE (importazione dati INPS) dal 12/01/2026 al 27/11/2026; tardiva fino al 21/12/2026 con diritto di 200 EUR; senza ISEE: fascia massima d'ufficio. Richieste di esonero entro 28/02/2027.",
+        "source": {
+          "label": "Regolamento Tasse e contributi a.a. 2026/27",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES",
+          "where": "art. 1.1-1.2 Tab. A (triennali) p. 4; Tab. B (magistrali) p. 5; art. 5.1 pp. 29-30"
+        },
+        "notes": "Importi per il solo 1° anno triennale tempo pieno. Pagina riassuntiva: https://www.iulm.it/it/orientamento-iscrizioni/tasse-e-contributi. Le soglie ISEE sono quelle di fascia, non scontistiche percentuali."
+      },
+      {
+        "name": "Esoneri parziali non legati al reddito (citati per completezza)",
+        "kind": "fee-reduction",
+        "who": "1° anno triennale con diploma 100/100 (20%); fratelli/familiari fiscalmente a carico iscritti IULM (30%); figli dipendenti IULM (30%); figli vittime del dovere/pensione inabilita' (50%)",
+        "index": "nessun indice di reddito (merito o status)",
+        "tiers": [
+          { "iseeMax": null, "reductionPct": 20, "amountEur": null, "extra": "20% su tasse e contributi per chi ha diploma 100/100 e si immatricola a tempo pieno, indipendentemente dalla fascia. Non cumulabile con altri esoneri e con quello degli idonei regionali; vale il piu' favorevole." }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "28/02/2027, senza effetto retroattivo",
+        "source": {
+          "label": "Regolamento Tasse e contributi a.a. 2026/27",
+          "url": "https://www.iulm.it/wps/wcm/connect/iulm/a5276c9e-b358-4600-976b-c11f41fd4ade/Regolamento+Tasse+AA+2026-2027.pdf?MOD=AJPERES",
+          "where": "art. 1.3 Agevolazioni, pp. 5-6"
+        },
+        "notes": "Borse puramente di merito per iscritti con >= 40 CFU: 5 borse da 3.000 EUR (p. 10). Posti letto a titolo gratuito per rifugiati: 10."
+      }
+    ],
+    "tuitionTable": null,
+    "notFound": "Bando borse regionali IULM 2026/27 non letto per intero (soglie, importi, merito 1° anno): un risultato di ricerca indicava come scadenza 20/12/2026 contro 16/09/2026 della news ufficiale IULM, da verificare. Nessuna borsa propria IULM legata all'ISEE oltre alle fasce di retta."
+  },
+  {
+    "universityId": "ateneo-01508",
+    "name": "Vita-Salute San Raffaele",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Ai sensi art. 8 DPCM 9/4/2001 e D.Lgs. 68/2012, i beneficiari di borsa e gli idonei non beneficiari per carenza di fondi sono esonerati dalla tassa di iscrizione e dai contributi accademici (1° anno fuori corso: esonero pari alla meta' dei contributi). Requisito ISEE universitario/ISEEU parificato 2026 <= 26.887,93 e ISPE <= 58.452,06. Per il 1° anno la borsa e' revocata se non si hanno almeno 35 CFU entro il 30/11/2027; senza i crediti minimi entro il 10/08/2027 resta l'esonero totale della tassa di iscrizione e del 50% dei contributi. 39 borse per iscritti per la prima volta al 1° anno (98 per anni successivi). Importi borsa 2026/27 (inclusi pasto 829 e rimborso tassa regionale): in sede 3.430/2.991/2.143; pendolare 4.820/4.191/3.299; fuori sede 8.248/7.172/5.857 (1a/2a/3a fascia: 0-13.443,97; 13.443,98-17.925,29; 17.925,30-26.887,93).",
+      "source": {
+        "label": "Bando diritto allo studio a.a. 2026/27 UniSR",
+        "url": "https://www.unisr.it/action/albo-documents/bando-di-concorso-per-l-assegnazione-dei-benefici-per-il-diritto-allo-studio-universitario---a.a.-2026-2027/79b392fb-0546-45b5-b1b5-3c14f11c1bd9.pdf",
+        "where": "premessa (p. 3), art. 1 numero borse, art. 3-4 requisiti/importi, art. 7 domanda (entro le 12:00 del 30/09/2026), art. 9 pagamenti/crediti"
+      }
+    },
+    "aid": [
+      {
+        "name": "Riduzione 20% fratelli/sorelle iscritti contemporaneamente",
+        "kind": "fee-reduction",
+        "who": "Secondo e successivi fratelli/sorelle iscritti nello stesso a.a.",
+        "index": "nessun indice di reddito",
+        "tiers": [
+          { "iseeMax": null, "reductionPct": 20, "amountEur": null, "extra": "detratta dall'ultima rata; non cumulabile con altre agevolazioni" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "15 dicembre di ogni anno, via e-mail a dirittoallostudio@unisr.it",
+        "source": {
+          "label": "Agevolazioni e premi di merito UniSR",
+          "url": "https://www.unisr.it/en/servizi/borse-di-studio/agevolazioni-premi-merito",
+          "where": "sezione fratelli/sorelle"
+        },
+        "notes": "Stessa riduzione 20% per figli di dipendenti UniSR. Premio di merito per 1° anno Filosofia 'sulla base di criteri di reddito e merito': bando solo in italiano, soglie e importi non pubblicati nella pagina."
+      }
+    ],
+    "tuitionTable": null,
+    "notFound": "La retta UniSR 2026/27 e' un importo fisso per corso, non legato all'ISEE (es. triennali: Scienze e tecniche psicologiche 7.690; Filosofia 5.490; Ricerca biotecnologica in medicina 6.890; Infermieristica 2.590; Fisioterapia 6.090; Ostetricia 4.790; Osteopatia 6.090; TRMIR 5.190; Scienze politiche e strategie globali 3.090; Medicina 20.190; fonte https://www.unisr.it/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale). Nessuna riduzione propria per ISEE trovata. Bando del premio di merito reddito/merito Filosofia non reperito."
+  },
+  {
+    "universityId": "ateneo-01510",
+    "name": "Humanitas University",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "unknown",
+      "firstYear": true,
+      "detail": "Nel Regolamento Tasse e Contributi 2026/27 l'unico esonero totale previsto e' per disabilita' (L.104 art. 3 / invalidita' >= 66%). Nessuna menzione dell'esonero per gli idonei alla borsa regionale/DSU (il documento non contiene i termini DSU, diritto allo studio o Lombardia). Non verificato se Humanitas partecipi al bando regionale: la normativa nazionale (art. 8 DPCM 2001) lo prevederebbe ma non e' dichiarato.",
+      "source": {
+        "label": "Regolamento Tasse e Contributi Universitari a.a. 2026-27",
+        "url": "https://www.hunimed.eu/wp-content/uploads/2026/02/Regolamento-Tasse-e-Contributi-accademici-2026-2027.pdf",
+        "where": "cap. 7 Esonero da tasse e contributi (p. 35)"
+      }
+    },
+    "aid": [
+      {
+        "name": "Retta a 4 fasce per ISEP (indice proprio)",
+        "kind": "fee-reduction",
+        "who": "Cittadini UE e equiparati (nucleo convenzionale con redditi in Italia/UE); i non UE non equiparati e chi ha redditi extra-UE sono in fascia IV",
+        "index": "altro: ISEP (Indicatore della Situazione Economica e Patrimoniale) proprio dell'ateneo, in migliaia di euro; NON e' l'ISEE",
+        "tiers": [
+          { "iseeMax": 30000, "reductionPct": null, "amountEur": 10206, "extra": "Medicina e Chirurgia/MedTec, I fascia (ISEP < 30k). Triennali: Infermieristica/TRMIR/Lab. biomedico 1.706; Fisioterapia 2.706" },
+          { "iseeMax": 55000, "reductionPct": null, "amountEur": 15206, "extra": "II fascia (30-55k). Infermieristica ecc. 2.706; Fisioterapia 4.206" },
+          { "iseeMax": 80000, "reductionPct": null, "amountEur": 19206, "extra": "III fascia (55-80k). Infermieristica ecc. 3.206; Fisioterapia 5.206" },
+          { "iseeMax": null, "reductionPct": null, "amountEur": 23206, "extra": "IV fascia (oltre 80k, o senza ISEP). Infermieristica ecc. 3.706; Fisioterapia 7.206. Osteopatia: fascia unica 7.206" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "Compilazione modulo ISEP online entro il 10/11/2026 (portale Hunimed Fasce); istanza di revisione entro il 13/11/2026; senza domanda: fascia IV",
+        "source": {
+          "label": "Regolamento Tasse e Contributi Universitari a.a. 2026-27",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/02/Regolamento-Tasse-e-Contributi-accademici-2026-2027.pdf",
+          "where": "par. 3.1-3.3 (pp. 5-9), 4.1-4.2 (pp. 16-17)"
+        },
+        "notes": "Importi totali annui, comprensivi di tassa di iscrizione 250 + tassa regionale 190 + bollo 16 nella 1a rata. Medicina in 4 rate (1a 5.206 fissa all'immatricolazione; 2a 11/12/2026; 3a 26/02/2027; 4a 16/04/2027). Le rate versate non sono mai rimborsabili. Gli importi per immatricolati 2026/27 non aumentano in modo significativo negli anni successivi a parita' di fascia."
+      },
+      {
+        "name": "Borse Fondazione Rocca / Humanitas University (Medicina e Chirurgia in inglese, 9 borse)",
+        "kind": "fee-reduction",
+        "who": "Cittadini UE/equiparati, 1° anno Medicina in inglese: media >= 8/10 nei due anni prima dell'ultimo, entro i primi 30 posti del test; borsa totale (1) con ISEE 2026 <= 50.000; 5+1+2 parziali che portano la retta a 5.206 EUR",
+        "index": "ISEE 2026 solo per la borsa totale e come 200 punti su 2.200 della graduatoria; per le parziali requisiti di merito",
+        "tiers": [
+          { "iseeMax": 25000, "reductionPct": null, "amountEur": null, "extra": "200 punti ISEE; borsa totale Rocca = copertura da 10.000 a 23.000 EUR a seconda della fascia (retta residua 206 EUR)" },
+          { "iseeMax": 50000, "reductionPct": null, "amountEur": null, "extra": "150 punti; ISEE <= 50.000 requisito della borsa Rocca" },
+          { "iseeMax": 70000, "reductionPct": null, "amountEur": null, "extra": "75 punti (50.000,01-70.000); 0 punti oltre 70.000 o senza ISEE" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "08/04/2026 (documenti a info@hunimed.eu); Alfieri del Lavoro 30/10/2026",
+        "source": {
+          "label": "Rules and Regulations scholarships 2026-27 (EU)",
+          "url": "https://www.hunimed.eu/wp-content/uploads/2026/01/EU_ENG_Scholarship-Rules-and-Regulation-26.27.pdf",
+          "where": "Art. 1-2 e tabella punteggi (pp. 1-4); versione italiana https://www.hunimed.eu/wp-content/uploads/2026/01/EU_ITA_Regolamento-borse-26.27.pdf"
+        },
+        "notes": "Solo Medicina in inglese, 9 borse in tutto, a merito+reddito: non e' una agevolazione per ISEE di massa. Borse per Medicina in italiano/MEDTEC e Odontoiatria: file separati non letti (EU_ITA_Regolamento-Borse-MEDTEC)."
+      }
+    ],
+    "tuitionTable": {
+      "index": "ISEP (indice proprio, migliaia di euro) - Medicina e Chirurgia / MedTec School categoria UE, a.a. 2026/27",
+      "bands": [
+        { "max": 30000, "amount": 10206 },
+        { "max": 55000, "amount": 15206 },
+        { "max": 80000, "amount": 19206 },
+        { "max": null, "amount": 23206 }
+      ],
+      "source": {
+        "label": "Regolamento Tasse e Contributi Universitari a.a. 2026-27",
+        "url": "https://www.hunimed.eu/wp-content/uploads/2026/02/Regolamento-Tasse-e-Contributi-accademici-2026-2027.pdf",
+        "where": "par. 3.1 p. 5; triennali sanitarie par. 3.2-3.3 pp. 7-9"
+      }
+    },
+    "notFound": "Esonero per idonei borsa regionale/DSU non trovato nel regolamento. Fascia ISEP e' un indice proprio con scala di equivalenza e regole di calcolo (par. 4.4, pp. 21-31, non riportate). Regolamento borse MEDTEC/Italiano non letto."
+  },
+  {
+    "universityId": "ateneo-01201",
+    "name": "LIUC Castellanza",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Beneficiari della borsa regionale e idonei non beneficiari per carenza di fondi sono esonerati totalmente da tasse e contributi 2026/27 (1° anno fuori corso: tassa iscrizione 250 + meta' dei contributi). Tutti gli idonei sono esonerati anche dalla tassa regionale (rimborsata). Requisiti: ISEE <= 26.887,93 e ISPE <= 58.452,06 (a.a. 2026/27), voto di maturita' minimo 70/100 e superamento test d'ingresso (dal sito). Solo 13 borse in denaro per primi iscritti (di cui 7 magistrale): gli altri idonei restano 'non beneficiari' ma esonerati. L'esonero si conferma con 35 CFU entro la sessione estiva dell'anno dopo, esclude altre scontistiche, e comporta il rimborso della 1a rata. L'idoneo puo' avere anche alloggio Residenza Pomini e mensa in base al merito.",
+      "source": {
+        "label": "Bando Regione Lombardia 2026/27 - LIUC",
+        "url": "https://www.liuc.it/wp-content/uploads/BANDODEF_REGIONE2026xDECRETO.pdf",
+        "where": "Parte 1 art. 1 (n. borse), art. 2 (ISEE), art. 16 Esonero tasse (p. 13 circa); ISEE/voto/test: https://www.liuc.it/entra-in-liuc/borse-di-studio-e-agevolazioni-economiche/"
+      }
+    },
+    "aid": [
+      {
+        "name": "La scelta che ti premia (riduzione sulla retta, 1° anno triennale)",
+        "kind": "fee-reduction",
+        "who": "Matricole triennali LIUC 2026/27: media voti penultimo anno >= 7/10 + superamento test d'ingresso + ISEE con DSU in corso di validita'",
+        "index": "ISEE (DSU)",
+        "tiers": [
+          { "iseeMax": 50000, "reductionPct": null, "amountEur": 3500, "extra": "riduzione di 3.500 EUR sulla retta, applicata dalla seconda rata. 50 riduzioni: 25 per residenti nelle province di Milano e Varese, 25 per altre province" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "Domanda online sul portale SOL (sol.liuc.it), allegando pagella, ISEE e DSU. Edizione 2026/27 CHIUSA: esaurite il 16/07/2026 (Ingegneria, MI-VA), 27/07/2026 (Economia, MI-VA), chiusa il 31/07/2026 per altre province.",
+        "source": {
+          "label": "La scelta che ti premia - LIUC",
+          "url": "https://www.liuc.it/entra-in-liuc/la-scelta-che-ti-premia/",
+          "where": "pagina intera"
+        },
+        "notes": "Confermata solo a chi perfeziona l'immatricolazione. La stessa iniziativa ha avuto 50 riduzioni anche nel 2025/26 (chiusa 31/07/2025). La scheda 'Informazioni borse' dell'ateneo la descrive come per ISEE tra 26.516 e 50.000 (a.a. 2025/26): chi ha ISEE sotto la soglia regionale va al bando regionale. Per il 2027/28 non ancora pubblicata."
+      },
+      {
+        "name": "Riduzioni categoriali",
+        "kind": "fee-reduction",
+        "who": "Soci fondatori LIUC e dipendenti Confindustria Varese (25%); aziende associate Confindustria Varese e dipendenti JRC (15%); aziende associate Confindustria Italia, LIUC Alumni, Amici LIUC (10%)",
+        "index": "nessun indice di reddito",
+        "tiers": [
+          { "iseeMax": null, "reductionPct": 25, "amountEur": null, "extra": "25% / 15% / 10% a seconda della categoria; non cumulabili tra loro; solo nuove iscrizioni" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "documenti all'immatricolazione e comunque entro dicembre",
+        "source": {
+          "label": "Riduzioni sulla retta, esoneri e rateizzazioni - LIUC",
+          "url": "https://www.liuc.it/entra-in-liuc/borse-di-studio-e-agevolazioni-economiche/riduzioni-sulla-retta-esoneri-e-rateizzazioni/",
+          "where": "sezione riduzioni categoriali"
+        },
+        "notes": "Non legate al reddito. Rette triennali 2026/27 (da prospetto LIUC): Economia e Management 8.500-9.500, Ingegneria gestionale 7.800, in 4 rate (dato da ricerca non verificato su PDF)."
+      }
+    ],
+    "tuitionTable": null,
+    "notFound": "Retta per fasce ISEE: LIUC non ha una retta a fasce, ha una retta fissa per corso (non verificata sul PDF ufficiale dei prospetti). Soglia ISEE della riduzione per voto di maturita' 'percentuale' citata nel rinnovo (50%/25%) trovata solo su sito terzo: scartata. Riduzione 'La scelta che ti premia' 2027/28 non ancora pubblicata."
+  }
+]
