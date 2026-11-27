@@ -1,0 +1,245 @@
+[
+  {
+    "universityId": "ateneo-05805",
+    "name": "Luiss Guido Carli",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "unknown",
+      "firstYear": null,
+      "detail": "Nessuna regola ufficiale Luiss trovata su un esonero dedicato agli idonei/beneficiari DiSCo. Unico riferimento: la FAQ Luiss descrive la borsa regionale DiSCo Lazio come 'borsa regionale basata sul reddito ISEE, che può garantire l'esonero totale dal Contributo Unico' (formula ambigua: non dice se l'esonero lo applica Luiss ne' come/quando). Le borse Luiss dei bandi 2025/26 e 2026/27 sono dichiarate incompatibili con altri esoneri o borse a qualsiasi titolo.",
+      "source": { "label": "FAQ Luiss - Esistono borse di studio alla Luiss?", "url": "https://www.luiss.it/it/faq/faq-luiss", "where": "FAQ 'Esistono borse di studio alla Luiss? Come si ottengono?'" }
+    },
+    "aid": [
+      {
+        "name": "Borse per studenti italiani ammessi con Test Luiss (bando 2025/26, riferimento; bando 2026/27 non trovato)",
+        "kind": "fee-reduction",
+        "who": "Cittadini italiani (o che studiano in scuola italiana) ammessi al 1° anno di triennale/ciclo unico tramite Test Luiss. 24 borse nel bando 2025/26.",
+        "index": "ISEE per il diritto allo studio universitario (certificato ISEE, non DSU)",
+        "tiers": [
+          { "iseeMax": null, "reductionPct": 50, "amountEur": null, "extra": "Nessuna soglia ISEE: il bando dà fino a 30 punti su 100 per l'ISEE e 70 per il punteggio di ammissione; esonero 50% del contributo unico applicato a 2a e 3a rata (1a rata a carico dello studente)" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "2025/26: domanda dal 15 maggio 2025 al 20 giugno 2025 ore 12 (bando 2026/27 non reperito)",
+        "source": { "label": "Bando 24 borse triennali a.a. 2025/2026 (Luiss)", "url": "https://www.luiss.it/sites/default/files/media-documents/U1_ITA_Bando_24_borsetriennali_2526.pdf", "where": "pp. 1-2: premessa, art. 2 (domande), art. 3 (criteri 30 ISEE + 70 ammissione); conferma anni successivi: 70% CFU e media 27/30" },
+        "notes": "DATO DELL'ANNO PRECEDENTE (2025/26), non 2026/27. Il sito Luiss ad oggi mostra solo i bandi 2027/28 per gli italiani (67 borse Test Luiss UE); il bando italiani 2026/27 non e' stato trovato online. Incompatibile con altri esoneri/borse."
+      },
+      {
+        "name": "WE Dream Luiss Scholarship (Fondo Filantropico Italiano)",
+        "kind": "mixed",
+        "who": "Studentesse residenti in Calabria ammesse al 1° anno di una triennale Luiss (test febbraio 2026). 3 borse.",
+        "index": "ISEE per il diritto allo studio universitario <= 28.000 euro",
+        "tiers": [
+          { "iseeMax": 28000, "reductionPct": 100, "amountEur": 4000, "extra": "ISEE 20.000-28.000: pocket money 400 euro/mese x 10 mesi (lordo) + alloggio gratuito + esonero totale contributo, tasse di legge, contributo di laurea" },
+          { "iseeMax": 19999.99, "reductionPct": 100, "amountEur": 5000, "extra": "ISEE 18.000-19.999,99: 500 euro/mese x 10 + alloggio gratuito + esonero totale" },
+          { "iseeMax": 17999.99, "reductionPct": 100, "amountEur": 6000, "extra": "ISEE 13.000-17.999,99: 600 euro/mese x 10 + alloggio gratuito + esonero totale" },
+          { "iseeMax": 12999.99, "reductionPct": 100, "amountEur": 7000, "extra": "ISEE < 13.000: 700 euro/mese x 10 + alloggio gratuito + esonero totale" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "2 marzo 2026 ore 12 (scaduta)",
+        "source": { "label": "Bando WE Dream Luiss Scholarship a.a. 2026/2027", "url": "https://www.luiss.it/sites/default/files/2026-01/Bando%20Luiss%20Fondo%20Filantropico%2029%20gen%2026_signed.pdf", "where": "p. 1 (tabella pocket money, requisiti), p. 2 (criteri: 40% ISEE + 60% colloquio)" },
+        "notes": "amountEur = pocket money annuo calcolato (mensile x 10), esclusi alloggio ed esonero. Molto di nicchia (solo donne calabresi, 3 posti)."
+      }
+    ],
+    "notFound": "Nessuna fascia ISEE sul Contributo Unico: il sito Luiss dice che e' a quota fissa e non varia con il reddito (pagina 2027/28: 15.000 euro triennali; importo 2026/27 non verificato). Bando 2026/27 per cittadini italiani non reperito. Esonero per idonei DiSCo non documentato in modo esplicito. Altre borse 2026/27 non legate al reddito (non analizzate in dettaglio): 28 borse UE/Schengen (esonero totale/parziale, merito punteggio test >=80/90; senza ISEE), borse SAT/ACT/IB, Legalita' e Merito (2 borse esonero totale), orfani Carabinieri (1 borsa, ISEEU 60 punti), Fondo Assistenza PS. Sconto 20% per fratelli iscritti (a domanda, solo sul minore, dalla 2a rata): FAQ Luiss."
+  },
+  {
+    "universityId": "ateneo-05803",
+    "name": "LUMSA",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "unknown",
+      "firstYear": null,
+      "detail": "Nessun esonero per gli idonei DiSCo trovato nei documenti 2026/27 (bando di ammissione e guida pratica): rimandano genericamente a 'borse di studio ed esoneri' e al sito laziodisco.it. Nel bando 2025/26 delle 85 borse a rimborso tasse, la borsa LUMSA non e' cumulabile con borse regionali, con borse Tincani, part-time e con esenzione totale.",
+      "source": { "label": "Bando iscrizione triennali/CU 2026/2027 LUMSA", "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-02/Bando-di-Ammissione-Triennali-CU-2026-2027-signed.pdf", "where": "art. 11 Borse di studio (p. 10)" }
+    },
+    "aid": [
+      {
+        "name": "Fasce contributive per ISEE Università (tasse 2026/27, sede Roma)",
+        "kind": "fee-reduction",
+        "who": "Tutti gli iscritti a triennali e cicli unici che presentano l'ISEE Università (entro il 21 novembre 2026 per ricalcolare le rate 2-4). Senza ISEE o sopra 80.000: fascia massima.",
+        "index": "ISEEU",
+        "tiers": [
+          { "iseeMax": 17000, "reductionPct": null, "amountEur": 3640, "extra": "1a fascia: totale annuo 3.640 euro (1.000 all'immatricolazione + 140 tassa regionale + rate 840/830/830)" },
+          { "iseeMax": 21000, "reductionPct": null, "amountEur": 4390, "extra": "2a fascia" },
+          { "iseeMax": 25000, "reductionPct": null, "amountEur": 5140, "extra": "3a fascia" },
+          { "iseeMax": 30000, "reductionPct": null, "amountEur": 6140, "extra": "4a fascia" },
+          { "iseeMax": 35000, "reductionPct": null, "amountEur": 6640, "extra": "5a fascia" },
+          { "iseeMax": 50000, "reductionPct": null, "amountEur": 7390, "extra": "6a fascia" },
+          { "iseeMax": 80000, "reductionPct": null, "amountEur": 8140, "extra": "7a fascia" },
+          { "iseeMax": null, "reductionPct": null, "amountEur": 8890, "extra": "8a fascia (oltre 80.000 o ISEE non presentato)" }
+        ],
+        "automatic": true,
+        "limited": false,
+        "deadline": "ISEEU da inserire entro 21 novembre 2026; rate 10/12/2026, 17/02/2027, 14/04/2027",
+        "source": { "label": "Guida pratica per lo studente a.a. 2026-2027 (LUMSA)", "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf", "where": "Titolo I, punto 5 'Tabella tasse e contributi' (p. 12 della guida)" },
+        "notes": "Importi totali annui 2026/27 inclusi 140 euro di tassa regionale. Servizio sociale L39 e LM87: sempre 1a fascia. Non e' una borsa ma una retta modulata sull'ISEE (nessuna percentuale di riduzione dichiarata)."
+      },
+      {
+        "name": "Borse di studio a rimborso tasse (85 borse, sede Roma) - bando 2025/26",
+        "kind": "cash",
+        "who": "Iscritti in corso a Roma, compresi 1° anno (15 posti in sede + 20 fuori sede), con merito e reddito: 1° anno triennale/CU = diploma >= 90/100 e almeno 3 esami entro la sessione estiva (luglio 2026).",
+        "index": "ISEE DSU (Università) <= 29.346 euro e ISPE <= 63.795,76 euro",
+        "tiers": [
+          { "iseeMax": 29346, "reductionPct": null, "amountEur": 1000, "extra": "Studenti 'in sede' (Roma entro GRA o entro 50 km): 1.000 euro come rimborso tasse; graduatoria prioritariamente per ISEE" },
+          { "iseeMax": 29346, "reductionPct": null, "amountEur": 1700, "extra": "Studenti 'fuori sede' (oltre 50 km): 1.700 euro come rimborso tasse" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "12 giugno 2026 (bando 2025/26; bando 2026/27 non ancora trovato)",
+        "source": { "label": "D.R. 3630 - Bando 85 borse rimborso tasse a.a. 2025/2026", "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-05/D.R.%20Bando%20borse%20di%20studio%20per%20rimborso%20tasse%202025-2026-signed.pdf", "where": "Premessa/decreta (p. 2), art. 1-3 (pp. 3-4), art. 4 graduatoria" },
+        "notes": "DATO DELL'ANNO 2025/26. Non cumulabile con borse regionali, Tincani, part-time, esenzione totale. Le matricole 2026/27 possono vedere un bando analogo in primavera 2027 (non confermato)."
+      },
+      {
+        "name": "Riduzioni automatiche/a domanda non legate al reddito (2026/27)",
+        "kind": "fee-reduction",
+        "who": "Diploma 2026 con 100 o 100 e lode (nuovo dal 2026/27); 2+ componenti del nucleo iscritti in corso; comunita' religiose",
+        "index": "altro: voto di maturita' / nucleo familiare (non ISEE)",
+        "tiers": [
+          { "iseeMax": null, "reductionPct": 20, "amountEur": null, "extra": "Maturita' 100 o 100 e lode: -20% su 2a, 3a, 4a rata, negli anni del primo ciclo" },
+          { "iseeMax": null, "reductionPct": 30, "amountEur": null, "extra": "Due o piu' familiari iscritti in corso: -30% su 2a-4a rata" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "autocertificazione a economato.roma@lumsa.it entro 21 novembre 2026",
+        "source": { "label": "Guida pratica per lo studente a.a. 2026-2027 (LUMSA)", "url": "https://backoffice.lumsa.it/sites/default/files/file/3564/2026-07/guida-pratica-per-lo-studente-aa2627.pdf", "where": "Titolo I, punto 4 'Riduzioni - rimborsi - agevolazioni' (p. 16-17)" },
+        "notes": "Benefici non cumulabili tra loro ne' con altre riduzioni. Comunita' religiose: 1a fascia con ulteriore -20%. Esiste anche l'Associazione Tincani (contributi a meritevoli in condizioni economiche disagiate): nessun dettaglio ISEE trovato."
+      }
+    ],
+    "notFound": "Esonero/trattamento degli idonei DiSCo Lazio non documentato per il 2026/27. Bando 85 borse rimborso tasse 2026/27 non trovato (disponibile solo 2025/26). Importi e requisiti dell'Associazione Tincani non verificati. Pagina web 'borse di studio e agevolazioni' non leggibile (contenuto non estratto)."
+  },
+  {
+    "universityId": "ateneo-05808",
+    "name": "Campus Bio-Medico",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Esonero totale dal contributo unico per chi ha i requisiti di eleggibilita' alla borsa DiSCo Lazio (idonei/assegnatari), SOLO A DOMANDA e nei limiti dei fondi MUR (quota L. 243/1991 e DL 212/2002) piu' eventuali incrementi dell'ateneo; precedenza secondo la posizione in graduatoria DiSCo. Si paga prima tutto (contributo, bollo, tassa regionale) e l'esonero avviene ESCLUSIVAMENTE per rimborso. Non cumulabile con altre borse/riduzioni/sconti. Esclusi fuori corso e ammessi con riserva (salvo consolidamento entro la domanda). L'importo dei fondi viene pubblicato sul sito entro 60 giorni dal decreto MUR. La tassa regionale resta dovuta (rimborsabile dalla DiSCo). Nota: la pagina 'Tasse e contributi' dice che dal 2027/28 l'esonero non e' piu' automatico e va richiesto con domanda: la formulazione del regolamento 2026/27 e' gia' a domanda.",
+      "source": { "label": "Regolamento tasse e contributi UCBM a.a. 2026/2027 (D.R. 504/2025, corpo)", "url": "https://www.unicampus.it/2.0/wp-content/uploads/2026/05/DR-504-2025-tasse-e-contributi-2026-2027_corpo.pdf", "where": "artt. 8, 9, 10 (pp. 7-9 del PDF)" }
+    },
+    "aid": [
+      {
+        "name": "Borsa Joaquin Navarro-Valls - Scienze dell'Alimentazione e della Nutrizione Umana (Intesa Sanpaolo)",
+        "kind": "cash",
+        "who": "1 borsa per matricola 2026/27 in Scienze dell'Alimentazione e Nutrizione Umana (cittadini italiani/UE), immatricolata nella I finestra",
+        "index": "ISEE Diritto allo Studio 2026 <= 28.000 euro",
+        "tiers": [
+          { "iseeMax": 28000, "reductionPct": null, "amountEur": 5500, "extra": "5.500 euro/anno per 3 anni (16.500 totali) come esonero/rimborso del contributo unico; rimborsata la 1a rata (2.000 euro); assegnata in ordine crescente di ISEE, poi voto di maturita'" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "ISEE entro 20 marzo 2026 ore 13 (scaduta)",
+        "source": { "label": "Avviso borsa Navarro-Valls SANU 2026/27", "url": "https://www.unicampus.it/2.0/wp-content/uploads/2025/12/AVVISO-DI-SELEZIONE-BORSA-NAVARRO-VALLS-SANU-2026-27.pdf", "where": "artt. 1-3 (pp. 1-2)" },
+        "notes": "Rinnovo con merito (28/30 media). Non cumulabile con analoghi benefici. Altre borse Navarro-Valls 2026/27 trovate sono per lauree magistrali (non analizzate)."
+      },
+      {
+        "name": "Borsa Friends of UCBM (Ana Pico) - Infermieristica",
+        "kind": "cash",
+        "who": "1 borsa per matricola 2026/27 al CdL in Infermieristica",
+        "index": "ISEE Diritto allo Studio 2026 <= 28.000 euro",
+        "tiers": [
+          { "iseeMax": 28000, "reductionPct": null, "amountEur": 2350, "extra": "2.350 euro/anno per 3 anni (7.050 totali) come esonero/rimborso del contributo unico; assegnata in ordine crescente di ISEE" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "2 ottobre 2026 ore 13 (scaduta); esito entro 9 ottobre 2026",
+        "source": { "label": "Avviso borsa Friends of UCBM - Ana Pico, Infermieristica 2026/27", "url": "https://www.unicampus.it/2.0/wp-content/uploads/2026/09/Avviso-di-Selezione-Borsa-di-Studio-Ana-Pico_Infermieristica-2026-27.pdf", "where": "artt. 1-3 (pp. 1-2)" },
+        "notes": "Non cumulabile con analoghi benefici di altre istituzioni."
+      }
+    ],
+    "notFound": "Il contributo unico UCBM varia per corso e non per fascia ISEE (nessuna riduzione ISEE generale). Importo dei fondi MUR per l'esonero DiSCo 2026/27 e termini della domanda non trovati (da pubblicare sul sito 'Diritto allo studio'). Ciclo unico: la borsa 50% (ISEE <= 45.000) e' riservata agli anni successivi al terzo. Borse di merito per magistrali (50% esonero) ignorate."
+  },
+  {
+    "universityId": "ateneo-05809",
+    "name": "UNINT",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "unknown",
+      "firstYear": null,
+      "detail": "Le pagine 'Tasse e contributi 2026/2027' e 'Borse di studio e agevolazioni 2026/2027' non prevedono alcun esonero/rimborso per gli idonei DiSCo: dicono solo che gli studenti possono partecipare al bando Diritto allo studio 'al pari di quanto avverrebbe iscrivendosi a un Ateneo statale' e versare 140 euro di tassa regionale alla DiSCo. Nessun testo su idonei, esonero o rimborso.",
+      "source": { "label": "Tasse e contributi a.a. 2026/2027 UNINT", "url": "https://www.unint.eu/entra-in-unint/tasse-e-contributi-2026-2027/", "where": "sezione 'DiSCo Lazio / Diritto allo studio'" }
+    },
+    "aid": [],
+    "notFound": "UNINT non usa ISEE ne' per le tasse ne' per le borse nel 2026/27: contributo unico senza fasce di reddito (triennali L-12/L-36 standard 6.900 euro in 6 rate, pagina tasse). Esistono solo riduzioni di merito (retta agevolata 1° anno da 6.000 a 4.500 euro per voto di diploma 70-79 / 80-89 / 90-99 / 100 e lode; 6.000/5.400/4.800/4.500) e borse del 40% della retta per merito+impegno sociale/talento/calcio: da ignorare ma citate. Pagina borse: https://www.unint.eu/entra-in-unint/borse-di-studio-e-agevolazioni-a-a-2026-2027/ . Pagina DiSCo non spiega trattamento degli idonei (verificare con dirittoallostudio@unint.eu)."
+  },
+  {
+    "universityId": "ateneo-05817",
+    "name": "Link Campus University",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "unknown",
+      "firstYear": null,
+      "detail": "Nessun documento ufficiale trovato sul trattamento degli idonei DiSCo.",
+      "source": { "label": "Link Campus - Tasse e rette", "url": "https://www.unilink.it/iscrizione/tasse-e-rette", "where": "pagina intera (solo tabelle rette; nessuna menzione DiSCo/ISEE)" }
+    },
+    "aid": [],
+    "notFound": "La pagina tasse mostra rette per corso (es. DAMS/Economia Roma 9.500 euro, Giurisprudenza Roma 8.000, Infermieristica 5.900; diritto iscrizione 250 + tassa regionale 140 + bollo 16) senza fasce ISEE. La pagina storica 'Borse di studio' (www2.unilink.it/borse-studio.asp) dice 'Al momento, non sono attive borse di studio disponibili' (pagina forse non aggiornata). Regolamento tasse 2026/27 con eventuali borse per merito/reddito non trovato. Una pagina corso DAMS citata da un motore di ricerca parla di '100 borse di studio' ma senza data ne' criteri verificati."
+  },
+  {
+    "universityId": "ateneo-05818",
+    "name": "UniCamillus (Saint Camillus International University of Health Sciences)",
+    "academicYear": "2026/2027",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "none",
+      "firstYear": false,
+      "detail": "Il Regolamento tasse 2026/27 (triennali professioni sanitarie, studenti comunitari, sede Roma) afferma che l'art. 9 c.2 D.Lgs. 68/2012 (esonero totale per chi ha i requisiti della borsa) e le norme sulla quota di contributo statale NON sono applicabili a UniCamillus perche' l'ateneo non riceve contributi statali; lo studente accetta tale statuizione. Nessun esonero per gli idonei DiSCo (resta la tassa regionale di 140 euro).",
+      "source": { "label": "Regolamento tasse e contributi CdL triennali professioni sanitarie UE 2026/2027 sede Roma (D.R. 180/2026)", "url": "https://unicamillus.org/wp-content/uploads/regolamenti/201r-regolamento_tassecontributi_cdl-triennali-studenti-ue-2026-2027-sede-roma.pdf", "where": "paragrafo sul D.Lgs. 68/2012 art. 9 (circa pp. 5-6 del PDF), dopo i dettagli contributi" }
+    },
+    "aid": [
+      {
+        "name": "50 borse parziali Medicina e Chirurgia (in inglese) - Roma, studenti UE",
+        "kind": "fee-reduction",
+        "who": "Immatricolati al 1° anno di Medicina in inglese a Roma, nei primi 50 della graduatoria con ISEE Diritto allo Studio valido",
+        "index": "ISEE Diritto allo Studio <= 55.000 euro",
+        "tiers": [
+          { "iseeMax": 55000, "reductionPct": 25, "amountEur": 5250, "extra": "25% della retta annua; applicata sull'ultima rata. Basata su merito (primi 50) e bisogno economico" }
+        ],
+        "automatic": false,
+        "limited": true,
+        "deadline": "ISEE da inviare a office@unicamillus.org entro 30/09/2026 (dal bando D.R. 52/2026 art. 9, riportato da ricerca: non verificato direttamente); ultima rata 28/02/2027",
+        "source": { "label": "Regolamento borse studenti UE Medicina 2026/27 (D.R. 86/2026)", "url": "https://unicamillus.org/wp-content/uploads/bandi_ammissione/2026-2027/195r_86-2026-dr_scholarships_regulation_eu-students_medicine-2026_27.pdf", "where": "art. 1.1 (p. 2); mantenimento art. 2 (27/30 e CFU)" },
+        "notes": "Medicina in inglese: retta molto alta (25% = 5.250 euro implica ~21.000 euro annui). Cefalù (non Roma): 1 borsa 50% per nati e residenti in Sicilia (ISEE come terzo criterio) + borse 30%."
+      }
+    ],
+    "notFound": "Per le triennali sanitarie (retta es. Fisioterapia 8.000 euro) nessuna borsa legata a ISEE trovata per gli studenti UE 2026/27. Studenti non UE: borse/prestito d'onore Fondazione Progetto Salute (importi e soglie non reperiti). Borse per figli di dipendenti/docenti non analizzate. Medicina in italiano a Roma: non verificato."
+  },
+  {
+    "universityId": "ateneo-05812",
+    "name": "Università Europea di Roma",
+    "academicYear": "2025/2026",
+    "verifiedAt": "2026-11-26",
+    "dsuExemption": {
+      "status": "limited-funds",
+      "firstYear": true,
+      "detail": "Esonero totale da tasse di iscrizione e contributi per studenti con requisiti di eleggibilita' alla borsa DiSCo Lazio, a domanda e fino a esaurimento di un fondo di 100.000 euro (bando 2025/26); precedenza per posizione in graduatoria DiSCo (autocertificazione). Resta da pagare 100 euro di rimborso spese iscrizione + 16 euro di bollo + tassa regionale. Non rinnovabile automaticamente (1 anno). Escluso Medicina e Chirurgia, fuori corso e ammessi con riserva. Studente in regola coi pagamenti per presentare domanda. Domanda esse3 + email entro il 17 maggio 2026 (bando 25/26), graduatoria entro 30 giorni. Il bando 2026/27 NON e' stato trovato: il dato e' del 2025/26 (il sito indica il bando DiSCo 2026/27 con scadenza 22 luglio 2026).",
+      "source": { "label": "D.R. 05/26 - Bando esonero totale (a.a. 2025/26)", "url": "https://www.universitaeuropeadiroma.it/wp-content/uploads/2018/04/DR-05-Bando-per-esoneri-contributi-immatricolati-2025_2026-e-iscritti-2023_2024-e-2024_2025Pubblicazione-1.pdf", "where": "artt. 1-5 (pp. 2-5)" }
+    },
+    "aid": [
+      {
+        "name": "Promozioni pre-immatricolazione 2026/27 (non legate al reddito)",
+        "kind": "fee-reduction",
+        "who": "Chi supera il test e perfeziona la preimmatricolazione dal 15 gennaio al 24 giugno 2026 (EGA L-18, Psicologia L-24, Giurisprudenza, Turismo L-15)",
+        "index": "altro: voto di diploma / data di iscrizione (non ISEE)",
+        "tiers": [
+          { "iseeMax": null, "reductionPct": 100, "amountEur": null, "extra": "Diploma 100: -100% contributi accademici" },
+          { "iseeMax": null, "reductionPct": 20, "amountEur": null, "extra": "Diploma da 80/100: -20%" },
+          { "iseeMax": null, "reductionPct": 10, "amountEur": null, "extra": "Tutti: -10%" }
+        ],
+        "automatic": false,
+        "limited": false,
+        "deadline": "preimmatricolazione entro 24 giugno 2026 (scaduta)",
+        "source": { "label": "UER - Immatricolazione e tasse", "url": "https://www.universitaeuropeadiroma.it/tasse-universitarie/", "where": "sezione 'Promozioni pre-immatricolazioni'" },
+        "notes": "Merito, non reddito. Non cumulabili con altre agevolazioni della sezione Diritto allo studio. Quota preimmatricolazione 200 euro."
+      }
+    ],
+    "notFound": "Regolamento tasse UER 2026/27 (D.R. 132/133/229) non scaricabile (server blocca i download automatici, 403): non verificato se prevede fasce ISEE o il nuovo bando esonero DiSCo 2026/27. Bando esonero DiSCo 2026/27 non trovato. Nessuna borsa propria legata a ISEE trovata."
+  }
+]

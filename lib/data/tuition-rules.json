@@ -20375,7 +20375,7 @@
     "ateneo-01201": {
       "name": "Università Carlo Cattaneo LIUC",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Matricole delle lauree triennali: retta unica, non legata all’ISEE. Le rette delle magistrali 2026/27 non sono ancora pubblicate.",
       "fixedFees": {
         "regionalTax": 190,
@@ -20432,7 +20432,28 @@
           "url": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
         }
       },
-      "simulator": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/"
+      "simulator": "https://www.liuc.it/entra-in-liuc/laurea-triennale/tasse-e-contributi/",
+      "institutionalAid": [
+        {
+          "name": "La scelta che ti premia (LIUC)",
+          "guaranteed": false,
+          "levels": [
+            "triennale"
+          ],
+          "tiers": [
+            {
+              "iseeMax": 50000,
+              "reduction": 0,
+              "cash": 3500
+            }
+          ],
+          "note": "Riduzione di 3.500 € sulla retta del 1° anno di triennale per ISEE fino a 50.000 € (sotto la soglia regionale vale il bando regionale), media di almeno 7/10 e test: domanda con pagella e ISEE, 50 posti (25 per le province di Milano e Varese). L’edizione 2026/27 si è esaurita a luglio 2026.",
+          "source": {
+            "label": "LIUC, La scelta che ti premia",
+            "url": "https://www.liuc.it/entra-in-liuc/la-scelta-che-ti-premia/"
+          }
+        }
+      ]
     },
     "ateneo-08601": {
       "name": "Università Kore di Enna",
@@ -20726,7 +20747,7 @@
     "ateneo-05808": {
       "name": "Università Campus Bio-Medico di Roma",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Matricole: contributo unico per corso, non legato all’ISEE.",
       "fixedFees": {
         "regionalTax": 140,
@@ -20976,7 +20997,25 @@
           "url": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
         }
       },
-      "simulator": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/"
+      "simulator": "https://www.unicampus.it/ammissioni-corsi-di-laurea/tasse-e-contributi/",
+      "institutionalAid": [
+        {
+          "name": "Esonero per gli idonei DiSCo",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Va chiesto all’Ateneo: si paga prima tutto e poi arriva il rimborso del contributo unico, nei limiti dei fondi statali e in ordine di graduatoria DiSCo (D.R. 504/2025, artt. 8-10).",
+          "source": {
+            "label": "Campus Bio-Medico, D.R. 504/2025, tasse e contributi 2026/27, artt. 8-10",
+            "url": "https://www.unicampus.it/2.0/wp-content/uploads/2026/05/DR-504-2025-tasse-e-contributi-2026-2027_corpo.pdf"
+          }
+        }
+      ]
     },
     "ateneo-05809": {
       "name": "UNINT – Università degli Studi Internazionali di Roma",
@@ -22802,7 +22841,7 @@
     "ateneo-05812": {
       "name": "Università Europea di Roma",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Matricole 2026/27: tassa di iscrizione più contributi accademici, importo fisso per corso uguale per ogni ISEE.",
       "fixedFees": {
         "regionalTax": 140,
@@ -22850,7 +22889,7 @@
           "amount": 3950
         }
       ],
-      "noScholarshipExemption": "Per chi è idoneo alla borsa DiSCo l’esonero è un rimborso e vale solo nei limiti dei fondi statali assegnati all’Ateneo (artt. 8-9 del regolamento): il sito non lo sottrae.",
+      "noScholarshipExemption": "Per chi è idoneo alla borsa DiSCo l’esonero è un rimborso e vale solo nei limiti di un fondo dell’Ateneo (artt. 1-5 del bando esoneri): il sito lo mostra come caso migliore.",
       "maxNote": "Tassa di iscrizione (1.190 €) più contributi accademici, primo anno: 7.250 € per Economia e Gestione Aziendale, Scienze e Tecniche Psicologiche, Giurisprudenza, Economia e Management dell’Innovazione e Psicologia; 3.950 € per Scienze della Formazione Primaria, Turismo e Valorizzazione del Territorio e (dopo la modifica del D.R. 229/26) Management della Transizione Digitale; 18.250 € per Medicina e Chirurgia; 6.250 € per Fisioterapia (in accreditamento). Con il pagamento in un’unica soluzione entro il 16/10/2026 i contributi scendono del 5% (non per Medicina, Fisioterapia, Formazione Primaria e Turismo). L’esonero per gli idonei DiSCo è un rimborso e vale solo nei limiti dei fondi statali assegnati all’Ateneo (artt. 8-9): il sito non lo sottrae.",
       "maxSource": {
         "label": "Università Europea di Roma, Regolamento tasse e contributi 2026/27 (D.R. 132/26), artt. 2-4, 8-9 e Allegato 1; modifica D.R. 229/26",
@@ -22868,7 +22907,25 @@
           "url": "https://www.uer.it/wp-content/uploads/2018/04/All.-DR-132-Regolamento-tasse-e-contributi-2026-2027-immatricolati-e-iscritti-a.a.-23-24-e-24-25-1.pdf"
         }
       },
-      "simulator": "https://www.uer.it/entra-in-uer/immatricolazione-e-tasse/"
+      "simulator": "https://www.uer.it/entra-in-uer/immatricolazione-e-tasse/",
+      "institutionalAid": [
+        {
+          "name": "Esonero per gli idonei DiSCo",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Su domanda e fino a esaurimento del fondo (100.000 € nel bando 2025/26), in ordine di graduatoria DiSCo; restano 100 € di spese di iscrizione, il bollo e la tassa regionale. Il bando 2026/27 non è ancora pubblicato.",
+          "source": {
+            "label": "Università Europea di Roma, D.R. 05, bando esoneri 2025/26, artt. 1-5",
+            "url": "https://www.universitaeuropeadiroma.it/wp-content/uploads/2018/04/DR-05-Bando-per-esoneri-contributi-immatricolati-2025_2026-e-iscritti-2023_2024-e-2024_2025Pubblicazione-1.pdf"
+          }
+        }
+      ]
     },
     "ateneo-05811": {
       "name": "Unitelma Sapienza (telematica)",

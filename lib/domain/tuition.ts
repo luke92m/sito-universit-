@@ -105,6 +105,8 @@ export interface InstitutionalAid {
   guaranteed: boolean;
   /** Solo per chi è idoneo alla borsa regionale per il diritto allo studio. */
   requiresScholarship?: boolean;
+  /** Livelli di corso a cui si applica (assente = tutti). */
+  levels?: DegreeLevel[];
   /** Fasce in ordine di ISEE crescente. */
   tiers: InstitutionalAidTier[];
   /** Cosa serve e cosa sapere (domanda, scadenza, posti), in una o due frasi. */
@@ -287,10 +289,13 @@ export function institutionalAidFor(
   isee: { min: number | null; max: number | null },
   tuitionAtMin: number,
   tuitionAtMax: number,
-  scholarship: string | null
+  scholarship: string | null,
+  /** Livello del corso scelto (null = nessun corso: si considerano tutte le borse). */
+  level: DegreeLevel | null = null
 ): InstitutionalAidEstimate | null {
   if (!rule.institutionalAid?.length || isee.min == null) return null;
   const estimates = rule.institutionalAid
+    .filter((aid) => !aid.levels || !level || aid.levels.includes(level))
     .filter((aid) => !aid.requiresScholarship || scholarship === 'eligible' || scholarship === 'uncertain')
     .map((aid) => {
       const best = aidTier(aid, isee.min);

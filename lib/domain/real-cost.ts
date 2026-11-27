@@ -184,7 +184,7 @@ function tuitionLines(
   // Borsa o riduzione propria dell'ateneo (es. Bocconi4Access): caso migliore se non è garantita.
   const aid = exempt
     ? null
-    : institutionalAidFor(rule, isee, exempt || maybeExempt ? 0 : tuitionMin, tuitionMax, scholarship?.status ?? null);
+    : institutionalAidFor(rule, isee, exempt || maybeExempt ? 0 : tuitionMin, tuitionMax, scholarship?.status ?? null, course ? degreeLevel(course) : null);
   if (aid) {
     lines.push({
       key: 'riduzione',

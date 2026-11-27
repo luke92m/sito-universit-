@@ -62,3 +62,21 @@ describe('borse proprie dell’ateneo', () => {
     expect(high.lines.some((line) => line.key === 'riduzione')).toBe(false);
   });
 });
+
+describe('borse d’ateneo per livello e per idonei', () => {
+  it('LIUC: la riduzione vale solo per le triennali', async () => {
+    const { tuitionRuleFor, institutionalAidFor } = await import('@/lib/domain/tuition');
+    const rule = tuitionRuleFor('ateneo-01201')!;
+    const isee = { min: 40000, max: 40000 };
+    expect(institutionalAidFor(rule, isee, 8500, 8500, 'not-eligible', 'triennale')?.max).toBe(3500);
+    expect(institutionalAidFor(rule, isee, 8500, 8500, 'not-eligible', 'magistrale')).toBeNull();
+  });
+
+  it('Campus Bio-Medico: esonero solo per chi è idoneo alla borsa, mai certo', async () => {
+    const { tuitionRuleFor, institutionalAidFor } = await import('@/lib/domain/tuition');
+    const rule = tuitionRuleFor('ateneo-05808')!;
+    const isee = { min: 15000, max: 15000 };
+    expect(institutionalAidFor(rule, isee, 9000, 9000, 'not-eligible')).toBeNull();
+    expect(institutionalAidFor(rule, isee, 9000, 9000, 'eligible')).toMatchObject({ min: 0, max: 9000 });
+  });
+});
