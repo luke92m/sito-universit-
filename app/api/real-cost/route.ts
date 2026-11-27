@@ -10,6 +10,7 @@ import {
 } from '@/lib/domain/dsu';
 import { parseGrade } from '@/lib/domain/grade';
 import { getIseeRange, findRange } from '@/lib/domain/isee';
+import { parseOwnIndex } from '@/lib/domain/own-index';
 import { realCost, type RealCost } from '@/lib/domain/real-cost';
 import { normalize } from '@/lib/domain/text';
 import { isCourseId } from '@/lib/flow/journey-params';
@@ -105,6 +106,11 @@ export async function POST(request: Request) {
         sourceUrl: table?.source.url || null
       };
 
-  const payload: RealCostResponse = { ...realCost(university, course, isee, ispe, condition, grade), conditionInfo };
+  // Dati facoltativi per gli atenei con un indicatore proprio (Cattolica, Humanitas, Bolzano): non vengono salvati.
+  const ownIndex = parseOwnIndex(body.ownIndex);
+  const payload: RealCostResponse = {
+    ...realCost(university, course, isee, ispe, condition, grade, ownIndex),
+    conditionInfo
+  };
   return NextResponse.json(payload, { headers: { 'cache-control': 'no-store' } });
 }

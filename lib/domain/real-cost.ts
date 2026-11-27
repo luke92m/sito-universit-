@@ -28,6 +28,7 @@ import {
 } from './tuition';
 import { applyGradeReduction, gradeLabel, gradeReductionFor, type DiplomaGrade } from './grade';
 import { GRANT_KEYS, type CostLineKey } from './real-cost-keys';
+import { ownIndexInfo, ownIndexScholarship, ownIndexTuition, type OwnIndexInfo, type OwnIndexInput } from './own-index';
 import { getMetrics } from '../data';
 import type { Course, University } from '../types';
 
@@ -58,6 +59,8 @@ export interface RealCost {
   total: { min: number; max: number };
   /** Cosa non è ancora coperto da dati verificati. */
   missing: string[];
+  /** Ateneo con un indicatore proprio al posto dell'ISEE (Cattolica, Humanitas, Bolzano): cosa chiedere. */
+  ownIndex: OwnIndexInfo | null;
 }
 
 const RENT_SOURCE: Source = { label: 'Immobiliare.it Insights 2026, stanze singole', url: CITY_SOURCES.rent };
@@ -90,9 +93,25 @@ function tuitionLines(
   scholarship: ScholarshipEstimate | null,
   condition: StudentCondition,
   grade: DiplomaGrade = null,
-  ispe: EconomicRange = { min: null, max: null }
+  ispe: EconomicRange = { min: null, max: null },
+  ownIndex: OwnIndexInput | null = null
 ): CostLine[] {
   if (!rule) {
+    // Indicatore proprio dell'ateneo (es. Cattolica, Humanitas): forbice del regolamento o importo con i dati.
+    const own = ownIndexTuition(university.id, course, isee, ownIndex, scholarship?.status ?? null);
+    if (own) {
+      return [
+        {
+          key: 'tasse',
+          label: 'Tasse universitarie',
+          min: own.min,
+          max: own.max,
+          note: own.note,
+          source: own.source,
+          estimated: false
+        }
+      ];
+    }
     // Chi è idoneo alla borsa non paga le tasse: lo prevede la legge nazionale, anche senza le regole dell'ateneo.
     if (scholarship?.status === 'eligible') {
       return [
@@ -212,7 +231,9 @@ export function realCost(
   ispe: EconomicRange,
   askedCondition: StudentCondition,
   /** Voto di maturità, facoltativo: sconti per merito e voto minimo delle borse. */
-  grade: DiplomaGrade = null
+  grade: DiplomaGrade = null,
+  /** Dati per l'indicatore proprio dell'ateneo, facoltativi (vedi own-index.ts). */
+  ownIndex: OwnIndexInput | null = null
 ): RealCost {
   const seatCity = course?.city || university.city;
   const entity = dsuEntityFor(university.id);
@@ -227,11 +248,12 @@ export function realCost(
   const excluded = universityRule ? isExcludedCourse(universityRule, course) : false;
   const rule = excluded ? null : universityRule;
   const missing: string[] = [];
-  const lines = tuitionLines(rule, university, course, isee, scholarship, condition, grade, ispe);
+  const lines = tuitionLines(rule, university, course, isee, scholarship, condition, grade, ispe, ownIndex);
+  const ownTuition = !rule && lines.some((line) => line.key === 'tasse' && !line.estimated);
   if (grade == null && firstCycle && rule?.gradeReductions?.length)
     missing.push('Sconto per voto di maturità: indica il voto per calcolarlo');
   if (excluded) missing.push(`Tasse per fascia ISEE di questo corso: ${universityRule!.excludedCourses!.note}`);
-  else if (!rule) missing.push('Tasse per fascia ISEE di questo ateneo');
+  else if (!rule && !ownTuition) missing.push('Tasse per fascia ISEE di questo ateneo');
 
   if (condition === 'fuoriSede') {
     const rent = roomRent(seatCity, university.macroArea);
@@ -291,7 +313,20 @@ export function realCost(
       });
     }
   }
-  if (!entity) missing.push('Bando per il diritto allo studio della regione di questo ateneo');
+  // Borsa con un indicatore proprio dell'ente (Bolzano: VSE), quando non c'è un bando regionale per ISEE.
+  const ownGrant = entity ? null : ownIndexScholarship(university.id, ownIndex);
+  if (ownGrant && ownGrant.max > 0) {
+    lines.push({
+      key: 'borsa',
+      label: ownGrant.label,
+      min: ownGrant.min,
+      max: ownGrant.max,
+      note: ownGrant.note,
+      source: ownGrant.source,
+      estimated: false
+    });
+  }
+  if (!entity && !ownGrant) missing.push('Bando per il diritto allo studio della regione di questo ateneo');
 
   const costs = lines.filter((line) => !GRANT_KEYS.includes(line.key));
   const grants = lines.filter((line) => GRANT_KEYS.includes(line.key));
@@ -310,9 +345,11 @@ export function realCost(
     entity: entity ? withoutMunicipalities(entity) : null,
     scholarship,
     lines,
-    tuitionRule: Boolean(rule),
+    tuitionRule: Boolean(rule) || ownTuition,
     total,
-    missing
+    missing,
+    // Il calcolo facoltativo serve solo se tasse o borsa vengono davvero dall'indicatore proprio.
+    ownIndex: ownTuition || ownGrant ? ownIndexInfo(university.id, ownIndex) : null
   };
 }
 
@@ -325,6 +362,13 @@ export interface RealCostSummary {
   scholarship: { entity: string; status: ScholarshipEstimate['status'] } | null;
   /** Parte della borsa che avanza dopo i costi calcolati (0 se non avanza nulla). */
   surplus: { min: number; max: number };
+  /** Indicatore proprio dell'ateneo al posto dell'ISEE: il totale è una forbice finché non lo si calcola. */
+  ownIndex: { name: string; target: 'tasse' | 'borsa' } | null;
+}
+
+function ownGrantStatus(line: CostLine | undefined): ScholarshipEstimate['status'] {
+  if (!line) return 'not-eligible';
+  return line.min === line.max ? 'eligible' : 'uncertain';
 }
 
 export function summarizeRealCost(cost: RealCost): RealCostSummary {
@@ -340,6 +384,14 @@ export function summarizeRealCost(cost: RealCost): RealCostSummary {
     condition: cost.condition,
     tuitionVerified: cost.tuitionRule || Boolean(tuition && !tuition.estimated),
     scholarship:
-      cost.entity && cost.scholarship ? { entity: cost.entity.shortName, status: cost.scholarship.status } : null
+      cost.entity && cost.scholarship
+        ? { entity: cost.entity.shortName, status: cost.scholarship.status }
+        : cost.ownIndex?.target === 'borsa'
+          ? {
+              entity: 'Provincia di Bolzano',
+              status: ownGrantStatus(cost.lines.find((line) => line.key === 'borsa'))
+            }
+          : null,
+    ownIndex: cost.ownIndex ? { name: cost.ownIndex.indexName, target: cost.ownIndex.target } : null
   };
 }

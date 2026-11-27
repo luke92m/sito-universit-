@@ -7,6 +7,7 @@ import type { RealCostResponse } from '@/app/api/real-cost/route';
 import { useSite } from '@/components/site/SiteProvider';
 import { UniversityCombobox } from '@/components/site/UniversityCombobox';
 import { RealCostResult } from '@/components/tools/RealCostResult';
+import type { OwnIndexInput } from '@/lib/domain/own-index';
 import { journeyOf, type SiteUser } from '@/lib/client/types';
 import { useLoader } from '@/lib/client/use-loader';
 import { useUniversityCourses } from '@/lib/client/use-courses';
@@ -98,6 +99,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
   const [chosenCourse, setChosenCourse] = useState<string | null>(null);
   const [cost, setCost] = useState<RealCostResponse | null>(null);
   const [busy, setBusy] = useState(false);
+  // Dati facoltativi per gli atenei con un indicatore proprio (reddito equivalente, ISEP, VSE): solo in memoria.
+  const [ownIndex, setOwnIndex] = useState<OwnIndexInput | null>(null);
   const { courses } = useUniversityCourses(universityId);
   // Corso arrivato dal link (?corso=<nome>) come proposta, finché l'utente non sceglie.
   const courseId = chosenCourse ?? (courses.find((course) => course.name === params.get('corso'))?.id || '');
@@ -121,7 +124,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
     setMessage('');
     const iseeRange = findRange(data.iseeRanges, isee);
     const ispeRange = findRange(data.ispeRanges, ispe);
-    const calculated = await loadCost({ exactIsee, exactIspe });
+    setOwnIndex(null);
+    const calculated = await loadCost({ exactIsee, exactIspe }, undefined, null);
     // Con il bando dell'ente inserito vale il suo esito; altrimenti i limiti nazionali.
     const verdict =
       calculated?.entity && calculated.scholarship
@@ -145,7 +149,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
 
   async function loadCost(
     { exactIsee, exactIspe }: { exactIsee: number | null; exactIspe: number | null },
-    condition?: StudentCondition
+    condition?: StudentCondition,
+    own: OwnIndexInput | null = ownIndex
   ): Promise<RealCostResponse | null> {
     setBusy(true);
     try {
@@ -161,7 +166,8 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
           residenceCity: city.trim(),
           rentsNearSeat,
           grade: grade ? Number(grade) : null,
-          condition
+          condition,
+          ownIndex: own
         })
       });
       const payload = response.ok ? ((await response.json()) as RealCostResponse) : null;
@@ -181,6 +187,10 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
   };
   const changeCondition = (condition: StudentCondition) =>
     loadCost({ exactIsee: validAmount(iseeExact), exactIspe: validAmount(ispeExact) }, condition);
+  const applyOwnIndex = (input: OwnIndexInput) => {
+    setOwnIndex(input);
+    return loadCost({ exactIsee: validAmount(iseeExact), exactIspe: validAmount(ispeExact) }, cost?.conditionInfo.origin === 'scelta' ? cost.condition : undefined, input);
+  };
 
   const saveOpportunity = async () => {
     if (!verification) return;
@@ -447,7 +457,7 @@ export function ScholarshipsSection({ user }: { user: SiteUser | null }) {
 
       {verification && cost?.entity ? (
         <section className="real-cost-section" ref={resultRef}>
-          <RealCostResult result={cost} onCondition={changeCondition} busy={busy} />
+          <RealCostResult result={cost} onCondition={changeCondition} onOwnIndex={applyOwnIndex} busy={busy} />
           <div className="save-scholarship-row">
             {isEnabled('account') ? (
               <button className="button button-primary" type="button" onClick={saveOpportunity}>

@@ -83,8 +83,17 @@ function RealCostMetric({ item }: { item: FinderApiResult }) {
       </small>
       <span className="university-real-cost-tags">
         <span className={cost.tuitionVerified ? 'is-verified' : 'is-pending'}>
-          {cost.tuitionVerified ? 'tasse per ISEE verificate' : 'tasse: media nazionale'}
+          {cost.ownIndex?.target === 'tasse'
+            ? 'tasse dal regolamento'
+            : cost.tuitionVerified
+              ? 'tasse per ISEE verificate'
+              : 'tasse: media nazionale'}
         </span>
+        {cost.ownIndex ? (
+          <span className="is-pending" title="Nel dettaglio dei costi puoi calcolarlo con i dati richiesti e avere una stima precisa">
+            usa il suo {cost.ownIndex.name}, non l’ISEE: forbice, calcolabile nel dettaglio
+          </span>
+        ) : null}
       </span>
     </article>
   );
