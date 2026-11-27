@@ -20458,7 +20458,7 @@
     "ateneo-08601": {
       "name": "Università Kore di Enna",
       "academicYear": "2026/2027",
-      "verifiedAt": "2026-10-17",
+      "verifiedAt": "2026-11-27",
       "appliesTo": "Tutti gli iscritti: retta fissa per corso, non legata all’ISEE, bloccata per la durata del corso più un anno.",
       "fixedFees": {
         "regionalTax": 0,
@@ -20540,7 +20540,7 @@
         "magistrale": 3750
       },
       "maxExceptions": [],
-      "noScholarshipExemption": "L’esonero per chi è idoneo alla borsa ERSU di Enna non è automatico: va chiesto, copre il contributo di corso di laurea nei limiti dei fondi statali assegnati all’Ateneo ed è pagato come rimborso (art. 5-6).",
+      "noScholarshipExemption": "L’esonero per chi è idoneo alla borsa ERSU di Enna non è automatico: va chiesto, copre la Tassa di Frequenza (2.500 €) nei limiti dei fondi statali assegnati all’Ateneo ed è pagato come rimborso (artt. 5-7): il sito lo mostra come caso migliore.",
       "maxNote": "Retta fissa per ogni ISEE: 3.750 € per la maggior parte dei corsi (2.500 € di contributo unico, tassa regionale compresa, e 1.250 € di contributo di corso), 6.500 € per Biotecnologie e professioni sanitarie, 18.000 € per Medicina e chirurgia. Riduzioni del 50% per il secondo iscritto dello stesso nucleo e per il tempo parziale (Tabella B): non calcolate.",
       "maxSource": {
         "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27 (D.P. 45/2026), artt. 3-7 e Tabella A",
@@ -20564,7 +20564,26 @@
           "Scienze Strategiche e della Sicurezza"
         ],
         "note": "il corso non compare nella Tabella A del Regolamento 2026/27."
-      }
+      },
+      "institutionalAid": [
+        {
+          "name": "Esonero Kore per gli idonei ERSU",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 0,
+              "cash": 2500
+            }
+          ],
+          "note": "Rimborso della Tassa di Frequenza (2.500 €) a chi è beneficiario o idoneo alla borsa ERSU di Enna: va chiesto all’Ateneo ed è concesso nei limiti dei fondi statali assegnati alla Kore (Regolamento contribuzione 2026/27, artt. 5-7).",
+          "source": {
+            "label": "Università Kore di Enna, Regolamento sulla contribuzione studentesca 2026/27, artt. 5-7",
+            "url": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf"
+          }
+        }
+      ]
     },
     "ateneo-05803": {
       "name": "LUMSA – Libera Università Maria Ss. Assunta",
@@ -21688,7 +21707,7 @@
         "magistrale": 14000
       },
       "maxExceptions": [],
-      "noScholarshipExemption": "Per gli idonei alla borsa EDISU l’esonero totale dalla retta va chiesto all’Ateneo ed è concesso in ordine di graduatoria fino a esaurimento del fondo (103.000 € nel 2026/27 per tutti i corsi; Regolamento esoneri, art. 3): non è garantito.",
+      "noScholarshipExemption": "Per gli idonei alla borsa EDISU l’esonero totale dalla retta va chiesto all’Ateneo ed è concesso in ordine di graduatoria fino a esaurimento del fondo (103.000 € nel 2026/27 per tutti i corsi; Regolamento esoneri, art. 3): non è garantito, il sito lo mostra come caso migliore.",
       "maxNote": "Retta fissa, non legata all’ISEE: 15.500 € l’anno per la laurea triennale (per ciascuno dei tre anni) e 14.000 € l’anno per le magistrali. Esenzioni per merito e reddito solo con i bandi dell’Ateneo; riduzioni di 4.000 € per chi ha già un titolo UNISG e di 500 € per chi ha frequentato una Summer School: non calcolate.",
       "maxSource": {
         "label": "UNISG, Disposizioni per il pagamento della retta 2026/27 (laurea triennale e lauree magistrali)",
@@ -21706,7 +21725,25 @@
           "url": "https://www.unisg.it/assets/disposizioni_pag_retta_scienze-e-culture-gastronomiche_2026_2027-2.pdf"
         }
       },
-      "simulator": "https://www.unisg.it/course/laurea-triennale-in-scienze-e-culture-gastronomiche/"
+      "simulator": "https://www.unisg.it/course/laurea-triennale-in-scienze-e-culture-gastronomiche/",
+      "institutionalAid": [
+        {
+          "name": "Esonero UNISG per gli idonei EDISU",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Esonero totale dalla retta per chi è idoneo alla borsa EDISU Piemonte: va chiesto all’Ateneo ed è dato in ordine di graduatoria EDISU fino a esaurimento del fondo annuale (Regolamento esoneri, art. 3).",
+          "source": {
+            "label": "UNISG, Regolamento per il conferimento dell’esenzione dal pagamento della retta (12/01/2026), art. 3",
+            "url": "https://www.unisg.it/ateneo/statuto-e-regolamenti/"
+          }
+        }
+      ]
     },
     "ateneo-07203": {
       "name": "LUM – Libera Università Mediterranea «Giuseppe Degennaro»",
@@ -21781,7 +21818,7 @@
         ],
         "note": "Nel 2026/27 questo corso non ha il primo anno con questo nome: il Manifesto indica l’importo solo per gli anni successivi (le matricole L-18 si iscrivono a «Economia e Gestione Aziendale», 6.000 €; per l’L-8 c’è «Ingegneria Biomedica», 6.000 €)."
       },
-      "noScholarshipExemption": "L’esonero totale vale solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale assegnato all’Ateneo, ed è un rimborso: prima si paga tutto il contributo unico (Manifesto, par. 5).",
+      "noScholarshipExemption": "L’esonero totale vale solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale assegnato all’Ateneo, ed è un rimborso: prima si paga tutto il contributo unico (Manifesto, par. 5). Il sito lo mostra come caso migliore.",
       "maxNote": "Contributo unico del primo anno, uguale per ogni ISEE: 6.000 € per le triennali (Economia, Business Economics, Ingegneria), 6.200 € Giurisprudenza, 7.000 € per le magistrali LM-77 e LM-31, 4.000 € Infermieristica, 16.500 € Medicina, 20.600 € Odontoiatria, più bollo e tassa regionale. Borse parziali per voto di maturità (20/15/10% con 100, 95 e 90/100, non per Medicina) o di laurea: non calcolate.",
       "maxSource": {
         "label": "LUM, Manifesto degli studi 2026/27, tabelle del contributo accademico per dipartimento (pp. 22-26)",
@@ -21800,7 +21837,25 @@
           "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
         }
       },
-      "simulator": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+      "simulator": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf",
+      "institutionalAid": [
+        {
+          "name": "Esonero LUM per i beneficiari ADISU",
+          "guaranteed": false,
+          "requiresScholarship": true,
+          "tiers": [
+            {
+              "iseeMax": null,
+              "reduction": 1
+            }
+          ],
+          "note": "Esonero totale del contributo unico solo per i beneficiari definitivi della borsa ADISU Puglia, nei limiti del contributo statale dato all’Ateneo. È un rimborso: prima si paga tutto (Manifesto 2026/27, par. 5).",
+          "source": {
+            "label": "LUM, Manifesto degli studi 2026/27, par. 5 «More ed esenzioni»",
+            "url": "https://www.lum.it/wp-content/uploads/2026/06/Manifesto-studenti-26-27-V2-4.pdf"
+          }
+        }
+      ]
     },
     "ateneo-06304": {
       "name": "Università Suor Orsola Benincasa",

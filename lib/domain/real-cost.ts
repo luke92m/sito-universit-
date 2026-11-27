@@ -4,6 +4,7 @@ import { CITY_SOURCES, roomRent, studentMonthlyEstimate } from './city-indicator
 import {
   CONDITION_LABELS,
   dsuEntityFor,
+  telematicRule,
   scholarshipFor,
   type DsuEntity,
   type EconomicRange,
@@ -209,14 +210,18 @@ export function realCost(
   course: Course | null,
   isee: EconomicRange,
   ispe: EconomicRange,
-  condition: StudentCondition,
+  askedCondition: StudentCondition,
   /** Voto di maturità, facoltativo: sconti per merito e voto minimo delle borse. */
   grade: DiplomaGrade = null
 ): RealCost {
   const seatCity = course?.city || university.city;
   const entity = dsuEntityFor(university.id);
+  // Telematiche: il bando fissa la condizione (di norma "in sede") e può escludere i pasti.
+  const telematic = telematicRule(entity, university);
+  const condition = telematic ? telematic.condition : askedCondition;
   const firstCycle = !course || degreeLevel(course) !== 'magistrale';
-  const scholarship = entity ? scholarshipFor(entity, isee, ispe, condition, { grade, firstCycle }) : null;
+  const computed = entity ? scholarshipFor(entity, isee, ispe, condition, { grade, firstCycle }) : null;
+  const scholarship = computed && telematic && !telematic.services ? { ...computed, inKind: [] } : computed;
   const universityRule = tuitionRuleFor(university.id);
   // Corso con importi propri non ancora inseriti: si usa la media dichiarata, come per gli atenei non coperti.
   const excluded = universityRule ? isExcludedCourse(universityRule, course) : false;

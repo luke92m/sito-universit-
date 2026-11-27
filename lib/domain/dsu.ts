@@ -56,6 +56,8 @@ export interface DsuEntity {
     monthlyFeesSource?: Source;
   };
   municipalities: Record<string, { inSede: Municipality[]; pendolari: Municipality[]; source: Source }>;
+  /** Regola del bando per chi è iscritto a un'università telematica: condizione d'ufficio e servizi. */
+  telematic?: { condition: StudentCondition; services: boolean; note: string; source: Source };
   fundedShare: number | null;
   fundedShareNote: string;
   portal: Source;
@@ -68,6 +70,11 @@ export const CONDITION_LABELS: Record<StudentCondition, string> = {
   pendolare: 'Pendolare',
   inSede: 'In sede'
 };
+
+/** Regola del bando per le telematiche, se l'ateneo è telematico e l'ente la prevede. */
+export function telematicRule(entity: DsuEntity | null, university: { category?: string | null }) {
+  return entity?.telematic && university.category === 'Telematica' ? entity.telematic : null;
+}
 
 export function dsuEntityFor(universityId: string | null | undefined): DsuEntity | null {
   return DSU_ENTITIES.find((entity) => universityId && entity.universityIds.includes(universityId)) || null;

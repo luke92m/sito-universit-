@@ -1,0 +1,363 @@
+{
+  "universities": [
+    {
+      "universityId": "ateneo-00401",
+      "name": "Università di Scienze Gastronomiche (UNISG) - Pollenzo",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "dsuExemption": {
+        "status": "limited-funds",
+        "firstYear": true,
+        "detail": "Esenzione TOTALE della retta (15.500 EUR/anno) per gli studenti giudicati idonei alla borsa regionale EDISU Piemonte ed inseriti nella graduatoria EDISU, su domanda (si comunica all'Ateneo di aver fatto domanda EDISU e si chiede l'esonero), nei limiti di un fondo annuale stanziato dall'Ateneo (importo e modalita' pubblicati a gennaio su unisg.it). Ordine di assegnazione: posizione nella graduatoria EDISU fino a esaurimento fondi; esauriti i fondi gli altri idonei NON hanno l'esonero. Provvedimento entro 30 giorni dalla graduatoria EDISU. Si deve versare l'acconto (2.000 EUR) per confermare l'iscrizione; chi e' beneficiario ha rimborso dell'acconto e della prima rata e non paga le rate residue. Decadenza negli anni successivi se non si e' nella graduatoria idonei EDISU. Chi e' in attesa della graduatoria EDISU puo' chiedere proroga della prima rata. Non e' stato trovato (nei documenti letti) l'importo del fondo 2026/27.",
+        "source": {
+          "label": "Regolamento per il conferimento dell'esenzione dal pagamento della retta (Comitato Esecutivo 12/01/2026)",
+          "url": "https://www.unisg.it/ateneo/statuto-e-regolamenti/",
+          "where": "Art. 3 commi 3.1-3.12 (pagina Statuto e Regolamenti, voce 'Regolamento esoneri pagamento retta universitaria'). PDF letto da file scaricato in precedenza (unisg_regesoneri.pdf); URL diretto del PDF non registrato."
+        }
+      },
+      "aid": [
+        {
+          "name": "Esoneri dalla retta UNISG - Laurea Triennale in Scienze e Culture Gastronomiche (bando LT_SCG_ITA/2026-2027)",
+          "kind": "fee-reduction",
+          "who": "Ammessi al 1° anno 2026/27 con punteggio di ammissione >= 80/100, che hanno partecipato alla 1a o 2a fase di ammissione (marzo o maggio 2026), con ISEE/ISPE entro i limiti; esclusi chi ha familiare gia' assegnatario di borsa UNISG e chi ha gia' una laurea di primo livello. Graduatoria per punteggio di ammissione (non per reddito): il reddito e' solo soglia di accesso.",
+          "index": "ISEE e ISPE (autocertificazione inviata a segreteria@unisg.it)",
+          "tiers": [
+            {
+              "iseeMax": 30000,
+              "reductionPct": 100,
+              "amountEur": 15500,
+              "extra": "Esonero TOTALE, 5 posti riservati a non italiani da paesi non ad alto reddito (World Bank): ISEE <= 30.000, ISPE <= 65.218. Include posto in camera doppia nelle Case dello Studente e pranzo alle Tavole Accademiche nei giorni di lezione, mantenuti fino al 3° anno. Nessuna somma in denaro."
+            },
+            {
+              "iseeMax": 42847,
+              "reductionPct": null,
+              "amountEur": 10000,
+              "extra": "Esonero PARZIALE di 10.000 EUR (retta residua 5.500 EUR: 2.000 acconto + 3.500 prima e unica rata al 01/09/2026), 8 posti aperti a tutti: ISEE <= 42.847, ISPE <= 86.885. Dal 2° anno: parziali da 10.000 o 5.000 EUR come da disposizioni retta, subordinati ai requisiti di merito (Allegato 2 del bando)."
+            }
+          ],
+          "automatic": false,
+          "limited": true,
+          "deadline": "Domanda entro il 26 maggio 2026 (gia' scaduta); graduatoria pubblicata entro il 4 giugno 2026. Nota: l'oggetto email nel bando riporta per refuso 'A.A. 25/26'. Per il 2027/28 il bando non e' ancora pubblicato.",
+          "source": {
+            "label": "Bando esoneri LT_SCG_ITA/2026-2027 (28/01/2026) + Disposizioni pagamento retta a.a. 2026/27",
+            "url": "https://www.unisg.it/perche-unisg/borse-di-studio/",
+            "where": "Tabella iniziale, art. 1-5 del bando (pp.1-2); Disposizioni retta pp.2-4. PDF letti da file scaricati (unisg_bando.pdf, unisg_retta.pdf); URL diretti dei PDF non registrati."
+          },
+          "notes": "Lettura della tabella: 5 esoneri totali da 15.500 EUR (non italiani, ISEE<=30.000/ISPE<=65.218) e 8 esoneri parziali da 10.000 EUR (tutti, ISEE<=42.847/ISPE<=86.885); l'impaginazione del PDF e' ambigua sul riferimento dei numeri 5 e 8, interpretazione da riconfermare. Retta intera 15.500 EUR/anno. Pagina UNISG (a.a. 2025/26): 77 borse totali, 29 esoneri totali e 48 parziali. Non abbiamo trovato un esonero totale per italiani legato al solo reddito (oltre a quello EDISU). Altre riduzioni non legate al reddito: -4.000 EUR per chi ha gia' un titolo UNISG, -500 EUR per chi ha fatto Summer School; non cumulabili con esoneri parziali."
+        }
+      ],
+      "notFound": "URL diretti dei PDF UNISG (bando, regolamento, retta) non registrati dal download precedente; indicate le pagine istituzionali. Importo del fondo esoneri EDISU 2026/27 non trovato. Nessuna borsa di merito pura rilevante."
+    },
+    {
+      "universityId": "ateneo-07203",
+      "name": "LUM Giuseppe Degennaro",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "dsuExemption": {
+        "status": "limited-funds",
+        "firstYear": true,
+        "detail": "Esenzione TOTALE del contributo unico per chi risulta BENEFICIARIO con assegnazione definitiva della borsa ADISU Puglia (non basta essere idonei): riconosciuta solo nei limiti e a condizione dell'effettiva assegnazione alla LUM di quota del contributo MUR per le universita' non statali. LUM usa la graduatoria definitiva ADISU fino a esaurimento del fondo MUR, ripartito 50% ai nuovi immatricolati e 50% agli anni successivi (variabile se avanzano risorse). Concessa SOLO tramite rimborso: lo studente deve prima pagare per intero contributo unico, bollo e tassa regionale. Non confermata automaticamente negli anni successivi; non cumulabile con altre borse o benefici. Il contributo unico non e' per fasce di reddito.",
+        "source": {
+          "label": "Regolamento iscrizione e contribuzione studentesca LUM (D.P. 119/2025) + Manifesto degli studi 2026/27",
+          "url": "https://www.lum.it/wp-content/uploads/2025/06/REGOLAMENTO-ISCRIZIONE-E-CONTRIBUZIONE-2025.pdf",
+          "where": "Regolamento art. 12 commi 1-5; Manifesto 2026/27 sezione 05 'More ed esenzioni', 'Esenzione totale tasse universitarie' lettera A (p.10). Il Manifesto 2026/27 e' stato letto da file scaricato (lum_man26.pdf); URL non registrato e non trovato sulla pagina lum.it/statuto-e-regolamenti."
+        }
+      },
+      "aid": [],
+      "notFound": "LUM non ha borse proprie con soglie ISEE: le sole borse dell'Ateneo (Manifesto 2026/27 p.9) sono di MERITO non legato al reddito: 10-20% del contributo unico in base al voto di maturita' (100=20%, 95-99=15%, 90-94=10%), 10%/20% per voto di laurea magistrale (>=105, 110 e lode) su LM-77/LM-31, 10% agli anni successivi con 40+ CFU e media >=28. Esenzione per invalidita' >=66% (non reddito). Importo contributo unico per corso non estratto. Non trovato il numero di posti/budget del fondo MUR."
+    },
+    {
+      "universityId": "ateneo-06304",
+      "name": "Suor Orsola Benincasa (Napoli)",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "dsuExemption": {
+        "status": "refund",
+        "firstYear": null,
+        "detail": "Per gli studenti IN CORSO idonei (o beneficiari) alla borsa ADISURC: rimborso della tassa di iscrizione e dei contributi universitari (colonne A e B dello schema tasse, esclusa la quota C 'partecipazione oneri servizi') 'nel rispetto della fascia reddituale di appartenenza'. Fuori corso: rimborso al 50% delle stesse voci. La pagina non precisa se si applica al 1° anno, tempi, modalita' di domanda, tetti o fondi; non dice se vale solo per idonei o anche per beneficiari non assegnatari oltre i limiti. Da confermare con l'Ateneo.",
+        "source": {
+          "label": "Suor Orsola - Esoneri e agevolazioni (a.a. 2026/27), sezione 'Studentesse/studenti beneficiari borse ADISURC'",
+          "url": "https://www.unisob.na.it/universita/normeamministrative/esoneri.htm",
+          "where": "Sezione ADISURC (senza ancora numerata); testo letto via web, pagina Agevolazioni tasse: https://www.unisob.na.it/universita/normeamministrative/3000d0.htm?vr=1"
+        }
+      },
+      "aid": [
+        {
+          "name": "Tassa di iscrizione e contributi per fasce ISEE (struttura della retta, non uno sconto)",
+          "kind": "fee-reduction",
+          "who": "Tutti gli iscritti al 1° anno (esempio: L-20 Scienze della comunicazione, a.a. 2026/27); l'importo totale cresce con l'ISEE; si aggiungono contributo di compartecipazione non rimborsabile 600 EUR, tassa regionale e bollo 16 EUR",
+          "index": "ISEE (diritto allo studio universitario)",
+          "tiers": [
+            { "iseeMax": 10000, "reductionPct": null, "amountEur": 2040, "extra": "Fascia I: tassa totale A+B+C 2.040 EUR (tassa iscrizione 227 + contributi 196 + oneri servizi 1.617)" },
+            { "iseeMax": 15000, "reductionPct": null, "amountEur": 2150, "extra": "Fascia II: 2.150 EUR" },
+            { "iseeMax": 22000, "reductionPct": null, "amountEur": 2280, "extra": "Fascia III: 2.280 EUR" },
+            { "iseeMax": 50000, "reductionPct": null, "amountEur": 2700, "extra": "Fascia IV: 2.700 EUR" },
+            { "iseeMax": 150000, "reductionPct": null, "amountEur": 3220, "extra": "Fascia V: 3.220 EUR" },
+            { "iseeMax": null, "reductionPct": null, "amountEur": 3680, "extra": "Fascia VI (ISEE oltre 150.000): 3.680 EUR" }
+          ],
+          "automatic": true,
+          "limited": false,
+          "deadline": "Rate: I e II 305 EUR (II al 29/01/2027), III al 31/03/2027 (rateizzabile in 5 tranche se > 300 EUR). Gli importi differiscono per corso; qui e' riportato un corso di esempio, non tutti.",
+          "source": {
+            "label": "Suor Orsola - Tasse immatricolazioni 2026/27, Scienze della comunicazione",
+            "url": "https://www.unisob.na.it/universita/normeamministrative/3000c0_a.htm",
+            "where": "Tabella per fasce ISEE, pagina corso"
+          },
+          "notes": "E' una scala della retta per ISEE, non una borsa. Altre agevolazioni: esonero totale per invalidita' >=66%; esonero tassa minima 227 EUR per studenti con genitore convivente invalido 100% e ISEE fino a 7.406,28 (non verificata la validita' 2026/27). Premio studio (merito, introdotto 2025/26): 200 EUR al 1° anno con 100/100, 150 EUR anni successivi, automatico sulla 3a rata, non reddito."
+        }
+      ],
+      "notFound": "Soglie ISEE e percentuali di rimborso per fascia nell'esonero ADISURC: la pagina rimanda allo 'Schema dettagliato' non estratto. Non trovate borse proprie dell'Ateneo legate al reddito (solo merito). Il bando ADISURC Campania 2026/27 e' https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf (non verificato se cita Suor Orsola per l'esonero; il file adisurc.txt scaricato prima e' vuoto)."
+    },
+    {
+      "universityId": "ateneo-08003",
+      "name": "Università per Stranieri Dante Alighieri - Reggio Calabria (UNIDA)",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "dsuExemption": {
+        "status": "unknown",
+        "firstYear": null,
+        "detail": "A Reggio Calabria l'ARDIS e' soppressa (L.R. 9/2007, art. 11): le funzioni DSU sono dell'Universita' stessa (Ufficio DSU). Il bando DSU 2026/27 (D.P. 68/2026) dice solo che restano fermi gli esoneri totali o parziali dalle tasse previsti dall'art. 9 D.Lgs. 68/2012, dalla normativa e dalla disciplina d'Ateneo, 'distinti dalla borsa'; non indica una regola specifica di esonero per i beneficiari/idonei della borsa. La retta e' gia' modulata per fasce ISEE (vedi aid). Gli studenti 'in convenzione' e 'familiari UNIDA' (esoneri parziali non reddituali) sono esclusi dal bando DSU.",
+        "source": {
+          "label": "Bando borse DSU a.a. 2026/2027 UNIDA (D.P. n. 68 del 4/9/2026)",
+          "url": "https://www.unidarc.it/borse-di-studio/",
+          "where": "Premesse (L.R. 9/2007 art. 11) e art. 8 comma 5 (p.22). PDF letto da file scaricato (unida_dsu26.pdf), URL diretto non registrato."
+        }
+      },
+      "aid": [
+        {
+          "name": "Borsa di studio DSU UNIDA (bando 2026/27, gestita direttamente dall'Ateneo)",
+          "kind": "cash",
+          "who": "Iscritti 2026/27 a laurea, magistrale, ciclo unico con ISEE <= 28.339,88 e ISPE <= 61.608,48 e requisiti di merito (1° anno: iscrizione a tempo pieno; saldo del 50% con 20 CFU entro 10/8/2027). Fuori sede: residenti a >=50 km con alloggio oneroso almeno 10 mesi; pendolare altrimenti; in sede residenti a Reggio Calabria. Studenti dei corsi on-line (solo a distanza) definiti all'art. 1 lett. m, trattamento non chiarito.",
+          "index": "ISEE e ISPE universitari",
+          "tiers": [
+            { "iseeMax": 14169.94, "reductionPct": null, "amountEur": 8246.78, "extra": "Importo base +15%: fuori sede/indipendente 8.246,78; pendolare 4.819,32; in sede 3.323,68. Risorse: borsa pagata in base alle somme concretamente disponibili (non garantita)." },
+            { "iseeMax": 18893.25, "reductionPct": null, "amountEur": 7171.11, "extra": "Importo base: fuori sede 7.171,11; pendolare 4.190,71; in sede 2.890,16" },
+            { "iseeMax": 28339.88, "reductionPct": null, "amountEur": 7171.11, "extra": "Importo gradualmente ridotto fino al 50%: fuori sede da 7.171,11 a minimo 3.585,56; pendolare 4.190,71 -> 2.095,36; in sede 2.890,16 -> 1.445,08" }
+          ],
+          "automatic": false,
+          "limited": true,
+          "deadline": "Domanda online entro le 23:59 del 30 settembre 2026 (scaduta); graduatoria con punteggio (1 - ISEE/28.339,88) x 1000; liquidazione 20%+30%+50% al 1° anno triennale, 50%+50% magistrale",
+          "source": {
+            "label": "Bando DSU UNIDA 2026/27, D.P. 68/2026",
+            "url": "https://www.unidarc.it/borse-di-studio/",
+            "where": "Art. 3 (soglie, p.7), art. 4 (tabella importi, p.9), art. 6 (scadenza, p.15), art. 8 (liquidazione, p.20-21)"
+          },
+          "notes": "Non e' una borsa propria su fondi d'Ateneo ma la borsa DSU nazionale/regionale erogata dall'Universita' (ISEE max 28.339,88 coincide con DD 176/2026). Alloggio/mensa non trovati nel bando letto."
+        },
+        {
+          "name": "Retta UNIDA 2026/27 per fasce ISEE (laureee in presenza)",
+          "kind": "fee-reduction",
+          "who": "Tutti gli studenti ordinari dei corsi in presenza; importo totale annuo cresce con ISEE; ISEE tardivo costa 100 EUR e colloca d'ufficio nella fascia piu' alta",
+          "index": "ISEE",
+          "tiers": [
+            { "iseeMax": 5000, "reductionPct": null, "amountEur": 564, "extra": "Totale annuo 564 EUR (I rata 300 + 3 rate da 88)" },
+            { "iseeMax": 10000, "reductionPct": null, "amountEur": 612, "extra": "Totale annuo 612 EUR" },
+            { "iseeMax": 15000, "reductionPct": null, "amountEur": 756, "extra": "756 EUR" },
+            { "iseeMax": 20000, "reductionPct": null, "amountEur": 852, "extra": "852 EUR" },
+            { "iseeMax": 25000, "reductionPct": null, "amountEur": 1056, "extra": "1.056 EUR" },
+            { "iseeMax": 35000, "reductionPct": null, "amountEur": 1260, "extra": "1.260 EUR" },
+            { "iseeMax": 45000, "reductionPct": null, "amountEur": 1656, "extra": "1.656 EUR" },
+            { "iseeMax": null, "reductionPct": null, "amountEur": 2256, "extra": "oltre 45.000: 2.256 EUR" }
+          ],
+          "automatic": true,
+          "limited": false,
+          "deadline": "I rata 31/12/2026, II 26/02/2027, III 26/03/2027, IV 26/04/2027",
+          "source": {
+            "label": "Allegato 1 - Tasse e contributi UNIDA a.a. 2026/2027",
+            "url": "https://www.unidarc.it/wp-content/uploads/2026/08/allegato1-tasse-e-contributi-unida-aa-2026-2027.pdf",
+            "where": "Allegato 1, pp.1-3: tabella 8 fasce; esoneri: invalidita' 66-100% quota fissa 300; 45-65% -50% sulla quota ISEE; vittime mafia -100%; voto 100/100 -20% sulla quota ISEE; familiare iscritto -10%"
+          },
+          "notes": "Corso online (L-24) a parte: 1.490 EUR piatti (pagina Come iscriversi; tabella L-24 di anni precedenti, non verificata per 2026/27)."
+        }
+      ],
+      "notFound": "Nessun esonero 'idonei DSU' specifico; nessun alloggio/mensa nel bando; URL diretto del PDF bando DSU non registrato."
+    },
+    {
+      "universityId": "ateneo-00701",
+      "name": "Università della Valle d'Aosta (UniVdA)",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "dsuExemption": {
+        "status": "refund",
+        "firstYear": true,
+        "detail": "Rimborso di tasse e contributi universitari (compresa la tassa regionale) agli studenti BENEFICIARI dell'assegno di studio regionale 'primo bando' (rispetta i limiti ISEE del DM 2026/27) e anche a quelli risultati IDONEI nelle graduatorie. Rimborso della sola tassa regionale per i beneficiari del 'secondo bando' (non in osservanza dei limiti ISEE DM). Procedura/tempi non indicati nella pagina. Bando regionale: VDA1 ISEE-U <= 28.339,88 e ISPE <= 61.608,48, assegni 2.248-4.972 EUR piu' rimborso tasse; VDA2 ISEE-U <= 44.968, assegni 1.502-2.524 EUR senza rimborso tasse; scadenza 4 dicembre 2026 ore 12 (da fonti giornalistiche e pagina univda.it; bando regionale non aperto).",
+        "source": {
+          "label": "UniVdA - Rimborsi a.a. 2026/2027",
+          "url": "https://www.univda.it/servizi/diritto-allo-studio-e-tasse/anno-accademico-2026-2027-tasse-esoneri-e-rimborsi/rimborsi/",
+          "where": "Sezione 'Rimborsi per studenti beneficiari dell'Assegno di studio regionale'. Avviso bandi regionali: https://www.univda.it/avvisi/aperti-i-bandi-per-le-borse-di-studio-universitarie-per-lanno-accademico-2026-2027/"
+        }
+      },
+      "aid": [
+        {
+          "name": "Tasse universitarie a fasce ISEE (II e III rata) - triennali",
+          "kind": "fee-reduction",
+          "who": "Tutti i nuovi immatricolati triennali; I rata fissa 439 EUR (compresa tassa regionale e bollo); II e III rata dipendono dall'ISEE per il diritto allo studio; senza ISEE entro 31/12/2026 si va d'ufficio in 6a fascia",
+          "index": "ISEE",
+          "tiers": [
+            { "iseeMax": 14000, "reductionPct": null, "amountEur": 311, "extra": "Fascia 1: 311 EUR a rata (II e III) -> totale annuo 1.061" },
+            { "iseeMax": 23000, "reductionPct": null, "amountEur": 424, "extra": "Fascia 2: 424 x2 -> 1.287" },
+            { "iseeMax": 32000, "reductionPct": null, "amountEur": 509, "extra": "Fascia 3: 509 x2 -> 1.457" },
+            { "iseeMax": 40000, "reductionPct": null, "amountEur": 575, "extra": "Fascia 4: 575 x2 -> 1.589" },
+            { "iseeMax": 80000, "reductionPct": null, "amountEur": 605, "extra": "Fascia 5: 605 x2 -> 1.649" },
+            { "iseeMax": null, "reductionPct": null, "amountEur": 645, "extra": "Fascia 6 (oltre 80.000): 645 x2 -> 1.729" }
+          ],
+          "automatic": true,
+          "limited": false,
+          "deadline": "II rata 28/02/2027, III rata 20/05/2027; ISEE entro 31/12/2026",
+          "source": {
+            "label": "UniVdA - Lauree triennali importi e scadenze 2026/27",
+            "url": "https://www.univda.it/servizi/diritto-allo-studio-e-tasse/anno-accademico-2026-2027-tasse-esoneri-e-rimborsi/nuovi-immatricolati/lauree-triennali-importi-e-scadenze/",
+            "where": "Tabella fasce ISEE (ultima modifica 18/08/2026); totali annui calcolati da 439 + 2 rate"
+          },
+          "notes": "Scala della retta per ISEE, non una borsa. Altre misure: maturita' 100/100 = esonero totale della contribuzione al 1° anno (paga 156 EUR di bollo+tassa regionale), maturita' >=95 = esonero meta' II rata e intera III rata (merito, non reddito, solo immatricolati 2026/27). Esonero totale per disabilita' >=66%, parziale per invalidita' >=50%."
+        }
+      ],
+      "notFound": "Il ciclo unico (Scienze della formazione primaria) ha pagina separata non letta. Non trovate borse proprie dell'Ateneo legate al reddito: le uniche leve ISEE sono la scala fasce e l'assegno regionale. Pagina allegato delibera: https://www.univda.it/wp-content/uploads/2026/05/Allegato-delibera-tasse-2026.2027-1-2.pdf (non aperta)."
+    },
+    {
+      "universityId": "ateneo-08601",
+      "name": "Università degli Studi di Enna Kore (UKE)",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "dsuExemption": {
+        "status": "limited-funds",
+        "firstYear": true,
+        "detail": "ESONERO TOTALE della Tassa di Frequenza (nei corsi non-SNT 2.500 EUR su totale annuo 3.750 EUR: Diritti fissi 1.250 + Tassa di frequenza 2.500; non incluso bollo e tassa regionale, che resta da versare e si chiede a ERSU) per chi e' beneficiario OPPURE ELEGGIBILE/idoneo alla borsa ERSU Enna. Si concede solo su DOMANDA all'Ateneo (termini sul sito uke.it, Segreteria centrale) e SOLO rimborso: prima si pagano integralmente le rate alle scadenze della Tabella A (in regola con i pagamenti). Nei limiti dei fondi assegnati dal MUR (quota contributo universita' non statali) piu' eventuale incremento di Ateneo: l'Ateneo comunica l'importo entro 60 giorni dal decreto MUR; le domande sono valutate dando preferenza alla posizione in graduatoria ERSU Enna (da autocertificare). L'Ateneo puo' estendere l'esonero a parte dei Diritti fissi se ci sono fondi. Esclusi: laureati dello stesso livello, corsi singoli, doppia iscrizione con altro ateneo, fuori corso, ammessi con riserva; non cumulabile con altre borse/sconti.",
+        "source": {
+          "label": "Regolamento di Ateneo sulla contribuzione studentesca a.a. 2026/27 (D.P. 45 del 23/2/2026)",
+          "url": "https://admin.uke.it/wp-content/uploads/2026/03/REGOLAMENTO_TASSE_2026-27.pdf",
+          "where": "Artt. 5-7 (pp.2-4), Tabella A (p.8), art. 19 rimanda a bandi per altre borse"
+        }
+      },
+      "aid": [
+        {
+          "name": "Borse Kore/Banca Agricola Popolare di Sicilia - Medicina e Chirurgia (ciclo unico)",
+          "kind": "fee-reduction",
+          "who": "Primi 5 candidati idonei all'ammissione a Medicina e Chirurgia 2026/27, italiani/UE/equiparati, con ISEE Diritto allo Studio <= 30.000 EUR",
+          "index": "ISEE Diritto allo Studio",
+          "tiers": [
+            { "iseeMax": 30000, "reductionPct": 100, "amountEur": 15500, "extra": "100% del contributo unico di corso (15.500 EUR); resta da pagare il contributo unico di Ateneo 2.500 EUR. Rinnovo negli anni successivi (6 anni) con CFU minimi (80/130/180/240/300) media >= 26/30 e ISEE <= 30.000" }
+          ],
+          "automatic": false,
+          "limited": true,
+          "deadline": "Accettazione entro 3 giugno 2026 (scaduta); ISEE DS entro 10 giorni dalla graduatoria",
+          "source": {
+            "label": "Bando ammissione Medicina 2026/27 (D.R. 23 del 26/2/2026)",
+            "url": "https://admin.uke.it/wp-content/uploads/2026/02/BANDO_MEDICINA_2026_27_.pdf",
+            "where": "Art. 16 'Borse di studio per studenti capaci e meritevoli' (pp.9-10)"
+          },
+          "notes": "Solo 5 borse; per le altre lauree non sono state trovate borse proprie dell'Ateneo con soglie ISEE (il regolamento art. 19 rimanda a bandi separati non trovati). Premialita' non legata al reddito: maturita' 100/100 = rimborso integrale della Tassa di Frequenza (art. 12)."
+        }
+      ],
+      "notFound": "Bandi di borse di Ateneo per altre lauree (art. 19 del regolamento) non trovati. Importo del fondo esoneri ERSU 2026/27 non trovato. Il PDF regolamento e' quello del 2026/27 (scaricato in precedenza come kore_tasse.pdf)."
+    }
+  ],
+  "dsu": {
+    "kore": {
+      "ente": "ERSU di Enna (Ente Regionale per il Diritto allo Studio Universitario, Regione Siciliana), sede Enna - Via Mulino a Vento 9. NON ERSU Palermo. Il bando e' riservato a studenti dell'Universita' Kore di Enna (sedi Enna e Caltagirone).",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "bandoUrl": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf",
+      "pageUrl": "https://www.ersuenna.it/avviso-bando-di-concorso-per-borse-di-studio-altri-contributi-economici-e-servizi-a-a-2026-27/",
+      "thresholds": {
+        "isee": 25948.60,
+        "ispe": 56410.04,
+        "where": "Art. 8 (p.17) e Tab. 5 di appendice (p.49); ISEE per prestazioni di diritto allo studio universitario (DPCM 159/2013). Limiti ridotti rispetto ai massimi nazionali 2026/27 (28.339,88 / 61.608,48 usati altrove)."
+      },
+      "amounts": {
+        "legalBasis": "D.M. 175 del 10/02/2026 (importi base), D.M. 1320/2021 (incrementi). Art. 21 (p.29-30), Tab. 8 (p.52).",
+        "baseAmountsEur": { "fuoriSede": 7171.11, "pendolare": 4190.71, "inSede": 2890.16 },
+        "perFasciaIsee": [
+          { "iseeFrom": 0, "iseeMax": 12974.30, "label": "<= 50% del limite", "fuoriSede": { "moneyEur": 5546.78, "services": "posto letto gratuito + 2 pasti gratuiti/giorno", "note": "importo monetario maggiorato 15%" }, "pendolare": { "moneyEur": 4219.32, "services": "1 pasto gratuito/giorno", "note": "maggiorato 15%" }, "inSede": { "moneyEur": 3323.68, "services": "1 pasto gratuito/giorno", "note": "maggiorato 15%" } },
+          { "iseeFrom": 12974.31, "iseeMax": 17299.06, "label": "tra 50% e 2/3 del limite", "fuoriSede": { "moneyEur": 4471.11, "services": "posto letto gratuito + 2 pasti" }, "pendolare": { "moneyEur": 3590.71, "services": "1 pasto" }, "inSede": { "moneyEur": 2890.16, "services": "1 pasto" } },
+          { "iseeFrom": 17299.07, "iseeMax": 19028.97, "fuoriSede": { "moneyEur": 3754.00, "services": "posto letto + 2 pasti" }, "pendolare": { "moneyEur": 3171.64, "services": "1 pasto" }, "inSede": { "moneyEur": 2601.14, "services": "1 pasto" } },
+          { "iseeFrom": 19028.98, "iseeMax": 20758.88, "fuoriSede": { "moneyEur": 3036.89, "services": "posto letto + 2 pasti" }, "pendolare": { "moneyEur": 2752.57, "services": "1 pasto" }, "inSede": { "moneyEur": 2312.13, "services": "1 pasto" } },
+          { "iseeFrom": 20758.89, "iseeMax": 22488.78, "fuoriSede": { "moneyEur": 2319.78, "services": "posto letto + 2 pasti" }, "pendolare": { "moneyEur": 2333.50, "services": "1 pasto" }, "inSede": { "moneyEur": 2023.11, "services": "1 pasto" } },
+          { "iseeFrom": 22488.79, "iseeMax": 24218.69, "fuoriSede": { "moneyEur": 1602.67, "services": "posto letto + 2 pasti" }, "pendolare": { "moneyEur": 1914.43, "services": "1 pasto" }, "inSede": { "moneyEur": 1734.10, "services": "1 pasto" } },
+          { "iseeFrom": 24218.70, "iseeMax": 25948.60, "fuoriSede": { "moneyEur": 885.56, "services": "posto letto + 2 pasti" }, "pendolare": { "moneyEur": 1495.36, "services": "1 pasto" }, "inSede": { "moneyEur": 1445.08, "services": "1 pasto" } }
+        ],
+        "notes": "Lo schema di Tab. 8 mette in colonna importo monetario + servizi: l'importo totale della borsa 'comprensivo dei servizi' e' 7.171,11 fuori sede / 4.190,71 pendolare; l'importo monetario e' al netto del valore servizi (600 EUR per 1 pasto/giorno; 1.500 EUR rimborso servizio abitativo; retta posto letto 1.500 EUR/anno). Gli importi della fascia <= 50% sono quelli maggiorati 15% (fuori sede: 5.546,78 monetario + servizi). Incrementi automatici D.M. 1320/2021: +40% disabilita' (>=66% o L.104 art.3 c.1), +20% studentesse STEM (Tab. 15), +20% doppia iscrizione; non cumulabili tra loro. Il +15% e' per ISEE <= meta' soglia (12.974,30); sopra 2/3 (17.299,06) l'importo scende gradualmente in 5 fasce (Tab. 8). Il 1° anno fuori corso prende meta' importo. Fuori sede = alloggio in residenza ERSU almeno fino a 30/06/2027 o contratto oneroso >=10 mesi (Art. 22, 23); stranieri con nucleo fuori Italia sono sempre fuori sede."
+      },
+      "servizi": {
+        "mensa": "Tab. 12/12 bis (p.54): assegnatari fuori sede 1° anno 2 pasti equivalenti gratuiti/giorno fino a 360 (410 se alloggiano alla casa dello studente); pendolari/in sede 1 pasto gratuito/giorno fino a 180; idonei non assegnatari 1° anno: pasti a tariffa agevolata (completo 3,10/3,60/4,10 EUR per ISEE fino a 8.649,53 / fino a 17.299,06 / fino al limite).",
+        "alloggio": "Domus Kore, via Raffaello Sanzio 4, Enna Bassa, gestita da ERSU; 120 posti (38 riservati al 1° anno, 76 agli anni successivi, altri riservati: disabili, paesi poveri, isole minori, orfani). Retta 1.500 EUR annui (Tab. 13-14, p.55). Graduatoria per ISEE crescente (art. 25 ss.). Non monetizzabili mensa e alloggio in caso di mancata fruizione."
+      },
+      "comuni": {
+        "inSede": { "Enna (sede Enna)": ["Enna", "Calascibetta"], "Caltagirone (sede Caltagirone)": ["Caltagirone"] },
+        "pendolari": { "Enna (sede Enna)": ["Aidone", "Assoro", "Barrafranca", "Leonforte", "Piazza Armerina", "Pietraperzia", "Valguarnera", "Villarosa"] },
+        "fuoriSede": "Tutti gli altri comuni, solo se si ha alloggio oneroso (residenza ERSU o contratto registrato >= 10 mesi, 1/9/2026-31/10/2027). Per la sede di Caltagirone nessun comune pendolare elencato nella Tab. 11 bis letta (solo il comune in sede).",
+        "where": "Tab. 11 e Tab. 11 bis (p.53), art. 22-23 (p.31)"
+      },
+      "deadlines": "Pubblicazione bando 20 luglio 2026; domanda online entro 7 settembre 2026 ore 14:00 (SCADUTA); regolarizzazione/upload documenti entro 30 novembre 2026 ore 14:00 (ancora aperta alla data di verifica ma solo per chi ha gia' presentato domanda); elenchi partecipanti 15 settembre 2026; dichiarazione di locazione dal 1/11/2026 al 4/1/2027 ore 14.",
+      "pages": "Bando 62 pagine; soglie art. 8; importi art. 21 + Tab. 8; status sede art. 22; tabelle comuni 11/11 bis; mensa Tab. 12; alloggio Tab. 13-14.",
+      "sources": [
+        { "label": "ERSU Enna - Bando di concorso a.a. 2026/27", "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf", "where": "Art. 6 (destinatari = Kore), art. 8, art. 21-23, Tab. 5, 8, 11, 11 bis, 12-14" },
+        { "label": "ERSU Enna - Avviso bando 2026/27", "url": "https://www.ersuenna.it/avviso-bando-di-concorso-per-borse-di-studio-altri-contributi-economici-e-servizi-a-a-2026-27/", "where": "pagina avviso" }
+      ]
+    },
+    "bolzano": {
+      "ente": "Provincia autonoma di Bolzano - Ufficio Assistenza scolastica e universitaria (Via Andreas Hofer 18, Bolzano); non e' una borsa DSU regionale 'tipo MUR/ISEE'. Base normativa: L.P. 30/11/2004 n. 9; regolamento D.P.P. n. 15 del 19/06/2025; bando decreto n. 12202 del 16/07/2026.",
+      "academicYear": "2026/2027",
+      "verifiedAt": "2026-11-27",
+      "index": "NON E' ISEE: si usa il VSE (valore della situazione economica) rilasciato con la DURP (Dichiarazione Unificata di Reddito e Patrimonio), redatta da patronati/CAAF dal 1/7/2026 sui redditi 2025 e patrimonio al 31/12/2025. L'ISEE e l'ICEF non sono validi. Il VSE e' ridotto di 0,50 per ogni componente del nucleo di base che alloggia fuori famiglia per studio >= 150 giorni.",
+      "thresholds": {
+        "vseMax": 5.00,
+        "note": "La tabella soglie VSE arriva fino a VSE 5,00 (4,31-5,00 = 1.680 EUR full-time). Oltre non c'e' borsa. Non c'e' una soglia ISPE."
+      },
+      "amountsFullTimeEur": [
+        { "vseFrom": 0, "vseMax": 1.00, "fullTime": 6960, "partTime": 3480 },
+        { "vseFrom": 1.01, "vseMax": 1.10, "fullTime": 6380, "partTime": 3190 },
+        { "vseFrom": 1.11, "vseMax": 1.20, "fullTime": 5860, "partTime": 2930 },
+        { "vseFrom": 1.21, "vseMax": 1.30, "fullTime": 5380, "partTime": 2690 },
+        { "vseFrom": 1.31, "vseMax": 1.40, "fullTime": 4960, "partTime": 2480 },
+        { "vseFrom": 1.41, "vseMax": 1.50, "fullTime": 4560, "partTime": 2280 },
+        { "vseFrom": 1.51, "vseMax": 1.60, "fullTime": 4210, "partTime": 2105 },
+        { "vseFrom": 1.61, "vseMax": 1.70, "fullTime": 3890, "partTime": 1945 },
+        { "vseFrom": 1.71, "vseMax": 1.90, "fullTime": 3360, "partTime": 1680 },
+        { "vseFrom": 1.91, "vseMax": 2.10, "fullTime": 2890, "partTime": 1445 },
+        { "vseFrom": 2.11, "vseMax": 2.50, "fullTime": 2520, "partTime": 1260 },
+        { "vseFrom": 2.51, "vseMax": 3.10, "fullTime": 2220, "partTime": 1110 },
+        { "vseFrom": 3.11, "vseMax": 3.70, "fullTime": 1970, "partTime": 985 },
+        { "vseFrom": 3.71, "vseMax": 4.30, "fullTime": 1820, "partTime": 910 },
+        { "vseFrom": 4.31, "vseMax": 5.00, "fullTime": 1680, "partTime": 840 }
+      ],
+      "amountsOther": {
+        "conFigliMinorenniAcarico": "fino a VSE 1,00: 8.280 EUR full-time / 4.140 part-time (importo massimo assoluto; le altre fasce non lette perche' il PDF e' troncato nella tabella)",
+        "universitaTelematica": "tabella separata: fino a VSE 5,00 = 610 EUR full-time / 305 EUR part-time (importo minimo assoluto della forbice 305-8.280)",
+        "riduzioni": "Pendolare (residenza nello stesso comune dell'universita' o entro 10 km): 50% (25% part-time); studio concluso tra 1/12 e 31/3: 50%; combinazioni 70%/35% per chi frequenta tutto l'anno e conclude tra 1/12 e 31/3 (pendolari non UE con permesso non di lungo periodo escluse dalla riduzione se famiglia non in Italia); con laurea conseguita entro 30/11: nessun diritto. Pagamento in unica rata entro fine marzo 2027."
+      },
+      "whoCanApply": "Studenti di universita' in provincia di Bolzano (es. unibz) che siano: cittadini UE (residenza in Alto Adige NON richiesta); non-UE con permesso di lungo periodo o rifugiati/protezione sussidiaria; non-UE con permesso non di lungo periodo SOLO con residenza ininterrotta da almeno 1 anno in Alto Adige. Chi studia fuori provincia: residenza ininterrotta in Alto Adige da almeno 2 anni. Esclusi gli iscritti AIRE. Requisiti: iscrizione ordinaria al primo corso di I o II ciclo; non oltre la durata normale; merito: 1° anno solo diploma, 2° anno 25 ECTS, 3° anno 80, 4° 135, ... (part-time meta'); chi riceve la borsa deve conseguire almeno 10 ECTS nel periodo 1/11-31/10, altrimenti restituisce. Include corsi telematici (vedi amountsOther). Non cumulabile con altre prestazioni economiche per lo stesso corso salvo Erasmus, borse di merito e agevolazioni disabili.",
+      "feeContribution": "Chi vince la borsa ha diritto anche a un contributo a parziale copertura delle tasse universitarie: per unibz e Conservatorio di Bolzano l'esonero/rimborso della prima rata e' fatto direttamente dall'universita'; per gli altri va chiesto online presso l'Ufficio (metà giugno-fine luglio). Importo del contributo non letto.",
+      "deadlines": "Domanda 22/09/2026 - 03/11/2026 ore 12:00 (SCADUTA); graduatoria provvisoria 27/11/2026; rettifiche 27/11-11/12/2026 ore 12:00; graduatoria definitiva entro 12/02/2027; erogazione presunta entro 31/03/2027. Il prossimo bando riapre il 22/09/2027 (da pagina servizio).",
+      "pages": "Tabella soglie VSE: PDF 3 pagine 'FWL Schwellenwerte_soglie VSE.pdf' (importi p.1-2, riduzioni p.3). Pagina servizio codice 1263, sezioni Requisiti, Cosa serve, Tempi e scadenze.",
+      "sources": [
+        { "label": "myCIVIS - Borse di studio universitarie per studentesse e studenti (servizio 1263)", "url": "https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1005280", "where": "Sezioni Requisiti, Cosa serve, Cosa segue, Tempi e scadenze, Domande frequenti" },
+        { "label": "Tabella soglie VSE (allegato alla pagina servizio)", "url": "https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1005280", "where": "Link 'tabella delle soglie VSE' nella sezione Requisiti (file FWL Schwellenwerte_soglie VSE.pdf, p.1-3); il PDF e' stato letto da file scaricato in precedenza" },
+        { "label": "Provincia di Bolzano - news borse di studio", "url": "https://news.provincia.bz.it/it/news/borse-di-studio-universitarie-domanda-possibile-fino-al-3-novembre", "where": "news" }
+      ]
+    },
+    "telematiche": {
+      "canApply": true,
+      "detail": "Si': in nessun bando regionale letto le telematiche sono escluse dalla borsa; la norma statale (D.Lgs. 68/2012 art. 8) concede la borsa a tutti gli studenti con requisiti di merito e reddito nei limiti delle risorse, e i bandi regionali di Lazio, Toscana e Abruzzo le trattano esplicitamente, in genere assimilandole a 'in sede' (importo piu' basso, niente monetizzazione mensa, niente maggiorazione 'indipendente'). Abruzzo include esplicitamente l'Universita' Telematica 'L. Da Vinci'. La Lombardia ha una misura sperimentale diversa (borsa da 500 EUR per i corsi a distanza degli atenei lombardi, se previsto dai bandi). Bolzano (provinciale, VSE) ha una tabella apposita: 610 EUR full-time max. Marche: esclusi dalla graduatoria alloggio gli 'iscritti a distanza' (non dalla borsa). Per Sassari, ERSU Palermo e ADISURC il testo non menziona le telematiche (silenzio, non esclusione). UNIDA definisce 'studenti dei corsi on-line' ma non li tratta separatamente nel testo letto. Non estratti: Piemonte, Emilia-Romagna, Veneto, Campania completo, Puglia, ecc.",
+      "perBando": [
+        { "region": "Lazio (DiSCo)", "status": "included", "treatment": "In sede d'ufficio; nessuna monetizzazione mensa; esclusa la maggiorazione studente indipendente; per internazionali con nucleo all'estero non scatta il fuori sede", "where": "Art. 2 lett. h (p.7); art. 8 (importi); art. 10.3 (p.25); art. 12 (p.34)", "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf" },
+        { "region": "Toscana (DSU Toscana)", "status": "included", "treatment": "Sempre considerati in sede; nessuna monetizzazione mensa", "where": "Art. 2 punto 2.2.12; art. 19.3.6", "url": "https://www.dsu.toscana.it/-/bando-borsa-di-studio-e-posto-alloggio-a.a.-2026/2027" },
+        { "region": "Abruzzo (ADSU Chieti-Pescara)", "status": "included", "treatment": "Esplicitamente ammessi gli studenti dell'Universita' Telematica 'L. Da Vinci' (Art. 1 principi; Art. 2 destinatari)", "where": "Art. 1 e art. 2", "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf" },
+        { "region": "Lombardia", "status": "partial-experimental", "treatment": "Borsa omnicomprensiva 500 EUR in via sperimentale 2026/27 per studenti eleggibili che frequentano corsi prevalentemente a distanza (>50%) in universita' con sede legale in Lombardia, 'qualora previsto dai bandi'", "where": "DGR XII/6298 del 15/06/2026, punto 8 (pp.7-8)", "url": "https://www.regione.lombardia.it/content/dam/rl/canali-tematici-servizi/03-istruzione-formazione-e-lavoro/06-universita-e-formazione-accademica/red-borse-di-studio-universitarie/allegati/DGR%206298%20Criteri%20e%20linee%20di%20finanziamento%20borse%20di%20studio%202026%202027.pdf" },
+        { "region": "Marche (ERDIS)", "status": "silent-on-borsa", "treatment": "Il bando elenca come destinatari solo UniCam, UniMc, UniUrb, Politecnica Marche, AFAM; nel servizio alloggio sono esclusi dalle graduatorie gli 'iscritti a distanza'", "where": "Art. 2.1; art. 16.4 (graduatorie alloggio)", "url": "https://www.erdis.it/" },
+        { "region": "Sassari (ERSU)", "status": "silent", "treatment": "Destinatari elencati: Universita' di Sassari e istituzioni indicate; nessuna menzione delle telematiche", "where": "Art. 1", "url": "https://ersusassari.it/.galleries/doc-documenti/Bando-Borse-di-studio-e-Servizi-Abitativi-a.a.-2026-2027.pdf" },
+        { "region": "Sicilia - ERSU Palermo", "status": "silent", "treatment": "Elenco istituzioni destinatarie (UniPa, LUMSA Palermo, Accademie, Conservatori, UniCamillus Cefalu', CIELS) senza telematiche", "where": "Art. 2", "url": "https://studenti.ersupalermo.it/" },
+        { "region": "Sicilia - ERSU Enna", "status": "not-applicable", "treatment": "Bando riservato agli studenti Kore", "where": "Art. 6", "url": "https://www.ersuenna.it/wp-content/uploads/2026/07/Bando-2026-27-definitivo.pdf" },
+        { "region": "Bolzano (provinciale)", "status": "included", "treatment": "Tabella apposita 'Universita' telematica (corso di studio a distanza)': 610 EUR full-time / 305 part-time per VSE fino a 5,00", "where": "Tabella soglie VSE p.2", "url": "https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1005280" },
+        { "region": "Calabria (UNIDA)", "status": "unclear", "treatment": "Definizione di 'studenti dei corsi on-line' all'art. 1 lett. m, senza regole dedicate", "where": "Art. 1 lett. m", "url": "https://www.unidarc.it/borse-di-studio/" }
+      ],
+      "sources": [
+        { "label": "D.Lgs. 29 marzo 2012 n. 68 art. 8 (via Camera dei deputati)", "url": "https://www.camera.it/leg17/561?appro=la_normativa_vigente_in_materia_di_diritto_allo_studio_universitario", "where": "art. 8: borse a tutti gli studenti con requisiti merito/condizione economica, nei limiti delle risorse (letto in sintesi da risultato di ricerca, testo integrale non aperto)" },
+        { "label": "Bando DiSCo Lazio 2026/27", "url": "https://laziodisco.it/wp-content/uploads/2026/07/BANDO-DIRITTO-ALLO-STUDIO-26-27-con-EC.pdf", "where": "art. 2 h, 10.3" },
+        { "label": "DSU Toscana bando 2026/27", "url": "https://www.dsu.toscana.it/-/bando-borsa-di-studio-e-posto-alloggio-a.a.-2026/2027", "where": "art. 2.2.12" },
+        { "label": "ADSU Chieti-Pescara bando 2026/27", "url": "https://www.adsuchietipescara.it/media/attachments/2026/07/15/bando-di-concorso-borse-di-studio-a.a.-2026-2027-uda-conservatorio-telematica-e-isia.pdf", "where": "art. 1-2" },
+        { "label": "Regione Lombardia DGR XII/6298 del 15/06/2026", "url": "https://www.regione.lombardia.it/content/dam/rl/canali-tematici-servizi/03-istruzione-formazione-e-lavoro/06-universita-e-formazione-accademica/red-borse-di-studio-universitarie/allegati/DGR%206298%20Criteri%20e%20linee%20di%20finanziamento%20borse%20di%20studio%202026%202027.pdf", "where": "punto 8" }
+      ]
+    }
+  }
+}
