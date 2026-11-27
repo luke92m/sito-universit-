@@ -881,7 +881,7 @@
   "teaching": {
     "bachelor": {
       "Architettura e Ingegneria civile": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_L-17.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/4/",
         "records": {
           "ateneo-02702": {
             "position": 1,
@@ -1050,7 +1050,7 @@
         }
       },
       "Informatica e Tecnologie ICT": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report%20L-31_INF%20e%20INF_COM_DIG.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/4/",
         "records": {
           "ateneo-01801": {
             "position": 1,
@@ -1195,7 +1195,7 @@
         }
       },
       "Scientifico": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report%20L2_tuttescientifiche.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/4/",
         "records": {
           "ateneo-04302": {
             "position": 1,
@@ -1364,7 +1364,7 @@
         }
       },
       "Agrario-Forestale e Veterinario": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_L-38.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/4/",
         "records": {
           "ateneo-02801": {
             "position": 1,
@@ -1499,7 +1499,7 @@
     },
     "master": {
       "Informatica e Tecnologie ICT": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_LM-18.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/5/",
         "records": {
           "ateneo-02201": {
             "position": 1,
@@ -1640,7 +1640,7 @@
         }
       },
       "Scientifico": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_tutte_LM.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/5/",
         "records": {
           "ateneo-03701": {
             "position": 1,
@@ -1795,7 +1795,7 @@
     },
     "single": {
       "Giuridico": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_LMG-01.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/6/",
         "records": {
           "ateneo-04101": {
             "position": 1,
@@ -1992,7 +1992,7 @@
         }
       },
       "Medico-Sanitario e Farmaceutico": {
-        "source": "https://sgq.unicam.it/sites/sgq.unicam.it/files/Report_Censis_2026/Report_LM-13_FARM_CTF.pdf",
+        "source": "https://www.censis.it/la-classifica-censis-delle-universita-italiane-edizione-2026-2027-2/6/",
         "records": {
           "ateneo-05802": {
             "position": 1,

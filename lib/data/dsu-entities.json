@@ -1620,7 +1620,7 @@
         "ispe": 54000,
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 4.1",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "amounts": {
@@ -1652,7 +1652,7 @@
         ],
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 6",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "increments": [
@@ -1662,7 +1662,7 @@
           "conditional": "non cumulabile con la maggiorazione del 15%",
           "source": {
             "label": "Bando ADISURC Campania 2026/27, art. 6.2",
-            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+            "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
           }
         }
       ],
@@ -1672,7 +1672,7 @@
       ],
       "connectedBenefitsSource": {
         "label": "Bando ADISURC Campania 2026/27, art. 9",
-        "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+        "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
       },
       "conditions": {
         "fuoriSede": "Corso ad almeno 30 km dal comune di residenza (o residenza a Ischia, Capri, Procida) e casa in affitto con contratto registrato per almeno 10 mesi.",
@@ -1680,7 +1680,7 @@
         "inSede": "Residenza nel comune del corso o in un comune confinante (per Napoli: Portici, Pozzuoli, Casoria, Marano…).",
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 7",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "firstYearPayments": {
@@ -1691,7 +1691,7 @@
         "note": "Dalla borsa si tolgono gli eventuali servizi di mensa e alloggio.",
         "source": {
           "label": "Bando ADISURC Campania 2026/27, art. 9",
-          "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "application": {
@@ -1699,8 +1699,8 @@
         "closesTime": "12:00",
         "note": "Domanda online sul sito ADISURC con SPID o CIE.",
         "source": {
-          "label": "ADISURC, Approvazione bando di concorso 2026/2027",
-          "url": "https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027"
+          "label": "Bando ADISURC Campania 2026/27, art. 5.1",
+          "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
         }
       },
       "municipalities": {
@@ -1755,7 +1755,7 @@
           "pendolari": [],
           "source": {
             "label": "Bando ADISURC Campania 2026/27, art. 7.2",
-            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+            "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
           }
         },
         "Fisciano": {
@@ -1782,7 +1782,7 @@
           "pendolari": [],
           "source": {
             "label": "Bando ADISURC Campania 2026/27, art. 7.2",
-            "url": "https://www.adisurcampania.it/sites/default/files/2026-07/Bando%20di%20Concorso%20a.a.%202026.27.pdf"
+            "url": "https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf"
           }
         }
       },
@@ -5365,7 +5365,7 @@
         "ispe": 43125.94,
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 7",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "amounts": {
@@ -5397,7 +5397,7 @@
         ],
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 6",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "increments": [
@@ -5407,7 +5407,7 @@
           "conditional": "non cumulabile con la maggiorazione del 15% per ISEE basso",
           "source": {
             "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 6 bis",
-            "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+            "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
           }
         }
       ],
@@ -5417,7 +5417,7 @@
       ],
       "connectedBenefitsSource": {
         "label": "UniVR, Bando borse per il diritto allo studio 2026/27, artt. 6 e 9",
-        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
       },
       "conditions": {
         "fuoriSede": "Residenza oltre 80 km o 80 minuti dalla sede e alloggio a pagamento vicino alla sede per almeno 10 mesi (richiesta entro il 15 ottobre 2026).",
@@ -5425,7 +5425,7 @@
         "inSede": "Residenza nel comune o nell’area entro 40 km dalla sede.",
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 5",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "firstYearPayments": {
@@ -5436,7 +5436,7 @@
         "note": "Con i 20 crediti raggiunti solo entro il 30 novembre 2027 si tiene la prima rata e si ha l’esonero da tassa regionale e metà dei contributi.",
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, artt. 9 e 13",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "application": {
@@ -5445,7 +5445,7 @@
         "note": "Domanda Unica Benefici online con l’ISEE universitario; lo status di fuori sede si chiede entro il 15 ottobre 2026.",
         "source": {
           "label": "UniVR, Bando borse per il diritto allo studio 2026/27, art. 4",
-          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+          "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
         }
       },
       "municipalities": {},
@@ -5453,7 +5453,7 @@
       "fundedShareNote": "Dato sulle borse effettivamente pagate agli idonei non ancora inserito.",
       "portal": {
         "label": "UniVR, Bando borse per il diritto allo studio 2026/27",
-        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando787603.pdf"
+        "url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando288042.pdf"
       }
     },
     {
@@ -15158,8 +15158,8 @@
       "fundedShare": null,
       "fundedShareNote": "Borse fino a esaurimento dei fondi regionali (78.136,13 €), divisi a metà tra matricole e anni successivi (art. 1); gli idonei con disabilità le ricevono comunque.",
       "portal": {
-        "label": "Humanitas University, Modulo di domanda per la borsa di studio DSU",
-        "url": "https://www.hunimed.eu/it/modulo-di-domanda-per-la-borsa-di-studio-dsu/"
+        "label": "Humanitas University, Documenti ufficiali (bando e graduatoria DSU 2026/27)",
+        "url": "https://www.hunimed.eu/it/organizzazione-e-governance/documenti-ufficiali-di-ateneo/"
       },
       "minDiplomaGrade": 80
     },

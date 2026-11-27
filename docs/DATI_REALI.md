@@ -204,6 +204,8 @@ Tasse (2026/27):
   - **Mercatorum (tasse)**: pagina «Iscrizioni» (a.a. 2026/2027): retta standard 2.450 € per anno più contributo per i servizi agli studenti 300 € (nel sito 2.750 €), uguale per ogni corso e ISEE, più tassa regionale DiSCo Lazio 140 €; il bollo non è indicato. Convenzioni e promozioni non calcolate. Nessun esonero per gli idonei alla borsa (`noScholarshipExemption`).
   - **San Raffaele Roma (tasse)**: pagina «Iscrizione» (a.a. 2026/2027): retta standard 2.450 € più contributo per i servizi 300 € (nel sito 2.750 €), uguale per ogni ISEE; Scienze Biologiche (L-13) 5.000 € + 300 €. L’indirizzo «Scienze dell’Amministrazione nel Calcio» di L-16 (3.200 € online, 7.200 € college) non è distinto: il sito usa la retta standard del corso. Tassa regionale DiSCo Lazio 140 €; il bollo non è indicato. Nessun esonero per gli idonei alla borsa (`noScholarshipExemption`).
 
+- **Controllo dei link alle fonti** (27 novembre 2026, 538 indirizzi nei file di `lib/data`): corretti quelli spostati. Bando ADISURC (sito rifatto, ripubblicato a settembre con gli stessi importi), bando UniVR (ripubblicato con i decreti di modifica degli artt. 5 e 6 ter: riguardano tirocini, Erasmus nazionale e studenti indipendenti, nessun importo cambiato), tariffe Luiss delle magistrali (stessa cifra, 15.000 €), pagina Humanitas della domanda DSU (chiusa: ora i documenti ufficiali con bando e graduatoria), portale della Regione Abruzzo, tre pagine QS per materia (nuovi indirizzi), notizia Sapienza sui QS. Le classifiche CENSIS per gruppo venivano da copie dei report pubblicate dall’Università di Camerino, ora rimosse: le fonti puntano alle pagine ufficiali Censis della didattica (triennali, biennali e ciclo unico degli atenei statali). Restano non raggiungibili dagli script, ma non rotti: Immobiliare.it (blocca i robot) e il simulatore tasse Parthenope (certificato incompleto).
+
 ## Fonti
 
 - Bando ER.GO 2026/27, Sezione II (artt. 1, 2, 4, 5, 8, 13), tabelle dei comuni e tabelle delle rette: <https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando>
@@ -213,7 +215,7 @@ Tasse (2026/27):
 - Bando EDISU Piemonte 2026/27 e scadenziario: <https://www.edisu.piemonte.it/borse-e-contributi/benefici-economici/borsa-di-studio>
 - Bando DSU Toscana 2026/27: <https://www.dsu.toscana.it/borsa-di-studio>
 - UniPD, bando borse regionali e bando contribuzione ed esoneri 2026/27: <https://www.unipd.it/borse-studio-regionali>, <https://www.unipd.it/contribuzione-studentesca>
-- Bando ADISURC 2026/27: <https://www.adisurcampania.it/notizie/approvazione-bando-di-concorso-20262027>
+- Bando ADISURC 2026/27 (ripubblicato a settembre 2026 dopo il rifacimento del sito; il vecchio indirizzo dà 404): <https://www.adisurcampania.it/wp-content/uploads/2026/09/Bando-di-Concorso-a.a.-2026.27.pdf>
 - Bando diritto allo studio Milano-Bicocca 2026/27: <https://www.unimib.it/sites/default/files/2026-07/bando-DSU-2026-27%20def_2.pdf>
 - Statale di Milano, Bando borse regionali 2026/27: <https://www.unimi.it/sites/default/files/2026-07/Bando_Borse_regionali%202026-27_IT_1.pdf>
 - Politecnico di Milano, Bando DSU 2026/27 e integrazione con gli importi: <https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_Benefici_DSU_2026-2027.pdf>, <https://www.polimi.it/fileadmin/user_upload/studenti/tasse-borse-agevolazioni-economiche/dsu/bando_2026-2027/Bando_integrativo_DSU_aa_26_27_.pdf>
